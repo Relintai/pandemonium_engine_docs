@@ -133,14 +133,6 @@ The main documentation for the site is organized into the following sections:
    community/tutorials
 
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Class reference
-   :name: sec-class-ref
-
-   classes/index
-
-
 .. Indices and tables
 .. ------------------
 ..

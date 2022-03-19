@@ -76,8 +76,6 @@ The main documentation for the site is organized into the following sections:
 
    getting_started/introduction/index
    getting_started/step_by_step/index
-   getting_started/first_2d_game/index
-   getting_started/first_3d_game/index
 
 
 .. The sections below are sorted alphabetically. Please keep them that way.

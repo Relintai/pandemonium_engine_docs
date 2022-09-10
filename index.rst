@@ -128,8 +128,6 @@ The main documentation for the site is organized into the following sections:
    :name: sec-community
 
    community/contributing/index
-   community/asset_library/index
-   community/channels
    community/tutorials
 
 .. Indices and tables

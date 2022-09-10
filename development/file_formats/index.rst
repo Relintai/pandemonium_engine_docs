@@ -5,5 +5,4 @@ Godot file formats
    :maxdepth: 1
    :name: toc-devel-file-formats
 
-   gdscript_grammar.rst
    tscn.rst

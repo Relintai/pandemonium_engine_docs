@@ -5,6 +5,11 @@ Compiling for Windows
 
 .. highlight:: shell
 
+.. seealso::
+
+    This page describes how to compile Windows editor and export template binaries from source.
+    If you're looking to export your project to Windows instead, read :ref:`doc_exporting_for_windows`.
+
 Requirements
 ------------
 
@@ -17,8 +22,9 @@ For compiling under Windows, the following is required:
 - `MinGW-w64 <http://mingw-w64.org/>`__ with GCC can be used as an alternative to
   Visual Studio. Be sure to install/configure it to use the ``posix`` thread model.
 - `Python 3.5+ <https://www.python.org/downloads/windows/>`_.
-- `SCons 3.0 <https://www.scons.org/>`_ build system. If using Visual Studio 2019,
-  you need at least SCons 3.1.1.
+  **Make sure to enable the option to add Python to the ``PATH`` in the installer.**
+- `SCons <https://www.scons.org/>`_ build system. Using the latest release is
+  recommended, especially for proper support of recent Visual Studio releases.
 
 .. note:: If you have `Scoop <https://scoop.sh/>`_ installed, you can easily
           install MinGW and other dependencies using the following command::
@@ -34,15 +40,11 @@ For compiling under Windows, the following is required:
           For each MSYS2 MinGW subsystem, you should then run
           `pip3 install scons` in its shell.
 
-.. seealso:: For a general overview of SCons usage for Godot, see
+.. seealso:: To get the Godot source code for compiling, see
+             :ref:`doc_getting_source`.
+
+             For a general overview of SCons usage for Godot, see
              :ref:`doc_introduction_to_the_buildsystem`.
-
-Setting up Python
------------------
-
-First you need to install Python 3.5 or newer. Make sure to enable the option
-to add Python to the ``PATH`` in the Python installer. The SCons installer
-should then detect and use the existing Python installation.
 
 Setting up SCons
 ----------------
@@ -66,6 +68,10 @@ environment variable after installing it, then check again.
 You can do so by running the Python installer again and enabling the option
 to add Python to the ``PATH``.
 
+If SCons cannot detect your Visual Studio installation, it might be that your
+SCons version is too old. Update it to the latest version with
+``python -m pip install --upgrade scons``.
+
 .. _doc_compiling_for_windows_install_vs:
 
 Installing Visual Studio caveats
@@ -85,8 +91,7 @@ a **Repair** option, which won't let you install C++ tools.
 Downloading Godot's source
 --------------------------
 
-Godot's source code is `hosted on GitHub <https://github.com/godotengine/godot>`_.
-Downloading it (cloning) using `Git <https://git-scm.com/>`_ is recommended.
+Refer to :ref:`doc_getting_source` for detailed instructions.
 
 The tutorial will assume from now on that you placed the source code in
 ``C:\godot``.
@@ -163,12 +168,15 @@ dependencies. Running it will bring up the Project Manager.
           :ref:`doc_data_paths_self_contained_mode` by creating a file called
           ``._sc_`` or ``_sc_`` in the ``bin/`` folder.
 
-Development in Visual Studio or other IDEs
-------------------------------------------
+Development in Visual Studio
+----------------------------
 
-For most projects, using only scripting is enough but when development
-in C++ is needed, for creating modules or extending the engine, working
-with an IDE is usually desirable.
+Using an IDE is not required to compile Godot, as SCons takes care of everything.
+But if you intend to do engine development or debugging of the engine's C++ code,
+you may be interested in configuring a code editor or an IDE.
+
+Folder-based editors don't require any particular setup to start working with Godot's
+codebase. To edit projects with Visual Studio they need to be set up as a solution.
 
 You can create a Visual Studio solution via SCons by running SCons with
 the ``vsproj=yes`` parameter, like this::
@@ -178,11 +186,7 @@ the ``vsproj=yes`` parameter, like this::
 You will be able to open Godot's source in a Visual Studio solution now,
 and able to build Godot using Visual Studio's **Build** button.
 
-If you need to edit the build commands, they are located in
-"Godot" project settings, NMAKE sheet. SCons is called at the end of
-the commands. If you make a mistake, copy the command from one of the
-other build configurations (debug, release_debug, release) or
-architectures (Win32/x64); they are equivalent.
+.. seealso:: See :ref:`doc_configuring_an_ide_vs` for further details.
 
 Cross-compiling for Windows from other operating systems
 --------------------------------------------------------

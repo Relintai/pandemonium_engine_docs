@@ -172,7 +172,7 @@ would be as follows::
     0x000d
     # (This value can be shortened to 0xd)
 
-    # Decimal - Add the results of 2 to the power of (layer be enabled-1).
+    # Decimal - Add the results of 2 to the power of (layer to be enabled - 1).
     # (2^(1-1)) + (2^(3-1)) + (2^(4-1)) = 1 + 4 + 8 = 13
     pow(2, 1) + pow(2, 3) + pow(2, 4)
 
@@ -293,16 +293,16 @@ For example, here is the code for an "Asteroids" style spaceship:
         public override void _IntegrateForces(Physics2DDirectBodyState state)
         {
             if (Input.IsActionPressed("ui_up"))
-                SetAppliedForce(_thrust.Rotated(Rotation));
+                AppliedForce = _thrust.Rotated(Rotation);
             else
-                SetAppliedForce(new Vector2());
+                AppliedForce = new Vector2();
 
             var rotationDir = 0;
             if (Input.IsActionPressed("ui_right"))
                 rotationDir += 1;
             if (Input.IsActionPressed("ui_left"))
                 rotationDir -= 1;
-            SetAppliedTorque(rotationDir * _torque);
+            AppliedTorque = rotationDir * _torque;
         }
     }
 
@@ -493,7 +493,7 @@ the ground (including slopes) and jump when standing on the ground:
         {
             _velocity.y += _gravity * delta;
             GetInput();
-            _velocity = MoveAndSlide(velocity, new Vector2(0,-1));
+            _velocity = MoveAndSlide(_velocity, new Vector2(0,-1));
         }
     }
 

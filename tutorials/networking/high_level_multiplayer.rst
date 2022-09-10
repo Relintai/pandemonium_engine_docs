@@ -28,7 +28,7 @@ In summary, you can use the low-level networking API for maximum control and imp
 .. note:: Most of Godot's supported platforms offer all or most of the mentioned high- and low-level networking
           features. As networking is always largely hardware and operating system dependent, however,
           some features may change or not be available on some target platforms. Most notably,
-          the HTML5 platform currently only offers WebSocket support and lacks some of the higher level features as
+          the HTML5 platform currently offers WebSockets and WebRTC support but lacks some of the higher-level features, as
           well as raw access to low-level protocols like TCP and UDP.
 
 .. note:: More about TCP/IP, UDP, and networking:
@@ -172,13 +172,13 @@ Synchronizing member variables is also possible:
 
 Functions can be called in two fashions:
 
-- Reliable: the function call will arrive no matter what, but may take longer because it will be re-transmitted in case of failure.
-- Unreliable: if the function call does not arrive, it will not be re-transmitted; but if it arrives, it will do it quickly.
+- Reliable: when the function call arrives, an acknowledgement will be sent back; if the acknowledgement isn't received after a certain amount of time, the function call will be re-transmitted.
+- Unreliable: the function call is sent only once, without checking to see if it arrived or not, but also without any extra overhead.
 
 In most cases, reliable is desired. Unreliable is mostly useful when synchronizing object positions (sync must happen constantly,
 and if a packet is lost, it's not that bad because a new one will eventually arrive and it would likely be outdated because the object moved further in the meantime, even if it was resent reliably).
 
-There is also the ``get_rpc_sender_id`` function in ``SceneTree``, which can be used to check which peer (or peer ID) sent an RPC.
+There is also :ref:`SceneTree.get_rpc_sender_id() <class_SceneTree_method_get_rpc_sender_id>`, which can be used to check which peer (or peer ID) sent an RPC.
 
 Back to lobby
 -------------
@@ -235,23 +235,34 @@ You might have already noticed something different, which is the usage of the ``
 
     remote func register_player(info):
 
-This keyword has two main uses. The first is to let Godot know that this function can be called from RPC. If no keywords are added,
-Godot will block any attempts to call functions for security. This makes security work a lot easier (so a client can't call a function
-to delete a file on another client's system).
-
-The second use is to specify how the function will be called via RPC. There are four different keywords:
+This keyword is one of many that allow a function to be called by a remote procedure call (RPC). There are six of them total:
 
 - ``remote``
 - ``remotesync``
-- ``master``
 - ``puppet``
+- ``puppetsync``
+- ``master``
+- ``mastersync``
 
-The ``remote`` keyword means that the ``rpc()`` call will go via network and execute remotely.
+Each of them designate who can call the rpc, and optionally ``sync`` if the RPC can be called locally.
 
-The ``remotesync`` keyword means that the ``rpc()`` call will go via network and execute remotely, but will also execute locally (do a normal function call).
+.. note:: If no rpc keywords are added, Godot will block any attempts to call functions remotely.
+          This makes security work a lot easier (so a client can't call a function to delete a file on another client's system).
 
-The others will be explained further down.
-Note that you could also use the ``get_rpc_sender_id`` function on ``SceneTree`` to check which peer actually made the RPC call to ``register_player``.
+The ``remote`` keyword can be called by any peer, including the server and all clients.
+The ``puppet`` keyword means a call can be made from the network master to any network puppet.
+The ``master`` keyword means a call can be made from any network puppet to the network master.
+
+If ``sync`` is included, the call can also be made locally. For example, to allow the network master to change the player's position on all peers:
+
+::
+
+    puppetsync func update_position(new_position):
+        position = new_position
+
+.. tip:: You can also use :ref:`SceneTree.get_rpc_sender_id() <class_SceneTree_method_get_rpc_sender_id>` to have more advanced rules on how an rpc can be called.
+
+These keywords are further explained in :ref:`Synchronizing the game <doc_high_level_multiplayer_synchronizing>`.
 
 With this, lobby management should be more or less explained. Once you have your game going, you will most likely want to add some
 extra security to make sure clients don't do anything funny (just validate the info they send from time to time, or before
@@ -339,6 +350,8 @@ When the server gets the OK from all the peers, it can tell them to start, as fo
         if 1 == get_tree().get_rpc_sender_id():
             get_tree().set_pause(false)
             # Game starts now!
+
+.. _doc_high_level_multiplayer_synchronizing:
 
 Synchronizing the game
 ----------------------

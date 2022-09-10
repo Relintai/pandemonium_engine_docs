@@ -3,8 +3,20 @@
 Exporting for Android
 =====================
 
+
+.. seealso::
+
+    This page describes how to export a Godot project to Android.
+    If you're looking to compile export template binaries from source instead,
+    read :ref:`doc_compiling_for_android`.
+
 Exporting for Android has fewer requirements than compiling Godot for Android.
 The following steps detail what is needed to set up the Android SDK and the engine.
+
+Install OpenJDK 11
+------------------
+
+Download and install  `OpenJDK 11 <https://adoptium.net/?variant=openjdk11>`__.
 
 Download the Android SDK
 ------------------------
@@ -18,10 +30,10 @@ Download and install the Android SDK.
 
     - Android SDK Platform-Tools version 30.0.5 or later
     - Android SDK Build-Tools version 30.0.3
-    - Android SDK Platform 29
+    - Android SDK Platform 31
     - Android SDK Command-line Tools (latest)
     - CMake version 3.10.2.4988404
-    - NDK version 21.4.7075529
+    - NDK version r23c (23.2.8568313)
 
 - You can install it using the `command line tools <https://developer.android.com/studio/#command-tools>`__.
 
@@ -29,17 +41,13 @@ Download and install the Android SDK.
 
 ::
 
-    sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-29" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;21.4.7075529"
+    sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-31" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;21.4.7075529"
 
 .. note::
 
     If you are using Linux,
     **do not use an Android SDK provided by your distribution's repositories as it will often be outdated**.
 
-Install OpenJDK 11
-------------------
-
-Download and install  `OpenJDK 11 <https://adoptium.net/?variant=openjdk11>`__.
 
 Create a debug.keystore
 -----------------------
@@ -162,3 +170,12 @@ and ARMv8 is usually sufficient to cover most devices in use today.
 You can optimize the size further by compiling an Android export template with
 only the features you need. See :ref:`doc_optimizing_for_size` for more
 information.
+
+Troubleshooting rendering issues
+--------------------------------
+
+To improve out-of-the-box performance on mobile devices, Godot automatically
+uses low-end-friendly settings by default on both Android and iOS.
+
+This can cause rendering issues that do not occur when running the project on a
+desktop platform. See :ref:`doc_mobile_rendering_limitations` for more information.

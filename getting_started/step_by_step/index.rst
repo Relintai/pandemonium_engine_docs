@@ -18,6 +18,7 @@ where appropriate.
 
    nodes_and_scenes
    instancing
+   scripting_languages
    scripting_first_script
    scripting_player_input
    signals

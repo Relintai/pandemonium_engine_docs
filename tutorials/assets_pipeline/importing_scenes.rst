@@ -52,10 +52,15 @@ text based format and the binary data in a separate binary file. This can be use
 changes in a text based format. The second is you need the texture files separate from the material file. If you don't need
 either of those glTF binary files are fine.
 
+.. warning::
+
+    Blend shape animations cannot be imported - they require manual animation within Godot.
+
 .. note::
 
-    Blender does not export emissive textures with the glTF file. If your model
-    uses one, it must be brought in separately.
+    Blender versions older than 3.2 do not export emissive textures with the
+    glTF file. If your model uses one and you're using an older version of
+    Blender, it must be brought in separately.
 
     By default, Blender has backface culling disabled on materials and will
     export materials to match how they render in Blender. This means that
@@ -261,8 +266,8 @@ Ensure Tangents
 
 If textures with normal mapping are to be used, meshes need to have tangent arrays.
 This option ensures that these are generated if not present in the source scene.
-Godot uses Mikktspace for this, but it's always better to have them generated in
-the exporter.
+Godot uses `Mikktspace <http://www.mikktspace.com/>`__ for this,
+but it's always better to have them generated in the exporter.
 
 Storage
 ^^^^^^^

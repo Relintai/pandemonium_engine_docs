@@ -12,10 +12,10 @@ it can be converted to shader code if additional functionality is needed.
 
 This tutorial explains most parameters present in ``SpatialMaterial``.
 
-There are three ways to add a ``SpatialMaterial`` to an object. It can be added in
+There are 4 ways to add a ``SpatialMaterial`` to an object. It can be added in
 the *Material* property of the mesh. It can be added in the *Material* property of
-the node using the mesh (such as a MeshInstance node), or in the *Material Override*
-property of the node using the mesh.
+the node using the mesh (such as a MeshInstance node), the *Material Override* property
+of the node using the mesh, and the *Material Overlay*.
 
 .. image:: img/add_material.png
 
@@ -25,6 +25,9 @@ by that node, it will also override the material property of the mesh. If a mate
 added in the *Material Override* property of the node, it will only be used by that node.
 It will also override the regular material property of the node and the material property of
 the mesh.
+
+The *Material Overlay* property will render a material **over** the current one being used by the
+mesh. As an example, this can be used to put a transparent shield effect on a mesh.
 
 Flags
 -----
@@ -407,6 +410,15 @@ Clearcoat
 The *Clearcoat* parameter is used to add a secondary pass of transparent coat
 to the material. This is common in car paint and toys. In practice, it's a
 smaller specular blob added on top of the existing material.
+
+The effect is extremely subtle in Godot 3 releases, and may require specific
+lighting or looking at a material a specific way to notice a difference.
+This can be seen in the image below where clearcoat is turned on in the
+right.
+
+.. image:: img/clearcoat_comparison.png
+
+.. note:: The effect will be more noticeable in Godot 4.
 
 Anisotropy
 ~~~~~~~~~~

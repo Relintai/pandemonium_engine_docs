@@ -1,8 +1,4 @@
-# Pandemonium Engine documentation
-
-This is a (not direct) fork of godot's documentation.
-
-The goal is to simplify it as much as possible and to move it to the main engine repository. (Possibly even shipping it built in.)
+# Godot Engine documentation
 
 This repository contains the source files of [Godot Engine](https://godotengine.org)'s documentation, in reStructuredText markup language (reST).
 

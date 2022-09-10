@@ -21,11 +21,14 @@ Creating your first script
 In this lesson, you will code your first script to make the Godot icon turn in
 circles using GDScript. As we mentioned :ref:`in the introduction
 <toc-learn-introduction>`, we assume you have programming foundations.
+The equivalent C# code has been included in another tab for convenience.
 
 .. image:: img/scripting_first_script_rotating_godot.gif
 
 .. seealso:: To learn more about GDScript, its keywords, and its syntax, head to
              the :ref:`GDScript reference<doc_gdscript>`.
+
+.. seealso:: To learn more about C#, head to the :ref:`C# basics <doc_c_sharp>` page.
 
 Project setup
 -------------
@@ -75,7 +78,7 @@ scene dock and select "Attach Script".
 
 .. image:: img/scripting_first_script_attach_script.png
 
-The Attach node Script window appears. It allows you to select the script's
+The Attach Node Script window appears. It allows you to select the script's
 language and file path, among other options.
 
 Change the Template from Default to Empty to start with a clean file. Leave the
@@ -83,13 +86,32 @@ other options by default and click the Create button to create the script.
 
 .. image:: img/scripting_first_script_attach_node_script.png
 
-The Script workspace should appear with your new file open and the following
-line of code:
+The Script workspace should appear with your new ``Sprite.gd`` file open and the
+following line of code:
 
 .. tabs::
  .. code-tab:: gdscript GDScript
 
     extends Sprite
+
+ .. code-tab:: csharp C#
+
+    public class Sprite : Godot.Sprite
+    // Declare member variables here. Examples:
+    // private int a = 2;
+    // private string b = "text";
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+
+    }
+
+    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
+    //  public override void _Process(float delta)
+    //  {
+    //
+    //  }
 
 Every GDScript file is implicitly a class. The ``extends`` keyword defines the
 class this script inherits or extends. In this case, it's ``Sprite``, meaning
@@ -108,7 +130,7 @@ our node's ``texture``.
 
     By default, the Inspector displays a node's properties in "Title Case", with
     capitalized words separated by a space. In GDScript code, these properties
-    are in "snake_case", lowercase, and words separated by an underscore.
+    are in "snake_case", which is lowercase with words separated by an underscore.
 
     You can hover any property's name in the Inspector to see a description and
     its identifier in code.
@@ -127,6 +149,14 @@ Add the following code to your script:
     func _init():
         print("Hello, world!")
 
+ .. code-tab:: csharp C#
+
+    public Sprite()
+    {
+        GD.Print("Hello, world!");
+    }
+
+
 Let's break it down. The ``func`` keyword defines a new function named
 ``_init``. This is a special name for our class's constructor. The engine calls
 ``_init()`` on every object or node upon creating it in memory, if you define
@@ -135,10 +165,11 @@ this function.
 .. note:: GDScript is an indent-based language. The tab at the start of the line
           that says ``print()`` is necessary for the code to work. If you omit
           it or don't indent a line correctly, the editor will highlight it in
-          red and display the following error message: "Unexpected indentation."
+          red and display the following error message: "Indented block expected".
 
-Save the scene if you haven't already, then press :kbd:`F6` to run it. Look at
-the Output bottom panel that expands. It should display "Hello, world!"
+Save the scene if you haven't already, then press :kbd:`F6` (:kbd:`Cmd + R` on macOS)
+to run it. Look at the **Output** bottom panel that expands.
+It should display "Hello, world!".
 
 .. image:: img/scripting_first_script_print_hello_world.png
 
@@ -155,16 +186,20 @@ angular speed in radians per second.
 .. tabs::
  .. code-tab:: gdscript GDScript
 
-    extends Sprite
-
     var speed = 400
     var angular_speed = PI
 
-Member variables sit at the top of the script, before functions. Every node
+ .. code-tab:: csharp C#
+
+    private int Speed = 400;
+    private float AngularSpeed = Mathf.Pi;
+
+Member variables sit near the top of the script, after any "extends" lines,
+but before functions. Every node
 instance with this script attached to it will have its own copy of the ``speed``
 and ``angular_speed`` properties.
 
-.. note:: As in some other engines, angles in Godot work in radians by default,
+.. note:: Angles in Godot work in radians by default,
           but you have built-in functions and properties available if you prefer
           to calculate angles in degrees instead.
 
@@ -194,6 +229,13 @@ At the bottom of the script, define the function:
 
     func _process(delta):
         rotation += angular_speed * delta
+
+ .. code-tab:: csharp C#
+
+    public override void _Process(float delta)
+    {
+        Rotation += AngularSpeed * delta;
+    }
 
 The ``func`` keyword defines a new function. After it, we have to write the
 function's name and arguments it takes in parentheses. A colon ends the
@@ -229,7 +271,14 @@ them.
  .. code-tab:: gdscript GDScript
 
     var velocity = Vector2.UP.rotated(rotation) * speed
+
     position += velocity * delta
+
+ .. code-tab:: csharp C#
+
+    var velocity = Vector2.Up.Rotated(Rotation) * Speed;
+
+    Position += velocity * delta;
 
 As we already saw, the ``var`` keyword defines a new variable. If you put it at
 the top of the script, it defines a property of the class. Inside a function, it
@@ -254,4 +303,45 @@ Run the scene to see the Godot head run in circles.
           walls or the floor. In :ref:`doc_your_first_2d_game`, you will learn
           another approach to moving objects while detecting collisions.
 
-Our node currently moves by itself. In the next part, we'll use player input to control it.
+Our node currently moves by itself. In the next part
+:ref:`doc_scripting_player_input`, we'll use player input to control it.
+
+Complete script
+---------------
+
+Here is the complete ``Sprite.gd`` file for reference.
+
+.. tabs::
+ .. code-tab:: gdscript GDScript
+
+    extends Sprite
+
+    var speed = 400
+    var angular_speed = PI
+
+
+    func _process(delta):
+        rotation += angular_speed * delta
+
+        var velocity = Vector2.UP.rotated(rotation) * speed
+
+        position += velocity * delta
+
+ .. code-tab:: csharp C#
+
+    using Godot;
+
+    public class Sprite : Godot.Sprite
+    {
+        private int Speed = 400;
+        private float AngularSpeed = Mathf.Pi;
+
+        public override void _Process(float delta)
+        {
+            Rotation += AngularSpeed * delta;
+            var velocity = Vector2.Up.Rotated(Rotation) * Speed;
+
+            Position += velocity * delta;
+
+        }
+    }

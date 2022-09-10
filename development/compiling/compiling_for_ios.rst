@@ -5,6 +5,11 @@ Compiling for iOS
 
 .. highlight:: shell
 
+.. seealso::
+
+    This page describes how to compile iOS export template binaries from source.
+    If you're looking to export your project to iOS instead, read :ref:`doc_exporting_for_ios`.
+
 Requirements
 ------------
 
@@ -13,7 +18,10 @@ Requirements
    to run ``scons`` in a terminal when installed).
 -  Xcode 10.0 (or later) with the iOS (10.0) SDK and the command line tools.
 
-.. seealso:: For a general overview of SCons usage for Godot, see
+.. seealso:: To get the Godot source code for compiling, see
+             :ref:`doc_getting_source`.
+
+             For a general overview of SCons usage for Godot, see
              :ref:`doc_introduction_to_the_buildsystem`.
 
 Compiling

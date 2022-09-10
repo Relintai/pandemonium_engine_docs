@@ -3,6 +3,12 @@
 3D rendering limitations
 ========================
 
+.. seealso::
+
+    In addition to the limitations below, mobile platforms have even more
+    limitations on 3D rendering compared to desktop platforms.
+    See :ref:`doc_mobile_rendering_limitations` for more information.
+
 Introduction
 ------------
 
@@ -76,11 +82,13 @@ Depending on the scene and viewing conditions, you may also be able to move the
 Z-fighting objects further apart without the difference being visible to the
 player.
 
+.. _doc_3d_rendering_limitations_transparency_sorting:
+
 Transparency sorting
 --------------------
 
 In Godot, transparent materials are drawn after opaque materials. Transparent
-objects are sorted back to front before being drawn based on the Node3D's
+objects are sorted back to front before being drawn based on the Spatial's
 position, not the vertex position in world space. Due to this, overlapping
 objects may often be sorted out of order. To fix improperly sorted objects, tweak
 the material's :ref:`Render Priority <class_Material_property_render_priority>`
@@ -95,6 +103,18 @@ this feature. There are still several ways to avoid this problem:
   has a small transparent part, consider splitting it into a separate material.
   This will allow the opaque part to cast shadows and may also improve
   performance.
+
+- If your texture mostly has fully opaque and fully transparent areas, you can
+  use alpha testing instead of alpha blending. This transparency mode is faster
+  to render and doesn't suffer from transparency issues. Enable
+  **Parameters > Use Alpha Scissor** in SpatialMaterial, and adjust
+  **Alpha Scissor Threshold** accordingly if needed. Note that MSAA will not
+  anti-alias the texture's edges, but FXAA will.
+
+- If you need to render semi-transparent areas of the texture, alpha scissor
+  isn't suitable. Instead, setting the SpatialMaterial's
+  **Parameters > Depth Draw Mode** property to **Opaque Pre-Pass** can sometimes
+  work (at a performance cost).
 
 - If you want a material to fade with distance, use the SpatialMaterial
   distance fade mode **Pixel Dither** or **Object Dither** instead of

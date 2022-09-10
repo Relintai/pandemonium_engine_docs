@@ -135,50 +135,62 @@ is usually:
 This allows you to easily adjust the shader to a particle system using default particles material. When writing a custom particle
 shader, this value can be used as desired.
 
-+--------------------------------------+-------------------------------------------------------+
-| Built-in                             | Description                                           |
-+======================================+=======================================================+
-| in vec2 **VIEWPORT_SIZE**            | Size of viewport (in pixels).                         |
-+--------------------------------------+-------------------------------------------------------+
-| inout mat4 **WORLD_MATRIX**          | Model space to world space transform.                 |
-+--------------------------------------+-------------------------------------------------------+
-| in mat4 **INV_CAMERA_MATRIX**        | World space to view space transform.                  |
-+--------------------------------------+-------------------------------------------------------+
-| inout mat4 **PROJECTION_MATRIX**     | View space to clip space transform.                   |
-+--------------------------------------+-------------------------------------------------------+
-| in mat4 **CAMERA_MATRIX**            | View space to world space transform.                  |
-+--------------------------------------+-------------------------------------------------------+
-| inout mat4 **MODELVIEW_MATRIX**      | Model space to view space transform (use if possible).|
-+--------------------------------------+-------------------------------------------------------+
-| inout mat4 **INV_PROJECTION_MATRIX** | Clip space to view space transform.                   |
-+--------------------------------------+-------------------------------------------------------+
-| inout vec3 **VERTEX**                | Vertex in local coordinates.                          |
-+--------------------------------------+-------------------------------------------------------+
-| out vec4  **POSITION**               | If written to, overrides final vertex position.       |
-+--------------------------------------+-------------------------------------------------------+
-| inout vec3 **NORMAL**                | Normal in local coordinates.                          |
-+--------------------------------------+-------------------------------------------------------+
-| inout vec3 **TANGENT**               | Tangent in local coordinates.                         |
-+--------------------------------------+-------------------------------------------------------+
-| inout vec3 **BINORMAL**              | Binormal in local coordinates.                        |
-+--------------------------------------+-------------------------------------------------------+
-| out float **ROUGHNESS**              | Roughness for vertex lighting.                        |
-+--------------------------------------+-------------------------------------------------------+
-| inout vec2 **UV**                    | UV main channel.                                      |
-+--------------------------------------+-------------------------------------------------------+
-| inout vec2 **UV2**                   | UV secondary channel.                                 |
-+--------------------------------------+-------------------------------------------------------+
-| in bool **OUTPUT_IS_SRGB**           | ``true`` when calculations happen in sRGB color space |
-|                                      | (``true`` in GLES2, ``false`` in GLES3).              |
-+--------------------------------------+-------------------------------------------------------+
-| inout vec4 **COLOR**                 | Color from vertices.                                  |
-+--------------------------------------+-------------------------------------------------------+
-| inout float **POINT_SIZE**           | Point size for point rendering.                       |
-+--------------------------------------+-------------------------------------------------------+
-| in int **INSTANCE_ID**               | Instance ID for instancing.                           |
-+--------------------------------------+-------------------------------------------------------+
-| in vec4 **INSTANCE_CUSTOM**          | Instance custom data (for particles, mostly).         |
-+--------------------------------------+-------------------------------------------------------+
++--------------------------------------+--------------------------------------------------------+
+| Built-in                             | Description                                            |
++======================================+========================================================+
+| in vec2 **VIEWPORT_SIZE**            | Size of viewport (in pixels).                          |
++--------------------------------------+--------------------------------------------------------+
+| inout mat4 **WORLD_MATRIX**          | Model space to world space transform.                  |
++--------------------------------------+--------------------------------------------------------+
+| in mat4 **INV_CAMERA_MATRIX**        | World space to view space transform.                   |
++--------------------------------------+--------------------------------------------------------+
+| inout mat4 **PROJECTION_MATRIX**     | View space to clip space transform.                    |
++--------------------------------------+--------------------------------------------------------+
+| in mat4 **CAMERA_MATRIX**            | View space to world space transform.                   |
++--------------------------------------+--------------------------------------------------------+
+| inout mat4 **MODELVIEW_MATRIX**      | Model space to view space transform (use if possible). |
++--------------------------------------+--------------------------------------------------------+
+| inout mat4 **INV_PROJECTION_MATRIX** | Clip space to view space transform.                    |
++--------------------------------------+--------------------------------------------------------+
+| in vec3 **NODE_POSITION_WORLD**      | Node position, in world space.                         |
++--------------------------------------+--------------------------------------------------------+
+| in vec3 **NODE_POSITION_VIEW**       | Node position, in view space.                          |
++--------------------------------------+--------------------------------------------------------+
+| in vec3 **CAMERA_POSITION_WORLD**    | Camera position, in world space.                       |
++--------------------------------------+--------------------------------------------------------+
+| in vec3 **CAMERA_DIRECTION_WORLD**   | Camera direction, in world space.                      |
++--------------------------------------+--------------------------------------------------------+
+| inout vec3 **VERTEX**                | Vertex in local coordinates.                           |
++--------------------------------------+--------------------------------------------------------+
+| out vec4 **POSITION**                | If written to, overrides final vertex position.        |
++--------------------------------------+--------------------------------------------------------+
+| inout vec3 **NORMAL**                | Normal in local coordinates.                           |
++--------------------------------------+--------------------------------------------------------+
+| inout vec3 **TANGENT**               | Tangent in local coordinates.                          |
++--------------------------------------+--------------------------------------------------------+
+| inout vec3 **BINORMAL**              | Binormal in local coordinates.                         |
++--------------------------------------+--------------------------------------------------------+
+| out float **ROUGHNESS**              | Roughness for vertex lighting.                         |
++--------------------------------------+--------------------------------------------------------+
+| inout vec2 **UV**                    | UV main channel.                                       |
++--------------------------------------+--------------------------------------------------------+
+| inout vec2 **UV2**                   | UV secondary channel.                                  |
++--------------------------------------+--------------------------------------------------------+
+| in bool **OUTPUT_IS_SRGB**           | ``true`` when calculations happen in sRGB color space  |
+|                                      | (``true`` in GLES2, ``false`` in GLES3).               |
++--------------------------------------+--------------------------------------------------------+
+| inout vec4 **COLOR**                 | Color from vertices.                                   |
++--------------------------------------+--------------------------------------------------------+
+| inout float **POINT_SIZE**           | Point size for point rendering.                        |
++--------------------------------------+--------------------------------------------------------+
+| in int **INSTANCE_ID**               | Instance ID for instancing.                            |
++--------------------------------------+--------------------------------------------------------+
+| in vec4 **INSTANCE_CUSTOM**          | Instance custom data (for particles, mostly).          |
++--------------------------------------+--------------------------------------------------------+
+
+.. note::
+
+    ``MODELVIEW_MATRIX`` combines both the ``WORLD_MATRIX`` and ``INV_CAMERA_MATRIX`` and is better suited when floating point issues may arise. For example, if the object is very far away from the world origin, you may run into floating point issues when using the seperated ``WORLD_MATRIX`` and ``INV_CAMERA_MATRIX``.
 
 Fragment built-ins
 ^^^^^^^^^^^^^^^^^^
@@ -204,6 +216,14 @@ these properties, and if you don't write to them, Godot will optimize away the c
 | in mat4 **PROJECTION_MATRIX**     | View space to clip space transform.                                                              |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | in mat4 **INV_PROJECTION_MATRIX** | Clip space to view space transform.                                                              |
++-----------------------------------+--------------------------------------------------------------------------------------------------+
+| in vec3 **NODE_POSITION_WORLD**   | Node world space position.                                                                       |
++-----------------------------------+--------------------------------------------------------------------------------------------------+
+| in vec3 **NODE_POSITION_VIEW**    | Node view space position.                                                                        |
++-----------------------------------+--------------------------------------------------------------------------------------------------+
+| in vec3 **CAMERA_POSITION_WORLD** | Camera world space position.                                                                     |
++-----------------------------------+--------------------------------------------------------------------------------------------------+
+| in vec3 **CAMERA_DIRECTION_WORLD**| Camera world space direction.                                                                    |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | in vec3 **VERTEX**                | Vertex that comes from vertex function (default, in view space).                                 |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
@@ -274,6 +294,13 @@ these properties, and if you don't write to them, Godot will optimize away the c
 | in vec2 **POINT_COORD**           | Point Coordinate for drawing points with POINT_SIZE.                                             |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 
+.. note::
+
+    Shaders going through the transparent pipeline when ``ALPHA`` is written to
+    may exhibit transparency sorting issues. Read the
+    :ref:`transparency sorting section in the 3D rendering limitations page <doc_3d_rendering_limitations_transparency_sorting>`
+    for more information and ways to avoid issues.
+
 Light built-ins
 ^^^^^^^^^^^^^^^
 
@@ -297,6 +324,10 @@ Below is an example of a custom light function using a Lambertian lighting model
     }
 
 If you want the lights to add together, add the light contribution to ``DIFFUSE_LIGHT`` using ``+=``, rather than overwriting it.
+
+.. warning::
+
+    In GLES2, lights will always be added together even if you override ``DIFFUSE_LIGHT`` using ``=``. This is due to lighting being computed in multiple passes (one for each light), unlike GLES3.
 
 .. warning::
 
@@ -357,3 +388,10 @@ If you want the lights to add together, add the light contribution to ``DIFFUSE_
 +-----------------------------------+-----------------------------------------------------+
 | out vec3 **SPECULAR_LIGHT**       | Specular light result.                              |
 +-----------------------------------+-----------------------------------------------------+
+
+.. note::
+
+    Shaders going through the transparent pipeline when ``ALPHA`` is written to
+    may exhibit transparency sorting issues. Read the
+    :ref:`transparency sorting section in the 3D rendering limitations page <doc_3d_rendering_limitations_transparency_sorting>`
+    for more information and ways to avoid issues.

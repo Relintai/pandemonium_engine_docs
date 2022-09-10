@@ -1,5 +1,7 @@
+.. _doc_optimization:
+
 Optimization
-=============
+============
 
 Introduction
 ------------
@@ -73,9 +75,6 @@ GPU
    :maxdepth: 1
    :name: toc-learn-features-2d-optimization
 
-   optimizing_3d_performance
-   vertex_animation/index
-
    batching
 
 3D
@@ -86,6 +85,7 @@ GPU
    :name: toc-learn-features-3d-optimization
 
    optimizing_3d_performance
+   vertex_animation/index
 
 Multi-threading
 ---------------

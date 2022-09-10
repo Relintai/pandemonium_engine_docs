@@ -3,6 +3,12 @@
 Exporting for iOS
 =================
 
+.. seealso::
+
+    This page describes how to export a Godot project to iOS.
+    If you're looking to compile export template binaries from source instead,
+    read :ref:`doc_compiling_for_ios`.
+
 These are the steps to load a Godot project in Xcode. This allows you to
 build and deploy to an iOS device, build a release for the App Store, and
 do everything else you can normally do with Xcode.
@@ -19,14 +25,8 @@ Export a Godot project to Xcode
 In the Godot editor, open the **Export** window from the **Project** menu. When the
 Export window opens, click **Add..** and select **iOS**.
 
-The following export options are required. Leaving any blank will cause the
-exporter to throw an error:
-
-  * In the **Application** category
-    * **App Store Team ID** and (Bundle) **Identifier**
-  * Everything in the **Required Icons** category
-  * Everything in the **Landscape Launch Screens** category
-  * Everything in the **Portrait Launch Screens** category
+The **App Store Team ID** and (Bundle) **Identifier** options in the **Application** category
+are required. Leaving them blank will cause the exporter to throw an error.
 
 After you click **Export Project**, there are still two important options left:
 
@@ -98,3 +98,12 @@ Plugins for iOS
 
 Special iOS plugins can be used in Godot. Check out the
 :ref:`doc_plugins_for_ios` page.
+
+Troubleshooting rendering issues
+--------------------------------
+
+To improve out-of-the-box performance on mobile devices, Godot automatically
+uses low-end-friendly settings by default on both Android and iOS.
+
+This can cause rendering issues that do not occur when running the project on a
+desktop platform. See :ref:`doc_mobile_rendering_limitations` for more information.

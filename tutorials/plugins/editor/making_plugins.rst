@@ -41,7 +41,10 @@ You will see the dialog appear, like so:
 The placeholder text in each field describes how it affects the plugin's
 creation of the files and the config file's values.
 
-To continue with the example, use the following values::
+To continue with the example, use the following values:
+
+.. tabs::
+ .. code-tab:: ini GDScript
 
     Plugin Name: My Custom Node
     Subfolder: my_custom_node
@@ -51,6 +54,24 @@ To continue with the example, use the following values::
     Language: GDScript
     Script Name: custom_node.gd
     Activate now: No
+
+ .. code-tab:: ini C#
+
+    Plugin Name: My Custom Node
+    Subfolder: my_custom_node
+    Description: A custom node made to extend the Godot Engine.
+    Author: Your Name Here
+    Version: 1.0.0
+    Language: C#
+    Script Name: CustomNode.cs
+    Activate now: No
+
+.. warning::
+
+    Unchecking the ``Activate now?`` option in C# is always required because,
+    like every other C# script, the EditorPlugin script needs to be compiled which
+    requires building the project. After building the project the plugin can be
+    enabled in the ``Plugins`` tab of ``Project Settings``.
 
 You should end up with a directory structure like this:
 
@@ -399,3 +420,35 @@ C++ modules.
 You can make your own plugins to help yourself and share them in the
 `Asset Library <https://godotengine.org/asset-library/>`_ so that people
 can benefit from your work.
+
+.. _doc_making_plugins_autoload:
+
+Registering autoloads/singletons in plugins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is possible for editor plugins to automatically register
+:ref:`autoloads <doc_singletons_autoload>` when the plugin is enabled.
+This also includes unregistering the autoload when the plugin is disabled.
+
+This makes setting up plugins faster for users, as they no longer have to manually
+add autoloads to their project settings if your editor plugin requires the use of
+an autoload.
+
+Use the following code to register a singleton from an editor plugin:
+
+::
+
+    tool
+    extends EditorPlugin
+
+    # Replace this value with a PascalCase autoload name, as per the GDScript style guide.
+    const AUTOLOAD_NAME = "SomeAutoload"
+
+
+    func _enter_tree():
+        # The autoload can be a scene or script file.
+        add_autoload_singleton(AUTOLOAD_NAME, "res://addons/my_addon/some_autoload.tscn")
+
+
+    func _exit_tree():
+        remove_autoload_singleton(AUTOLOAD_NAME)

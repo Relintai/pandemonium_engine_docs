@@ -43,21 +43,19 @@ Setting up C# for Godot
 Prerequisites
 ~~~~~~~~~~~~~
 
-Install the latest stable version of
-`.NET Core SDK <https://dotnet.microsoft.com/download/dotnet-core>`__
-(3.1 as of writing).
+Install the latest stable version of the
+`.NET SDK <https://dotnet.microsoft.com/download>`__, previously known as the
+.NET Core SDK.
 
 From Godot 3.2.3 onwards, installing Mono SDK is not a requirement anymore,
 except it is required if you are building the engine from source.
 
-Godot bundles the parts of Mono needed to run already compiled games,
-however Godot does not include the tools required to build and compile
-games, such as MSBuild. These tools need to be installed separately.
-The required tools are included in the .NET Core SDK. MSBuild is also
-included in the Mono SDK, but it can't build C# projects with the new
-``csproj`` format, therefore .NET Core SDK is required for Godot 3.2.3+.
+Godot bundles the parts of Mono needed to run already compiled games.
+However, Godot does not bundle the tools required to build and compile
+games, such as MSBuild and the C# compiler. These are
+included in the .NET SDK, which needs to be installed separately.
 
-In summary, you must have installed .NET Core SDK
+In summary, you must have installed the .NET SDK
 **and** the Mono-enabled version of Godot.
 
 Additional notes
@@ -116,6 +114,7 @@ After reading the "Prerequisites" section, you can download and install
 In Godot's **Editor → Editor Settings** menu:
 
 - Set **Mono** -> **Editor** -> **External Editor** to **Visual Studio Code**.
+- Set **Mono** -> **Builds** -> **Build Tool** to **dotnet CLI**.
 
 In Visual Studio Code:
 
@@ -151,11 +150,25 @@ While installing Visual Studio, select these workloads:
 In Godot's **Editor → Editor Settings** menu:
 
 - Set **Mono** -> **Editor** -> **External Editor** to **Visual Studio**.
+- Set **Mono** -> **Builds** -> **Build Tool** to **dotnet CLI**.
 
-Next, you need to download the Godot Visual Studio extension from github
+Next, you can download the Godot Visual Studio extension from github
 `here <https://github.com/godotengine/godot-csharp-visualstudio/releases>`__.
 Double click on the downloaded file and follow the installation process.
 
+.. note:: The option to debug your game in Visual Studio may not appear after
+          installing the extension. To enable debugging, there is a
+          `workaround for Visual Studio 2019 <https://github.com/godotengine/godot-csharp-visualstudio/issues/10#issuecomment-720153256>`__.
+          There is
+          `a separate issue about this problem in Visual Studio 2022 <https://github.com/godotengine/godot-csharp-visualstudio/issues/28>`__.
+
+.. note:: If you see an error like "Unable to find package Godot.NET.Sdk",
+          your NuGet configuration may be incorrect and need to be fixed.
+
+          A simple way to fix the NuGet configuration file is to regenerate it.
+          In a file explorer window, go to ``%AppData%\NuGet``. Rename or delete
+          the ``NuGet.Config`` file. When you build your Godot project again,
+          the file will be automatically created with default values.
 
 Creating a C# script
 --------------------

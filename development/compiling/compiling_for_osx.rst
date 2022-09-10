@@ -5,6 +5,11 @@ Compiling for macOS
 
 .. highlight:: shell
 
+.. note::
+
+    This page describes how to compile macOS editor and export template binaries from source.
+    If you're looking to export your project to macOS instead, read :ref:`doc_exporting_for_macos`.
+
 Requirements
 ------------
 
@@ -30,7 +35,10 @@ For compiling under macOS, the following is required:
 
               sudo port install scons yasm
 
-.. seealso:: For a general overview of SCons usage for Godot, see
+.. seealso:: To get the Godot source code for compiling, see
+             :ref:`doc_getting_source`.
+
+             For a general overview of SCons usage for Godot, see
              :ref:`doc_introduction_to_the_buildsystem`.
 
 Compiling

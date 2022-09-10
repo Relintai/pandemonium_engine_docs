@@ -17,6 +17,8 @@ make the most of your time learning it.
    :maxdepth: 1
    :name: toc-learn-introduction
 
+   introduction_to_godot
    key_concepts_overview
    first_look_at_the_editor
+   learning_new_features
    godot_design_philosophy

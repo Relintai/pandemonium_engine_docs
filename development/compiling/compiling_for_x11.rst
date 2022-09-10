@@ -5,6 +5,11 @@ Compiling for X11 (Linux, \*BSD)
 
 .. highlight:: shell
 
+.. seealso::
+
+    This page describes how to compile Linux editor and export template binaries from source.
+    If you're looking to export your project to Linux instead, read :ref:`doc_exporting_for_linux`.
+
 Requirements
 ------------
 
@@ -26,7 +31,10 @@ required:
 -  *Optional* - libudev (build with ``udev=yes``).
 -  *Optional* - yasm (for WebM SIMD optimizations).
 
-.. seealso:: For a general overview of SCons usage for Godot, see
+.. seealso:: To get the Godot source code for compiling, see
+             :ref:`doc_getting_source`.
+
+             For a general overview of SCons usage for Godot, see
              :ref:`doc_introduction_to_the_buildsystem`.
 
 Distro-specific one-liners
@@ -35,7 +43,7 @@ Distro-specific one-liners
 | **Alpine Linux** | ::                                                                                                        |
 |                  |                                                                                                           |
 |                  |     apk add scons pkgconf gcc g++ libx11-dev libxcursor-dev libxinerama-dev libxi-dev libxrandr-dev \     |
-|                  |         libexecinfo-dev                                                                                   |
+|                  |         mesa-dev libexecinfo-dev eudev-dev alsa-lib-dev pulseaudio-dev                                    |
 +------------------+-----------------------------------------------------------------------------------------------------------+
 | **Arch Linux**   | ::                                                                                                        |
 |                  |                                                                                                           |
@@ -238,7 +246,7 @@ only compatible with Linux. Pyston can speed up incremental builds significantly
 often by a factor between 1.5× and 2×. Pyston can be combined with Clang and LLD
 to get even faster builds.
 
-- Download the `latest portable Pyston release <https://github.com/pyston/pyston/releases/tag/pyston_2.3.2>`__.
+- Download the `latest portable Pyston release <https://github.com/pyston/pyston/releases/latest>`__.
 - Extract the portable ``.tar.gz`` to a set location, such as ``$HOME/.local/opt/pyston/`` (create folders as needed).
 - Use ``cd`` to reach the extracted Pyston folder from a terminal,
   then run ``./pyston -m pip install scons`` to install SCons within Pyston.

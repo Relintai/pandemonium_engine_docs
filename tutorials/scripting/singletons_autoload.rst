@@ -40,6 +40,12 @@ Autoloading nodes and scripts can give us these characteristics.
     Godot won't make an AutoLoad a "true" singleton as per the singleton design
     pattern. It may still be instanced more than once by the user if desired.
 
+.. tip::
+
+    If you're creating an autoload as part of an editor plugin, consider
+    :ref:`registering it automatically in the Project Settings <doc_making_plugins_autoload>`
+    when the plugin is enabled.
+
 AutoLoad
 --------
 
@@ -99,6 +105,11 @@ you'll see the autoloaded nodes appear:
 
 .. image:: img/autoload_runtime.png
 
+.. warning::
+
+    Autoloads must **not** be removed using ``free()`` or ``queue_free()`` at
+    runtime, or the engine will crash.
+
 Custom scene switcher
 ---------------------
 
@@ -146,7 +157,7 @@ means that the last child of root is always the loaded scene.
     var current_scene = null
 
     func _ready():
-        var root = get_tree().get_root()
+        var root = get_tree().root
         current_scene = root.get_child(root.get_child_count() - 1)
 
  .. code-tab:: csharp
@@ -160,7 +171,7 @@ means that the last child of root is always the loaded scene.
 
         public override void _Ready()
         {
-            Viewport root = GetTree().GetRoot();
+            Viewport root = GetTree().Root;
             CurrentScene = root.GetChild(root.GetChildCount() - 1);
         }
     }
@@ -195,10 +206,10 @@ current scene and replace it with the requested one.
         current_scene = s.instance()
 
         # Add it to the active scene, as child of root.
-        get_tree().get_root().add_child(current_scene)
+        get_tree().root.add_child(current_scene)
 
         # Optionally, to make it compatible with the SceneTree.change_scene() API.
-        get_tree().set_current_scene(current_scene)
+        get_tree().current_scene = current_scene
 
  .. code-tab:: csharp
 
@@ -228,10 +239,10 @@ current scene and replace it with the requested one.
         CurrentScene = nextScene.Instance();
 
         // Add it to the active scene, as child of root.
-        GetTree().GetRoot().AddChild(CurrentScene);
+        GetTree().Root.AddChild(CurrentScene);
 
         // Optionally, to make it compatible with the SceneTree.change_scene() API.
-        GetTree().SetCurrentScene(CurrentScene);
+        GetTree().CurrentScene = CurrentScene;
     }
 
 Using :ref:`Object.call_deferred() <class_Object_method_call_deferred>`,

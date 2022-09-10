@@ -8,4 +8,3 @@ Shading reference
    shading_language
    spatial_shader
    canvas_item_shader
-   particle_shader

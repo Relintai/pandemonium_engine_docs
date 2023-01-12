@@ -52,12 +52,12 @@ Building an Android plugin
 **Prerequisite:** `Android Studio <https://developer.android.com/studio>`_ is strongly recommended as the IDE to use to create Android plugins.
 The instructions below assumes that you're using Android Studio.
 
-1. Follow `these instructions <https://developer.android.com/studio/projects/android-library>`__ to create an Android library module for your plugin.
+1. Follow `these instructions <https://developer.android.com/studio/projects/android-library>` to create an Android library module for your plugin.
 
 2. Add the Godot engine library as a dependency to your plugin module:
 
   - Download the Godot engine library (`godot-lib.<version>.<status>.aar`) from the `Godot download page <https://godotengine.org/download>`_ (e.g.: `godot-lib.3.4.2.stable.release.aar`). 
-  - Follow `these instructions <https://developer.android.com/studio/projects/android-library#AddDependency>`__ to add
+  - Follow `these instructions <https://developer.android.com/studio/projects/android-library#AddDependency>` to add
     the Godot engine library as a dependency for your plugin.
   - In the plugin module's `build.gradle` file, replace `implementation` with `compileOnly` for the dependency line for the Godot engine library.
 

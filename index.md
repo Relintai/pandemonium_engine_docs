@@ -28,7 +28,7 @@ Godot Docs – *3.5* branch
             the "latest" (development) branch, but should be suitable to learn
             how to use stable Godot releases nevertheless.
 
-Welcome to the official documentation of `Godot Engine <https://godotengine.org>`__,
+Welcome to the official documentation of `Godot Engine <https://godotengine.org>`,
 the free and open source community-driven 2D and 3D game engine! If you are new
 to this documentation, we recommend that you read the
 `introduction page <doc_about_intro>` to get an overview of what this
@@ -38,7 +38,7 @@ The table of contents below and in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function
 in the top left corner.
 
-You can also `download an HTML copy <https://nightly.link/godotengine/godot-docs/workflows/build_offline_docs/master/godot-docs-html-stable.zip>`__
+You can also `download an HTML copy <https://nightly.link/godotengine/godot-docs/workflows/build_offline_docs/master/godot-docs-html-stable.zip>`
 for offline reading (updated every Monday). Extract the ZIP archive then open
 the top-level `index.html` in a web browser.
 

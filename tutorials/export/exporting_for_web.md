@@ -11,7 +11,7 @@ Exporting for the Web
 
 HTML5 export allows publishing games made in Godot Engine to the browser.
 This requires support for `WebAssembly
-<https://webassembly.org/>`__ and `WebGL <https://www.khronos.org/webgl/>`__
+<https://webassembly.org/>` and `WebGL <https://www.khronos.org/webgl/>`
 in the user's browser.
 
 .. important:: Use the browser-integrated developer console, usually opened
@@ -19,7 +19,7 @@ in the user's browser.
                engine, and WebGL errors.
 
 .. attention:: `There are significant bugs when running HTML5 projects on iOS
-               <https://github.com/godotengine/godot/issues?q=is:issue+is:open+label:platform:html5+ios>`__
+               <https://github.com/godotengine/godot/issues?q=is:issue+is:open+label:platform:html5+ios>`
                (regardless of the browser). We recommend using
                `iOS' native export functionality <doc_exporting_for_ios>`
                instead, as it will also result in better performance.
@@ -40,7 +40,7 @@ specifically.
 Additionally, while most browsers support WebGL 2.0, this is not yet the case
 for **Safari**. WebGL 2.0 support is coming in Safari 15 for macOS, and is not
 available yet for any **iOS** browser (all WebKit-based like Safari).
-See `Can I use WebGL 2.0 <https://caniuse.com/webgl2>`__ for details.
+See `Can I use WebGL 2.0 <https://caniuse.com/webgl2>` for details.
 
 .. _doc_javascript_export_options:
 
@@ -56,8 +56,8 @@ You can choose the **Export Type** to select which features will be available:
 - *Regular*: is the most compatible across browsers, will not support threads,
   nor GDNative.
 - *Threads*: will require the browser to support `SharedArrayBuffer
-  <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer>`__.
-  See `Can I use SharedArrayBuffer <https://caniuse.com/sharedarraybuffer>`__
+  <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer>`.
+  See `Can I use SharedArrayBuffer <https://caniuse.com/sharedarraybuffer>`
   for details.
 - *GDNative*: enables GDNative support but makes the binary bigger and slower
   to load.
@@ -100,7 +100,7 @@ of limitations you should be aware of when porting a Godot game to the web.
                usually exempt from such requirement).
 
 .. tip:: Check the `list of open HTML5 issues on GitHub
-         <https://github.com/godotengine/godot/issues?q=is:open+is:issue+label:platform:html5>`__
+         <https://github.com/godotengine/godot/issues?q=is:open+is:issue+label:platform:html5>`
          to see if the functionality you're interested in has an issue yet. If
          not, open one to communicate your interest.
 
@@ -138,7 +138,7 @@ across browsers is still limited.
 
 .. warning:: Requires a `secure context <doc_javascript_secure_contexts>`.
              Browsers also require that the web page is served with specific
-             `cross-origin isolation headers <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy>`__.
+             `cross-origin isolation headers <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy>`.
 
 GDNative
 ~~~~~~~~
@@ -170,7 +170,7 @@ Chrome restricts how websites may play audio. It may be necessary for the
 player to click or tap or press a key to enable audio.
 
 .. seealso:: Google offers additional information about their `Web Audio autoplay
-             policies <https://sites.google.com/a/chromium.org/dev/audio-video/autoplay>`__.
+             policies <https://sites.google.com/a/chromium.org/dev/audio-video/autoplay>`.
 
 .. warning:: Access to microphone requires a
              `secure context <doc_javascript_secure_contexts>`.
@@ -192,13 +192,13 @@ The HTTP classes also have several restrictions on the HTML5 platform:
  -  Cannot progress more than once per frame, so polling in a loop will freeze
  -  No chunked responses
  -  Host verification cannot be disabled
- -  Subject to `same-origin policy <https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy>`__
+ -  Subject to `same-origin policy <https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy>`
 
 Clipboard
 ~~~~~~~~~
 
 Clipboard synchronization between engine and the operating system requires a
-browser supporting the `Clipboard API <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API>`__,
+browser supporting the `Clipboard API <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API>`,
 additionally, due to the API asynchronous nature might not be reliable when
 accessed from GDScript.
 
@@ -209,7 +209,7 @@ Gamepads
 
 Gamepads will not be detected until one of their button is pressed. Gamepads
 might have the wrong mapping depending on the browser/OS/gamepad combination,
-sadly the `Gamepad API <https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API>`__
+sadly the `Gamepad API <https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API>`
 does not provide a reliable way to detect the gamepad information necessary
 to remap them based on model/vendor/OS due to privacy considerations.
 
@@ -267,7 +267,7 @@ of its original size with gzip compression.
 **Hosts that provide on-the-fly compression:** GitHub Pages (gzip)
 
 **Hosts that don't provide on-the-fly compression:** itch.io, GitLab Pages
-(`supports manual gzip precompression <https://webd97.de/post/gitlab-pages-compression/>`__)
+(`supports manual gzip precompression <https://webd97.de/post/gitlab-pages-compression/>`)
 
 .. _doc_javascript_eval:
 

@@ -4,16 +4,16 @@ Controllers, gamepads, and joysticks
 ====================================
 
 Godot supports hundreds of controller models thanks to the community-sourced
-`SDL game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`__.
+`SDL game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`.
 
 Controllers are supported on Windows, macOS, Linux, Android, iOS, and HTML5.
 
 Note that more specialized devices such as steering wheels, rudder pedals and
-`HOTAS <https://en.wikipedia.org/wiki/HOTAS>`__ are less tested and may not
+`HOTAS <https://en.wikipedia.org/wiki/HOTAS>` are less tested and may not
 always work as expected. Overriding force feedback for those devices is also not
 implemented yet. If you have access to one of those devices, don't hesitate to
 `report bugs on GitHub
-<https://github.com/godotengine/godot/blob/master/CONTRIBUTING.md#reporting-bugs>`__.
+<https://github.com/godotengine/godot/blob/master/CONTRIBUTING.md#reporting-bugs>`.
 
 In this guide, you will learn:
 
@@ -154,26 +154,26 @@ Troubleshooting
 .. seealso::
 
     You can view a list of
-    `known issues with controller support <https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad>`__
+    `known issues with controller support <https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad>`
     on GitHub.
 
 My controller isn't recognized by Godot.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 First, check that your controller is recognized by other applications. You can
-use the `Gamepad Tester <https://gamepad-tester.com/>`__ website to confirm that
+use the `Gamepad Tester <https://gamepad-tester.com/>` website to confirm that
 your controller is recognized.
 
 My controller has incorrectly mapped buttons or axes.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If buttons are incorrectly mapped, this may be due to an erroneous mapping from
-the `SDL game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`__.
+the `SDL game controller database <https://github.com/gabomdq/SDL_GameControllerDB>`.
 You can contribute an updated mapping to be included in the next Godot version
 by opening a pull request on the linked repository.
 
 There are many ways to create mappings. One option is to use the mapping wizard
-in the `official Joypads demo <https://godotengine.org/asset-library/asset/140>`__.
+in the `official Joypads demo <https://godotengine.org/asset-library/asset/140>`.
 Once you have a working mapping for your controller, you can test it by defining
 the `SDL_GAMECONTROLLERCONFIG` environment variable before running Godot:
 
@@ -223,5 +223,5 @@ result, you may have to instruct your players to use a different browser if they
 can't get their controller to work.
 
 Also, note that
-`controller support was significantly improved <https://github.com/godotengine/godot/pull/45078>`__
+`controller support was significantly improved <https://github.com/godotengine/godot/pull/45078>`
 in Godot 3.3 and later.

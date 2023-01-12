@@ -12,15 +12,15 @@ translation effort of the community.
 
 These resources include:
 
-1. The `Godot editor's interface <https://hosted.weblate.org/projects/godot-engine/godot/>`__
+1. The `Godot editor's interface <https://hosted.weblate.org/projects/godot-engine/godot/>`
    (ca. 15,000 words).
-2. The `online documentation <https://hosted.weblate.org/projects/godot-engine/godot-docs/>`__
+2. The `online documentation <https://hosted.weblate.org/projects/godot-engine/godot-docs/>`
    (editor manual and tutorials, ca. 300,000 words).
-3. The `class reference <https://hosted.weblate.org/projects/godot-engine/godot-class-reference/>`__,
+3. The `class reference <https://hosted.weblate.org/projects/godot-engine/godot-class-reference/>`,
    available both online and in the editor (ca. 200,000 words).
 
 To manage translations, we use the GNU gettext file format (`PO` files), and
-the open source `Weblate <https://weblate.org>`__ web-based localization
+the open source `Weblate <https://weblate.org>` web-based localization
 platform, which allows easy collaboration of many contributors to complete the
 translation for the various components, and keep them up to date. Click the bold
 links above to access each resource on Weblate.
@@ -45,11 +45,11 @@ Weblate, and thus direct pull requests to the Git repositories are not accepted.
 Translations are synced manually between Weblate and the Godot repositories by
 maintainers.
 
-You should therefore `register on Weblate <https://hosted.weblate.org/accounts/register/>`__
+You should therefore `register on Weblate <https://hosted.weblate.org/accounts/register/>`
 to contribute to Godot's translations.
 
 Once signed in, browse to the Godot resource which you want to contribute to (in
-this page we will use the `editor translation <https://hosted.weblate.org/projects/godot-engine/godot/>`__
+this page we will use the `editor translation <https://hosted.weblate.org/projects/godot-engine/godot/>`
 as an example) to find the list of all languages:
 
 ![](img/l10n_01_language_list.png)
@@ -57,7 +57,7 @@ as an example) to find the list of all languages:
 .. seealso::
 
     Feel free to consult Weblate's own documentation on the `translation
-    workflow <https://docs.weblate.org/en/latest/user/translating.html>`__ for
+    workflow <https://docs.weblate.org/en/latest/user/translating.html>` for
     more details.
 
 Adding a new language
@@ -292,7 +292,7 @@ external links, etc. Here are some examples::
 
 .. seealso::
 
-    See Sphinx's `reStructured Text primer <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`__
+    See Sphinx's `reStructured Text primer <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`
     for a quick overview of the markup language you may find in source strings.
     You may encounter especially the inline markup (bold, italics, inline code)
     and the internal and external hyperlink markup.
@@ -336,8 +336,8 @@ Offline translation and testing
 
 While we advise using the Weblate interface to write translations, you also have
 the possibility to download the PO file locally to translate it with your
-preferred PO editing application, such as `Poedit <https://poedit.net/>`__ or
-`Lokalize <https://userbase.kde.org/Lokalize>`__.
+preferred PO editing application, such as `Poedit <https://poedit.net/>` or
+`Lokalize <https://userbase.kde.org/Lokalize>`.
 
 To download the PO file locally, browse to the translation overview for your
 language, and select the first item in the "Files" menu:
@@ -361,11 +361,11 @@ can use the downloaded PO file and `compile Godot from source <toc-devel-compili
 
 Rename the editor translation PO file to `<lang>.po` (e.g. `eo.po` for
 Esperanto) and place it in the `editor/translations/` folder
-(`GitHub <https://github.com/godotengine/godot/tree/master/editor/translations>`__).
+(`GitHub <https://github.com/godotengine/godot/tree/master/editor/translations>`).
 
 You can also test class reference changes the same way by renaming the PO file
 similarly and placing it in the `doc/translations/` folder
-(`GitHub <https://github.com/godotengine/godot/tree/master/doc/translations>`__).
+(`GitHub <https://github.com/godotengine/godot/tree/master/doc/translations>`).
 
 Localizing documentation images
 -------------------------------

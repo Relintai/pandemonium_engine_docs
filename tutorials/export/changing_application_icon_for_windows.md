@@ -62,13 +62,13 @@ Changing the file icon
 ----------------------
 
 In Godot 3.5 and later, you can change the file icon without
-external tools using `godoticon <https://github.com/pkowal1982/godoticon>`__.
+external tools using `godoticon <https://github.com/pkowal1982/godoticon>`.
 Changing the file icon this way should work for executables containing
 an embedded PCK.
 
 .. warning::
 
-    There are `known issues <https://github.com/godotengine/godot/issues/33466>`__
+    There are `known issues <https://github.com/godotengine/godot/issues/33466>`
     when changing the application icon in executables that embed a PCK file.
     It's recommended to avoid using rcedit for now if you choose to enable the
     **Embed Pck** option for your Windows export preset in the Export dialog.
@@ -108,7 +108,7 @@ the **Application → Icon** field.
     If rcedit fails to change the icon, you can instead
     `compile your own Windows export templates <doc_compiling_for_windows>`
     with the icon changed. To do so, replace
-    `platform/windows/godot.ico <https://github.com/godotengine/godot/blob/master/platform/windows/godot.ico>`__
+    `platform/windows/godot.ico <https://github.com/godotengine/godot/blob/master/platform/windows/godot.ico>`
     with your own ICO file *before* compiling export templates.
 
     Once this is done, you can specify your export templates as custom export

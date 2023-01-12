@@ -128,11 +128,11 @@ languages can be found in the `doc_gdscript_more_efficiently` tutorial.
 What were the motivations behind creating GDScript?
 ---------------------------------------------------
 
-In the early days, the engine used the `Lua <https://www.lua.org>`__
+In the early days, the engine used the `Lua <https://www.lua.org>`
 scripting language. Lua is fast, but creating bindings to an object
 oriented system (by using fallbacks) was complex and slow and took an
 enormous amount of code. After some experiments with
-`Python <https://www.python.org>`__, it also proved difficult to embed.
+`Python <https://www.python.org>`, it also proved difficult to embed.
 
 The main reasons for creating a custom scripting language for Godot were:
 
@@ -191,9 +191,9 @@ How do I install the Godot editor on my system (for desktop integration)?
 Since you don't need to actually install Godot on your system to run it,
 this means desktop integration is not performed automatically.
 There are two ways to overcome this. You can install Godot from
-`Steam <https://store.steampowered.com/app/404790/Godot_Engine/>`__ (all platforms),
-`Scoop <https://scoop.sh/>`__ (Windows), `Homebrew <https://brew.sh/>`__ (macOS)
-or `Flathub <https://flathub.org/apps/details/org.godotengine.Godot>`__ (Linux).
+`Steam <https://store.steampowered.com/app/404790/Godot_Engine/>` (all platforms),
+`Scoop <https://scoop.sh/>` (Windows), `Homebrew <https://brew.sh/>` (macOS)
+or `Flathub <https://flathub.org/apps/details/org.godotengine.Godot>` (Linux).
 This will automatically perform the required steps for desktop integration.
 
 Alternatively, you can manually perform the steps that an installer would do for you:
@@ -232,7 +232,7 @@ Linux
     line in the `.desktop` file linked below to contain the full *absolute* path
     to the Godot binary.
 
-- Save `this .desktop file <https://raw.githubusercontent.com/godotengine/godot/3.x/misc/dist/linux/org.godotengine.Godot.desktop>`__
+- Save `this .desktop file <https://raw.githubusercontent.com/godotengine/godot/3.x/misc/dist/linux/org.godotengine.Godot.desktop>`
   to `$HOME/.local/share/applications/`. If you have administrator privileges,
   you can also save the `.desktop` file to `/usr/local/share/applications`
   to make the shortcut available for all users.
@@ -439,8 +439,8 @@ in the Project Settings to decrease CPU and GPU usage.
 That said, we wouldn't recommend using Godot to create a *mobile* application
 since low-processor mode isn't supported on mobile platforms yet.
 
-Check out `Material Maker <https://github.com/RodZill4/material-maker>`__ and
-`Pixelorama <https://github.com/Orama-Interactive/Pixelorama>`__ for examples of
+Check out `Material Maker <https://github.com/RodZill4/material-maker>` and
+`Pixelorama <https://github.com/Orama-Interactive/Pixelorama>` for examples of
 open source applications made with Godot.
 
 .. _doc_faq_use_godot_as_library:

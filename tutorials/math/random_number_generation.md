@@ -15,7 +15,7 @@ and how to use a noise generator in GDScript.
 
     Computers cannot generate "true" random numbers. Instead, they rely on
     `pseudorandom number generators
-    <https://en.wikipedia.org/wiki/Pseudorandom_number_generator>`__ (PRNGs).
+    <https://en.wikipedia.org/wiki/Pseudorandom_number_generator>` (PRNGs).
 
 Global scope versus RandomNumberGenerator class
 -----------------------------------------------
@@ -104,7 +104,7 @@ other things.
 
 `randfn()` returns a random
 floating-point number following a `normal distribution
-<https://en.wikipedia.org/wiki/Normal_distribution>`__. This means the returned
+<https://en.wikipedia.org/wiki/Normal_distribution>`. This means the returned
 value is more likely to be around the mean (0.0 by default),
 varying by the deviation (1.0 by default):
 

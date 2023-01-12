@@ -55,11 +55,11 @@ Although the Godot IDE profiler is very convenient and useful, sometimes you
 need more power, and the ability to profile the Godot engine source code itself.
 
 You can use a number of third party profilers to do this including
-`Valgrind <https://www.valgrind.org/>`__,
-`VerySleepy <http://www.codersnotes.com/sleepy/>`__,
-`HotSpot <https://github.com/KDAB/hotspot>`__,
-`Visual Studio <https://visualstudio.microsoft.com/>`__ and
-`Intel VTune <https://software.intel.com/content/www/us/en/develop/tools/vtune-profiler.html>`__.
+`Valgrind <https://www.valgrind.org/>`,
+`VerySleepy <http://www.codersnotes.com/sleepy/>`,
+`HotSpot <https://github.com/KDAB/hotspot>`,
+`Visual Studio <https://visualstudio.microsoft.com/>` and
+`Intel VTune <https://software.intel.com/content/www/us/en/develop/tools/vtune-profiler.html>`.
 
 .. note:: You will need to compile Godot from source to use a third-party profiler.
           This is required to obtain debugging symbols. You can also use a debug
@@ -271,7 +271,7 @@ that feature real-time player movement.
 The solution to jitter is to use *fixed timestep interpolation*, which involves
 smoothing the rendered positions and rotations over multiple frames to match the
 physics. You can either implement this yourself or use a
-`third-party addon <https://github.com/lawnjelly/smoothing-addon>`__.
+`third-party addon <https://github.com/lawnjelly/smoothing-addon>`.
 Performance-wise, interpolation is a very cheap operation compared to running a
 physics tick. It's orders of magnitude faster, so this can be a significant
 performance win while also reducing jitter.

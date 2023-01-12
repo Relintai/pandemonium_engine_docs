@@ -107,4 +107,4 @@ To check that everything is working, put a breakpoint in `platform/osx/godot_mai
 run the project.
 
 If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`__.
+`Godot's community channels <https://godotengine.org/community>`.

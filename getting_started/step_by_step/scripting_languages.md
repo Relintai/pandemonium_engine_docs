@@ -39,7 +39,7 @@ developers.
 
 .. warning::
 
-    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`__
+    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`
     As a result, creating new projects using visual scripting in Godot is not recommended.
     Future Godot 4.x releases may have VisualScript reimplemented as an extension.
 
@@ -141,7 +141,7 @@ VisualScript
 
 .. warning::
 
-    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`__
+    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`
     As a result, creating new projects using visual scripting in Godot is not recommended.
     Future Godot 4.x releases may have VisualScript reimplemented as an extension.
 

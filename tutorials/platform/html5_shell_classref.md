@@ -7,7 +7,7 @@ Projects exported for the Web expose the :js:class:`Engine` class to the JavaScr
 fine control over the engine's start-up process.
 
 This API is built in an asynchronous manner and requires basic understanding
-of `Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises>`__.
+of `Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises>`.
 
 Engine
 ------

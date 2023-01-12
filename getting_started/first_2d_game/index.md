@@ -49,7 +49,7 @@ This step-by-step tutorial is intended for beginners who followed the complete
 
 If you're an experienced programmer, you can find the complete demo's source
 code here: `Godot demo projects
-<https://github.com/godotengine/godot-demo-projects>`__.
+<https://github.com/godotengine/godot-demo-projects>`.
 
 We prepared some game assets you'll need to download so we can jump straight to
 the code.

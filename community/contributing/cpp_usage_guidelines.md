@@ -48,7 +48,7 @@ purpose, such as improving code readability or performance.
 Standard Template Library
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We don't allow using the `STL <https://en.wikipedia.org/wiki/Standard_Template_Library>`__
+We don't allow using the `STL <https://en.wikipedia.org/wiki/Standard_Template_Library>`
 as Godot provides its own data types (among other things).
 See `doc_faq_why_not_stl` for more information.
 

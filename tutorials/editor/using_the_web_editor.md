@@ -3,7 +3,7 @@
 Using the Web editor
 ====================
 
-Since Godot 3.3, there is a `Web editor <https://editor.godotengine.org/>`__
+Since Godot 3.3, there is a `Web editor <https://editor.godotengine.org/>`
 you can use to work on new or existing projects.
 
 .. note::
@@ -34,7 +34,7 @@ recommended for better performance and compatibility with old/low-end hardware.
 .. note::
 
     If you use Linux, due to
-    `poor Firefox WebGL performance <https://bugzilla.mozilla.org/show_bug.cgi?id=1010527>`__,
+    `poor Firefox WebGL performance <https://bugzilla.mozilla.org/show_bug.cgi?id=1010527>`,
     it's recommended to use a Chromium-based browser instead of Firefox.
 
 .. _doc_using_the_web_editor_limitations:
@@ -52,7 +52,7 @@ are currently missing:
   protocol will not work.
 - No project exporting. As a workaround, you can download the project source
   using **Project > Tools > Download Project Source** and export it using a
-  `native version of the Godot editor <https://godotengine.org/download>`__.
+  `native version of the Godot editor <https://godotengine.org/download>`.
 - The editor won't warn you when closing the tab with unsaved changes.
 - No lightmap baking support. You can still use existing lightmaps if they were
   baked with a native version of the Godot editor
@@ -67,7 +67,7 @@ of the Web platform:
 .. seealso::
 
     See the
-    `list of open issues on GitHub related to the web editor <https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue+label%3Aplatform%3Ahtml5+label%3Atopic%3Aeditor>`__ for a list of known bugs.
+    `list of open issues on GitHub related to the web editor <https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue+label%3Aplatform%3Ahtml5+label%3Atopic%3Aeditor>` for a list of known bugs.
 
 Importing a project
 -------------------
@@ -115,10 +115,10 @@ on your machine, but is abstracted away in a database.
 
 You can download the project files as a ZIP archive by using
 **Project > Tools > Download Project Source**. This can be used to export the
-project using a `native Godot editor <https://godotengine.org/download>`__,
+project using a `native Godot editor <https://godotengine.org/download>`,
 since exporting from the web editor isn't supported yet.
 
 In the future, it may be possible to use the
-`HTML5 FileSystem API <https://developer.mozilla.org/en-US/docs/Web/API/FileSystem>`__
+`HTML5 FileSystem API <https://developer.mozilla.org/en-US/docs/Web/API/FileSystem>`
 to store the project files on the user's filesystem as the native editor would do.
 However, this isn't implemented yet.

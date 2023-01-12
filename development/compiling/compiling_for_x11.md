@@ -239,13 +239,13 @@ link-time optimization, making the resulting binaries smaller and faster.
 Using Pyston for faster development
 -----------------------------------
 
-You can use `Pyston <https://www.pyston.org/>`__ to run SCons. Pyston is a JIT-enabled
+You can use `Pyston <https://www.pyston.org/>` to run SCons. Pyston is a JIT-enabled
 implementation of the Python language (which SCons is written in). It is currently
 only compatible with Linux. Pyston can speed up incremental builds significantly,
 often by a factor between 1.5× and 2×. Pyston can be combined with Clang and LLD
 to get even faster builds.
 
-- Download the `latest portable Pyston release <https://github.com/pyston/pyston/releases/latest>`__.
+- Download the `latest portable Pyston release <https://github.com/pyston/pyston/releases/latest>`.
 - Extract the portable `.tar.gz` to a set location, such as `$HOME/.local/opt/pyston/` (create folders as needed).
 - Use `cd` to reach the extracted Pyston folder from a terminal,
   then run `./pyston -m pip install scons` to install SCons within Pyston.

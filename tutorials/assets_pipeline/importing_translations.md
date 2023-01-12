@@ -40,16 +40,16 @@ To complete the picture and allow efficient support for translations,
 Godot has a special importer that can read CSV files. Most spreadsheet
 editors can export to this format, so the only requirement is that the files
 have a special arrangement. The CSV files **must** be saved with UTF-8 encoding
-without a `byte order mark <https://en.wikipedia.org/wiki/Byte_order_mark>`__.
+without a `byte order mark <https://en.wikipedia.org/wiki/Byte_order_mark>`.
 
 .. warning::
 
     By default, Microsoft Excel will always save CSV files with ANSI encoding
     rather than UTF-8. There is no built-in way to do this, but there are
     workarounds as described
-    `here <https://stackoverflow.com/questions/4221176/excel-to-csv-with-utf8-encoding>`__.
+    `here <https://stackoverflow.com/questions/4221176/excel-to-csv-with-utf8-encoding>`.
 
-    We recommend using `LibreOffice <https://www.libreoffice.org/>`__ or Google Sheets instead.
+    We recommend using `LibreOffice <https://www.libreoffice.org/>` or Google Sheets instead.
 
 CSV files must be formatted as follows:
 

@@ -194,7 +194,7 @@ depending on your needs.
 - Uncompressed format. Larger file size, but faster to read/write.
 - Not readable and writable using tools normally present on the user's
   operating system, even though there are
-  `third-party tools <https://github.com/hhyyrylainen/GodotPckTool>`__
+  `third-party tools <https://github.com/hhyyrylainen/GodotPckTool>`
   to extract and create PCK files.
 
 **ZIP format:**
@@ -205,7 +205,7 @@ depending on your needs.
 
 .. warning::
 
-    Due to a `known bug <https://github.com/godotengine/godot/pull/42123>`__,
+    Due to a `known bug <https://github.com/godotengine/godot/pull/42123>`,
     when using a ZIP file as a pack file, the exported binary will not try to use
     it automatically. Therefore, you have to create a *launcher script* that
     the player can double-click or run from a terminal to launch the project::

@@ -15,9 +15,9 @@ To this end, profilers are useful tools.
 Recommended profilers
 ---------------------
 
-- `VerySleepy <http://www.codersnotes.com/sleepy/>`__ (Windows only)
-- `HotSpot <https://github.com/KDAB/hotspot>`__ (Linux only)
-- `Xcode Instruments <https://developer.apple.com/xcode/>`__ (macOS only)
+- `VerySleepy <http://www.codersnotes.com/sleepy/>` (Windows only)
+- `HotSpot <https://github.com/KDAB/hotspot>` (Linux only)
+- `Xcode Instruments <https://developer.apple.com/xcode/>` (macOS only)
 
 These profilers may not be the most powerful or flexible options, but their
 standalone operation and limited feature set tends to make them easier to use.

@@ -180,4 +180,4 @@ The name under `program` depends on your build configuration,
 e.g. `godot.x11.tools.64` for 64-bit X11 platform with `tools` enabled.
 
 If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`__.
+`Godot's community channels <https://godotengine.org/community>`.

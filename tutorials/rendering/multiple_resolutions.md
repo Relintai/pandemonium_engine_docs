@@ -302,7 +302,7 @@ Desktop game
     Godot currently doesn't have a way to enforce integer scaling when using the
     `2d` or `viewport` stretch mode, which means pixel art may look bad if the
     final window size is not a multiple of the base window size.
-    To fix this, use an add-on such as the `Integer Resolution Handler <https://github.com/Yukitty/godot-addon-integer_resolution_handler>`__.
+    To fix this, use an add-on such as the `Integer Resolution Handler <https://github.com/Yukitty/godot-addon-integer_resolution_handler>`.
 
 Mobile game in landscape mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -439,5 +439,5 @@ that it allows enable linear filtering. This makes scaled 3D viewports look
 better in many cases.
 
 See the
-`3D viewport scaling demo <https://github.com/godotengine/godot-demo-projects/tree/master/viewport/3d_scaling>`__
+`3D viewport scaling demo <https://github.com/godotengine/godot-demo-projects/tree/master/viewport/3d_scaling>`
 for examples.

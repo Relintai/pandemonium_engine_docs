@@ -108,4 +108,4 @@ Click on **Edit** to change the current settings, then click on
    :align: center
 
 If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`__.
+`Godot's community channels <https://godotengine.org/community>`.

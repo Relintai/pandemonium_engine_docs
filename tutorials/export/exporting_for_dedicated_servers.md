@@ -9,7 +9,7 @@ have a GPU or display server available, you'll need to use a server build of God
 Platform support
 ----------------
 
-- **Linux:** `Download an official Linux server binary <https://godotengine.org/download/server>`__.
+- **Linux:** `Download an official Linux server binary <https://godotengine.org/download/server>`.
   To compile a server binary from source, follow instructions in
   `doc_compiling_for_x11`.
 - **macOS:** `Compile a server binary from source for macOS <doc_compiling_for_osx>`.
@@ -23,7 +23,7 @@ If your project uses C#, you'll have to use a Mono-enabled server binary.
 "Headless" versus "server" binaries
 -----------------------------------
 
-The `server download page <https://godotengine.org/download/server>`__
+The `server download page <https://godotengine.org/download/server>`
 offers two kinds of binaries with several differences.
 
 - **Server:** Use this one for running dedicated servers. It does not contain
@@ -115,11 +115,11 @@ Next steps
 
 On Linux, to make your dedicated server restart after a crash or system reboot,
 you can
-`create a systemd service <https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6>`__.
+`create a systemd service <https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6>`.
 This also lets you view server logs in a more convenient fashion, with automatic
 log rotation provided by systemd.
 
 If you have experience with containers, you could also look into wrapping your
-dedicated server in a `Docker <https://www.docker.com/>`__ container. This way,
+dedicated server in a `Docker <https://www.docker.com/>` container. This way,
 it can be used more easily in an automatic scaling setup (which is outside the
 scope of this tutorial).

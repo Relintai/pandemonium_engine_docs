@@ -304,4 +304,4 @@ Example:
 
 **Note**: this code, in its current form, is not tested in real world
 scenarios. If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`__.
+`Godot's community channels <https://godotengine.org/community>`.

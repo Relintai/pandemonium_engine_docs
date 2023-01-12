@@ -41,7 +41,7 @@ When setting up the Android project in the **Project > Export** dialog,
 ![](img/custom_build_enable.png)
 
 From now on, attempting to export the project or one-click deploy will call the
-`Gradle <https://gradle.org/>`__ build system to generate fresh templates (this
+`Gradle <https://gradle.org/>` build system to generate fresh templates (this
 window will appear every time):
 
 ![](img/custom_build_gradle.png)

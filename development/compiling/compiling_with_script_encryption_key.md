@@ -27,7 +27,7 @@ Step by step
    `this service <https://asecuritysite.com/encryption/keygen>`_.
 
    Alternatively, you can generate it yourself using
-   `OpenSSL <https://www.openssl.org/>`__ command-line tools:
+   `OpenSSL <https://www.openssl.org/>` command-line tools:
 
    ::
 

@@ -147,7 +147,7 @@ download them in Godot by clicking on **Editor -> Manage Export Templates**:
 .. note::
 
     If you've downloaded Godot from
-    `Steam <https://store.steampowered.com/app/404790/Godot_Engine/>`__,
+    `Steam <https://store.steampowered.com/app/404790/Godot_Engine/>`,
     export templates are already included. Therefore, you don't need to download
     them using the **Manage Export Templates** dialog.
 

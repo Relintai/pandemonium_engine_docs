@@ -64,7 +64,7 @@ To edit an existing page, locate its `.rst` source file and open it in your
 favorite text editor. You can then commit the changes, push them to your fork,
 and make a pull request. **Note that the pages in** `classes/` **should not be
 edited here.** They are automatically generated from Godot’s `XML class
-reference <https://github.com/godotengine/godot/tree/master/doc/classes>`__.
+reference <https://github.com/godotengine/godot/tree/master/doc/classes>`.
 See `doc_updating_the_class_reference` for details.
 
 .. seealso:: To build the manual and test changes on your computer, see
@@ -145,17 +145,17 @@ first letter capitalized.
 Sphinx and reStructuredText syntax
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Check Sphinx’s `reST Primer <https://www.sphinx-doc.org/en/stable/rest.html>`__
-and the `official reference <http://docutils.sourceforge.net/rst.html>`__ for
+Check Sphinx’s `reST Primer <https://www.sphinx-doc.org/en/stable/rest.html>`
+and the `official reference <http://docutils.sourceforge.net/rst.html>` for
 details on the syntax.
 
 Sphinx uses specific reST comments to do specific operations, like defining the
 table of contents (`.. toctree::`) or cross-referencing pages. Check the
 `official Sphinx documentation
-<https://www.sphinx-doc.org/en/stable/index.html>`__ for more details. To learn
+<https://www.sphinx-doc.org/en/stable/index.html>` for more details. To learn
 how to use Sphinx directives like `.. note::` or `.. seealso::`, check out
 the `Sphinx directives documentation
-<https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html>`__.
+<https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html>`.
 
 Adding images and attachments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

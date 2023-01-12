@@ -13,7 +13,7 @@ This allows several features:
 
 The trade off for these features is that we have to manually partition our level into rooms, and add portals between them.
 
-.. note:: Godot portals should not be confused with those in the `game of the same name <https://en.wikipedia.org/wiki/Portal_(video_game)>`__. They do not warp space, they simply represent a window that the camera (or lights) can see through.
+.. note:: Godot portals should not be confused with those in the `game of the same name <https://en.wikipedia.org/wiki/Portal_(video_game)>`. They do not warp space, they simply represent a window that the camera (or lights) can see through.
 
 Minimizing manual labour
 ^^^^^^^^^^^^^^^^^^^^^^^^

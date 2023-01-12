@@ -21,7 +21,7 @@ binary that is smaller, faster and does not contain the editor and debugger.
 Requirements
 ------------
 
--  To enable code signing, you must have the `Windows 10 SDK` (on Windows) or `osslsigncode <https://github.com/mtrojnar/osslsigncode>`__ (on any other OS) installed.
+-  To enable code signing, you must have the `Windows 10 SDK` (on Windows) or `osslsigncode <https://github.com/mtrojnar/osslsigncode>` (on any other OS) installed.
 -  Download the Godot export templates. Use the Godot menu: `Editor > Manage Export Templates`.
 
 .. warning::

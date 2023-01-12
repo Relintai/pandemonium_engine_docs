@@ -20,9 +20,9 @@ to a console platform is as follows:
   developers (*devkit*). The cost of those devkits is confidential.
 - Port the engine to the console platform or pay a company to do it.
 - To be published, your game needs to be rated in the regions you'd like to sell
-  it in. For example, in North America, the `ESRB <https://www.esrb.org/>`__
+  it in. For example, in North America, the `ESRB <https://www.esrb.org/>`
   handles game ratings. In Europe, this is done by
-  `PEGI <https://pegi.info/>`__. Indie developers can generally get a rating
+  `PEGI <https://pegi.info/>`. Indie developers can generally get a rating
   for cheaper compared to more established developers.
 
 Due to the complexity of the process, the budget to publish a game by yourself on a

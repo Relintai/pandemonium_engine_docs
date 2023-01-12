@@ -6,8 +6,8 @@ Cutout animation
 What is it?
 ~~~~~~~~~~~
 
-Traditionally, `cutout animation <https://en.wikipedia.org/wiki/Cutout_animation>`__
-is a type of `stop motion animation <https://en.wikipedia.org/wiki/Stop_motion>`__
+Traditionally, `cutout animation <https://en.wikipedia.org/wiki/Cutout_animation>`
+is a type of `stop motion animation <https://en.wikipedia.org/wiki/Stop_motion>`
 in which pieces of paper (or other thin material) are cut into special shapes
 and arranged in two-dimensional representations of characters and objects.
 Characters' bodies are usually made out of several pieces. The pieces are
@@ -16,12 +16,12 @@ and rotates the parts in small increments between each shot to create the
 illusion of movement when the images are played back quickly in sequence.
 
 Simulations of cutout animation can now be created using software as seen in
-`South Park <https://en.wikipedia.org/wiki/South_Park>`__ and `Jake and the Never
-Land Pirates <https://en.wikipedia.org/wiki/Jake_and_the_Never_Land_Pirates>`__.
+`South Park <https://en.wikipedia.org/wiki/South_Park>` and `Jake and the Never
+Land Pirates <https://en.wikipedia.org/wiki/Jake_and_the_Never_Land_Pirates>`.
 
 In video games, this technique has also become popular. Examples of
-this are `Paper Mario <https://en.wikipedia.org/wiki/Super_Paper_Mario>`__ or
-`Rayman Origins <https://en.wikipedia.org/wiki/Rayman_Origins>`__ .
+this are `Paper Mario <https://en.wikipedia.org/wiki/Super_Paper_Mario>` or
+`Rayman Origins <https://en.wikipedia.org/wiki/Rayman_Origins>` .
 
 Cutout animation in Godot
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,7 +54,7 @@ Making of GBot
 ~~~~~~~~~~~~~~
 
 For this tutorial, we will use as demo content the pieces of the
-`GBot <https://www.youtube.com/watch?v=S13FrWuBMx4&list=UUckpus81gNin1aV8WSffRKw>`__
+`GBot <https://www.youtube.com/watch?v=S13FrWuBMx4&list=UUckpus81gNin1aV8WSffRKw>`
 character, created by Andreas Esau.
 
 ![](img/tuto_cutout_walk.gif)

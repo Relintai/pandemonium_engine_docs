@@ -163,7 +163,7 @@ gdscript GDScript
 
     As a result, it's recommended to use a default keyboard layout that is designed to work well
     on a keyboard without antighosting. See
-    `this Gamedev Stack Exchange question <https://gamedev.stackexchange.com/a/109002>`__
+    `this Gamedev Stack Exchange question <https://gamedev.stackexchange.com/a/109002>`
     for more information.
 
 Keyboard modifiers

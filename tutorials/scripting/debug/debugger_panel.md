@@ -16,7 +16,7 @@ Debugger
 The Debugger tab opens automatically when the GDScript compiler reaches
 a breakpoint in your code.
 
-It gives you a `stack trace <https://en.wikipedia.org/wiki/Stack_trace>`__,
+It gives you a `stack trace <https://en.wikipedia.org/wiki/Stack_trace>`,
 information about the state of the object, and buttons to control
 the program's execution.
 

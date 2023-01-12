@@ -8,7 +8,7 @@ This page aims to list all features currently supported by Godot.
 .. note::
 
     This page lists features supported by the current stable version of
-    Godot (3.5). `More features <https://docs.godotengine.org/en/latest/about/list_of_features.html>`__
+    Godot (3.5). `More features <https://docs.godotengine.org/en/latest/about/list_of_features.html>`
     are available in the latest development version (4.0).
 
 Features
@@ -381,7 +381,7 @@ Scripting
 
 .. warning::
 
-    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`__
+    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`
     As a result, creating new projects using visual scripting in Godot is not recommended.
     Future Godot 4.x releases may have VisualScript reimplemented as an extension.
 
@@ -430,13 +430,13 @@ Import
 - *3D scenes:*
 
    - glTF 2.0 *(recommended)*.
-   - `ESCN <https://github.com/godotengine/godot-blender-exporter>`__
+   - `ESCN <https://github.com/godotengine/godot-blender-exporter>`
      (direct export from Blender).
    - FBX (experimental, static meshes only).
    - Collada (.dae).
    - Wavefront OBJ (static scenes only, can be loaded directly as a mesh).
 
-- 3D meshes use `Mikktspace <http://www.mikktspace.com/>`__ to generate tangents
+- 3D meshes use `Mikktspace <http://www.mikktspace.com/>` to generate tangents
   on import, which ensures consistency with other 3D applications such as Blender.
 
 Input
@@ -628,7 +628,7 @@ Miscellaneous
 - `Command line interface <doc_command_line_tutorial>` for automation.
 
    - Export and deploy projects using continuous integration platforms.
-   - `Shell completion scripts <https://github.com/godotengine/godot/tree/master/misc/dist/shell>`__
+   - `Shell completion scripts <https://github.com/godotengine/godot/tree/master/misc/dist/shell>`
      are available for Bash, zsh and fish.
 
 - Support for `C++ modules <doc_custom_modules_in_c++>` statically linked
@@ -648,6 +648,6 @@ Miscellaneous
 
 .. seealso::
 
-    The `Godot proposals repository <https://github.com/godotengine/godot-proposals>`__
+    The `Godot proposals repository <https://github.com/godotengine/godot-proposals>`
     lists features that have been requested by the community and may be implemented
     in future Godot releases.

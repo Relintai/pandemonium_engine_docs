@@ -113,7 +113,7 @@ This can be done with the following steps:
    **Flags > Unshaded** to improve rendering performance.
 
 See `doc_viewports` and the
-`GUI in 3D demo <https://github.com/godotengine/godot-demo-projects/tree/master/viewport/gui_in_3d>`__
+`GUI in 3D demo <https://github.com/godotengine/godot-demo-projects/tree/master/viewport/gui_in_3d>`
 for more information on setting this up.
 
 Video decoding conditions and recommended resolutions
@@ -176,8 +176,8 @@ you should use a lossless or uncompressed format as an intermediate format to
 maximize the quality of the output Ogg Theora video, but this can require a lot
 of disk space.
 
-`HandBrake <https://handbrake.fr/>`__
-(GUI) and `FFmpeg <https://ffmpeg.org/>`__ (CLI) are popular open source tools
+`HandBrake <https://handbrake.fr/>`
+(GUI) and `FFmpeg <https://ffmpeg.org/>` (CLI) are popular open source tools
 for this purpose. FFmpeg has a steeper learning curve, but it's more powerful.
 
 Here are example FFmpeg commands to convert a MP4 video to Ogg Theora. Since
@@ -206,7 +206,7 @@ video quality, increasing audio quality doesn't increase the output file size
 nearly as much. Therefore, if you want the cleanest audio possible, you can
 increase this to `9` to get *perceptually lossless* audio. This is especially
 valuable if your input file already uses lossy audio compression. See
-`this page <https://wiki.hydrogenaud.io/index.php?title=Recommended_Ogg_Vorbis#Recommended_Encoder_Settings>`__
+`this page <https://wiki.hydrogenaud.io/index.php?title=Recommended_Ogg_Vorbis#Recommended_Encoder_Settings>`
 for a table listing Ogg Vorbis audio quality presets and their respective
 variable bitrates.
 

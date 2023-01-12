@@ -9,7 +9,7 @@ can contribute to the project:
   reference manual or the code reference.
 - Translating the editor or documentation from English to other languages.
 - Reporting issues or `writing detailed proposals
-  <https://github.com/godotengine/godot-proposals/>`__.
+  <https://github.com/godotengine/godot-proposals/>`.
 
 Getting started
 ---------------

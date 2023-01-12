@@ -1,4 +1,4 @@
-.. _doc_overridable_functions:
+
 
 Overridable functions
 =====================

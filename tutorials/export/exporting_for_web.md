@@ -1,4 +1,4 @@
-.. _doc_exporting_for_web:
+
 
 Exporting for the Web
 =====================
@@ -42,7 +42,7 @@ for **Safari**. WebGL 2.0 support is coming in Safari 15 for macOS, and is not
 available yet for any **iOS** browser (all WebKit-based like Safari).
 See `Can I use WebGL 2.0 ( https://caniuse.com/webgl2 )` for details.
 
-.. _doc_javascript_export_options:
+
 
 Export options
 --------------
@@ -91,7 +91,7 @@ For security and privacy reasons, many features that work effortlessly on
 native platforms are more complicated on the web platform. Following is a list
 of limitations you should be aware of when porting a Godot game to the web.
 
-.. _doc_javascript_secure_contexts:
+
 
 .. important:: Browser vendors are making more and more functionalities only
                available in `secure contexts ( https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts )`_,
@@ -269,7 +269,7 @@ of its original size with gzip compression.
 **Hosts that don't provide on-the-fly compression:** itch.io, GitLab Pages
 (`supports manual gzip precompression ( https://webd97.de/post/gitlab-pages-compression/ )`)
 
-.. _doc_javascript_eval:
+
 
 Calling JavaScript from script
 ------------------------------

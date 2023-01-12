@@ -1,4 +1,4 @@
-.. _doc_spatial_gizmo_plugins:
+
 
 Spatial gizmo plugins
 =====================

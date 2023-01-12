@@ -1,4 +1,4 @@
-.. _doc_contributing_to_the_documentation:
+
 
 Contributing to the documentation
 =================================
@@ -123,7 +123,7 @@ Always begin pages with their title and a Sphinx reference name:
 
 ::
 
-    .. _doc_insert_your_title_here:
+    
 
     Insert your title here
     ======================

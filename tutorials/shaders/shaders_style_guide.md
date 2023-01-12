@@ -1,4 +1,4 @@
-.. _doc_shaders_style_guide:
+
 
 Shaders style guide
 ===================

@@ -1,4 +1,4 @@
-.. _doc_controllers_gamepads_joysticks:
+
 
 Controllers, gamepads, and joysticks
 ====================================

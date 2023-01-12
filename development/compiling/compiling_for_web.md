@@ -1,4 +1,4 @@
-.. _doc_compiling_for_web:
+
 
 Compiling for the Web
 =====================

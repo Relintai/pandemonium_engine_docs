@@ -1,7 +1,7 @@
 .. meta::
     :keywords: FAQ
 
-.. _doc_faq:
+
 
 Frequently asked questions
 ==========================
@@ -89,7 +89,7 @@ NativeScript / PluginScript facilities. (See the question about plugins below.)
 Work is currently underway, for example, on unofficial bindings for Godot
 to `Python ( https://github.com/touilleMan/godot-python )`_ and `Nim ( https://github.com/pragmagic/godot-nim )`_.
 
-.. _doc_faq_what_is_gdscript:
+
 
 What is GDScript and why should I use it?
 -----------------------------------------
@@ -424,7 +424,7 @@ developer experiences as a whole.
 Bonus points for bringing screenshots, concrete numbers, test cases, or example
 projects (if applicable).
 
-.. _doc_faq_non_game_applications:
+
 
 Is it possible to use Godot to create non-game applications?
 ------------------------------------------------------------
@@ -443,7 +443,7 @@ Check out `Material Maker ( https://github.com/RodZill4/material-maker )` and
 `Pixelorama ( https://github.com/Orama-Interactive/Pixelorama )` for examples of
 open source applications made with Godot.
 
-.. _doc_faq_use_godot_as_library:
+
 
 Is it possible to use Godot as a library?
 -----------------------------------------
@@ -478,7 +478,7 @@ This custom UI toolkit `can't be used as a library ( doc_faq_use_godot_as_librar
 but you can still
 `use Godot to create non-game applications by using the editor ( doc_faq_non_game_applications )`.
 
-.. _doc_faq_why_not_stl:
+
 
 Why does Godot not use STL (Standard Template Library)?
 -------------------------------------------------------

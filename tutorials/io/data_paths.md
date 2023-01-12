@@ -1,4 +1,4 @@
-.. _doc_data_paths:
+
 
 File paths in Godot projects
 ============================
@@ -109,7 +109,7 @@ or `user://`, use `ProjectSettings.localize_path()`.
 This only works for absolute paths that point to files or folders in your
 project's root or `user://` folders.
 
-.. _doc_data_paths_editor_data_paths:
+
 
 Editor data paths
 -----------------
@@ -150,7 +150,7 @@ specification to change the editor and project data paths.
           editor data paths will be located in subfolders in
           `~/.var/app/org.godotengine.Godot/`.
 
-.. _doc_data_paths_self_contained_mode:
+
 
 Self-contained mode
 ~~~~~~~~~~~~~~~~~~~

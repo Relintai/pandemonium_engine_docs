@@ -1,4 +1,4 @@
-.. _doc_release_policy:
+
 
 Godot release policy
 ====================
@@ -130,7 +130,7 @@ on GitHub.
 Pre-release Godot versions aren't intended to be used in production and are
 provided for testing purposes only.
 
-.. _doc_release_policy_when_is_next_release_out:
+
 
 When is the next release out?
 -----------------------------

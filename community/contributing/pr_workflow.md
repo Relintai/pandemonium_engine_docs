@@ -1,4 +1,4 @@
-.. _doc_pr_workflow:
+
 
 Pull request workflow
 =====================
@@ -421,7 +421,7 @@ fixes. The above example would then become:
 
 .. _mastering-the-pr-workflow-the-rebase:
 
-.. _doc_pr_workflow_rebase:
+
 
 The interactive rebase
 ----------------------

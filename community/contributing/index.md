@@ -23,7 +23,7 @@ answers below.
 
    ways_to_contribute
 
-.. _doc_community_contributing_to_the_engine:
+
 
 Contributing to the engine
 --------------------------
@@ -43,7 +43,7 @@ about the code style, the contribution workflow, and more.
    code_style_guidelines
    cpp_usage_guidelines
 
-.. _doc_community_writing_documentation:
+
 
 Writing documentation
 ---------------------
@@ -93,7 +93,7 @@ writing the online manual.
    updating_the_class_reference
    class_reference_writing_guidelines
 
-.. _doc_community_translating_the_documentation:
+
 
 Translating the documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

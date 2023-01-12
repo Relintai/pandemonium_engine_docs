@@ -1,4 +1,4 @@
-.. _doc_consoles:
+
 
 Console support in Godot
 ========================

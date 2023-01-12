@@ -1,4 +1,4 @@
-.. _doc_community_tutorials:
+
 
 Tutorials and resources
 =======================

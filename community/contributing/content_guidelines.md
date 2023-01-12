@@ -1,4 +1,4 @@
-.. _doc_content_guidelines:
+
 
 Content guidelines
 ==================

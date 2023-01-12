@@ -1,4 +1,4 @@
-.. _doc_godot_notifications:
+
 
 Godot notifications
 ===================

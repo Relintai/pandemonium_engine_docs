@@ -1,4 +1,4 @@
-.. _doc_rooms_and_portals:
+
 
 Rooms and Portals
 =================

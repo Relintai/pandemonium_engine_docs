@@ -1,4 +1,4 @@
-.. _doc_saving_games:
+
 
 Saving games
 ============

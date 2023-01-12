@@ -4,7 +4,7 @@
    to the animation section. General pages, for instance, about the project
    manager, should go in the editor manual.
 
-.. _doc_intro_to_the_editor_interface:
+
 
 First look at Godot's editor
 ============================

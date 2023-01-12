@@ -1,7 +1,7 @@
 .. Intention: only introduce what a script does in general and options for
    scripting languages.
 
-.. _doc_scripting:
+
 
 Scripting languages
 ===================

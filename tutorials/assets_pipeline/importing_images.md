@@ -1,4 +1,4 @@
-.. _doc_import_images:
+
 
 Importing images
 ================

@@ -1,4 +1,4 @@
-.. _doc_editor_style_guide:
+
 
 Editor style guide
 ==================

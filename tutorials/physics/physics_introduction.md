@@ -1,4 +1,4 @@
-.. _doc_physics_introduction:
+
 
 Physics introduction
 ====================
@@ -102,7 +102,7 @@ it will typically be equal to `0.01666...` (but not always, see below).
     physics calculations, so that the game behaves correctly if you change the
     physics update rate or if the player's device can't keep up.
 
-.. _doc_physics_introduction_collision_layers_and_masks:
+
 
 Collision layers and masks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -148,7 +148,7 @@ interact with. For example, the Player's settings would look like this:
 ![](img/player_collision_layers.png)
 ![](img/player_collision_mask.png)
 
-.. _doc_physics_introduction_collision_layer_code_example:
+
 
 Code example
 ^^^^^^^^^^^^

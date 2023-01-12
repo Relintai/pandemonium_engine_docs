@@ -1,4 +1,4 @@
-.. _doc_introduction_to_3d:
+
 
 Introduction to 3D
 ==================

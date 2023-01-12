@@ -1,4 +1,4 @@
-.. _doc_batching:
+
 
 Optimization using batching
 ===========================
@@ -396,7 +396,7 @@ rendering/batching/precision
   Hopefully, the default amount should cure artifacts on most devices,
   but this value remains adjustable just in case.
 
-.. _doc_batching_diagnostics:
+
 
 Diagnostics
 ~~~~~~~~~~~
@@ -530,7 +530,7 @@ With non-batched primitives, you may be able to get better performance by
 drawing them manually with polys in a `_draw()` function.
 See `doc_custom_drawing_in_2d` for more information.
 
-.. _doc_batching_light_scissoring_threshold_calculation:
+
 
 Light scissoring threshold calculation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

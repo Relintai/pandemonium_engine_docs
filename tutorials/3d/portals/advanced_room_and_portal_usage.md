@@ -47,7 +47,7 @@ The engine's solution to this problem is the `VisibilityNotifier( VisibilityNoti
 
 What if the VisibilityEnabler could turn off objects when they were occlusion culled? Well it turns out VisibilityEnabler can. All you have to do is enable the **Gameplay Monitor** in the RoomManager and the rest happens automatically.
 
-.. _doc_rooms_and_portals_roomgroups:
+
 
 RoomGroups
 ~~~~~~~~~~
@@ -64,7 +64,7 @@ This is an example of a simple RoomGroup script to turn on and off a Directional
 
 .. tip:: You can apply the same technique for switching on and off weather effects, skyboxes and much more.
 
-.. _doc_rooms_and_portals_internal_rooms:
+
 
 Internal Rooms
 ~~~~~~~~~~~~~~

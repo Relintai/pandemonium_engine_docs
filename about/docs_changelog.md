@@ -1,4 +1,4 @@
-.. _doc_docs_changelog:
+
 
 Documentation changelog
 =======================

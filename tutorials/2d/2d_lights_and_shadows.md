@@ -1,4 +1,4 @@
-.. _doc_2d_lights_and_shadows:
+
 
 2D lights and shadows
 =====================

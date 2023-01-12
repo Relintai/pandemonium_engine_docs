@@ -1,4 +1,4 @@
-.. _doc_canvas_layers:
+
 
 Canvas layers
 =============

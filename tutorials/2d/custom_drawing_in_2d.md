@@ -1,4 +1,4 @@
-.. _doc_custom_drawing_in_2d:
+
 
 Custom drawing in 2D
 ====================

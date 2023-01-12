@@ -1,4 +1,4 @@
-.. _doc_class_reference_writing_guidelines:
+
 
 Class reference writing guidelines
 ==================================
@@ -84,7 +84,7 @@ Write in a clear and simple language. Always follow the `writing guidelines
 **Do not leave empty lines** in the descriptions: each line in the XML file will
 result in a new paragraph, even if it is empty.
 
-.. _doc_class_reference_writing_guidelines_editing_xml:
+
 
 How to edit class XML
 ---------------------
@@ -114,7 +114,7 @@ We recommend using a code editor that supports XML files like Vim, Atom, Visual 
 Notepad++, or another to comfortably edit the file. You can also use their
 search feature to find classes and properties quickly.
 
-.. _doc_class_reference_writing_guidelines_bbcode:
+
 
 Improve formatting with BBCode style tags
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

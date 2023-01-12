@@ -1,4 +1,4 @@
-.. _doc_rigid_body:
+
 
 Using RigidBody
 ===============

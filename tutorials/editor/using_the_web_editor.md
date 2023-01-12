@@ -1,4 +1,4 @@
-.. _doc_using_the_web_editor:
+
 
 Using the Web editor
 ====================
@@ -37,7 +37,7 @@ recommended for better performance and compatibility with old/low-end hardware.
     `poor Firefox WebGL performance ( https://bugzilla.mozilla.org/show_bug.cgi?id=1010527 )`,
     it's recommended to use a Chromium-based browser instead of Firefox.
 
-.. _doc_using_the_web_editor_limitations:
+
 
 Limitations
 -----------

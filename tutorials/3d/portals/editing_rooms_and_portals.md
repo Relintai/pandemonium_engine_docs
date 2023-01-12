@@ -16,7 +16,7 @@ Putting all the ideas together, here is an example scene tree:
 - The player and monster meshes have portal mode `ROAMING` so they can be in any room.
 - The camera is outside the `roomlist`.
 
-.. _doc_rooms_and_portals_blender:
+
 
 Creating room systems in Blender (or other modeling tools)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,7 +81,7 @@ The default portal has 4 corners as shown in the inspector:
 
 You can edit these points in the gizmo or inspector to make a better match to the opening in your game level. It's generally better to keep the number of points as low as possible for the efficiency of the system. For example, it's better to risk rendering a little too much than to spend the time culling objects at 20 different edges.
 
-.. _doc_room_point_editing:
+
 
 Room point editing
 ~~~~~~~~~~~~~~~~~~

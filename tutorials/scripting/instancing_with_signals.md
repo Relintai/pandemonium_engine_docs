@@ -1,7 +1,7 @@
 .. meta::
     :keywords: Signal
 
-.. _doc_instancing_with_signals:
+
 
 Instancing with signals
 =======================

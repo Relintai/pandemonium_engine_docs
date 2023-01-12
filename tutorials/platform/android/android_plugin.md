@@ -1,4 +1,4 @@
-.. _doc_android_plugin:
+
 
 Creating Android plugins
 ========================

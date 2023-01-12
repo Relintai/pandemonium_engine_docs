@@ -1,4 +1,4 @@
-.. _doc_ways_to_contribute:
+
 
 Ways to contribute
 ==================

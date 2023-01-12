@@ -1,4 +1,4 @@
-.. _doc_websocket:
+
 
 WebSocket
 =========

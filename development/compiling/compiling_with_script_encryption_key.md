@@ -1,4 +1,4 @@
-.. _doc_compiling_with_script_encryption_key:
+
 
 Compiling with script encryption key
 ====================================

@@ -1,4 +1,4 @@
-.. _doc_portals_introduction:
+
 
 Introduction to Rooms and Portals
 =================================

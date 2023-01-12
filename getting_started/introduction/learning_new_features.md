@@ -2,7 +2,7 @@
    know where to find information, how to get help, and how to maximize chances
    of getting answers.
 
-.. _doc_learning_new_features:
+
 
 Learning new features
 =====================

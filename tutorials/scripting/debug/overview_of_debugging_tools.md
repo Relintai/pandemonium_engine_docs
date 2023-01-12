@@ -1,4 +1,4 @@
-.. _doc_overview_of_debugging_tools:
+
 
 Overview of debugging tools
 ===========================

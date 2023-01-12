@@ -1,4 +1,4 @@
-.. _doc_localization_using_gettext:
+
 
 Localization using gettext
 ==========================

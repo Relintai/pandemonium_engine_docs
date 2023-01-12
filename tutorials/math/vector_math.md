@@ -1,4 +1,4 @@
-.. _doc_vector_math:
+
 
 Vector math
 ===========

@@ -1,4 +1,4 @@
-.. _doc_version_control_systems:
+
 
 Version Control Systems
 =======================

@@ -1,4 +1,4 @@
-.. _doc_procedural_geometry:
+
 
 Procedural geometry
 ===================

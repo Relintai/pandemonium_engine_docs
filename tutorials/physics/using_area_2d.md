@@ -1,4 +1,4 @@
-.. _doc_using_area_2d:
+
 
 Using Area2D
 ============

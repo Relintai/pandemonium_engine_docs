@@ -1,4 +1,4 @@
-.. _doc_ios_plugin:
+
 
 Creating iOS plugins
 ====================

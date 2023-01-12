@@ -1,4 +1,4 @@
-.. _doc_ragdoll_system:
+
 
 Ragdoll system
 ==============

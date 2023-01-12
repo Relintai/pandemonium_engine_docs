@@ -1,4 +1,4 @@
-.. _doc_converting_glsl_to_godot_shaders:
+
 
 Converting GLSL to Godot shaders
 ================================

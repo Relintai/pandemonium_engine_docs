@@ -1,4 +1,4 @@
-.. _doc_first_3d_game_going_further:
+
 
 Going further
 =============

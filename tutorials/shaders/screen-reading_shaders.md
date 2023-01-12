@@ -1,4 +1,4 @@
-.. _doc_screen-reading_shaders:
+
 
 Screen-reading shaders
 ======================

@@ -1,4 +1,4 @@
-.. _doc_high_dynamic_range:
+
 
 High dynamic range lighting
 ===========================

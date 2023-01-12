@@ -1,4 +1,4 @@
-.. _doc_godot_interfaces:
+
 
 Godot interfaces
 ================
@@ -131,7 +131,7 @@ gdscript GDScript
         print(globals.my_getter())
 ```
 
-.. _doc_accessing_data_or_logic_from_object:
+
 
 Accessing data or logic from an object
 --------------------------------------

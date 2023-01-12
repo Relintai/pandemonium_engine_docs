@@ -1,4 +1,4 @@
-.. _doc_custom_gui_controls:
+
 
 Custom GUI controls
 ===================

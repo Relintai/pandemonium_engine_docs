@@ -1,4 +1,4 @@
-.. _doc_exporting_projects:
+
 
 Exporting projects
 ==================
@@ -101,7 +101,7 @@ option in the editor:
 
 ![](img/exptemp.png)
 
-.. _doc_exporting_projects_export_mode:
+
 
 Resource options
 ~~~~~~~~~~~~~~~~

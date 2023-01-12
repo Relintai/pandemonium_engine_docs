@@ -1,4 +1,4 @@
-.. _doc_editor_and_docs_localization:
+
 
 Editor and docs localization
 ============================

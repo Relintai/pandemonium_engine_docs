@@ -1,4 +1,4 @@
-.. _doc_testing_pull_requests:
+
 
 Testing pull requests
 =====================
@@ -82,7 +82,7 @@ to generate a universal download link.
   If you frequently test pull request builds, it may be better to disable
   Windows SmartScreen or `disable macOS Gatekeeper ( https://disable-gatekeeper.github.io/ )` permanently.
 
-.. _doc_testing_pull_requests_compile:
+
 
 Compiling a pull request branch from source
 -------------------------------------------

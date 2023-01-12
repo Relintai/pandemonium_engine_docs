@@ -1,4 +1,4 @@
-.. _doc_compiling_for_android:
+
 
 Compiling for Android
 =====================
@@ -45,7 +45,7 @@ For compiling under Windows, Linux or macOS, the following is required:
              For a general overview of SCons usage for Godot, see
              `doc_introduction_to_the_buildsystem`.
 
-.. _doc_android_setting_up_the_buildsystem:
+
 
 Setting up the buildsystem
 --------------------------

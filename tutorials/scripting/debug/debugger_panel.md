@@ -1,4 +1,4 @@
-.. _doc_debugger_panel:
+
 
 Debugger panel
 ==============

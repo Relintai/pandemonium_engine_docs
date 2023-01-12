@@ -1,4 +1,4 @@
-.. _doc_gdscript_more_efficiently:
+
 
 GDScript: An introduction to dynamic languages
 ==============================================

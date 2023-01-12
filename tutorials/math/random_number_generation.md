@@ -1,4 +1,4 @@
-.. _doc_random_number_generation:
+
 
 Random number generation
 ========================
@@ -234,7 +234,7 @@ gdscript GDScript
         return random_metal
 ```
 
-.. _doc_random_number_generation_weighted_random_probability:
+
 
 Weighted random probability
 ---------------------------
@@ -267,7 +267,7 @@ gdscript GDScript
             return "Rare"
 ```
 
-.. _doc_random_number_generation_shuffle_bags:
+
 
 "Better" randomness using shuffle bags
 --------------------------------------

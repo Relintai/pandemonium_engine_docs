@@ -1,4 +1,4 @@
-.. _doc_beziers_and_curves:
+
 
 Beziers, curves and paths
 =========================

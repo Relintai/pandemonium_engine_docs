@@ -1,4 +1,4 @@
-.. _doc_docs_writing_guidelines:
+
 
 Docs writing guidelines
 =======================

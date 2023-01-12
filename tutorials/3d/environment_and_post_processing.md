@@ -1,4 +1,4 @@
-.. _doc_environment_and_post_processing:
+
 
 Environment and post-processing
 ===============================

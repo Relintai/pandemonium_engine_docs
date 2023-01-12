@@ -1,4 +1,4 @@
-.. _doc_running_code_in_the_editor:
+
 
 Running code in the editor
 ==========================

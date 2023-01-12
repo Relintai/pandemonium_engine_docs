@@ -1,4 +1,4 @@
-.. _doc_importing_3d_scenes:
+
 
 Importing 3D scenes
 ===================
@@ -408,7 +408,7 @@ In inherited scenes, the only limitations for modifications are:
 
 Other than that, everything is allowed!
 
-.. _doc_importing_scenes_import_hints:
+
 
 Import hints
 ------------

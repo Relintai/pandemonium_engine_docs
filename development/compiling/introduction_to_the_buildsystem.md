@@ -1,4 +1,4 @@
-.. _doc_introduction_to_the_buildsystem:
+
 
 Introduction to the buildsystem
 ===============================
@@ -123,7 +123,7 @@ you can build them yourself).
 Aside from that, there are a few standard options that can be set in all
 build targets, and which will be explained below.
 
-.. _doc_introduction_to_the_buildsystem_tools:
+
 
 Tools
 -----
@@ -137,7 +137,7 @@ manager.
 
     scons platform=<platform> tools=yes/no
 
-.. _doc_introduction_to_the_buildsystem_target:
+
 
 Target
 ------
@@ -181,7 +181,7 @@ This flag appends `.32` or `.64` suffixes to resulting binaries when
 relevant. If `bits=default` is used, the suffix will match the detected
 architecture.
 
-.. _doc_buildsystem_custom_modules:
+
 
 Custom modules
 --------------
@@ -233,7 +233,7 @@ features to include/disable.
 Check the output of `scons --help` for details about each option for
 the version you are willing to compile.
 
-.. _doc_overriding_build_options:
+
 
 Overriding the build options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

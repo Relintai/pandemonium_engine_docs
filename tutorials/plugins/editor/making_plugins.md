@@ -1,4 +1,4 @@
-.. _doc_making_plugins:
+
 
 Making plugins
 ==============
@@ -96,7 +96,7 @@ A good practice is to use the virtual function
 the dialog generates these callbacks for you. Your script should look something
 like this:
 
-.. _doc_making_plugins_template_code:
+
 
 gdscript GDScript
 
@@ -312,7 +312,7 @@ You can make your own plugins to help yourself and share them in the
 `Asset Library ( https://godotengine.org/asset-library/ )`_ so that people
 can benefit from your work.
 
-.. _doc_making_plugins_autoload:
+
 
 Registering autoloads/singletons in plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

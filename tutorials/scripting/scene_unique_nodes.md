@@ -1,4 +1,4 @@
-.. _doc_scene_unique_nodes:
+
 
 Scene Unique Nodes
 ==================

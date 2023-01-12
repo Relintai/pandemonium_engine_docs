@@ -1,4 +1,4 @@
-.. _doc_gdscript_warning_system:
+
 
 GDScript warning system
 =======================

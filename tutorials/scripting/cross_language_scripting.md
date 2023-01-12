@@ -1,4 +1,4 @@
-.. _doc_cross_language_scripting:
+
 
 Cross-language scripting
 ========================

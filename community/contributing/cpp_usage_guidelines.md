@@ -1,4 +1,4 @@
-.. _doc_cpp_usage_guidelines:
+
 
 C++ usage guidelines
 ====================

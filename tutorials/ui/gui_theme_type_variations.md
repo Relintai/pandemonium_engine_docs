@@ -1,4 +1,4 @@
-.. _doc_gui_theme_type_variations:
+
 
 Theme type variations
 =====================

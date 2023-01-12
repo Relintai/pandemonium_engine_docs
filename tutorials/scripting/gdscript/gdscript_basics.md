@@ -1,4 +1,4 @@
-.. _doc_gdscript:
+
 
 GDScript basics
 ===============
@@ -326,7 +326,7 @@ considered a comment.
 
     # This is a comment.
 
-.. _doc_gdscript_builtin_types:
+
 
 Built-in types
 --------------
@@ -1078,7 +1078,7 @@ path. For example, if you name a script file `character.gd`::
    var Character = load("res://path/to/character.gd")
    var character_node = Character.new()
 
-.. _doc_gdscript_basics_class_name:
+
 
 Registering named classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1265,7 +1265,7 @@ function.
         var c = SomeInnerClass.new()
         c.print_value_of_a()
 
-.. _doc_gdscript_classes_as_resources:
+
 
 Classes as resources
 ^^^^^^^^^^^^^^^^^^^^
@@ -1346,7 +1346,7 @@ illustration of this:
         self.my_integer = 5
         print(self.my_integer)
 
-.. _doc_gdscript_tool_mode:
+
 
 Tool mode
 ~~~~~~~~~
@@ -1372,7 +1372,7 @@ See `doc_running_code_in_the_editor` for more information.
              scripts run their code in the editor, misusing them may lead to
              crashing the editor.
 
-.. _doc_gdscript_basics_memory_management:
+
 
 Memory management
 ~~~~~~~~~~~~~~~~~
@@ -1403,7 +1403,7 @@ Alternatively, when not using references, the
 `is_instance_valid(instance)` can be used to check if an object has been
 freed.
 
-.. _doc_gdscript_signals:
+
 
 Signals
 ~~~~~~~
@@ -1706,7 +1706,7 @@ regardless of whether coroutines were used internally. Note that using
 `while` would be redundant here as the `completed` signal is only emitted
 when the function didn't yield anymore.
 
-.. _doc_gdscript_onready_keyword:
+
 
 `onready` keyword
 ~~~~~~~~~~~~~~~~~

@@ -1,4 +1,4 @@
-.. _doc_godot_design_philosophy:
+
 
 Godot's design philosophy
 =========================

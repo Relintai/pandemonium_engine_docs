@@ -1,4 +1,4 @@
-.. _doc_code_style_guidelines:
+
 
 Code style guidelines
 =====================
@@ -126,7 +126,7 @@ Here is a non-exhaustive list of beautifier plugins for some IDEs:
 
 (Pull requests welcome to extend this list with tested plugins.)
 
-.. _doc_code_style_guidelines_header_includes:
+
 
 Header includes
 ~~~~~~~~~~~~~~~

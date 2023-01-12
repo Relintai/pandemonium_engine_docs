@@ -1,4 +1,4 @@
-.. _doc_object_class:
+
 
 Object class
 ============
@@ -174,7 +174,7 @@ set/get functions exist. Example:
 
 This creates the property using the setter and the getter.
 
-.. _doc_binding_properties_using_set_get_property_list:
+
 
 Binding properties using `_set`/`_get`/`_get_property_list`
 -----------------------------------------------------------------

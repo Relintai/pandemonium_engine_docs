@@ -1,7 +1,7 @@
 .. meta::
     :keywords: cheatsheet, cheat sheet, shortcut
 
-.. _doc_default_key_mapping:
+
 
 Default editor shortcuts
 ========================

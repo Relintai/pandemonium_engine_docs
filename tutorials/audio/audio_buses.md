@@ -1,4 +1,4 @@
-.. _doc_audio_buses:
+
 
 Audio buses
 ===========
@@ -200,7 +200,7 @@ HighShelfFilter
 
 Reduces all frequencies above a specific *Cutoff* frequency.
 
-.. _doc_audio_buses_limiter:
+
 
 Limiter
 ~~~~~~~

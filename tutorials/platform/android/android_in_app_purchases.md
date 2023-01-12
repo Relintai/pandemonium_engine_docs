@@ -1,4 +1,4 @@
-.. _doc_android_in_app_purchases:
+
 
 Android in-app purchases
 ========================

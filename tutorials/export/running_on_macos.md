@@ -1,4 +1,4 @@
-.. _doc_running_on_macos:
+
 
 Running Godot apps on macOS
 ===========================

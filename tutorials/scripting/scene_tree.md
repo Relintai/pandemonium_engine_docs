@@ -1,4 +1,4 @@
-.. _doc_scene_tree:
+
 
 Using SceneTree
 ===============

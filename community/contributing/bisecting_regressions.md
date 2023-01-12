@@ -1,4 +1,4 @@
-.. _doc_bisecting_regressions:
+
 
 Bisecting regressions
 =====================

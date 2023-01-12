@@ -1,4 +1,4 @@
-.. _doc_gui_skinning:
+
 
 Introduction to GUI skinning
 ============================
@@ -164,7 +164,7 @@ stores its customizable margins in its theme items.
 Whenever a control has a local theme item override, this is the value that
 it uses. Values provided by the theme are ignored.
 
-.. _doc_gui_theme_in_project:
+
 
 Customizing a project
 ---------------------

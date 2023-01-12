@@ -1,4 +1,4 @@
-.. _doc_vectors_advanced:
+
 
 Advanced vector math
 ====================

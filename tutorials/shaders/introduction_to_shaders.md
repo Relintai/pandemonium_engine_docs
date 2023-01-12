@@ -1,4 +1,4 @@
-.. _doc_introduction_to_shaders:
+
 
 Introduction to shaders
 =======================

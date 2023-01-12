@@ -1,4 +1,4 @@
-.. _doc_cutout_animation:
+
 
 Cutout animation
 ================

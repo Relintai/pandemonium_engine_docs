@@ -1,4 +1,4 @@
-.. _doc_plugins_for_ios:
+
 
 Plugins for iOS
 ===============

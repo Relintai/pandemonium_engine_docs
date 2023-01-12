@@ -1,4 +1,4 @@
-.. _doc_matrices_and_transforms:
+
 
 Matrices and transforms
 =======================

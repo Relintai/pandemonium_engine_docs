@@ -1,4 +1,4 @@
-.. _doc_variant_class:
+
 
 Variant class
 =============

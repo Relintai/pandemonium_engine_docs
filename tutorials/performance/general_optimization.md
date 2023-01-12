@@ -1,4 +1,4 @@
-.. _doc_general_optimization:
+
 
 General optimization tips
 =========================

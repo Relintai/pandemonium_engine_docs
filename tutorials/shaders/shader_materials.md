@@ -1,4 +1,4 @@
-.. _doc_shader_materials:
+
 
 Shader materials
 ================

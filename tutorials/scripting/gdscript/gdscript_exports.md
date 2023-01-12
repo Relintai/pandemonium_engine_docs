@@ -1,4 +1,4 @@
-.. _doc_gdscript_exports:
+
 
 GDScript exports
 ================

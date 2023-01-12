@@ -1,4 +1,4 @@
-.. _doc_high_level_multiplayer:
+
 
 High-level multiplayer
 ======================
@@ -351,7 +351,7 @@ When the server gets the OK from all the peers, it can tell them to start, as fo
             get_tree().set_pause(false)
             # Game starts now!
 
-.. _doc_high_level_multiplayer_synchronizing:
+
 
 Synchronizing the game
 ----------------------

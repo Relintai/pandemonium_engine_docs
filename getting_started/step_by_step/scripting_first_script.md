@@ -13,7 +13,7 @@
     - _init() and _process().
     - Moving an object on screen.
 
-.. _doc_scripting_first_script:
+
 
 Creating your first script
 ==========================

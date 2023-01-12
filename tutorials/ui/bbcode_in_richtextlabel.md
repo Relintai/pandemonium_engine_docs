@@ -1,4 +1,4 @@
-.. _doc_bbcode_in_richtextlabel:
+
 
 BBCode in RichTextLabel
 =======================
@@ -124,7 +124,7 @@ For transparent RGB colors, any 8-digit hexadecimal code can be used, e.g. `[col
 In this case, note that the alpha channel is the **first** component of the color code, not the last one.
 Short RGBA color codes such as `#86f2` (equivalent to `#8866ff22`) are also supported.
 
-.. _doc_bbcode_in_richtextlabel_handling_url_tag_clicks:
+
 
 Handling `[url]` tag clicks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

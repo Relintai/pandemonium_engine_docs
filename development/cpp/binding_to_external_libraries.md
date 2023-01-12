@@ -1,4 +1,4 @@
-.. _doc_binding_to_external_libraries:
+
 
 Binding to external libraries
 =============================

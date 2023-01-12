@@ -1,4 +1,4 @@
-.. _doc_visual_shader_plugins:
+
 
 Visual Shader plugins
 =====================

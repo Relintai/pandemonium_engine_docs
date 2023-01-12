@@ -1,4 +1,4 @@
-.. _doc_building_the_manual:
+
 
 Building the manual with Sphinx
 ===============================

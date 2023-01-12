@@ -1,4 +1,4 @@
-.. _doc_your_first_canvasitem_shader:
+
 
 Your first 2D shader
 ====================

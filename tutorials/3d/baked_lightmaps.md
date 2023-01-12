@@ -1,4 +1,4 @@
-.. _doc_baked_lightmaps:
+
 
 Baked lightmaps
 ===============

@@ -1,4 +1,4 @@
-.. _doc_multiple_resolutions:
+
 
 Multiple resolutions
 ====================
@@ -385,7 +385,7 @@ other platforms.
     from the editor will only be DPI-aware if **Allow Hidpi** is enabled in the
     Project Settings.
 
-.. _doc_multiple_resolutions_reducing_aliasing_on_downsampling:
+
 
 Reducing aliasing on downsampling
 ---------------------------------

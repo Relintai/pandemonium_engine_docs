@@ -1,4 +1,4 @@
-.. _doc_spatial_shader:
+
 
 Spatial shaders
 ===============

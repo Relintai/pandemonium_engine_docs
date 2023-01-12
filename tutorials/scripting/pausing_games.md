@@ -1,4 +1,4 @@
-.. _doc_pausing_games:
+
 
 Pausing games and process mode
 ==============================

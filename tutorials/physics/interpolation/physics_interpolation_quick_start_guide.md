@@ -1,4 +1,4 @@
-.. _doc_physics_interpolation_quick_start_guide:
+
 
 Quick start guide
 =================

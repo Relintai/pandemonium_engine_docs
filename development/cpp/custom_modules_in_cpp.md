@@ -1,4 +1,4 @@
-.. _doc_custom_modules_in_c++:
+
 
 Custom modules in C++
 =====================
@@ -516,7 +516,7 @@ you might encounter an error similar to the following:
        At: editor/doc/doc_data.cpp:956
 
 
-.. _doc_custom_module_icons:
+
 
 Adding custom editor icons
 --------------------------

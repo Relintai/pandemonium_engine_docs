@@ -1,4 +1,4 @@
-.. _doc_3d_text:
+
 
 3D text
 =======

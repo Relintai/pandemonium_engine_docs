@@ -1,4 +1,4 @@
-.. _doc_exporting_pcks:
+
 
 Exporting packs, patches, and mods
 ==================================

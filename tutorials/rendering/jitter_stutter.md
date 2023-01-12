@@ -1,4 +1,4 @@
-.. _doc_jitter_stutter:
+
 
 Fixing jitter and stutter
 =========================

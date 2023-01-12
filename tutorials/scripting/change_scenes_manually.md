@@ -1,4 +1,4 @@
-.. _doc_change_scenes_manually:
+
 
 Change scenes manually
 ======================

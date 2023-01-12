@@ -29,7 +29,8 @@ This page gives an overview of the general translation workflow on Weblate, and
 some resource-specific instructions on e.g. how to handle some keywords or the
 localization of images.
 
-.. tip::
+Tip:
+
 
     Translating all the official Godot content is a massive undertaking, so we
     advise prioritizing the resources as they are listed above: first the editor

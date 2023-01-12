@@ -217,7 +217,8 @@ to the region outside the blue frame you see in the 2D editor.
 
    ![](img/stretch_viewport_expand.gif)
 
-.. tip::
+Tip:
+
 
     To support both portrait and landscape mode with a similar automatically
     determined scale factor, set your project's base resolution to be a *square*

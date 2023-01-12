@@ -128,7 +128,8 @@ method you return an array of strings to represent each extension that this
 plugin can understand. If an extension is recognized by more than one plugin,
 the user can select which one to use when importing the files.
 
-.. tip:: Common extensions like `.json` and `.txt` might be used by many
+Tip:
+ Common extensions like `.json` and `.txt` might be used by many
          plugins. Also, there could be files in the project that are just data
          for the game and should not be imported. You have to be careful when
          importing to validate the data. Never expect the file to be well-formed.

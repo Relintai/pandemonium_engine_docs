@@ -244,7 +244,8 @@ have made any other changes that have resulted in undesired history, the best op
 is to use an *interactive rebase* on the upstream branch. See the `dedicated
 section ( doc_pr_workflow_rebase )` for instructions.
 
-.. tip:: If at any time you want to *reset* a local branch to a given commit or branch,
+Tip:
+ If at any time you want to *reset* a local branch to a given commit or branch,
          you can do so with `git reset --hard ( commit ID )` or
          `git reset --hard ( remote>/( branch )` (e.g. `git reset --hard upstream/master`).
 

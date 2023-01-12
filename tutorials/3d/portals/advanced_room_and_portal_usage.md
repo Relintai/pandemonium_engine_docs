@@ -62,7 +62,8 @@ This is an example of a simple RoomGroup script to turn on and off a Directional
 
 ![](img/roomgroup_notification.png)
 
-.. tip:: You can apply the same technique for switching on and off weather effects, skyboxes and much more.
+Tip:
+ You can apply the same technique for switching on and off weather effects, skyboxes and much more.
 
 
 

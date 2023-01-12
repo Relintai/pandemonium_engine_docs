@@ -358,7 +358,8 @@ The Light Data resource can be edited to adjust two additional properties:
   and will use light probes for ambient lighting exclusively. If disabled, both
   environment lighting and light probes are used to light up dynamic objects.
 
-.. tip::
+Tip:
+
 
     The generated EXR file can be viewed and even edited using an image editor
     to perform post-processing if needed. However, keep in mind that changes to

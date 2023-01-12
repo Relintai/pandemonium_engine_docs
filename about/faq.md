@@ -1,7 +1,3 @@
-.. meta::
-    :keywords: FAQ
-
-
 
 Frequently asked questions
 ==========================

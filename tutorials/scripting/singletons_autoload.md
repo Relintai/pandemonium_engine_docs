@@ -41,7 +41,8 @@ Note:
     Godot won't make an AutoLoad a "true" singleton as per the singleton design
     pattern. It may still be instanced more than once by the user if desired.
 
-.. tip::
+Tip:
+
 
     If you're creating an autoload as part of an editor plugin, consider
     `registering it automatically in the Project Settings ( doc_making_plugins_autoload )`

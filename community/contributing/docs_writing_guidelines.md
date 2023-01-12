@@ -126,7 +126,8 @@ would not make much sense where "replacing" currently is.
 You may use the progressive tense to describe actions that are
 continuous in time. Anything like animation or coroutines.
 
-.. tip::
+Tip:
+
 
     Verbs can turn into adjectival nouns with -ing. This is not a
     conjugation, so you may use them: `the remaining movement`,

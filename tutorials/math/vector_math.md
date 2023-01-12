@@ -147,7 +147,8 @@ the velocity to the current position.
 
 ![](img/vector_movement1.png)
 
-.. tip:: Velocity measures the **change** in position per unit of time. The
+Tip:
+ Velocity measures the **change** in position per unit of time. The
          new position is found by adding velocity to the previous position.
 
 Pointing toward a target
@@ -159,7 +160,8 @@ vector pointing from the tank to the robot.
 
 ![](img/vector_subtract2.png)
 
-.. tip:: To find a vector pointing from `A` to `B` use `B - A`.
+Tip:
+ To find a vector pointing from `A` to `B` use `B - A`.
 
 Unit vectors
 ~~~~~~~~~~~~

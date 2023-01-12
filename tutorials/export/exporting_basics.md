@@ -218,7 +218,8 @@ Note:
 Android
 ~~~~~~~
 
-.. tip::
+Tip:
+
 
     Mobile devices come with a wide variety of capabilities. In most cases,
     Godot's default settings will work, but mobile development is sometimes more

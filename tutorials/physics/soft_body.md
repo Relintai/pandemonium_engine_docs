@@ -26,7 +26,8 @@ Note:
 
 Play the scene to view the simulation.
 
-.. tip:: To improve the simulation's result, increase the `Simulation Precision`, this will give significant improvement at the cost of performance.
+Tip:
+ To improve the simulation's result, increase the `Simulation Precision`, this will give significant improvement at the cost of performance.
 
 Cloak simulation
 ~~~~~~~~~~~~~~~~
@@ -42,7 +43,8 @@ Open the `PlaneMesh` properties and set the size(x: 0.5 y: 1) then set `Subdivid
 
 ![](img/softbody_cloak_subdivide.png)
 
-.. tip:: Subdivision generates a more tessellated mesh for better simulations.
+Tip:
+ Subdivision generates a more tessellated mesh for better simulations.
 
 Add a `BoneAttachment` node under the skeleton node and select the Neck bone to attach the cloak to the character skeleton.
 

@@ -66,7 +66,8 @@ Finally, if gaps can't be solved, the **Contact** option can help (at a performa
 Any sort of bias issues can always be fixed by increasing the shadow map resolution,
 although that may lead to decreased performance.
 
-.. tip::
+Tip:
+
 
     If shadow biasing is a problem in your scene, the following settings are a good starting point:
 

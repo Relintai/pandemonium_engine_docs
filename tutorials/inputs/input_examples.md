@@ -91,7 +91,8 @@ It inherits from the following classes:
 - `InputEventMouse` - adds mouse event properties, such as `position`
 - `InputEventMouseButton` - contains the index of the button that was pressed, whether it was a double-click, etc.
 
-.. tip:: It's a good idea to keep the class reference open while you're working
+Tip:
+ It's a good idea to keep the class reference open while you're working
         with events so you can check the event type's available properties and
         methods.
 
@@ -151,7 +152,8 @@ gdscript GDScript
                 print("T was pressed")
 ```
 
-.. tip:: See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
+Tip:
+ See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
         constants.
 
 Warning:
@@ -189,7 +191,8 @@ gdscript GDScript
                     print("T was pressed")
 ```
 
-.. tip:: See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
+Tip:
+ See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
         constants.
 
 Mouse events
@@ -263,7 +266,8 @@ If you are using a touchscreen device, you can generate touch events.
 a mouse click event, and `InputEventScreenDrag`
 works much the same as mouse motion.
 
-.. tip:: To test your touch events on a non-touchscreen device, open Project
+Tip:
+ To test your touch events on a non-touchscreen device, open Project
         Settings and go to the "Input Devices/Pointing" section. Enable "Emulate
         Touch From Mouse" and your project will interpret mouse clicks and
         motion as touch events.

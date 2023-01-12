@@ -265,7 +265,8 @@ If `sync` is included, the call can also be made locally. For example, to allow 
     puppetsync func update_position(new_position):
         position = new_position
 
-.. tip:: You can also use `SceneTree.get_rpc_sender_id()` to have more advanced rules on how an rpc can be called.
+Tip:
+ You can also use `SceneTree.get_rpc_sender_id()` to have more advanced rules on how an rpc can be called.
 
 These keywords are further explained in `Synchronizing the game ( doc_high_level_multiplayer_synchronizing )`.
 

@@ -227,7 +227,8 @@ our sprite's rotation every frame. Here, `rotation` is a property inherited
 from the class `Node2D`, which `Sprite` extends. It controls the rotation of
 our node and works with radians.
 
-.. tip:: In the code editor, you can ctrl-click on any built-in property or
+Tip:
+ In the code editor, you can ctrl-click on any built-in property or
          function like `position`, `rotation`, or `process` to open the
          corresponding documentation in a new tab.
 

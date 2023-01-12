@@ -101,7 +101,8 @@ of limitations you should be aware of when porting a Godot game to the web.
                page is served via a secure HTTPS connection (localhost is
                usually exempt from such requirement).
 
-.. tip:: Check the `list of open HTML5 issues on GitHub
+Tip:
+ Check the `list of open HTML5 issues on GitHub
          ( https://github.com/godotengine/godot/issues?q=is:open+is:issue+label:platform:html5 )`
          to see if the functionality you're interested in has an issue yet. If
          not, open one to communicate your interest.
@@ -323,7 +324,8 @@ platforms other than HTML5, calling `JavaScript.eval` will also return
         else:
             print("The JavaScript singleton is NOT available")
 
-.. tip:: GDScript's multi-line strings, surrounded by 3 quotes `"""` as in
+Tip:
+ GDScript's multi-line strings, surrounded by 3 quotes `"""` as in
          `my_func3()` above, are useful to keep JavaScript code readable.
 
 The `eval` method also accepts a second, optional Boolean argument, which

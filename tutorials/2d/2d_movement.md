@@ -72,7 +72,8 @@ due to the two directions being added together.
 We can prevent that if we *normalize* the velocity, which means we set
 its *length* to `1`, and multiply by the desired speed.
 
-.. tip:: If you've never used vector math before, or need a refresher,
+Tip:
+ If you've never used vector math before, or need a refresher,
          you can see an explanation of vector usage in Godot at `doc_vector_math`.
 
 Note:
@@ -209,7 +210,8 @@ repeat.
 Uncommenting the `look_at()` line will also turn the body to point in its
 direction of motion if you prefer.
 
-.. tip:: This technique can also be used as the basis of a "following" character.
+Tip:
+ This technique can also be used as the basis of a "following" character.
          The `target` position can be that of any object you want to move to.
 
 Summary

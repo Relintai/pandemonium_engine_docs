@@ -34,7 +34,8 @@ term adapted to the complexity of a game engine:
   feature, or modifying the interface of a given class, even if the rest of
   the engine API remains backwards compatible.
 
-.. tip::
+Tip:
+
 
     Upgrading to a new minor version is therefore recommended for all users,
     but some testing is necessary to ensure that your project still behaves as
@@ -48,7 +49,8 @@ term adapted to the complexity of a game engine:
   Patch versions may include minor new features which do not impact the
   existing API, and thus have no risk of impacting existing projects.
 
-.. tip::
+Tip:
+
 
     Updating to new patch versions is therefore considered safe and strongly
     recommended to all users of a given stable branch.

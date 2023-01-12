@@ -464,7 +464,8 @@ know which registered classes belong to the module. You need to list all of your
 classes here. The classes that you don't list will end up in the
 main `doc/classes` directory.
 
-.. tip::
+Tip:
+
 
     You can use Git to check if you have missed some of your classes by checking the
     untracked files with `git status`. For example::

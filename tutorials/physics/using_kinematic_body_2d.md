@@ -26,7 +26,8 @@ engine physics properties, like gravity or friction. While this means that you
 have to write some code to create their behavior, it also means you have more
 precise control over how they move and react.
 
-.. tip:: A `KinematicBody2D` can be affected by gravity and other forces,
+Tip:
+ A `KinematicBody2D` can be affected by gravity and other forces,
         but you must calculate the movement in code. The physics engine will
         not move a `KinematicBody2D`.
 
@@ -65,7 +66,8 @@ The `move_and_slide()` method is intended to simplify the collision
 response in the common case where you want one body to slide along the other.
 It is especially useful in platformers or top-down games, for example.
 
-.. tip:: `move_and_slide()` automatically calculates frame-based movement
+Tip:
+ `move_and_slide()` automatically calculates frame-based movement
          using `delta`. Do *not* multiply your velocity vector by `delta`
          before passing it to `move_and_slide()`.
 

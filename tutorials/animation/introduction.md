@@ -92,7 +92,8 @@ to the node and the affected property.
 
    Example of Normal animation tracks
 
-.. tip::
+Tip:
+
 
    If you animate the wrong property, you can edit a track's path anytime.
    Double click on it and type the new path. Play the animation using the

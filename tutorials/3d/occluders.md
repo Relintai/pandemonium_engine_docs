@@ -16,7 +16,8 @@ The reason that Occluder nodes are so cheap in performance terms is that the eng
 
 The Occluder node itself is a holder for an OccluderShape resource, which determines the functionality. To get started, add an Occluder node to your scene tree.
 
-.. tip:: You will see a yellow warning triangle that lets you know that you must set an OccluderShape from the inspector before the `Occluder` becomes functional.
+Tip:
+ You will see a yellow warning triangle that lets you know that you must set an OccluderShape from the inspector before the `Occluder` becomes functional.
 
 OccluderShapeSphere
 -------------------
@@ -37,7 +38,8 @@ The sphere will appear as a small pink spherical object in the editor window. Th
 
 Although you can change the position of the sphere using the Occluder Node transform in the inspector, this moves *the entire array* of spheres. When you want to use multiple spheres in one occluder, the handles do this job. In order to allow positioning in 3D, the gizmo will only move the 3D position in the two principal axes depending on the viewpoint in the editor. This is easier for you to get the hang of by trying it out than by explanation.
 
-.. tip:: There is one more handy function in the editor when using multiple spheres. If you click the `Center Node` toolbar button it will recalculate the local positions of the spheres relative to the average of the entire node, and change the transform of the Occluder Node. This is a handy convenience function to make it easier to place them.
+Tip:
+ There is one more handy function in the editor when using multiple spheres. If you click the `Center Node` toolbar button it will recalculate the local positions of the spheres relative to the average of the entire node, and change the transform of the Occluder Node. This is a handy convenience function to make it easier to place them.
 
 At runtime the spheres can be switched on and off changing the Occluder node visibility, and the Node can be moved and scaled and rotated etc.
 
@@ -95,7 +97,8 @@ The main limitation of holes is that there can only be one per polygon. If you h
 -  Combine the area of the two holes into one bigger hole (if they are close together).
 -  Use two or more OccluderPolygons.
 
-.. tip:: Remember that if you are using more than one polygon, they can overlap, and you should use this to your advantage.
+Tip:
+ Remember that if you are using more than one polygon, they can overlap, and you should use this to your advantage.
 
 How many Occluder polys are needed?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

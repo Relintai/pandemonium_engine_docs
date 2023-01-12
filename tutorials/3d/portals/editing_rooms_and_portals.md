@@ -68,7 +68,8 @@ Manual bounds
 
 Manual bounds are a way of explicitly setting the convex hull for a room, and are used if they are present as children of a room in the scene tree. Aside from the postfix, the naming is unimportant. They should be meshes (i.e. MeshInstance in Godot). Bear in mind they will be converted to convex hulls during the conversion process, so they don't have to be perfect.
 
-.. tip:: Once used during conversion, they will be converted to the `IGNORE` **Portal Mode** and won't be shown. You can alternatively use **Generate Points** within the editor to convert these to a set of points stored in the room, and delete the original `-bound` MeshInstance.
+Tip:
+ Once used during conversion, they will be converted to the `IGNORE` **Portal Mode** and won't be shown. You can alternatively use **Generate Points** within the editor to convert these to a set of points stored in the room, and delete the original `-bound` MeshInstance.
 
 Portal point editing
 ~~~~~~~~~~~~~~~~~~~~

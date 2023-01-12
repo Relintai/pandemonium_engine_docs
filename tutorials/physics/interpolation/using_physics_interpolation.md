@@ -13,7 +13,8 @@ The first step is to turn on physics interpolation in `ProjectSettings.physics/c
 
 It is likely that nothing looks hugely different, particularly if you are running physics at 60 TPS or a multiple of it. However, quite a bit more is happening behind the scenes.
 
-.. tip::
+Tip:
+
 
 	To convert an existing game to use interpolation, it is highly recommended that you temporarily set `ProjectSettings.physics/common/physics_fps( ProjectSettings_property_physics/common/physics_fps )` to a low value such as 10, which will make interpolation problems more obvious.
 
@@ -27,7 +28,8 @@ Setting the transform of objects only within physics ticks allows the automatic 
 Note:
  If you attempt to set the transform of interpolated objects *outside* the physics tick, the calculations for the interpolated position will be incorrect, and you will get jitter. This jitter may not be visible on your machine, but it *will* occur for some players. For this reason, setting the transform of interpolated objects should be avoided outside of the physics tick. Godot will attempt to produce warnings in the editor if this case is detected.
 
-.. tip:: This is only a *soft-rule*. There are some occasions where you might want to teleport objects outside of the physics tick (for instance when starting a level, or respawning objects). Still, in general, you should be applying transforms from the physics tick.
+Tip:
+ This is only a *soft-rule*. There are some occasions where you might want to teleport objects outside of the physics tick (for instance when starting a level, or respawning objects). Still, in general, you should be applying transforms from the physics tick.
 
 
 Ensure that all indirect movement happens during physics ticks

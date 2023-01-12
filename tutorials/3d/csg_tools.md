@@ -118,7 +118,8 @@ Prototyping a level
 
 We will prototype a room to practice the use of CSG tools.
 
-.. tip:: Working in **Orthogonal** projection gives a better view when combining
+Tip:
+ Working in **Orthogonal** projection gives a better view when combining
          the CSG shapes.
 
 Our level will contain these objects:
@@ -131,7 +132,8 @@ Our level will contain these objects:
 
 Create a scene with a Spatial node as root node.
 
-.. tip:: The default lighting of the environment doesn't provide clear shading
+Tip:
+ The default lighting of the environment doesn't provide clear shading
          at some angles. Change the display mode using **Display Overdraw** in
          the 3D viewport menu, or add a DirectionalLight node to help you see
          clearly.
@@ -284,7 +286,8 @@ into the **Texture** property. Now, unfold the **Uv1** section and check
 playing with the **Scale** and **Offset** properties just above. Higher values
 in the **Scale** property will cause the texture to repeat more often.
 
-.. tip:: You can copy a SpatialMaterial to reuse it across CSG nodes. To do so,
+Tip:
+ You can copy a SpatialMaterial to reuse it across CSG nodes. To do so,
          click the dropdown arrow next to a material property in the Inspector
          and choose **Copy**. To paste it, select the node you'd like to apply
          the material onto, click the dropdown arrow next to its material

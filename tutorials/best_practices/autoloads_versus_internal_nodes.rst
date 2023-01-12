@@ -67,7 +67,7 @@ Another reason to use an Autoload can be that you want to reuse the same method
 or data across many scenes.
 
 In the case of functions, you can create a new type of ``Node`` that provides
-that feature for an individual scene using the `class_name
+that feature for an individual scene using the `name
 <doc_gdscript_basics_class_name>` keyword in GDScript.
 
 When it comes to data, you can either:
@@ -95,7 +95,7 @@ Auto-loaded nodes can simplify your code in some cases:
 
 Until Godot 3.1, another use was just for convenience: autoloads have a global
 variable for their name generated in GDScript, allowing you to call them from
-any script file in your project. But now, you can use the ``class_name`` keyword
+any script file in your project. But now, you can use the ``name`` keyword
 instead to get auto-completion for a type in your entire project.
 
 .. note::

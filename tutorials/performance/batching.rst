@@ -93,7 +93,7 @@ In Godot, this back-to-front order is determined by:
 - The order of objects in the scene tree.
 - The Z index of objects.
 - The canvas layer.
-- `class_YSort` nodes.
+- `YSort` nodes.
 
 .. note::
 

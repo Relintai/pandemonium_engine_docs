@@ -21,7 +21,7 @@ Global scope versus RandomNumberGenerator class
 -----------------------------------------------
 
 Godot exposes two ways to generate random numbers: via *global scope* methods or
-using the `class_RandomNumberGenerator` class.
+using the `RandomNumberGenerator` class.
 
 Global scope methods are easier to set up, but they don't offer as much control.
 
@@ -321,7 +321,7 @@ time, or anything else.
 
 To achieve this, you can use random *noise* functions. Noise functions are
 especially popular in procedural generation to generate realistic-looking
-terrain. Godot provides `class_opensimplexnoise` for this, which supports
+terrain. Godot provides `opensimplexnoise` for this, which supports
 1D, 2D, 3D, and 4D noise. Here's an example with 1D noise:
 
 gdscript GDScript

@@ -75,7 +75,7 @@ be instantiated with `GDScript.New()`.
     GDScript MyGDScript = (GDScript) GD.Load("res://path_to_gd_file.gd");
     Object myGDScriptNode = (Godot.Object) MyGDScript.New(); // This is a Godot.Object
 
-Here we are using an `class_Object`, but you can use type conversion like
+Here we are using an `Object`, but you can use type conversion like
 explained in `doc_c_sharp_features_type_conversion_and_casting`.
 
 Accessing fields
@@ -118,7 +118,7 @@ and `Object.Set()`. The first argument is the name of the field you want to acce
 
 Keep in mind that when setting a field value you should only use types the
 GDScript side knows about.
-Essentially, you want to work with built-in types as described in `doc_gdscript` or classes extending `class_Object`.
+Essentially, you want to work with built-in types as described in `doc_gdscript` or classes extending `Object`.
 
 Calling methods
 ---------------

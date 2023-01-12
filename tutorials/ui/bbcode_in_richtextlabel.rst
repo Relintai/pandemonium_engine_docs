@@ -10,9 +10,9 @@ Label nodes are great for displaying basic text, but they have limits. If you wa
 to change the color of the text, or its alignment, that change affects all of the
 text in the Label node. You can't have only one part of the text be one color, or
 only one part of the text be centered. To get around this limitation you would use
-a `class_RichTextLabel`.
+a `RichTextLabel`.
 
-`class_RichTextLabel` allows the display of complex text markup in a Control.
+`RichTextLabel` allows the display of complex text markup in a Control.
 It has a built-in API for generating the markup, but can also parse a BBCode.
 
 Note that the BBCode tags can also be used, to some extent, in the
@@ -216,8 +216,8 @@ of the rainbow, ``val`` is the value of the rainbow.
 Custom BBCode tags and text effects
 -----------------------------------
 
-You can extend the `class_RichTextEffect` resource type to create your own custom
-BBCode tags. You begin by extending the `class_RichTextEffect` resource type. Add
+You can extend the `RichTextEffect` resource type to create your own custom
+BBCode tags. You begin by extending the `RichTextEffect` resource type. Add
 the ``tool`` prefix to your GDScript file if you wish to have these custom effects run
 within the editor itself. The RichTextLabel does not need to have a script attached,
 nor does it need to be running in ``tool`` mode. The new effect will be activable in
@@ -238,7 +238,7 @@ use the name of the file to determine what the BBCode tag should be.
 ~~~~~~~~~~~~~~~~~~~~~~
 
 This is where the logic of each effect takes place and is called once per character
-during the draw phase of text rendering. This passes in a `class_CharFXTransform`
+during the draw phase of text rendering. This passes in a `CharFXTransform`
 object, which holds a few variables to control how the associated character is rendered:
 
 - ``identity`` specifies which custom effect is being processed. You should use that for
@@ -252,7 +252,7 @@ object, which holds a few variables to control how the associated character is r
 - ``offset`` is an offset position relative to where the given character should render under
   normal circumstances.
 - ``color`` is the color of a given character.
-- Finally, ``env`` is a `class_Dictionary` of parameters assigned to a given custom
+- Finally, ``env`` is a `Dictionary` of parameters assigned to a given custom
   effect. You can use `get()` with an optional default value
   to retrieve each parameter, if specified by the user. For example ``[custom_fx spread=0.5
   color=#FFFF00]test[/custom_fx]`` would have a float ``spread`` and Color ``color``

@@ -8,8 +8,8 @@ Introduction
 
 Godot has a simple serialization API based on Variant. It's used for
 converting data types to an array of bytes efficiently. This API is used
-in the functions ``get_var`` and ``store_var`` of `class_File`
-as well as the packet APIs for `class_PacketPeer`. This format
+in the functions ``get_var`` and ``store_var`` of `File`
+as well as the packet APIs for `PacketPeer`. This format
 is *not* used for binary scenes and resources.
 
 Packet specification

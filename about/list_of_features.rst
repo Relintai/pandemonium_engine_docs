@@ -578,11 +578,11 @@ The editor UI can easily be extended in many ways using add-ons.
 
    - Generate a theme based on the current editor theme settings.
 
-- Procedural vector-based theming using `class_StyleBoxFlat`.
+- Procedural vector-based theming using `StyleBoxFlat`.
 
    - Supports rounded/beveled corners, drop shadows, per-border widths and antialiasing.
 
-- Texture-based theming using `class_StyleBoxTexture`.
+- Texture-based theming using `StyleBoxTexture`.
 
 Godot's small distribution size can make it a suitable alternative to frameworks
 like Electron or Qt.
@@ -605,16 +605,16 @@ File formats
    - Text-based formats are human-readable and more friendly to version control.
    - Binary formats are faster to save/load for large scenes/resources.
 
-- Read and write text or binary files using `class_File`.
+- Read and write text or binary files using `File`.
 
    - Can optionally be compressed or encrypted.
 
-- Read and write `class_JSON` files.
-- Read and write INI-style configuration files using `class_ConfigFile`.
+- Read and write `JSON` files.
+- Read and write INI-style configuration files using `ConfigFile`.
 
    - Can (de)serialize any Godot datatype, including Vector2/3, Color, ...
 
-- Read XML files using `class_XMLParser`.
+- Read XML files using `XMLParser`.
 - Pack game data into a PCK file (custom format optimized for fast seeking),
   into a ZIP archive, or directly into the executable for single-file distribution.
 - `Export additional PCK files<doc_exporting_pcks>` that can be read

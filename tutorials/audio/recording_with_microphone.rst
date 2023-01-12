@@ -41,7 +41,7 @@ gdscript GDScript
         effect = AudioServer.get_bus_effect(idx, 0)
 ```
 
-The audio recording is handled by the `class_AudioEffectRecord` resource
+The audio recording is handled by the `AudioEffectRecord` resource
 which has three methods:
 `get_recording()`,
 `is_recording_active()`,

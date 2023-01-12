@@ -9,7 +9,7 @@ Introduction
 `Gridmaps` are a tool for creating 3D
 game levels, similar to the way `TileMap <doc_using_tilemaps>`
 works in 2D. You start with a predefined collection of 3D meshes (a
-`class_MeshLibrary`) that can be placed on a grid,
+`MeshLibrary`) that can be placed on a grid,
 as if you were building a level with an unlimited amount of Lego blocks.
 
 Collisions and navigation can also be added to the meshes, just like you
@@ -27,14 +27,14 @@ button.
 Creating a MeshLibrary
 ----------------------
 
-To begin, you need a `class_MeshLibrary`, which is a collection
+To begin, you need a `MeshLibrary`, which is a collection
 of individual meshes that can be used in the gridmap. Open the "MeshLibrary_Source.tscn"
 scene to see an example of how to set up the mesh library.
 
 .. image:: img/gridmap_meshlibrary1.png
 
-As you can see, this scene has a `class_Spatial` node as its root, and
-a number of `class_MeshInstance` node children.
+As you can see, this scene has a `Spatial` node as its root, and
+a number of `MeshInstance` node children.
 
 If you don't need any physics in your scene, then you're done. However, in most
 cases you'll want to assign collision bodies to the meshes.
@@ -42,8 +42,8 @@ cases you'll want to assign collision bodies to the meshes.
 Collisions
 ----------
 
-You can manually assign a `class_StaticBody` and
-`class_CollisionShape` to each mesh. Alternatively, you can use the "Mesh" menu
+You can manually assign a `StaticBody` and
+`CollisionShape` to each mesh. Alternatively, you can use the "Mesh" menu
 to automatically create the collision body based on the mesh data.
 
 .. image:: img/gridmap_create_body.png
@@ -65,11 +65,11 @@ library. Materials set on the node will be ignored.
 NavigationMeshes
 ----------------
 
-Like all mesh instances, MeshLibrary items can be assigned a `class_NavigationMesh`
+Like all mesh instances, MeshLibrary items can be assigned a `NavigationMesh`
 resource, which can be created manually, or baked as described below.
 
 To create the NavigationMesh from a MeshLibrary scene export, place a
-`class_NavigationMeshInstance` child node below the main MeshInstance for the GridMap
+`NavigationMeshInstance` child node below the main MeshInstance for the GridMap
 item. Add a valid NavigationMesh resource to the NavigationMeshInstance and some source
 geometry nodes below and bake the NavigationMesh.
 
@@ -133,4 +133,4 @@ the drawing plane higher or lower on its axis.
 Using GridMap in code
 ---------------------
 
-See `class_GridMap` for details on the node's methods and member variables.
+See `GridMap` for details on the node's methods and member variables.

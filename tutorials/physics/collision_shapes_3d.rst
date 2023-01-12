@@ -12,9 +12,9 @@ This guide explains:
 Godot provides many kinds of collision shapes, with different performance and
 accuracy tradeoffs.
 
-You can define the shape of a `class_PhysicsBody` by adding one or more
+You can define the shape of a `PhysicsBody` by adding one or more
 `CollisionShapes` as child nodes. Note that you must
-add a `class_Shape` *resource* to collision shape nodes in the Inspector
+add a `Shape` *resource* to collision shape nodes in the Inspector
 dock.
 
 .. note::
@@ -27,10 +27,10 @@ Primitive collision shapes
 
 Godot provides the following primitive collision shape types:
 
-- `class_BoxShape`
-- `class_SphereShape`
-- `class_CapsuleShape`
-- `class_CylinderShape`
+- `BoxShape`
+- `SphereShape`
+- `CapsuleShape`
+- `CylinderShape`
 
 You can represent the collision of most smaller objects using one or more
 primitive shapes. However, for more complex objects, such as a large ship or a

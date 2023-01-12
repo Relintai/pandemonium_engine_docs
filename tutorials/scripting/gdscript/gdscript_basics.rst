@@ -303,7 +303,7 @@ Literals
 +--------------------------+----------------------------------------+
 | ``"""Hello"""``          | Multiline string                       |
 +--------------------------+----------------------------------------+
-| ``@"Node/Label"``        | `class_NodePath` or StringName    |
+| ``@"Node/Label"``        | `NodePath` or StringName    |
 +--------------------------+----------------------------------------+
 | ``$NodePath``            | Shorthand for ``get_node("NodePath")`` |
 +--------------------------+----------------------------------------+
@@ -567,7 +567,7 @@ assign to it::
 .. note::
 
     The bracket syntax can be used to access properties of any
-    `class_Object`, not just Dictionaries. Keep in mind it will cause a
+    `Object`, not just Dictionaries. Keep in mind it will cause a
     script error when attempting to index a non-existing property. To avoid
     this, use the `Object.get()` and
     `Object.set()` methods instead.
@@ -616,7 +616,7 @@ Valid types are:
 - Engine classes (Node, Resource, Reference, etc.).
 - Constant names if they contain a script resource (``MyScript`` if you declared ``const MyScript = preload("res://my_script.gd")``).
 - Other classes in the same script, respecting scope (``InnerClass.NestedClass`` if you declared ``class NestedClass`` inside the ``class InnerClass`` in the same scope).
-- Script classes declared with the ``class_name`` keyword.
+- Script classes declared with the ``name`` keyword.
 
 Casting
 ^^^^^^^
@@ -1084,7 +1084,7 @@ Registering named classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can give your class a name to register it as a new type in Godot's
-editor. For that, you use the ``class_name`` keyword. You can optionally add
+editor. For that, you use the ``name`` keyword. You can optionally add
 a comma followed by a path to an image, to use it as an icon. Your
 class will then appear with its new icon in the editor::
 
@@ -1097,7 +1097,7 @@ class will then appear with its new icon in the editor::
 
 .. warning::
 
-    If the script is located in the ``res://addons/`` directory, ``class_name``
+    If the script is located in the ``res://addons/`` directory, ``name``
     will only cause the node to show up in the **Create New Node** dialog if
     the script is part of an *enabled* editor plugin. See `doc_making_plugins`
     for more information.
@@ -1377,12 +1377,12 @@ See `doc_running_code_in_the_editor` for more information.
 Memory management
 ~~~~~~~~~~~~~~~~~
 
-If a class inherits from `class_Reference`, then instances will be
+If a class inherits from `Reference`, then instances will be
 freed when no longer in use. No garbage collector exists, just
 reference counting. By default, all classes that don't define
 inheritance extend **Reference**. If this is not desired, then a class
-must inherit `class_Object` manually and must call ``instance.free()``. To
-avoid reference cycles that can't be freed, a `class_WeakRef` function is
+must inherit `Object` manually and must call ``instance.free()``. To
+avoid reference cycles that can't be freed, a `WeakRef` function is
 provided for creating weak references. Here is an example:
 
 ::
@@ -1429,7 +1429,7 @@ to. To create custom signals for a class, use the ``signal`` keyword.
    Game Programming Patterns ebook.
 
 You can connect these signals to methods the same way you connect built-in
-signals of nodes like `class_Button` or `class_RigidBody`.
+signals of nodes like `Button` or `RigidBody`.
 
 In the example below, we connect the ``health_depleted`` signal from a
 ``Character`` node to a ``Game`` node. When the ``Character`` node emits the

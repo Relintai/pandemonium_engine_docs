@@ -179,7 +179,7 @@ translating.
   string corresponding to the brief description of a given class to find the
   first string to translate and all other descriptions from that class should be
   in the subsequent strings on Weblate. For example, the descriptions for the
-  `class_Node2D` class would have the source string location
+  `Node2D` class would have the source string location
   ``doc/classes/Node2D.xml``.
 
 A handy tool to locate specific pages/classes is to use Weblate's advanced

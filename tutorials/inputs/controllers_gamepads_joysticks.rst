@@ -143,10 +143,10 @@ known as "echo" events). This is because the operating system never sends "echo"
 events for controller input in the first place.
 
 If you want controller buttons to send echo events, you will have to generate
-`class_InputEvent` objects by code and parse them using
+`InputEvent` objects by code and parse them using
 `Input.parse_input_event()`
 at regular intervals. This can be accomplished
-with the help of a `class_Timer` node.
+with the help of a `Timer` node.
 
 Troubleshooting
 ---------------

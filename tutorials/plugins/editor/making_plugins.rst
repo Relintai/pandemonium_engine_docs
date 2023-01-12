@@ -81,7 +81,7 @@ The script file
 Upon creation of the plugin, the dialog will automatically open the
 EditorPlugin script for you. The script has two requirements that you cannot
 change: it must be a ``tool`` script, or else it will not load properly in the
-editor, and it must inherit from `class_EditorPlugin`.
+editor, and it must inherit from `EditorPlugin`.
 
 .. warning::
 
@@ -135,15 +135,15 @@ custom behavior.
 
 To create a new node type, you can use the function
 `add_custom_type()` from the
-`class_EditorPlugin` class. This function can add new types to the editor
+`EditorPlugin` class. This function can add new types to the editor
 (nodes or resources). However, before you can create the type, you need a script
 that will act as the logic for the type. While that script doesn't have to use
 the ``tool`` keyword, it can be added so the script runs in the editor.
 
 For this tutorial, we'll create a simple button that prints a message when
 clicked. For that, we'll need a simple script that extends from
-`class_Button`. It could also extend
-`class_BaseButton` if you prefer:
+`Button`. It could also extend
+`BaseButton` if you prefer:
 
 gdscript GDScript
 

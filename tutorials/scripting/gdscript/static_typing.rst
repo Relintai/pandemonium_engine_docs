@@ -107,7 +107,7 @@ Currently you can use three types of… types:
 1. `Built-in <doc_gdscript_builtin_types>`
 2. Core classes and nodes (``Object``, ``Node``, ``Area2D``,
    ``Camera2D``, etc.)
-3. Your own custom classes. Look at the new `class_name <doc_gdscript_basics_class_name>`
+3. Your own custom classes. Look at the new `name <doc_gdscript_basics_class_name>`
    feature to register types in the editor.
 
 .. note::
@@ -126,7 +126,7 @@ script you want to use as a type in a constant:
     const Rifle = preload("res://player/weapons/Rifle.gd")
     var my_rifle: Rifle
 
-The second method is to use the ``class_name`` keyword when you create.
+The second method is to use the ``name`` keyword when you create.
 For the example above, your Rifle.gd would look like this:
 
 ::
@@ -134,7 +134,7 @@ For the example above, your Rifle.gd would look like this:
     extends Node2D
     class_name Rifle
 
-If you use ``class_name``, Godot registers the Rifle type globally in
+If you use ``name``, Godot registers the Rifle type globally in
 the editor, and you can use it anywhere, without having to preload it
 into a constant:
 

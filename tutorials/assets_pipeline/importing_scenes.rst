@@ -442,8 +442,8 @@ will create a triangle mesh collision shape, which is a slow, but accurate
 option for collision detection. This option is usually what you want for level
 geometry (but see also ``-colonly`` below).
 
-The option ``-convcol`` will create a `class_convexpolygonshape` instead of
-a `class_concavepolygonshape`. Unlike triangle meshes which can be concave,
+The option ``-convcol`` will create a `convexpolygonshape` instead of
+a `concavepolygonshape`. Unlike triangle meshes which can be concave,
 a convex shape can only accurately represent a shape that doesn't have any
 concave angles (a pyramid is convex, but a hollow box is concave). Due to this,
 convex collision shapes are generally not suited for level geometry. When
@@ -456,22 +456,22 @@ enough for collisions. This can create physics glitches and slow down the engine
 unnecessarily.
 
 To solve this, the ``-colonly`` modifier exists. It will remove the mesh upon
-importing and will create a `class_staticbody` collision instead.
+importing and will create a `staticbody` collision instead.
 This helps the visual mesh and actual collision to be separated.
 
-The option ``-convcolonly`` works in a similar way, but will create a `class_convexpolygonshape` instead.
+The option ``-convcolonly`` works in a similar way, but will create a `convexpolygonshape` instead.
 
 The option ``-colonly`` can also be used with Blender's empty objects.
-On import, it will create a `class_staticbody` with
+On import, it will create a `staticbody` with
 a collision node as a child. The collision node will have one of a number of predefined shapes,
 depending on Blender's empty draw type:
 
 .. image:: img/3dimp_BlenderEmptyDrawTypes.png
 
--  Single arrow will create a `class_rayshape`.
--  Cube will create a `class_boxshape`.
--  Image will create a `class_planeshape`.
--  Sphere (and the others not listed) will create a `class_sphereshape`.
+-  Single arrow will create a `rayshape`.
+-  Cube will create a `boxshape`.
+-  Image will create a `planeshape`.
+-  Sphere (and the others not listed) will create a `sphereshape`.
 
 When possible, **try to use a few primitive collision shapes** instead of triangle
 mesh or convex shapes. Primitive shapes often have the best performance and
@@ -498,18 +498,18 @@ Create a VehicleBody (-vehicle)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A mesh node with the ``-vehicle`` suffix will be imported as a child to a
-`class_VehicleBody` node.
+`VehicleBody` node.
 
 Create a VehicleWheel (-wheel)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A mesh node with the ``-wheel`` suffix will be imported as a child to a
-`class_VehicleWheel` node.
+`VehicleWheel` node.
 
 Rigid Body (-rigid)
 ~~~~~~~~~~~~~~~~~~~
 
-A mesh node with the ``-rigid`` suffix will be imported as a `class_RigidBody`.
+A mesh node with the ``-rigid`` suffix will be imported as a `RigidBody`.
 
 Animation loop (-loop, -cycle)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

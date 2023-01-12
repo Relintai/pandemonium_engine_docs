@@ -157,7 +157,7 @@ The imported resource has a specific type, so the editor can know which property
 slot it belongs to. This allows drag and drop from the FileSystem dock to a
 property in the Inspector.
 
-In our case it's a `class_SpatialMaterial`, which can be applied to 3D
+In our case it's a `SpatialMaterial`, which can be applied to 3D
 objects.
 
 .. note:: If you need to import different types from the same extension, you

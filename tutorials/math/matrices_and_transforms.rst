@@ -15,8 +15,8 @@ in Godot using matrices. It is not a full in-depth guide to matrices.
 Transformations are most of the time applied as translation, rotation,
 and scale, so we will focus on how to represent those with matrices.
 
-Most of this guide focuses on 2D, using `class_Transform2D` and
-`class_Vector2`, but the way things work in 3D is very similar.
+Most of this guide focuses on 2D, using `Transform2D` and
+`Vector2`, but the way things work in 3D is very similar.
 
 .. note:: As mentioned in the previous tutorial, it is important to
           remember that in Godot, the Y axis points *down* in 2D.
@@ -175,19 +175,19 @@ are in charge of representing rotation, scale, and/or shearing
 called the *basis* of the transformation matrix. The terms "basis"
 and "basis vectors" are important to know.
 
-You might have noticed that `class_Transform2D` actually
-has three `class_Vector2` values: `x`, `y`, and `origin`.
+You might have noticed that `Transform2D` actually
+has three `Vector2` values: `x`, `y`, and `origin`.
 The `origin` value is not part of the basis, but it is part of the
 transform, and we need it to represent position. From now on we'll
 keep track of the origin vector in all examples. You can think of
 origin as another column, but it's often better to think of it as
 completely separate.
 
-Note that in 3D, Godot has a separate `class_Basis` structure
-for holding the three `class_Vector3` values of the basis,
+Note that in 3D, Godot has a separate `Basis` structure
+for holding the three `Vector3` values of the basis,
 since the code can get complex and it makes sense to separate
-it from `class_Transform` (which is composed of one
-`class_Basis` and one extra `class_Vector3` for the origin).
+it from `Transform` (which is composed of one
+`Basis` and one extra `Vector3` for the origin).
 
 Translating the transformation matrix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -257,7 +257,7 @@ Shearing the transformation matrix (advanced)
 
 You may have noticed that a transform has more degrees of freedom than
 the combination of the above actions. The basis of a 2D transformation
-matrix has four total numbers in two `class_Vector2` values, while
+matrix has four total numbers in two `Vector2` values, while
 a rotation value and a Vector2 for scale only has 3 numbers. The high-level
 concept for the missing degree of freedom is called *shearing*.
 
@@ -330,12 +330,12 @@ Practical applications of transforms
 ------------------------------------
 
 In actual projects, you will usually be working with transforms inside
-transforms by having multiple `class_Node2D` or `class_Spatial`
+transforms by having multiple `Node2D` or `Spatial`
 nodes parented to each other.
 
 However, sometimes it's very useful to manually calculate the values we
-need. We will go over how you could use `class_Transform2D` or
-`class_Transform` to manually calculate transforms of nodes.
+need. We will go over how you could use `Transform2D` or
+`Transform` to manually calculate transforms of nodes.
 
 Converting positions between transforms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -502,8 +502,8 @@ One of the great things about transformation matrices is that they
 work very similarly between 2D and 3D transformations.
 All the code and formulas used above for 2D work the same in 3D,
 with 3 exceptions: the addition of a third axis, that each
-axis is of type `class_Vector3`, and also that Godot stores
-the `class_Basis` separately from the `class_Transform`,
+axis is of type `Vector3`, and also that Godot stores
+the `Basis` separately from the `Transform`,
 since the math can get complex and it makes sense to separate it.
 
 All of the concepts for how translation, rotation, scale, and shearing
@@ -518,7 +518,7 @@ If you would like, it's a good idea to play around with transforms
 to get an understanding of how they work. Godot allows you to edit
 3D transform matrices directly from the inspector. You can download
 this project which has colored lines and cubes to help visualize the
-`class_Basis` vectors and the origin in both 2D and 3D:
+`Basis` vectors and the origin in both 2D and 3D:
 https://github.com/godotengine/godot-demo-projects/tree/master/misc/matrix_transform
 
 .. note:: Spatial's "Matrix" section in Godot 3.2's inspector
@@ -547,7 +547,7 @@ useful, except for trivial cases.
 
 In 3D we do not typically use angles, we either use a transformation basis
 (used pretty much everywhere in Godot), or we use quaternions. Godot can
-represent quaternions using the `class_Quat` struct. My suggestion
+represent quaternions using the `Quat` struct. My suggestion
 to you is to completely ignore how they work under-the-hood, because
 they are very complicated and unintuitive.
 

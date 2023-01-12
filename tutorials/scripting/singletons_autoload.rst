@@ -50,11 +50,11 @@ AutoLoad
 --------
 
 You can create an AutoLoad to load a scene or a script that inherits from
-`class_Node`.
+`Node`.
 
 .. note::
 
-    When autoloading a script, a `class_Node` will be created and the script will be
+    When autoloading a script, a `Node` will be created and the script will be
     attached to it. This node will be added to the root viewport before any
     other scenes are loaded.
 

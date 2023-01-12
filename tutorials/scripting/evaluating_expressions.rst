@@ -3,7 +3,7 @@
 Evaluating expressions
 ======================
 
-Godot provides an `class_Expression` class you can use to evaluate expressions.
+Godot provides an `Expression` class you can use to evaluate expressions.
 
 An expression can be:
 
@@ -198,7 +198,7 @@ The output from the script will be::
 Built-in functions
 ------------------
 
-Most methods available in the `class_@GDScript` scope are available in the
+Most methods available in the `@GDScript` scope are available in the
 Expression class, even if no base instance is bound to the expression.
 The same parameters and return types are available.
 

@@ -156,7 +156,7 @@ Browsers do not allow arbitrarily **entering full screen**. The same goes for
 **capturing the cursor**. Instead, these actions have to occur as a response to
 a JavaScript input event. In Godot, this means entering full screen from within
 a pressed input event callback such as ``_input`` or ``_unhandled_input``.
-Querying the `class_Input` singleton is not sufficient, the relevant
+Querying the `Input` singleton is not sufficient, the relevant
 input event must currently be active.
 
 For the same reason, the full screen project setting doesn't work unless the
@@ -288,11 +288,11 @@ languages integrated into Godot.
 The value of the last JavaScript statement is converted to a GDScript value and
 returned by ``eval()`` under certain circumstances:
 
- * JavaScript ``number`` is returned as GDScript `class_float`
- * JavaScript ``boolean`` is returned as GDScript `class_bool`
- * JavaScript ``string`` is returned as GDScript `class_String`
+ * JavaScript ``number`` is returned as GDScript `float`
+ * JavaScript ``boolean`` is returned as GDScript `bool`
+ * JavaScript ``string`` is returned as GDScript `String`
  * JavaScript ``ArrayBuffer``, ``TypedArray`` and ``DataView`` are returned as
-   GDScript `class_PoolByteArray`
+   GDScript `PoolByteArray`
 
 ::
 

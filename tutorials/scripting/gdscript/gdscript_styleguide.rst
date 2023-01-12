@@ -659,7 +659,7 @@ Class declaration
 If the code is meant to run in the editor, place the ``tool`` keyword on the
 first line of the script.
 
-Follow with the `class_name` if necessary. You can turn a GDScript file into a
+Follow with the `name` if necessary. You can turn a GDScript file into a
 global type in your project using this feature. For more information, see
 `doc_gdscript`.
 

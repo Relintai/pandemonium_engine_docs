@@ -15,7 +15,7 @@ scale as the game grows more complex.
 .. note::
 
     If you're looking to save user configuration, you can use the
-    `class_ConfigFile` class for this purpose.
+    `ConfigFile` class for this purpose.
 
 Identify persistent objects
 ---------------------------

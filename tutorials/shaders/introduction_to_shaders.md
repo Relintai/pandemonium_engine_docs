@@ -23,20 +23,22 @@ working with shaders, you need to code and think differently from other
 programming languages.
 
 Suppose you want to update all the pixels in a texture to a given color. In
-GDScript, your code would use `for` loops::
+GDScript, your code would use `for` loops:
 
+```
   for x in range(width):
     for y in range(height):
       set_color(x, y, some_color)
+```
 
 Your code is already part of a loop in a shader, so the corresponding code would
 look like this.
 
-.. code-block:: glsl
-
+```
   void fragment() {
     COLOR = some_color;
   }
+```
 
 Note:
 
@@ -80,9 +82,9 @@ support different render modes, built-in variables, and processing functions.
 
 In Godot, all shaders need to specify their type in the first line, like so:
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
+```
 
 Here are the available types:
 
@@ -96,10 +98,10 @@ Render modes
 Shaders have optional render modes you can specify on the second line, after the
 shader type, like so:
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
     render_mode unshaded, cull_disabled;
+```
 
 Render modes alter the way Godot applies the shader. For example, the
 `unshaded` mode makes the engine skip the built-in light processor function.

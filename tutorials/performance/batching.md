@@ -113,11 +113,13 @@ objects are rendered from back to front, consider 3 objects `A`, `B` and
 
 ![](img/overlap1.png)
 
-In painter's order they are ordered::
+In painter's order they are ordered:
 
+```
     A - wood
     B - grass
     C - wood
+```
 
 Because of the texture changes, they can't be batched and will be rendered in 3
 draw calls.
@@ -140,11 +142,12 @@ looking ahead to decide whether items can be reordered. The number of items to
 lookahead for reordering can be set in project settings (see below), in order to
 balance the costs and benefits in your project.
 
-::
+```
 
     A - wood
     C - wood
     B - grass
+```
 
 Since the texture only changes once, we can render the above in only 2 draw
 calls.
@@ -161,7 +164,7 @@ lights, they would be drawn as follows, each line being a draw call:
 
 ![](img/lights_overlap.png)
 
-::
+```
 
     A
     A - light 1
@@ -171,6 +174,7 @@ lights, they would be drawn as follows, each line being a draw call:
     B - light 1
     B - light 2
     B - light 3
+```
 
 That is a lot of draw calls: 8 for only 2 sprites. Now, consider we are drawing
 1,000 sprites. The number of draw calls quickly becomes astronomical and
@@ -185,12 +189,13 @@ so the drawing process is as follows:
 
 ![](img/lights_separate.png)
 
-::
+```
 
     AB
     AB - light 1
     AB - light 2
     AB - light 3
+```
 
 
 That is only 4 draw calls. Not bad, as that is a 2× reduction. However, consider
@@ -413,8 +418,7 @@ as intended, and help you fix these situations to get the best possible performa
 Reading a diagnostic
 ^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: cpp
-
+```
     canvas_begin FRAME 2604
     items
         joined_item 1 refs
@@ -434,6 +438,7 @@ Reading a diagnostic
                 batch D 0-0
                 batch R 0-2560 [0 - 144] {158 193 0 104 } MULTI
     canvas_end
+```
 
 
 This is a typical diagnostic.
@@ -455,8 +460,9 @@ Default batches
 ^^^^^^^^^^^^^^^
 
 The second number following default batches is the number of commands in the
-batch, and it is followed by a brief summary of the contents::
+batch, and it is followed by a brief summary of the contents:
 
+```
     l - line
     PL - polyline
     r - rect
@@ -469,6 +475,7 @@ batch, and it is followed by a brief summary of the contents::
     c - circle
     t - transform
     CI - clip_ignore
+```
 
 You may see "dummy" default batches containing no commands; you can ignore those.
 
@@ -544,10 +551,12 @@ value to the power of 4.
 
 For example, on a screen size of 1920×1080, there are 2,073,600 pixels.
 
-At a threshold of 1,000 pixels, the proportion would be::
+At a threshold of 1,000 pixels, the proportion would be:
 
+```
     1000 / 2073600 = 0.00048225
     0.00048225 ^ (1/4) = 0.14819
+```
 
 So a `scissor_area_threshold
 ( ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
@@ -555,10 +564,12 @@ of `0.15` would be a reasonable value to try.
 
 Going the other way, for instance with a `scissor_area_threshold
 ( ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
-of `0.5`::
+of `0.5`:
 
+```
     0.5 ^ 4 = 0.0625
     0.0625 * 2073600 = 129600 pixels
+```
 
 If the number of pixels saved is greater than this threshold, the scissor is
 activated.

@@ -11,15 +11,15 @@ As an example if `t` is 0, then the state is A. If `t` is 1, then the state is B
 
 Between two real (floating-point) numbers, a simple interpolation is usually described as:
 
-::
-
+```
     interpolation = A * (1 - t) + B * t
+```
 
 And often simplified to:
 
-::
-
+```
     interpolation = A + (B - A) * t
+```
 
 The name of this type of interpolation, which transforms a value into another at *constant speed* is *"linear"*. So, when you hear about *Linear Interpolation*, you know they are referring to this simple formula.
 

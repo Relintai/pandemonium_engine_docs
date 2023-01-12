@@ -107,9 +107,9 @@ shaders on the fly. The first thing Godot shaders need is a declaration of what
 type of shader they are. We set the variable `shader_type` to `spatial`
 because this is a spatial shader.
 
-.. code-block:: glsl
-
+```
   shader_type spatial;
+```
 
 Next we will define the `vertex()` function. The `vertex()` function
 determines where the vertices of your `Mesh( MeshInstance )` appear in
@@ -118,20 +118,20 @@ make our flat plane appear like a little terrain.
 
 We define the vertex shader like so:
 
-.. code-block:: glsl
-
+```
   void vertex() {
 
   }
+```
 
 With nothing in the `vertex()` function, Godot will use its default vertex
 shader. We can easily start to make changes by adding a single line:
 
-.. code-block:: glsl
-
+```
   void vertex() {
     VERTEX.y += cos(VERTEX.x) * sin(VERTEX.z);
   }
+```
 
 Adding this line, you should get an image like the one below.
 
@@ -146,11 +146,11 @@ What we want to achieve is the look of little hills; after all. `cos` and
 `sin` already look kind of like hills. We do so by scaling the inputs to the
 `cos` and `sin` functions.
 
-.. code-block:: glsl
-
+```
   void vertex() {
     VERTEX.y += cos(VERTEX.x * 4.0) * sin(VERTEX.z * 4.0);
   }
+```
 
 ![](img/cos4.png)
 
@@ -170,9 +170,9 @@ generating a noise texture that can be accessed from a shader.
 To access a texture in a shader add the following code near the top of your
 shader, outside the `vertex()` function.
 
-.. code-block:: glsl
-
+```
   uniform sampler2D noise;
+```
 
 This will allow you to send a noise texture to the shader. Now look in the
 inspector under your material. You should see a section called "Shader Params".
@@ -200,10 +200,10 @@ a` channels at the position. Since the noise texture is grayscale, all of the
 values are the same, so we can use any one of the channels as the height. In
 this case we'll use the `r`, or `x` channel.
 
-.. code-block:: glsl
-
+```
   float height = texture(noise, VERTEX.xz / 2.0 + 0.5).x;
   VERTEX.y += height;
+```
 
 Note: `xyzw` is the same as `rgba` in GLSL, so instead of `texture().x`
 above, we could use `texture().r`. See the `OpenGL documentation
@@ -228,9 +228,9 @@ that can be used in the shader. To use a uniform, you declare it in your
 
 Let's make a uniform that changes the height of the terrain.
 
-.. code-block:: glsl
-
+```
   uniform float height_scale = 0.5;
+```
 
 
 Godot lets you initialize a uniform with a value; here, `height_scale` is set
@@ -239,10 +239,10 @@ to `0.5`. You can set uniforms from GDScript by calling the function
 passed from GDScript takes precedence over the value used to initialize it in
 the shader.
 
-::
-
+```
   # called from the MeshInstance
   mesh.material.set_shader_param("height_scale", 0.5)
+```
 
 Note:
  Changing uniforms in Spatial-based nodes is different from
@@ -257,9 +257,9 @@ of the uniform variable in the `Shader( Shader )`. You can use the
 uniform variable anywhere inside your `Shader( Shader )`. Here, we will
 use it to set the height value instead of arbitrarily multiplying by `0.5`.
 
-.. code-block:: glsl
-
+```
   VERTEX.y += height * height_scale;
+```
 
 Now it looks  much better.
 
@@ -302,9 +302,9 @@ tutorial, for now we will read normals from a texture.
 Instead we will rely on the NoiseTexture again to calculate normals for us. We
 do that by passing in a second noise texture.
 
-.. code-block:: glsl
-
+```
   uniform sampler2D normalmap;
+```
 
 Set this second uniform texture to another NoiseTexture with another
 OpenSimplexNoise. But this time, check off "As Normalmap".
@@ -315,10 +315,10 @@ Now, because this is a normalmap and not a per-vertex normal, we are going to
 assign it in the `fragment()` function. The `fragment()` function will be
 explained in more detail in the next part of this tutorial.
 
-.. code-block:: glsl
-
+```
   void fragment() {
   }
+```
 
 When we have normals that correspond to a specific vertex we set `NORMAL`, but
 if you have a normalmap that comes from a texture, set the normal using
@@ -333,8 +333,7 @@ that with varyings.
 Above the `vertex()` define a `vec2` called `tex_position`. And inside the
 `vertex()` function assign `VERTEX.xz` to `tex_position`.
 
-.. code-block:: glsl
-
+```
   varying vec2 tex_position;
 
   void vertex() {
@@ -343,14 +342,15 @@ Above the `vertex()` define a `vec2` called `tex_position`. And inside the
     float height = texture(noise, tex_position).x;
     ...
   }
+```
 
 And now we can access `tex_position` from the `fragment()` function.
 
-.. code-block:: glsl
-
+```
   void fragment() {
     NORMALMAP = texture(normalmap, tex_position).xyz;
   }
+```
 
 With the normals in place the light now reacts to the height of the mesh
 dynamically.
@@ -364,8 +364,7 @@ We can even drag the light around and the lighting will update automatically.
 Here is the full code for this tutorial. You can see it is not very long as
 Godot handles most of the difficult stuff for you.
 
-.. code-block:: glsl
-
+```
   shader_type spatial;
 
   uniform float height_scale = 0.5;
@@ -383,6 +382,7 @@ Godot handles most of the difficult stuff for you.
   void fragment() {
     NORMALMAP = texture(normalmap, tex_position).xyz;
   }
+```
 
 That is everything for this part. Hopefully, you now understand the basics of
 vertex shaders in Godot. In the next part of this tutorial we will write a

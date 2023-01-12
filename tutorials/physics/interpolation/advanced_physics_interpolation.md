@@ -60,8 +60,7 @@ Example manual Camera script
 
 Here is an example of a simple fixed Camera which follows an interpolated target:
 
-.. code-block:: python
-
+```
 	extends Camera
 		
 	# Node that the camera will follow
@@ -88,6 +87,7 @@ Here is an example of a simple fixed Camera which follows an interpolated target
 		
 		# Fixed camera position, but it will follow the target
 		look_at(_target_pos, Vector3(0, 1, 0))
+```
 
 Mouse look
 ^^^^^^^^^^

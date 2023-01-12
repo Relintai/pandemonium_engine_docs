@@ -76,9 +76,9 @@ There can only be one active camera per `Viewport`, so if there is more
 than one, make sure that the desired one has the "current" property set,
 or make it the current camera by calling:
 
-::
-
+```
     camera.make_current()
+```
 
 By default, cameras will render all objects in their world. In 3D, cameras can use their
 `cull_mask` property combined with the
@@ -95,10 +95,10 @@ these values are overridden, but for all others, this sets their resolution.
 It is also possible to scale the 2D content and make the `Viewport` resolution
 different from the one specified in size, by calling:
 
-::
-
+```
     viewport.set_size_override(true, Vector2(width, height)) # Custom size for 2D.
     viewport.set_size_override_stretch(true) # Enable stretch for custom size.
+```
 
 The root `Viewport` uses this for the stretch options in the project
 settings. For more information on scaling and stretching visit the `Multiple Resolutions Tutorial ( doc_multiple_resolutions )`
@@ -136,8 +136,7 @@ It is possible to query a capture of the `Viewport` contents. For the root
 `Viewport`, this is effectively a screen capture. This is done with the
 following code:
 
-::
-
+```
    # Retrieve the captured Image using get_data().
    var img = get_viewport().get_texture().get_data()
    # Flip on the Y axis.
@@ -148,16 +147,17 @@ following code:
    tex.create_from_image(img)
    # Set Sprite Texture.
    $sprite.texture = tex
+```
 
 But if you use this in `ready()` or from the first frame of the `Viewport's` initialization,
 you will get an empty texture because there is nothing to get as texture. You can deal with
 it using (for example):
 
-::
-
+```
    # Wait until the frame has finished before getting the texture.
    yield(VisualServer, "frame_post_draw")
    # You can get the image after this.
+```
 
 Viewport Container
 ------------------
@@ -224,11 +224,11 @@ When rendering to a `Viewport`, whatever is inside will not be
 visible in the scene editor. To display the contents, you have to draw the `Viewport's` somewhere.
 This can be requested via code using (for example):
 
-::
-
+```
     # This gives us the ViewportTexture.
     var rtt = viewport.get_texture()
     sprite.texture = rtt
+```
 
 Or it can be assigned in the editor by selecting "New ViewportTexture"
 

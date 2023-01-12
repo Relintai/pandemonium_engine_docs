@@ -280,8 +280,9 @@ could get the same fruit three or more times in a row.
 
 You can accomplish this using the *shuffle bag* pattern. It works by removing an
 element from the array after choosing it. After multiple selections, the array
-ends up empty. When that happens, you reinitialize it to its default value::
+ends up empty. When that happens, you reinitialize it to its default value:
 
+```
     var _fruits = ["apple", "orange", "pear", "banana"]
     # A copy of the fruits array so we can restore the original value into `fruits`.
     var _fruits_full = []
@@ -307,6 +308,7 @@ ends up empty. When that happens, you reinitialize it to its default value::
         var random_fruit = _fruits.pop_front()
         # Prints "apple", "orange", "pear", or "banana" every time the code runs.
         return random_fruit
+```
 
 When running the above code, there is a chance to get the same fruit twice in a
 row. Once we picked a fruit, it will no longer be a possible return value unless

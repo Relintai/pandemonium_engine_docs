@@ -27,18 +27,17 @@ the gizmo can be hidden or not.
 
 This would be a basic setup:
 
-::
-
+```
     # MyCustomGizmoPlugin.gd
     extends EditorSpatialGizmoPlugin
 
 
     func get_name():
         return "CustomNode"
+```
 
 
-::
-
+```
     # MyCustomEditorPlugin.gd
     tool
     extends EditorPlugin
@@ -55,6 +54,7 @@ This would be a basic setup:
 
     func _exit_tree():
         remove_spatial_gizmo_plugin(gizmo_plugin)
+```
 
 
 For simple gizmos, just inheriting `EditorSpatialGizmoPlugin`
@@ -68,8 +68,7 @@ Simple approach
 The first step is to, in our custom gizmo plugin, override the `has_gizmo()( EditorSpatialGizmoPlugin_method_has_gizmo )`
 method so that it returns `true` when the spatial parameter is of our target type.
 
-::
-
+```
     # ...
 
 
@@ -78,12 +77,12 @@ method so that it returns `true` when the spatial parameter is of our target typ
 
 
     # ...
+```
 
 Then we can override methods like `redraw()( EditorSpatialGizmoPlugin_method_redraw )`
 or all the handle related ones.
 
-::
-
+```
     # ...
 
 
@@ -112,6 +111,7 @@ or all the handle related ones.
 
 
     # ...
+```
 
 Note that we created a material in the `init` method, and retrieved it in the `redraw`
 method using `get_material()( EditorSpatialGizmoPlugin_method_get_material )`. This
@@ -120,8 +120,7 @@ method retrieves one of the material's variants depending on the state of the gi
 
 So the final plugin would look somewhat like this:
 
-::
-
+```
     extends EditorSpatialGizmoPlugin
 
 
@@ -158,6 +157,7 @@ So the final plugin would look somewhat like this:
 
     # You should implement the rest of handle-related callbacks
     # (get_handle_name(), get_handle_value(), commit_handle()...).
+```
 
 Note that we just added some handles in the redraw method, but we still need to implement
 the rest of handle-related callbacks in `EditorSpatialGizmoPlugin`
@@ -174,8 +174,7 @@ In these cases all we need to do is, in our new gizmo plugin, override
 `create_gizmo()( EditorSpatialGizmoPlugin_method_create_gizmo )`, so it returns our custom gizmo implementation
 for the Spatial nodes we want to target.
 
-::
-
+```
     # MyCustomGizmoPlugin.gd
     extends EditorSpatialGizmoPlugin
 
@@ -194,12 +193,12 @@ for the Spatial nodes we want to target.
             return MyCustomGizmo.new()
         else:
             return null
+```
 
 This way all the gizmo logic and drawing methods can be implemented in a new class extending
 `EditorSpatialGizmo( EditorSpatialGizmo )`, like so:
 
-::
-
+```
     # MyCustomGizmo.gd
     extends EditorSpatialGizmo
 
@@ -232,6 +231,7 @@ This way all the gizmo logic and drawing methods can be implemented in a new cla
 
     # You should implement the rest of handle-related callbacks
     # (get_handle_name(), get_handle_value(), commit_handle()...).
+```
 
 Note that we just added some handles in the redraw method, but we still need to implement
 the rest of handle-related callbacks in `EditorSpatialGizmo( EditorSpatialGizmo )`

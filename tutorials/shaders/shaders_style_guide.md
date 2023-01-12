@@ -26,8 +26,7 @@ Note:
 
 Here is a complete shader example based on these guidelines:
 
-.. code-block:: glsl
-
+```
     shader_type canvas_item;
     // Screen-space shader to adjust a 2D scene's brightness, contrast
     // and saturation. Taken from
@@ -46,6 +45,7 @@ Here is a complete shader example based on these guidelines:
 
         COLOR.rgb = c;
     }
+```
 
 Formatting
 ----------
@@ -65,38 +65,38 @@ Each indent level should be one tab greater than the block containing it.
 
 **Good**:
 
-.. code-block:: glsl
-
+```
     void fragment() {
         COLOR = vec3(1.0, 1.0, 1.0);
     }
+```
 
 **Bad**:
 
-.. code-block:: glsl
-
+```
     void fragment() {
             COLOR = vec3(1.0, 1.0, 1.0);
     }
+```
 
 Use 2 indent levels to distinguish continuation lines from
 regular code blocks.
 
 **Good**:
 
-.. code-block:: glsl
-
+```
     vec2 st = vec2(
             atan(NORMAL.x, NORMAL.z),
             acos(NORMAL.y));
+```
 
 **Bad**:
 
-.. code-block:: glsl
-
+```
     vec2 st = vec2(
         atan(NORMAL.x, NORMAL.z),
         acos(NORMAL.y));
+```
 
 
 Line breaks and blank lines
@@ -111,31 +111,30 @@ an `if` statement or similar.
 
 **Good**:
 
-.. code-block:: glsl
-
+```
     void fragment() {
         if (true) {
             // ...
         }
     }
+```
 
 **Bad**:
 
-.. code-block:: glsl
-
+```
     void fragment()
     {
         if (true)
             // ...
     }
+```
 
 Blank lines
 ~~~~~~~~~~~
 
 Surround function definitions with one (and only one) blank line:
 
-.. code-block:: glsl
-
+```
     void do_something() {
         // ...
     }
@@ -143,6 +142,7 @@ Surround function definitions with one (and only one) blank line:
     void fragment() {
         // ...
     }
+```
 
 Use one (and only one) blank line inside functions to separate logical sections.
 
@@ -162,29 +162,29 @@ Never combine multiple statements on a single line.
 
 **Good**:
 
-.. code-block:: glsl
-
+```
     void fragment() {
         ALBEDO = vec3(1.0);
         EMISSION = vec3(1.0);
     }
+```
 
 **Bad**:
 
-.. code-block:: glsl
-
+```
     void fragment() {
         ALBEDO = vec3(1.0); EMISSION = vec3(1.0);
     }
+```
 
 The only exception to that rule is the ternary operator:
 
-.. code-block:: glsl
-
+```
    void fragment() {
         bool should_be_white = true;
         ALBEDO = should_be_white ? vec3(1.0) : vec3(0.0);
     }
+```
 
 Comment spacing
 ~~~~~~~~~~~~~~~
@@ -194,23 +194,23 @@ This helps differentiate text comments from disabled code.
 
 **Good**:
 
-.. code-block:: glsl
-
+```
     // This is a comment.
     //return;
+```
 
 **Bad**:
 
-.. code-block:: glsl
-
+```
     //This is a comment.
     // return;
+```
 
 Don't use multiline comment syntax if your comment can fit on a single line:
 
-.. code-block:: glsl
-
+```
     /* This is another comment. */
+```
 
 Note:
 
@@ -227,26 +227,26 @@ in function calls.
 
 **Good**:
 
-.. code-block:: glsl
-
+```
     COLOR.r = 5.0;
     COLOR.r = COLOR.g + 0.1;
     COLOR.b = some_function(1.0, 2.0);
+```
 
 **Bad**:
 
-.. code-block:: glsl
-
+```
     COLOR.r=5.0;
     COLOR.r = COLOR.g+0.1;
     COLOR.b = some_function (1.0,2.0);
+```
 
 Don't use spaces to align expressions vertically:
 
-.. code-block:: glsl
-
+```
     ALBEDO.r   = 1.0;
     EMISSION.r = 1.0;
+```
 
 Floating-point numbers
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -257,19 +257,19 @@ distinguishing numbers greater than 1 from those lower than 1.
 
 **Good**:
 
-.. code-block:: glsl
-
+```
     void fragment() {
         ALBEDO.rgb = vec3(5.0, 0.1, 0.2);
     }
+```
 
 **Bad**:
 
-.. code-block:: glsl
-
+```
     void fragment() {
         ALBEDO.rgb = vec3(5., .1, .2);
     }
+```
 
 Accessing vector members
 ------------------------
@@ -281,15 +281,15 @@ understand what the underlying data represents.
 
 **Good**:
 
-.. code-block:: glsl
-
+```
     COLOR.rgb = vec3(5.0, 0.1, 0.2);
+```
 
 **Bad**:
 
-.. code-block:: glsl
-
+```
     COLOR.xyz = vec3(5.0, 0.1, 0.2);
+```
 
 Naming conventions
 ------------------
@@ -303,11 +303,11 @@ Functions and variables
 
 Use snake\_case to name functions and variables:
 
-.. code-block:: glsl
-
+```
    void some_function() {
         float some_variable = 0.5;
    }
+```
 
 Constants
 ~~~~~~~~~
@@ -315,17 +315,16 @@ Constants
 Write constants with CONSTANT\_CASE, that is to say in all caps with an
 underscore (\_) to separate words:
 
-.. code-block:: glsl
-
+```
     const float GOLDEN_RATIO = 1.618;
+```
 
 Code order
 ----------
 
 We suggest to organize shader code this way:
 
-.. code-block:: glsl
-
+```
     01. shader type declaration
     02. render mode declaration
     03. // docstring
@@ -338,6 +337,7 @@ We suggest to organize shader code this way:
     08. vertex() function
     09. fragment() function
     10. light() function
+```
 
 We optimized the order to make it easy to read the code from top to bottom, to
 help developers reading the code for the first time understand how it works, and

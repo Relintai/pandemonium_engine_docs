@@ -52,8 +52,7 @@ Minimal connection example
 This example will show you how to create a WebRTC connection between two peers in the same application.
 This is not very useful in real life, but will give you a good overview of how a WebRTC connection is set up.
 
-::
-
+```
     extends Node
 
     # Create the two peers
@@ -96,21 +95,21 @@ This is not very useful in real life, but will give you a good overview of how a
             print("P1 received: ", ch1.get_packet().get_string_from_utf8())
         if ch2.get_ready_state() == ch2.STATE_OPEN and ch2.get_available_packet_count() > 0:
             print("P2 received: ", ch2.get_packet().get_string_from_utf8())
+```
 
 This will print:
 
-::
-
+```
     P1 received: Hi from P1
     P2 received: Hi from P2
+```
 
 Local signaling example
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This example expands on the previous one, separating the peers in two different scenes, and using a `singleton ( doc_singletons_autoload )` as a signaling server.
 
-::
-
+```
     # An example P2P chat client (chat.gd)
     extends Node
 
@@ -146,14 +145,14 @@ This example expands on the previous one, separating the peers in two different 
 
     func send_message(message):
         channel.put_packet(message.to_utf8())
+```
 
 And now for the local signaling server:
 
 Note:
  This local signaling server is supposed to be used as a `singleton ( doc_singletons_autoload )` to connect two peers in the same scene.
 
-::
-
+```
     # A local signaling server. Add this to autoloads with name "Signaling" (/root/Signaling)
     extends Node
 
@@ -183,11 +182,11 @@ Note:
         var other = _find_other(path)
         assert(other != "")
         get_node(other).peer.add_ice_candidate(mid, index, sdp)
+```
 
 Then you can use it like this:
 
-::
-
+```
     # Main scene (main.gd)
     extends Node
 
@@ -204,13 +203,14 @@ Then you can use it like this:
         # Wait a second and send message from P2
         yield(get_tree().create_timer(1), "timeout")
         p2.send_message("Hi from %s" % p2.get_path())
+```
 
 This will print something similar to this:
 
-::
-
+```
     /root/main/@@3 received: Hi from /root/main/@@2
     /root/main/@@2 received: Hi from /root/main/@@3
+```
 
 Remote signaling with WebSocket
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

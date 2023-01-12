@@ -25,11 +25,11 @@ It takes as argument the UV of the screen and returns a vec3 RGB with the color.
 special built-in varying: SCREEN_UV can be used to obtain the UV for
 the current fragment. As a result, this simple canvas_item fragment shader:
 
-.. code-block:: glsl
-
+```
     void fragment() {
         COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0);
     }
+```
 
 results in an invisible object, because it just shows what lies behind.
 
@@ -53,8 +53,7 @@ special demo for *Screen Space Shaders*, that you can download to see
 and learn. One example is a simple shader to adjust brightness, contrast
 and saturation:
 
-.. code-block:: glsl
-
+```
     shader_type canvas_item;
 
     uniform float brightness = 1.0;
@@ -70,6 +69,7 @@ and saturation:
 
         COLOR.rgb = c;
     }
+```
 
 Behind the scenes
 ~~~~~~~~~~~~~~~~~
@@ -150,10 +150,10 @@ converted via the inverse projection matrix.
 
 The following code retrieves the 3D position below the pixel being drawn:
 
-.. code-block:: glsl
-
+```
     void fragment() {
         float depth = textureLod(DEPTH_TEXTURE, SCREEN_UV, 0.0).r;
         vec4 upos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, depth * 2.0 - 1.0, 1.0);
         vec3 pixel_position = upos.xyz / upos.w;
     }
+```

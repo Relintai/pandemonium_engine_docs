@@ -22,12 +22,14 @@ Note:
 Basic usage
 -----------
 
-To evaluate a mathematical expression, use::
+To evaluate a mathematical expression, use:
 
+```
     var expression = Expression.new()
     expression.parse("20 + 10*2 - 5/2.0")
     var result = expression.execute()
     print(result)  # 37.5
+```
 
 The following operators are available:
 
@@ -55,8 +57,9 @@ applies. Use parentheses to override the order of operations if needed.
 All the Variant types supported in Godot can be used: integers, floating-point
 numbers, strings, arrays, dictionaries, colors, vectors, …
 
-Arrays and dictionaries can be indexed like in GDScript::
+Arrays and dictionaries can be indexed like in GDScript:
 
+```
     # Returns 1.
     [1, 2][0]
 
@@ -70,14 +73,16 @@ Arrays and dictionaries can be indexed like in GDScript::
     Vector3(5, 6, 7)[2]
     Vector3(5, 6, 7)["z"]
     Vector3(5, 6, 7).z
+```
 
 Passing variables to an expression
 ----------------------------------
 
 You can pass variables to an expression. These variables will then
 become available in the expression's "context" and will be substituted when used
-in the expression::
+in the expression:
 
+```
     var expression = Expression.new()
     # Define the variable names first in the second parameter of `parse()`.
     # In this example, we use `x` for the variable name.
@@ -86,6 +91,7 @@ in the expression::
     # Here, `x` is assigned the integer value 5.
     var result = expression.execute([5])
     print(result)  # 30
+```
 
 Both the variable names and variable values **must** be specified as an array,
 even if you only define one variable. Also, variable names are **case-sensitive**.
@@ -98,8 +104,9 @@ expression has no base instance associated to it.
 
 When calling `Expression.execute()`,
 you can set the value of the `base_instance` parameter to a specific object
-instance such as `self`, another script instance or even a singleton::
+instance such as `self`, another script instance or even a singleton:
 
+```
     func double(number):
         return number * 2
 
@@ -116,6 +123,7 @@ instance such as `self`, another script instance or even a singleton::
         # as the base instance.
         result = expression.execute([], self)
         print(result)  # 20
+```
 
 Associating a base instance allows doing the following:
 
@@ -135,8 +143,9 @@ Warning:
 Example script
 --------------
 
-The script below demonstrates what the Expression class is capable of::
+The script below demonstrates what the Expression class is capable of:
 
+```
     const DAYS_IN_YEAR = 365
     var script_member_variable = 1000
 
@@ -179,9 +188,11 @@ The script below demonstrates what the Expression class is capable of::
 
         # The method's return value is also the expression's return value.
         return 0
+```
 
-The output from the script will be::
+The output from the script will be:
 
+```
     4
     160
     1.570796
@@ -196,6 +207,7 @@ The output from the script will be::
     You called 'call_me()' in the expression text.
     Argument passed: some string
     0
+```
 
 Built-in functions
 ------------------

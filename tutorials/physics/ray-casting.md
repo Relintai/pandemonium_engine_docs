@@ -106,8 +106,7 @@ gdscript GDScript
 The `result` dictionary when a collision occurs contains the following
 data:
 
-::
-
+```
     {
        position: Vector2 # point in world space for collision
        normal: Vector2 # normal in world space for collision
@@ -117,6 +116,7 @@ data:
        shape: int # shape index of collider
        metadata: Variant() # metadata of collider
     }
+```
 
 The data is similar in 3D space, using Vector3 coordinates.
 

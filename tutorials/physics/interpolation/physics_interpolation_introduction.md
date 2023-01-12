@@ -69,10 +69,10 @@ If our physics ticks are happening 10 times per second (for this example), what 
 
 First of all, we have to calculate how far through the physics tick we want the object to be. If the last physics tick took place at 0.1 seconds, we are 0.02 seconds *(0.12 - 0.1)* through a tick that we know will take 0.1 seconds (10 ticks per second). The fraction through the tick is thus:
 
-.. code-block:: python
-
+```
 	fraction = 0.02 / 0.10
 	fraction = 0.2
+```
 
 This is called the **physics interpolation fraction**, and is handily calculated for you by Godot. It can be retrieved on any frame by calling `Engine.get_physics_interpolation_fraction( Engine_method_get_physics_interpolation_fraction )`.
 
@@ -81,17 +81,17 @@ Calculating the interpolated position
 
 Once we have the interpolation fraction, we can insert it into a standard linear interpolation equation. The X coordinate would thus be:
 
-.. code-block:: python
-
+```
 	x_interpolated = x_prev + ((x_curr - x_prev) * 0.2)
+```
 
 So substituting our `x_prev` as 10, and `x_curr` as 30:
 
-.. code-block:: python
-
+```
 	x_interpolated = 10 + ((30 - 10) * 0.2)
 	x_interpolated = 10 + 4
 	x_interpolated = 14
+```
 
 Let's break that down:
 

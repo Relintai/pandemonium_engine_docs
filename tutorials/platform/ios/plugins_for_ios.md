@@ -19,8 +19,7 @@ returns a registered singleton.
 
 Here's an example of how to do this in GDScript:
 
-::
-
+```
     var in_app_store
     var game_center
 
@@ -34,6 +33,7 @@ Here's an example of how to do this in GDScript:
             game_center = Engine.get_singleton("GameCenter")
         else:
             print("iOS Game Center plugin is not available on this platform.")
+```
 
 
 Asynchronous methods
@@ -42,9 +42,9 @@ Asynchronous methods
 When requesting an asynchronous operation, the method will look like
 this:
 
-::
-
+```
     Error purchase(Variant params);
+```
 
 The parameter will usually be a Dictionary, with the information
 necessary to make the request, and the call will have two phases. First,
@@ -54,8 +54,7 @@ locally (no internet connection, API incorrectly configured, etc). If
 the error value is 'OK', a response event will be produced and added to
 the 'pending events' queue. Example:
 
-::
-
+```
     func on_purchase_pressed():
         var result = InAppStore.purchase({ "product_id": "my_product" })
         if result == OK:
@@ -72,6 +71,7 @@ the 'pending events' queue. Example:
                     show_success(event.product_id)
                 else:
                     show_error()
+```
 
 Remember that when a call returns OK, the API will *always* produce an
 event through the pending_event interface, even if it's an error, or a
@@ -97,20 +97,20 @@ It is initialized automatically.
 
 The following methods are available and documented below:
 
-::
-
+```
     Error purchase(Variant params)
     Error request_product_info(Variant params)
     Error restore_purchases()
     void set_auto_finish_transaction(bool enable)
     void finish_transaction(String product_id)
+```
 
  and the pending events interface:
 
- ::
-
+ ```
     int get_pending_event_count()
     Variant pop_pending_event()
+```
 
 `purchase`
 ~~~~~~~~~~~~
@@ -125,9 +125,9 @@ Parameters
 Takes a dictionary as a parameter, with one field, `product_id`, a
 string with your product ID. Example:
 
-::
-
+```
     var result = in_app_store.purchase({ "product_id": "my_product" })
+```
 
 Response event
 ^^^^^^^^^^^^^^
@@ -136,23 +136,23 @@ The response event will be a dictionary with the following fields:
 
 On error:
 
-::
-
+```
     {
       "type": "purchase",
       "result": "error",
       "product_id": "the product ID requested",
     }
+```
 
 On success:
 
-::
-
+```
     {
       "type": "purchase",
       "result": "ok",
       "product_id": "the product ID requested",
     }
+```
 
 `request_product_info`
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -165,17 +165,16 @@ Parameters
 Takes a dictionary as a parameter, with a single `product_ids` key to which a
 string array of product IDs is assigned. Example:
 
-::
-
+```
     var result = in_app_store.request_product_info({ "product_ids": ["my_product1", "my_product2"] })
+```
 
 Response event
 ^^^^^^^^^^^^^^
 
 The response event will be a dictionary with the following fields:
 
-::
-
+```
     {
       "type": "product_info",
       "result": "ok",
@@ -186,6 +185,7 @@ The response event will be a dictionary with the following fields:
       "prices": [ list of valid product prices ],
       "localized_prices": [ list of valid product localized prices ],
     }
+```
 
 `restore_purchases`
 ~~~~~~~~~~~~~~~~~~~~~
@@ -198,13 +198,13 @@ Response event
 
 The response events will be dictionaries with the following fields:
 
-::
-
+```
     {
       "type": "restore",
       "result": "ok",
       "product_id": "product ID of restored purchase",
     }
+```
 
 `set_auto_finish_transaction`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -218,9 +218,9 @@ Parameters
 Takes a boolean as a parameter which specifies if purchases should be
 automatically finalized. Example:
 
-::
-
+```
     in_app_store.set_auto_finish_transaction(true)
+```
 
 `finish_transaction`
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -235,9 +235,9 @@ Parameters
 Takes a string `product_id` as an argument. `product_id` specifies what product to
 finalize the purchase on. Example:
 
-::
-
+```
     in_app_store.finish_transaction("my_product1")
+```
 
 Game Center
 -----------
@@ -247,8 +247,7 @@ Implemented in `Godot iOS GameCenter plugin ( https://github.com/godotengine/god
 The Game Center API is available through the "GameCenter" singleton. It
 has the following methods:
 
-::
-
+```
     Error authenticate()
     bool is_authenticated()
     Error post_score(Variant score)
@@ -258,13 +257,14 @@ has the following methods:
     void request_achievement_descriptions()
     Error show_game_center(Variant params)
     Error request_identity_verification_signature()
+```
 
 and the pending events interface:
 
-::
-
+```
     int get_pending_event_count()
     Variant pop_pending_event()
+```
 
 `authenticate`
 ~~~~~~~~~~~~~~~~
@@ -278,24 +278,24 @@ The response event will be a dictionary with the following fields:
 
 On error:
 
-::
-
+```
     {
       "type": "authentication",
       "result": "error",
       "error_code": the value from NSError::code,
       "error_description": the value from NSError::localizedDescription,
     }
+```
 
 On success:
 
-::
-
+```
     {
       "type": "authentication",
       "result": "ok",
       "player_id": the value from GKLocalPlayer::playerID,
     }
+```
 
 `post_score`
 ~~~~~~~~~~~~~~
@@ -312,9 +312,9 @@ Takes a dictionary as a parameter, with two fields:
 
 Example:
 
-::
-
+```
     var result = game_center.post_score({ "score": 100, "category": "my_leaderboard", })
+```
 
 Response event
 ^^^^^^^^^^^^^^
@@ -323,23 +323,23 @@ The response event will be a dictionary with the following fields:
 
 On error:
 
-::
-
+```
     {
       "type": "post_score",
       "result": "error",
       "error_code": the value from NSError::code,
       "error_description": the value from NSError::localizedDescription,
     }
+```
 
 On success:
 
-::
-
+```
     {
       "type": "post_score",
       "result": "ok",
     }
+```
 
 `award_achievement`
 ~~~~~~~~~~~~~~~~~~~~~
@@ -359,9 +359,9 @@ Takes a Dictionary as a parameter, with 3 fields:
 
 Example:
 
-::
-
+```
     var result = award_achievement({ "name": "hard_mode_completed", "progress": 6.1 })
+```
 
 Response event
 ^^^^^^^^^^^^^^
@@ -370,22 +370,22 @@ The response event will be a dictionary with the following fields:
 
 On error:
 
-::
-
+```
     {
       "type": "award_achievement",
       "result": "error",
       "error_code": the error code taken from NSError::code,
     }
+```
 
 On success:
 
-::
-
+```
     {
       "type": "award_achievement",
       "result": "ok",
     }
+```
 
 `reset_achievements`
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -399,22 +399,22 @@ The response event will be a dictionary with the following fields:
 
 On error:
 
-::
-
+```
     {
       "type": "reset_achievements",
       "result": "error",
       "error_code": the value from NSError::code,
     }
+```
 
 On success:
 
-::
-
+```
     {
       "type": "reset_achievements",
       "result": "ok",
     }
+```
 
 `request_achievements`
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -429,24 +429,24 @@ The response event will be a dictionary with the following fields:
 
 On error:
 
-::
-
+```
     {
       "type": "achievements",
       "result": "error",
       "error_code": the value from NSError::code,
     }
+```
 
 On success:
 
-::
-
+```
     {
       "type": "achievements",
       "result": "ok",
       "names": [ list of the name of each achievement ],
       "progress": [ list of the progress made on each achievement ],
     }
+```
 
 `request_achievement_descriptions`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -461,18 +461,17 @@ The response event will be a dictionary with the following fields:
 
 On error:
 
-::
-
+```
     {
       "type": "achievement_descriptions",
       "result": "error",
       "error_code": the value from NSError::code,
     }
+```
 
 On success:
 
-::
-
+```
     {
       "type": "achievement_descriptions",
       "result": "ok",
@@ -484,6 +483,7 @@ On success:
       "hidden": [ list of booleans indicating whether each achievement is initially visible ],
       "replayable": [ list of booleans indicating whether each achievement can be earned more than once ],
     }
+```
 
 `show_game_center`
 ~~~~~~~~~~~~~~~~~~~~
@@ -506,10 +506,10 @@ Takes a Dictionary as a parameter, with two fields:
 
 Examples:
 
-::
-
+```
     var result = show_game_center({ "view": "leaderboards", "leaderboard_name": "best_time_leaderboard" })
     var result = show_game_center({ "view": "achievements" })
+```
 
 Response event
 ^^^^^^^^^^^^^^
@@ -518,12 +518,12 @@ The response event will be a dictionary with the following fields:
 
 On close:
 
-::
-
+```
     {
       "type": "show_game_center",
       "result": "ok",
     }
+```
 
 Multi-platform games
 --------------------
@@ -536,8 +536,7 @@ you need inside a conditional block, you need to also define them as
 valid identifiers (local variable or class member). This is an example
 of how to work around this in a class:
 
-::
-
+```
     var GameCenter = null # define it as a class member
 
     func post_score(score):
@@ -555,3 +554,4 @@ of how to work around this in a class:
         if Globals.has_singleton("GameCenter"):
             GameCenter = Globals.get_singleton("GameCenter")
             # connect your timer here to the "check_events" function
+```

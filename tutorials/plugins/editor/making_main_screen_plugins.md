@@ -26,8 +26,7 @@ The plugin script will come with `enter_tree()` and `exit_tree()`
 methods, but for a main screen plugin we need to add a few extra methods.
 Add five extra methods such that the script looks like this:
 
-::
-
+```
     tool
     extends EditorPlugin
 
@@ -54,6 +53,7 @@ Add five extra methods such that the script looks like this:
 
     func get_plugin_icon():
         return get_editor_interface().get_base_control().get_icon("Node", "EditorIcons")
+```
 
 The important part in this script is the `has_main_screen()` function,
 which is overloaded so it returns `true`. This function is automatically
@@ -75,14 +75,14 @@ Next, let's add a button to our example main screen plugin.
 Add a `Button` node, and set the text to "Print Hello" or similar.
 Add a script to the button like this:
 
-::
-
+```
     tool
     extends Button
 
 
     func _on_PrintHello_pressed():
         print("Hello from the main screen plugin!")
+```
 
 Then connect the "pressed" signal to itself. If you need help with signals,
 see the `doc_signals` article.
@@ -96,8 +96,7 @@ We need to update the `main_screen_plugin.gd` script so the plugin
 instances our main panel scene and places it where it needs to be.
 Here is the full plugin script:
 
-::
-
+```
     tool
     extends EditorPlugin
 
@@ -136,6 +135,7 @@ Here is the full plugin script:
     func get_plugin_icon():
         # Must return some kind of Texture for the icon.
         return get_editor_interface().get_base_control().get_icon("Node", "EditorIcons")
+```
 
 A couple of specific lines were added. `MainPanel` is a constant that holds
 a reference to the scene, and we instance it into `main_panel_instance`.

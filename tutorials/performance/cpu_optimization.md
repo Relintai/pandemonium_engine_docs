@@ -105,8 +105,7 @@ using a profiler, is to manually time the function or area under test.
 The specifics vary depending on the language, but in GDScript, you would do
 the following:
 
-::
-
+```
     var time_start = OS.get_ticks_usec()
 
     # Your function you want to time
@@ -114,6 +113,7 @@ the following:
 
     var time_end = OS.get_ticks_usec()
     print("update_enemies() took %d microseconds" % time_end - time_start)
+```
 
 When manually timing functions, it is usually a good idea to run the function
 many times (1,000 or more times), instead of just once (unless it is a very slow

@@ -25,8 +25,7 @@ Note:
 
 Here is a complete class example based on these guidelines:
 
-::
-
+```
     class_name StateMachine
     extends Node
     # Hierarchical State machine for the player.
@@ -88,6 +87,7 @@ Here is a complete class example based on these guidelines:
     func _on_state_changed(previous, new):
         print("state changed")
         emit_signal("state_changed")
+```
 
 .. _formatting:
 
@@ -109,47 +109,46 @@ Each indent level should be one greater than the block containing it.
 
 **Good**:
 
-::
-
+```
     for i in range(10):
         print("hello")
+```
 
 **Bad**:
 
-::
-
+```
     for i in range(10):
       print("hello")
 
     for i in range(10):
             print("hello")
+```
 
 Use 2 indent levels to distinguish continuation lines from
 regular code blocks.
 
 **Good**:
 
-::
-
+```
     effect.interpolate_property(sprite, "transform/scale",
                 sprite.get_scale(), Vector2(2.0, 2.0), 0.3,
                 Tween.TRANS_QUAD, Tween.EASE_OUT)
+```
 
 **Bad**:
 
-::
-
+```
     effect.interpolate_property(sprite, "transform/scale",
         sprite.get_scale(), Vector2(2.0, 2.0), 0.3,
         Tween.TRANS_QUAD, Tween.EASE_OUT)
+```
 
 Exceptions to this rule are arrays, dictionaries, and enums. Use a single
 indentation level to distinguish continuation lines:
 
 **Good**:
 
-::
-
+```
     var party = [
         "Godot",
         "Godette",
@@ -168,11 +167,11 @@ indentation level to distinguish continuation lines:
         TILE_SPIKE,
         TILE_TELEPORT,
     }
+```
 
 **Bad**:
 
-::
-
+```
     var party = [
             "Godot",
             "Godette",
@@ -191,6 +190,7 @@ indentation level to distinguish continuation lines:
             TILE_SPIKE,
             TILE_TELEPORT,
     }
+```
 
 Trailing comma
 ~~~~~~~~~~~~~~
@@ -201,47 +201,46 @@ line doesn't need to be modified when adding new elements.
 
 **Good**:
 
-::
-
+```
     enum Tiles {
         TILE_BRICK,
         TILE_FLOOR,
         TILE_SPIKE,
         TILE_TELEPORT,
     }
+```
 
 **Bad**:
 
-::
-
+```
     enum Tiles {
         TILE_BRICK,
         TILE_FLOOR,
         TILE_SPIKE,
         TILE_TELEPORT
     }
+```
 
 Trailing commas are unnecessary in single-line lists, so don't add them in this case.
 
 **Good**:
 
-::
-
+```
     enum Tiles {TILE_BRICK, TILE_FLOOR, TILE_SPIKE, TILE_TELEPORT}
+```
 
 **Bad**:
 
-::
-
+```
     enum Tiles {TILE_BRICK, TILE_FLOOR, TILE_SPIKE, TILE_TELEPORT,}
+```
 
 Blank lines
 ~~~~~~~~~~~
 
 Surround functions and class definitions with two blank lines:
 
-::
-
+```
     func heal(amount):
         health += amount
         health = min(health, max_health)
@@ -252,6 +251,7 @@ Surround functions and class definitions with two blank lines:
         health -= amount
         health = max(0, health)
         emit_signal("health_changed", health)
+```
 
 Use one blank line inside functions to separate logical sections.
 
@@ -276,27 +276,27 @@ not even with a single line conditional statement.
 
 **Good**:
 
-::
-
+```
     if position.x > width:
         position.x = 0
 
     if flag:
         print("flagged")
+```
 
 **Bad**:
 
-::
-
+```
     if position.x > width: position.x = 0
 
     if flag: print("flagged")
+```
 
 The only exception to that rule is the ternary operator:
 
-::
-
+```
    next_state = "fall" if not is_on_floor() else "idle"
+```
 
 Format multiline statements for readability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -317,8 +317,7 @@ end of the previous line.
 
 **Good**:
 
-::
-
+```
     var angle_degrees = 135
     var quadrant = (
             "northeast" if angle_degrees <= 90
@@ -333,17 +332,18 @@ end of the previous line.
             and position.y > 300 and position.y < 400
     ):
         pass
+```
 
 **Bad**:
 
-::
-
+```
     var angle_degrees = 135
     var quadrant = "northeast" if angle_degrees <= 90 else "southeast" if angle_degrees <= 180 else "southwest" if angle_degrees <= 270 else "northwest"
 
     var position = Vector2(250, 350)
     if position.x > 200 and position.x < 400 and position.y > 300 and position.y < 400:
         pass
+```
 
 Avoid unnecessary parentheses
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -354,17 +354,17 @@ they only reduce readability.
 
 **Good**:
 
-::
-
+```
     if is_colliding():
         queue_free()
+```
 
 **Bad**:
 
-::
-
+```
     if (is_colliding()):
         queue_free()
+```
 
 Boolean operators
 ~~~~~~~~~~~~~~~~~
@@ -379,17 +379,17 @@ This can make long expressions easier to read.
 
 **Good**:
 
-::
-
+```
     if (foo and bar) or baz:
         print("condition is true")
+```
 
 **Bad**:
 
-::
-
+```
     if foo && bar || baz:
         print("condition is true")
+```
 
 Comment spacing
 ~~~~~~~~~~~~~~~
@@ -399,17 +399,17 @@ This helps differentiate text comments from disabled code.
 
 **Good**:
 
-::
-
+```
     # This is a comment.
     #print("This is disabled code")
+```
 
 **Bad**:
 
-::
-
+```
     #This is a comment.
     # print("This is disabled code")
+```
 
 Note:
 
@@ -426,31 +426,31 @@ in dictionary references and function calls.
 
 **Good**:
 
-::
-
+```
     position.x = 5
     position.y = target_position.y + 10
     dict["key"] = 5
     my_array = [4, 5, 6]
     print("foo")
+```
 
 **Bad**:
 
-::
-
+```
     position.x=5
     position.y = mpos.y+10
     dict ["key"] = 5
     myarray = [4,5,6]
     print ("foo")
+```
 
 Don't use spaces to align expressions vertically:
 
-::
-
+```
     x        = 100
     y        = 100
     velocity = 500
+```
 
 Quotes
 ~~~~~~
@@ -458,8 +458,7 @@ Quotes
 Use double quotes unless single quotes make it possible to escape fewer
 characters in a given string. See the examples below:
 
-::
-
+```
     # Normal string.
     print("hello world")
 
@@ -471,6 +470,7 @@ characters in a given string. See the examples below:
 
     # Both quote styles would require 2 escapes; prefer double quotes if it's a tie.
     print("'hello' \"world\"")
+```
 
 Numbers
 ~~~~~~~
@@ -479,45 +479,51 @@ Don't omit the leading or trailing zero in floating-point numbers. Otherwise,
 this makes them less readable and harder to distinguish from integers at a
 glance.
 
-**Good**::
-
+**Good**:
+```
     var float_number = 0.234
     var other_float_number = 13.0
+```
 
-**Bad**::
-
+**Bad**:
+```
     var float_number = .234
     var other_float_number = 13.
+```
 
 Use lowercase for letters in hexadecimal numbers, as their lower height makes
 the number easier to read.
 
-**Good**::
-
+**Good**:
+```
     var hex_number = 0xfb8c0b
+```
 
-**Bad**::
-
+**Bad**:
+```
     var hex_number = 0xFB8C0B
+```
 
 Take advantage of GDScript's underscores in literals to make large numbers more
 readable.
 
-**Good**::
-
+**Good**:
+```
     var large_number = 1_234_567_890
     var large_hex_number = 0xffff_f8f8_0000
     var large_bin_number = 0b1101_0010_1010
     # Numbers lower than 1000000 generally don't need separators.
     var small_number = 12345
+```
 
-**Bad**::
-
+**Bad**:
+```
     var large_number = 1234567890
     var large_hex_number = 0xfffff8f80000
     var large_bin_number = 0b110100101010
     # Numbers lower than 1000000 generally don't need separators.
     var small_number = 12_345
+```
 
 .. _naming_conventions:
 
@@ -532,17 +538,18 @@ File names
 ~~~~~~~~~~
 
 Use snake_case for file names. For named classes, convert the PascalCase class
-name to snake_case::
-
+name to snake_case:
+```
     # This file should be saved as `weapon.gd`.
     class_name Weapon
     extends Node
+```
 
-::
-
+```
     # This file should be saved as `yaml_parser.gd`.
     class_name YAMLParser
     extends Object
+```
 
 This is consistent with how C++ files are named in Godot's source code. This
 also avoids case sensitivity issues that can crop up when exporting a project
@@ -553,43 +560,43 @@ Classes and nodes
 
 Use PascalCase for class and node names:
 
-::
-
+```
    extends KinematicBody
+```
 
 Also use PascalCase when loading a class into a constant or a variable:
 
-::
-
+```
     const Weapon = preload("res://weapon.gd")
+```
 
 Functions and variables
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Use snake\_case to name functions and variables:
 
-::
-
+```
    var particle_effect
    func load_level():
+```
 
 Prepend a single underscore (\_) to virtual methods functions the user must
 override, private functions, and private variables:
 
-::
-
+```
    var _counter = 0
    func _recalculate_path():
+```
 
 Signals
 ~~~~~~~
 
 Use the past tense to name signals:
 
-::
-
+```
     signal door_opened
     signal score_changed
+```
 
 Constants and enums
 ~~~~~~~~~~~~~~~~~~~
@@ -597,21 +604,21 @@ Constants and enums
 Write constants with CONSTANT\_CASE, that is to say in all caps with an
 underscore (\_) to separate words:
 
-::
-
+```
     const MAX_SPEED = 200
+```
 
 Use PascalCase for enum *names* and CONSTANT\_CASE for their members, as they
 are constants:
 
-::
-
+```
     enum Element {
         EARTH,
         WATER,
         AIR,
         FIRE,
     }
+```
 
 
 Code order
@@ -622,8 +629,7 @@ This first section focuses on code order. For formatting, see
 
 We suggest to organize GDScript code this way:
 
-::
-
+```
     01. tool
     02. class_name
     03. extends
@@ -642,6 +648,7 @@ We suggest to organize GDScript code this way:
     14. remaining built-in virtual methods
     15. public methods
     16. private methods
+```
 
 We optimized the order to make it easy to read the code from top to bottom, to
 help developers reading the code for the first time understand how it works, and
@@ -672,12 +679,12 @@ Following that, you should have the class's optional docstring as comments. You
 can use that to explain the role of your class to your teammates, how it works,
 and how other developers should use it, for example.
 
-::
-
+```
    class_name MyNode
    extends Node
    # A brief description of the class's role and functionality.
    # Longer description.
+```
 
 Signals and properties
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -691,8 +698,7 @@ properties.
 Then, write constants, exported variables, public, private, and onready
 variables, in that order.
 
-::
-
+```
    signal spawn_player(position)
 
    enum Jobs {KNIGHT, WIZARD, ROGUE, HEALER, SHAMAN}
@@ -709,6 +715,7 @@ variables, in that order.
 
    onready var sword = get_node("Sword")
    onready var gun = get_node("Gun")
+```
 
 
 Note:
@@ -752,8 +759,7 @@ interactions with the game engine.
 The rest of the class's interface, public and private methods, come after that,
 in that order.
 
-::
-
+```
     func _init():
         add_to_group("state_machine")
 
@@ -783,6 +789,7 @@ in that order.
     func _on_state_changed(previous, new):
         print("state changed")
         emit_signal("state_changed")
+```
 
 
 Static typing
@@ -795,24 +802,24 @@ Declared types
 
 To declare a variable's type, use `<variable>: <type )`:
 
-::
-
+```
    var health: int = 0
+```
 
 To declare the return type of a function, use `-> <type )`:
 
-::
-
+```
    func heal(amount: int) -> void:
+```
 
 Inferred types
 ~~~~~~~~~~~~~~
 
 In most cases you can let the compiler infer the type, using `:=`:
 
-::
-
+```
    var health := 0  # The compiler will use the int type.
+```
 
 However, in a few cases when context is missing, the compiler falls back to
 the function's return type. For example, `get_node()` cannot infer a type
@@ -821,26 +828,26 @@ should set the type explicitly.
 
 **Good**:
 
-::
-
+```
    onready var health_bar: ProgressBar = get_node("UI/LifeBar")
+```
 
 Alternatively, you can use the `as` keyword to cast the return type, and
 that type will be used to infer the type of the var.
 
-.. rst-class:: code-example-good
+.. rst-class: code-example-good
 
-::
-
+```
    onready var health_bar := get_node("UI/LifeBar") as ProgressBar
    # health_bar will be typed as ProgressBar
+```
 
 This option is also considered more `type-safe( doc_gdscript_static_typing_safe_lines )` than the first.
 
 **Bad**:
 
-::
-
+```
    # The compiler can't infer the exact type and will use Node
    # instead of ProgressBar.
    onready var health_bar := get_node("UI/LifeBar")
+```

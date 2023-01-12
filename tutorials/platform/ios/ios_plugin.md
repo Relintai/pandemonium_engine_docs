@@ -20,11 +20,13 @@ An iOS plugin requires a `.gdip` configuration file, a binary file which can be 
 
 ![](img/ios_export_preset_plugins_section.png)
 
-When a plugin is active, you can access it in your using `Engine.get_singleton()`::
+When a plugin is active, you can access it in your using `Engine.get_singleton()`:
 
+```
     if Engine.has_singleton("MyPlugin"):
         var singleton = Engine.get_singleton("MyPlugin")
         print(singleton.foo())
+```
 
 Creating an iOS plugin
 ----------------------
@@ -59,24 +61,25 @@ To build an iOS plugin:
 
 3. In the `Build Settings` tab, specify the compilation flags for your static library in `OTHER_CFLAGS`. The most important ones are `-fcxx-modules`, `-fmodules`, and `-DDEBUG` if you need debug support. Other flags should be the same you use to compile Godot. For instance:
 
-::
-
+```
     -DPTRCALL_ENABLED -DDEBUG_ENABLED -DDEBUG_MEMORY_ALLOC -DDISABLE_FORCED_INLINE -DTYPED_METHOD_BIND
+```
 
 4. Add the required logic for your plugin and build your library to generate a `.a` file. You will probably need to build both `debug` and `release` target `.a` files. Depending on your needs, pick either or both. If you need both debug and release `.a` files, their name should match following pattern: `[PluginName].[TargetType].a`. You can also build the static library with your SCons configuration.
 
 5. The iOS plugin system also supports `.xcframework` files. To generate one, you can use a command such as:
 
-::
-
+```
     xcodebuild -create-xcframework -library [DeviceLibrary].a -library [SimulatorLibrary].a -output [PluginName].xcframework
+```
 
 6. Create a Godot iOS Plugin configuration file to help the system detect and load your plugin:
 
     -   The configuration file extension must be `gdip` (e.g.: `MyPlugin.gdip`).
 
-    -   The configuration file format is as follow::
+    -   The configuration file format is as follow:
 
+```
             [config]
             name="MyPlugin"
             binary="MyPlugin.a"
@@ -106,6 +109,7 @@ To build an iOS plugin:
             </array>
             "
             StringPlistKeyToInput:string_input="Type something"
+```
 
         The `config` section and fields are required and defined as follow:
 

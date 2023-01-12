@@ -23,21 +23,21 @@ Scene tree
 
 Interacting with the active scene tree is **NOT** thread-safe. Make sure to use mutexes when sending data between threads. If you want to call functions from a thread, the *call_deferred* function may be used:
 
-::
-
+```
     # Unsafe:
     node.add_child(child_node)
     # Safe:
     node.call_deferred("add_child", child_node)
+```
 
 However, creating scene chunks (nodes in tree arrangement) outside the active tree is fine. This way, parts of a scene can be built or instantiated in a thread, then added in the main thread:
 
-::
-
+```
     var enemy_scene = load("res://enemy_scene.scn")
     var enemy = enemy_scene.instance()
     enemy.add_child(weapon) # Set a weapon.
     world.call_deferred("add_child", enemy)
+```
 
 Still, this is only really useful if you have **one** thread loading data.
 Attempting to load or create scene chunks from multiple threads may work, but you risk

@@ -68,11 +68,13 @@ The instructions below assumes that you're using Android Studio.
 
   - Open the plugin `AndroidManifest.xml` file.
   - Add the `<application></application )` tag if it's missing.
-  - In the `<application )` tag, add a `<meta-data )` tag setup as follow::
+  - In the `<application )` tag, add a `<meta-data )` tag setup as follow:
 
+```
         <meta-data
             android:name="org.godotengine.plugin.v1.[PluginName]"
             android:value="[plugin.init.ClassFullName]" />
+```
 
     Where `PluginName` is the name of the plugin, and `plugin.init.ClassFullName` is the full name (package + class name) of the plugin loading class.
 
@@ -85,8 +87,9 @@ The instructions below assumes that you're using Android Studio.
 6. Create a Godot Android Plugin configuration file to help the system detect and load your plugin:
 
   - The configuration file extension must be `gdap` (e.g.: `MyPlugin.gdap`).
-  - The configuration file format is as follow::
-
+  - The configuration file format is as follow:
+  
+```
         [config]
 
         name="MyPlugin"
@@ -98,6 +101,7 @@ The instructions below assumes that you're using Android Studio.
         local=["local_dep1.aar", "local_dep2.aar"]
         remote=["example.plugin.android:remote-dep1:0.0.1", "example.plugin.android:remote-dep2:0.0.1"]
         custom_maven_repos=["http://repo.mycompany.com/maven2"]
+```
 
     The `config` section and fields are required and defined as follow:
 
@@ -129,11 +133,11 @@ The Godot editor will automatically parse all `.gdap` files in the `res://androi
 
 From your script:
 
-.. code::
-
+```
     if Engine.has_singleton("MyPlugin"):
         var singleton = Engine.get_singleton("MyPlugin")
         print(singleton.myPluginFunction("World"))
+```
 
 
 Bundling GDNative resources

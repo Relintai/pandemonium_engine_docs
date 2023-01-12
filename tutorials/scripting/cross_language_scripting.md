@@ -46,11 +46,11 @@ Using C# from GDScript doesn't need much work. Once loaded
 (see `doc_gdscript_classes_as_resources`), the script can be instantiated
 with `new()`.
 
-::
-
+```
     var my_csharp_script = load("res://path_to_cs_file.cs")
     var my_csharp_node = my_csharp_script.new()
     print(my_csharp_node.str2) # barbar
+```
 
 Warning:
 
@@ -71,10 +71,10 @@ Instantiating GDScript nodes from C#
 From the C# side, everything work the same way. Once loaded, the GDScript can
 be instantiated with `GDScript.New()`.
 
-.. code-block:: csharp
-
+```
     GDScript MyGDScript = (GDScript) GD.Load("res://path_to_gd_file.gd");
     Object myGDScriptNode = (Godot.Object) MyGDScript.New(); // This is a Godot.Object
+```
 
 Here we are using an `Object`, but you can use type conversion like
 explained in `doc_c_sharp_features_type_conversion_and_casting`.
@@ -88,14 +88,14 @@ Accessing C# fields from GDScript
 Accessing C# fields from GDScript is straightforward, you shouldn't have
 anything to worry about.
 
-::
-
+```
     print(my_csharp_node.str1) # bar
     my_csharp_node.str1 = "BAR"
     print(my_csharp_node.str1) # BAR
 
     print(my_csharp_node.str2) # barbar
     # my_csharp_node.str2 = "BARBAR" # This line will hang and crash
+```
 
 Note that it doesn't matter if the field is defined as a property or an
 attribute. However, trying to set a value on a property that does not define
@@ -108,14 +108,14 @@ As C# is statically typed, accessing GDScript from C# is a bit more
 convoluted, you will have to use `Object.Get()`
 and `Object.Set()`. The first argument is the name of the field you want to access.
 
-.. code-block:: csharp
-
+```
     GD.Print(myGDScriptNode.Get("str1")); // foo
     myGDScriptNode.Set("str1", "FOO");
     GD.Print(myGDScriptNode.Get("str1")); // FOO
 
     GD.Print(myGDScriptNode.Get("str2")); // foofoo
     // myGDScriptNode.Set("str2", "FOOFOO"); // This line won't do anything
+```
 
 Keep in mind that when setting a field value you should only use types the
 GDScript side knows about.
@@ -132,8 +132,7 @@ marshalling process will do its best to cast the arguments to match
 function signatures.
 If that's impossible, you'll see the following error: `Invalid call. Nonexistent function `FunctionName```.
 
-::
-
+```
     my_csharp_node.PrintNodeName(self) # myGDScriptNode
     # my_csharp_node.PrintNodeName() # This line will fail.
 
@@ -141,6 +140,7 @@ If that's impossible, you'll see the following error: `Invalid call. Nonexistent
 
     my_csharp_node.PrintArray(["a", "b", "c"]) # a, b, c
     my_csharp_node.PrintArray([1, 2, 3]) # 1, 2, 3
+```
 
 Calling GDScript methods from C#
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -150,8 +150,7 @@ To call GDScript methods from C# you'll need to use
 name of the method you want to call. The following arguments will be passed
 to said method.
 
-.. code-block:: csharp
-
+```
     myGDScriptNode.Call("print_node_name", this); // my_csharp_node
     // myGDScriptNode.Call("print_node_name"); // This line will fail silently and won't error out.
 
@@ -164,6 +163,7 @@ to said method.
     myGDScriptNode.Call("print_array", (object)arr); // a, b, c
     myGDScriptNode.Call("print_array", (object)new int[] { 1, 2, 3 }); // 1, 2, 3
     // Note how the type of each array entry does not matter as long as it can be handled by the marshaller
+```
 
 Warning:
 

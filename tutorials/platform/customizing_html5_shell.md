@@ -22,8 +22,7 @@ The default HTML page is available in the Godot Engine repository at
 `/misc/dist/html/full-size.html ( https://github.com/godotengine/godot/blob/master/misc/dist/html/full-size.html )`
 but the following template can be used as a much simpler example:
 
-.. code-block:: html
-
+```
     <!DOCTYPE html>
     <html>
         <head>
@@ -39,6 +38,7 @@ but the following template can be used as a much simpler example:
             </script>
         </body>
     </html>
+```
 
 Setup
 -----
@@ -88,8 +88,7 @@ However, in the simplest case all you need to do is to create an instance of the
 class with the exported configuration, and then call the :js:meth:`engine.startGame <Engine.prototype.startGame )` method
 optionally overriding any :js:attr:`EngineConfig` parameters.
 
-.. code-block:: js
-
+```
     const engine = new Engine($GODOT_CONFIG);
     engine.startGame({
         /* optional override configuration, eg. */
@@ -97,6 +96,7 @@ optionally overriding any :js:attr:`EngineConfig` parameters.
         // canvasResizePolicy: 0,
         // ...
     });
+```
 
 This snippet of code automatically loads and initializes the engine before starting the game.
 It uses the given configuration to to load the engine. The :js:meth:`engine.startGame <Engine.prototype.startGame )`
@@ -113,8 +113,7 @@ the module initialization, but before the engine starts.
 
 This process is a bit more complex, but gives you full control over the engine startup process.
 
-.. code-block:: js
-
+```
     const myWasm = 'mygame.wasm';
     const myPck = 'mygame.pck';
     const engine = new Engine();
@@ -129,6 +128,7 @@ This process is a bit more complex, but gives you full control over the engine s
     }).then(() => {
         console.log('Engine has started!');
     });
+```
 
 To load the engine manually the :js:meth:`Engine.load` static method must be called. As
 this method is static, multiple engine instances can be spawned if the share the same `wasm`.
@@ -161,10 +161,10 @@ By default, the first canvas element on the page is used for rendering. To use a
 element the :js:attr:`canvas` override option can be used. It requires a reference to the DOM
 element itself.
 
-.. code-block:: js
-
+```
     const canvasElement = document.querySelector("#my-canvas-element");
     engine.startGame({ canvas: canvasElement });
+```
 
 The way the engine resize the canvas can be configured via the :js:attr:`canvasResizePolicy`
 override option.
@@ -173,12 +173,12 @@ If your game takes some time to load, it may be useful to display a custom loadi
 the progress. This can be achieved with the :js:attr:`onProgress` callback option, which
 allows to set up a callback function that will be called regularly as the engine loads new bytes.
 
-.. code-block:: js
-
+```
     function printProgress(current, total) {
         console.log("Loaded " + current + " of " + total + " bytes");
     }
     engine.startGame({ onProgress: printProgress });
+```
 
 Be aware that in some cases `total` can be `0`. This means that it cannot be calculated.
 
@@ -197,8 +197,7 @@ behavior can be customized by setting your own functions to handle messages.
 Use the :js:attr:`onPrint` override option to set a callback function for the output stream,
 and the :js:attr:`onPrintError` override option to set a callback function for the error stream.
 
-.. code-block:: js
-
+```
     function print(text) {
         console.log(text);
     }
@@ -206,6 +205,7 @@ and the :js:attr:`onPrintError` override option to set a callback function for t
         console.warn(text);
     }
     engine.startGame({ onPrint: print, onPrintError: printError });
+```
 
 When handling the engine output keep in mind, that it may not be desirable to print it out in the
 finished product.

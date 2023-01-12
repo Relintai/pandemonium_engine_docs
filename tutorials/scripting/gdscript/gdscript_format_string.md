@@ -21,8 +21,7 @@ Usage in GDScript
 
 Examine this concrete GDScript example:
 
-::
-
+```
     # Define a format string with placeholder '%s'
     var format_string = "We're waiting for %s."
 
@@ -31,6 +30,7 @@ Examine this concrete GDScript example:
 
     print(actual_string)
     # Output: "We're waiting for Godot."
+```
 
 Placeholders always start with a `%`, but the next character or characters,
 the *format specifier*, determines how the given value is converted to a
@@ -52,8 +52,7 @@ matters when the index or mixed style of Array is used.
 
 A quick example in GDScript:
 
-::
-
+```
     # Define a format string
     var format_string = "We're waiting for {str}"
 
@@ -62,6 +61,7 @@ A quick example in GDScript:
 
     print(actual_string)
     # Output: "We're waiting for Godot"
+```
 
 There are other `format specifiers`, but they are only applicable when using
 the `%` operator.
@@ -74,13 +74,13 @@ Format strings may contain multiple placeholders. In such a case, the values
 are handed in the form of an array, one value per placeholder (unless using a
 format specifier with `*`, see `dynamic padding`):
 
-::
-
+```
     var format_string = "%s was reluctant to learn %s, but now he enjoys it."
     var actual_string = format_string % ["Estragon", "GDScript"]
 
     print(actual_string)
     # Output: "Estragon was reluctant to learn GDScript, but now he enjoys it."
+```
 
 Note the values are inserted in order. Remember all placeholders must be
 replaced at once, so there must be an appropriate number of values.
@@ -158,40 +158,40 @@ used.
 
 To pad a string to a minimum length, add an integer to the specifier:
 
-::
-
+```
     print("%10d" % 12345)
     # output: "     12345"
     # 5 leading spaces for a total length of 10
+```
 
 If the integer starts with `0`, integral values are padded with zeroes
 instead of white space:
 
-::
-
+```
     print("%010d" % 12345)
     # output: "0000012345"
+```
 
 Precision can be specified for real numbers by adding a `.` (*dot*) with an
 integer following it. With no integer after `.`, a precision of 0 is used,
 rounding to integral value. The integer to use for padding must appear before
 the dot.
 
-::
-
+```
     # Pad to minimum length of 10, round to 3 decimal places
     print("%10.3f" % 10000.5555)
     # Output: " 10000.556"
     # 1 leading space
+```
 
 The `-` character will cause padding to the right rather than the left,
 useful for right text alignment:
 
-::
-
+```
     print("%-10d" % 12345678)
     # Output: "12345678  "
     # 2 trailing spaces
+```
 
 
 Dynamic padding
@@ -202,21 +202,21 @@ without modifying the format string. It is used in place of an integer in the
 format specifier. The values for padding and precision are then passed when
 formatting:
 
-::
-
+```
     var format_string = "%*.*f"
     # Pad to length of 7, round to 3 decimal places:
     print(format_string % [7, 3, 8.8888])
     # Output: "  8.889"
     # 2 leading spaces
+```
 
 It is still possible to pad with zeroes in integer placeholders by adding `0`
 before `*`:
 
-::
-
+```
     print("%0*d" % [2, 3])
     # Output: "03"
+```
 
 
 Escape sequence
@@ -225,11 +225,11 @@ Escape sequence
 To insert a literal `%` character into a format string, it must be escaped to
 avoid reading it as a placeholder. This is done by doubling the character:
 
-::
-
+```
     var health = 56
     print("Remaining health: %d%%" % health)
     # Output: "Remaining health: 56%"
+```
 
 
 Format method examples

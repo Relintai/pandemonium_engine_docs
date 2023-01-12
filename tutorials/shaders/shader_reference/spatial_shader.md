@@ -108,8 +108,7 @@ They can optionally be presented in world space by using the *world_vertex_coord
 Users can disable the built-in modelview transform (projection will still happen later) and do
 it manually with the following code:
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
     render_mode skip_vertex_transform;
 
@@ -118,6 +117,7 @@ it manually with the following code:
         NORMAL = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
         // same as above for binormal and tangent, if normal mapping is used
     }
+```
 
 Other built-ins, such as UV, UV2 and COLOR, are also passed through to the fragment function if not modified.
 
@@ -319,11 +319,11 @@ each light type.
 
 Below is an example of a custom light function using a Lambertian lighting model:
 
-.. code-block:: glsl
-
+```
     void light() {
         DIFFUSE_LIGHT += clamp(dot(NORMAL, LIGHT), 0.0, 1.0) * ATTENUATION * ALBEDO;
     }
+```
 
 If you want the lights to add together, add the light contribution to `DIFFUSE_LIGHT` using `+=`, rather than overwriting it.
 

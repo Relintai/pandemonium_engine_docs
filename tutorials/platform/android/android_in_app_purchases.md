@@ -46,8 +46,7 @@ Getting started
 To use the `GodotGooglePlayBilling` API you first have to get the `GodotGooglePlayBilling`
 singleton and start the connection:
 
-::
-
+```
     var payment
 
     func _ready():
@@ -71,6 +70,7 @@ singleton and start the connection:
             payment.startConnection()
         else:
             print("Android IAP support is not enabled. Make sure you have enabled 'Custom Build' and the GodotGooglePlayBilling plugin in your Android export settings! IAP will not work.")
+```
 
 All API methods only work if the API is connected. You can use `payment.isReady()` to check the connection status.
 
@@ -82,14 +82,14 @@ As soon as the API is connected, you can query SKUs using `querySkuDetails`.
 
 Full example:
 
-::
-
+```
     func _on_connected():
       payment.querySkuDetails(["my_iap_item"], "inapp") # "subs" for subscriptions
 
     func _on_sku_details_query_completed(sku_details):
       for available_sku in sku_details:
         print(available_sku)
+```
 
 
 Purchase an item
@@ -99,14 +99,13 @@ To initiate the purchase flow for an item, call `purchase`.
 You **must** query the SKU details for an item before you can
 initiate the purchase flow for it.
 
-::
-
+```
     payment.purchase("my_iap_item")
+```
 
 Then, wait for the `on_purchases_updated` callback and handle the purchase result:
 
-::
-
+```
     func _on_purchases_updated(purchases):
         for purchase in purchases:
             if purchase.purchase_state == 1: # 1 means "purchased", see https://developer.android.com/reference/com/android/billingclient/api/Purchase.PurchaseState#constants_1
@@ -115,6 +114,7 @@ Then, wait for the `on_purchases_updated` callback and handle the purchase resul
                     payment.acknowledgePurchase(purchase.purchase_token) # call if non-consumable product
                     if purchase.sku in list_of_consumable_products:
                         payment.consumePurchase(purchase.purchase_token) # call if consumable product
+```
 
 
 Check if the user purchased an item
@@ -126,8 +126,7 @@ and either an array of purchases or an error message. Only active subscriptions 
 
 Full example:
 
-::
-
+```
     var query = payment.queryPurchases("inapp") # Or "subs" for subscriptions
     if query.status == OK:
         for purchase in query.purchases:
@@ -136,6 +135,7 @@ Full example:
                 if !purchase.is_acknowledged:
                     payment.acknowledgePurchase(purchase.purchase_token)
                     # Or wait for the _on_purchase_acknowledged callback before giving the user what they bought
+```
 
 
 Consumables
@@ -147,8 +147,7 @@ Call `queryPurchases` to get the purchase token. Calling `consumePurchase` autom
 acknowledges a purchase.
 Consuming a product allows the user to purchase it again, and removes it from appearing in subsequent `queryPurchases` calls.
 
-::
-
+```
     var query = payment.queryPurchases("inapp") # Or "subs" for subscriptions
     if query.status == OK:
         for purchase in query.purchases:
@@ -156,6 +155,7 @@ Consuming a product allows the user to purchase it again, and removes it from ap
                 # enable_premium(purchase.sku) # add coins, save token on server, etc.
                 payment.consumePurchase(purchase.purchase_token)
                 # Or wait for the _on_purchase_consumed callback before giving the user what they bought
+```
 
 Subscriptions
 *************

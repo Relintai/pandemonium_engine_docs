@@ -21,14 +21,13 @@ First create a Particles node. Then, under "Draw Passes" set the Particle's "Dra
 
 Set the `shader_type` to `particles`.
 
-.. code-block:: glsl
-
+```
   shader_type particles
+```
 
 Then add the following two functions:
 
-.. code-block:: glsl
-
+```
   float rand_from_seed(in uint seed) {
     int k;
     int s = int(seed);
@@ -48,6 +47,7 @@ Then add the following two functions:
     x = (x >> uint(16)) ^ x;
     return x;
   }
+```
 
 These functions come from the default `ParticlesMaterial`.
 They are used to generate a random number from each particle's `RANDOM_SEED`.
@@ -66,8 +66,7 @@ built-in variable `RESTART` which becomes `true` for one frame when the particle
 
 From a high level, this looks like:
 
-.. code-block:: glsl
-
+```
   void vertex() {
     if (RESTART) {
       //Initialization code goes here
@@ -75,34 +74,35 @@ From a high level, this looks like:
       //per-frame code goes here
     }
   }
+```
 
 Next, we need to generate 4 random numbers: 3 to create a random position and one for the random
 offset of the swim cycle.
 
 First, generate 4 seeds inside the `RESTART` block using the `hash` function provided above:
 
-.. code-block:: glsl
-
+```
   uint alt_seed1 = hash(NUMBER + uint(1) + RANDOM_SEED);
   uint alt_seed2 = hash(NUMBER + uint(27) + RANDOM_SEED);
   uint alt_seed3 = hash(NUMBER + uint(43) + RANDOM_SEED);
   uint alt_seed4 = hash(NUMBER + uint(111) + RANDOM_SEED);
+```
 
 Then, use those seeds to generate random numbers using `rand_from_seed`:
 
-.. code-block:: glsl
-
+```
   CUSTOM.x = rand_from_seed(alt_seed1);
   vec3 position = vec3(rand_from_seed(alt_seed2) * 2.0 - 1.0,
                        rand_from_seed(alt_seed3) * 2.0 - 1.0,
                        rand_from_seed(alt_seed4) * 2.0 - 1.0);
+```
 
 Finally, assign `position` to `TRANSFORM[3].xyz`, which is the part of the transform that holds
 the position information.
 
-.. code-block:: glsl
-
+```
   TRANSFORM[3].xyz = position * 20.0;
+```
 
 Remember, all this code so far goes inside the `RESTART` block.
 
@@ -113,27 +113,27 @@ or by writing to `VELOCITY`.
 
 Let's transform the fish by setting their `VELOCITY`.
 
-.. code-block:: glsl
-
+```
   VELOCITY.z = 10.0;
+```
 
 This is the most basic way to set `VELOCITY` every particle (or fish) will have the same velocity.
 
 Just by setting `VELOCITY` you can make the fish swim however you want. For example, try the code
 below.
 
-.. code-block:: glsl
-
+```
   VELOCITY.z = cos(TIME + CUSTOM.x * 6.28) * 4.0 + 6.0;
+```
 
 This will give each fish a unique speed between `2` and `10`.
 
 If you used `CUSTOM.y` in the last tutorial, you can also set the speed of the swim animation based
 on the `VELOCITY`. Just use `CUSTOM.y`.
 
-.. code-block:: glsl
-
+```
   CUSTOM.y = VELOCITY.z * 0.1;
+```
 
 This code gives you the following behavior:
 

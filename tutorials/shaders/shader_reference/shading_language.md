@@ -89,19 +89,19 @@ Casting of types of different size is also not allowed. Conversion must be done 
 
 Example:
 
-.. code-block:: glsl
-
+```
     float a = 2; // invalid
     float a = 2.0; // valid
     float a = float(2); // valid
+```
 
 Default integer constants are signed, so casting is always needed to convert to unsigned:
 
-.. code-block:: glsl
-
+```
     int a = 2; // valid
     uint a = 2; // invalid
     uint a = uint(2); // valid
+```
 
 Members
 ~~~~~~~
@@ -119,8 +119,7 @@ Constructing
 
 Construction of vector types must always pass:
 
-.. code-block:: glsl
-
+```
     // The required amount of scalars
     vec4 a = vec4(0.0, 1.0, 2.0, 3.0);
     // Complementary vectors and/or scalars
@@ -128,16 +127,17 @@ Construction of vector types must always pass:
     vec4 a = vec4(vec3(0.0, 1.0, 2.0), 3.0);
     // A single scalar for the whole vector
     vec4 a = vec4(0.0);
+```
 
 Construction of matrix types requires vectors of the same dimension as the matrix. You can
 also build a diagonal matrix using `matx(float)` syntax. Accordingly, `mat4(1.0)` is
 an identity matrix.
 
-.. code-block:: glsl
-
+```
     mat2 m2 = mat2(vec2(1.0, 0.0), vec2(0.0, 1.0));
     mat3 m3 = mat3(vec3(1.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 0.0, 1.0));
     mat4 identity = mat4(1.0);
+```
 
 Matrices can also be built from a matrix of another dimension.
 There are two rules :
@@ -145,11 +145,11 @@ If a larger matrix is constructed from a smaller matrix, the additional rows and
 set to the values they would have in an identity matrix. If a smaller matrix is constructed
 from a larger matrix, the top, left submatrix of the larger matrix is used.
 
-.. code-block:: glsl
-
+```
 	mat3 basis = mat3(WORLD_MATRIX);
 	mat4 m4 = mat4(basis);
 	mat2 m2 = mat2(m4);
+```
 
 Swizzling
 ~~~~~~~~~
@@ -157,8 +157,7 @@ Swizzling
 It is possible to obtain any combination of components in any order, as long as the result
 is another vector type (or scalar). This is easier shown than explained:
 
-.. code-block:: glsl
-
+```
     vec4 a = vec4(0.0, 1.0, 2.0, 3.0);
     vec3 b = a.rgb; // Creates a vec3 with vec4 components.
     vec3 b = a.ggg; // Also valid; creates a vec3 and fills it with a single vec4 component.
@@ -169,17 +168,18 @@ is another vector type (or scalar). This is easier shown than explained:
     vec3 c = b.xrt; // Invalid, mixing different styles is forbidden.
     b.rrr = a.rgb; // Invalid, assignment with duplication.
     b.bgr = a.rgb; // Valid assignment. "b"'s "blue" component will be "a"'s "red" and vice versa.
+```
 
 Precision
 ~~~~~~~~~
 
 It is possible to add precision modifiers to datatypes; use them for uniforms, variables, arguments and varyings:
 
-.. code-block:: glsl
-
+```
     lowp vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // low precision, usually 8 bits per component mapped to 0-1
     mediump vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // medium precision, usually 16 bits or half float
     highp vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // high precision, uses full float or integer range (default)
+```
 
 
 Using lower precision for some operations can speed up the math involved (at the cost of less precision).
@@ -204,16 +204,15 @@ Local arrays
 Local arrays are declared in functions. They can use all of the allowed datatypes, except samplers.
 The array declaration follows a C-style syntax: `[const] + [precision] + typename + identifier + [array size]`.
 
-.. code-block:: glsl
-
+```
     void fragment() {
         float arr[3];
     }
+```
 
 They can be initialized at the beginning like:
 
-.. code-block:: glsl
-
+```
     float float_arr[3] = float[3] (1.0, 0.5, 0.0); // first constructor
 
     int int_arr[3] = int[] (2, 1, 0); // second constructor
@@ -221,35 +220,36 @@ They can be initialized at the beginning like:
     vec2 vec2_arr[3] = { vec2(1.0, 1.0), vec2(0.5, 0.5), vec2(0.0, 0.0) }; // third constructor
 
     bool bool_arr[] = { true, true, false }; // fourth constructor - size is defined automatically from the element count
+```
 
 You can declare multiple arrays (even with different sizes) in one expression:
 
-.. code-block:: glsl
-
+```
     float a[3] = float[3] (1.0, 0.5, 0.0),
     b[2] = { 1.0, 0.5 },
     c[] = { 0.7 },
     d = 0.0,
     e[5];
+```
 
 To access an array element, use the indexing syntax:
 
-.. code-block:: glsl
-
+```
     float arr[3];
 
     arr[0] = 1.0; // setter
 
     COLOR.r = arr[0]; // getter
+```
 
 Arrays also have a built-in function `.length()` (not to be confused with the built-in `length()` function). It doesn't accept any parameters and will return the array's size.
 
-.. code-block:: glsl
-
+```
     float arr[] = { 0.0, 1.0, 0.5, -1.0 };
     for (int i = 0; i < arr.length(); i++) {
         // ...
     }
+```
 
 Note:
 
@@ -261,38 +261,38 @@ Constants
 
 Use the `const` keyword before the variable declaration to make that variable immutable, which means that it cannot be modified. All basic types, except samplers can be declared as constants. Accessing and using a constant value is slightly faster than using a uniform. Constants must be initialized at their declaration.
 
-.. code-block:: glsl
-
+```
     const vec2 a = vec2(0.0, 1.0);
     vec2 b;
 
     a = b; // invalid
     b = a; // valid
+```
 
 Constants cannot be modified and additionally cannot have hints, but multiple of them (if they have the same type) can be declared in a single expression e.g
 
-.. code-block:: glsl
-
+```
     const vec2 V1 = vec2(1, 1), V2 = vec2(2, 2);
+```
 
 Similar to variables, arrays can also be declared with `const`.
 
-.. code-block:: glsl
-
+```
     const float arr[] = { 1.0, 0.5, 0.0 };
 
     arr[0] = 1.0; // invalid
 
     COLOR.r = arr[0]; // valid
+```
 
 Constants can be declared both globally (outside of any function) or locally (inside a function).
 Global constants are useful when you want to have access to a value throughout your shader that does not need to be modified. Like uniforms, global constants are shared between all shader stages, but they are not accessible outside of the shader.
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     const float PI = 3.14159265358979323846;
+```
 
 Operators
 ---------
@@ -332,8 +332,7 @@ Flow control
 
 Godot Shading language supports the most common types of flow control:
 
-.. code-block:: glsl
-
+```
     // if and else
     if (cond) {
 
@@ -369,6 +368,7 @@ Godot Shading language supports the most common types of flow control:
     do {
 
     } while(true);
+```
 
 Keep in mind that, in modern GPUs, an infinite loop can exist and can freeze your application (including editor).
 Godot can't protect you from this, so be careful not to make this mistake!
@@ -389,8 +389,7 @@ Functions
 
 It is possible to define functions in a Godot shader. They use the following syntax:
 
-.. code-block:: glsl
-
+```
     ret_type func_name(args) {
         return ret_type; // if returning a value
     }
@@ -400,6 +399,7 @@ It is possible to define functions in a Godot shader. They use the following syn
     int sum2(int a, int b) {
         return a + b;
     }
+```
 
 
 You can only use functions that have been defined above (higher in the editor) the function from which you are calling
@@ -413,11 +413,11 @@ Function arguments can have special qualifiers:
 
 Example below:
 
-.. code-block:: glsl
-
+```
     void sum2(int a, int b, inout int result) {
         result = a + b;
     }
+```
 
 Varyings
 ~~~~~~~~
@@ -426,8 +426,7 @@ To send data from the vertex to the fragment (or light) processor function, *var
 used. They are set for every primitive vertex in the *vertex processor*, and the
 value is interpolated for every pixel in the *fragment processor*.
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     varying vec3 some_color;
@@ -443,11 +442,11 @@ value is interpolated for every pixel in the *fragment processor*.
     void light() {
         DIFFUSE_LIGHT = some_color * 100; // optionally
     }
+```
 
 Varying can also be an array:
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     varying float var_arr[3];
@@ -460,11 +459,11 @@ Varying can also be an array:
     void fragment() {
         ALBEDO = vec3(var_arr[0], var_arr[1], var_arr[2]); // red color
     }
+```
 
 It's also possible to send data from *fragment* to *light* processors using *varying* keyword. To do so you can assign it in the *fragment* and later use it in the *light* function.
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     varying vec3 some_light;
@@ -476,11 +475,11 @@ It's also possible to send data from *fragment* to *light* processors using *var
     void light() {
         DIFFUSE_LIGHT = some_light;
     }
+```
 
 Note that varying may not be assigned in custom functions or a *light processor* function like:
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     varying float test;
@@ -496,6 +495,7 @@ Note that varying may not be assigned in custom functions or a *light processor*
     void light() {
         test = 0.0; // Error too.
     }
+```
 
 This limitation was introduced to prevent incorrect usage before initialization.
 
@@ -505,8 +505,7 @@ Interpolation qualifiers
 Certain values are interpolated during the shading pipeline. You can modify how these interpolations
 are done by using *interpolation qualifiers*.
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     varying flat vec3 our_color;
@@ -518,6 +517,7 @@ are done by using *interpolation qualifiers*.
     void fragment() {
         ALBEDO = our_color;
     }
+```
 
 There are two possible interpolation qualifiers:
 
@@ -537,17 +537,17 @@ Passing values to shaders is possible. These are global to the whole shader and 
 When a shader is later assigned to a material, the uniforms will appear as editable parameters in it.
 Uniforms can't be written from within the shader.
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     uniform float some_value;
+```
 
 You can set uniforms in the editor in the material. Or you can set them through GDScript:
 
-::
-
+```
   material.set_shader_param("some_value", some_value)
+```
 
 Note:
  The first argument to `set_shader_param` is the name of the uniform in the shader. It
@@ -557,13 +557,13 @@ Any GLSL type except for *void* can be a uniform. Additionally, Godot provides
 optional shader hints to make the compiler understand for what the uniform is
 used, and how the editor should allow users to modify it.
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     uniform vec4 color : hint_color;
     uniform float amount : hint_range(0, 1);
     uniform vec4 other_color : hint_color = vec4(1.0);
+```
 
 It's important to understand that textures that are supplied as color require hints for proper sRGB->linear conversion (i.e. `hint_albedo`), as Godot's 3D engine renders in linear color space.
 
@@ -618,12 +618,12 @@ Note:
 
 Uniforms can also be assigned default values:
 
-.. code-block:: glsl
-
+```
     shader_type spatial;
 
     uniform vec4 some_vector = vec4(0.0);
     uniform vec4 some_color : hint_color = vec4(1.0);
+```
 
 Built-in variables
 ------------------

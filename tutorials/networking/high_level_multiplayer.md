@@ -84,37 +84,37 @@ To create that object, it first has to be initialized as a server or client.
 
 Initializing as a server, listening on the given port, with a given maximum number of peers:
 
-::
-
+```
     var peer = NetworkedMultiplayerENet.new()
     peer.create_server(SERVER_PORT, MAX_PLAYERS)
     get_tree().network_peer = peer
+```
 
 Initializing as a client, connecting to a given IP and port:
 
-::
-
+```
     var peer = NetworkedMultiplayerENet.new()
     peer.create_client(SERVER_IP, SERVER_PORT)
     get_tree().network_peer = peer
+```
 
 Get the previously set network peer:
 
-::
-
+```
     get_tree().get_network_peer()
+```
 
 Checking whether the tree is initialized as a server or client:
 
-::
-
+```
     get_tree().is_network_server()
+```
 
 Terminating the networking feature:
 
-::
-
+```
     get_tree().network_peer = null
+```
 
 (Although it may make sense to send a message first to let the other peers know you're going away instead of letting the connection close or timeout, depending on your game.)
 
@@ -189,8 +189,7 @@ Back to lobby
 
 Let's get back to the lobby. Imagine that each player that connects to the server will tell everyone about it.
 
-::
-
+```
     # Typical lobby implementation; imagine this being in /root/lobby.
 
     extends Node
@@ -232,12 +231,13 @@ Let's get back to the lobby. Imagine that each player that connects to the serve
         player_info[id] = info
 
         # Call function to update lobby UI here
+```
 
 You might have already noticed something different, which is the usage of the `remote` keyword on the `register_player` function:
 
-::
-
+```
     remote func register_player(info):
+```
 
 This keyword is one of many that allow a function to be called by a remote procedure call (RPC). There are six of them total:
 
@@ -260,10 +260,10 @@ The `master` keyword means a call can be made from any network puppet to the net
 
 If `sync` is included, the call can also be made locally. For example, to allow the network master to change the player's position on all peers:
 
-::
-
+```
     puppetsync func update_position(new_position):
         position = new_position
+```
 
 Tip:
  You can also use `SceneTree.get_rpc_sender_id()` to have more advanced rules on how an rpc can be called.
@@ -292,8 +292,7 @@ node represents each player ID.
 The solution is to simply name the *root nodes of the instanced player scenes as their network ID*. This way, they will be the same in
 every peer and RPC will work great! Here is an example:
 
-::
-
+```
     remote func pre_configure_game():
         var selfPeerID = get_tree().get_network_unique_id()
 
@@ -317,7 +316,7 @@ every peer and RPC will work great! Here is an example:
         # Tell server (remember, server is always ID=1) that this peer is done pre-configuring.
         # The server can call get_tree().get_rpc_sender_id() to find out who said they were done.
         rpc_id(1, "done_preconfiguring")
-
+```
 
 Note:
  Depending on when you execute pre_configure_game(), you may need to change any calls to `add_child()`
@@ -329,16 +328,15 @@ Synchronizing game start
 Setting up players might take different amounts of time for every peer due to lag, different hardware, or other reasons.
 To make sure the game will actually start when everyone is ready, pausing the game until all players are ready can be useful:
 
-::
-
+```
     remote func pre_configure_game():
         get_tree().set_pause(true) # Pre-pause
         # The rest is the same as in the code in the previous section (look above)
+```
 
 When the server gets the OK from all the peers, it can tell them to start, as for example:
 
-::
-
+```
     var players_done = []
     remote func done_preconfiguring():
         var who = get_tree().get_rpc_sender_id()
@@ -358,7 +356,7 @@ When the server gets the OK from all the peers, it can tell them to start, as fo
             get_tree().set_pause(false)
             # Game starts now!
 
-
+```
 
 Synchronizing the game
 ----------------------
@@ -380,8 +378,7 @@ Checking that a specific node instance on a peer is the network master for this 
 
 If you have paid attention to the previous example, it's possible you noticed that each peer was set to have network master authority for their own player (Node) instead of the server:
 
-::
-
+```
         [...]
         # Load my player
         var my_player = preload("res://player.tscn").instance()
@@ -396,7 +393,7 @@ If you have paid attention to the previous example, it's possible you noticed th
             player.set_network_master(p) # Each other connected peer has authority over their own player.
             get_node("/root/world/players").add_child(player)
         [...]
-
+```
 
 Each time this piece of code is executed on each peer, the peer makes itself master on the node it controls, and all other nodes remain as puppets with the server being their network master.
 
@@ -416,16 +413,15 @@ Similarly to the `remote` keyword, functions can also be tagged with them:
 
 Example bomb code:
 
-::
-
+```
     for p in bodies_in_area:
         if p.has_method("exploded"):
             p.rpc("exploded", bomb_owner)
+```
 
 Example player code:
 
-::
-
+```
     puppet func stun():
         stunned = true
 
@@ -438,6 +434,7 @@ Example player code:
         # Stun this player instance for myself as well; could instead have used
         # the remotesync keyword above (in place of puppet) to achieve this.
         stun()
+```
 
 In the above example, a bomb explodes somewhere (likely managed by whoever is the master of this bomb-node, e.g. the host).
 The bomb knows the bodies (player nodes) in the area, so it checks that they contain an `exploded` method before calling it.
@@ -472,9 +469,9 @@ any player in the bomb area get stunned on the screens of all the peers.
 Note that you could also send the `stun()` message only to a specific player by using `rpc_id(<id>, "exploded", bomb_owner)`.
 This may not make much sense for an area-of-effect case like the bomb, but might in other cases, like single target damage.
 
-::
-
+```
     rpc_id(TARGET_PEER_ID, "stun") # Only stun the target peer
+```
 
 Exporting for dedicated servers
 -------------------------------

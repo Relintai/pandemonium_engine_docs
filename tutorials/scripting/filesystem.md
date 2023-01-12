@@ -27,13 +27,14 @@ with SVN, Git, Mercurial, Perforce, etc.
 
 Example of file system contents:
 
-.. code-block:: none
 
+```
     /project.godot
     /enemy/enemy.tscn
     /enemy/enemy.gd
     /enemy/enemysprite.png)
     /player/player.gd
+```
 
 project.godot
 -------------

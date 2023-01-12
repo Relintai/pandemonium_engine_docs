@@ -330,8 +330,7 @@ an autoload.
 
 Use the following code to register a singleton from an editor plugin:
 
-::
-
+```
     tool
     extends EditorPlugin
 
@@ -346,3 +345,4 @@ Use the following code to register a singleton from an editor plugin:
 
     func _exit_tree():
         remove_autoload_singleton(AUTOLOAD_NAME)
+```

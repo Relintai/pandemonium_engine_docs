@@ -28,9 +28,9 @@ Usage is generally as follows
 Obtaining a ResourceInteractiveLoader
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: cpp
-
+```
     Ref( ResourceInteractiveLoader> ResourceLoader::load_interactive(String p_path);
+```
 
 This method will give you a ResourceInteractiveLoader that you will use
 to manage the load operation.
@@ -38,9 +38,9 @@ to manage the load operation.
 Polling
 ~~~~~~~
 
-.. code-block:: cpp
-
+```
     Error ResourceInteractiveLoader::poll();
+```
 
 Use this method to advance the progress of the load. Each call to
 `poll` will load the next stage of your resource. Keep in mind that
@@ -55,10 +55,10 @@ Load progress (optional)
 
 To query the progress of the load, use the following methods:
 
-.. code-block:: cpp
-
+```
     int ResourceInteractiveLoader::get_stage_count() const;
     int ResourceInteractiveLoader::get_stage() const;
+```
 
 `get_stage_count` returns the total number of stages to load.
 `get_stage` returns the current stage being loaded.
@@ -66,9 +66,9 @@ To query the progress of the load, use the following methods:
 Forcing completion (optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: cpp
-
+```
     Error ResourceInteractiveLoader::wait();
+```
 
 Use this method if you need to load the entire resource in the current
 frame, without any more steps.
@@ -76,9 +76,9 @@ frame, without any more steps.
 Obtaining the resource
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: cpp
-
-    Ref( Resource> ResourceInteractiveLoader::get_resource();
+```
+    Ref<Resource> ResourceInteractiveLoader::get_resource();
+```
 
 If everything goes well, use this method to retrieve your loaded
 resource.
@@ -92,8 +92,7 @@ context of the `doc_singletons_autoload` example.
 First, we set up some variables and initialize the `current_scene`
 with the main scene of the game:
 
-::
-
+```
     var loader
     var wait_frames
     var time_max = 100 # msec
@@ -103,6 +102,7 @@ with the main scene of the game:
     func _ready():
         var root = get_tree().get_root()
         current_scene = root.get_child(root.get_child_count() -1)
+```
 
 The function `goto_scene` is called from the game when the scene
 needs to be switched. It requests an interactive loader, and calls
@@ -110,8 +110,7 @@ needs to be switched. It requests an interactive loader, and calls
 callback. It also starts a "loading" animation, which could show a
 progress bar or loading screen.
 
-::
-
+```
     func goto_scene(path): # Game requests to switch to this scene.
         loader = ResourceLoader.load_interactive(path)
         if loader == null: # Check for errors.
@@ -125,6 +124,7 @@ progress bar or loading screen.
         get_node("animation").play("loading")
 
         wait_frames = 1
+```
 
 `process` is where the loader is polled. `poll` is called, and then
 we deal with the return value from that call. `OK` means keep polling,
@@ -138,8 +138,7 @@ to cram more than one call to `poll` in one frame; some might take way
 more than your value for `time_max`, so keep in mind we won't have
 precise control over the timings.
 
-::
-
+```
     func _process(time):
         if loader == null:
             # no need to process anymore
@@ -168,6 +167,7 @@ precise control over the timings.
                 show_error()
                 loader = null
                 break
+```
 
 Some extra helper functions. `update_progress` updates a progress bar,
 or can also update a paused animation (the animation represents the
@@ -176,8 +176,7 @@ newly loaded scene on the tree. Because it's a scene being loaded,
 `instance()` needs to be called on the resource obtained from the
 loader.
 
-::
-
+```
     func update_progress():
         var progress = float(loader.get_stage()) / loader.get_stage_count()
         # Update your progress bar?
@@ -194,6 +193,7 @@ loader.
     func set_new_scene(scene_resource):
         current_scene = scene_resource.instance()
         get_node("/root").add_child(current_scene)
+```
 
 Using multiple threads
 ----------------------
@@ -224,34 +224,34 @@ Example class
 You can find an example class for loading resources in threads here:
 :download:`resource_queue.gd ( files/resource_queue.gd )`. Usage is as follows:
 
-::
-
+```
     func start()
+```
 
 Call after you instance the class to start the thread.
 
-::
-
+```
     func queue_resource(path, p_in_front = false)
+```
 
 Queue a resource. Use optional argument "p_in_front" to put it in
 front of the queue.
 
-::
-
+```
     func cancel_resource(path)
+```
 
 Remove a resource from the queue, discarding any loading done.
 
-::
-
+```
     func is_ready(path)
+```
 
 Returns `true` if a resource is fully loaded and ready to be retrieved.
 
-::
-
+```
     func get_progress(path)
+```
 
 Get the progress of a resource. Returns -1 if there was an error (for example if the
 resource is not in the queue), or a number between 0.0 and 1.0 with the
@@ -259,9 +259,9 @@ progress of the load. Use mostly for cosmetic purposes (updating
 progress bars, etc), use `is_ready` to find out if a resource is
 actually ready.
 
-::
-
+```
     func get_resource(path)
+```
 
 Returns the fully loaded resource, or `null` on error. If the resource is
 not fully loaded (`is_ready` returns `false`), it will block your thread
@@ -271,8 +271,7 @@ and finish the load. If the resource is not on the queue, it will call
 Example:
 ~~~~~~~~
 
-::
-
+```
     # Initialize.
     queue = preload("res://resource_queue.gd").new()
     queue.start()
@@ -301,6 +300,7 @@ Example:
 
     # When the user walks away from the trigger zone in your Metroidvania game:
     queue.cancel_resource("res://zone_2.tscn")
+```
 
 **Note**: this code, in its current form, is not tested in real world
 scenarios. If you run into any issues, ask for help in one of

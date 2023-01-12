@@ -49,13 +49,13 @@ so we need to nullify the effects of Godot's transformations. We do this by sett
 `POSITION` built-in to our desired position. `POSITION` bypasses the built-in transformations
 and sets the vertex position directly.
 
-.. code-block:: glsl
-
+```
   shader_type spatial;
 
   void vertex() {
     POSITION = vec4(VERTEX, 1.0);
   }
+```
 
 Even with this vertex shader, the quad keeps disappearing. This is due to frustum
 culling, which is done on the CPU. Frustum culling uses the camera matrix and the
@@ -78,9 +78,9 @@ Depth texture
 To read from the depth texture, perform a texture lookup using `texture()` and
 the uniform variable `DEPTH_TEXTURE`.
 
-.. code-block:: glsl
-
+```
   float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
+```
 
 Note:
  Similar to accessing the screen texture, accessing the depth texture is only
@@ -102,25 +102,25 @@ coordinates (NDC). NDC run from `-1` to `1`, similar to clip space coordinates.
 Reconstruct the NDC using `SCREEN_UV` for the `x` and `y` axis, and
 the depth value for `z`.
 
-.. code-block:: glsl
-
+```
   void fragment() {
     float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
     vec3 ndc = vec3(SCREEN_UV, depth) * 2.0 - 1.0;
   }
+```
 
 Convert NDC to view space by multiplying the NDC by `INV_PROJECTION_MATRIX`.
 Recall that view space gives positions relative to the camera, so the `z` value will give us
 the distance to the point.
 
-.. code-block:: glsl
-
+```
   void fragment() {
     ...
     vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
     view.xyz /= view.w;
     float linear_depth = -view.z;
   }
+```
 
 Because the camera is facing the negative `z` direction, the position will have a negative `z` value.
 In order to get a usable depth value, we have to negate `view.z`.
@@ -129,8 +129,7 @@ The world position can be constructed from the depth buffer using the following 
 that the `CAMERA_MATRIX` is needed to transform the position from view space into world space, so
 it needs to be passed to the fragment shader with a varying.
 
-.. code-block:: glsl
-
+```
   varying mat4 CAMERA;
 
   void vertex() {
@@ -142,6 +141,7 @@ it needs to be passed to the fragment shader with a varying.
     vec4 world = CAMERA * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
     vec3 world_position = world.xyz / world.w;
   }
+```
 
 An optimization
 ---------------
@@ -157,8 +157,7 @@ vertices, normals, colors, etc.
 
 Now, attach a script to the MeshInstance and use the following code:
 
-::
-
+```
   extends MeshInstance
 
   func _ready():
@@ -176,6 +175,7 @@ Now, attach a script to the MeshInstance and use the following code:
 
     # Create mesh from mesh_array:
     mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, mesh_array)
+```
 
 Note:
  The triangle is specified in normalized device coordinates. Recall, NDC run

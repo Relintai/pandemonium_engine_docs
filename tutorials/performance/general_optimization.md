@@ -244,17 +244,19 @@ The proverb *"a chain is only as strong as its weakest link"* applies directly t
 performance optimization. If your project is spending 90% of the time in
 function `A`, then optimizing `A` can have a massive effect on performance.
 
-.. code-block:: none
+```
 
     A: 9 ms
     Everything else: 1 ms
     Total frame time: 10 ms
+```
 
-.. code-block:: none
+```
 
     A: 1 ms
     Everything else: 1ms
     Total frame time: 2 ms
+```
 
 In this example, improving this bottleneck `A` by a factor of 9× decreases
 overall frame time by 5× while increasing frames per second by 5×.
@@ -262,17 +264,19 @@ overall frame time by 5× while increasing frames per second by 5×.
 However, if something else is running slowly and also bottlenecking your
 project, then the same improvement can lead to less dramatic gains:
 
-.. code-block:: none
+```
 
     A: 9 ms
     Everything else: 50 ms
     Total frame time: 59 ms
+```
 
-.. code-block:: none
+```
 
     A: 1 ms
     Everything else: 50 ms
     Total frame time: 51 ms
+```
 
 In this example, even though we have hugely optimized function `A`,
 the actual gain in terms of frame rate is quite small.
@@ -281,17 +285,19 @@ In games, things become even more complicated because the CPU and GPU run
 independently of one another. Your total frame time is determined by the slower
 of the two.
 
-.. code-block:: none
+```
 
     CPU: 9 ms
     GPU: 50 ms
     Total frame time: 50 ms
+```
 
-.. code-block:: none
+```
 
     CPU: 1 ms
     GPU: 50 ms
     Total frame time: 50 ms
+```
 
 In this example, we optimized the CPU hugely again, but the frame time didn't
 improve because we are GPU-bottlenecked.

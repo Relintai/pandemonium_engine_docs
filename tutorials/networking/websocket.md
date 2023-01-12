@@ -33,7 +33,7 @@ Minimal client example
 
 This example will show you how to create a WebSocket connection to a remote server, and how to send and receive data.
 
-::
+```
 
     extends Node
 
@@ -83,20 +83,22 @@ This example will show you how to create a WebSocket connection to a remote serv
         # Call this in _process or _physics_process. Data transfer, and signals
         # emission will only happen when calling this function.
         _client.poll()
+```
 
 This will print:
 
-::
+```
 
     Connected with protocol:
     Got data from server: Test packet
+```
 
 Minimal server example
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This example will show you how to create a WebSocket server that listens for remote connections, and how to send and receive data.
 
-::
+```
 
     extends Node
 
@@ -149,13 +151,15 @@ This example will show you how to create a WebSocket server that listens for rem
         # Call this in _process or _physics_process.
         # Data transfer, and signals emission will only happen when calling this function.
         _server.poll()
+```
 
 This will print (when a client connects) something similar to this:
 
-::
+```
 
     Client 1348090059 connected with protocol: selected-protocol
     Got data from client 1348090059: Test packet ... echoing
+```
 
 Advanced chat demo
 ^^^^^^^^^^^^^^^^^^

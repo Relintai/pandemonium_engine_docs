@@ -9,11 +9,13 @@ Introduction to exports
 In Godot, class members can be exported. This means their value gets saved along
 with the resource (such as the `scene`) they're
 attached to. They will also be available for editing in the property editor.
-Exporting is done by using the `export` keyword::
+Exporting is done by using the `export` keyword:
 
+```
     extends Button
 
     export var number = 5 # Value will be saved and visible in the property editor.
+```
 
 An exported variable must be initialized to a constant expression or have an
 export hint in the form of an argument to the `export` keyword (see the
@@ -36,8 +38,7 @@ Note:
 Examples
 --------
 
-::
-
+```
     # If the exported value assigns a constant or constant expression,
     # the type will be inferred and used in the editor.
 
@@ -136,6 +137,7 @@ Examples
     export(AnimationNode) var resource
     # The drop-down menu will be limited to AnimationNode and all
     # its inherited classes.
+```
 
 It must be noted that even if the script is not being run while in the
 editor, the exported properties are still editable. This can be used
@@ -146,22 +148,26 @@ Exporting bit flags
 
 Integers used as bit flags can store multiple `true`/`false` (boolean)
 values in one property. By using the export hint `int, FLAGS, ...`, they
-can be set from the editor::
+can be set from the editor:
 
+```
     # Set any of the given flags from the editor.
     export(int, FLAGS, "Fire", "Water", "Earth", "Wind") var spell_elements = 0
+```
 
 You must provide a string description for each flag. In this example, `Fire`
 has value 1, `Water` has value 2, `Earth` has value 4 and `Wind`
 corresponds to value 8. Usually, constants should be defined accordingly (e.g.
 `const ELEMENT_WIND = 8` and so on).
 
-Export hints are also provided for the physics and render layers defined in the project settings::
+Export hints are also provided for the physics and render layers defined in the project settings:
 
+```
     export(int, LAYERS_2D_PHYSICS) var layers_2d_physics
     export(int, LAYERS_2D_RENDER) var layers_2d_render
     export(int, LAYERS_3D_PHYSICS) var layers_3d_physics
     export(int, LAYERS_3D_RENDER) var layers_3d_render
+```
 
 Using bit flags requires some understanding of bitwise operations.
 If in doubt, use boolean variables instead.
@@ -175,8 +181,7 @@ If the exported array specifies a type which inherits from Resource, the array
 values can be set in the inspector by dragging and dropping multiple files
 from the FileSystem dock at once.
 
-::
-
+```
     # Default value must be a constant expression.
 
     export var a = [1, 2, 3]
@@ -207,6 +212,7 @@ from the FileSystem dock at once.
     # be exported.
 
     var c = [a, 2, 3]
+```
 
 Setting exported variables from a tool script
 ---------------------------------------------
@@ -245,8 +251,7 @@ Properties
 To understand how to better use the sections below, you should understand
 how to make properties with advanced exports.
 
-::
-
+```
     func _get_property_list():
         var properties = [] 
         # Same as "export(int) var my_property"
@@ -255,6 +260,7 @@ how to make properties with advanced exports.
             type = TYPE_INT
         })
         return properties
+```
 
 * The `get_property_list()` function gets called by the inspector. You
   can override it for more advanced exports. You must return an `Array`
@@ -276,8 +282,7 @@ property or else you may need to override the
 `set()` and 
 `get()` methods. Attaching
 a variable to to a property also gives you the ability to give it a default state.
-::
-
+```
 
     # This variable is determined by the function below.
     # This variable acts just like a regular gdscript export.
@@ -291,6 +296,7 @@ a variable to to a property also gives you the ability to give it a default stat
             type = TYPE_INT
         })
         return properties
+```
 
 Adding default values for properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -301,8 +307,7 @@ To define default values for advanced exports, you need to override the `propert
 
 * The `property_get_revert()` method takes the name of a property and must return the default value for that property.
 
-::
-
+```
     func _get_property_list():
         var properties = []
         properties.append({
@@ -319,6 +324,7 @@ To define default values for advanced exports, you need to override the `propert
     func property_get_revert(property):
         if property == "my_property":
             return 5
+```
 
 Adding script categories
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -326,8 +332,7 @@ Adding script categories
 For better visual distinguishing of properties, a special script category can be
 embedded into the inspector to act as a separator. `Script Variables` is one
 example of a built-in category.
-::
-    
+```    
     func _get_property_list():
         var properties = []
         properties.append({
@@ -342,6 +347,7 @@ example of a built-in category.
             type = TYPE_BOOL
         })
         return properties
+```
 
 * `name` is the name of a category to be added to the inspector;
 
@@ -356,8 +362,7 @@ Grouping properties
 ~~~~~~~~~~~~~~~~~~~
 
 A list of properties with similar names can be grouped.
-::
-    
+```    
     func _get_property_list():
         var properties = []
         properties.append({
@@ -380,6 +385,7 @@ A list of properties with similar names can be grouped.
             type = TYPE_COLOR
         })
         return properties
+```
 
 * `name` is the name of a group which is going to be displayed as collapsible
   list of properties;

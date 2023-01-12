@@ -68,8 +68,7 @@ If not written to, these values will not be modified and be passed through as th
 The user can disable the built-in modelview transform (projection will still happen later) and do
 it manually with the following code:
 
-.. code-block:: glsl
-
+```
     shader_type canvas_item;
     render_mode skip_vertex_transform;
 
@@ -77,6 +76,7 @@ it manually with the following code:
 
         VERTEX = (EXTRA_MATRIX * (WORLD_MATRIX * vec4(VERTEX, 0.0, 1.0))).xy;
     }
+```
 
 Note:
  `WORLD_MATRIX` is actually a modelview matrix. It takes input in local space and transforms it
@@ -84,21 +84,21 @@ Note:
 
 In order to get the world space coordinates of a vertex, you have to pass in a custom uniform like so:
 
-::
-
+```
     material.set_shader_param("global_transform", get_global_transform())
+```
 
 
 Then, in your vertex shader:
 
-.. code-block:: glsl
-
+```
     uniform mat4 global_transform;
     varying vec2 world_position;
 
     void vertex(){
         world_position = (global_transform * vec4(VERTEX, 0.0, 1.0)).xy;
     }
+```
 
 `world_position` can then be used in either the vertex or fragment functions.
 
@@ -149,18 +149,18 @@ when a custom fragment function is attached to these nodes, the texture lookup n
 manually. Godot does not provide the texture color in the `COLOR` built-in variable; to read
 the texture color for such nodes, use:
 
-.. code-block:: glsl
-
+```
   COLOR = texture(TEXTURE, UV);
+```
 
 This differs from the behavior of the built-in normal map. If a normal map is attached, Godot uses
 it by default and assigns its value to the built-in `NORMAL` variable. If you are using a normal
 map meant for use in 3D, it will appear inverted. In order to use it in your shader, you must assign
 it to the `NORMALMAP` property. Godot will handle converting it for use in 2D and overwriting `NORMAL`.
 
-.. code-block:: glsl
-
+```
   NORMALMAP = texture(NORMAL_TEXTURE, UV).rgb;
+```
 
 +----------------------------------+----------------------------------------------------------------+
 | Built-in                         | Description                                                    |

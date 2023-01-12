@@ -233,22 +233,6 @@ Note:
 
         func _init():
             print(data)
-      .. code-tab:: csharp
-
-        using System;
-        using Godot;
-
-        public class BotStatsTable : Resource
-        {
-            private Godot.Dictionary<String, BotStats> _stats = new Godot.Dictionary<String, BotStats>();
-
-            public BotStatsTable()
-            {
-                _stats["GodotBot"] = new BotStats(10); // Creates instance with 10 health.
-                _stats["DifferentBot"] = new BotStats(20); // A different one with 20 health.
-                GD.Print(_stats);
-            }
-        }
     ```
 
     Instead of just inlining the Dictionary values, one could also, alternatively...

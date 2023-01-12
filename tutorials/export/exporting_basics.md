@@ -16,7 +16,8 @@ this tutorial, you'll learn how to export the *Dodge the Creeps* game for a
 variety of platforms. First, however, we need to make some changes to the
 way the game works.
 
-.. note:: If you haven't made "Dodge the Creeps" yourself yet, please read
+Note:
+ If you haven't made "Dodge the Creeps" yourself yet, please read
           `doc_your_first_2d_game` before continuing with this tutorial.
 
 Preparing the project
@@ -144,7 +145,8 @@ download them in Godot by clicking on **Editor -> Manage Export Templates**:
 
 ![](img/export_template_menu.png)
 
-.. note::
+Note:
+
 
     If you've downloaded Godot from
     `Steam ( https://store.steampowered.com/app/404790/Godot_Engine/ )`,
@@ -156,7 +158,8 @@ version that matches your version of Godot.
 
 ![](img/export_template_manager.png)
 
-.. note::
+Note:
+
 
     Export templates are bound to a specific Godot version. If you upgrade
     Godot, you must download templates that match the new version.
@@ -197,14 +200,16 @@ folder. Choose a location *outside* of your project folder.
 
 Click **Save** and the engine will build the export files.
 
-.. note::
+Note:
+
 
     When exporting for macOS, if you export from a macOS computer, you'll end up
     with a `.dmg` file, while using Linux or Windows produces a `.zip`. In
     either case, the compressed file contains a macOS `.app` that you can
     double-click and run.
 
-.. note::
+Note:
+
 
     On Windows, if you want your exported executable to have a different icon
     than the default one, you need to change it manually. See
@@ -256,7 +261,8 @@ on your device. To do this on the command line, use the following:
 
     adb install dodge.apk
 
-.. note:: Your device may need to be in *developer mode*. Consult your
+Note:
+ Your device may need to be in *developer mode*. Consult your
           device's documentation for details.
 
 If your system supports it, connecting a compatible Android device will cause
@@ -269,7 +275,8 @@ Clicking this button builds the APK and copies it onto your device in one step.
 iOS
 ~~~
 
-.. note::
+Note:
+
 
     To build your game for iOS, you must have a computer running macOS with
     Xcode installed.
@@ -321,7 +328,8 @@ when you export the project.
 
 ![](img/export_web_export_with_debug_disabled.png)
 
-.. note::
+Note:
+
 
     While WebAssembly is supported in all major browsers, it is still an
     emerging technology and you may find some things that don't work. Make sure

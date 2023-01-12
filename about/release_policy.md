@@ -59,7 +59,8 @@ further developed for maintenance releases in a Git branch of the same name
 (for example patch updates for the 3.3 stable branch are developed in the
 `3.3` Git branch).
 
-.. note::
+Note:
+
 
     As mentioned in the introduction, Godot's release policy is evolving, and
     earlier Godot releases may not have followed the above rules to the letter.

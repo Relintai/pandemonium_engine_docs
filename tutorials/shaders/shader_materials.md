@@ -62,7 +62,8 @@ your visual shader to a text shader.
 
 ![](img/visual_shader_code.png)
 
-.. note::
+Note:
+
 
    To learn more about visual shaders, read `doc_visual_shaders`.
 
@@ -75,7 +76,8 @@ and select the convert option.
 
 ![](img/shader_material_convert.png)
 
-.. note::
+Note:
+
 
    Using the convert option will turn the SpatialMaterial into a ShaderMaterial
    with a text shader, not a visual shader.

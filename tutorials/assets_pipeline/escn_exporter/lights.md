@@ -1,10 +1,12 @@
 Lights
 ======
-.. warning::
+Warning:
+
     By default, lamps in Blender have shadows enabled. This can cause
     performance issues in Godot.
 
-.. warning::
+Warning:
+
     Lamps are exported using their "Blender Render" settings. When Blender 2.8
     is released, this will be removed and this part of the exporter will change.
 

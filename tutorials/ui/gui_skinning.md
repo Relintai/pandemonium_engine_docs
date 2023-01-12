@@ -38,7 +38,8 @@ the job of each individual control to use that configuration in the way it requi
 to display itself. This is important to remember when implementing
 `your own custom controls doc_custom_gui_controls )`.
 
-.. note::
+Note:
+
    Even the Godot editor itself relies on the default theme. But it doesn't look the
    same as a Godot project, because it applies its own heavily customized theme on top
    of the default one. In principle, this works exactly like it would in your game
@@ -97,7 +98,8 @@ contains actual theme items present in the default theme. You can refer to the
 **Theme Properties** section in the class reference for each control to see
 which items are available to it and its child classes.
 
-.. note::
+Note:
+
    Child classes can use theme items defined for their parent class (`Button`
    and its derivatives being a good example of that). In fact, every control can
    use every theme item of any theme type, if it needs to (but for the clarity and
@@ -132,7 +134,8 @@ requested from a theme this variation will be used before any other type. This
 allows to store various presets of theme items for the same class of the
 control node in the single `Theme` resource.
 
-.. warning::
+Warning:
+
    Only variations available from the default theme or defined in the custom
    project theme are shown in the Inspector dock as options. You can still
    input manually the name of a variation that is defined outside of those
@@ -188,7 +191,8 @@ custom theme for the branch of nodes starting with that control. This means that
 control and all of its children, and their children in turn, would first check that
 custom theme resource before falling back on the project and the default themes.
 
-.. note::
+Note:
+
    Instead of changing the project setting you can set the custom theme resource to the
    root-most control node of your entire UI branch to almost the same effect. While in the
    running project it will behave as expected, individual scenes will still display

@@ -40,7 +40,8 @@ This is a variant of AudioStreamPlayer, but emits sound in a 2D positional
 environment. When close to the left of the screen, the panning will go left.
 When close to the right side, it will go right.
 
-.. note::
+Note:
+
 
     Area2Ds can be used to divert sound from any AudioStreamPlayer2Ds they
     contain to specific buses. This makes it possible to create buses with

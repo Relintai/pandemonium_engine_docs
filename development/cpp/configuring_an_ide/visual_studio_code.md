@@ -166,7 +166,8 @@ js Windows
    An example of a filled out `launch.json`.
 
 
-.. note::
+Note:
+
 
     Due to sporadic performance issues, it is recommended to use LLDB over GDB on Unix-based systems.
     Make sure that the `CodeLLDB extension ( https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb )`_

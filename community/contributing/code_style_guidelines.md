@@ -33,7 +33,8 @@ not introducing trailing whitespace or space-based indentation, you should be
 fine. If you plan to contribute regularly however, we strongly advise that you
 setup clang-format locally to check and automatically fix all your commits.
 
-.. warning:: Godot's code style should *not* be applied to third-party code,
+Warning:
+ Godot's code style should *not* be applied to third-party code,
              i.e. that is included in Godot's source tree but was not written
              specifically for our project. Such code usually come from
              different upstream projects with their own style guides (or lack
@@ -47,7 +48,8 @@ setup clang-format locally to check and automatically fix all your commits.
              `/* clang-format off */` and `/* clang-format on */` to tell
              clang-format to ignore a chunk of code.
 
-.. seealso::
+See also:
+
 
     These guidelines only cover code formatting. See `doc_cpp_usage_guidelines`
     for a list of language features that are permitted in pull requests.

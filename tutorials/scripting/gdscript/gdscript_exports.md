@@ -24,7 +24,8 @@ them visible and editable in the editor. This way, artists and game designers
 can modify values that later influence how the program runs. For this, a
 special export syntax is provided.
 
-.. note::
+Note:
+
 
     Exporting properties can also be done in other languages such as C#.
     The syntax varies depending on the language.
@@ -230,10 +231,12 @@ handled and how they can be customized with
 `_get_property_list()` methods as
 described in `doc_accessing_data_or_logic_from_object`.
 
-.. seealso:: For binding properties using the above methods in C++, see
+See also:
+ For binding properties using the above methods in C++, see
              `doc_binding_properties_using_set_get_property_list`.
 
-.. warning:: The script must operate in the `tool` mode so the above methods
+Warning:
+ The script must operate in the `tool` mode so the above methods
              can work from within the editor.
 
 Properties
@@ -261,7 +264,8 @@ how to make properties with advanced exports.
 
 * `type` is the type of the property from `Variant.Type`.
 
-.. note:: The `float` type is called a real (`TYPE_REAL`) in the `Variant.Type` enum.
+Note:
+ The `float` type is called a real (`TYPE_REAL`) in the `Variant.Type` enum.
 
 Attaching variables to properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

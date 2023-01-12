@@ -4,7 +4,8 @@ Compiling for Windows
 =====================
 
 
-.. seealso::
+See also:
+
 
     This page describes how to compile Windows editor and export template binaries from source.
     If you're looking to export your project to Windows instead, read `doc_exporting_for_windows`.
@@ -25,12 +26,14 @@ For compiling under Windows, the following is required:
 - `SCons ( https://www.scons.org/ )`_ build system. Using the latest release is
   recommended, especially for proper support of recent Visual Studio releases.
 
-.. note:: If you have `Scoop ( https://scoop.sh/ )`_ installed, you can easily
+Note:
+ If you have `Scoop ( https://scoop.sh/ )`_ installed, you can easily
           install MinGW and other dependencies using the following command::
 
               scoop install gcc python scons make
 
-.. note:: If you have `MSYS2 ( https://www.msys2.org/ )`_ installed, you can easily
+Note:
+ If you have `MSYS2 ( https://www.msys2.org/ )`_ installed, you can easily
           install MinGW and other dependencies using the following command::
 
               pacman -S mingw-w64-x86_64-python3-pip mingw-w64-x86_64-gcc \
@@ -39,7 +42,8 @@ For compiling under Windows, the following is required:
           For each MSYS2 MinGW subsystem, you should then run
           `pip3 install scons` in its shell.
 
-.. seealso:: To get the Godot source code for compiling, see
+See also:
+ To get the Godot source code for compiling, see
              `doc_getting_source`.
 
              For a general overview of SCons usage for Godot, see
@@ -95,7 +99,8 @@ Refer to `doc_getting_source` for detailed instructions.
 The tutorial will assume from now on that you placed the source code in
 `C:\godot`.
 
-.. warning::
+Warning:
+
 
     To prevent slowdowns caused by continuous virus scanning during compilation,
     add the Godot source folder to the list of exceptions in your antivirus
@@ -141,7 +146,8 @@ In general, it is OK to have at least as many threads compiling Godot as you
 have cores in your CPU, if not one or two more. Feel free to add the `-j`
 option to any SCons command you see below.
 
-.. note:: When compiling with multiple CPU threads, SCons may warn about
+Note:
+ When compiling with multiple CPU threads, SCons may warn about
           pywin32 being missing. You can safely ignore this warning.
 
 If all goes well, the resulting binary executable will be placed in
@@ -153,7 +159,8 @@ your CPU architecture, but this can be overridden using `bits=64` or
 This executable file contains the whole engine and runs without any
 dependencies. Running it will bring up the Project Manager.
 
-.. note:: If you are compiling Godot for production use, then you can
+Note:
+ If you are compiling Godot for production use, then you can
           make the final executable smaller and faster by adding the
           SCons option `target=release_debug`.
 
@@ -162,7 +169,8 @@ dependencies. Running it will bring up the Project Manager.
           As link-time optimization is a memory-intensive process,
           this will require about 7 GB of available RAM while compiling.
 
-.. note:: If you want to use separate editor settings for your own Godot builds
+Note:
+ If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
           `doc_data_paths_self_contained_mode` by creating a file called
           `._sc_` or `_sc_` in the `bin/` folder.
@@ -185,7 +193,8 @@ the `vsproj=yes` parameter, like this::
 You will be able to open Godot's source in a Visual Studio solution now,
 and able to build Godot using Visual Studio's **Build** button.
 
-.. seealso:: See `doc_configuring_an_ide_vs` for further details.
+See also:
+ See `doc_configuring_an_ide_vs` for further details.
 
 Cross-compiling for Windows from other operating systems
 --------------------------------------------------------

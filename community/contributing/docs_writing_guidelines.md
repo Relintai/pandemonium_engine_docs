@@ -26,13 +26,15 @@ There are 3 rules to describe classes:
 2. Mention what methods return if it's useful
 3. Use "if true" to describe booleans
 
-.. note::
+Note:
+
 
     A technical writer's job is to pack as much information as possible into
     the smallest and clearest sentences possible. These guidelines will help
     you work towards that goal.
 
-.. seealso::
+See also:
+
 
     See the `content guidelines ( doc_content_guidelines )` for information
     on the types of documentation you can write in the official documentation.
@@ -535,6 +537,7 @@ heavier images, consider using a lossy compressor like `pngquant
 ( https://pngquant.org/ )`_. With it, almost no image quality is lost during
 compression.
 
-.. note::
+Note:
+
 
     The program pngquant must be installed locally as it's not available in Squoosh.

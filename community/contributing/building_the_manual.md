@@ -21,7 +21,8 @@ install all these tools. It comes pre-installed with `Python
 ( https://www.python.org/ )`. Ensure that you install and use Python 3. Here are
 the commands to clone the repository and then install all requirements.
 
-.. note:: You may need to write `python3 -m pip` (Unix) or  `py -m pip` (Windows) instead of `pip3`.
+Note:
+ You may need to write `python3 -m pip` (Unix) or  `py -m pip` (Windows) instead of `pip3`.
           If both approaches fail, `check that you have pip3 installed ( https://pip.pypa.io/en/stable/installation/ )`.
 
 .. code:: sh
@@ -69,7 +70,8 @@ In case you of a `MemoryError` or `EOFError`, you can remove the
 `classes/` folder and run `make` again. This will drop the class references
 from the final HTML documentation but will keep the rest intact.
 
-.. note:: If you delete the `classes/` folder, do not use `git add .` when
+Note:
+ If you delete the `classes/` folder, do not use `git add .` when
           working on a pull request or the whole `classes/` folder will be
           removed when you commit. See `#3157
           ( https://github.com/godotengine/godot-docs/issues/3157 )` for more

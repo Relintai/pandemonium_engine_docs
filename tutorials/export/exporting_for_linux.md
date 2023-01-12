@@ -3,7 +3,8 @@
 Exporting for Linux
 ===================
 
-.. seealso::
+See also:
+
 
     This page describes how to export a Godot project to Linux.
     If you're looking to compile editor or export template binaries from source instead,

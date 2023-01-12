@@ -15,7 +15,8 @@ tools. For this reason it is possible for some key combinations to be assigned
 to more than one function. The correct action will be performed depending on the
 context.
 
-.. note:: While Windows and Linux builds of the editor share most of the default settings,
+Note:
+ While Windows and Linux builds of the editor share most of the default settings,
           some shortcuts may differ for macOS version. This is done for better integration
           of the editor into macOS ecosystem. Users fluent with standard shortcuts on that
           OS should find Godot Editor's default key mapping intuitive.

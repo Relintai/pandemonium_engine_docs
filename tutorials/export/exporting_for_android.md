@@ -4,7 +4,8 @@ Exporting for Android
 =====================
 
 
-.. seealso::
+See also:
+
 
     This page describes how to export a Godot project to Android.
     If you're looking to compile export template binaries from source instead,
@@ -43,7 +44,8 @@ Download and install the Android SDK.
 
     sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-31" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;21.4.7075529"
 
-.. note::
+Note:
+
 
     If you are using Linux,
     **do not use an Android SDK provided by your distribution's repositories as it will often be outdated**.
@@ -87,7 +89,8 @@ In that screen, 2 paths need to be set:
 
 Once that is configured, everything is ready to export to Android!
 
-.. note::
+Note:
+
 
     If you get an error saying *"Could not install to device."*, make sure
     you do not have an application with the same Android package name already
@@ -108,7 +111,8 @@ There are two types of icons required by Godot:
 - **Main Icon:** The "classic" icon. This will be used on all Android versions up to Android 8 (Oreo), exclusive. Must be at least 192×192 px.
 - **Adaptive Icons:** Starting from Android 8 (inclusive), `Adaptive Icons ( https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive )`_ were introduced. Applications will need to include separate background and foreground icons to have a native look. The user's launcher application will control the icon's animation and masking. Must be at least 432×432 px.
 
-.. seealso:: It's important to adhere to some rules when designing adaptive icons. `Google Design has provided a nice article ( https://medium.com/google-design/designing-adaptive-icons-515af294c783 )`_ that helps to understand those rules and some of the capabilities of adaptive icons.
+See also:
+ It's important to adhere to some rules when designing adaptive icons. `Google Design has provided a nice article ( https://medium.com/google-design/designing-adaptive-icons-515af294c783 )`_ that helps to understand those rules and some of the capabilities of adaptive icons.
 
 .. caution:: The most important adaptive icon design rule is to have your icon critical elements inside the safe zone: a centered circle with a diameter of 66dp (264 pixels on `xxxhdpi`) to avoid being clipped by the launcher.
 

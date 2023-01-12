@@ -8,7 +8,8 @@ every frame or on specific events, like when they enter the scene tree.
 
 This document presents the ones you'll use most often.
 
-.. seealso:: Under the hood, these functions rely on Godot's low-level
+See also:
+ Under the hood, these functions rely on Godot's low-level
              notifications system. To learn more about it, see
              `doc_godot_notifications`.
 
@@ -24,7 +25,8 @@ Most of the time, you'll use `_ready()` instead. This function is called only
 once in a node's lifetime, after `_enter_tree()`. `_ready()` ensures that all children
 have entered the scene tree first, so you can safely call `get_node()` on it.
 
-.. seealso:: To learn more about getting node references, read
+See also:
+ To learn more about getting node references, read
              `doc_nodes_and_scene_instances`.
 
 Another related callback is `_exit_tree()`, which the engine calls every time

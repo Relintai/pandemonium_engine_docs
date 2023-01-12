@@ -6,7 +6,8 @@ Contributing to the documentation
 This guide explains how to contribute to Godot's documentation, be it by
 writing or reviewing pages.
 
-.. seealso::
+See also:
+
 
    If you want to translate pages or the class reference from English to other
    languages, read `doc_editor_and_docs_localization`.
@@ -19,12 +20,14 @@ files in the `godot-docs GitHub repository
 ( https://github.com/godotengine/godot-docs )`_. Modifying those pages in a pull
 request triggers a rebuild of the online documentation upon merging.
 
-.. seealso:: For details on Git usage and the pull request workflow, please
+See also:
+ For details on Git usage and the pull request workflow, please
              refer to the `doc_pr_workflow` page. Most of what it describes
              regarding the main godotengine/godot repository is also valid for
              the docs repository.
 
-.. warning:: The class reference's source files are in the `Godot engine
+Warning:
+ The class reference's source files are in the `Godot engine
              repository ( https://github.com/godotengine/godot )`_. We generate
              the `Godot API ( toc-class-ref )` section of this documentation
              from them. If you want to update the description of a class, its
@@ -67,7 +70,8 @@ edited here.** They are automatically generated from Godot’s `XML class
 reference ( https://github.com/godotengine/godot/tree/master/doc/classes )`.
 See `doc_updating_the_class_reference` for details.
 
-.. seealso:: To build the manual and test changes on your computer, see
+See also:
+ To build the manual and test changes on your computer, see
              `doc_building_the_manual`.
 
 Editing pages online
@@ -153,7 +157,9 @@ Sphinx uses specific reST comments to do specific operations, like defining the
 table of contents (`.. toctree::`) or cross-referencing pages. Check the
 `official Sphinx documentation
 ( https://www.sphinx-doc.org/en/stable/index.html )` for more details. To learn
-how to use Sphinx directives like `.. note::` or `.. seealso::`, check out
+how to use Sphinx directives like `Note:
+` or `See also:
+`, check out
 the `Sphinx directives documentation
 ( https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html )`.
 

@@ -6,7 +6,8 @@ Using GIProbe
 Introduction
 ------------
 
-.. note:: This feature is only available when using the GLES3 backend.
+Note:
+ This feature is only available when using the GLES3 backend.
           `doc_baked_lightmaps` can be used as an alternative
           when using the GLES2 renderer.
 
@@ -51,7 +52,8 @@ toolbar to begin the pre-baking process:
 
 ![](img/giprobe_bake.png)
 
-.. warning::
+Warning:
+
 
     Meshes should have sufficiently thick walls to avoid light leaks (avoid
     one-sided walls). For interior levels, enclose your level geometry in a

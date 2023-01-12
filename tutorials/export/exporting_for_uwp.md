@@ -3,7 +3,8 @@
 Exporting for Universal Windows Platform
 ========================================
 
-.. seealso::
+See also:
+
 
     This page describes how to export a Godot project to UWP.
     If you're looking to compile export template binaries from source instead,
@@ -97,6 +98,7 @@ double clicking the `.appx` file from Windows Explorer.
 
 It's also possible to install by using the `Add-AppxPackage` PowerShell cmdlet.
 
-.. note:: If you want to update your already installed app, you must
+Note:
+ If you want to update your already installed app, you must
           update the version number on the new package or first uninstall
           the previous package.

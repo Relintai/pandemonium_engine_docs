@@ -42,7 +42,8 @@ The downside is that crash backtraces will no longer provide accurate informatio
 `C++ profilers ( doc_using_cpp_profilers )` will also no longer be able to display
 function names (this does not affect the built-in GDScript profiler).
 
-.. note::
+Note:
+
 
     The above command will not work on Windows binaries compiled with MSVC
     and platforms such as Android and HTML5. Instead, pass `debug_symbols=no`
@@ -212,6 +213,7 @@ following:
     module_websocket_enabled = "no"
     module_xatlas_unwrap_enabled = "no"
 
-.. seealso::
+See also:
+
 
     `doc_overriding_build_options`.

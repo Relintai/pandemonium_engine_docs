@@ -52,11 +52,13 @@ text based format and the binary data in a separate binary file. This can be use
 changes in a text based format. The second is you need the texture files separate from the material file. If you don't need
 either of those glTF binary files are fine.
 
-.. warning::
+Warning:
+
 
     Blend shape animations cannot be imported - they require manual animation within Godot.
 
-.. note::
+Note:
+
 
     Blender versions older than 3.2 do not export emissive textures with the
     glTF file. If your model uses one and you're using an older version of
@@ -99,7 +101,8 @@ separately. Godot uses PBR (physically based rendering) for its materials, so if
 textures, they can work in Godot. This includes the `Substance suite ( https://www.substance3d.com/ )`,
 `ArmorPaint (open source) ( https://armorpaint.org/ )`, and `Material Maker (open source) ( https://github.com/RodZill4/material-maker )`.
 
-.. note:: For more information on Godot's materials, see `doc_spatial_material`.
+Note:
+ For more information on Godot's materials, see `doc_spatial_material`.
 
 Exporting considerations
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -214,7 +217,8 @@ most 3D DCCs don't have the same material options as those present in Godot.
 When materials are built-in, they will be lost each time the source scene
 is modified and re-imported.
 
-.. note::
+Note:
+
 
     Godot will not reimport materials that are stored in external files unless
     you remove the associated `.material` file before reimporting.
@@ -287,7 +291,8 @@ Whether or not the mesh is used in baked lightmaps.
 - **Enable:** The mesh is used in baked lightmaps.
 - **Gen Lightmaps:** The mesh is used in baked lightmaps, and unwraps a second UV layer for lightmaps.
 
-.. note:: For more information on light baking see `doc_baked_lightmaps`.
+Note:
+ For more information on light baking see `doc_baked_lightmaps`.
 
 External Files
 ~~~~~~~~~~~~~~
@@ -423,7 +428,8 @@ To simplify this workflow, Godot offers several suffixes that can be added to
 the names of the objects in your 3D modelling software. When imported, Godot
 will detect suffixes in object names and will perform actions automatically.
 
-.. note::
+Note:
+
 
     All the suffixes described below are *case-sensitive*.
 
@@ -477,13 +483,15 @@ When possible, **try to use a few primitive collision shapes** instead of triang
 mesh or convex shapes. Primitive shapes often have the best performance and
 reliability.
 
-.. note::
+Note:
+
 
     For better visibility in Blender's editor, you can set the "X-Ray" option
     on collision empties and set some distinct color for them in Blender's
     **User Preferences > Themes > 3D View > Empty**.
 
-.. seealso::
+See also:
+
 
     See `doc_collision_shapes_3d` for a comprehensive overview of collision
     shapes.

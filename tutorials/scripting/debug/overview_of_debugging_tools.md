@@ -90,7 +90,8 @@ The **Keep Debugger Open** option keeps the debugger open after a scene
 has been closed. And the **Debug with External Editor** option lets you
 debug your game with an external editor.
 
-.. warning::
+Warning:
+
 
     Breakpoints won't break on code if it's
     `running in a thread ( doc_using_multiple_threads )`.
@@ -130,5 +131,6 @@ the nodes' parameters in the running project.
 
 ![](img/overview_remote.png)
 
-.. note:: Some editor settings related to debugging can be found inside
+Note:
+ Some editor settings related to debugging can be found inside
           the **Editor Settings**, under the **Network > Debug** and **Debugger** sections.

@@ -13,7 +13,8 @@ An expression can be:
   if `base_instance` is set to a value other than `null` when calling
   `Expression.execute()`.
 
-.. note::
+Note:
+
 
     The Expression class is independent from GDScript.
     It's available even if you compile Godot with the GDScript module disabled.
@@ -122,7 +123,8 @@ Associating a base instance allows doing the following:
 - Reference the instance's member variables (`var`) in the expression.
 - Call methods defined in the instance and use their return values in the expression.
 
-.. warning::
+Warning:
+
 
     Setting a base instance to a value other than `null` allows referencing
     constants, member variables, and calling all methods defined in the script

@@ -23,7 +23,8 @@ Pressing the Back button will exit the application if
 **Application > Config > Quit On Go Back** is checked in the Project Settings
 (which is the default).
 
-.. note::
+Note:
+
 
     `MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST` isn't supported on iOS, as
     iOS devices don't have a physical Back button.

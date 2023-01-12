@@ -37,7 +37,8 @@ everything in GDScript or C#. It's your call.
 We provide this flexibility to answer the needs of different game projects and
 developers.
 
-.. warning::
+Warning:
+
 
     `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
     As a result, creating new projects using visual scripting in Godot is not recommended.
@@ -94,7 +95,8 @@ GDScript looks like Python as you structure your code blocks using indentations,
 but it doesn't work the same way in practice. It's inspired by multiple
 languages, including Squirrel, Lua, and Python.
 
-.. note::
+Note:
+
 
     Why don't we use Python or Lua directly?
 
@@ -121,7 +123,8 @@ thanks to a generous donation from Microsoft.
 C# offers a good tradeoff between performance and ease of use, although you
 should be aware of its garbage collector.
 
-.. note:: You must use the Mono edition of the Godot editor to script in C#. You
+Note:
+ You must use the Mono edition of the Godot editor to script in C#. You
           can download it on the Godot website's `download
           ( https://godotengine.org/download/ )`_ page.
 
@@ -130,7 +133,8 @@ you can use any third-party .NET library or framework in Godot, as well as any
 Common Language Infrastructure-compliant programming language, such as F#, Boo,
 or ClojureCLR. However, C# is the only officially supported .NET option.
 
-.. note:: GDScript code itself doesn't execute as fast as compiled C# or C++.
+Note:
+ GDScript code itself doesn't execute as fast as compiled C# or C++.
           However, most script code calls functions written with fast algorithms
           in C++ code inside the engine. In many cases, writing gameplay logic
           in GDScript, C#, or C++ won't have a significant impact on
@@ -139,7 +143,8 @@ or ClojureCLR. However, C# is the only officially supported .NET option.
 VisualScript
 ~~~~~~~~~~~~
 
-.. warning::
+Warning:
+
 
     `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
     As a result, creating new projects using visual scripting in Godot is not recommended.
@@ -163,7 +168,8 @@ While it provides all the basic building blocks you need to code complete games,
 we do not recommend to use VisualScript this way. Programming everything with it
 is slow compared to using other programming languages.
 
-.. seealso::
+See also:
+
 
     For more information, see
     `Getting started with VisualScript ( doc_getting_started_visual_script )`.

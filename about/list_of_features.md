@@ -5,7 +5,8 @@ List of features
 
 This page aims to list all features currently supported by Godot.
 
-.. note::
+Note:
+
 
     This page lists features supported by the current stable version of
     Godot (3.5). `More features ( https://docs.godotengine.org/en/latest/about/list_of_features.html )`
@@ -281,7 +282,8 @@ Editor
 - Real-time occluder shapes (sphere and polygon). Not as effective as rooms and portals
   (and doesn't support gameplay notifications), but easier to set up.
 
-.. note::
+Note:
+
 
     Most of the effects listed above can be adjusted for better performance or
     to further improve quality. This can be helpful when using Godot for
@@ -379,7 +381,8 @@ Scripting
 
 - Maintained D, Kotlin, Python, Nim, and Rust bindings provided by the community.
 
-.. warning::
+Warning:
+
 
     `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
     As a result, creating new projects using visual scripting in Godot is not recommended.
@@ -646,7 +649,8 @@ Miscellaneous
 
    - Open developement process with `contributions welcome ( doc_ways_to_contribute )`.
 
-.. seealso::
+See also:
+
 
     The `Godot proposals repository ( https://github.com/godotengine/godot-proposals )`
     lists features that have been requested by the community and may be implemented

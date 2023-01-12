@@ -25,10 +25,12 @@ The equivalent C# code has been included in another tab for convenience.
 
 ![](img/scripting_first_script_rotating_godot.gif)
 
-.. seealso:: To learn more about GDScript, its keywords, and its syntax, head to
+See also:
+ To learn more about GDScript, its keywords, and its syntax, head to
              the `GDScript reference( doc_gdscript )`.
 
-.. seealso:: To learn more about C#, head to the `C# basics ( doc_c_sharp )` page.
+See also:
+ To learn more about C#, head to the `C# basics ( doc_c_sharp )` page.
 
 Project setup
 -------------
@@ -59,7 +61,8 @@ and drag the file `icon.png)` from the FileSystem dock onto the Texture slot.
 
 ![](img/scripting_first_script_setting_texture.png)
 
-.. note::
+Note:
+
 
     You can create Sprite nodes automatically by dragging and dropping images on
     the viewport.
@@ -101,14 +104,16 @@ our script will get access to all the properties and functions of the Sprite
 node, including classes it extends, like `Node2D`, `CanvasItem`, and
 `Node`.
 
-.. note:: In GDScript, if you omit the line with the `extends` keyword, your
+Note:
+ In GDScript, if you omit the line with the `extends` keyword, your
           class will implicitly extend `Reference`, which
           Godot uses to manage your application's memory.
 
 Inherited properties include the ones you can see in the Inspector dock, like
 our node's `texture`.
 
-.. note::
+Note:
+
 
     By default, the Inspector displays a node's properties in "Title Case", with
     capitalized words separated by a space. In GDScript code, these properties
@@ -138,7 +143,8 @@ Let's break it down. The `func` keyword defines a new function named
 `_init()` on every object or node upon creating it in memory, if you define
 this function.
 
-.. note:: GDScript is an indent-based language. The tab at the start of the line
+Note:
+ GDScript is an indent-based language. The tab at the start of the line
           that says `print()` is necessary for the code to work. If you omit
           it or don't indent a line correctly, the editor will highlight it in
           red and display the following error message: "Indented block expected".
@@ -171,7 +177,8 @@ but before functions. Every node
 instance with this script attached to it will have its own copy of the `speed`
 and `angular_speed` properties.
 
-.. note:: Angles in Godot work in radians by default,
+Note:
+ Angles in Godot work in radians by default,
           but you have built-in functions and properties available if you prefer
           to calculate angles in degrees instead.
 
@@ -181,7 +188,8 @@ If you define it in any class that extends the Node class, like Sprite, Godot
 will call the function every frame and pass it an argument named `delta`, the
 time elapsed since the last frame.
 
-.. note::
+Note:
+
 
     Games work by rendering many images per second, each called a frame, and
     they do so in a loop. We measure the rate at which a game produces images in
@@ -208,7 +216,8 @@ function's name and arguments it takes in parentheses. A colon ends the
 definition, and the indented blocks that follow are the function's content or
 instructions.
 
-.. note:: Notice how `_process()`, like `_init()`, starts with a leading
+Note:
+ Notice how `_process()`, like `_init()`, starts with a leading
           underscore. By convention, Godot's virtual functions, that is to say,
           built-in functions you can override to communicate with the engine,
           start with an underscore.
@@ -260,7 +269,8 @@ Run the scene to see the Godot head run in circles.
 
 ![](img/scripting_first_script_rotating_godot.gif)
 
-.. note:: Moving a node like that does not take into account colliding with
+Note:
+ Moving a node like that does not take into account colliding with
           walls or the floor. In `doc_your_first_2d_game`, you will learn
           another approach to moving objects while detecting collisions.
 

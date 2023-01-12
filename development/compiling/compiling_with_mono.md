@@ -165,7 +165,8 @@ The data directory is a dependency for Godot binaries built with the Mono module
 enabled. It contains important files for the correct functioning of Godot. It
 must be distributed together with the Godot executable.
 
-.. note:: The information below doesn't apply for Android, iOS and WASM,
+Note:
+ The information below doesn't apply for Android, iOS and WASM,
           as there is no data directory for these platforms.
 
 Export templates

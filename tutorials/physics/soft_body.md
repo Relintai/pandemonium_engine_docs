@@ -21,7 +21,8 @@ Set the parameters to obtain the type of soft body you aim for. Try to keep the 
 
 ![](img/softbody_cube_menu.png)
 
-.. note:: Handle some parameters with care, as some value can lead to strange results. For example, if the shape is not completely closed and you set pressure to more than 0, the softbody will fly around like a plastic bag under strong wind.
+Note:
+ Handle some parameters with care, as some value can lead to strange results. For example, if the shape is not completely closed and you set pressure to more than 0, the softbody will fly around like a plastic bag under strong wind.
 
 Play the scene to view the simulation.
 
@@ -32,7 +33,8 @@ Cloak simulation
 
 Let's make a cloak in the Platformer3D demo.
 
-.. note:: You can download the Platformer3D demo on `GitHub ( https://github.com/godotengine/godot-demo-projects/tree/master/3d/platformer )`_ or `the Asset Library ( https://godotengine.org/asset-library/asset/125 )`_.
+Note:
+ You can download the Platformer3D demo on `GitHub ( https://github.com/godotengine/godot-demo-projects/tree/master/3d/platformer )`_ or `the Asset Library ( https://godotengine.org/asset-library/asset/125 )`_.
 
 Open the `Player` scene, add a `SoftBody` node and assign a `PlaneMesh` to it.
 
@@ -44,7 +46,8 @@ Open the `PlaneMesh` properties and set the size(x: 0.5 y: 1) then set `Subdivid
 
 Add a `BoneAttachment` node under the skeleton node and select the Neck bone to attach the cloak to the character skeleton.
 
-.. note:: `BoneAttachment` node is to attach objects to a bone of a armature. The attached object will follow the bone's movement, weapon of a character can be attached this way.
+Note:
+ `BoneAttachment` node is to attach objects to a bone of a armature. The attached object will follow the bone's movement, weapon of a character can be attached this way.
 
 ![](img/softbody_cloak_bone_attach.png)
 

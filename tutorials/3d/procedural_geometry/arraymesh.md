@@ -128,7 +128,8 @@ gdscript GDScript
     mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
 ```
 
-.. note:: In this example, we used `Mesh.PRIMITIVE_TRIANGLES`, but you can use any primitive type
+Note:
+ In this example, we used `Mesh.PRIMITIVE_TRIANGLES`, but you can use any primitive type
           available from mesh.
 
 Put together, the full code looks like:

@@ -63,7 +63,8 @@ language and then compiled into a static website/offline document using the
 open source `Sphinx ( http://www.sphinx-doc.org )`_ and `ReadTheDocs
 ( https://readthedocs.org/ )`_ tools.
 
-.. note:: You can contribute to Godot's documentation by opening issue tickets
+Note:
+ You can contribute to Godot's documentation by opening issue tickets
           or sending patches via pull requests on its GitHub
           `source repository ( https://github.com/godotengine/godot-docs )`_, or
           translating it into your language on `Hosted Weblate

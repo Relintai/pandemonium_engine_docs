@@ -239,7 +239,8 @@ adjacent to it is not "on".
 A total of 47 tiles would be needed to provide exactly one bitmask for each
 arrangement that this mode can test for.
 
-.. note::
+Note:
+
 
     Right-click an image and choose **Save image as…** to save it.
 

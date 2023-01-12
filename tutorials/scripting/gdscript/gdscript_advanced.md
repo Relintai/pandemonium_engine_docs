@@ -170,7 +170,8 @@ that inherit `Reference` (the default if nothing is specified)
 will be freed when not used, but manual memory management is allowed too
 if inheriting manually from `Object`.
 
-.. note::
+Note:
+
 
     A value is **passed by value** when it is copied every time it's specified
     as a function parameter. One consequence of this is that the function cannot

@@ -11,7 +11,8 @@ and tools to work with meshes than the ArrayMesh does. When the MeshDataTool
 is used, it calculates mesh data that is not available in ArrayMeshes such as faces and edges, which are necessary
 for certain mesh algorithms. If you do not need this extra information then it may be better to use an ArrayMesh.
 
-.. note:: MeshDataTool can only be used on Meshes that use the PrimitiveType `Mesh.PRIMITIVE_TRIANGLES`.
+Note:
+ MeshDataTool can only be used on Meshes that use the PrimitiveType `Mesh.PRIMITIVE_TRIANGLES`.
 
 We initialize the MeshDataTool from an ArrayMesh by calling `create_from_surface()`. If there is already data initialized in the MeshDataTool,
 calling `create_from_surface()` will clear it for you. Alternatively, you can call `clear()` yourself before re-using the MeshDataTool.

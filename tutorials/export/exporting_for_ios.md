@@ -3,7 +3,8 @@
 Exporting for iOS
 =================
 
-.. seealso::
+See also:
+
 
     This page describes how to export a Godot project to iOS.
     If you're looking to compile export template binaries from source instead,
@@ -35,11 +36,13 @@ After you click **Export Project**, there are still two important options left:
 
 ![](img/ios_export_file.png)
 
-.. note:: This tutorial uses **exported_xcode_project_name**, but you will use your
+Note:
+ This tutorial uses **exported_xcode_project_name**, but you will use your
           project's name. When you see **exported_xcode_project_name**
           in the following steps, replace it with the name you used instead.
 
-.. note:: Avoid using spaces when you choose your **exported_xcode_project_name** as
+Note:
+ Avoid using spaces when you choose your **exported_xcode_project_name** as
           this can lead to corruption in your XCode project file.
 
 When the export completes, the output folder should look like this:
@@ -63,7 +66,8 @@ In the following example:
   * **exported_xcode_project_name** is the name of the exported iOS application (as above).
   * **godot_project_to_export** is the name of the Godot project.
 
-.. note:: **godot_project_to_export** must not be the same as **exported_xcode_project_name**
+Note:
+ **godot_project_to_export** must not be the same as **exported_xcode_project_name**
           to prevent signing issues in Xcode.
 
 Steps to link a Godot project folder to Xcode

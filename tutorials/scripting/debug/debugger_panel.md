@@ -32,7 +32,8 @@ You can use the buttons in the top-right corner to:
 - **Break**. This button pauses the game's execution.
 - **Continue**. This button resumes the game after a breakpoint or pause.
 
-.. warning::
+Warning:
+
 
     Breakpoints won't break on code if it's
     `running in a thread ( doc_using_multiple_threads )`.

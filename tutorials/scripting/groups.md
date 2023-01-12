@@ -63,7 +63,8 @@ It has three columns:
 The fields at the bottom allow you to add new groups or filter nodes in the
 second and third columns.
 
-.. note:: Any node name that's greyed out means the node was added to the group
+Note:
+ Any node name that's greyed out means the node was added to the group
           in a different scene and you cannot edit it here. This happens on
           scene instances in particular.
 

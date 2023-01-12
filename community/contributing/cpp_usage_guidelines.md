@@ -22,7 +22,8 @@ To get your pull request merged, it needs to follow the C++ usage guidelines
 outlined here. Of course, you can use features not allowed here in your own C++
 modules or GDNative scripts.
 
-.. note::
+Note:
+
 
     Prior to Godot 4.0, the C++ standard used throughout the codebase was C++03,
     with a handful of C++14 extensions. If you are contributing a pull request
@@ -33,7 +34,8 @@ modules or GDNative scripts.
     generally favor small libraries instead of larger solutions. See also
     `doc_best_practices_for_engine_contributors`.
 
-.. seealso::
+See also:
+
 
     See `doc_code_style_guidelines` for formatting guidelines.
 
@@ -60,7 +62,8 @@ This means that pull requests should **not** use `std::string`,
   can be used as an alternative (ask core developers first).
 - Use `Array` instead of `std::array`.
 
-.. note::
+Note:
+
 
     Godot also has a List datatype (which is a linked list). While List is already used
     in the codebase, it typically performs worse than other datatypes like Vector
@@ -100,7 +103,8 @@ pull request.
 To follow the existing style, please use standard `#ifdef`-based include
 guards instead of `#pragma once` in new files.
 
-.. seealso::
+See also:
+
 
     See `doc_code_style_guidelines_header_includes` for guidelines on sorting
     includes in C++ and Objective-C files.

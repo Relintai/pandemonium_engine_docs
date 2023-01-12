@@ -188,7 +188,8 @@ shader, this value can be used as desired.
 | in vec4 **INSTANCE_CUSTOM**          | Instance custom data (for particles, mostly).          |
 +--------------------------------------+--------------------------------------------------------+
 
-.. note::
+Note:
+
 
     `MODELVIEW_MATRIX` combines both the `WORLD_MATRIX` and `INV_CAMERA_MATRIX` and is better suited when floating point issues may arise. For example, if the object is very far away from the world origin, you may run into floating point issues when using the seperated `WORLD_MATRIX` and `INV_CAMERA_MATRIX`.
 
@@ -294,7 +295,8 @@ these properties, and if you don't write to them, Godot will optimize away the c
 | in vec2 **POINT_COORD**           | Point Coordinate for drawing points with POINT_SIZE.                                             |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 
-.. note::
+Note:
+
 
     Shaders going through the transparent pipeline when `ALPHA` is written to
     may exhibit transparency sorting issues. Read the
@@ -325,11 +327,13 @@ Below is an example of a custom light function using a Lambertian lighting model
 
 If you want the lights to add together, add the light contribution to `DIFFUSE_LIGHT` using `+=`, rather than overwriting it.
 
-.. warning::
+Warning:
+
 
     In GLES2, lights will always be added together even if you override `DIFFUSE_LIGHT` using `=`. This is due to lighting being computed in multiple passes (one for each light), unlike GLES3.
 
-.. warning::
+Warning:
+
 
     The `light()` function won't be run if the `vertex_lighting` render mode
     is enabled, or if
@@ -389,7 +393,8 @@ If you want the lights to add together, add the light contribution to `DIFFUSE_L
 | out vec3 **SPECULAR_LIGHT**       | Specular light result.                              |
 +-----------------------------------+-----------------------------------------------------+
 
-.. note::
+Note:
+
 
     Shaders going through the transparent pipeline when `ALPHA` is written to
     may exhibit transparency sorting issues. Read the

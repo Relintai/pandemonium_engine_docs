@@ -89,7 +89,8 @@ the reflection and the `ALBEDO` color. A high `METALLIC` almost ignores
 
 ![](img/PBR.png)
 
-.. note:: `METALLIC` should be close to `0` or `1` for proper PBR shading.
+Note:
+ `METALLIC` should be close to `0` or `1` for proper PBR shading.
           Only set it between them for blending between materials.
 
 Water is not a metal, so we will set its `METALLIC` property to `0.0`. Water

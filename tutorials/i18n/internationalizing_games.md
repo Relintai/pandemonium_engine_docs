@@ -22,7 +22,8 @@ them is already covered in the `doc_importing_translations` tutorial,
 so this one could be seen more like a follow-up to that one.
 
 
-.. note:: We will be using the official demo as an example; you can
+Note:
+ We will be using the official demo as an example; you can
           `download it from the Asset Library ( https://godotengine.org/asset-library/asset/134 )`_.
 
 Configuring the imported translation

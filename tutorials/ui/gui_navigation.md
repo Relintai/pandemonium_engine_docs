@@ -17,7 +17,8 @@ By default, some control nodes have the ability to automatically grab focus
 reacting to built-in UI actions such as `ui_up`, `ui_down`, `ui_focus_next`, etc.
 These actions can be seen in the project settings in the input map and can be modified.
 
-.. warning::
+Warning:
+
 
     Because these actions are used for focus they should not be used for any
     gameplay code.
@@ -39,7 +40,8 @@ will be used when navigating down with the down arrow or by pushing down on
 the D-pad. The "Next" and "Previous" options are used with the focus shift button,
 such as :kbd:`Tab` on desktop operating systems.
 
-.. note::
+Note:
+
     A node can lose focus if it becomes hidden.
 
 The mode setting defines how a node can be focused. **All** means a node can

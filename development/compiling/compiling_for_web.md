@@ -3,7 +3,8 @@
 Compiling for the Web
 =====================
 
-.. seealso::
+See also:
+
 
     This page describes how to compile HTML5 editor and export template binaries from source.
     If you're looking to export your project to HTML5 instead, read `doc_exporting_for_web`.
@@ -18,7 +19,8 @@ To compile export templates for the Web, the following is required:
 -  `Python 3.5+ ( https://www.python.org/ )`.
 -  `SCons 3.0+ ( https://www.scons.org )` build system.
 
-.. seealso:: To get the Godot source code for compiling, see
+See also:
+ To get the Godot source code for compiling, see
              `doc_getting_source`.
 
              For a general overview of SCons usage for Godot, see

@@ -3,7 +3,8 @@
 Exporting for the Web
 =====================
 
-.. seealso::
+See also:
+
 
     This page describes how to export a Godot project to HTML5.
     If you're looking to compile editor or export template binaries from source instead,
@@ -81,7 +82,8 @@ JavaScript APIs, include CSS, or run JavaScript code.
                To customize the generated file, use the **Custom HTML shell**
                option.
 
-.. warning:: **Export types** other then *Regular* are not yet supported by the
+Warning:
+ **Export types** other then *Regular* are not yet supported by the
              C# version.
 
 Limitations
@@ -136,7 +138,8 @@ As mentioned `above ( doc_javascript_export_options )` multi-threading is
 only available if the appropriate **Export Type** is set and support for it
 across browsers is still limited.
 
-.. warning:: Requires a `secure context ( doc_javascript_secure_contexts )`.
+Warning:
+ Requires a `secure context ( doc_javascript_secure_contexts )`.
              Browsers also require that the web page is served with specific
              `cross-origin isolation headers ( https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy )`.
 
@@ -169,10 +172,12 @@ Audio
 Chrome restricts how websites may play audio. It may be necessary for the
 player to click or tap or press a key to enable audio.
 
-.. seealso:: Google offers additional information about their `Web Audio autoplay
+See also:
+ Google offers additional information about their `Web Audio autoplay
              policies ( https://sites.google.com/a/chromium.org/dev/audio-video/autoplay )`.
 
-.. warning:: Access to microphone requires a
+Warning:
+ Access to microphone requires a
              `secure context ( doc_javascript_secure_contexts )`.
 
 Networking
@@ -202,7 +207,8 @@ browser supporting the `Clipboard API ( https://developer.mozilla.org/en-US/docs
 additionally, due to the API asynchronous nature might not be reliable when
 accessed from GDScript.
 
-.. warning:: Requires a `secure context ( doc_javascript_secure_contexts )`.
+Warning:
+ Requires a `secure context ( doc_javascript_secure_contexts )`.
 
 Gamepads
 ~~~~~~~~
@@ -213,7 +219,8 @@ sadly the `Gamepad API ( https://developer.mozilla.org/en-US/docs/Web/API/Gamepa
 does not provide a reliable way to detect the gamepad information necessary
 to remap them based on model/vendor/OS due to privacy considerations.
 
-.. warning:: Requires a `secure context ( doc_javascript_secure_contexts )`.
+Warning:
+ Requires a `secure context ( doc_javascript_secure_contexts )`.
 
 Boot splash is not displayed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

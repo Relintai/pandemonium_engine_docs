@@ -33,7 +33,8 @@ steps. If you're an experienced programmer, you can browse the complete demo's
 source code here: `Squash the Creep source code
 ( https://github.com/GDQuest/godot-3d-dodge-the-creeps/ )`.
 
-.. note::
+Note:
+
 
     You can follow this series without having done the 2D one. However, if
     you're new to game development, we recommend you to start with 2D. 3D game

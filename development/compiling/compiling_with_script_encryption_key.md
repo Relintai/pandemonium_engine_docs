@@ -14,7 +14,8 @@ optimized and without symbols, it would take some effort to find it.
 For this to work, you need to build the export templates from source,
 with that same key.
 
-.. warning::
+Warning:
+
 
     This will **not** work if you use official, precompiled export templates.
     It is absolutely **required** to compile your own export templates to use

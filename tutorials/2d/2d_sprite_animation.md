@@ -16,7 +16,8 @@ animate a collection of individual images. Then we will animate a sprite sheet u
 with `AnimationPlayer` and the *Animation*
 property of `Sprite`.
 
-.. note:: Art for the following examples by https://opengameart.org/users/ansimuz and by
+Note:
+ Art for the following examples by https://opengameart.org/users/ansimuz and by
                                            https://opengameart.org/users/tgfcoder
 
 Individual images with AnimatedSprite
@@ -36,7 +37,8 @@ with the following nodes:
 
 ![](img/2d_animation_tree1.png)
 
-.. note:: The root node could also be `Area2D` or
+Note:
+ The root node could also be `Area2D` or
           `RigidBody2D`. The animation will still be
           made in the same way. Once the animation is completed, you can
           assign a shape to the CollisionShape2D. See
@@ -143,7 +145,8 @@ setting up your scene tree:
 
 ![](img/2d_animation_tree2.png)
 
-.. note:: The root node could also be `Area2D` or
+Note:
+ The root node could also be `Area2D` or
           `RigidBody2D`. The animation will still be
           made in the same way. Once the animation is completed, you can
           assign a shape to the CollisionShape2D. See
@@ -204,7 +207,8 @@ gdscript GDScript
             _animation_player.stop()
 ```
 
-.. note:: If updating both an animation and a separate property at once
+Note:
+ If updating both an animation and a separate property at once
           (for example, a platformer may update the sprite's `h_flip`/`v_flip`
           properties when a character turns while starting a 'turning' animation),
           it's important to keep in mind that `play()` isn't applied instantly.

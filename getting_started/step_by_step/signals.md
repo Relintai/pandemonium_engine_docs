@@ -25,7 +25,8 @@ For example, you might have a life bar on the screen that represents the
 player’s health. When the player takes damage or uses a healing potion, you want
 the bar to reflect the change. To do so, in Godot, you would use signals.
 
-.. note:: As mentioned in the introduction, signals are Godot's version of the
+Note:
+ As mentioned in the introduction, signals are Godot's version of the
           observer pattern. You can learn more about it here:
           https://gameprogrammingpatterns.com/observer.html
 
@@ -113,7 +114,8 @@ method, a function that Godot will call when the Button emits the signal. The
 editor generates one for you. By convention, we name these callback methods
 "_on_NodeName_signal_name". Here, it'll be "_on_Button_pressed".
 
-.. note::
+Note:
+
 
    When connecting signals via the editor's Node dock, you can use two
    modes. The simple one only allows you to connect to nodes that have a
@@ -224,7 +226,8 @@ We need to do two operations to connect the nodes via code:
 1. Get a reference to the Timer from the Sprite.
 2. Call the Timer's `connect()` method.
 
-.. note:: To connect to a signal via code, you need to call the `connect()`
+Note:
+ To connect to a signal via code, you need to call the `connect()`
           method of the node you want to listen to. In this case, we want to
           listen to the Timer's "timeout" signal.
 
@@ -315,7 +318,8 @@ gdscript GDScript
 Custom signals
 --------------
 
-.. note:: This section is a reference on how to define and use your own signals,
+Note:
+ This section is a reference on how to define and use your own signals,
           and does not build upon the project created in previous lessons.
 
 You can define custom signals in a script. Say, for example, that you want to
@@ -333,7 +337,8 @@ gdscript GDScript
     var health = 10
 ```
 
-.. note:: As signals represent events that just occurred, we generally use an
+Note:
+ As signals represent events that just occurred, we generally use an
           action verb in the past tense in their names.
 
 Your signals work the same way as built-in ones: they appear in the Node tab and
@@ -363,7 +368,8 @@ gdscript GDScript
     signal health_changed(old_value, new_value)
 ```
 
-.. note::
+Note:
+
 
     The signal arguments show up in the editor's node dock, and Godot can use
     them to generate callback functions for you. However, you can still emit any

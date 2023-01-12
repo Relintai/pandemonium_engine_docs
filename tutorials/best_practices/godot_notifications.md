@@ -57,7 +57,8 @@ methods, but are still quite useful.
 One can access all these custom notifications from the universal
 `_notification` method.
 
-.. note::
+Note:
+
   Methods in the documentation labeled as "virtual" are also intended to be
   overridden by scripts.
 

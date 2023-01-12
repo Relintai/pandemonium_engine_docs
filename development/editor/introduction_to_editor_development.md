@@ -11,7 +11,8 @@ On this page, you will learn:
 This guide is aimed at current or future engine contributors.
 To create editor plugins in GDScript, see `doc_making_plugins` instead.
 
-.. seealso::
+See also:
+
 
     If you are new to Godot, we recommended you to read
     `doc_godot_design_philosophy` before continuing. Since the Godot editor

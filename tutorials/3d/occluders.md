@@ -7,7 +7,8 @@ In addition to occlusion via `doc_rooms_and_portals`, Godot also has the ability
 
 Any object that is fully occluded by the shape (behind or in some cases inside) will be culled at runtime. They are designed to be simple to use and inexpensive at runtime, but the trade off is they may not be as effective at culling as `doc_rooms_and_portals`. Nevertheless they can still significantly boost performance in some situations.
 
-.. note:: It is important to understand that geometric occluders work by testing the axis aligned bounding box (`AABB`) of the occludee against the occluder. The AABB must be *fully occluded* to be culled. The consequence of this is that smaller objects are more likely to be effectively culled than larger objects, and larger occluders tend to be much more effective than smaller ones.
+Note:
+ It is important to understand that geometric occluders work by testing the axis aligned bounding box (`AABB`) of the occludee against the occluder. The AABB must be *fully occluded* to be culled. The consequence of this is that smaller objects are more likely to be effectively culled than larger objects, and larger occluders tend to be much more effective than smaller ones.
 
 A major advantage to Occluder nodes is that they are fully dynamic. For example if you place an occluder node as a child of a spaceship, it will move as you move the parent object.
 
@@ -49,7 +50,8 @@ The polygon is a generalist occluder. It can be made to work well in almost all 
 
 As with all geometric occluders, the key to success is to make them large. They do not have to match rendered geometry, and in many cases they will work better if you extend them past rendered geometry to make them as big as possible (without blocking legitimate lines of sight). The reason why they need to be large is that in general, they will only cull objects whose `AABB` is completely hidden by the polygon. For large objects to be culled, you will need large occluders.
 
-.. note:: Like all occluders, polygons **can** overlap, and in many cases they will work better if you overlap them (they are more likely to cull objects on boundaries).
+Note:
+ Like all occluders, polygons **can** overlap, and in many cases they will work better if you overlap them (they are more likely to cull objects on boundaries).
 
 Editing and details
 ~~~~~~~~~~~~~~~~~~~
@@ -82,7 +84,8 @@ The hole can be totally within the polygon (such as a window), abutting the edge
 
 -  If the object to be culled is totally hidden by the polygon, it then looks to see whether it can be seen *through* the hole. If the object touches the hole, it is not culled, but if hidden by the polygon and not seen through the hole it is culled.
 
-.. note:: Placing holes is usually far more convenient, and works faster and better at runtime, than creating lots of smaller OccluderShapePolygons.
+Note:
+ Placing holes is usually far more convenient, and works faster and better at runtime, than creating lots of smaller OccluderShapePolygons.
 
 Hole Limits
 ^^^^^^^^^^^

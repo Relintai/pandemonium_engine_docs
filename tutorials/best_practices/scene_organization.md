@@ -116,7 +116,8 @@ These options hide the points of access from the child node. This in turn
 keeps the child **loosely coupled** to its environment. One can re-use it
 in another context without any extra changes to its API.
 
-.. note::
+Note:
+
 
   Although the examples above illustrate parent-child relationships,
   the same principles apply towards all object relations. Nodes which
@@ -144,7 +145,8 @@ gdscript GDScript
   on other objects. Whichever object actually owns the objects should manage
   the relationships between them.
 
-.. warning::
+Warning:
+
 
   One should favor keeping data in-house (internal to a scene) though as
   placing a dependency on an external context, even a loosely coupled one,
@@ -230,7 +232,8 @@ If one has a system that...
 
 ... then one should create an `autoload 'singleton' node ( doc_singletons_autoload )`.
 
-.. note::
+Note:
+
 
   For smaller games, a simpler alternative with less control would be to have
   a "Game" singleton that simply calls the
@@ -255,7 +258,8 @@ are effectively elements of their parents. Does removing the parent reasonably
 mean that one should also remove the children? If not, then it should have its
 own place in the hierarchy as a sibling or some other relation.
 
-.. note::
+Note:
+
 
   In some cases, one needs these separated nodes to *also* position themselves
   relative to each other. One can use the
@@ -315,7 +319,8 @@ own place in the hierarchy as a sibling or some other relation.
      `Spatial` node. This will make
      the node ignore its inherited transform.
 
-.. note::
+Note:
+
 
   If building a networked game, keep in mind which nodes and gameplay systems
   are relevant to all players versus those just pertinent to the authoritative

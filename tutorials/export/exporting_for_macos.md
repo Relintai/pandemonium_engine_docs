@@ -3,7 +3,8 @@
 Exporting for macOS
 ===================
 
-.. seealso::
+See also:
+
 
     This page describes how to export a Godot project to macOS.
     If you're looking to compile editor or export template binaries from source instead,
@@ -20,7 +21,8 @@ Requirements
 -  Download the Godot export templates. Use the Godot menu: `Editor > Manage Export Templates`.
 -  A valid and unique `Bundle identifier` should be set in the `Application` section of the export options.
 
-.. warning::
+Warning:
+
 
     Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the `Running Godot apps on macOS ( doc_running_on_macos )` page for more information.
 
@@ -69,7 +71,8 @@ Signing Options
 | Replace Existing Signature   | Replaces existing signatures of the GDNative libraries and embedded helper executables.           |
 +------------------------------+---------------------------------------------------------------------------------------------------+
 
-.. note::
+Note:
+
 
     To notarize an app, you must enable the `Hardened Runtime` and `Timestamp`.
 
@@ -95,7 +98,8 @@ Notarization Options
 
 See `Notarizing macOS Software Before Distribution ( https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution?language=objc )` for more info.
 
-.. note::
+Note:
+
 
     Notarization is supported when exporting from a computer running macOS, these options are hidden on other platforms.
 
@@ -147,7 +151,8 @@ The App Sandbox restricts access to user data, networking and devices.
 Sandboxed apps can't access most of the file system, can't use custom file dialogs and execute binaries (using `OS.execute` and `OS.create_process`) outside the `.app` bundle.
 See `App Sandbox ( https://developer.apple.com/documentation/security/app_sandbox?language=objc )` for more info.
 
-.. note::
+Note:
+
 
     To distribute an app through the App Store, you must enable the App Sandbox.
 

@@ -12,7 +12,8 @@ export as a glTF binary (`.glb` file) or glTF embedded with textures
 such as a CSG mesh blockout for a level, export it to clean it up in a
 program such as Blender, and then bring it back into Godot.
 
-.. note:: 
+Note:
+ 
 
     Only Blender 2.83 and newer can import glTF files exported by Godot.
 

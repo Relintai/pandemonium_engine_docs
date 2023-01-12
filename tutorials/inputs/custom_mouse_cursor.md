@@ -10,7 +10,8 @@ You might want to change the appearance of the mouse cursor in your game in orde
 
 Using project settings is a simpler (but more limited) way to customize the mouse cursor. The second way is more customizable, but involves scripting.
 
-.. note::
+Note:
+
 
     You could display a "software" mouse cursor by hiding the mouse cursor and
     moving a Sprite to the cursor position in a `_process` method, but this
@@ -31,7 +32,8 @@ Open project settings, go to Display>Mouse Cursor. You will see Custom Image and
 Custom Image is the desired image that you would like to set as the mouse cursor.
 Custom Hotspot is the point in the image that you would like to use as the cursor's detection point.
 
-.. note:: The custom image **must** be less than 256x256.
+Note:
+ The custom image **must** be less than 256x256.
 
 Using a script
 --------------
@@ -58,7 +60,8 @@ gdscript GDScript
         Input.set_custom_mouse_cursor(beam, Input.CURSOR_IBEAM)
 ```
 
-.. note::
+Note:
+
     Check `Input.set_custom_mouse_cursor()`.
 
 

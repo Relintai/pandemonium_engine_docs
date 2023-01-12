@@ -25,7 +25,8 @@ Setting up your plugin
 
 Create a new empty plugin to get started.
 
-.. seealso:: See `doc_making_plugins` guide to set up your new plugin.
+See also:
+ See `doc_making_plugins` guide to set up your new plugin.
 
 Let's assume you've called your plugin folder `my_inspector_plugin`. If so,
 you should end up with a new `addons/my_inspector_plugin` folder that contains
@@ -38,7 +39,8 @@ the instance by calling `add_inspector_plugin()`. If the plugin is disabled,
 you should remove the instance you have added by calling
 `remove_inspector_plugin()`.
 
-.. note:: Here, you are loading a script and not a packed scene. Therefore you
+Note:
+ Here, you are loading a script and not a packed scene. Therefore you
           should use `new()` instead of `instance()`.
 
 gdscript GDScript
@@ -72,7 +74,8 @@ To have any effect at all, the script must implement the `can_handle()`
 method. This function is called for each edited `Object` and must
 return `true` if this plugin should handle the object or its properties.
 
-.. note:: This includes any `Resource` attached to the object.
+Note:
+ This includes any `Resource` attached to the object.
 
 You can implement four other methods to add controls to the inspector at
 specific positions. The `parse_begin()` and `parse_end()` methods are called

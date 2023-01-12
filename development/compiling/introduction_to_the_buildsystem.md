@@ -201,13 +201,15 @@ directory paths containing such modules:
 
     scons custom_modules="../modules,/abs/path/to/modules,~/src/godot_modules"
 
-.. note::
+Note:
+
 
     If there's any custom module with the exact directory name as a built-in
     module, the engine will only compile the custom one. This logic can be used
     to override built-in module implementations.
 
-.. seealso::
+See also:
+
 
     `doc_custom_modules_in_c++`
 
@@ -256,7 +258,8 @@ source to initialize any SCons build options passed via the command line:
 You can also disable some of the builtin modules before compiling, saving some
 time it takes to build the engine. See `doc_optimizing_for_size` page for more details.
 
-.. seealso::
+See also:
+
 
     You can use the online
     `Godot build options generator ( https://godot-build-options-generator.github.io/ )`
@@ -270,7 +273,8 @@ line option, both overriding the default build configuration:
 
     scons profile=path/to/custom.py
 
-.. note:: Build options set from the file can be overridden by the command line
+Note:
+ Build options set from the file can be overridden by the command line
           options.
 
 It's also possible to override the options conditionally:

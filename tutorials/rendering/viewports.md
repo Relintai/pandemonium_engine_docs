@@ -182,7 +182,8 @@ If you know how the `Viewport` is going to be used, you can set its Usage to eit
 restrict how the `Viewport` is drawn to in accordance with your choice; default is 3D.
 The 2D usage mode is slightly faster and uses less memory compared to the 3D one. It's a good idea to set the `Viewport`'s Usage property to 2D if your viewport doesn't render anything in 3D.
 
-.. note::
+Note:
+
 
     If you need to render 3D shadows in the viewport, make sure to set the viewport's *Shadow Atlas Size* property to a value higher than 0.
     Otherwise, shadows won't be rendered. For reference, the Project Settings define it to 4096 by default.
@@ -211,7 +212,8 @@ Overdraw draws the meshes semi-transparent with an additive blend so you can see
 
 Lastly, Wireframe draws the scene using only the edges of triangles in the meshes.
 
-.. note::
+Note:
+
 
     The effects of the Wireframe mode are only visible in the editor, not while the project is running.
 

@@ -111,7 +111,8 @@ There is more to instances. With this feature, you can:
    and making a change to the Ball node there. Upon saving, all instances of the
    Ball in the project will see their values update.
 
-.. note:: Changing a property on an instance always overrides values from the
+Note:
+ Changing a property on an instance always overrides values from the
           corresponding packed scene.
 
 Let's try this. Open `Ball.tscn` and select the Ball node. In the Inspector on
@@ -149,7 +150,8 @@ property to the value in the saved scene.
 
 Rerun the game and notice how this ball now falls much faster than the others.
 
-.. note:: If you change a value on the `PhysicsMaterial` of one instance, it
+Note:
+ If you change a value on the `PhysicsMaterial` of one instance, it
           will affect all the others. This is because `PhysicsMaterial` is a
           resource, and resources are shared between instances. To make a
           resource unique for one instance, right-click on it in the Inspector

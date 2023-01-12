@@ -43,7 +43,8 @@ nodes.
 It is made of a `KinematicBody2D` node named "Character", a `Sprite`, a
 `Camera2D`, and a `CollisionShape2D`.
 
-.. note:: The node names end with "2D" because this is a 2D scene. Their 3D
+Note:
+ The node names end with "2D" because this is a 2D scene. Their 3D
           counterpart have names that end with "3D".
 
 Notice how nodes and scenes look the same in the editor. When you save a tree of
@@ -75,7 +76,8 @@ flexibility in how you structure your scenes.
 
 ![](img/key_concepts_signals.png)
 
-.. note:: Signals are Godot's version of the *observer* pattern. You can read
+Note:
+ Signals are Godot's version of the *observer* pattern. You can read
           more about it here:
           https://gameprogrammingpatterns.com/observer.html
 

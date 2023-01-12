@@ -56,7 +56,8 @@ ini GDScript
     Activate now: No
 ```
 
-.. warning::
+Warning:
+
 
     Unchecking the `Activate now?` option in C# is always required because,
     like every other C# script, the EditorPlugin script needs to be compiled which
@@ -83,7 +84,8 @@ EditorPlugin script for you. The script has two requirements that you cannot
 change: it must be a `tool` script, or else it will not load properly in the
 editor, and it must inherit from `EditorPlugin`.
 
-.. warning::
+Warning:
+
 
     In addition to the EditorPlugin script, any other GDScript that your plugin uses
     must *also* be a tool. Any GDScript without `tool` imported into the editor
@@ -126,7 +128,8 @@ sometimes it can be cumbersome, especially if you're using it in many
 projects. A good solution to this is to make a plugin that adds a node with a
 custom behavior.
 
-.. warning::
+Warning:
+
 
   Nodes added via an EditorPlugin are "CustomType" nodes. While they work
   with any scripting language, they have fewer features than

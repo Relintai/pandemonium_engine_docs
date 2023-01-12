@@ -86,7 +86,8 @@ Here is a list of most feature tags in Godot. Keep in mind they are **case-sensi
 | **pvrtc**       | Textures using PVRTC compression are supported         |
 +-----------------+--------------------------------------------------------+
 
-.. warning::
+Warning:
+
 
     With the exception of texture compression feature tags, default feature tags
     are **immutable**. This means that they will *not* change depending on
@@ -105,7 +106,8 @@ field in the *export preset* used to generate it:
 
 ![](img/feature_tags1.png)
 
-.. note::
+Note:
+
 
     Custom feature tags are only used when running the exported project
     (including with `doc_one-click_deploy`). They are **not used** when
@@ -127,7 +129,8 @@ After overriding, a new field is added for this specific configuration:
 
 ![](img/feature_tags3.png)
 
-.. note::
+Note:
+
 
     When using the
     `project settings "override.cfg" functionality`

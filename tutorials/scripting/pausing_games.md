@@ -28,7 +28,8 @@ Doing this will cause two things. First, 2D and 3D physics will be stopped
 for all nodes. Second, the behavior of certain nodes will stop or start
 depending on their process mode.
 
-.. note:: The physics servers can be made active while the game is
+Note:
+ The physics servers can be made active while the game is
           paused by using their `set_active` methods.
 
 Process Modes

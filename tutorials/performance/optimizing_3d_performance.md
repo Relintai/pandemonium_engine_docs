@@ -54,7 +54,8 @@ lights. See `doc_rooms_and_portals`.
 This is not a fully automatic system and it requires some manual setup. However, it potentially
 offers significant performance increases.
 
-.. note::
+Note:
+
 
     In some cases, you can adapt your level design to add more occlusion
     opportunities. For example, you can add more walls to prevent the player

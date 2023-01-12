@@ -15,7 +15,8 @@ This conversion must take place every time you want to activate the system. It d
 
 If you convert the level while the editor is running, the portal culling system will take over from the normal Godot frustum culling, potentially interfering with editor features. To get around this, you can turn portal culling on and off using either the **View Portal Culling** toggle in the **View** menu on the editor toolbar (which also has a keyboard shortcut) or the **Active** setting in the RoomManager node.
 
-.. note:: To use the RoomManager, you have to tell it where the rooms are in your scene tree, or, more specifically, where the RoomList node is. This RoomList is the parent of your rooms - see below. If the RoomList is not set, conversion will fail, and you will see a warning dialog box.
+Note:
+ To use the RoomManager, you have to tell it where the rooms are in your scene tree, or, more specifically, where the RoomList node is. This RoomList is the parent of your rooms - see below. If the RoomList is not set, conversion will fail, and you will see a warning dialog box.
 
 ![](img/room_manager.png)
 
@@ -26,7 +27,8 @@ Before we create any rooms, we must first create a node to be the parent of all 
 
 ![](img/roomlist_node.png)
 
-.. note:: The roomlist is **not** a special node type – it can just be a regular Spatial.
+Note:
+ The roomlist is **not** a special node type – it can just be a regular Spatial.
 
 You will need to assign the roomlist node in the RoomManager so that it knows where to find the rooms.
 
@@ -111,7 +113,8 @@ There are two ways to specify which room the portal should link to:
 - Leave the **Linked Room** in the inspector blank. The system will attempt to *autolink* the portal to the nearest neighbour room during conversion. This works fine in most cases.
 - Explicitly specify the room by setting the **Linked Room** in the inspector.
 
-.. note:: Portals are defined as a set of 2D points. This ensures that the polygon formed is in a single plane. The transform determines the portal orientation. The points must also form a *convex* polygon. This is enforced by validating the points you specify, ignoring any that do not form a convex shape. This makes editing easier while making it difficult to break the system.
+Note:
+ Portals are defined as a set of 2D points. This ensures that the polygon formed is in a single plane. The transform determines the portal orientation. The points must also form a *convex* polygon. This is enforced by validating the points you specify, ignoring any that do not form a convex shape. This makes editing easier while making it difficult to break the system.
 
 Trying it out
 ~~~~~~~~~~~~~

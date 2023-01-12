@@ -26,7 +26,8 @@ Writing style
   Double quotes should be used to quote user input, file paths and possibly
   other things depending on the context.
 
-.. seealso::
+See also:
+
 
     Try to follow the `doc_docs_writing_guidelines` in addition to the
     guidelines outlined above.

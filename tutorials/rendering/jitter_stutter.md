@@ -40,7 +40,8 @@ time sources (one is processed in the physics step while another is processed in
 improvements to this, from allowing kinematic bodies to be animated in the regular _process loop, to further fixes in the
 frame timer.
 
-.. note::
+Note:
+
 
     You can use physics interpolation to mitigate physics-related jittering.
     See `lawnjelly's smoothing-addon ( https://github.com/lawnjelly/smoothing-addon )`

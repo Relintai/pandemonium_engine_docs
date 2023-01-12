@@ -3,7 +3,8 @@
 Exporting for Windows
 =====================
 
-.. seealso::
+See also:
+
 
     This page describes how to export a Godot project to Windows.
     If you're looking to compile editor or export template binaries from source instead,
@@ -24,7 +25,8 @@ Requirements
 -  To enable code signing, you must have the `Windows 10 SDK` (on Windows) or `osslsigncode ( https://github.com/mtrojnar/osslsigncode )` (on any other OS) installed.
 -  Download the Godot export templates. Use the Godot menu: `Editor > Manage Export Templates`.
 
-.. warning::
+Warning:
+
 
     If you export for Windows with embedded PCK files, you will not be able to
     sign the program as it will break.

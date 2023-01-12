@@ -12,7 +12,8 @@ You can avoid problems and simplify development if you understand how each of th
 works and what their pros and cons are. In this tutorial, we'll look at the
 `Area2D` node and show some examples of how it can be used.
 
-.. note:: This document assumes you're familiar with Godot's various physics
+Note:
+ This document assumes you're familiar with Godot's various physics
           bodies. Please read `doc_physics_introduction` first.
 
 What is an area?
@@ -65,7 +66,8 @@ use `area_entered`. However, let's assume our player is a `KinematicBody2D`
 (and therefore a `CollisionObject2D` type), so we'll connect the
 `body_entered` signal.
 
-.. note:: If you're not familiar with using signals, see `doc_signals` for
+Note:
+ If you're not familiar with using signals, see `doc_signals` for
           an introduction.
 
 gdscript GDScript

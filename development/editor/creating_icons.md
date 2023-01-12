@@ -66,7 +66,8 @@ The `--multipass` switch improves compression, so make sure to include it.
 The optimized icon will be saved to `svg_optimized.svg`. You can also change
 the destination parameter to any relative or absolute path you'd like.
 
-.. note::
+Note:
+
 
     While this optimization step won't impact the icon's quality noticeably, it
     will still remove editor-only information such as guides. Therefore, it's

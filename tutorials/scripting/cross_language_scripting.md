@@ -52,7 +52,8 @@ with `new()`.
     var my_csharp_node = my_csharp_script.new()
     print(my_csharp_node.str2) # barbar
 
-.. warning::
+Warning:
+
 
     When creating `.cs` scripts, you should always keep in mind that the class
     Godot will use is the one named like the `.cs` file itself. If that class
@@ -164,7 +165,8 @@ to said method.
     myGDScriptNode.Call("print_array", (object)new int[] { 1, 2, 3 }); // 1, 2, 3
     // Note how the type of each array entry does not matter as long as it can be handled by the marshaller
 
-.. warning::
+Warning:
+
 
     As you can see, if the first argument of the called method is an array,
     you'll need to cast it as `object`.

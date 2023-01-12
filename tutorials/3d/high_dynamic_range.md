@@ -32,7 +32,8 @@ through a virtual camera. Here, our virtual camera would apply a particular
 camera rendering transform to the scene data, and the output would be ready
 for display on a particular display type.
 
-.. note::
+Note:
+
 
     Godot does not support high dynamic range *output* yet. It can only perform
     lighting in HDR and tonemap the result to a low dynamic range image.

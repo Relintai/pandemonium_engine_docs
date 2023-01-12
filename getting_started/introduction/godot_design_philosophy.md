@@ -109,7 +109,8 @@ game code. See `The Godot editor is a Godot game`_ below.
 manage states and transitions visually.*
 
 
-.. warning::
+Warning:
+
 
     `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
     As a result, creating new projects using visual scripting in Godot is not recommended.
@@ -136,7 +137,8 @@ On the other hand, an open codebase means you can **learn from and extend
 the engine** to your heart's content. You can also debug games easily,
 as Godot will print errors with a stack trace, even if they come from the engine itself.
 
-.. note::
+Note:
+
 
    This **does not affect the work you do with Godot** in any way: there's
    no strings attached to the engine or anything you make with it.
@@ -177,7 +179,8 @@ in the editor. This lets you import and export plugins, create plugins
 like custom level editors, or create scripts with the same nodes and API
 you use in your projects.
 
-.. note::
+Note:
+
 
    The editor is fully written in C++ and is statically compiled into the
    binary. This means you can't import it as a typical project that would have a

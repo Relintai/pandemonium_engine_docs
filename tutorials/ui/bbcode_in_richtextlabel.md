@@ -39,7 +39,8 @@ property now has the text without the BBCode. While the text property will be up
 by the BBCode property, you can't edit the text property or you'll lose the BBCode
 markup. All changes to the text must be done in the BBCode parameter.
 
-.. note::
+Note:
+
 
     For BBCode tags such as `[b]` (bold), `[i]` (italics) or `[code]` to
     work, you must set up custom fonts for the RichTextLabel node first.
@@ -223,7 +224,8 @@ within the editor itself. The RichTextLabel does not need to have a script attac
 nor does it need to be running in `tool` mode. The new effect will be activable in
 the Inspector through the **Custom Effects** property.
 
-.. warning::
+Warning:
+
 
     If the custom effect is not registered within the RichTextLabel's
     **Custom Effects** property, no effect will be visible and the original

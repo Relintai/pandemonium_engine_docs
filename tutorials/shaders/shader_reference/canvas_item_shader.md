@@ -78,7 +78,8 @@ it manually with the following code:
         VERTEX = (EXTRA_MATRIX * (WORLD_MATRIX * vec4(VERTEX, 0.0, 1.0))).xy;
     }
 
-.. note:: `WORLD_MATRIX` is actually a modelview matrix. It takes input in local space and transforms it
+Note:
+ `WORLD_MATRIX` is actually a modelview matrix. It takes input in local space and transforms it
           into view space.
 
 In order to get the world space coordinates of a vertex, you have to pass in a custom uniform like so:

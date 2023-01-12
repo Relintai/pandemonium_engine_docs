@@ -21,7 +21,8 @@ You should start by reading `doc_what_are_godot_classes`. It explains how
 Godot's nodes and scenes relate to classes and objects in other
 Object-Oriented programming languages. It will help you make sense of the rest of the series.
 
-.. note::
+Note:
+
 
    The best practices in Godot rely on Object-Oriented design principles. We
    use tools like the `single responsibility

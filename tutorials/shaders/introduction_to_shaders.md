@@ -38,7 +38,8 @@ look like this.
     COLOR = some_color;
   }
 
-.. note::
+Note:
+
 
    The graphics card calls the `fragment()` function once or more for each pixel it has to draw. More on that below.
 
@@ -62,7 +63,8 @@ In Godot, shaders are made up of three main functions: `vertex()`,
 3. The `light()` function runs for every pixel and for every light. It takes
    variables from the `fragment()` function and from its previous runs.
 
-.. warning::
+Warning:
+
 
     The `light()` function won't run if the `vertex_lighting` render mode is
     enabled, or if **Rendering > Quality > Shading > Force Vertex Shading** is

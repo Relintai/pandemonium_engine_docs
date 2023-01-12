@@ -11,7 +11,8 @@ Level prototyping is one of the main uses of CSG in Godot. This technique allows
 users to create simple versions of most common shapes by combining primitives.
 Interior environments can be created by using inverted primitives.
 
-.. note:: The CSG nodes in Godot are mainly intended for prototyping. There is
+Note:
+ The CSG nodes in Godot are mainly intended for prototyping. There is
           no built-in support for UV mapping or editing 3D polygons (though
           extruded 2D polygons can be used with the CSGPolygon node).
 
@@ -71,7 +72,8 @@ The `CSGPolygon` node extrude along a Polygon drawn in
 
 ![](img/csg_poly.png)
 
-.. note:: The **Path** mode must be provided with a `Path`
+Note:
+ The **Path** mode must be provided with a `Path`
           node to work. In the Path node, draw the path and the polygon in
           CSGPolygon will extrude along the given path.
 
@@ -103,7 +105,8 @@ Every CSG node will first process its children nodes and their operations:
 union, intersection or subtraction, in tree order, and apply them to itself one
 after the other.
 
-.. note:: In the interest of performance, make sure CSG geometry remains
+Note:
+ In the interest of performance, make sure CSG geometry remains
           relatively simple, as complex meshes can take a while to process.
           If adding objects together (such as table and room objects), create
           them as separate CSG trees. Forcing too many objects in a single tree
@@ -155,7 +158,8 @@ Adjust their placement to resemble a desk.
 
 ![](img/csg_desk.png)
 
-.. note:: CSG nodes inside a CSGCombiner will only process their operation
+Note:
+ CSG nodes inside a CSGCombiner will only process their operation
           within the combiner. Therefore, CSGCombiners are used to organize
           CSG nodes.
 
@@ -185,7 +189,8 @@ spheres will cut a hole into the mattress.
 Try to re-parent the `pillow` node to the root `Spatial` node; the hole will
 disappear.
 
-.. note:: This is to illustrate the effect of CSG processing order.
+Note:
+ This is to illustrate the effect of CSG processing order.
           Since the root node is not a CSG node, the CSGCombiner nodes are
           the end of the operations; this shows the use of CSGCombiner to
           organize the CSG scene.
@@ -256,7 +261,8 @@ nodes yet. Triplanar mapping is relatively slow, which usually restricts its
 usage to organic surfaces like terrain. Still, when prototyping, it can be used
 to quickly apply textures to CSG-based levels.
 
-.. note:: If you need some textures for prototyping, Kenney made a
+Note:
+ If you need some textures for prototyping, Kenney made a
           `set of CC0-licensed prototype textures ( https://kenney.nl/assets/prototype-textures )`.
 
 There are two ways to apply a material to a CSG node:

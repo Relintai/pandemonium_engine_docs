@@ -38,7 +38,8 @@ is roughly in the middle of all test builds available). If you can't reproduce
 the bug with Godot 3.2 beta 1, then try newer betas and RC builds. If you do
 manage to reproduce the bug with Godot 3.2 beta 1, then try older alpha builds.
 
-.. warning::
+Warning:
+
 
     For bisecting regressions, don't use patch releases such as Godot 3.1.2.
     Instead, use the minor version's first release like Godot 3.1. This is
@@ -55,7 +56,8 @@ system offers a built-in command for this: `git bisect`. This makes the
 process semi-automated as you only have to build the engine, run it and try to
 reproduce the bug.
 
-.. note::
+Note:
+
 
     Before bisecting a regression, you need to set up a build environment to
     compile Godot from source. To do so, read the
@@ -138,7 +140,8 @@ regression appeared. Write this commit hash as a comment to the GitHub issue
 you've bisected. This will help in solving the issue. Thanks again for
 contributing to Godot :)
 
-.. note::
+Note:
+
 
     You can read the full documentation on `git bisect`
     `here ( https://git-scm.com/docs/git-bisect )`.

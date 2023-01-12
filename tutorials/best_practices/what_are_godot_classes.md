@@ -38,7 +38,8 @@ to see if the object supports the operation.
 Attaching a `Script` to your object extends the methods, properties, and signals
 available from the `ClassDB`.
 
-.. note::
+Note:
+
 
     Even scripts that don't use the `extends` keyword implicitly inherit from the engine's base
     `Reference` class. As a result, you can instantiate scripts without the

@@ -79,7 +79,8 @@ AudioStream and select a target bus for playback:
 
 Finally, toggle the **Playing** property to **On** and sound will flow.
 
-.. seealso::
+See also:
+
 
     You may also be interested in reading about `doc_audio_streams` now.
 
@@ -147,7 +148,8 @@ The compressor has many uses. For example:
 - It can accentuate transients by using a slower attack.
   This can make sound effects more punchy.
 
-.. note::
+Note:
+
 
     If your goal is to prevent a signal from exceeding a given amplitude
     altogether, rather than to reduce the dynamic range of the signal,

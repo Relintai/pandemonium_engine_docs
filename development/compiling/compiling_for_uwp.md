@@ -4,7 +4,8 @@ Compiling for Universal Windows Platform
 ========================================
 
 
-.. seealso::
+See also:
+
 
     This page describes how to compile UWP export template binaries from source.
     If you're looking to export your project to UWP instead, read `doc_exporting_for_uwp`.
@@ -20,7 +21,8 @@ Requirements
    `ms_master` (default) branch. Keep it in a path without spaces to
    avoid problems.
 
-.. note:: The ANGLE repo by Microsoft has been discontinued and the
+Note:
+ The ANGLE repo by Microsoft has been discontinued and the
           `ms_master` branch has been cleared out.
 
           As a temporary workaround however, it is still possible to
@@ -30,7 +32,8 @@ Requirements
           This page will eventually be updated in the future to reflect
           the new build instructions.
 
-.. seealso:: To get the Godot source code for compiling, see
+See also:
+ To get the Godot source code for compiling, see
              `doc_getting_source`.
 
              For a general overview of SCons usage for Godot, see

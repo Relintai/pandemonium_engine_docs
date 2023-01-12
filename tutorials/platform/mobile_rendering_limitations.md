@@ -3,7 +3,8 @@
 Mobile rendering limitations
 ============================
 
-.. seealso::
+See also:
+
 
     The general `doc_3d_rendering_limitations` also apply to mobile platforms.
 
@@ -63,7 +64,8 @@ project settings' values to match the mobile overrides. This way, you'll get a
 preview that is closer to the mobile appearance when running the project on a
 desktop platform (as well as within the editor).
 
-.. warning::
+Warning:
+
 
     Due to driver bugs, GLES3 support on Android and iOS can be poor, especially
     on old or low-end devices. Therefore, it is recommended to use the GLES2

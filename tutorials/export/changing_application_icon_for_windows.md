@@ -31,7 +31,8 @@ Depending on which version of ImageMagick you installed, you might need to leave
 
     convert icon.png) -define icon:auto-resize=256,128,64,48,32,16 icon.ico
 
-.. warning::
+Warning:
+
 
     For the ICO file to effectively replace the default Godot icon, it must
     contain *all* the sizes included in the default Godot icon: 16×16, 32×32,
@@ -66,7 +67,8 @@ external tools using `godoticon ( https://github.com/pkowal1982/godoticon )`.
 Changing the file icon this way should work for executables containing
 an embedded PCK.
 
-.. warning::
+Warning:
+
 
     There are `known issues ( https://github.com/godotengine/godot/issues/33466 )`
     when changing the application icon in executables that embed a PCK file.
@@ -88,7 +90,8 @@ Go to **Editor → Editor Settings → Export → Windows**.
 Click on the folder icon for the **rcedit** entry.
 Navigate to and select the rcedit executable.
 
-.. note::
+Note:
+
 
     Linux and macOS users will also need to install
     `WINE ( https://www.winehq.org/ )`_ to use rcedit.
@@ -103,7 +106,8 @@ the **Application → Icon** field.
 
 ![](img/icon_export_settings.png)
 
-.. note::
+Note:
+
 
     If rcedit fails to change the icon, you can instead
     `compile your own Windows export templates ( doc_compiling_for_windows )`
@@ -121,7 +125,8 @@ You can now export the project. If it worked correctly, you should see this:
 
 ![](img/icon_result.png)
 
-.. note::
+Note:
+
 
     If your icon isn't showing up properly, on Windows 10, try clearing the icon
     cache. To do so, open the **Run** dialog and enter `ie4uinit.exe

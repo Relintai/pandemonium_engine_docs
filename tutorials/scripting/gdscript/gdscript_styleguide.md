@@ -19,7 +19,8 @@ and ask fellow developers for insights.
 In general, keeping your code consistent in your projects and within your team is
 more important than following this guide to a tee.
 
-.. note:: Godot's built-in script editor uses a lot of these conventions
+Note:
+ Godot's built-in script editor uses a lot of these conventions
           by default. Let it help you.
 
 Here is a complete class example based on these guidelines:
@@ -254,7 +255,8 @@ Surround functions and class definitions with two blank lines:
 
 Use one blank line inside functions to separate logical sections.
 
-.. note:: We use a single line between classes and function definitions in the class reference and
+Note:
+ We use a single line between classes and function definitions in the class reference and
           in short code snippets in this documentation.
 
 Line length
@@ -409,7 +411,8 @@ This helps differentiate text comments from disabled code.
     #This is a comment.
     # print("This is disabled code")
 
-.. note::
+Note:
+
 
    In the script editor, to toggle the selected code commented, press
    :kbd:`Ctrl + K`. This feature adds a single # sign at the start
@@ -708,7 +711,8 @@ variables, in that order.
    onready var gun = get_node("Gun")
 
 
-.. note::
+Note:
+
 
    The GDScript compiler evaluates onready variables right before the `_ready`
    callback. You can use that to cache node dependencies, that is to say, to get

@@ -8,7 +8,8 @@ It is backed by the more low-level `HTTPClient`.
 
 For the sake of this example, we will create a simple UI with a button, that when pressed will start the HTTP request to the specified URL.
 
-.. warning::
+Warning:
+
 
     When exporting to Android, make sure to enable the `INTERNET`
     permission in the Android export preset before exporting the project or

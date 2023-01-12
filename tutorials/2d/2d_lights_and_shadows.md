@@ -130,7 +130,8 @@ node, which is why we want the blob to be centered on its parent `Light`.
 
 ![](img/light_shadow_all_lights.png)
 
-.. note:: The animations in the demo will not be covered here. See `doc_introduction_animation`
+Note:
+ The animations in the demo will not be covered here. See `doc_introduction_animation`
           for information on creating animations.
 
 Right now the scene should look too bright. This is because all three lights are adding color to the scene.
@@ -175,15 +176,18 @@ lines of the polygon can be seen:
 
 ![](img/light_shadow_cull_disabled.png)
 
-.. note:: `Cull Mode` is set to `Disabled`. All three lines cast shadows.
+Note:
+ `Cull Mode` is set to `Disabled`. All three lines cast shadows.
 
 ![](img/light_shadow_cull_clockwise.png)
 
-.. note:: `Cull Mode` is set to `Clockwise`. Only the top and right lines cast shadows.
+Note:
+ `Cull Mode` is set to `Clockwise`. Only the top and right lines cast shadows.
 
 ![](img/light_shadow_cull_counter_clockwise.png)
 
-.. note:: `Cull Mode` is set to `Counter-Clockwise`. Only the bottom line casts a shadow.
+Note:
+ `Cull Mode` is set to `Counter-Clockwise`. Only the bottom line casts a shadow.
           If `Closed` was set to `on` there would be an additional vertical line on the
           left which would cast a shadow as well.
 
@@ -202,12 +206,14 @@ The demo uses PCF7.
 
 ![](img/light_shadow_normal.png)
 
-.. note:: This is a shadow rendered with the demo's settings. `gradient length` is set
+Note:
+ This is a shadow rendered with the demo's settings. `gradient length` is set
           to `1.3`, `filter smooth` is set to `11.1`, and `filter` is set to `PCF7`.
 
 ![](img/light_shadow_pcf13.png)
 
-.. note:: `filter` is set to `PCF13`. Notice how the shadow becomes wider, this is because the
+Note:
+ `filter` is set to `PCF13`. Notice how the shadow becomes wider, this is because the
           distance between samples is based on the variable `filter smooth`.
 
 In order to make use of filtering you need to set the `filter smooth` variable.
@@ -217,14 +223,16 @@ forming between the samples.
 
 ![](img/light_shadow_filter30.png)
 
-.. note:: `filter smooth` is set to `30`.
+Note:
+ `filter smooth` is set to `30`.
 
 The different `Light` nodes in the demo use different values for filter smooth.
 Play around with it and see what you like.
 
 ![](img/light_shadow_filter0.png)
 
-.. note:: `filter smooth` is set to `0`.
+Note:
+ `filter smooth` is set to `0`.
 
 Lastly, there is the variable `gradient length`. For some smooth shadows it is preferable not to have the
 shadow start immediately on the object, as this produces a hard edge. The gradient length variable creates
@@ -232,11 +240,13 @@ a smooth gradient to begin the shadow to reduce the effect of the hard edge.
 
 ![](img/light_shadow_grad0.png)
 
-.. note:: `gradient length` is set to `0`.
+Note:
+ `gradient length` is set to `0`.
 
 ![](img/light_shadow_grad10.png)
 
-.. note:: `gradient length` is set to `10`.
+Note:
+ `gradient length` is set to `10`.
 
 You will need to play around with the options a bit to find settings that suit your project. There is no right solution
 for everyone, which is why Godot provides so much flexibility. Just keep in mind that the higher `filter`

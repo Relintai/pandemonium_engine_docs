@@ -39,7 +39,8 @@ An iOS plugin can have the same functionality as a Godot module but provides mor
 
 Here are the steps to get a plugin's development started. We recommend using `Xcode ( https://developer.apple.com/develop/ )`_ as your development environment.
 
-.. seealso:: The `Godot iOS Plugins ( https://github.com/godotengine/godot-ios-plugins )`_ Godot iOS plugins.
+See also:
+ The `Godot iOS Plugins ( https://github.com/godotengine/godot-ios-plugins )`_ Godot iOS plugins.
 
     The `Godot iOS plugin template ( https://github.com/naithar/godot_ios_plugin )`_ gives you all the boilerplate you need to get your iOS plugin started.
 

@@ -52,7 +52,8 @@ We can do this using the `Spatial.get_global_transform_interpolated( Spatial_met
 
 .. important:: `get_global_transform_interpolated()` should only be used once or twice for special cases such as Cameras. It should **not** be used all over the place in your code (both for performance reasons, and to give correct gameplay).
 
-.. note:: Aside from exceptions like the Camera, in most cases, your game logic should be in `_physics_process()`. In game logic you should be calling `get_global_transform()` or `get_transform()`, which will give the current physics transform (in global or local space respectively), which is usually what you will want for gameplay code.
+Note:
+ Aside from exceptions like the Camera, in most cases, your game logic should be in `_physics_process()`. In game logic you should be calling `get_global_transform()` or `get_transform()`, which will give the current physics transform (in global or local space respectively), which is usually what you will want for gameplay code.
 
 Example manual Camera script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

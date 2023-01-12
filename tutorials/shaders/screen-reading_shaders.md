@@ -39,7 +39,8 @@ a chunk of the screen, it also does an efficient separatable gaussian blur to it
 This allows for not only reading from the screen, but reading from it with different amounts
 of blur at no cost.
 
-.. note::
+Note:
+
 
    Mipmaps are not generated in GLES2 due to poor performance and compatibility with older
    devices.

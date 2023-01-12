@@ -75,7 +75,8 @@ its *length* to `1`, and multiply by the desired speed.
 .. tip:: If you've never used vector math before, or need a refresher,
          you can see an explanation of vector usage in Godot at `doc_vector_math`.
 
-.. note::
+Note:
+
 
     If the code above does nothing when you press the keys, double-check that
     you've set up input actions correctly as described in the

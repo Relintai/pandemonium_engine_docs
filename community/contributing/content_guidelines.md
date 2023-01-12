@@ -29,7 +29,8 @@ Writing complete and accessible documentation
 information about a feature and how it works, it doesn't exist to them. We
 should ensure that we cover everything Godot does.
 
-.. note::
+Note:
+
 
     When adding or updating an engine feature, the documentation team needs to
     know about it. Contributors should open an issue on the `godot-docs` repository
@@ -46,7 +47,8 @@ guide to solving problems they encounter. For example, instead of writing the
 heading "Signals", consider writing "Reacting to changes with signals". The
 second title makes it clear what the purpose of signals is.
 
-.. note::
+Note:
+
 
     Long section titles lead to long entries in the side menu, which can make
     navigation cumbersome. Try to keep headings five words long or less.
@@ -83,7 +85,8 @@ concept. What new terms did you need to learn? What confused you? What was the
 hardest to grasp? You will want users to review your work, and we recommend you
 practice explaining the feature before writing about it.
 
-.. note::
+Note:
+
 
     Having programming foundations is a pre-requisite to use a complex engine
     like Godot. Talking about variables, functions, or classes is acceptable.

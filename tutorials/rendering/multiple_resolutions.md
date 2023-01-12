@@ -67,7 +67,8 @@ that are different from this base size. Godot offers many ways to
 control how the viewport will be resized and stretched to different
 screen sizes.
 
-.. note::
+Note:
+
 
    Godot follows a modern approach to multiple resolutions. The engine will
    never change the monitor's resolution on its own. While changing the
@@ -291,7 +292,8 @@ Desktop game
 - If using the `expand` stretch aspect, Configure Control nodes' anchors to
   snap to the correct corners using the **Layout** menu.
 
-.. note::
+Note:
+
 
     The `viewport` stretch mode provides low-resolution rendering that is then
     stretched to the final window size. If you are OK with sprites being able to
@@ -356,7 +358,8 @@ Non-game application
   script's `_ready()` function. This prevents the user from resizing the application
   below a certain size, which could break the UI layout.
 
-.. note::
+Note:
+
 
     Godot doesn't support manually overriding the 2D scale factor yet, so it is
     not possible to have hiDPI support in non-game applications. Due to this, it
@@ -379,7 +382,8 @@ Project Settings.
 **Allow Hidpi** is only effective on Windows and macOS. It's ignored on all
 other platforms.
 
-.. note::
+Note:
+
 
     The Godot editor itself is always marked as DPI-aware. Running the project
     from the editor will only be DPI-aware if **Allow Hidpi** is enabled in the

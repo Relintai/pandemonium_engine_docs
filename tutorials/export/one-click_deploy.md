@@ -17,7 +17,8 @@ a USB device is connected to the computer and offer the user to automatically
 export, install and run the project (in debug mode) on the device. This feature
 is called *one-click deploy*.
 
-.. note::
+Note:
+
 
    One-click deploy is only available once you've added an export template
    marked as **Runnable** in the Export dialog. You can mark several export

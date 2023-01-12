@@ -97,7 +97,8 @@ The tent is a simple room inside a terrain room (which contains the ground, the 
 
 ![](img/tent.png)
 
-.. note:: To use internal rooms for buildings, it is usually a good idea to split the *interior* mesh of the building from the *exterior*. The exterior can be placed in the outer room (so it can be seen from outside, but not from the inside), and the interior should be placed in the interior room (so it only visible inside, or through the portal).
+Note:
+ To use internal rooms for buildings, it is usually a good idea to split the *interior* mesh of the building from the *exterior*. The exterior can be placed in the outer room (so it can be seen from outside, but not from the inside), and the interior should be placed in the interior room (so it only visible inside, or through the portal).
 
 ![](img/tent_terrain.png)
 
@@ -124,7 +125,8 @@ However, if we set this autoplace priority to `-1` for example, the autoplace wi
 
 This gives us a helpful extra bit of control for these kinds of situations, and makes the entire system much more flexible.
 
-.. note:: As the default autoplace priority is `0`, you can't effectively force objects into RoomGroups with priority `0`. However there are plenty of priority values available so this should not be a problem in practice.
+Note:
+ As the default autoplace priority is `0`, you can't effectively force objects into RoomGroups with priority `0`. However there are plenty of priority values available so this should not be a problem in practice.
 
 The final scene looks something like this, with houses instanced wherever you want them on a giant outer room.
 

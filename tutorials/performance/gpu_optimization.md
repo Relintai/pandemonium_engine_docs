@@ -25,7 +25,8 @@ performance is by examining changes in the time spent rendering each frame.
 Draw calls, state changes, and APIs
 ===================================
 
-.. note:: The following section is not relevant to end-users, but is useful to
+Note:
+ The following section is not relevant to end-users, but is useful to
           provide background information that is relevant in later sections.
 
 Godot sends instructions to the GPU via a graphics API (OpenGL, OpenGL ES or
@@ -213,7 +214,8 @@ more noticeable.
 As a warning, most Android devices do not support texture compression of
 textures with transparency (only opaque), so keep this in mind.
 
-.. note::
+Note:
+
 
    Even in 3D, "pixel art" textures should have VRAM compression disabled as it
    will negatively affect their appearance, without improving performance

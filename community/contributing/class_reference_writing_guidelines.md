@@ -7,7 +7,8 @@ This page explains how to write the class reference. You will learn where to
 write new descriptions for the classes, methods, and properties for Godot's
 built-in node types.
 
-.. seealso::
+See also:
+
 
     To learn to submit your changes to the Godot project using the Git version
     control system, see `doc_updating_the_class_reference`.
@@ -94,7 +95,8 @@ reference. The folder contains an XML file for each class. The XML lists the
 constants and methods you will find in the class reference. Godot generates and
 updates the XML automatically.
 
-.. note:: For some modules in the engine's source code, you'll find the XML
+Note:
+ For some modules in the engine's source code, you'll find the XML
           files in the `modules/<module_name>/doc_classes/` directory instead.
 
 Edit it using your favorite text editor. If you use a code editor, make sure

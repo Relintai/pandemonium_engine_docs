@@ -6,7 +6,8 @@ Data preferences
 Ever wondered whether one should approach problem X with data structure
 Y or Z? This article covers a variety of topics related to these dilemmas.
 
-.. note::
+Note:
+
 
   This article makes references to "[something]-time" operations. This
   terminology comes from algorithm analysis'
@@ -49,7 +50,8 @@ Godot implements Array as a `Vector<Variant )`. The engine stores the Array
 contents in a contiguous section of memory, i.e. they are in a row adjacent
 to each other.
 
-.. note::
+Note:
+
   For those unfamiliar with C++, a Vector is the name of the
   array object in traditional C++ libraries. It is a "templated"
   type, meaning that its records can only contain a particular type (denoted
@@ -181,7 +183,8 @@ While these are each fast operations in isolation, the fact that it must make
 so many checks is what makes them slower than both of the alternatives for
 looking up data.
 
-.. note::
+Note:
+
 
   When developers mention how slow the scripting API is, it is this chain
   of queries they refer to. Compared to compiled C++ code where the

@@ -7,7 +7,8 @@ In addition to `doc_importing_translations` in CSV format, Godot
 also supports loading translation files written in the GNU gettext
 format (text-based `.po` and compiled `.mo` since Godot 3.5).
 
-.. note:: For an introduction to gettext, check out
+Note:
+ For an introduction to gettext, check out
           `A Quick Gettext Tutorial ( https://www.labri.fr/perso/fleury/posts/programming/a-quick-gettext-tutorial.html )`_.
           It's written with C projects in mind, but much of the advice
           also applies to Godot (with the exception of `xgettext`).
@@ -147,7 +148,8 @@ In **Translations**, click **Add…** then choose the `.po` or `.mo` file
 in the file dialog. The locale will be inferred from the
 `"Language: ( code>\n"` property in the messages file.
 
-.. note:: See `doc_internationalizing_games` for more information on
+Note:
+ See `doc_internationalizing_games` for more information on
           importing and testing translations in Godot.
 
 Updating message files to follow the PO template
@@ -166,7 +168,8 @@ present in the PO template. This can be done automatically using the
 If you want to keep a backup of the original message file (which would be
 saved as `fr.po~` in this example), remove the `--backup=none` argument.
 
-.. note::
+Note:
+
 
     After running `msgmerge`, strings which were modified in the source language
     will have a "fuzzy" comment added before them in the `.po` file. This comment

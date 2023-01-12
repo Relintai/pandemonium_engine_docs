@@ -73,7 +73,8 @@ To create the NavigationMesh from a MeshLibrary scene export, place a
 item. Add a valid NavigationMesh resource to the NavigationMeshInstance and some source
 geometry nodes below and bake the NavigationMesh.
 
-.. note::
+Note:
+
 
     With small grid cells it is often necessary to reduce the NavigationMesh properties
     for agent radius and region minimum size.
@@ -83,7 +84,8 @@ geometry nodes below and bake the NavigationMesh.
 Nodes below the NavigationMeshInstance are ignored for the MeshLibrary scene export, so
 additional nodes can be added as source geometry just for baking the navmesh.
 
-.. warning::
+Warning:
+
 
     The baked cell size of the NavigationMesh must match the NavigationServer map cell
     size to properly merge the navigation meshes of different grid cells.

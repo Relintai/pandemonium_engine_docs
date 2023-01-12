@@ -124,7 +124,8 @@ the hip node in the scene hierarchy), but then the left arm is no longer in its
 proper place in the hierarchy. This means it wouldn't be affected by the movement
 of the torso. We'll fix this problem with `RemoteTransform2D` nodes.
 
-.. note:: You can also fix depth ordering problems by adjusting the Z property
+Note:
+ You can also fix depth ordering problems by adjusting the Z property
    of any node inheriting from Node2D.
 
 RemoteTransform2D node

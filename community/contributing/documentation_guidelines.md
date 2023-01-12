@@ -20,18 +20,21 @@ The HTML (or PDF and EPUB) documentation is generated from the .rst files
 in a pull request and getting it merged will trigger a rebuild of the online
 documentation.
 
-.. seealso:: For details on Git usage and the pull request workflow, please
+See also:
+ For details on Git usage and the pull request workflow, please
              refer to the `doc_pr_workflow` page. Most of what it
              describes regarding the main godotengine/godot repository is
              also valid for the docs repository.
 
-.. warning:: The class reference's source files are in the `Godot engine repository
+Warning:
+ The class reference's source files are in the `Godot engine repository
              ( https://github.com/godotengine/godot )`_. We generate the `Godot API
              ( toc-class-ref )` section of this documentation from them. If you want to update the
              description of a class, its methods, or properties, read
              `doc_updating_the_class_reference`.
 
-.. warning:: If you want to edit the **API reference**, please note that it
+Warning:
+ If you want to edit the **API reference**, please note that it
              should *not* be done in the godot-docs repository. Instead, you
              should edit the `doc/classes/*` XML files of Godot's
              main repository. These files are then later used to generate the

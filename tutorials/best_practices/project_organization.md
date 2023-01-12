@@ -78,7 +78,8 @@ To prevent Godot from importing files contained in a specific folder, create
 an empty file called `.gdignore` in the folder (the leading `.` is required).
 This can be useful to speed up the initial project importing.
 
-.. note::
+Note:
+
 
     To create a file whose name starts with a dot on Windows, you can use a
     text editor such as Notepad++ or use the following command in a
@@ -103,7 +104,8 @@ filesystem is case-sensitive. To avoid this, it's recommended to stick to
 `snake_case` naming for all files in the project (and lowercase characters
 in general).
 
-.. note::
+Note:
+
 
     You can break this rule when style guides say otherwise (such as the
     C# style guide). Still, be consistent to avoid mistakes.

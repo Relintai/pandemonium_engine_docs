@@ -25,13 +25,15 @@ Because of the large difference in performance, it often makes sense to re-build
 
 In summary, you can use the low-level networking API for maximum control and implement everything on top of bare network protocols or use the high-level API based on `SceneTree` that does most of the heavy lifting behind the scenes in a generally optimized way.
 
-.. note:: Most of Godot's supported platforms offer all or most of the mentioned high- and low-level networking
+Note:
+ Most of Godot's supported platforms offer all or most of the mentioned high- and low-level networking
           features. As networking is always largely hardware and operating system dependent, however,
           some features may change or not be available on some target platforms. Most notably,
           the HTML5 platform currently offers WebSockets and WebRTC support but lacks some of the higher-level features, as
           well as raw access to low-level protocols like TCP and UDP.
 
-.. note:: More about TCP/IP, UDP, and networking:
+Note:
+ More about TCP/IP, UDP, and networking:
           https://gafferongames.com/post/udp_vs_tcp/
 
           Gaffer On Games has a lot of useful articles about networking in Games
@@ -42,7 +44,8 @@ In summary, you can use the low-level networking API for maximum control and imp
           see here for an example:
           https://github.com/PerduGames/gdnet3
 
-.. warning:: Adding networking to your game comes with some responsibility.
+Warning:
+ Adding networking to your game comes with some responsibility.
              It can make your application vulnerable if done wrong and may lead to cheats or exploits.
              It may even allow an attacker to compromise the machines your application runs on
              and use your servers to send spam, attack others or steal your users data if they play your game.
@@ -115,7 +118,8 @@ Terminating the networking feature:
 
 (Although it may make sense to send a message first to let the other peers know you're going away instead of letting the connection close or timeout, depending on your game.)
 
-.. warning::
+Warning:
+
 
     When exporting to Android, make sure to enable the `INTERNET`
     permission in the Android export preset before exporting the project or
@@ -246,7 +250,8 @@ This keyword is one of many that allow a function to be called by a remote proce
 
 Each of them designate who can call the rpc, and optionally `sync` if the RPC can be called locally.
 
-.. note:: If no rpc keywords are added, Godot will block any attempts to call functions remotely.
+Note:
+ If no rpc keywords are added, Godot will block any attempts to call functions remotely.
           This makes security work a lot easier (so a client can't call a function to delete a file on another client's system).
 
 The `remote` keyword can be called by any peer, including the server and all clients.
@@ -313,7 +318,8 @@ every peer and RPC will work great! Here is an example:
         rpc_id(1, "done_preconfiguring")
 
 
-.. note:: Depending on when you execute pre_configure_game(), you may need to change any calls to `add_child()`
+Note:
+ Depending on when you execute pre_configure_game(), you may need to change any calls to `add_child()`
           to be deferred via `call_deferred()`, as the SceneTree is locked while the scene is being created (e.g. when `_ready()` is being called).
 
 Synchronizing game start
@@ -476,14 +482,16 @@ Once you've made a multiplayer game, you may want to export it to run it on
 a dedicated server with no GPU available. See
 `doc_exporting_for_dedicated_servers` for more information.
 
-.. note::
+Note:
+
 
     The code samples on this page aren't designed to run on a dedicated
     server. You'll have to modify them so the server isn't considered to be a
     player. You'll also have to modify the game starting mechanism so that the
     first player who joins can start the game.
 
-.. note::
+Note:
+
 
     The bomberman example here is largely for illustrational purposes, and does not
     do anything on the host-side to handle the case where a peer uses a custom client

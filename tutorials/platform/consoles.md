@@ -45,7 +45,8 @@ officially supported are:
 However, it is still possible to port your games to consoles thanks to services
 provided by third-party companies.
 
-.. note::
+Note:
+
 
     In practice, the process is quite similar to Unity and Unreal Engine, except
     that you need to contact a third-party developer to handle the porting

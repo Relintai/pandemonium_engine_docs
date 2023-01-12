@@ -122,7 +122,8 @@ select every scene or resource you want to export.
 
 ![](img/expselected.png)
 
-.. note::
+Note:
+
 
     Files and folders whose name begin with a period will never be included in
     the exported project. This is done to prevent version control folders like
@@ -177,7 +178,8 @@ the command:
 
     godot --path /path/to/project --export "Windows Desktop" some_name.exe
 
-.. seealso::
+See also:
+
 
     See `doc_command_line_tutorial` for more information about using Godot
     from the command line.
@@ -203,7 +205,8 @@ depending on your needs.
 - Readable and writable using tools normally present on the user's operating system.
   This can be useful to make modding easier (see also `doc_exporting_pcks`).
 
-.. warning::
+Warning:
+
 
     Due to a `known bug ( https://github.com/godotengine/godot/pull/42123 )`,
     when using a ZIP file as a pack file, the exported binary will not try to use

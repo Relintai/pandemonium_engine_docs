@@ -36,7 +36,8 @@ the scene. Your scene tree would look like this:
 
 ![](img/multimesh_scene_tree.png)
 
-.. note:: For simplicity's sake, this tutorial uses built-in primitives.
+Note:
+ For simplicity's sake, this tutorial uses built-in primitives.
 
 Now you have everything ready. Select the MultiMeshInstance node and look at the
 toolbar, you should see an extra button called `MultiMesh` next to `View`.

@@ -16,7 +16,8 @@ distribute the software (and derivative projects, including games made with it).
 Your game or project can have a different license, but it still needs to comply
 with the original one.
 
-.. warning::
+Warning:
+
 
     In your project's credits screen, remember to also list third-party notices
     for assets you're using, such as textures, models, sounds, music and fonts.
@@ -43,7 +44,8 @@ This text reads as follows:
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-.. note::
+Note:
+
 
     Your games do not need to be under the same license. You are free to release
     your Godot projects under any license and to create commercial games with
@@ -114,7 +116,8 @@ Godot license:
 
     Portions of this software are copyright © ( year> The FreeType Project (www.freetype.org).  All rights reserved.
 
-.. note::
+Note:
+
 
     ( year> should correspond to the value from the FreeType version used
     in your build. This information can be found in the editor by opening
@@ -160,7 +163,8 @@ Keep in mind that Godot 2.x and 3.0 use `OpenSSL ( https://www.openssl.org )`_ 1
 instead. This old OpenSSL version used the OpenSSL license, not the Apache 2 license
 as the latest version of OpenSSL currently uses (as of April 2022).
 
-.. note::
+Note:
+
 
     If you exported your project using a
     `custom build with specific modules disabled ( doc_optimizing_for_size )`,

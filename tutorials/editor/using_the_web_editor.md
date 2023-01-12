@@ -6,7 +6,8 @@ Using the Web editor
 Since Godot 3.3, there is a `Web editor ( https://editor.godotengine.org/ )`
 you can use to work on new or existing projects.
 
-.. note::
+Note:
+
 
     The web editor is in a preliminary stage. While its feature set may be
     sufficient for educational purposes, it is currently **not recommended for
@@ -31,7 +32,8 @@ proper threading support is added.
 The web editor supports both the GLES3 and GLES2 renderers, although GLES2 is
 recommended for better performance and compatibility with old/low-end hardware.
 
-.. note::
+Note:
+
 
     If you use Linux, due to
     `poor Firefox WebGL performance ( https://bugzilla.mozilla.org/show_bug.cgi?id=1010527 )`,
@@ -64,7 +66,8 @@ of the Web platform:
 - No support for external script editors.
 - No support for Android one-click deploy.
 
-.. seealso::
+See also:
+
 
     See the
     `list of open issues on GitHub related to the web editor ( https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue+label%3Aplatform%3Ahtml5+label%3Atopic%3Aeditor )` for a list of known bugs.

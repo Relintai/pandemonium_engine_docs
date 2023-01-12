@@ -66,7 +66,8 @@ gdscript GDScript
         # Code to execute both in editor and in game.
 ```
 
-.. note:: Modifications in editor are permanent. For example, in the following case, when we remove the script, the node will keep its rotation. Be careful to avoid making unwanted modifications.
+Note:
+ Modifications in editor are permanent. For example, in the following case, when we remove the script, the node will keep its rotation. Be careful to avoid making unwanted modifications.
 
 Try it out
 -----------
@@ -87,7 +88,8 @@ Save the script and return to the editor. You should now see your object rotate.
 
 ![](img/rotating_in_editor.gif)
 
-.. note:: If you don't see the changes, reload the scene (close it and open it again).
+Note:
+ If you don't see the changes, reload the scene (close it and open it again).
 
 Now let's choose which code runs when. Modify your `_process()` function to look like this:
 
@@ -129,7 +131,8 @@ gdscript GDScript
 ```
 
 
-.. note:: Code from other nodes doesn't run in the editor. Your access to other nodes is limited. You can access the tree and nodes, and their default properties, but you can't access user variables. If you want to do so, other nodes have to run in the editor too. AutoLoad nodes cannot be accessed in the editor at all.
+Note:
+ Code from other nodes doesn't run in the editor. Your access to other nodes is limited. You can access the tree and nodes, and their default properties, but you can't access user variables. If you want to do so, other nodes have to run in the editor too. AutoLoad nodes cannot be accessed in the editor at all.
 
 Instancing scenes
 -----------------
@@ -171,4 +174,5 @@ gdscript GDScript
         node.set_owner(get_scene())
 ```
 
-.. warning:: Using `tool` improperly can yield many errors. It is advised to first write the code how you want it, and only then add the `tool` keyword to the top. Also, make sure to separate code that runs in-editor from code that runs in-game. This way, you can find bugs more easily.
+Warning:
+ Using `tool` improperly can yield many errors. It is advised to first write the code how you want it, and only then add the `tool` keyword to the top. Also, make sure to separate code that runs in-editor from code that runs in-game. This way, you can find bugs more easily.

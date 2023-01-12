@@ -73,7 +73,8 @@ final size of the lightmap texture (and, in consequence, the UV padding in the m
 The effect of setting this option is that all meshes within the scene will have
 their UV2 maps properly generated.
 
-.. warning::
+Warning:
+
 
     When reusing a mesh within a scene, keep in mind that UVs will be generated
     for the first instance found. If the mesh is re-used with different scales
@@ -245,7 +246,8 @@ it is recommended to use lower quality settings at first. Then, once you are con
 with your scene's lighting setup, raise the quality settings and perform a "final"
 bake before exporting your project.
 
-.. note::
+Note:
+
 
     By default, the lightmap baker will use all the system's logical CPU cores
     to speed up baking. This can reduce system responsiveness. To preserve system

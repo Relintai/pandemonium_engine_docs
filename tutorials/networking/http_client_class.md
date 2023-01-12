@@ -7,7 +7,8 @@ HTTP client class
 For a higher-level interface, you may want to take a look at `HTTPRequest` first,
 which has a tutorial available `here ( doc_http_request_class )`.
 
-.. warning::
+Warning:
+
 
     When exporting to Android, make sure to enable the `INTERNET`
     permission in the Android export preset before exporting the project or

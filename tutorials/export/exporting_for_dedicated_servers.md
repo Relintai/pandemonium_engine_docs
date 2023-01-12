@@ -53,13 +53,15 @@ final PCK file, so you can leave it as-is.
 
 See `doc_exporting_projects` for more information.
 
-.. note::
+Note:
+
 
     If you're exporting the project from a headless editor, call the headless
     editor with the `--export-pack` option while in the project folder to export
     only a PCK file.
 
-.. note::
+Note:
+
 
     The PCK file will include resources not normally needed by the server, such
     as textures and sounds. This means the PCK file will be larger than it could

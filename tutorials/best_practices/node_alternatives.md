@@ -28,7 +28,8 @@ your project's features.
      entire Node library, one creates an abbreviated set of Objects from which
      a node can generate and manage the appropriate sub-nodes.
 
-   .. note:: One should be careful when handling them. One can store an Object
+   Note:
+ One should be careful when handling them. One can store an Object
      into a variable, but these references can become invalid without warning.
      For example, if the object's creator decides to delete it out of nowhere,
      this would trigger an error state when one next accesses it.

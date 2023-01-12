@@ -32,7 +32,8 @@ specified key and controller inputs.
 
 Input actions are explained in detail on the `doc_inputevent` page.
 
-.. note::
+Note:
+
 
     Unlike keyboard input, supporting both mouse and controller input for an
     action (such as looking around in a first-person game) will require
@@ -151,7 +152,8 @@ with the help of a `Timer` node.
 Troubleshooting
 ---------------
 
-.. seealso::
+See also:
+
 
     You can view a list of
     `known issues with controller support ( https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad )`

@@ -13,7 +13,8 @@ turn those inputs into actions in your game. This document will show you some
 of the most common scenarios, which you can use as starting points for your
 own projects.
 
-.. note:: For a detailed overview of how Godot's input event system works,
+Note:
+ For a detailed overview of how Godot's input event system works,
           see `doc_inputevent`.
 
 Events versus polling
@@ -153,7 +154,8 @@ gdscript GDScript
 .. tip:: See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
         constants.
 
-.. warning::
+Warning:
+
 
     Due to *keyboard ghosting*, not all key inputs may be registered at a given time
     if you press too many keys at once. Due to their location on the keyboard,

@@ -11,10 +11,12 @@ from the main thread.
 
 Godot supports threads and provides many handy functions to use them.
 
-.. note:: If using other languages (C#, C++), it may be easier to use the
+Note:
+ If using other languages (C#, C++), it may be easier to use the
           threading classes they support.
 
-.. warning::
+Warning:
+
 
     Before using a built-in class in a thread, read `doc_thread_safe_apis`
     first to check whether it can be safely used in a thread.

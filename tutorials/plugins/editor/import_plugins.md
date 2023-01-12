@@ -3,7 +3,8 @@
 Import plugins
 ==============
 
-.. note:: This tutorial assumes you already know how to make generic plugins. If
+Note:
+ This tutorial assumes you already know how to make generic plugins. If
           in doubt, refer to the `doc_making_plugins` page. This also
           assumes you are acquainted with Godot's import system.
 
@@ -160,7 +161,8 @@ property in the Inspector.
 In our case it's a `SpatialMaterial`, which can be applied to 3D
 objects.
 
-.. note:: If you need to import different types from the same extension, you
+Note:
+ If you need to import different types from the same extension, you
           have to create multiple import plugins. You can abstract the import
           code on another file to avoid duplication in this regard.
 
@@ -264,7 +266,8 @@ value). In this example we use the `match` statement, but if you have lots of
 options and the presets only change the value you may want to create the array
 of options first and then change it based on the preset.
 
-.. warning:: The `get_import_options` method is called even if you don't
+Warning:
+ The `get_import_options` method is called even if you don't
              define presets (by making `get_preset_count` return zero). You
              have to return an array even it's empty, otherwise you can get
              errors.

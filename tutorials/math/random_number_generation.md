@@ -11,7 +11,8 @@ After giving you a brief overview of useful functions that generate random
 numbers, you will learn how to get random elements from arrays, dictionaries,
 and how to use a noise generator in GDScript.
 
-.. note::
+Note:
+
 
     Computers cannot generate "true" random numbers. Instead, they rely on
     `pseudorandom number generators

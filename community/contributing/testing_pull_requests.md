@@ -18,7 +18,8 @@ You can download pull request builds from GitHub Actions. Since only signed in
 users may download builds directly from GitHub Actions, the procedure varies
 depending on whether you have a GitHub account or not.
 
-.. note::
+Note:
+
 
     Due to a GitHub Actions limitation, builds are only available for 90 days
     after the pull request was last updated. If you still wish to try a

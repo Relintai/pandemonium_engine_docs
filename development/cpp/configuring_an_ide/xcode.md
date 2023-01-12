@@ -43,7 +43,8 @@ Importing the project
    :figclass: figure-w480
    :align: center
 
-.. note:: Name it something so you know not to compile with this target (e.g. `GodotXcodeIndex`).
+Note:
+ Name it something so you know not to compile with this target (e.g. `GodotXcodeIndex`).
 
 - For this target open the **Build Settings** tab and look for **Header Search Paths**.
 - Set **Header Search Paths** to the absolute path to the Godot root folder. You need to

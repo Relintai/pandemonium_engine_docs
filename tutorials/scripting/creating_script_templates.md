@@ -49,7 +49,8 @@ out of templates, it's possible to create a template which can be recognized by
 that language according to template's file extension. For GDScript and C#, the
 extensions must be `gd` and `cs` respectively.
 
-.. note:: The script templates have the same extension as the regular script
+Note:
+ The script templates have the same extension as the regular script
           files. This may lead to an issue of a script parser treating those templates as
           actual scripts within a project. To avoid this, make sure to ignore the
           directory containing them by creating an empty `.gdignore` file. The directory won't be

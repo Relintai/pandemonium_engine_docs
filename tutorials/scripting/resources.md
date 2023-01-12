@@ -61,7 +61,8 @@ The switch between built-in and external resources happens when you save the
 scene. In the example above, if you erase the path `"res://robi.png)"` and
 save, Godot will save the image inside the `.tscn` scene file.
 
-.. note::
+Note:
+
 
     Even if you save a built-in resource, when you instance a scene multiple
     times, the engine will only load one copy of it.
@@ -204,7 +205,8 @@ gdscript GDScript
             print(stats.health) # Prints '10'.
 ```
 
-.. note::
+Note:
+
 
     Resource scripts are similar to Unity's ScriptableObjects. The Inspector
     provides built-in support for custom resources. If desired though, users
@@ -259,7 +261,8 @@ gdscript GDScript
     CurveTables are the same thing, except mapped to an Array of float values
     or a `Curve` resource object.
 
-.. warning::
+Warning:
+
 
     Beware that resource files (\*.tres/\*.res) will store the path of the script
     they use in the file. When loaded, they will fetch and load this script as an

@@ -82,7 +82,8 @@ the uniform variable `DEPTH_TEXTURE`.
 
   float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
 
-.. note:: Similar to accessing the screen texture, accessing the depth texture is only
+Note:
+ Similar to accessing the screen texture, accessing the depth texture is only
           possible when reading from the current viewport. The depth texture cannot be
           accessed from another viewport to which you have rendered.
 
@@ -176,7 +177,8 @@ Now, attach a script to the MeshInstance and use the following code:
     # Create mesh from mesh_array:
     mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, mesh_array)
 
-.. note:: The triangle is specified in normalized device coordinates. Recall, NDC run
+Note:
+ The triangle is specified in normalized device coordinates. Recall, NDC run
           from `-1` to `1` in both the `x` and `y` directions. This makes the screen
           `2` units wide and `2` units tall. In order to cover the entire screen with
           a single triangle, use a triangle that is `4` units wide and `4`

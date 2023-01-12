@@ -54,7 +54,8 @@ as an example) to find the list of all languages:
 
 ![](img/l10n_01_language_list.png)
 
-.. seealso::
+See also:
+
 
     Feel free to consult Weblate's own documentation on the `translation
     workflow ( https://docs.weblate.org/en/latest/user/translating.html )` for
@@ -190,7 +191,8 @@ used with the `location:` token, e.g. `location:nodes_and_scenes.rst`):
 
 ![](img/l10n_06_browse_by_location.png)
 
-.. note::
+Note:
+
 
     When a given source string is used in multiple source locations, they will
     all be concatenated into one. For example, the above
@@ -243,7 +245,8 @@ The editor translations originate from C++ strings, and may use:
     Scene '%s' is currently being edited.↵
     Changes will only take effect when reloaded.
 
-.. note::
+Note:
+
   Only logical order of the characters matters, in the right-to-left text, format
   specifiers may be displayed as `s%`.
 
@@ -290,7 +293,8 @@ external links, etc. Here are some examples::
     Save the scene. Click Scene -> Save, or press :kbd:`Ctrl + S` on Windows/Linux
     or :kbd:`Cmd + S` on macOS.
 
-.. seealso::
+See also:
+
 
     See Sphinx's `reStructured Text primer ( https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html )`
     for a quick overview of the markup language you may find in source strings.
@@ -325,7 +329,8 @@ translate the name of the variable which holds the result (`red = ...`).
 Note also that in the XML, each line is a paragraph, so you should not add line
 breaks if they are not part of the original translation.
 
-.. seealso::
+See also:
+
 
     See our documentation for class reference writers for the `list of
     BBCode-like tags ( doc_class_reference_writing_guidelines_bbcode )` which are used
@@ -348,7 +353,8 @@ Once you are done with a series of edits, use the "Upload translation" item in
 that same menu and select your file. Choose "Add as translation" for the file
 upload mode.
 
-.. note::
+Note:
+
 
     If a significant amount of time has passed between your download of the PO
     file and the upload of the edited version, there is a risk to overwrite the
@@ -378,7 +384,8 @@ This part is not handled via Weblate, but directly on the `godot-docs-l10n
 ( https://github.com/godotengine/godot-docs-l10n )`_ Git repository where the
 documentation translations are synced from Weblate.
 
-.. note::
+Note:
+
 
    The workflow is not the most straightforward and requires some knowledge of
    Git. We plan to work on a simplified Web tool which could be used to manage

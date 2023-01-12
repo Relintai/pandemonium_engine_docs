@@ -17,7 +17,8 @@ You can define the shape of a `PhysicsBody` by adding one or more
 add a `Shape` *resource* to collision shape nodes in the Inspector
 dock.
 
-.. note::
+Note:
+
 
     When you add multiple collision shapes to a single PhysicsBody, you don't
     have to worry about them overlapping. They won't "collide" with each other.
@@ -81,7 +82,8 @@ triangles. Concave shapes are the slowest option but are also the most accurate
 in Godot. **You can only use concave shapes within StaticBodies.** They will not
 work with KinematicBodies or RigidBodies unless the RigidBody's mode is Static.
 
-.. note::
+Note:
+
 
     Even though concave shapes offer the most accurate *collision*, contact
     reporting can be less precise than primitive shapes.
@@ -106,7 +108,8 @@ editor exposes two options:
 - **Create Trimesh Collision Sibling** creates a CollisionShape node with a
   concave shape matching the mesh's geometry.
 
-.. note::
+Note:
+
 
     Suppose you need to make a RigidBody *slide* on a concave collision shape.
     In that case, you may notice that sometimes, the RigidBody will bump
@@ -118,7 +121,8 @@ editor exposes two options:
     without any rotation. This way, the RigidBody should slide perfectly on the
     StaticBody.
 
-.. seealso::
+See also:
+
 
     Godot can generate collision shapes for your imported 3D scenes
     automatically. See `doc_importing_scenes_import_hints` in the

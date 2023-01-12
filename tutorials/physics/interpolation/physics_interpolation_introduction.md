@@ -59,7 +59,8 @@ The simplest way to achieve this is linear interpolation, or lerping, which you 
 
 Let us consider only the position, and a situation where we know that the previous physics tick X coordinate was 10 units, and the current physics tick X coordinate is 30 units.
 
-.. note:: Although the maths is explained here, you do not have to worry about the details, as this step will be performed for you. Under the hood, Godot may use more complex forms of interpolation, but linear interpolation is the easiest in terms of explanation.
+Note:
+ Although the maths is explained here, you do not have to worry about the details, as this step will be performed for you. Under the hood, Godot may use more complex forms of interpolation, but linear interpolation is the easiest in terms of explanation.
 
 The physics interpolation fraction
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,7 +99,8 @@ Let's break that down:
 - We know that after the full tick, the difference between the current tick and the previous tick will have been added (`x_curr - x_prev`) (which is 20 units).
 - The only thing we need to vary is the proportion of this difference we add, according to how far we are through the physics tick.
 
-.. note:: Although this example interpolates the position, the same thing can be done with the rotation and scale of objects. It is not necessary to know the details as Godot will do all this for you.
+Note:
+ Although this example interpolates the position, the same thing can be done with the rotation and scale of objects. It is not necessary to know the details as Godot will do all this for you.
 
 Smoothed transformations between physics ticks?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

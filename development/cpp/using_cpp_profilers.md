@@ -6,7 +6,8 @@ Using C++ profilers
 To optimize Godot's performance, you need to know what to optimize first.
 To this end, profilers are useful tools.
 
-.. note::
+Note:
+
 
     There is a built-in GDScript profiler in the editor, but using C++ profiler
     may be useful in cases where the GDScript profiler is not accurate enough
@@ -40,7 +41,8 @@ compile binaries with the following SCons options:
 It is possible to run a profiler on less optimized builds (e.g. `target=debug` without LTO),
 but results will naturally be less representative of real world conditions.
 
-.. warning::
+Warning:
+
 
     Do *not* strip debugging symbols on the binaries using the `strip` command
     after compiling the binaries. Otherwise, you will no longer get useful
@@ -55,7 +57,8 @@ This will exit Godot just after it finished starting.
 The `--quit` option works with `--editor`, `--project-manager` or
 `--path <path to project directory )` (which runs a project directly).
 
-.. seealso::
+See also:
+
 
     See `doc_command_line_tutorial` for more command line arguments
     supported by Godot.
@@ -123,7 +126,8 @@ HotSpot
 
 ![](img/cpp_profiler_hotspot_flame_graph.png)
 
-.. note::
+Note:
+
 
     If you don't want the startup procedure to be included in the profile, you
     can also attach HotSpot to a running process by clicking **Record Data**

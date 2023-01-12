@@ -29,7 +29,8 @@ The following tutorial will, then, explain 2D skeletal deformations.
 Setup
 -----
 
-.. seealso::
+See also:
+
 
    Before starting, we recommend you to go through the
    `doc_cutout_animation` tutorial to gain a general understanding of

@@ -19,7 +19,8 @@ In this guide, you will learn:
 -   How each collision object works
 -   When and why to choose one type over another
 
-.. note:: This document's examples will use 2D objects. Every 2D physics object
+Note:
+ This document's examples will use 2D objects. Every 2D physics object
           and collision shape has a direct equivalent in 3D and in most cases
           they work in much the same way.
 
@@ -65,7 +66,8 @@ A physics body can hold any number of `Shape2D` objects
 as children. These shapes are used to define the object's collision bounds
 and to detect contact with other objects.
 
-.. note:: In order to detect collisions, at least one `Shape2D` must be
+Note:
+ In order to detect collisions, at least one `Shape2D` must be
           assigned to the object.
 
 The most common way to assign a shape is by adding a `CollisionShape2D`
@@ -96,7 +98,8 @@ parameter, which is a floating-point number equal to the time passed in
 *seconds* since the last step. When using the default 60 Hz physics update rate,
 it will typically be equal to `0.01666...` (but not always, see below).
 
-.. note::
+Note:
+
 
     It's recommended to always use the `delta` parameter when relevant in your
     physics calculations, so that the game behaves correctly if you change the
@@ -288,7 +291,8 @@ Note that we are not setting the `linear_velocity` or `angular_velocity`
 properties directly, but rather applying forces (`thrust` and `torque`) to
 the body and letting the physics engine calculate the resulting movement.
 
-.. note:: When a rigid body goes to sleep, the `_integrate_forces()`
+Note:
+ When a rigid body goes to sleep, the `_integrate_forces()`
           function will not be called. To override this behavior, you will
           need to keep the body awake by creating a collision, applying a
           force to it, or by disabling the `can_sleep`
@@ -377,7 +381,8 @@ possible to code this response yourself after using `move_and_collide()`,
 `move_and_slide()` provides a convenient way to implement sliding movement
 without writing much code.
 
-.. warning:: `move_and_slide()` automatically includes the timestep in its
+Warning:
+ `move_and_slide()` automatically includes the timestep in its
              calculation, so you should **not** multiply the velocity vector
              by `delta`.
 

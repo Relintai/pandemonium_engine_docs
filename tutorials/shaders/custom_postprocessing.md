@@ -17,7 +17,8 @@ The easiest way to implement a custom post-processing shader is to use Godot's b
 the screen texture. If you're not familiar with this, you should read the `Screen Reading Shaders
 Tutorial ( doc_screen-reading_shaders )` first.
 
-.. note::
+Note:
+
 
     As of the time of writing, Godot does not support rendering to multiple buffers at the same time. Your
     post-processing shader will not have access to normals or other render passes. You only have
@@ -31,7 +32,8 @@ You will need a `Viewport` to render your scene to, and a scene to render your
 ( ViewportContainer )` to display your `Viewport` on the entire screen or inside
 another `Control` node.
 
-.. note::
+Note:
+
 
     Rendering using a `Viewport` gives you control over
     how the scene render, including the framerate, and you can use the
@@ -50,7 +52,8 @@ your main scene. For this tutorial, we will use a field of random boxes:
 Add a new `ShaderMaterial` to the `ViewportContainer`, and assign a new
 shader resource to it. You can access your rendered `Viewport` with the built-in `TEXTURE` uniform.
 
-.. note::
+Note:
+
 
     You can choose not to use a `ViewportContainer`, but if you do so, you will
     need to create your own uniform in the shader and pass the `Viewport` texture in
@@ -89,7 +92,8 @@ Copy the following code to your shader. The above code is a single pass edge det
       COLOR.xyz = col;
   }
 
-.. note::
+Note:
+
 
     The Sobel filter reads pixels in a 9x9 grid around the current pixel and adds them together, using weight.
     What makes it interesting is that it assigns weights to each pixel; +1 for each of the eight around the
@@ -118,7 +122,8 @@ Godot will render the bottom `Viewport` node first. So if the order of the passe
 shaders, make sure that you assign the shader you want to apply first to the lowest `ViewportContainer` in
 the tree.
 
-.. note::
+Note:
+
 
     You can also render your Viewports separately without nesting them like this. You just
     need to use two Viewports and to render them one after the other.

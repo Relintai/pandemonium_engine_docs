@@ -3,7 +3,8 @@
 3D rendering limitations
 ========================
 
-.. seealso::
+See also:
+
 
     In addition to the limitations below, mobile platforms have even more
     limitations on 3D rendering compared to desktop platforms.
@@ -50,7 +51,8 @@ There are two main ways to alleviate banding:
   to be applied on your *materials*. This technique works even if your project is
   rendered in LDR, which means it will work when using the GLES2 renderer.
 
-.. seealso::
+See also:
+
 
     See `Banding in Games: A Noisy Rant ( http://loopit.dk/banding_in_games.pdf )`
     for more details about banding and ways to combat it.

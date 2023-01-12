@@ -45,7 +45,8 @@ difficulties in implementation, which are:
 - `group node`
 - shader nodes except `PrincipledBSDF`, `Diffuse`, `Glossy`, `Glass`, `add shader` and `mix shader`
 
-.. warning::
+Warning:
+
 
     If possible, try to use PrincipledBSDF node with GGX distribution as the output shader
     node, it is the only one guaranteed to be exactly correct. Others are just based on approximation.

@@ -88,7 +88,8 @@ A good place to start is by searching for issues tagged as
 `good first issue ( https://github.com/godotengine/godot/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 )`_
 on GitHub.
 
-.. seealso:: Technical details about the PR workflow are outlined in a
+See also:
+ Technical details about the PR workflow are outlined in a
              specific section, `doc_pr_workflow`.
 
              Details about the code style guidelines and the `clang-format`
@@ -108,7 +109,8 @@ has a `proposal system ( https://github.com/godotengine/godot-proposals )`_. Its
 usage is encouraged to plan changes and discuss them with the community. Implementation
 details can also be discussed with other contributors on the `Godot Contributors Chat ( https://chat.godotengine.org/ )`_.
 
-.. note:: Proposals are only required when working on an enhancement or a new feature.
+Note:
+ Proposals are only required when working on an enhancement or a new feature.
           Bug reports are sufficient for fixing issues.
 
 Testing and reporting issues

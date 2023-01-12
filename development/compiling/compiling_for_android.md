@@ -4,7 +4,8 @@ Compiling for Android
 =====================
 
 
-.. seealso::
+See also:
+
 
     This page describes how to compile Android export template binaries from source.
     If you're looking to export your project to Android instead, read `doc_exporting_for_android`.
@@ -39,7 +40,8 @@ For compiling under Windows, Linux or macOS, the following is required:
 
    -  You can download a build from `ojdkbuild ( https://github.com/ojdkbuild/ojdkbuild )`_.
 
-.. seealso:: To get the Godot source code for compiling, see
+See also:
+ To get the Godot source code for compiling, see
              `doc_getting_source`.
 
              For a general overview of SCons usage for Godot, see
@@ -69,11 +71,13 @@ Setting up the buildsystem
 
         tools/bin/sdkmanager --sdk_root=( android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-29" "cmdline-tools;latest" "cmake;3.10.2.4988404"
 
-.. seealso::   To set the environment variable on Windows, press :kbd:`Windows + R`, type 
+See also:
+   To set the environment variable on Windows, press :kbd:`Windows + R`, type 
             "control system", then click on **Advanced system settings** in the left
             pane, then click on **Environment variables** on the window that appears.
 
-.. seealso::   To set the environment variable on Linux or macOS, use
+See also:
+   To set the environment variable on Linux or macOS, use
             `export ANDROID_SDK_ROOT=/path/to/android-sdk` where `/path/to/android-sdk` points to
             the root of the SDK directories.
 

@@ -4,7 +4,8 @@ Compiling for X11 (Linux, \*BSD)
 ================================
 
 
-.. seealso::
+See also:
+
 
     This page describes how to compile Linux editor and export template binaries from source.
     If you're looking to export your project to Linux instead, read `doc_exporting_for_linux`.
@@ -30,7 +31,8 @@ required:
 -  *Optional* - libudev (build with `udev=yes`).
 -  *Optional* - yasm (for WebM SIMD optimizations).
 
-.. seealso:: To get the Godot source code for compiling, see
+See also:
+ To get the Godot source code for compiling, see
              `doc_getting_source`.
 
              For a general overview of SCons usage for Godot, see
@@ -116,7 +118,8 @@ If all goes well, the resulting binary executable will be placed in the
 runs without any dependencies. Executing it will bring up the project
 manager.
 
-.. note::
+Note:
+
 
     If you wish to compile using Clang rather than GCC, use this command:
 
@@ -127,7 +130,8 @@ manager.
     Using Clang appears to be a requirement for OpenBSD, otherwise fonts
     would not build.
 
-.. note:: If you are compiling Godot for production use, then you can
+Note:
+ If you are compiling Godot for production use, then you can
           make the final executable smaller and faster by adding the
           SCons option `target=release_debug`.
 
@@ -136,7 +140,8 @@ manager.
           As link-time optimization is a memory-intensive process,
           this will require about 7 GB of available RAM while compiling.
 
-.. note:: If you want to use separate editor settings for your own Godot builds
+Note:
+ If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
           `doc_data_paths_self_contained_mode` by creating a file called
           `._sc_` or `_sc_` in the `bin/` folder.
@@ -162,7 +167,8 @@ use::
 Building export templates
 -------------------------
 
-.. warning:: Linux binaries usually won't run on distributions that are
+Warning:
+ Linux binaries usually won't run on distributions that are
              older than the distribution they were built on. If you wish to
              distribute binaries that work on most distributions,
              you should build them on an old distribution such as Ubuntu 16.04.

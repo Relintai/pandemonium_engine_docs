@@ -20,7 +20,8 @@ and ask fellow developers for insights.
 In general, keeping your code consistent in your projects and within your team is
 more important than following this guide to a tee.
 
-.. note:: Godot's built-in shader editor uses a lot of these conventions
+Note:
+ Godot's built-in shader editor uses a lot of these conventions
           by default. Let it help you.
 
 Here is a complete shader example based on these guidelines:
@@ -211,7 +212,8 @@ Don't use multiline comment syntax if your comment can fit on a single line:
 
     /* This is another comment. */
 
-.. note::
+Note:
+
 
    In the shader editor, to make the selected code a comment (or uncomment it),
    press :kbd:`Ctrl + K`. This feature adds or removes `//` at the start of

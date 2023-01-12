@@ -120,7 +120,8 @@ The result will be a smooth curve interpolating between all four points:
 
 *(Image credit: Wikipedia)*
 
-.. note:: Cubic Bezier interpolation works the same in 3D, just use `Vector3`
+Note:
+ Cubic Bezier interpolation works the same in 3D, just use `Vector3`
           instead of `Vector2`.
 
 Adding control points

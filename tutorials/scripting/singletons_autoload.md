@@ -35,7 +35,8 @@ Using this concept, you can create objects that:
 
 Autoloading nodes and scripts can give us these characteristics.
 
-.. note::
+Note:
+
 
     Godot won't make an AutoLoad a "true" singleton as per the singleton design
     pattern. It may still be instanced more than once by the user if desired.
@@ -52,7 +53,8 @@ AutoLoad
 You can create an AutoLoad to load a scene or a script that inherits from
 `Node`.
 
-.. note::
+Note:
+
 
     When autoloading a script, a `Node` will be created and the script will be
     attached to it. This node will be added to the root viewport before any
@@ -97,7 +99,8 @@ you'll see the autoloaded nodes appear:
 
 ![](img/autoload_runtime.png)
 
-.. warning::
+Warning:
+
 
     Autoloads must **not** be removed using `free()` or `queue_free()` at
     runtime, or the engine will crash.
@@ -219,7 +222,8 @@ gdscript GDScript
 Run the project and test that you can switch between scenes by pressing
 the button.
 
-.. note::
+Note:
+
 
     When scenes are small, the transition is instantaneous. However, if your
     scenes are more complex, they may take a noticeable amount of time to appear.

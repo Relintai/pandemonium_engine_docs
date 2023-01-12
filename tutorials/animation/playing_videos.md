@@ -21,7 +21,8 @@ WebM is supported in core in Godot 3.x, but support for it will be removed in 4.
 as it proved to be too buggy and difficult to maintain.
 Therefore, **using WebM is not recommended**.
 
-.. note::
+Note:
+
 
     You may find videos with an `.ogg` or `.ogx` extensions, which are generic
     extensions for data within an Ogg container.
@@ -79,7 +80,8 @@ node to be a child of the AspectRatioContainer node. Make sure **Expand** is
 disabled on the VideoPlayer. Your video should now scale automatically
 to fit the whole screen while avoiding distortion.
 
-.. seealso::
+See also:
+
 
     See `doc_multiple_resolutions` for more tips on supporting multiple
     aspect ratios in your project.
@@ -184,7 +186,8 @@ Here are example FFmpeg commands to convert a MP4 video to Ogg Theora. Since
 FFmpeg supports a lot of input formats, you should be able to use the commands
 below with almost any input video format (AVI, MOV, WebM, …).
 
-.. note::
+Note:
+
 
    Make sure your copy of FFmpeg is compiled with libtheora and libvorbis support.
    You can check this by running `ffmpeg` without any arguments, then looking

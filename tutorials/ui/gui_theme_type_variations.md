@@ -31,7 +31,8 @@ your `GrayButton` can override the `normal` style from the base `Button`
 and add `font_color` that `Button` has never defined. The control will use
 a combination of both types giving priority to the type variation.
 
-.. note::
+Note:
+
    The way controls resolve what theme items they use from each type and each
    theme is better described in the `Customizing a project doc_gui_theme_in_project )`
    section of the "Introduction to GUI skinning" article.

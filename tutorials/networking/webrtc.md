@@ -35,9 +35,11 @@ Using WebRTC in Godot
 
 WebRTC is implemented in Godot via two main classes `WebRTCPeerConnection` for more details.
 
-.. note:: These classes are available automatically in HTML5, but **require an external GDNative plugin on native (non-HTML5) platforms**. Check out the `webrtc-native plugin repository ( https://github.com/godotengine/webrtc-native )` for instructions and to get the latest `release ( https://github.com/godotengine/webrtc-native/releases )`.
+Note:
+ These classes are available automatically in HTML5, but **require an external GDNative plugin on native (non-HTML5) platforms**. Check out the `webrtc-native plugin repository ( https://github.com/godotengine/webrtc-native )` for instructions and to get the latest `release ( https://github.com/godotengine/webrtc-native/releases )`.
 
-.. warning::
+Warning:
+
 
     When exporting to Android, make sure to enable the `INTERNET`
     permission in the Android export preset before exporting the project or
@@ -147,7 +149,8 @@ This example expands on the previous one, separating the peers in two different 
 
 And now for the local signaling server:
 
-.. note:: This local signaling server is supposed to be used as a `singleton ( doc_singletons_autoload )` to connect two peers in the same scene.
+Note:
+ This local signaling server is supposed to be used as a `singleton ( doc_singletons_autoload )` to connect two peers in the same scene.
 
 ::
 

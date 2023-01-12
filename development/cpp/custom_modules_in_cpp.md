@@ -221,7 +221,8 @@ You can then zip it and share the module with everyone else. When
 building for every platform (instructions in the previous sections),
 your module will be included.
 
-.. note:: There is a parameter limit of 5 in C++ modules for things such
+Note:
+ There is a parameter limit of 5 in C++ modules for things such
           as subclasses. This can be raised to 13 by including the header
           file `core/method_bind_ext.gen.inc`.
 
@@ -241,12 +242,14 @@ You can now use your newly created module from any script:
 
 The output will be `60`.
 
-.. seealso:: The previous Summator example is great for small, custom modules,
+See also:
+ The previous Summator example is great for small, custom modules,
   but what if you want to use a larger, external library? Refer to
   `doc_binding_to_external_libraries` for details about binding to
   external libraries.
 
-.. warning:: If your module is meant to be accessed from the running project
+Warning:
+ If your module is meant to be accessed from the running project
              (not just from the editor), you must also recompile every export
              template you plan to use, then specify the path to the custom
              template in each export preset. Otherwise, you'll get errors when
@@ -294,21 +297,24 @@ modules, similar to the following:
 The build system shall detect all modules under the `../modules` directory
 and compile them accordingly, including our "summator" module.
 
-.. warning::
+Warning:
+
 
     Any path passed to `custom_modules` will be converted to an absolute path
     internally as a way to distinguish between custom and built-in modules. It
     means that things like generating module documentation may rely on a
     specific path structure on your machine.
 
-.. seealso::
+See also:
+
 
     `Introduction to the buildsystem - Custom modules build option ( doc_buildsystem_custom_modules )`.
 
 Improving the build system for development
 ------------------------------------------
 
-.. warning::
+Warning:
+
 
     This shared library support is not designed to support distributing a module
     to other users without recompiling the engine. For that purpose, use
@@ -375,7 +381,8 @@ during runtime with the `LD_LIBRARY_PATH` environment variable:
     export LD_LIBRARY_PATH="$PWD/bin/"
     ./bin/godot*
 
-.. note::
+Note:
+
   You have to `export` the environment variable. Otherwise,
   you won't be able to run your project from the editor.
 

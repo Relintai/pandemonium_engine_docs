@@ -4,7 +4,8 @@ Compiling for macOS
 ===================
 
 
-.. note::
+Note:
+
 
     This page describes how to compile macOS editor and export template binaries from source.
     If you're looking to export your project to macOS instead, read `doc_exporting_for_macos`.
@@ -20,7 +21,8 @@ For compiling under macOS, the following is required:
   (or the more lightweight Command Line Tools for Xcode).
 - *Optional* - `yasm ( https://yasm.tortall.net/ )`_ (for WebM SIMD optimizations).
 
-.. note:: If you have `Homebrew ( https://brew.sh/ )`_ installed, you can easily
+Note:
+ If you have `Homebrew ( https://brew.sh/ )`_ installed, you can easily
           install SCons and yasm using the following command::
 
               brew install scons yasm
@@ -34,7 +36,8 @@ For compiling under macOS, the following is required:
 
               sudo port install scons yasm
 
-.. seealso:: To get the Godot source code for compiling, see
+See also:
+ To get the Godot source code for compiling, see
              `doc_getting_source`.
 
              For a general overview of SCons usage for Godot, see
@@ -62,7 +65,8 @@ If all goes well, the resulting binary executable will be placed in the
 runs without any dependencies. Executing it will bring up the project
 manager.
 
-.. note:: If you want to use separate editor settings for your own Godot builds
+Note:
+ If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
           `doc_data_paths_self_contained_mode` by creating a file called
           `._sc_` or `_sc_` in the `bin/` folder.

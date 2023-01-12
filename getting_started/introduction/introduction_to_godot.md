@@ -21,7 +21,8 @@ on desktop or mobile, as well as on the web.
 You can also create console games with it, although you either need strong
 programming skills or a developer to port the game for you.
 
-.. note:: The Godot team can't provide an open-source console export due to the
+Note:
+ The Godot team can't provide an open-source console export due to the
           licensing terms imposed by console manufacturers. Regardless of the
           engine you use, though, releasing games on consoles is always a lot of
           work. You can read more on that here: `doc_consoles`.
@@ -87,7 +88,8 @@ Software Development Kits (SDK) in the engine.
 Of course, you can also directly add modules and features to the engine, as it's
 completely free and open-source.
 
-.. seealso:: These are the five officially supported programming languages. The
+See also:
+ These are the five officially supported programming languages. The
              community maintains support for many more. For more information,
              see `GDNative third-party bindings
              ( doc_what_is_gdnative_third_party_bindings )`.
@@ -108,7 +110,8 @@ courseware`_ from Harvard University. It's a great free course that will teach
 you everything you need to know to be off to a good start. It will save you
 countless hours and hurdles learning any game engine afterward.
 
-.. note:: In CS50, you will learn multiple programming languages. Don't be
+Note:
+ In CS50, you will learn multiple programming languages. Don't be
           afraid of that: programming languages have many similarities. The
           skills you learn with one language transfer well to others.
 

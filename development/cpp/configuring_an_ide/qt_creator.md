@@ -29,7 +29,8 @@ Importing the project
    :figclass: figure-w480
    :align: center
 
-.. note:: You can change this configuration later by right-clicking on your project
+Note:
+ You can change this configuration later by right-clicking on your project
           and selecting the **Edit Files...** option.
 
           .. figure:: img/qtcreator-edit-files-menu.png)
@@ -65,7 +66,8 @@ Importing the project
    :figclass: figure-w480
    :align: center
 
-.. note:: If the build fails with `Could not start process "scons"`, it can mean that `scons` 
+Note:
+ If the build fails with `Could not start process "scons"`, it can mean that `scons` 
           is not in your `PATH` environment variable. In this case, you'll have to specify the
           full path to the SCons binary.
 

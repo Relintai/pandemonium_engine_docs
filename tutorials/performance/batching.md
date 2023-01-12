@@ -69,7 +69,8 @@ Batching will be broken by (amongst other things):
 - Change of material.
 - Change of primitive type (say, going from rectangles to lines).
 
-.. note::
+Note:
+
 
     For example, if you draw a series of sprites each with a different texture,
     there is no way they can be batched.
@@ -95,7 +96,8 @@ In Godot, this back-to-front order is determined by:
 - The canvas layer.
 - `YSort` nodes.
 
-.. note::
+Note:
+
 
     You can group similar objects together for easier batching. While doing so
     is not a requirement on your part, think of it as an optional approach that

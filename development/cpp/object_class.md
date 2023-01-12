@@ -3,7 +3,8 @@
 Object class
 ============
 
-.. seealso::
+See also:
+
 
     This page describes the C++ implementation of objects in Godot.
     Looking for the Object class reference? `Have a look here.`

@@ -35,7 +35,8 @@ button at the top of the inspector to generate it.
 
 ![](img/bake_navmesh.png)
 
-.. note::
+Note:
+
 
     It can also be generated at runtime using the `bake_navigation_region()`
     method of the navigation region node.

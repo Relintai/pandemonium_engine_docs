@@ -51,7 +51,8 @@ A class reference's page tells you:
 
 4. Links to manual pages further detailing the class.
 
-.. note:: If the manual or class reference is missing or has insufficient
+Note:
+ If the manual or class reference is missing or has insufficient
           information, please open an Issue in the official `godot-docs
           ( https://github.com/godotengine/godot-docs/issues )`_ GitHub repository
           to report it.

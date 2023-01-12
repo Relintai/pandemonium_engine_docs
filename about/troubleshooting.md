@@ -5,7 +5,8 @@ Troubleshooting
 
 This page lists common issues encountered when using Godot and possible solutions.
 
-.. seealso::
+See also:
+
 
     See `doc_using_the_web_editor` for caveats specific to the HTML5 version
     of the Godot editor.

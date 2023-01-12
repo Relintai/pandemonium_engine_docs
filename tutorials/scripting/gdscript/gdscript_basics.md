@@ -16,7 +16,8 @@ flexibility for content creation and integration.
 History
 ~~~~~~~
 
-.. note::
+Note:
+
 
     Documentation about GDScript's history has been moved to the
     `Frequently Asked Questions ( doc_faq_what_is_gdscript )`.
@@ -564,7 +565,8 @@ assign to it::
     # `d.test` is `d["test"]`.
     print(d[test])
 
-.. note::
+Note:
+
 
     The bracket syntax can be used to access properties of any
     `Object`, not just Dictionaries. Keep in mind it will cause a
@@ -687,7 +689,8 @@ possible to add explicit type specification::
 
 Assigning a value of an incompatible type will raise an error.
 
-.. note::
+Note:
+
 
     Since arrays and dictionaries are passed by reference, constants are "flat".
     This means that if you declare a constant array or dictionary, it can still
@@ -765,7 +768,8 @@ return early with the `return` keyword, but they can't return any value.
     func void_function() -> void:
         return # Can't return a value
 
-.. note:: Non-void functions must **always** return a value, so if your code has
+Note:
+ Non-void functions must **always** return a value, so if your code has
           branching statements (such as an `if`/`else` construct), all the
           possible paths must have a return. E.g., if you have a `return`
           inside an `if` block but not after it, the editor will raise an
@@ -1095,7 +1099,8 @@ class will then appear with its new icon in the editor::
 
 ![](img/class_name_editor_register_example.png)
 
-.. warning::
+Warning:
+
 
     If the script is located in the `res://addons/` directory, `name`
     will only cause the node to show up in the **Create New Node** dialog if
@@ -1124,7 +1129,8 @@ Here's a class file example:
         print(Character)
 
 
-.. note:: Godot's class syntax is compact: it can only contain member variables or
+Note:
+ Godot's class syntax is compact: it can only contain member variables or
           functions. You can use static functions, but not static member variables. In the
           same way, the engine initializes variables every time you create an instance,
           and this includes arrays and dictionaries. This is in the spirit of thread
@@ -1179,7 +1185,8 @@ in other languages)::
     func some_func(x):
         .some_func(x) # Calls the same function on the parent class.
 
-.. note:: Default functions like  `_init`, and most notifications such as
+Note:
+ Default functions like  `_init`, and most notifications such as
           `_enter_tree`, `_exit_tree`, `_process`, `_physics_process`,
           etc. are called in all parent classes automatically.
           There is no need to call them explicitly when overloading them.
@@ -1289,7 +1296,8 @@ class resource is done by calling the `new` function on the class object::
 Exports
 ~~~~~~~
 
-.. note::
+Note:
+
 
     Documentation about exports has been moved to `doc_gdscript_exports`.
 
@@ -1367,7 +1375,8 @@ placed at the top of the file::
 
 See `doc_running_code_in_the_editor` for more information.
 
-.. warning:: Be cautious when freeing nodes with `queue_free()` or `free()`
+Warning:
+ Be cautious when freeing nodes with `queue_free()` or `free()`
              in a tool script (especially the script's owner itself). As tool
              scripts run their code in the editor, misusing them may lead to
              crashing the editor.
@@ -1419,7 +1428,8 @@ to. To create custom signals for a class, use the `signal` keyword.
    # A signal named health_depleted.
    signal health_depleted
 
-.. note::
+Note:
+
 
    Signals are a `Callback
    ( https://en.wikipedia.org/wiki/Callback_(computer_programming) )`_
@@ -1490,7 +1500,8 @@ the `Object.connect()` method::
         progress_bar.animate(old_value, new_value)
     ...
 
-.. note::
+Note:
+
 
     To use signals, your class has to extend the `Object` class or any
     type extending it like `Node`, `KinematicBody`, `Control`...

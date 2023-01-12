@@ -3,7 +3,8 @@
 Running Godot apps on macOS
 ===========================
 
-.. seealso::
+See also:
+
 
     This page covers running Godot projects on macOS.
     If you haven't exported your project yet, read `doc_exporting_for_macos` first.
@@ -15,7 +16,8 @@ Depending on the way a macOS app is signed and distributed, the following scenar
 App is signed, notarized and distributed via App Store
 ------------------------------------------------------
 
-.. note::
+Note:
+
 
     App developers need to join the Apple Developer Program, and configure signing and notarization options during export, then upload the app to the App Store.
 
@@ -24,7 +26,8 @@ The app should run out of the box, without extra user interaction required.
 App is signed, notarized and distributed outside App Store
 ----------------------------------------------------------
 
-.. note::
+Note:
+
 
     App developers need to join the Apple Developer Program, and configure signing and notarization options during export, then distribute the app as ".DMG" or ".ZIP" archive.
 
@@ -45,7 +48,8 @@ To allow third-party apps, open `System Preferences`, click `Security & Privacy`
 App is signed (including ad-hoc signatures) but not notarized
 -------------------------------------------------------------
 
-.. note::
+Note:
+
 
     App developer used self-signed certificate or ad-hoc signing (default Godot behavior for exported project).
 
@@ -72,7 +76,8 @@ To run this app, you can temporarily override Gatekeeper:
 App is not-signed, executable is linker-signed
 ----------------------------------------------
 
-.. note::
+Note:
+
 
     App is built using official export templates, but it is not signed.
 
@@ -93,7 +98,8 @@ To run this app, you should remove the quarantine extended file attribute manual
 Neither app nor executable is signed (relevant for Apple Silicon macs only)
 ---------------------------------------------------------------------------
 
-.. note::
+Note:
+
 
     App is built using custom export templates, compiled using OSXCross, and it is not signed at all.
 

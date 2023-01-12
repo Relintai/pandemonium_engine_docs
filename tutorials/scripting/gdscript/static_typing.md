@@ -15,7 +15,8 @@ or write code like you always did!
 Static types can be used on variables, constants, functions, parameters,
 and return types.
 
-.. note::
+Note:
+
 
     Typed GDScript is available since Godot 3.1.
 
@@ -110,7 +111,8 @@ Currently you can use three types of… types:
 3. Your own custom classes. Look at the new `name ( doc_gdscript_basics_class_name )`
    feature to register types in the editor.
 
-.. note::
+Note:
+
 
     You don't need to write type hints for constants, as Godot sets it automatically from the assigned value. But you can still do so to make the intent of your code clearer.
 
@@ -174,7 +176,8 @@ As we're dealing with a custom type, if the `body` doesn't extend
 We can use this to check if the body is the player or not. We will also
 get full autocompletion on the player variable thanks to that cast.
 
-.. note::
+Note:
+
 
     If you try to cast with a built-in type and it fails, Godot will throw an error.
 
@@ -207,7 +210,8 @@ green at the left of the script editor.
 
    Unsafe line (line 7) vs Safe Lines (line 6 and 8)
 
-.. note::
+Note:
+
 
     You can turn off safe lines or change their color in the editor settings.
 
@@ -320,7 +324,8 @@ it's anything else, like an `Area2D`, or any node that doesn't extend
 Warning system
 --------------
 
-.. note::
+Note:
+
 
     Documentation about the GDScript warning system has been moved to
     `doc_gdscript_warning_system`.

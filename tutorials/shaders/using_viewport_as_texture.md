@@ -12,7 +12,8 @@ of making a procedural planet like the one below:
 
 ![](img/planet_example.png)
 
-.. note:: This tutorial does not cover how to code a dynamic atmosphere like the one this planet has.
+Note:
+ This tutorial does not cover how to code a dynamic atmosphere like the one this planet has.
 
 This tutorial assumes you are familiar with how to set up a basic scene including:
 a `Camera`, a
@@ -52,7 +53,8 @@ will ensure that the `ColorRect`.
 
 Next, we add a `Shader Material `New ShaderMaterial`).
 
-.. note:: Basic familiarity with shading is recommended for this tutorial. However, even if you are new
+Note:
+ Basic familiarity with shading is recommended for this tutorial. However, even if you are new
           to shaders, all the code will be provided, so you should have no problem following along.
 
 ColorRect > CanvasItem > Material > Material > click / Edit > ShaderMaterial > Shader > `New Shader` > click / Edit:
@@ -122,7 +124,8 @@ have pinching at the poles. This pinching is due to the way Godot maps textures 
 `SpatialMaterial`. It uses a projection technique called equirectangular
 projection, which translates a spherical map onto a 2D plane.
 
-.. note:: If you are interested in a little extra information on the technique, we will be converting from
+Note:
+ If you are interested in a little extra information on the technique, we will be converting from
           spherical coordinates into Cartesian coordinates. Spherical coordinates map the longitude and
           latitude of the sphere, while Cartesian coordinates are, for all intents and purposes, a
           vector from the center of the sphere to the point.
@@ -178,7 +181,8 @@ to make the planet. We will be using this noise function directly from a `Shader
                          dot(hash(i + vec3(1.0, 1.0, 1.0)), f - vec3(1.0, 1.0, 1.0)), u.x), u.y), u.z );
     }
 
-.. note:: All credit goes to the author, Inigo Quilez. It is published under the `MIT` licence.
+Note:
+ All credit goes to the author, Inigo Quilez. It is published under the `MIT` licence.
 
 Now to use `noise`, add the following to the    `fragment` function:
 
@@ -189,7 +193,8 @@ Now to use `noise`, add the following to the    `fragment` function:
 
 ![](img/planet_noise.png)
 
-.. note:: In order to highlight the texture, we set the material to unshaded.
+Note:
+ In order to highlight the texture, we set the material to unshaded.
 
 You can see now that the noise indeed wraps seamlessly around the sphere. Although this
 looks nothing like the planet you were promised. So let's move onto something more colorful.

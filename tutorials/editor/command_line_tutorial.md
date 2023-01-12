@@ -10,7 +10,8 @@ entirely from the command line. Given the engine relies on almost no
 external libraries, initialization times are pretty fast, making it
 suitable for this workflow.
 
-.. note::
+Note:
+
 
     On Windows and Linux, you can run a Godot binary in a terminal by specifying
     its relative or absolute path.
@@ -92,7 +93,8 @@ Command line reference
 
 **Debug options**
 
-.. note::
+Note:
+
 
     Debug options are only available in the editor and debug export templates
     (they require `debug` or `release_debug` build targets, see
@@ -291,7 +293,8 @@ To export only a PCK file, use the `--export-pack` option followed by the
 preset name and output path, with the file extension, instead of `--export`.
 The output path extension determines the package's format, either PCK or ZIP.
 
-.. warning::
+Warning:
+
 
     When specifying a relative path as the path for `--export`, `--export-debug`
     or `--export-pack`, the path will be relative to the directory containing

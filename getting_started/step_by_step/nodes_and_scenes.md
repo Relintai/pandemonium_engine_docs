@@ -143,7 +143,8 @@ button to save it as "Label.tscn".
 
 ![](img/nodes_and_scenes_11_save_scene_as.png)
 
-.. note:: The Save Scene As dialog, like other file dialogs in the editor, only
+Note:
+ The Save Scene As dialog, like other file dialogs in the editor, only
           allows you to save files inside the project. The `res://` path at
           the top of the window represents the project's root directory and
           stands for "resource path". For more information about file paths in
@@ -155,7 +156,8 @@ The application should open in a new window and display the text "Hello World".
 
 Close the window or press :kbd:`F8` to quit the running scene.
 
-.. note::
+Note:
+
 
     If this doesn't immediately work and you have a hiDPI display on at least
     one of your monitors, go to Project -> Project Settings -> Display ->
@@ -182,7 +184,8 @@ Label.tscn.
 The demo should run again. Moving forward, every time you run the project, Godot
 will use this scene as a starting point.
 
-.. note:: The editor saves the main scene's path in a project.godot file in your
+Note:
+ The editor saves the main scene's path in a project.godot file in your
           project's directory. While you can edit this text file directly to
           change project settings, you can also use the "Project -> Project
           Settings" window to do so.

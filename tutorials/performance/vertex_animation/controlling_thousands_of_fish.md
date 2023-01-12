@@ -11,7 +11,8 @@ To make each instance move in an interesting way, we will use a
 `Particles` node. Particles take advantage of GPU acceleration
 by computing and setting the per-instance information in a `Shader`.
 
-.. note:: Particles are not available in GLES2, instead use `CPUParticles`,
+Note:
+ Particles are not available in GLES2, instead use `CPUParticles`,
           which do the same thing as Particles, but do not benefit from GPU acceleration.
 
 First create a Particles node. Then, under "Draw Passes" set the Particle's "Draw Pass 1" to your

@@ -40,7 +40,8 @@ solves the problem in the short term but causes more problems:
    stored from the start, you can either have too few and face bugs, or too many
    and use more memory than you need.
 
-.. note::
+Note:
+
 
    About global access, the problem is that Any code anywhere could pass wrong
    data to the `Sound` autoload in our example. As a result, the domain to
@@ -98,7 +99,8 @@ variable for their name generated in GDScript, allowing you to call them from
 any script file in your project. But now, you can use the `name` keyword
 instead to get auto-completion for a type in your entire project.
 
-.. note::
+Note:
+
 
    Autoload is not exactly a Singleton. Nothing prevents you from instantiating
    copies of an auto-loaded node. It is only a tool that makes a node load

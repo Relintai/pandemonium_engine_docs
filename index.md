@@ -3,7 +3,8 @@ Godot Docs – *3.5* branch
 
 .. only:: not i18n
 
-  .. note:: Godot's documentation is available in various languages and versions.
+  Note:
+ Godot's documentation is available in various languages and versions.
             Expand the "Read the Docs" panel at the bottom of the sidebar to see
             the list.
 
@@ -15,7 +16,8 @@ Godot Docs – *3.5* branch
 
 .. only:: i18n
 
-  .. note:: This documentation is translated from the `original English one
+  Note:
+ This documentation is translated from the `original English one
             ( https://docs.godotengine.org/en/latest )`_ by community members
             on `Weblate ( https://hosted.weblate.org/projects/godot-engine/godot-docs )`_.
 
@@ -42,7 +44,8 @@ You can also `download an HTML copy ( https://nightly.link/godotengine/godot-doc
 for offline reading (updated every Monday). Extract the ZIP archive then open
 the top-level `index.html` in a web browser.
 
-.. note:: Godot Engine is an open source project developed by a community of
+Note:
+ Godot Engine is an open source project developed by a community of
           volunteers. The documentation team can always use your
           feedback and help to improve the tutorials and class reference. If
           you don't understand something, or cannot find what you

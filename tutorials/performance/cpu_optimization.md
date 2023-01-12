@@ -34,7 +34,8 @@ After profiling, you can look back at the results for a frame.
 
    Results of a profile of one of the demo projects.
 
-.. note:: We can see the cost of built-in processes such as physics and audio,
+Note:
+ We can see the cost of built-in processes such as physics and audio,
           as well as seeing the cost of our own scripting functions at the
           bottom.
 
@@ -61,7 +62,8 @@ You can use a number of third party profilers to do this including
 `Visual Studio ( https://visualstudio.microsoft.com/ )` and
 `Intel VTune ( https://software.intel.com/content/www/us/en/develop/tools/vtune-profiler.html )`.
 
-.. note:: You will need to compile Godot from source to use a third-party profiler.
+Note:
+ You will need to compile Godot from source to use a third-party profiler.
           This is required to obtain debugging symbols. You can also use a debug
           build, however, note that the results of profiling a debug build will
           be different to a release build, because debug builds are less

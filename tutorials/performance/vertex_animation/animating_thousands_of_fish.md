@@ -24,7 +24,8 @@ Here is the fish we will be using for the example images, you can use any fish m
 
 ![](img/fish.png)
 
-.. note:: The fish model in this tutorial is made by `QuaterniusDev ( http://quaternius.com )`_ and is
+Note:
+ The fish model in this tutorial is made by `QuaterniusDev ( http://quaternius.com )`_ and is
           shared with a creative commons license. CC0 1.0 Universal (CC0 1.0) Public Domain
           Dedication https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -227,7 +228,8 @@ to loop over all the instances and set their transform to a random position.
 Running this script will place the fish in random positions in a box around the position of the
 MultiMeshInstance.
 
-.. note:: If performance is an issue for you, try running the scene with GLES2 or with fewer fish.
+Note:
+ If performance is an issue for you, try running the scene with GLES2 or with fewer fish.
 
 Notice how all the fish are all in the same position in their swim cycle? It makes them look very
 robotic. The next step is to give each fish a different position in the swim cycle so the entire

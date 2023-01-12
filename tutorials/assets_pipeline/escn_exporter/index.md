@@ -1,7 +1,8 @@
 Blender ESCN exporter
 =====================
 
-.. note:: This chapter relates to the Blender plugin called "Godot Blender Exporter",
+Note:
+ This chapter relates to the Blender plugin called "Godot Blender Exporter",
           which can be downloaded here: https://github.com/godotengine/godot-blender-exporter
 
 This plugin can be used to export Blender scenes in a Godot-specific scene format

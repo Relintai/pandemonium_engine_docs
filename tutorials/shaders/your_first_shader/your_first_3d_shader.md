@@ -24,7 +24,8 @@ vertex function. In the `second part ( doc_your_second_spatial_shader )` we
 are going to take the concepts from this tutorial and walk through how to set up
 custom materials in a fragment shader by writing an ocean water shader.
 
-.. note:: This tutorial assumes some basic shader knowledge such as types
+Note:
+ This tutorial assumes some basic shader knowledge such as types
           (`vec2`, `float`, `sampler2D`), and functions. If you are
           uncomfortable with these concepts it is best to get a gentle
           introduction from `The Book of Shaders
@@ -243,7 +244,8 @@ the shader.
   # called from the MeshInstance
   mesh.material.set_shader_param("height_scale", 0.5)
 
-.. note:: Changing uniforms in Spatial-based nodes is different from
+Note:
+ Changing uniforms in Spatial-based nodes is different from
           CanvasItem-based nodes. Here, we set the material inside the PlaneMesh
           resource. In other mesh resources you may need to first access the
           material by calling `surface_get_material()`. While in the

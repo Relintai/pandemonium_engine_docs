@@ -13,7 +13,8 @@ This allows several features:
 
 The trade off for these features is that we have to manually partition our level into rooms, and add portals between them.
 
-.. note:: Godot portals should not be confused with those in the `game of the same name ( https://en.wikipedia.org/wiki/Portal_(video_game) )`. They do not warp space, they simply represent a window that the camera (or lights) can see through.
+Note:
+ Godot portals should not be confused with those in the `game of the same name ( https://en.wikipedia.org/wiki/Portal_(video_game) )`. They do not warp space, they simply represent a window that the camera (or lights) can see through.
 
 Minimizing manual labour
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -31,6 +32,7 @@ In general, when it comes to medium and large-sized levels, it is better to do a
 Some caveats
 ^^^^^^^^^^^^
 
-.. note:: The portal system should be considered an **advanced feature** of Godot. You should not attempt to use rooms and portals until you are familiar with the Godot editor, and have successfully made at least a couple of test games.
+Note:
+ The portal system should be considered an **advanced feature** of Godot. You should not attempt to use rooms and portals until you are familiar with the Godot editor, and have successfully made at least a couple of test games.
 
 It gives you great power as a game designer, but the trade off is that it requires a very technical approach to level design. It is aimed at producing professional-grade results, and assumes the user is prepared to put in the work for this. It is not intended to be used for all 3D games. Not all games will significantly benefit from portals, and it may require more time than a short game jam allows.

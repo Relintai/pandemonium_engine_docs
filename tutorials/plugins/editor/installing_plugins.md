@@ -19,7 +19,8 @@ To do so, click the **AssetLib** tab at the top of the editor:
 
 You can also find assets on code hosting websites such as GitHub.
 
-.. note::
+Note:
+
 
     Some repositories describe themselves as "plugins" but may not actually be
     *editor* plugins. This is especially the case for scripts that are intended

@@ -31,7 +31,8 @@ Godot can import the following image formats:
   - WebP files support transparency and can be compressed lossily or losslessly.
   The precision is limited to 8 bits per channel.
 
-.. note::
+Note:
+
 
     If you've compiled the Godot editor from source with specific modules disabled,
     some formats may not be available.
@@ -120,7 +121,8 @@ reimported automatically.
 
 Note that RGTC compression affects the resulting normal map image. You will have to adjust custom shaders that use the normal map to take this into account.
 
-.. note::
+Note:
+
 
   Godot requires the normal map to use the X+, Y+ and Z+ coordinates, this is
   known as OpenGL style. If you've imported a material made to be used with
@@ -172,7 +174,8 @@ sRGB
 Godot uses Linear colorspace when rendering 3D. Textures mapped to albedo or detail channels need to have this option turned on in order for colors to look correct.
 When set to **Detect** mode, the texture will be marked as sRGB when used in albedo channels.
 
-.. warning::
+Warning:
+
 
     Since the texture will have its data modified when sRGB is enabled, this
     means using the same texture in both 2D and 3D will make the texture

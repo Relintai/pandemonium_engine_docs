@@ -226,7 +226,8 @@ Determines which side of the object is not drawn when backfaces are rendered:
 * **Front:** The front of the object is culled when not visible.
 * **Disabled:** Used for objects that are double-sided (no culling is performed).
 
-.. note::
+Note:
+
 
     By default, Blender has backface culling disabled on materials and will
     export materials to match how they render in Blender. This means that
@@ -376,7 +377,8 @@ and wider compatibility.
 
 ![](img/spatial_material16.png)
 
-.. note::
+Note:
+
 
   Godot requires the normal map to use the X+, Y+ and Z+ coordinates, this is
   known as OpenGL style. If you've imported a material made to be used with
@@ -418,7 +420,8 @@ right.
 
 ![](img/clearcoat_comparison.png)
 
-.. note:: The effect will be more noticeable in Godot 4.
+Note:
+ The effect will be more noticeable in Godot 4.
 
 Anisotropy
 ~~~~~~~~~~

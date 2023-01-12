@@ -8,7 +8,8 @@ includes many new tutorials, many fixes and updates for old tutorials, and many 
 to the `class reference ( toc-class-ref )`. Below is a list of new tutorials
 added since version 3.1.
 
-.. note:: This document only contains new tutorials so not all changes are reflected,
+Note:
+ This document only contains new tutorials so not all changes are reflected,
           many tutorials have been substantially updated but are not reflected in this document.
 
 New tutorials since version 3.1

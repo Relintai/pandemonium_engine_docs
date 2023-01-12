@@ -64,7 +64,8 @@ Another method would be to `export from the command line ( doc_command_line_tuto
 If the output file ends with a PCK or ZIP file extension, then the export
 process will build that type of file for the chosen platform.
 
-.. note::
+Note:
+
 
     If one wishes to support mods for their game, they will need their users to
     create similarly exported files. Assuming the original game expects a
@@ -105,7 +106,8 @@ gdscript GDScript
             var imported_scene = load("res://mod_scene.tscn")
 ```
 
-.. warning::
+Warning:
+
 
     By default, if you import a file with the same file path/name as one you already have in your
     project, the imported one will replace it. This is something to watch out for when
@@ -116,7 +118,8 @@ gdscript GDScript
     To opt out of this behavior, pass `false` as the second argument to
     `ProjectSettings.load_resource_pack()`.
 
-.. note::
+Note:
+
     For a C# project, you need to build the DLL and place it in the project directory first.
     Then, before loading the resource pack, you need to load its DLL as follows:
     `Assembly.LoadFile("mod.dll")`

@@ -13,7 +13,8 @@ This tutorial will show you the two main approaches to defining your own custom
 gizmos. The first option works well for simple gizmos and creates less clutter in
 your plugin structure, while the second one will let you store some per-gizmo data.
 
-.. note:: This tutorial assumes you already know how to make generic plugins. If
+Note:
+ This tutorial assumes you already know how to make generic plugins. If
           in doubt, refer to the `doc_making_plugins` page.
 
 The EditorSpatialGizmoPlugin

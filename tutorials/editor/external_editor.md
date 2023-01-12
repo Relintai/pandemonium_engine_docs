@@ -46,7 +46,8 @@ Some example Exec Flags for various editors include:
 | Emacs               | `emacs +{line}:{col} {file}`                      |
 +---------------------+-----------------------------------------------------+
 
-.. note:: For Visual Studio Code, you will have to point to the `code.cmd`
+Note:
+ For Visual Studio Code, you will have to point to the `code.cmd`
           file. For Emacs, you can call `emacsclient` instead of `emacs` if
           you use the server mode.
 

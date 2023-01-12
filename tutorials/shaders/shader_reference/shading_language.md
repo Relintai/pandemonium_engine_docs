@@ -251,7 +251,8 @@ Arrays also have a built-in function `.length()` (not to be confused with the bu
         // ...
     }
 
-.. note::
+Note:
+
 
     If you use an index below 0 or greater than array size - the shader will crash and break rendering. To prevent this, use `length()`, `if`, or `clamp()` functions to ensure the index is between 0 and the array's length. Always carefully test and check your code. If you pass a constant expression or a simple number, the editor will check its bounds to prevent this crash.
 
@@ -372,7 +373,8 @@ Godot Shading language supports the most common types of flow control:
 Keep in mind that, in modern GPUs, an infinite loop can exist and can freeze your application (including editor).
 Godot can't protect you from this, so be careful not to make this mistake!
 
-.. warning::
+Warning:
+
 
     When exporting a GLES2 project to HTML5, WebGL 1.0 will be used. WebGL 1.0
     doesn't support dynamic loops, so shaders using those won't work there.
@@ -547,7 +549,8 @@ You can set uniforms in the editor in the material. Or you can set them through 
 
   material.set_shader_param("some_value", some_value)
 
-.. note:: The first argument to `set_shader_param` is the name of the uniform in the shader. It
+Note:
+ The first argument to `set_shader_param` is the name of the uniform in the shader. It
           must match *exactly* to the name of the uniform in the shader or else it will not be recognized.
 
 Any GLSL type except for *void* can be a uniform. Additionally, Godot provides
@@ -609,7 +612,8 @@ to shaders, Godot converts the type automatically. Below is a table of the corre
 | **Transform2D** | **mat4**  |
 +-----------------+-----------+
 
-.. note:: Be careful when setting shader uniforms from GDScript, no error will be thrown if the
+Note:
+ Be careful when setting shader uniforms from GDScript, no error will be thrown if the
           type does not match. Your shader will just exhibit undefined behavior.
 
 Uniforms can also be assigned default values:
@@ -637,7 +641,8 @@ Built-in functions
 A large number of built-in functions are supported, conforming to GLSL ES 3.0.
 When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature is used, it can be scalar or vector.
 
-.. note:: For a list of the functions that are not available in the GLES2 backend, please see the
+Note:
+ For a list of the functions that are not available in the GLES2 backend, please see the
           `Differences between GLES2 and GLES3 doc ( doc_gles2_gles3_differences )`.
 
 +------------------------------------------------------------------------+---------------------------------------------------------------+

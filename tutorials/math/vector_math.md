@@ -12,7 +12,8 @@ their uses. Vectors have many applications in both 2D and 3D development
 and Godot uses them extensively. Developing a good understanding of vector
 math is essential to becoming a strong game developer.
 
-.. note:: This tutorial is **not** a formal textbook on linear algebra. We
+Note:
+ This tutorial is **not** a formal textbook on linear algebra. We
           will only be looking at how it is applied to game development.
           For a broader look at the mathematics,
           see https://www.khanacademy.org/math/linear-algebra
@@ -26,7 +27,8 @@ as a pair of values such as `(4, 3)`.
 
 ![](img/vector_axis1.png)
 
-.. note:: If you're new to computer graphics, it might seem odd that the
+Note:
+ If you're new to computer graphics, it might seem odd that the
           positive `y` axis points **downwards** instead of upwards,
           as you probably learned in math class. However, this is common
           in most computer graphics applications.
@@ -110,7 +112,8 @@ Note that adding `a + b` gives the same result as `b + a`.
 Scalar multiplication
 ---------------------
 
-.. note:: Vectors represent both direction and magnitude. A value
+Note:
+ Vectors represent both direction and magnitude. A value
           representing only magnitude is called a **scalar**.
 
 A vector can be multiplied by a **scalar**:
@@ -124,7 +127,8 @@ gdscript GDScript
 
 ![](img/vector_mult1.png)
 
-.. note:: Multiplying a vector by a scalar does not change its direction,
+Note:
+ Multiplying a vector by a scalar does not change its direction,
           only its magnitude. This is how you **scale** a vector.
 
 Practical applications
@@ -179,7 +183,8 @@ gdscript GDScript
 ```
 
 
-.. warning:: Because normalization involves dividing by the vector's length,
+Warning:
+ Because normalization involves dividing by the vector's length,
              you cannot normalize a vector of length `0`. Attempting to
              do so will result in an error.
 
@@ -308,7 +313,8 @@ gdscript GDScript
     var c = a.cross(b)
 ```
 
-.. note:: In the cross product, order matters. `a.cross(b)` does not
+Note:
+ In the cross product, order matters. `a.cross(b)` does not
           give the same result as `b.cross(a)`. The resulting vectors
           point in **opposite** directions.
 

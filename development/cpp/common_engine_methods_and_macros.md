@@ -92,7 +92,8 @@ To insert placeholders in localizable strings, wrap the localization macro in a
     String file_path = "example.txt";
     vformat(TTR("Couldn't open \"%s\" for reading."), file_path);
 
-.. note::
+Note:
+
 
     When using `vformat()` and a translation macro together, always wrap the
     translation macro in `vformat()`, not the other way around. Otherwise, the
@@ -135,7 +136,8 @@ use this snippet:
 This will print the time spent between the `begin` declaration and the `end`
 declaration.
 
-.. note::
+Note:
+
 
     You may have to `#include "core/os/os.h"` if it's not present already.
 
@@ -175,13 +177,15 @@ Error macros
 
 Godot features many error macros to make error reporting more convenient.
 
-.. warning::
+Warning:
+
 
     Conditions in error macros work in the **opposite** way of GDScript's
     built-in `assert()` function. An error is reached if the condition inside
     evaluates to `true`, not `false`.
 
-.. note::
+Note:
+
 
     Only variants with custom messages are documented here, as these should
     always be used in new contributions. Make sure the custom message provided
@@ -235,7 +239,8 @@ Godot features many error macros to make error reporting more convenient.
     CRASH_NOW_MSG("Can't predict the future! Aborting.");
 
 
-.. seealso::
+See also:
+
 
     See `core/error_macros.h ( https://github.com/godotengine/godot/blob/3.x/core/error_macros.h )`
     in Godot's codebase for more information about each error macro.

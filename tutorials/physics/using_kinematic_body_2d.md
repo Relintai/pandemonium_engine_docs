@@ -13,7 +13,8 @@ works and what their pros and cons are. In this tutorial, we'll look at the
 `KinematicBody2D` node and show some examples
 of how to use it.
 
-.. note:: This document assumes you're familiar with Godot's various physics
+Note:
+ This document assumes you're familiar with Godot's various physics
           bodies. Please read `doc_physics_introduction` first.
 
 What is a kinematic body?
@@ -38,7 +39,8 @@ These methods move the body along a given vector and instantly stop if
 a collision is detected with another body. After a KinematicBody2D has collided,
 any *collision response* must be coded manually.
 
-.. warning:: You should only do Kinematic body movement in the `_physics_process()` callback.
+Warning:
+ You should only do Kinematic body movement in the `_physics_process()` callback.
 
 The two movement methods serve different purposes, and later in this tutorial, you'll
 see examples of how they work.
@@ -131,7 +133,8 @@ gdscript GDScript
         print("I collided with ", collision.collider.name)
 ```
 
-.. note:: `get_slide_count()` only counts times the body has collided and changed direction.      
+Note:
+ `get_slide_count()` only counts times the body has collided and changed direction.      
 
 See `KinematicCollision2D` for details on what
 collision data is returned.
@@ -196,7 +199,8 @@ from the Filesystem dock to the *Texture* property of the `Sprite`). In the
 `CollisionShape2D`'s *Shape* property, select "New RectangleShape2D" and
 size the rectangle to fit over the sprite image.
 
-.. note:: See `doc_2d_movement` for examples of implementing 2D movement schemes.
+Note:
+ See `doc_2d_movement` for examples of implementing 2D movement schemes.
 
 Attach a script to the KinematicBody2D and add the following code:
 

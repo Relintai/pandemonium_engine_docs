@@ -97,117 +97,32 @@ property to "On".
 
 Now add this script to ``HUD``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends CanvasLayer
 
     signal start_game
-
- .. code-tab:: csharp
-
-    public class HUD : CanvasLayer
-    {
-        // Don't forget to rebuild the project so the editor knows about the new signal.
-
-        [Signal]
-        public delegate void StartGame();
-    }
-
- .. code-tab:: cpp
-
-    // Copy `player.gdns` to `hud.gdns` and replace `Player` with `HUD`.
-    // Attach the `hud.gdns` file to the HUD node.
-
-    // Create two files `hud.cpp` and `hud.hpp` next to `entry.cpp` in `src`.
-    // This code goes in `hud.hpp`. We also define the methods we'll be using here.
-    #ifndef HUD_H
-    #define HUD_H
-
-    #include <Button.hpp>
-    #include <CanvasLayer.hpp>
-    #include <Godot.hpp>
-    #include <Label.hpp>
-    #include <Timer.hpp>
-
-    class HUD : public godot::CanvasLayer {
-        GODOT_CLASS(HUD, godot::CanvasLayer)
-
-        godot::Label *_score_label;
-        godot::Label *_message_label;
-        godot::Timer *_start_message_timer;
-        godot::Timer *_get_ready_message_timer;
-        godot::Button *_start_button;
-        godot::Timer *_start_button_timer;
-
-    public:
-        void _init() {}
-        void _ready();
-        void show_get_ready();
-        void show_game_over();
-        void update_score(const int score);
-        void _on_StartButton_pressed();
-        void _on_StartMessageTimer_timeout();
-        void _on_GetReadyMessageTimer_timeout();
-
-        static void _register_methods();
-    };
-
-    #endif // HUD_H
+```
 
 The ``start_game`` signal tells the ``Main`` node that the button
 has been pressed.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func show_message(text):
         $Message.text = text
         $Message.show()
         $MessageTimer.start()
-
- .. code-tab:: csharp
-
-    public void ShowMessage(string text)
-    {
-        var message = GetNode<Label>("Message");
-        message.Text = text;
-        message.Show();
-
-        GetNode<Timer>("MessageTimer").Start();
-    }
-
- .. code-tab:: cpp
-
-    // This code goes in `hud.cpp`.
-    #include "hud.hpp"
-
-    void HUD::_ready() {
-        _score_label = get_node<godot::Label>("ScoreLabel");
-        _message_label = get_node<godot::Label>("MessageLabel");
-        _start_message_timer = get_node<godot::Timer>("StartMessageTimer");
-        _get_ready_message_timer = get_node<godot::Timer>("GetReadyMessageTimer");
-        _start_button = get_node<godot::Button>("StartButton");
-        _start_button_timer = get_node<godot::Timer>("StartButtonTimer");
-    }
-
-    void HUD::_register_methods() {
-        godot::register_method("_ready", &HUD::_ready);
-        godot::register_method("show_get_ready", &HUD::show_get_ready);
-        godot::register_method("show_game_over", &HUD::show_game_over);
-        godot::register_method("update_score", &HUD::update_score);
-        godot::register_method("_on_StartButton_pressed", &HUD::_on_StartButton_pressed);
-        godot::register_method("_on_StartMessageTimer_timeout", &HUD::_on_StartMessageTimer_timeout);
-        godot::register_method("_on_GetReadyMessageTimer_timeout", &HUD::_on_GetReadyMessageTimer_timeout);
-        godot::register_signal<HUD>("start_game", godot::Dictionary());
-    }
+```
 
 This function is called when we want to display a message
 temporarily, such as "Get Ready".
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func show_game_over():
         show_message("Game Over")
         # Wait until the MessageTimer has counted down.
@@ -218,40 +133,7 @@ temporarily, such as "Get Ready".
         # Make a one-shot timer and wait for it to finish.
         yield(get_tree().create_timer(1), "timeout")
         $StartButton.show()
-
- .. code-tab:: csharp
-
-    async public void ShowGameOver()
-    {
-        ShowMessage("Game Over");
-
-        var messageTimer = GetNode<Timer>("MessageTimer");
-        await ToSignal(messageTimer, "timeout");
-
-        var message = GetNode<Label>("Message");
-        message.Text = "Dodge the\nCreeps!";
-        message.Show();
-
-        await ToSignal(GetTree().CreateTimer(1), "timeout");
-        GetNode<Button>("StartButton").Show();
-    }
-
- .. code-tab:: cpp
-
-    // This code goes in `hud.cpp`.
-    // There is no `yield` in GDNative, so we need to have every
-    // step be its own method that is called on timer timeout.
-    void HUD::show_get_ready() {
-        _message_label->set_text("Get Ready");
-        _message_label->show();
-        _get_ready_message_timer->start();
-    }
-
-    void HUD::show_game_over() {
-        _message_label->set_text("Game Over");
-        _message_label->show();
-        _start_message_timer->start();
-    }
+```
 
 This function is called when the player loses. It will show "Game Over" for 2
 seconds, then return to the title screen and, after a brief pause, show the
@@ -262,72 +144,28 @@ seconds, then return to the title screen and, after a brief pause, show the
           can be very useful to add delays such as in the above code, where we
           want to wait some time before showing the "Start" button.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func update_score(score):
         $ScoreLabel.text = str(score)
-
- .. code-tab:: csharp
-
-    public void UpdateScore(int score)
-    {
-        GetNode<Label>("ScoreLabel").Text = score.ToString();
-    }
-
- .. code-tab:: cpp
-
-    // This code goes in `hud.cpp`.
-    void HUD::update_score(const int p_score) {
-        _score_label->set_text(godot::Variant(p_score));
-    }
+```
 
 This function is called by ``Main`` whenever the score changes.
 
 Connect the ``timeout()`` signal of ``MessageTimer`` and the ``pressed()``
 signal of ``StartButton`` and add the following code to the new functions:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_StartButton_pressed():
         $StartButton.hide()
         emit_signal("start_game")
 
     func _on_MessageTimer_timeout():
         $Message.hide()
-
- .. code-tab:: csharp
-
-    public void OnStartButtonPressed()
-    {
-        GetNode<Button>("StartButton").Hide();
-        EmitSignal("StartGame");
-    }
-
-    public void OnMessageTimerTimeout()
-    {
-        GetNode<Label>("Message").Hide();
-    }
-
- .. code-tab:: cpp
-
-    // This code goes in `hud.cpp`.
-    void HUD::_on_StartButton_pressed() {
-        _start_button_timer->stop();
-        _start_button->hide();
-        emit_signal("start_game");
-    }
-
-    void HUD::_on_StartMessageTimer_timeout() {
-        _message_label->set_text("Dodge the\nCreeps");
-        _message_label->show();
-        _start_button_timer->start();
-    }
-
-    void HUD::_on_GetReadyMessageTimer_timeout() {
-        _message_label->hide();
-    }
+```
 
 Connecting HUD to Main
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -348,53 +186,29 @@ next to ``func new_game()`` in the script.
 
 In ``new_game()``, update the score display and show the "Get Ready" message:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
         $HUD.update_score(score)
         $HUD.show_message("Get Ready")
-
- .. code-tab:: csharp
-
-        var hud = GetNode<HUD>("HUD");
-        hud.UpdateScore(Score);
-        hud.ShowMessage("Get Ready!");
-
- .. code-tab:: cpp
-
-        _hud->update_score(score);
-        _hud->show_get_ready();
+```
 
 In ``game_over()`` we need to call the corresponding ``HUD`` function:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
         $HUD.show_game_over()
-
- .. code-tab:: csharp
-
-        GetNode<HUD>("HUD").ShowGameOver();
-
- .. code-tab:: cpp
-
-        _hud->show_game_over();
+```
 
 Finally, add this to ``_on_ScoreTimer_timeout()`` to keep the display in sync
 with the changing score:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
         $HUD.update_score(score)
-
- .. code-tab:: csharp
-
-        GetNode<HUD>("HUD").UpdateScore(Score);
-
- .. code-tab:: cpp
-
-        _hud->update_score(score);
+```
 
 Now you're ready to play! Click the "Play the Project" button. You will be asked
 to select a main scene, so choose ``Main.tscn``.
@@ -416,20 +230,11 @@ click "Groups" and you can type a new group name and click "Add".
 Now all mobs will be in the "mobs" group. We can then add the following line to
 the ``new_game()`` function in ``Main``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
         get_tree().call_group("mobs", "queue_free")
-
- .. code-tab:: csharp
-
-        // Note that for calling Godot-provided methods with strings,
-        // we have to use the original Godot snake_case name.
-        GetTree().CallGroup("mobs", "queue_free");
-
- .. code-tab:: cpp
-
-        get_tree()->call_group("mobs", "queue_free");
+```
 
 The ``call_group()`` function calls the named function on every node in a
 group - in this case we are telling every mob to delete itself.

@@ -66,16 +66,12 @@ The root :ref:`Viewport <class_Viewport>`
 is always at the top of the scene. From a node, it can be obtained in
 two different ways:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
         get_tree().get_root() # Access via scene main loop.
         get_node("/root") # Access via absolute path.
-
- .. code-tab:: csharp
-
-        GetTree().GetRoot(); // Access via scene main loop.
-        GetNode("/root"); // Access via absolute path.
+```
 
 This node contains the main viewport. Anything that is a child of a
 :ref:`Viewport <class_Viewport>`
@@ -137,39 +133,26 @@ another one. The simple way to do this is to use the
 :ref:`SceneTree.change_scene() <class_SceneTree_method_change_scene>`
 function:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _my_level_was_completed():
         get_tree().change_scene("res://levels/level2.tscn")
-
- .. code-tab:: csharp
-
-    public void _MyLevelWasCompleted()
-    {
-        GetTree().ChangeScene("res://levels/level2.tscn");
-    }
+```
 
 Rather than using file paths, one can also use ready-made
 :ref:`PackedScene <class_PackedScene>` resources using the equivalent
 function
 :ref:`SceneTree.change_scene_to(PackedScene scene) <class_SceneTree_method_change_scene_to>`:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var next_scene = preload("res://levels/level2.tscn")
 
     func _my_level_was_completed():
     	get_tree().change_scene_to(next_scene)
-
- .. code-tab:: csharp
-
-    public void _MyLevelWasCompleted()
-    {
-        var nextScene = (PackedScene)ResourceLoader.Load("res://levels/level2.tscn");
-        GetTree().ChangeSceneTo(nextScene);
-    }
+```
 
 These are quick and useful ways to switch scenes but have the drawback
 that the game will stall until the new scene is loaded and running. At

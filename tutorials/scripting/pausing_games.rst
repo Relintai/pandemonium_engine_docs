@@ -18,14 +18,11 @@ How pausing works
 To pause the game the pause state must be set. This is done by assigning
 ``true`` to the :ref:`SceneTree.paused <class_SceneTree_property_paused>` property:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     get_tree().paused = true
-
- .. code-tab:: csharp
-
-    GetTree().Paused = true;
+```
 
 Doing this will cause two things. First, 2D and 3D physics will be stopped
 for all nodes. Second, the behavior of certain nodes will stop or start
@@ -44,18 +41,12 @@ be found and changed under a node's :ref:`Node <class_Node>` properties in the i
 
 You can also alter the property with code:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         pause_mode = Node.PAUSE_MODE_PROCESS
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        PauseMode = Node.PauseModeEnum.Process;
-    }
+```
 
 This is what each mode tells a node to do:  
 
@@ -98,35 +89,21 @@ working when paused.
 Finally, make it so when a pause button is pressed (any button will do),
 enable the pause and show the pause screen.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_pause_button_pressed():
         get_tree().paused = true
         $pause_popup.show()
-
- .. code-tab:: csharp
-
-    public void _on_pause_button_pressed()
-    {
-        GetTree().Paused = true;
-        GetNode<Control>("pause_popup").Show();
-    }
+```
 
 To unpause, do the opposite when the pause screen is
 closed:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_pause_popup_close_pressed():
         $pause_popup.hide()
         get_tree().paused = false
-
- .. code-tab:: csharp
-
-    public void _on_pause_popup_close_pressed()
-    {
-        GetNode<Control>("pause_popup").Hide();
-        GetTree().Paused = false;
-    }
+```

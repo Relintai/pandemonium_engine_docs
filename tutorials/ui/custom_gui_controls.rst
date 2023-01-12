@@ -42,28 +42,15 @@ indicate that this is the currently focused control. To check for this
 status, the :ref:`Control.has_focus() <class_Control_method_has_focus>` method
 exists. Example
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _draw():
         if has_focus():
              draw_selected()
         else:
              draw_normal()
-
- .. code-tab:: csharp
-
-    public override void _Draw()
-    {
-        if (HasFocus())
-        {
-            DrawSelected()
-        }
-        else
-        {
-            DrawNormal();
-        }
-    }
+```
 
 Sizing
 ------
@@ -80,33 +67,21 @@ To provide this callback, just override
 :ref:`Control.get_minimum_size() <class_Control_method_get_minimum_size>`,
 for example:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func get_minimum_size():
         return Vector2(30, 30)
-
- .. code-tab:: csharp
-
-    public override Vector2 _GetMinimumSize()
-    {
-        return new Vector2(20, 20);
-    }
+```
 
 Alternatively, set it using a function:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         set_custom_minimum_size(Vector2(30, 30))
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        SetCustomMinimumSize(new Vector2(20, 20));
-    }
+```
 
 Input
 -----
@@ -131,24 +106,15 @@ This function is
 :ref:`Control._gui_input() <class_Control_method__gui_input>`.
 Simply override it in your control. No processing needs to be set.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Control
 
     func _gui_input(event):
        if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
            print("Left mouse button was pressed!")
-
- .. code-tab:: csharp
-
-    public override void _GuiInput(InputEvent @event)
-    {
-        if (@event is InputEventMouseButton mbe && mbe.ButtonIndex == (int)ButtonList.Left && mbe.Pressed)
-        {
-            GD.Print("Left mouse button was pressed!");
-        }
-    }
+```
 
 For more information about events themselves, check the :ref:`doc_inputevent`
 tutorial.
@@ -159,9 +125,9 @@ Notifications
 Controls also have many useful notifications for which no dedicated callback
 exists, but which can be checked with the _notification callback:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _notification(what):
         match what:
             NOTIFICATION_MOUSE_ENTER:
@@ -184,45 +150,4 @@ exists, but which can be checked with the _notification callback:
             NOTIFICATION_MODAL_CLOSE:
                 pass # For modal pop-ups, notification
                 # that the pop-up was closed.
-
- .. code-tab:: csharp
-
-    public override void _Notification(int what)
-    {
-        switch (what)
-        {
-            case NotificationMouseEnter:
-                // Mouse entered the area of this control.
-                break;
-
-            case NotificationMouseExit:
-                // Mouse exited the area of this control.
-                break;
-
-            case NotificationFocusEnter:
-                // Control gained focus.
-                break;
-
-            case NotificationFocusExit:
-                // Control lost focus.
-                break;
-
-            case NotificationThemeChanged:
-                // Theme used to draw the control changed;
-                // update and redraw is recommended if using a theme.
-                break;
-
-            case NotificationVisibilityChanged:
-                // Control became visible/invisible;
-                // check new status with is_visible().
-                break;
-
-            case NotificationResized:
-                // Control changed size; check new size with get_size().
-                break;
-
-            case NotificationModalClose:
-                // For modal pop-ups, notification that the pop-up was closed.
-                break;
-        }
-    }
+```

@@ -86,52 +86,56 @@ Next, add a script to the MeshInstance.
 
 Under ``_ready()``, create a new Array.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var surface_array = []
+```
 
 This will be the array that we keep our surface information in - it will hold
 all the arrays of data that the surface needs. Godot will expect it to be of
 size ``Mesh.ARRAY_MAX``, so resize it accordingly.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var surface_array = []
     surface_array.resize(Mesh.ARRAY_MAX)
+```
 
 Next create the arrays for each data type you will use.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var verts = PoolVector3Array()
     var uvs = PoolVector2Array()
     var normals = PoolVector3Array()
     var indices = PoolIntArray()
+```
 
 Once you have filled your data arrays with your geometry you can create a mesh
 by adding each array to ``surface_array`` and then committing to the mesh.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     surface_array[Mesh.ARRAY_VERTEX] = verts
     surface_array[Mesh.ARRAY_TEX_UV] = uvs
     surface_array[Mesh.ARRAY_NORMAL] = normals
     surface_array[Mesh.ARRAY_INDEX] = indices
 
     mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
+```
 
 .. note:: In this example, we used ``Mesh.PRIMITIVE_TRIANGLES``, but you can use any primitive type
           available from mesh.
 
 Put together, the full code looks like:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends MeshInstance
 
     func _ready():
@@ -156,7 +160,7 @@ Put together, the full code looks like:
 
         # Create mesh surface from mesh array.
         mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
-
+```
 
 The code that goes in the middle can be whatever you want. Below we will present some example code
 for generating a sphere.
@@ -171,9 +175,9 @@ generic approach to generating a sphere. If you are having trouble understanding
 or want to learn more about procedural geometry in general, you can use any tutorial
 that you find online.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends MeshInstance
 
     var rings = 50
@@ -230,6 +234,7 @@ that you find online.
             thisrow = point
 
       # Insert committing to the ArrayMesh here.
+```
 
 Saving
 ------
@@ -237,8 +242,9 @@ Saving
 Finally, we can use the :ref:`ResourceSaver <class_resourcesaver>` class to save the ArrayMesh.
 This is useful when you want to generate a mesh and then use it later without having to re-generate it.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Saves mesh to a .tres file with compression enabled.
     ResourceSaver.save("res://sphere.tres", mesh, ResourceSaver.FLAG_COMPRESS)
+```

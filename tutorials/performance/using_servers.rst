@@ -88,9 +88,10 @@ Creating a sprite
 This is a simple example of how to create a sprite from code and move it using the low-level
 :ref:`CanvasItem <class_CanvasItem>` API.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+
+```
     extends Node2D
 
 
@@ -111,6 +112,7 @@ This is a simple example of how to create a sprite from code and move it using t
         # Add the item, rotated 45 degrees and translated.
         var xform = Transform2D().rotated(deg2rad(45)).translated(Vector2(20, 30))
         VisualServer.canvas_item_set_transform(ci_rid, xform)
+```
 
 The Canvas Item API in the server allows you to add draw primitives to it. Once added, they can't be modified.
 The Item needs to be cleared and the primitives re-added (this is not the case for setting the transform,
@@ -118,20 +120,20 @@ which can be done as many times as desired).
 
 Primitives are cleared this way:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     VisualServer.canvas_item_clear(ci_rid)
-
+```
 
 Instantiating a Mesh into 3D space
 ----------------------------------
 
 The 3D APIs are different from the 2D ones, so the instantiation API must be used.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Spatial
 
 
@@ -153,6 +155,7 @@ The 3D APIs are different from the 2D ones, so the instantiation API must be use
         # Move the mesh around.
         var xform = Transform(Basis(), Vector3(20, 100, 0))
         VisualServer.instance_set_transform(instance, xform)
+```
 
 Creating a 2D RigidBody and moving a sprite with it
 ---------------------------------------------------
@@ -160,9 +163,9 @@ Creating a 2D RigidBody and moving a sprite with it
 This creates a :ref:`RigidBody2D <class_RigidBody2D>` using the :ref:`Physics2DServer <class_Physics2DServer>` API,
 and moves a :ref:`CanvasItem <class_CanvasItem>` when the body moves.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Physics2DServer expects references to be kept around.
     var body
     var shape
@@ -191,6 +194,7 @@ and moves a :ref:`CanvasItem <class_CanvasItem>` when the body moves.
         # The last parameter is optional, can be used as index
         # if you have many bodies and a single callback.
         Physics2DServer.body_set_force_integration_callback(body, self, "_body_moved", 0)
+```
 
 The 3D version should be very similar, as 2D and 3D physics servers are identical (using
 :ref:`RigidBody <class_RigidBody>` and :ref:`PhysicsServer <class_PhysicsServer>` respectively).

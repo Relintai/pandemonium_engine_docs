@@ -53,99 +53,64 @@ initialize it:
    behavior, not start it. Note that signal names are usually past-tense verbs
    like "entered", "skill_activated", or "item_collected".
 
-   .. tabs::
-     .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
        # Parent
        $Child.connect("signal_name", object_with_method, "method_on_the_object")
 
        # Child
        emit_signal("signal_name") # Triggers parent-defined behavior.
-
-     .. code-tab:: csharp
-
-       // Parent
-       GetNode("Child").Connect("SignalName", ObjectWithMethod, "MethodOnTheObject");
-
-       // Child
-       EmitSignal("SignalName"); // Triggers parent-defined behavior.
+```
 
 2. Call a method. Used to start behavior.
 
-   .. tabs::
-     .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
        # Parent
        $Child.method_name = "do"
 
        # Child, assuming it has String property 'method_name' and method 'do'.
        call(method_name) # Call parent-defined method (which child must own).
-
-     .. code-tab:: csharp
-
-       // Parent
-       GetNode("Child").Set("MethodName", "Do");
-
-       // Child
-       Call(MethodName); // Call parent-defined method (which child must own).
+```
 
 3. Initialize a :ref:`FuncRef <class_FuncRef>` property. Safer than a method
    as ownership of the method is unnecessary. Used to start behavior.
 
-   .. tabs::
-     .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
        # Parent
        $Child.func_property = funcref(object_with_method, "method_on_the_object")
 
        # Child
        func_property.call_func() # Call parent-defined method (can come from anywhere).
-
-     .. code-tab:: csharp
-
-       // Parent
-       GetNode("Child").Set("FuncProperty", GD.FuncRef(ObjectWithMethod, "MethodOnTheObject"));
-
-       // Child
-       FuncProperty.CallFunc(); // Call parent-defined method (can come from anywhere).
+```
 
 4. Initialize a Node or other Object reference.
 
-   .. tabs::
-     .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
        # Parent
        $Child.target = self
 
        # Child
        print(target) # Use parent-defined node.
-
-     .. code-tab:: csharp
-
-       // Parent
-       GetNode("Child").Set("Target", this);
-
-       // Child
-       GD.Print(Target); // Use parent-defined node.
+```
 
 5. Initialize a NodePath.
 
-   .. tabs::
-     .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
        # Parent
        $Child.target_path = ".."
 
        # Child
        get_node(target_path) # Use parent-defined NodePath.
-
-     .. code-tab:: csharp
-
-       // Parent
-       GetNode("Child").Set("TargetPath", NodePath(".."));
-
-       // Child
-       GetNode(TargetPath); // Use parent-defined NodePath.
+```
 
 These options hide the points of access from the child node. This in turn
 keeps the child **loosely coupled** to its environment. One can re-use it
@@ -158,9 +123,9 @@ in another context without any extra changes to its API.
   are siblings should only be aware of their hierarchies while an ancestor
   mediates their communications and references.
 
-  .. tabs::
-    .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
       # Parent
       $Left.target = $Right.get_node("Receiver")
 
@@ -173,32 +138,7 @@ in another context without any extra changes to its API.
       func _init():
           var receiver = Receiver.new()
           add_child(receiver)
-
-    .. code-tab:: csharp
-
-      // Parent
-      GetNode<Left>("Left").Target = GetNode("Right/Receiver");
-
-      public class Left : Node
-      {
-          public Node Target = null;
-
-          public void Execute()
-          {
-              // Do something with 'Target'.
-          }
-      }
-
-      public class Right : Node
-      {
-          public Node Receiver = null;
-
-          public Right()
-          {
-              Receiver = ResourceLoader.Load<Script>("Receiver.cs").New();
-              AddChild(Receiver);
-          }
-      }
+```
 
   The same principles also apply to non-Node objects that maintain dependencies
   on other objects. Whichever object actually owns the objects should manage

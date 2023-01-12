@@ -26,9 +26,9 @@ An ``AudioStreamPlayer`` named ``AudioStreamRecord`` is used for recording.
 
 .. image:: img/record_stream_player.png
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var effect
     var recording
 
@@ -39,20 +39,7 @@ An ``AudioStreamPlayer`` named ``AudioStreamRecord`` is used for recording.
         # And use it to retrieve its first effect, which has been defined
         # as an "AudioEffectRecord" resource.
         effect = AudioServer.get_bus_effect(idx, 0)
-
- .. code-tab:: csharp
-
-    private AudioEffectRecord _effect;
-    private AudioStreamSample _recording;
-
-    public override void _Ready()
-    {
-        // We get the index of the "Record" bus.
-        int idx = AudioServer.GetBusIndex("Record");
-        // And use it to retrieve its first effect, which has been defined
-        // as an "AudioEffectRecord" resource.
-        _effect = (AudioEffectRecord)AudioServer.GetBusEffect(idx, 0);
-    }
+```
 
 The audio recording is handled by the :ref:`class_AudioEffectRecord` resource
 which has three methods:
@@ -60,9 +47,9 @@ which has three methods:
 :ref:`is_recording_active() <class_AudioEffectRecord_method_is_recording_active>`,
 and :ref:`set_recording_active() <class_AudioEffectRecord_method_set_recording_active>`.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_RecordButton_pressed():
         if effect.is_recording_active():
             recording = effect.get_recording()
@@ -77,29 +64,8 @@ and :ref:`set_recording_active() <class_AudioEffectRecord_method_set_recording_a
             effect.set_recording_active(true)
             $RecordButton.text = "Stop"
             $Status.text = "Recording..."
+```
 
-  .. code-tab:: csharp
-
-    public void OnRecordButtonPressed()
-    {
-        if (_effect.IsRecordingActive())
-        {
-            _recording = _effect.GetRecording();
-            GetNode<Button>("PlayButton").Disabled = false;
-            GetNode<Button>("SaveButton").Disabled = false;
-            _effect.SetRecordingActive(false);
-            GetNode<Button>("RecordButton").Text = "Record";
-            GetNode<Label>("Status").Text = "";
-        }
-        else
-        {
-            GetNode<Button>("PlayButton").Disabled = true;
-            GetNode<Button>("SaveButton").Disabled = true;
-            _effect.SetRecordingActive(true);
-            GetNode<Button>("RecordButton").Text = "Stop";
-            GetNode<Label>("Status").Text = "Recording...";
-        }
-    }
 
 At the start of the demo, the recording effect is not active. When the user
 presses the ``RecordButton``, the effect is enabled with
@@ -109,9 +75,9 @@ On the next button press, as ``effect.is_recording_active()`` is ``true``,
 the recorded stream can be stored into the ``recording`` variable by calling
 ``effect.get_recording()``.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_PlayButton_pressed():
         print(recording)
         print(recording.format)
@@ -122,42 +88,20 @@ the recorded stream can be stored into the ``recording`` variable by calling
         print(data.size())
         $AudioStreamPlayer.stream = recording
         $AudioStreamPlayer.play()
-
-  .. code-tab:: csharp
-
-    public void OnPlayButtonPressed()
-    {
-        GD.Print(_recording);
-        GD.Print(_recording.Format);
-        GD.Print(_recording.MixRate);
-        GD.Print(_recording.Stereo);
-        byte[] data = _recording.Data;
-        GD.Print(data);
-        GD.Print(data.Length);
-        var audioStreamPlayer = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-        audioStreamPlayer.Stream = _recording;
-        audioStreamPlayer.Play();
-    }
+```
 
 To playback the recording, you assign the recording as the stream of the
 ``AudioStreamPlayer`` and call ``play()``.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_SaveButton_pressed():
         var save_path = $SaveButton/Filename.text
         recording.save_to_wav(save_path)
         $Status.text = "Saved WAV file to: %s\n(%s)" % [save_path, ProjectSettings.globalize_path(save_path)]
+```
 
-  .. code-tab:: csharp
-
-    public void OnSavebuttonPressed()
-    {
-        string savePath = GetNode<LineEdit>("SaveButton/Filename").Text;
-        _recording.SaveToWav(savePath);
-        GetNode<Label>("Status").Text = string.Format("Saved WAV file to: {0}\n({1})", savePath, ProjectSettings.GlobalizePath(savePath));
-    }
 
 To save the recording, you call ``save_to_wav()`` with the path to a file.
 In this demo, the path is defined by the user via a ``LineEdit`` input box.

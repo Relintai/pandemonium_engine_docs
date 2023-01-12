@@ -28,9 +28,9 @@ singleton, which you can use to query the state of an input.
 
 Examples:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _input(event):
         if event.is_action_pressed("jump"):
             jump()
@@ -40,25 +40,7 @@ Examples:
         if Input.is_action_pressed("move_right"):
             # Move as long as the key/button is pressed.
             position.x += speed * delta
-
- .. code-tab:: csharp
-
-    public override void _Input(InputEvent inputEvent)
-    {
-        if (inputEvent.IsActionPressed("jump"))
-        {
-            Jump();
-        }
-    }
-
-    public override void _PhysicsProcess(float delta)
-    {
-        if (Input.IsActionPressed("move_right"))
-        {
-            // Move as long as the key/button is pressed.
-            position.x += speed * delta;
-        }
-    }
+```
 
 This gives you the flexibility to mix-and-match the type of input processing
 you do.
@@ -74,27 +56,15 @@ Depending on the event type, the object will contain specific properties
 related to that event. To see what events actually look like, add a Node and
 attach the following script:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Node
 
 
     func _input(event):
         print(event.as_text())
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class Node : Godot.Node
-    {
-        public override void _Input(InputEvent inputEvent)
-        {
-            GD.Print(inputEvent.AsText());
-        }
-    }
+```
 
 As you press keys, move the mouse, and perform other inputs, you'll see each
 event scroll by in the output window. Here's an example of the output:
@@ -128,22 +98,13 @@ You can encounter errors if you try to access a property on an input type that
 doesn't contain it - calling ``position`` on ``InputEventKey`` for example. To
 avoid this, make sure to test the event type first:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _input(event):
         if event is InputEventMouseButton:
             print("mouse button event at ", event.position)
-
- .. code-tab:: csharp
-
-    public override void _Input(InputEvent inputEvent)
-    {
-        if (inputEvent is InputEventMouseButton mouseEvent)
-        {
-            GD.Print("mouse button event at ", mouseEvent.Position);
-        }
-    }
+```
 
 InputMap
 --------
@@ -164,22 +125,13 @@ Once you've defined your actions, you can process them in your scripts using
 ``is_action_pressed()`` and ``is_action_released()`` by passing the name of
 the action you're looking for:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _input(event):
         if event.is_action_pressed("my_action"):
             print("my_action occurred!")
-
- .. code-tab:: csharp
-
-    public override void _Input(InputEvent inputEvent)
-    {
-        if (inputEvent.IsActionPressed("my_action"))
-        {
-            GD.Print("my_action occurred!");
-        }
-    }
+```
 
 Keyboard events
 ---------------
@@ -189,26 +141,14 @@ While it's recommended to use input actions instead, there may be cases where
 you want to specifically look at key events. For this example, let's check for
 the :kbd:`T`:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _input(event):
         if event is InputEventKey and event.pressed:
             if event.scancode == KEY_T:
                 print("T was pressed")
-
- .. code-tab:: csharp
-
-    public override void _Input(InputEvent inputEvent)
-    {
-        if (inputEvent is InputEventKey keyEvent && keyEvent.Pressed)
-        {
-            if ((KeyList)keyEvent.Keycode == KeyList.T)
-            {
-                GD.Print("T was pressed");
-            }
-        }
-    }
+```
 
 .. tip:: See :ref:`@GlobalScope_KeyList <enum_@GlobalScope_KeyList>` for a list of scancode
         constants.
@@ -235,9 +175,9 @@ you to check for modifier combinations using boolean properties. Let's imagine
 you want one thing to happen when the :kbd:`T` is pressed, but something
 different when it's :kbd:`Shift + T`:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _input(event):
         if event is InputEventKey and event.pressed:
             if event.scancode == KEY_T:
@@ -245,21 +185,7 @@ different when it's :kbd:`Shift + T`:
                     print("Shift+T was pressed")
                 else:
                     print("T was pressed")
-
- .. code-tab:: csharp
-
-    public override void _Input(InputEvent inputEvent)
-    {
-        if (inputEvent is InputEventKey keyEvent && keyEvent.Pressed)
-        {
-            switch ((KeyList)keyEvent.Scancode)
-            {
-                case KeyList.T:
-                    GD.Print(keyEvent.Shift ? "Shift+T was pressed" : "T was pressed");
-                    break;
-            }
-        }
-    }
+```
 
 .. tip:: See :ref:`@GlobalScope_KeyList <enum_@GlobalScope_KeyList>` for a list of scancode
         constants.
@@ -281,33 +207,16 @@ be reported in the event's ``button_index`` property. Note that the scrollwheel
 also counts as a button - two buttons, to be precise, with both
 ``BUTTON_WHEEL_UP`` and ``BUTTON_WHEEL_DOWN`` being separate events.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _input(event):
         if event is InputEventMouseButton:
             if event.button_index == BUTTON_LEFT and event.pressed:
                 print("Left button was clicked at ", event.position)
             if event.button_index == BUTTON_WHEEL_UP and event.pressed:
                 print("Wheel up")
-
- .. code-tab:: csharp
-
-    public override void _Input(InputEvent inputEvent)
-    {
-        if (inputEvent is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
-        {
-            switch ((ButtonList)mouseEvent.ButtonIndex)
-            {
-                case ButtonList.Left:
-                    GD.Print("Left button was clicked at ", {mouseEvent.Position});
-                    break;
-                case ButtonList.WheelUp:
-                    GD.Print("Wheel up");
-                    break;
-            }
-        }
-    }
+```
 
 Mouse motion
 ~~~~~~~~~~~~
@@ -319,9 +228,9 @@ property.
 Here's an example using mouse events to drag-and-drop a :ref:`Sprite <class_Sprite>`
 node:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Node
 
 
@@ -342,51 +251,7 @@ node:
         if event is InputEventMouseMotion and dragging:
             # While dragging, move the sprite with the mouse.
             $Sprite.position = event.position
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class Node2D : Godot.Node2D
-    {
-        private bool dragging = false;
-        private int clickRadius = 32; // Size of the sprite.
-
-        public override void _Input(InputEvent inputEvent)
-        {
-            Sprite sprite = GetNodeOrNull<Sprite>("Sprite");
-            if (sprite == null)
-            {
-                return; // No suitable node was found.
-            }
-
-            if (inputEvent is InputEventMouseButton mouseEvent && (ButtonList)mouseEvent.ButtonIndex == ButtonList.Left)
-            {
-                if ((mouseEvent.Position - sprite.Position).Length() < clickRadius)
-                {
-                    // Start dragging if the click is on the sprite.
-                    if (!dragging && mouseEvent.Pressed)
-                    {
-                        dragging = true;
-                    }
-                }
-                // Stop dragging if the button is released.
-                if (dragging && !mouseEvent.Pressed)
-                {
-                    dragging = false;
-                }
-            }
-            else
-            {
-                if (inputEvent is InputEventMouseMotion motionEvent && dragging)
-                {
-                    // While dragging, move the sprite with the mouse.
-                    sprite.Position = motionEvent.Position;
-                }
-            }
-        }
-    }
+```
 
 Touch events
 ------------

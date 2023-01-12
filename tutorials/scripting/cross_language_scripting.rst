@@ -10,10 +10,9 @@ in different languages.
 
 The following two scripts will be used as references throughout this page.
 
-.. tabs::
+gdscript GDScript
 
- .. code-tab:: gdscript GDScript
-
+```
     extends Node
 
     var str1 : String = "foo"
@@ -32,35 +31,7 @@ The following two scripts will be used as references throughout this page.
     func print_n_times(msg : String, n : int) -> void:
         for i in range(n):
             print(msg)
-
- .. code-tab:: csharp
-
-    public class MyCSharpNode : Node
-    {
-        public String str1 = "bar";
-        public String str2 { get { return "barbar"; } }
-
-        public void PrintNodeName(Node node)
-        {
-            GD.Print(node.GetName());
-        }
-
-        public void PrintArray(String[] arr)
-        {
-            foreach (String element in arr)
-            {
-                GD.Print(element);
-            }
-        }
-
-        public void PrintNTimes(String msg, int n)
-        {
-            for (int i = 0; i < n; ++i)
-            {
-                GD.Print(msg);
-            }
-        }
-    }
+```
 
 Instantiating nodes
 -------------------

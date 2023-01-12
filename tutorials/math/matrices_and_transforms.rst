@@ -72,22 +72,15 @@ becomes 2, and 0 times 2 becomes 0, so we end up with this:
 
 To do this in code, we can simply multiply each of the vectors:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var t = Transform2D()
     # Scale
     t.x *= 2
     t.y *= 2
     transform = t # Change the node's transform to what we just calculated.
-
- .. code-tab:: csharp
-
-    Transform2D t = Transform2D.Identity;
-    // Scale
-    t.x *= 2;
-    t.y *= 2;
-    Transform = t; // Change the node's transform to what we just calculated.
+```
 
 If we wanted to return it to its original scale, we can multiply
 each component by 0.5. That's pretty much all there is to scaling
@@ -155,9 +148,9 @@ to find what the actual values should be:
 
 Here's how that would be done in code (place the script on a Node2D):
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var rot = 0.5 # The rotation to apply.
     var t = Transform2D()
     t.x.x = cos(rot)
@@ -165,15 +158,7 @@ Here's how that would be done in code (place the script on a Node2D):
     t.x.y = sin(rot)
     t.y.x = -sin(rot)
     transform = t # Change the node's transform to what we just calculated.
-
- .. code-tab:: csharp
-
-    float rot = 0.5f; // The rotation to apply.
-    Transform2D t = Transform2D.Identity;
-    t.x.x = t.y.y = Mathf.Cos(rot);
-    t.x.y = t.y.x = Mathf.Sin(rot);
-    t.y.x *= -1;
-    Transform = t; // Change the node's transform to what we just calculated.
+```
 
 To calculate the object's rotation from an existing transformation
 matrix, you can use `atan2(t.x.y, t.x.x)`, where t is the Transform2D.
@@ -244,9 +229,9 @@ you to try and reproduce the screenshot without looking at the code!
 
 .. image:: img/matrices_and_transforms/putting-all-together.png
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var t = Transform2D()
     # Translation
     t.origin = Vector2(350, 150)
@@ -260,21 +245,7 @@ you to try and reproduce the screenshot without looking at the code!
     t.x *= 3
     t.y *= 3
     transform = t # Change the node's transform to what we just calculated.
-
- .. code-tab:: csharp
-
-    Transform2D t = Transform2D.Identity;
-    // Translation
-    t.origin = new Vector2(350, 150);
-    // Rotation
-    float rot = -0.5f; // The rotation to apply.
-    t.x.x = t.y.y = Mathf.Cos(rot);
-    t.x.y = t.y.x = Mathf.Sin(rot);
-    t.y.x *= -1;
-    // Scale
-    t.x *= 3;
-    t.y *= 3;
-    Transform = t; // Change the node's transform to what we just calculated.
+```
 
 Shearing the transformation matrix (advanced)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -310,20 +281,14 @@ As an example, let's set Y to (1, 1):
 
 .. image:: img/matrices_and_transforms/shear.png
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var t = Transform2D()
     # Shear by setting Y to (1, 1)
     t.y = Vector2.ONE
     transform = t # Change the node's transform to what we just calculated.
-
- .. code-tab:: csharp
-
-    Transform2D t = Transform2D.Identity;
-    // Shear by setting Y to (1, 1)
-    t.y = Vector2.One;
-    Transform = t; // Change the node's transform to what we just calculated.
+```
 
 .. note:: You can't set the raw values of a Transform2D in the editor,
           so you *must* use code if you want to shear the object.
@@ -383,30 +348,22 @@ have a world position and want to know where it is relative to the player.
 We can find what a vector relative to the player would be defined in
 world space as using the "xform" method:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # World space vector 100 units below the player.
     print(transform.xform(Vector2(0, 100)))
-
- .. code-tab:: csharp
-
-    // World space vector 100 units below the player.
-    GD.Print(Transform.Xform(new Vector2(0, 100)));
+```
 
 And we can use the "xform_inv" method to find a what world space position
 would be if it was instead defined relative to the player:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Where is (0, 100) relative to the player?
     print(transform.xform_inv(Vector2(0, 100)))
-
- .. code-tab:: csharp
-
-    // Where is (0, 100) relative to the player?
-    GD.Print(Transform.XformInv(new Vector2(0, 100)));
+```
 
 .. note:: If you know in advance that the transform is positioned at
           (0, 0), you can use the "basis_xform" or "basis_xform_inv"
@@ -425,16 +382,11 @@ add multiples of the basis vectors to move an object relative to itself.
 
 This code moves an object 100 units to its own right:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     transform.origin += transform.x * 100
-
- .. code-tab:: csharp
-
-    Transform2D t = Transform;
-    t.origin += t.x * 100;
-    Transform = t;
+```
 
 For moving in 3D, you would need to replace "x" with "basis.x".
 
@@ -472,9 +424,9 @@ basis vectors.
 To calculate a child transform's world space transform manually, this is
 the code we would use:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Set up transforms just like in the image, except make positions be 100 times bigger.
     var parent = Transform2D(Vector2(2, 0), Vector2(0, 1), Vector2(100, 200))
     var child = Transform2D(Vector2(0.5, 0), Vector2(0, 0.5), Vector2(100, 100))
@@ -489,45 +441,21 @@ the code we would use:
 
     # Change the node's transform to what we just calculated.
     transform = Transform2D(basis_x, basis_y, origin)
-
- .. code-tab:: csharp
-
-    // Set up transforms just like in the image, except make positions be 100 times bigger.
-    Transform2D parent = new Transform2D(2, 0, 0, 1, 100, 200);
-    Transform2D child = new Transform2D(0.5f, 0, 0, 0.5f, 100, 100);
-
-    // Calculate the child's world space transform
-    // origin = (2, 0) * 100 + (0, 1) * 100 + (100, 200)
-    Vector2 origin = parent.x * child.origin.x + parent.y * child.origin.y + parent.origin;
-    // basisX = (2, 0) * 0.5 + (0, 1) * 0 = (0.5, 0)
-    Vector2 basisX = parent.x * child.x.x + parent.y * child.x.y;
-    // basisY = (2, 0) * 0 + (0, 1) * 0.5 = (0.5, 0)
-    Vector2 basisY = parent.x * child.y.x + parent.y * child.y.y;
-
-    // Change the node's transform to what we just calculated.
-    Transform = new Transform2D(basisX, basisY, origin);
+```
 
 In actual projects, we can find the world transform of the child by
 applying one transform onto another using the `*` operator:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Set up transforms just like in the image, except make positions be 100 times bigger.
     var parent = Transform2D(Vector2(2, 0), Vector2(0, 1), Vector2(100, 200))
     var child = Transform2D(Vector2(0.5, 0), Vector2(0, 0.5), Vector2(100, 100))
 
     # Change the node's transform to what would be the child's world transform.
     transform = parent * child
-
- .. code-tab:: csharp
-
-    // Set up transforms just like in the image, except make positions be 100 times bigger.
-    Transform2D parent = new Transform2D(2, 0, 0, 1, 100, 200);
-    Transform2D child = new Transform2D(0.5f, 0, 0, 0.5f, 100, 100);
-
-    // Change the node's transform to what would be the child's world transform.
-    Transform = parent * child;
+```
 
 .. note:: When multiplying matrices, order matters! Don't mix them up.
 
@@ -547,36 +475,25 @@ easier to just provide a few examples.
 Multiplying an inverse transform by the normal transform undoes all
 transformations:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var ti = transform.affine_inverse()
     var t = ti * transform
     # The transform is the identity transform.
-
- .. code-tab:: csharp
-
-    Transform2D ti = Transform.AffineInverse();
-    Transform2D t = ti * Transform;
-    // The transform is the identity transform.
+```
 
 Transforming a position by a transform and its inverse results in the
 same position (same for "xform_inv"):
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var ti = transform.affine_inverse()
     position = transform.xform(position)
     position = ti.xform(position)
     # The position is the same as before.
-
- .. code-tab:: csharp
-
-    Transform2D ti = Transform.AffineInverse();
-    Position = Transform.Xform(Position);
-    Position = ti.Xform(Position);
-    // The position is the same as before.
+```
 
 How does it all work in 3D?
 ---------------------------

@@ -203,20 +203,12 @@ workflow.
 
 The above will display as:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
-
+gdscript GDScript
+```
     func _ready():
         var sprite = get_node("Sprite")
         print(sprite.get_pos())
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        var sprite = GetNode("Sprite");
-        GD.Print(sprite.GetPos());
-    }
+```
 
 To denote important information, add a paragraph starting with "[b]Note:[/b]" at
 the end of the description:

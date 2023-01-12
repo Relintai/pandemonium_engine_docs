@@ -230,9 +230,9 @@ class contains things that won't be relevant to one's custom data structure.
 As such, it can be helpful to construct one's own node type when building
 tree structures.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Object
     class_name TreeNode
 
@@ -245,33 +245,7 @@ tree structures.
                 # Destructor.
                 for a_child in _children:
                     a_child.free()
-
-  .. code-tab:: csharp
-
-    // Can decide whether to expose getters/setters for properties later
-    public class TreeNode : Object
-    {
-        private TreeNode _parent = null;
-
-        private object[] _children = new object[0];
-
-        public override void Notification(int what)
-        {
-            switch (what)
-            {
-                case NotificationPredelete:
-                    foreach (object child in _children)
-                    {
-                        TreeNode node = child as TreeNode;
-                        if (node != null)
-                            node.Free();
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+```
 
 From here, one can then create their own structures with specific features,
 limited only by their imagination.

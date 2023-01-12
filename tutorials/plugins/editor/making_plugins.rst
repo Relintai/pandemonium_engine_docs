@@ -43,9 +43,9 @@ creation of the files and the config file's values.
 
 To continue with the example, use the following values:
 
-.. tabs::
- .. code-tab:: ini GDScript
+ini GDScript
 
+```
     Plugin Name: My Custom Node
     Subfolder: my_custom_node
     Description: A custom node made to extend the Godot Engine.
@@ -54,17 +54,7 @@ To continue with the example, use the following values:
     Language: GDScript
     Script Name: custom_node.gd
     Activate now: No
-
- .. code-tab:: ini C#
-
-    Plugin Name: My Custom Node
-    Subfolder: my_custom_node
-    Description: A custom node made to extend the Godot Engine.
-    Author: Your Name Here
-    Version: 1.0.0
-    Language: C#
-    Script Name: CustomNode.cs
-    Activate now: No
+```
 
 .. warning::
 
@@ -107,9 +97,10 @@ the dialog generates these callbacks for you. Your script should look something
 like this:
 
 .. _doc_making_plugins_template_code:
-.. tabs::
- .. code-tab:: gdscript GDScript
 
+gdscript GDScript
+
+```
     tool
     extends EditorPlugin
 
@@ -122,27 +113,7 @@ like this:
     func _exit_tree():
         # Clean-up of the plugin goes here.
         pass
-
- .. code-tab:: csharp
-
-    #if TOOLS
-    using Godot;
-    using System;
-
-    [Tool]
-    public class CustomNode : EditorPlugin
-    {
-        public override void _EnterTree()
-        {
-            // Initialization of the plugin goes here.
-        }
-
-        public override void _ExitTree()
-        {
-            // Clean-up of the plugin goes here.
-        }
-    }
-    #endif
+```
 
 This is a good template to use when creating new plugins.
 
@@ -174,9 +145,9 @@ clicked. For that, we'll need a simple script that extends from
 :ref:`class_Button`. It could also extend
 :ref:`class_BaseButton` if you prefer:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     tool
     extends Button
 
@@ -187,25 +158,7 @@ clicked. For that, we'll need a simple script that extends from
 
     func clicked():
         print("You clicked me!")
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    [Tool]
-    public class MyButton : Button
-    {
-        public override void _EnterTree()
-        {
-            Connect("pressed", this, "clicked");
-        }
-
-        public void clicked()
-        {
-            GD.Print("You clicked me!");
-        }
-    }
+```
 
 That's it for our basic button. You can save this as ``my_button.gd`` inside the
 plugin folder. You'll also need a 16×16 icon to show in the scene tree. If you
@@ -218,9 +171,9 @@ don't have one, you can grab the default one from the engine and save it in your
 Now, we need to add it as a custom type so it shows on the **Create New Node**
 dialog. For that, change the ``custom_node.gd`` script to the following:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     tool
     extends EditorPlugin
 
@@ -235,33 +188,7 @@ dialog. For that, change the ``custom_node.gd`` script to the following:
         # Clean-up of the plugin goes here.
         # Always remember to remove it from the engine when deactivated.
         remove_custom_type("MyButton")
-
- .. code-tab:: csharp
-
-    #if TOOLS
-    using Godot;
-    using System;
-
-    [Tool]
-    public class CustomNode : EditorPlugin
-    {
-        public override void _EnterTree()
-        {
-            // Initialization of the plugin goes here.
-            // Add the new type with a name, a parent type, a script and an icon.
-            var script = GD.Load<Script>("MyButton.cs");
-            var texture = GD.Load<Texture>("icon.png");
-            AddCustomType("MyButton", "Button", script, texture);
-        }
-
-        public override void _ExitTree()
-        {
-            // Clean-up of the plugin goes here.
-            // Always remember to remove it from the engine when deactivated.
-            RemoveCustomType("MyButton");
-        }
-    }
-    #endif
+```
 
 With that done, the plugin should already be available in the plugin list in the
 **Project Settings**, so activate it as explained in `Checking the results`_.
@@ -287,9 +214,9 @@ Creating a custom dock is done just like a custom node. Create a new
 ``plugin.cfg`` file in the ``addons/my_custom_dock`` folder, then
 add the following content to it:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     [plugin]
 
     name="My Custom Dock"
@@ -297,16 +224,7 @@ add the following content to it:
     author="Your Name Here"
     version="1.0"
     script="custom_dock.gd"
-
- .. code-tab:: csharp
-
-    [plugin]
-
-    name="My Custom Dock"
-    description="A custom dock made so I can learn how to make plugins."
-    author="Your Name Here"
-    version="1.0"
-    script="CustomDock.cs"
+```
 
 Then create the script ``custom_dock.gd`` in the same folder. Fill it with the
 :ref:`template we've seen before <doc_making_plugins_template_code>` to get a
@@ -334,9 +252,9 @@ You need to select a dock position and define the control to add
 **remove the dock** when the plugin is deactivated.
 The script could look like this:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     tool
     extends EditorPlugin
 
@@ -361,34 +279,7 @@ The script could look like this:
         remove_control_from_docks(dock)
         # Erase the control from the memory.
         dock.free()
-
- .. code-tab:: csharp
-
-    #if TOOLS
-    using Godot;
-    using System;
-
-    [Tool]
-    public class CustomDock : EditorPlugin
-    {
-        Control dock;
-
-        public override void _EnterTree()
-        {
-            dock = (Control)GD.Load<PackedScene>("addons/my_custom_dock/my_dock.tscn").Instance();
-            AddControlToDock(DockSlot.LeftUl, dock);
-        }
-
-        public override void _ExitTree()
-        {
-            // Clean-up of the plugin goes here.
-            // Remove the dock.
-            RemoveControlFromDocks(dock);
-            // Erase the control from the memory.
-            dock.Free();
-        }
-    }
-    #endif
+```
 
 Note that, while the dock will initially appear at its specified position,
 the user can freely change its position and save the resulting layout.

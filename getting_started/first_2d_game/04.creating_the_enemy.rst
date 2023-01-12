@@ -58,84 +58,23 @@ Enemy script
 
 Add a script to the ``Mob`` like this:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends RigidBody2D
-
- .. code-tab:: csharp
-
-    public class Mob : RigidBody2D
-    {
-        // Don't forget to rebuild the project.
-    }
-
- .. code-tab:: cpp
-
-    // Copy `player.gdns` to `mob.gdns` and replace `Player` with `Mob`.
-    // Attach the `mob.gdns` file to the Mob node.
-
-    // Create two files `mob.cpp` and `mob.hpp` next to `entry.cpp` in `src`.
-    // This code goes in `mob.hpp`. We also define the methods we'll be using here.
-    #ifndef MOB_H
-    #define MOB_H
-
-    #include <AnimatedSprite.hpp>
-    #include <Godot.hpp>
-    #include <RigidBody2D.hpp>
-
-    class Mob : public godot::RigidBody2D {
-        GODOT_CLASS(Mob, godot::RigidBody2D)
-
-        godot::AnimatedSprite *_animated_sprite;
-
-    public:
-        void _init() {}
-        void _ready();
-        void _on_VisibilityNotifier2D_screen_exited();
-
-        static void _register_methods();
-    };
-
-    #endif // MOB_H
+```
 
 Now let's look at the rest of the script. In ``_ready()`` we play the animation
 and randomly choose one of the three animation types:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         $AnimatedSprite.playing = true
         var mob_types = $AnimatedSprite.frames.get_animation_names()
         $AnimatedSprite.animation = mob_types[randi() % mob_types.size()]
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        var animSprite = GetNode<AnimatedSprite>("AnimatedSprite");
-        animSprite.Playing = true;
-        string[] mobTypes = animSprite.Frames.GetAnimationNames();
-        animSprite.Animation = mobTypes[GD.Randi() % mobTypes.Length];
-    }
-
- .. code-tab:: cpp
-
-    // This code goes in `mob.cpp`.
-    #include "mob.hpp"
-
-    #include <RandomNumberGenerator.hpp>
-    #include <SpriteFrames.hpp>
-
-    void Mob::_ready() {
-        godot::Ref<godot::RandomNumberGenerator> random = godot::RandomNumberGenerator::_new();
-        random->randomize();
-        _animated_sprite = get_node<godot::AnimatedSprite>("AnimatedSprite");
-        _animated_sprite->_set_playing(true);
-        godot::PoolStringArray mob_types = _animated_sprite->get_sprite_frames()->get_animation_names();
-        _animated_sprite->set_animation(mob_types[random->randi() % mob_types.size()]);
-    }
+```
 
 First, we get the list of animation names from the AnimatedSprite's ``frames``
 property. This returns an Array containing all three animation names: ``["walk",
@@ -153,25 +92,12 @@ The last piece is to make the mobs delete themselves when they leave the screen.
 Connect the ``screen_exited()`` signal of the ``VisibilityNotifier2D`` node and
 add this code:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_VisibilityNotifier2D_screen_exited():
         queue_free()
-
- .. code-tab:: csharp
-
-    public void OnVisibilityNotifier2DScreenExited()
-    {
-        QueueFree();
-    }
-
- .. code-tab:: cpp
-
-    // This code goes in `mob.cpp`.
-    void Mob::_on_VisibilityNotifier2D_screen_exited() {
-        queue_free();
-    }
+```
 
 This completes the `Mob` scene.
 

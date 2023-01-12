@@ -30,20 +30,13 @@ Pressing the Back button will exit the application if
 
 Handling the notification is done as follows (on any node):
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _notification(what):
         if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
             get_tree().quit() # default behavior
-
- .. code-tab:: csharp
-
-    public override void _Notification(int what)
-    {
-        if (what == MainLoop.NotificationWmQuitRequest)
-            GetTree().Quit(); // default behavior
-    }
+```
 
 When developing mobile apps, quitting is not desired unless the user is
 on the main screen, so the behavior can be changed.
@@ -51,14 +44,11 @@ on the main screen, so the behavior can be changed.
 It is important to note that by default, Godot apps have the built-in
 behavior to quit when quit is requested, this can be changed:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     get_tree().set_auto_accept_quit(false)
-
- .. code-tab:: csharp
-
-    GetTree().SetAutoAcceptQuit(false);
+```
 
 Sending your own quit notification
 ----------------------------------
@@ -72,11 +62,8 @@ to delay the line that forces the quit.
 
 Instead, you should send a quit request:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
-
- .. code-tab:: csharp
-
-    GetTree().Notification(MainLoop.NotificationWmQuitRequest)
+```

@@ -9,31 +9,16 @@ will render to the image it generates. This holds true even for nodes outside
 of the "current" scene. Autoloads fall into this category, but so do
 scenes which one instances and adds to the tree at runtime:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var simultaneous_scene = preload("res://levels/level2.tscn").instance()
 
     func _add_a_scene_manually():
         # This is like autoloading the scene, only
         # it happens after already loading the main scene.
         get_tree().get_root().add_child(simultaneous_scene)
-
- .. code-tab:: csharp
-
-    public PackedScene simultaneousScene;
-
-    public MyClass()
-    {
-        simultaneousScene = (PackedScene)ResourceLoader.Load("res://levels/level2.tscn").instance();
-    }
-
-    public void _AddASceneManually()
-    {
-        // This is like autoloading the scene, only
-        // it happens after already loading the main scene.
-        GetTree().GetRoot().AddChild(simultaneousScene);
-    }
+```
 
 To complete the cycle and swap out the new scene with the old one,
 developers have a choice to make. Many strategies exist for removing a scene
@@ -121,14 +106,11 @@ There are also cases where one may wish to have many scenes present at the same
 time. Perhaps one is adding their own singleton at runtime, or preserving a
 a scene's data between scene changes (adding the scene to the root node).
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
         get_tree().get_root().add_child(scene)
-
- .. code-tab:: csharp
-
-        GetTree().GetRoot().AddChild(scene);
+```
 
 Perhaps instead they wish to display multiple scenes at the same time using
 :ref:`ViewportContainers <class_ViewportContainer>`. This is optimal in

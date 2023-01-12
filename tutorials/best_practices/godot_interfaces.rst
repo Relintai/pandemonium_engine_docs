@@ -18,16 +18,12 @@ Acquiring object references
 For all :ref:`Object <class_Object>`\s, the most basic way of referencing them
 is to get a reference to an existing object from another acquired instance.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var obj = node.object # Property access.
     var obj = node.get_object() # Method access.
-
-  .. code-tab:: csharp
-
-    Object obj = node.Object; // Property access.
-    Object obj = node.GetObject(); // Method access.
+```
 
 The same principle applies for :ref:`Reference <class_Reference>` objects.
 While users often access :ref:`Node <class_Node>` and
@@ -36,9 +32,9 @@ While users often access :ref:`Node <class_Node>` and
 Instead of property or method access, one can get Resources by load
 access.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var preres = preload(path) # Load resource during scene load
     var res = load(path) # Load resource when program reaches statement
 
@@ -65,52 +61,7 @@ access.
         if not const_script:
             return "Must initialize property 'const_script'."
         return ""
-
-  .. code-tab:: csharp
-
-    // Tool script added for the sake of the "const [Export]" example.
-    [Tool]
-    public MyType
-    {
-        // Property initializations load during Script instancing, i.e. .new().
-        // No "preload" loads during scene load exists in C#.
-
-        // Initialize with a value. Editable at runtime.
-        public Script MyScript = GD.Load<Script>("MyScript.cs");
-
-        // Initialize with same value. Value cannot be changed.
-        public readonly Script MyConstScript = GD.Load<Script>("MyScript.cs");
-
-        // Like 'readonly' due to inaccessible setter.
-        // But, value can be set during constructor, i.e. MyType().
-        public Script Library { get; } = GD.Load<Script>("res://addons/plugin/library.gd");
-
-        // If need a "const [Export]" (which doesn't exist), use a
-        // conditional setter for a tool script that checks if it's executing
-        // in the editor.
-        private PackedScene _enemyScn;
-
-        [Export]
-        public PackedScene EnemyScn
-        {
-            get { return _enemyScn; }
-            set
-            {
-                if (Engine.IsEditorHint())
-                {
-                    _enemyScn = value;
-                }
-            }
-        };
-
-        // Warn users if the value hasn't been set.
-        public String _GetConfigurationWarning()
-        {
-            if (EnemyScn == null)
-                return "Must initialize property 'EnemyScn'.";
-            return "";
-        }
-    }
+```
 
 Note the following:
 
@@ -126,9 +77,9 @@ Note the following:
 
 Nodes likewise have an alternative access point: the SceneTree.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Node
 
     # Slow.
@@ -178,66 +129,7 @@ Nodes likewise have an alternative access point: the SceneTree.
         print(globals)
         print(globals.prop)
         print(globals.my_getter())
-
-  .. code-tab:: csharp
-
-    public class MyNode
-    {
-        // Slow
-        public void DynamicLookupWithDynamicNodePath()
-        {
-            GD.Print(GetNode(NodePath("Child")));
-        }
-
-        // Fastest. Lookup node and cache for future access.
-        // Doesn't break if node moves later.
-        public Node Child;
-        public void _Ready()
-        {
-            Child = GetNode(NodePath("Child"));
-        }
-        public void LookupAndCacheForFutureAccess()
-        {
-            GD.Print(Child);
-        }
-
-        // Delegate reference assignment to an external source.
-        // Con: need to perform a validation check.
-        // Pro: node makes no requirements of its external structure.
-        //      'prop' can come from anywhere.
-        public object Prop;
-        public void CallMeAfterPropIsInitializedByParent()
-        {
-            // Validate prop in one of three ways.
-
-            // Fail with no notification.
-            if (prop == null)
-            {
-                return;
-            }
-
-            // Fail with an error message.
-            if (prop == null)
-            {
-                GD.PrintErr("'Prop' wasn't initialized");
-                return;
-            }
-
-            // Fail and terminate.
-            Debug.Assert(Prop, "'Prop' wasn't initialized");
-        }
-
-        // Use an autoload.
-        // Dangerous for typical nodes, but useful for true singleton nodes
-        // that manage their own data and don't interfere with other objects.
-        public void ReferenceAGlobalAutoloadedVariable()
-        {
-            Node globals = GetNode(NodePath("/root/Globals"));
-            GD.Print(globals);
-            GD.Print(globals.prop);
-            GD.Print(globals.my_getter());
-        }
-    };
+```
 
 .. _doc_accessing_data_or_logic_from_object:
 
@@ -288,9 +180,9 @@ accesses:
 - A duck-typed property access. These will property check (as described above).
   If the operation isn't supported by the object, execution will halt.
 
-  .. tabs::
-    .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
       # All Objects have duck-typed get, set, and call wrapper methods.
       get_parent().set("visible", false)
 
@@ -304,22 +196,15 @@ accesses:
       # existence, but the property isn't recognized in any _get_property_list
       # method, then the set() and get() methods will work, but the symbol
       # access will claim it can't find the property.
-
-    .. code-tab:: csharp
-
-      // All Objects have duck-typed Get, Set, and Call wrapper methods.
-      GetParent().Set("visible", false);
-
-      // C# is a static language, so it has no dynamic symbol access, e.g.
-      // `GetParent().Visible = false` won't work.
+```
 
 - A method check. In the case of
   :ref:`CanvasItem.visible <class_CanvasItem_property_visible>`, one can
   access the methods, ``set_visible`` and ``is_visible`` like any other method.
 
-  .. tabs::
-    .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
       var child = get_child(0)
 
       # Dynamic lookup.
@@ -375,89 +260,15 @@ accesses:
       # defines (which means documentation! But maybe worth it?).
       # Any script that conforms to the documented "interface" of the name or
       # group can fill in for it.
-
-    .. code-tab:: csharp
-
-      Node child = GetChild(0);
-
-      // Dynamic lookup.
-      child.Call("SetVisible", false);
-
-      // Dynamic lookup, checks for method existence first.
-      if (child.HasMethod("SetVisible"))
-      {
-          child.Call("SetVisible", false);
-      }
-
-      // Use a group as if it were an "interface", i.e. assume it implements
-      // certain methods.
-      // Requires good documentation for the project to keep it reliable
-      // (unless you make editor tools to enforce it at editor time).
-      // Note, this is generally not as good as using an actual interface in
-      // C#, but you can't set C# interfaces from the editor since they are
-      // language-level features.
-      if (child.IsInGroup("Offer"))
-      {
-          child.Call("Accept");
-          child.Call("Reject");
-      }
-
-      // Cast check, followed by static lookup.
-      CanvasItem ci = GetParent() as CanvasItem;
-      if (ci != null)
-      {
-          ci.SetVisible(false);
-
-          // useful when you need to make multiple safe calls to the class
-          ci.ShowOnTop = true;
-      }
-
-      // If one does not wish to fail these checks without notifying users,
-      // one can use an assert instead. These will trigger runtime errors
-      // immediately if not true.
-      Debug.Assert(child.HasMethod("set_visible"));
-      Debug.Assert(child.IsInGroup("offer"));
-      Debug.Assert(CanvasItem.InstanceHas(child));
-
-      // Can also use object labels to imply an interface, i.e. assume it
-      // implements certain methods.
-      // There are two types, both of which only exist for Nodes: Names and
-      // Groups.
-
-      // Assuming...
-      // A "Quest" object exists and 1) that it can "Complete" or "Fail" and
-      // that it will have Text available before and after each state...
-
-      // 1. Use a name.
-      Node quest = GetNode("Quest");
-      GD.Print(quest.Get("Text"));
-      quest.Call("Complete"); // or "Fail".
-      GD.Print(quest.Get("Text")); // Implied new text content.
-
-      // 2. Use a group.
-      foreach (Node AChild in GetChildren())
-      {
-          if (AChild.IsInGroup("quest"))
-          {
-            GD.Print(quest.Get("Text"));
-            quest.Call("Complete"); // or "Fail".
-            GD.Print(quest.Get("Text")); // Implied new text content.
-          }
-      }
-
-      // Note that these interfaces are project-specific conventions the team
-      // defines (which means documentation! But maybe worth it?).
-      // Any script that conforms to the documented "interface" of the
-      // name or group can fill in for it. Also note that in C#, these methods
-      // will be slower than static accesses with traditional interfaces.
+```
 
 - Outsource the access to a :ref:`FuncRef <class_FuncRef>`. These may be useful
   in cases where one needs the max level of freedom from dependencies. In
   this case, one relies on an external context to setup the method.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # child.gd
     extends Node
     var fn = null
@@ -477,38 +288,8 @@ accesses:
 
     func print_me():
         print(name)
+```
 
-  .. code-tab:: csharp
-
-    // Child.cs
-    public class Child : Node
-    {
-        public FuncRef FN = null;
-
-        public void MyMethod()
-        {
-            Debug.Assert(FN != null);
-            FN.CallFunc();
-        }
-    }
-
-    // Parent.cs
-    public class Parent : Node
-    {
-        public Node Child;
-
-        public void _Ready()
-        {
-            Child = GetNode("Child");
-            Child.Set("FN", GD.FuncRef(this, "PrintMe"));
-            Child.MyMethod();
-        }
-
-        public void PrintMe() {
-        {
-            GD.Print(GetClass());
-        }
-    }
 
 These strategies contribute to Godot's flexible design. Between them, users
 have a breadth of tools to meet their specific needs.

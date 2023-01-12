@@ -38,9 +38,9 @@ Using a script
 
 Create a Node and attach the following script.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Node
 
 
@@ -56,22 +56,7 @@ Create a Node and attach the following script.
 
         # Changes a specific shape of the cursor (here, the I-beam shape).
         Input.set_custom_mouse_cursor(beam, Input.CURSOR_IBEAM)
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        // Load the custom images for the mouse cursor.
-        var arrow = ResourceLoader.Load("res://arrow.png");
-        var beam = ResourceLoader.Load("res://beam.png");
-
-        // Changes only the arrow shape of the cursor.
-        // This is similar to changing it in the project settings.
-        Input.SetCustomMouseCursor(arrow);
-
-        // Changes a specific shape of the cursor (here, the I-beam shape).
-        Input.SetCustomMouseCursor(beam, Input.CursorShape.Ibeam);
-    }
+```
 
 .. note::
     Check :ref:`Input.set_custom_mouse_cursor() <class_Input_method_set_custom_mouse_cursor>`.

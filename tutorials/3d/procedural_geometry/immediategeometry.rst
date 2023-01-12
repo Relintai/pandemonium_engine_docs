@@ -23,13 +23,14 @@ Once you have called ``begin()`` you are ready to start adding vertices. You add
 First you add vertex specific attributes such as normals or UVs using ``set_****()`` (e.g. ``set_normal()``).
 Then you call ``add_vertex()`` to add a vertex with those attributes. For example:
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Add a vertex with normal and uv.
     set_normal(Vector3(0, 1, 0))
     set_uv(Vector2(1, 1))
     add_vertex(Vector3(0, 0, 1))
+```
 
 Only attributes added before the call to ``add_vertex()`` will be included in that vertex.
 
@@ -37,9 +38,9 @@ Finally, once you have added all your vertices call ``end()`` to signal that you
 
 The example code below draws a single triangle.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends ImmediateGeometry
 
     func _process(_delta):
@@ -65,3 +66,4 @@ The example code below draws a single triangle.
 
         # End drawing.
         end()
+```

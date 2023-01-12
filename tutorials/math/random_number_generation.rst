@@ -44,52 +44,36 @@ multiple times is unnecessary and may impact performance negatively.
 
 Putting it in your main scene script's ``_ready()`` method is a good choice:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         randomize()
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        GD.Randomize();
-    }
+```
 
 You can also set a fixed random seed instead using :ref:`seed()
 <class_@GDScript_method_seed>`. Doing so will give you *deterministic* results
 across runs:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         seed(12345)
         # To use a string as a seed, you can hash it to a number.
         seed("Hello world".hash())
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        GD.Seed(12345);
-        GD.Seed("Hello world".Hash());
-    }
+```
 
 When using the RandomNumberGenerator class, you should call ``randomize()`` on
 the instance since it has its own seed:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var random = RandomNumberGenerator.new()
     random.randomize()
+```
 
- .. code-tab:: csharp
-
-    var random = new RandomNumberGenerator();
-    random.Randomize();
 
 Getting a random number
 -----------------------
@@ -102,22 +86,16 @@ number between 0 and 2^32-1. Since the maximum value is huge, you most likely
 want to use the modulo operator (``%``) to bound the result between 0 and the
 denominator:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Prints a random integer between 0 and 49.
     print(randi() % 50)
 
     # Prints a random integer between 10 and 60.
     print(randi() % 51 + 10)
+```
 
- .. code-tab:: csharp
-
-    // Prints a random integer between 0 and 49.
-    GD.Print(GD.Randi() % 50);
-
-    // Prints a random integer between 10 and 60.
-    GD.Print(GD.Randi() % 51 + 10);
 
 :ref:`randf() <class_@GDScript_method_randf>` returns a random floating-point
 number between 0 and 1. This is useful to implement a
@@ -130,62 +108,47 @@ floating-point number following a `normal distribution
 value is more likely to be around the mean (0.0 by default),
 varying by the deviation (1.0 by default):
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Prints a random floating-point number from a normal distribution with a mean 0.0 and deviation 1.0.
     var random = RandomNumberGenerator.new()
     random.randomize()
     print(random.randfn())
-
- .. code-tab:: csharp
-
-    // Prints a normally distributed floating-point number between 0.0 and 1.0.
-    var random = new RandomNumberGenerator();
-    random.Randomize();
-    GD.Print(random.Randfn());
+```
 
 :ref:`rand_range() <class_@GDScript_method_rand_range>` takes two arguments
 ``from`` and ``to``, and returns a random floating-point number between ``from``
 and ``to``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Prints a random floating-point number between -4 and 6.5.
     print(rand_range(-4, 6.5))
-
- .. code-tab:: csharp
-
-    // Prints a random floating-point number between -4 and 6.5.
-    GD.Print(GD.RandRange(-4, 6.5));
+```
 
 :ref:`RandomNumberGenerator.randi_range()
 <class_RandomNumberGenerator_method_randi_range>` takes two arguments ``from``
 and ``to``, and returns a random integer between ``from`` and ``to``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Prints a random integer between -10 and 10.
     var random = RandomNumberGenerator.new()
     random.randomize()
     print(random.randi_range(-10, 10))
-
- .. code-tab:: csharp
-
-    // Prints a random integer number between -10 and 10.
-    random.Randomize();
-    GD.Print(random.RandiRange(-10, 10));
+```
 
 Get a random array element
 --------------------------
 
 We can use random integer generation to get a random element from an array:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var _fruits = ["apple", "orange", "pear", "banana"]
 
     func _ready():
@@ -201,36 +164,14 @@ We can use random integer generation to get a random element from an array:
         # Returns "apple", "orange", "pear", or "banana" every time the code runs.
         # We may get the same fruit multiple times in a row.
         return random_fruit
-
- .. code-tab:: csharp
-
-    private string[] _fruits = { "apple", "orange", "pear", "banana" };
-
-    public override void _Ready()
-    {
-        GD.Randomize();
-
-        for (int i = 0; i < 100; i++)
-        {
-            // Pick 100 fruits randomly.
-            GD.Print(GetFruit());
-        }
-    }
-
-    public string GetFruit()
-    {
-        string randomFruit = _fruits[GD.Randi() % _fruits.Length];
-        // Returns "apple", "orange", "pear", or "banana" every time the code runs.
-        // We may get the same fruit multiple times in a row.
-        return randomFruit;
-    }
+```
 
 To prevent the same fruit from being picked more than once in a row, we can add
 more logic to this method:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var _fruits = ["apple", "orange", "pear", "banana"]
     var _last_fruit = ""
 
@@ -257,38 +198,7 @@ more logic to this method:
         # Returns "apple", "orange", "pear", or "banana" every time the code runs.
         # The function will never return the same fruit more than once in a row.
         return random_fruit
-
- .. code-tab:: csharp
-
-    private string[] _fruits = { "apple", "orange", "pear", "banana" };
-    private string _lastFruit = "";
-
-    public override void _Ready()
-    {
-        GD.Randomize();
-
-        for (int i = 0; i < 100; i++)
-        {
-            // Pick 100 fruits randomly.
-            GD.Print(GetFruit());
-        }
-    }
-
-    public string GetFruit()
-    {
-        string randomFruit = _fruits[GD.Randi() % _fruits.Length];
-        while (randomFruit == _lastFruit)
-        {
-            // The last fruit was picked, try again until we get a different fruit.
-            randomFruit = _fruits[GD.Randi() % _fruits.Length];
-        }
-
-        _lastFruit = randomFruit;
-
-        // Returns "apple", "orange", "pear", or "banana" every time the code runs.
-        // The function will never return the same fruit more than once in a row.
-        return randomFruit;
-    }
+```
 
 This approach can be useful to make random number generation feel less
 repetitive. Still, it doesn't prevent results from "ping-ponging" between a
@@ -300,9 +210,9 @@ Get a random dictionary value
 
 We can apply similar logic from arrays to dictionaries as well:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var metals = {
         "copper": {"quantity": 50, "price": 50},
         "silver": {"quantity": 20, "price": 150},
@@ -322,6 +232,7 @@ We can apply similar logic from arrays to dictionaries as well:
         # Returns a random metal value dictionary every time the code runs.
         # The same metal may be selected multiple times in succession.
         return random_metal
+```
 
 .. _doc_random_number_generation_weighted_random_probability:
 
@@ -332,9 +243,9 @@ The :ref:`randf() <class_@GDScript_method_randf>` method returns a
 floating-point number between 0.0 and 1.0. We can use this to create a
 "weighted" probability where different outcomes have different likelihoods:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         randomize()
 
@@ -354,39 +265,7 @@ floating-point number between 0.0 and 1.0. We can use this to create a
         else:
             # 5% chance of being returned.
             return "Rare"
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        GD.Randomize();
-
-        for (int i = 0; i < 100; i++)
-        {
-            GD.Print(GetItemRarity());
-        }
-    }
-
-    public string GetItemRarity()
-    {
-        float randomFloat = GD.Randf();
-
-        if (randomFloat < 0.8f)
-        {
-            // 80% chance of being returned.
-            return "Common";
-        }
-        else if (randomFloat < 0.95f)
-        {
-            // 15% chance of being returned
-            return "Uncommon";
-        }
-        else
-        {
-            // 5% chance of being returned.
-            return "Rare";
-        }
-    }
+```
 
 .. _doc_random_number_generation_shuffle_bags:
 
@@ -445,9 +324,9 @@ especially popular in procedural generation to generate realistic-looking
 terrain. Godot provides :ref:`class_opensimplexnoise` for this, which supports
 1D, 2D, 3D, and 4D noise. Here's an example with 1D noise:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var _noise = OpenSimplexNoise.new()
 
     func _ready():
@@ -462,22 +341,4 @@ terrain. Godot provides :ref:`class_opensimplexnoise` for this, which supports
             # Prints a slowly-changing series of floating-point numbers
             # between -1.0 and 1.0.
             print(_noise.get_noise_1d(i))
-
- .. code-tab:: csharp
-
-    private OpenSimplexNoise _noise = new OpenSimplexNoise();
-
-    public override void _Ready()
-    {
-        GD.Randomize();
-        // Configure the OpenSimplexNoise instance.
-        _noise.Seed = (int)GD.Randi();
-        _noise.Octaves = 4;
-        _noise.Period = 20.0f;
-        _noise.Persistence = 0.8f;
-
-        for (int i = 0; i < 100; i++)
-        {
-            GD.Print(_noise.GetNoise1d(i));
-        }
-    }
+```

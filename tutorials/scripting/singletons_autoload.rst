@@ -75,29 +75,21 @@ in top-to-bottom order.
 
 This means that any node can access a singleton named "PlayerVariables" with:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
    var player_vars = get_node("/root/PlayerVariables")
    player_vars.health -= 10
-
- .. code-tab:: csharp
-
-    var playerVariables = GetNode<PlayerVariables>("/root/PlayerVariables");
-    playerVariables.Health -= 10; // Instance field.
+```
 
 If the **Enable** column is checked (which is the default), then the singleton can
 be accessed directly without requiring ``get_node()``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
    PlayerVariables.health -= 10
-
- .. code-tab:: csharp
-
-    // Static members can be accessed by using the class name.
-    PlayerVariables.Health -= 10;
+```
 
 Note that autoload objects (scripts and/or scenes) are accessed just like any
 other node in the scene tree. In fact, if you look at the running scene tree,
@@ -149,9 +141,9 @@ Returning to the script, it needs to fetch the current scene in the
 ``Global.gd`` are children of root, but autoloaded nodes are always first. This
 means that the last child of root is always the loaded scene.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Node
 
     var current_scene = null
@@ -159,29 +151,14 @@ means that the last child of root is always the loaded scene.
     func _ready():
         var root = get_tree().root
         current_scene = root.get_child(root.get_child_count() - 1)
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class Global : Godot.Node
-    {
-        public Node CurrentScene { get; set; }
-
-        public override void _Ready()
-        {
-            Viewport root = GetTree().Root;
-            CurrentScene = root.GetChild(root.GetChildCount() - 1);
-        }
-    }
+```
 
 Now we need a function for changing the scene. This function needs to free the
 current scene and replace it with the requested one.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func goto_scene(path):
         # This function will usually be called from a signal callback,
         # or some other function in the current scene.
@@ -210,40 +187,7 @@ current scene and replace it with the requested one.
 
         # Optionally, to make it compatible with the SceneTree.change_scene() API.
         get_tree().current_scene = current_scene
-
- .. code-tab:: csharp
-
-    public void GotoScene(string path)
-    {
-        // This function will usually be called from a signal callback,
-        // or some other function from the current scene.
-        // Deleting the current scene at this point is
-        // a bad idea, because it may still be executing code.
-        // This will result in a crash or unexpected behavior.
-
-        // The solution is to defer the load to a later time, when
-        // we can be sure that no code from the current scene is running:
-
-        CallDeferred(nameof(DeferredGotoScene), path);
-    }
-
-    public void DeferredGotoScene(string path)
-    {
-        // It is now safe to remove the current scene
-        CurrentScene.Free();
-
-        // Load a new scene.
-        var nextScene = (PackedScene)GD.Load(path);
-
-        // Instance the new scene.
-        CurrentScene = nextScene.Instance();
-
-        // Add it to the active scene, as child of root.
-        GetTree().Root.AddChild(CurrentScene);
-
-        // Optionally, to make it compatible with the SceneTree.change_scene() API.
-        GetTree().CurrentScene = CurrentScene;
-    }
+```
 
 Using :ref:`Object.call_deferred() <class_Object_method_call_deferred>`,
 the second function will only run once all code from the current scene has
@@ -252,43 +196,25 @@ still being used (i.e. its code is still running).
 
 Finally, we need to fill the empty callback functions in the two scenes:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Add to 'Scene1.gd'.
 
     func _on_Button_pressed():
         Global.goto_scene("res://Scene2.tscn")
-
- .. code-tab:: csharp
-
-    // Add to 'Scene1.cs'.
-
-    public void OnButtonPressed()
-    {
-        var global = GetNode<Global>("/root/Global");
-        global.GotoScene("res://Scene2.tscn");
-    }
+```
 
 and
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Add to 'Scene2.gd'.
 
     func _on_Button_pressed():
         Global.goto_scene("res://Scene1.tscn")
-
- .. code-tab:: csharp
-
-    // Add to 'Scene2.cs'.
-
-    public void OnButtonPressed()
-    {
-        var global = GetNode<Global>("/root/Global");
-        global.GotoScene("res://Scene1.tscn");
-    }
+```
 
 Run the project and test that you can switch between scenes by pressing
 the button.

@@ -62,11 +62,10 @@ Simulating the ragdoll
 
 The ragdoll is now ready to use. To start the simulation and play the ragdoll animation, you need to call the ``physical_bones_start_simulation`` method. Attach a script to the skeleton node and call the method in the ``_ready`` method:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
-
+```
     func _ready():
         physical_bones_start_simulation()
+```
 
 To stop the simulation, call the ``physical_bones_stop_simulation()`` method.
 

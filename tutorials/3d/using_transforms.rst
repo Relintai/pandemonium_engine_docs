@@ -94,31 +94,15 @@ A transform has a :ref:`class_Basis` (transform.basis sub-property), which consi
 
 A default basis (unmodified) is akin to:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var basis = Basis()
     # Contains the following default values:
     basis.x = Vector3(1, 0, 0) # Vector pointing along the X axis
     basis.y = Vector3(0, 1, 0) # Vector pointing along the Y axis
     basis.z = Vector3(0, 0, 1) # Vector pointing along the Z axis
-
- .. code-tab:: csharp
-
-    // Due to technical limitations on structs in C# the default
-    // constructor will contain zero values for all fields.
-    var defaultBasis = new Basis();
-    GD.Print(defaultBasis); // prints: ((0, 0, 0), (0, 0, 0), (0, 0, 0))
-
-    // Instead we can use the Identity property.
-    var identityBasis = Basis.Identity;
-    GD.Print(identityBasis.x); // prints: (1, 0, 0)
-    GD.Print(identityBasis.y); // prints: (0, 1, 0)
-    GD.Print(identityBasis.z); // prints: (0, 0, 1)
-
-    // The Identity basis is equivalent to:
-    var basis = new Basis(Vector3.Right, Vector3.Up, Vector3.Back);
-    GD.Print(basis); // prints: ((1, 0, 0), (0, 1, 0), (0, 0, 1))
+```
 
 This is also an analog of a 3x3 identity matrix.
 
@@ -146,56 +130,38 @@ Of course, transforms are not as straightforward to manipulate as angles and hav
 
 It is possible to rotate a transform, either by multiplying its basis by another (this is called accumulation), or by using the rotation methods.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var axis = Vector3(1, 0, 0) # Or Vector3.RIGHT
     var rotation_amount = 0.1
     # Rotate the transform around the X axis by 0.1 radians.
     transform.basis = Basis(axis, rotation_amount) * transform.basis
     # shortened
     transform.basis = transform.basis.rotated(axis, rotation_amount)
-
- .. code-tab:: csharp
-
-    Vector3 axis = new Vector3(1, 0, 0); // Or Vector3.Right
-    float rotationAmount = 0.1f;
-    // Rotate the transform around the X axis by 0.1 radians.
-    transform.basis = new Basis(axis, rotationAmount) * transform.basis;
-    // shortened
-    transform.basis = transform.basis.Rotated(axis, rotationAmount);
+```
 
 A method in Spatial simplifies this:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Rotate the transform around the X axis by 0.1 radians.
     rotate(Vector3(1, 0, 0), 0.1)
     # shortened
     rotate_x(0.1)
-
- .. code-tab:: csharp
-
-    // Rotate the transform around the X axis by 0.1 radians.
-    Rotate(new Vector3(1, 0, 0), 0.1f);
-    // shortened
-    RotateX(0.1f);
+```
 
 This rotates the node relative to the parent node.
 
 To rotate relative to object space (the node's own transform), use the following:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Rotate around the object's local X axis by 0.1 radians.
     rotate_object_local(Vector3(1, 0, 0), 0.1)
-
- .. code-tab:: csharp
-
-    // Rotate around the object's local X axis by 0.1 radians.
-    RotateObjectLocal(new Vector3(1, 0, 0), 0.1f);
+```
 
 Precision errors
 ================
@@ -206,29 +172,22 @@ If a transform is rotated every frame, it will eventually start deforming over t
 
 There are two different ways to handle this. The first is to *orthonormalize* the transform after some time (maybe once per frame if you modify it every frame):
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     transform = transform.orthonormalized()
-
- .. code-tab:: csharp
-
-    transform = transform.Orthonormalized();
+```
 
 This will make all axes have ``1.0`` length again and be ``90`` degrees from each other. However, any scale applied to the transform will be lost.
 
 It is recommended you not scale nodes that are going to be manipulated; scale their children nodes instead (such as MeshInstance). If you absolutely must scale the node, then re-apply it at the end:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     transform = transform.orthonormalized()
     transform = transform.scaled(scale)
-
- .. code-tab:: csharp
-
-    transform = transform.Orthonormalized();
-    transform = transform.Scaled(scale);
+```
 
 Obtaining information
 =====================
@@ -237,71 +196,45 @@ You might be thinking at this point: **"Ok, but how do I get angles from a trans
 
 Imagine you need to shoot a bullet in the direction your player is facing. Just use the forward axis (commonly ``Z`` or ``-Z``).
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     bullet.transform = transform
     bullet.speed = transform.basis.z * BULLET_SPEED
-
- .. code-tab:: csharp
-
-    bullet.Transform = transform;
-    bullet.LinearVelocity = transform.basis.z * BulletSpeed;
+```
 
 Is the enemy looking at the player? Use the dot product for this (see the :ref:`doc_vector_math` tutorial for an explanation of the dot product):
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Get the direction vector from player to enemy
     var direction = enemy.transform.origin - player.transform.origin
     if direction.dot(enemy.transform.basis.z) > 0:
         enemy.im_watching_you(player)
-
- .. code-tab:: csharp
-
-    // Get the direction vector from player to enemy
-    Vector3 direction = enemy.Transform.origin - player.Transform.origin;
-    if (direction.Dot(enemy.Transform.basis.z) > 0)
-    {
-        enemy.ImWatchingYou(player);
-    }
+```
 
 Strafe left:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Remember that +X is right
     if Input.is_action_pressed("strafe_left"):
         translate_object_local(-transform.basis.x)
-
- .. code-tab:: csharp
-
-    // Remember that +X is right
-    if (Input.IsActionPressed("strafe_left"))
-    {
-        TranslateObjectLocal(-Transform.basis.x);
-    }
+```
 
 Jump:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Keep in mind Y is up-axis
     if Input.is_action_just_pressed("jump"):
         velocity.y = JUMP_SPEED
 
     velocity = move_and_slide(velocity)
-
- .. code-tab:: csharp
-
-    // Keep in mind Y is up-axis
-    if (Input.IsActionJustPressed("jump"))
-        velocity.y = JumpSpeed;
-
-    velocity = MoveAndSlide(velocity);
+```
 
 All common behaviors and logic can be done with just vectors.
 
@@ -314,9 +247,9 @@ For such cases, keep the angles and rotations *outside* the transform and set th
 
 Example of looking around, FPS style:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # accumulators
     var rot_x = 0
     var rot_y = 0
@@ -329,30 +262,7 @@ Example of looking around, FPS style:
             transform.basis = Basis() # reset rotation
             rotate_object_local(Vector3(0, 1, 0), rot_x) # first rotate in Y
             rotate_object_local(Vector3(1, 0, 0), rot_y) # then rotate in X
-
- .. code-tab:: csharp
-
-    // accumulators
-    private float _rotationX = 0f;
-    private float _rotationY = 0f;
-
-    public override void _Input(InputEvent @event)
-    {
-        if (@event is InputEventMouseMotion mouseMotion)
-        {
-            // modify accumulated mouse rotation
-            _rotationX += mouseMotion.Relative.x * LookAroundSpeed;
-            _rotationY += mouseMotion.Relative.y * LookAroundSpeed;
-
-            // reset rotation
-            Transform transform = Transform;
-            transform.basis = Basis.Identity;
-            Transform = transform;
-
-            RotateObjectLocal(Vector3.Up, _rotationX); // first rotate about Y
-            RotateObjectLocal(Vector3.Right, _rotationY); // then rotate about X
-        }
-    }
+```
 
 As you can see, in such cases it's even simpler to keep the rotation outside, then use the transform as the *final* orientation.
 
@@ -363,9 +273,9 @@ Interpolating between two transforms can efficiently be done with quaternions. M
 
 Converting a rotation to quaternion is straightforward.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Convert basis to quaternion, keep in mind scale is lost
     var a = Quat(transform.basis)
     var b = Quat(transform2.basis)
@@ -373,16 +283,7 @@ Converting a rotation to quaternion is straightforward.
     var c = a.slerp(b,0.5) # find halfway point between a and b
     # Apply back
     transform.basis = Basis(c)
-
- .. code-tab:: csharp
-
-    // Convert basis to quaternion, keep in mind scale is lost
-    var a = transform.basis.Quat();
-    var b = transform2.basis.Quat();
-    // Interpolate using spherical-linear interpolation (SLERP).
-    var c = a.Slerp(b, 0.5f); // find halfway point between a and b
-    // Apply back
-    transform.basis = new Basis(c);
+```
 
 The :ref:`class_Quat` type reference has more information on the datatype (it
 can also do transform accumulation, transform points, etc., though this is used

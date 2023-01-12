@@ -31,9 +31,9 @@ Another related callback is ``_exit_tree()``, which the engine calls every time
 a node exits the scene tree. This can be when you call :ref:`Node.remove_child()
 <class_Node_method_remove_child>` or when you free a node.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Called every time the node enters the scene tree.
     func _enter_tree():
         pass
@@ -46,36 +46,16 @@ a node exits the scene tree. This can be when you call :ref:`Node.remove_child()
     # children received the _exit_tree() callback.
     func _exit_tree():
         pass
-
- .. code-tab:: csharp
-
-    // Called every time the node enters the scene tree.
-    public override void _EnterTree()
-    {
-        base._EnterTree();
-    }
-
-    // Called when both the node and its children have entered the scene tree.
-    public override void _Ready()
-    {
-        base._Ready();
-    }
-
-    // Called when the node is about to leave the scene tree, after all its
-    // children.
-    public override void _ExitTree()
-    {
-        base._ExitTree();
-    }
+```
 
 The two virtual methods ``_process()`` and ``_physics_process()`` allow you to
 update the node, every frame and every physics frame respectively. For more
 information, read the dedicated documentation:
 :ref:`doc_idle_and_physics_processing`.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Called every frame, as often as possible.
     func _process(delta):
         pass
@@ -83,20 +63,7 @@ information, read the dedicated documentation:
     # Called every physics frame.
     func _physics_process(delta):
         pass
-
- .. code-tab:: csharp
-
-    public override void _Process(float delta)
-    {
-        // Called every frame, as often as possible.
-        base._Process(delta);
-    }
-
-    public override void _PhysicsProcess(float delta)
-    {
-        // Called every physics frame.
-        base._PhysicsProcess(delta);
-    }
+```
 
 Two more essential built-in node callback functions are
 :ref:`Node._unhandled_input() <class_Node_method__unhandled_input>` and
@@ -109,9 +76,9 @@ process input events before ``_unhandled_input()`` gets them.
 
 To learn more about inputs in Godot, see the :ref:`Input section <toc-learn-features-inputs>`.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Called once for every event.
     func _unhandled_input(event):
         pass
@@ -120,21 +87,7 @@ To learn more about inputs in Godot, see the :ref:`Input section <toc-learn-feat
     # consume some events.
     func _input(event):
         pass
-
- .. code-tab:: csharp
-
-    // Called once for every event.
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        base._UnhandledInput(event);
-    }
-
-    // Called once for every event, before _unhandled_input(), allowing you to
-    // consume some events.
-    public override void _Input(InputEvent @event)
-    {
-        base._Input(event);
-    }
+```
 
 There are some more overridable functions like
 :ref:`Node._get_configuration_warning()

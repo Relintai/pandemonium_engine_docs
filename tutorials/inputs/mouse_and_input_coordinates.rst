@@ -25,9 +25,9 @@ several options (see :ref:`doc_multiple_resolutions` tutorial). Use, then, the
 functions in nodes to obtain the mouse coordinates and viewport size,
 for example:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _input(event):
        # Mouse in viewport coordinates.
        if event is InputEventMouseButton:
@@ -37,30 +37,15 @@ for example:
 
        # Print the size of the viewport.
        print("Viewport Resolution is: ", get_viewport_rect().size)
+```
 
- .. code-tab:: csharp
-
-    public override void _Input(InputEvent @event)
-    {
-        // Mouse in viewport coordinates.
-        if (@event is InputEventMouseButton eventMouseButton)
-            GD.Print("Mouse Click/Unclick at: ", eventMouseButton.Position);
-        else if (@event is InputEventMouseMotion eventMouseMotion)
-            GD.Print("Mouse Motion at: ", eventMouseMotion.Position);
-
-        // Print the size of the viewport.
-        GD.Print("Viewport Resolution is: ", GetViewportRect().Size);
-    }
 
 Alternatively, it's possible to ask the viewport for the mouse position:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     get_viewport().get_mouse_position()
-
- .. code-tab:: csharp
-
-    GetViewport().GetMousePosition();
+```
 
 .. note:: When the mouse mode is set to ``Input.MOUSE_MODE_CAPTURED``, the ``event.position`` value from ``InputEventMouseMotion`` is the center of the screen. Use ``event.relative`` instead of ``event.position`` and ``event.speed`` to process mouse movement and position changes.

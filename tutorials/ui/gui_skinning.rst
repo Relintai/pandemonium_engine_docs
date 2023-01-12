@@ -116,16 +116,12 @@ your custom theme types, you must utilize scripts to access those items. All con
 nodes have several methods that allow to fetch theme items from the theme that
 is applied to them. Those methods accept the theme type as one of the arguments.
 
-.. tabs::
- .. code-tab:: gdscript
+gdscript
 
+```
    var accent_color = get_color("accent_color", "MyType")
    label.add_color_override("font_color", accent_color)
-
- .. code-tab:: csharp
-
-   Color accentColor = GetColor("accent_color", "MyType");
-   label.AddColorOverride("font_color", accentColor);
+```
 
 To give more customization opportunities types can also be linked together as
 type variations. This is another use-case for custom theme types. For example,

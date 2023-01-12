@@ -146,11 +146,12 @@ method to toggle processing on and off: :ref:`Node.set_process()
 ``is_processing()``, returns ``true`` if idle processing is active. We can use
 the ``not`` keyword to invert the value.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_Button_pressed():
         set_process(not is_processing())
+```
 
 This function will toggle processing and, in turn, the icon's motion on and off
 upon pressing the button.
@@ -159,19 +160,20 @@ Before trying the game, we need to simplify our ``_process()`` function to move
 the node automatically and not wait for user input. Replace it with the
 following code, which we saw two lessons ago:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _process(delta):
         rotation += angular_speed * delta
         var velocity = Vector2.UP.rotated(rotation) * speed
         position += velocity * delta
+```
 
 Your complete ``Sprite.gd`` code should look like the following.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Sprite
 
     var speed = 400
@@ -186,6 +188,7 @@ Your complete ``Sprite.gd`` code should look like the following.
 
     func _on_Button_pressed():
         set_process(not is_processing())
+```
 
 Run the scene now and click the button to see the sprite start and stop.
 
@@ -233,11 +236,12 @@ To get a reference to a node relative to the current one, we use the method
 :ref:`Node.get_node() <class_Node_method_get_node>`. We can store the reference
 in a variable.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         var timer = get_node("Timer")
+```
 
 The function ``get_node()`` looks at the Sprite's children and gets nodes by
 their name. For example, if you renamed the Timer node to "BlinkingTimer" in the
@@ -247,23 +251,25 @@ editor, you would have to change the call to ``get_node("BlinkingTimer")``.
 
 We can now connect the Timer to the Sprite in the ``_ready()`` function.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         var timer = get_node("Timer")
         timer.connect("timeout", self, "_on_Timer_timeout")
+```
 
 The line reads like so: we connect the Timer's "timeout" signal to the node to
 which the script is attached (``self``). When the Timer emits "timeout", we want
 to call the function "_on_Timer_timeout", that we need to define. Let's add it
 at the bottom of our script and use it to toggle our sprite's visibility.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_Timer_timeout():
         visible = not visible
+```
 
 The ``visible`` property is a boolean that controls the visibility of our node.
 The line ``visible = not visible`` toggles the value. If ``visible`` is
@@ -278,9 +284,9 @@ Complete script
 That's it for our little moving and blinking Godot icon demo!
 Here is the complete ``Sprite.gd`` file for reference.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Sprite
 
     var speed = 400
@@ -304,6 +310,7 @@ Here is the complete ``Sprite.gd`` file for reference.
 
     func _on_Timer_timeout():
         visible = not visible
+```
 
 Custom signals
 --------------
@@ -316,14 +323,15 @@ show a game over screen when the player's health reaches zero. To do so, you
 could define a signal named "died" or "health_depleted" when their health
 reaches 0.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Node2D
 
     signal health_depleted
 
     var health = 10
+```
 
 .. note:: As signals represent events that just occurred, we generally use an
           action verb in the past tense in their names.
@@ -335,23 +343,25 @@ you can connect to them like any other.
 
 To emit a signal in your scripts, call ``emit_signal()``.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func take_damage(amount):
         health -= amount
         if health <= 0:
             emit_signal("health_depleted")
+```
 
 A signal can optionally declare one or more arguments. Specify the argument
 names between parentheses:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Node
 
     signal health_changed(old_value, new_value)
+```
 
 .. note::
 
@@ -363,13 +373,14 @@ names between parentheses:
 To emit values along with the signal, add them as extra arguments to the
 ``emit_signal()`` function:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func take_damage(amount):
         var old_health = health
         health -= amount
         emit_signal("health_changed", old_health, health)
+```
 
 Summary
 -------

@@ -66,10 +66,10 @@ The ``Default`` template is always generated dynamically per language and cannot
 be configured nor overridden, but you can use these as the base for creating
 other templates.
 
-.. tabs::
 
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends %BASE%
 
 
@@ -86,31 +86,7 @@ other templates.
     # Called every frame. 'delta' is the elapsed time since the previous frame.
     #func _process(delta%FLOAT_TYPE%)%VOID_RETURN%:
     #	pass
-
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class %CLASS% : %BASE%
-    {
-        // Declare member variables here. Examples:
-        // private int a = 2;
-        // private string b = "text";
-
-        // Called when the node enters the scene tree for the first time.
-        public override void _Ready()
-        {
-
-        }
-
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //
-    //  }
-    }
+```
 
 List of template placeholders
 -----------------------------

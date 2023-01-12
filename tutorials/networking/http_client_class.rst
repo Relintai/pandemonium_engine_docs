@@ -17,22 +17,18 @@ which has a tutorial available :ref:`here <doc_http_request_class>`.
 Here's an example of using the :ref:`HTTPClient <class_HTTPClient>`
 class. It's just a script, so it can be run by executing:
 
-.. tabs::
+console GDScript
 
- .. code-tab:: console GDScript
-
+```
     c:\godot> godot -s http_test.gd
+```
 
- .. code-tab:: console C#
-
-    c:\godot> godot -s HTTPTest.cs
 
 It will connect and fetch a website.
 
-.. tabs::
+gdscript GDScript
 
- .. code-tab:: gdscript GDScript
-
+```
     extends SceneTree
 
     # HTTPClient demo
@@ -121,106 +117,4 @@ It will connect and fetch a website.
             print("Text: ", text)
 
         quit()
-
- .. code-tab:: csharp
-
-    class HTTPTest : SceneTree
-    {
-        // HTTPClient demo.
-        // This simple class can make HTTP requests; it will not block, but it needs to be polled.
-        public override async void _Initialize()
-        {
-            Error err;
-            HTTPClient http = new HTTPClient(); // Create the client.
-
-            err = http.ConnectToHost("www.php.net", 80); // Connect to host/port.
-            Debug.Assert(err == Error.Ok); // Make sure the connection is OK.
-
-            // Wait until resolved and connected.
-            while (http.GetStatus() == HTTPClient.Status.Connecting || http.GetStatus() == HTTPClient.Status.Resolving)
-            {
-                http.Poll();
-                GD.Print("Connecting...");
-                OS.DelayMsec(500);
-            }
-
-            Debug.Assert(http.GetStatus() == HTTPClient.Status.Connected); // Check if the connection was made successfully.
-
-            // Some headers.
-            string[] headers = { "User-Agent: Pirulo/1.0 (Godot)", "Accept: */*" };
-
-            err = http.Request(HTTPClient.Method.Get, "/ChangeLog-5.php", headers); // Request a page from the site.
-            Debug.Assert(err == Error.Ok); // Make sure all is OK.
-
-            // Keep polling for as long as the request is being processed.
-            while (http.GetStatus() == HTTPClient.Status.Requesting)
-            {
-                http.Poll();
-                GD.Print("Requesting...");
-                if (OS.HasFeature("web"))
-                {
-                    // Synchronous HTTP requests are not supported on the web,
-                    // so wait for the next main loop iteration.
-                    await ToSignal(Engine.GetMainLoop(), "idle_frame");
-                }
-                else
-                {
-                    OS.DelayMsec(500);
-                }
-            }
-
-            Debug.Assert(http.GetStatus() == HTTPClient.Status.Body || http.GetStatus() == HTTPClient.Status.Connected); // Make sure the request finished well.
-
-            GD.Print("Response? ", http.HasResponse()); // The site might not have a response.
-
-            // If there is a response...
-            if (http.HasResponse())
-            {
-                headers = http.GetResponseHeaders(); // Get response headers.
-                GD.Print("Code: ", http.GetResponseCode()); // Show response code.
-                GD.Print("Headers:");
-                foreach (string header in headers)
-                {
-                    // Show headers.
-                    GD.Print(header);
-                }
-
-                if (http.IsResponseChunked())
-                {
-                    // Does it use chunks?
-                    GD.Print("Response is Chunked!");
-                }
-                else
-                {
-                    // Or just Content-Length.
-                    GD.Print("Response Length: ", http.GetResponseBodyLength());
-                }
-
-                // This method works for both anyways.
-                List<byte> rb = new List<byte>(); // List that will hold the data.
-
-                // While there is data left to be read...
-                while (http.GetStatus() == HTTPClient.Status.Body)
-                {
-                    http.Poll();
-                    byte[] chunk = http.ReadResponseBodyChunk(); // Read a chunk.
-                    if (chunk.Length == 0)
-                    {
-                        // If nothing was read, wait for the buffer to fill.
-                        OS.DelayMsec(500);
-                    }
-                    else
-                    {
-                        // Append the chunk to the read buffer.
-                        rb.AddRange(chunk);
-                    }
-                }
-
-                // Done!
-                GD.Print("Bytes Downloaded: ", rb.Count);
-                string text = Encoding.ASCII.GetString(rb.ToArray());
-                GD.Print(text);
-            }
-            Quit();
-        }
-    }
+```

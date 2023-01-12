@@ -79,9 +79,9 @@ often execute here, but it comes down to the frequency at which one needs
 the evaluations to update. If they don't need to execute every frame, then
 implementing a Timer-yield-timeout loop is another option.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Infinitely loop, but only execute whenever the Timer fires.
     # Allows for recurring operations that don't trigger script logic
     # every frame (or even every fixed frame).
@@ -89,6 +89,7 @@ implementing a Timer-yield-timeout loop is another option.
         my_method()
         $Timer.start()
         yield($Timer, "timeout")
+```
 
 Use ``_physics_process`` when one needs a framerate-independent deltatime
 between frames. If code needs consistent updates over time, regardless
@@ -105,9 +106,9 @@ One can check for input actions within the input callbacks just the same.
 If one wants to use delta time, one can fetch it from the related
 deltatime methods as needed.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Called every frame, even when the engine detects no input.
     func _process(delta):
         if Input.is_action_just_pressed("ui_select"):
@@ -119,34 +120,8 @@ deltatime methods as needed.
             "InputEventKey":
                 if Input.is_action_just_pressed("ui_accept"):
                     print(get_process_delta_time())
+```
 
-  .. code-tab:: csharp
-
-    public class MyNode : Node
-    {
-
-        // Called every frame, even when the engine detects no input.
-        public void _Process(float delta)
-        {
-            if (Input.IsActionJustPressed("ui_select"))
-                GD.Print(delta);
-        }
-
-        // Called during every input event. Equally true for _input().
-        public void _UnhandledInput(InputEvent event)
-        {
-            switch (event)
-            {
-                case InputEventKey keyEvent:
-                    if (Input.IsActionJustPressed("ui_accept"))
-                        GD.Print(GetProcessDeltaTime());
-                    break;
-                default:
-                    break;
-            }
-        }
-
-    }
 
 _init vs. initialization vs. export
 -----------------------------------
@@ -159,9 +134,9 @@ initializations should also run here. This triggers before ``_ready`` or
 Scripts have three types of property assignments that can occur during
 instantiation:
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # "one" is an "initialized value". These DO NOT trigger the setter.
     # If someone set the value as "two" from the Inspector, this would be an
     # "exported value". These DO trigger the setter.
@@ -177,31 +152,8 @@ instantiation:
     func set_test(value):
         test = value
         print("Setting: ", test)
+```
 
-  .. code-tab:: csharp
-
-    public class MyNode : Node
-    {
-        private string _test = "one";
-
-        // Changing the value from the inspector does trigger the setter in C#.
-        [Export]
-        public string Test
-        {
-            get { return _test; }
-            set
-            {
-                _test = value;
-                GD.Print("Setting: " + _test);
-            }
-        }
-
-        public MyNode()
-        {
-            // Triggers the setter as well
-            Test = "three";
-        }
-    }
 
 When instantiating a scene, property values will set up according to the
 following sequence:
@@ -239,9 +191,9 @@ For example, here is a snippet that connects a node's method to
 a custom signal on the parent node without failing. Useful on data-centric
 nodes that one might create at runtime.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Node
 
     var parent_cache
@@ -261,36 +213,4 @@ nodes that one might create at runtime.
 
     func _on_parent_interacted_with():
         print("I'm reacting to my parent's interaction!")
-
-  .. code-tab:: csharp
-
-    public class MyNode : Node
-    {
-        public Node ParentCache = null;
-
-        public void ConnectionCheck()
-        {
-            return ParentCache.HasUserSignal("InteractedWith");
-        }
-
-        public void _Notification(int what)
-        {
-            switch (what)
-            {
-                case NOTIFICATION_PARENTED:
-                    ParentCache = GetParent();
-                    if (ConnectionCheck())
-                        ParentCache.Connect("InteractedWith", this, "OnParentInteractedWith");
-                    break;
-                case NOTIFICATION_UNPARENTED:
-                    if (ConnectionCheck())
-                        ParentCache.Disconnect("InteractedWith", this, "OnParentInteractedWith");
-                    break;
-            }
-        }
-
-        public void OnParentInteractedWith()
-        {
-            GD.Print("I'm reacting to my parent's interaction!");
-        }
-    }
+```

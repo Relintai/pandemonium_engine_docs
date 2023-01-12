@@ -50,9 +50,9 @@ Multimesh example
 Here is an example of using a MultiMesh from code. Languages other than GDScript may be more
 efficient for millions of objects, but for a few thousands, GDScript should be fine.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends MultiMeshInstance
 
 
@@ -71,31 +71,4 @@ efficient for millions of objects, but for a few thousands, GDScript should be f
         # Set the transform of the instances.
         for i in multimesh.visible_instance_count:
             multimesh.set_instance_transform(i, Transform(Basis(), Vector3(i * 20, 0, 0)))
-
- .. code-tab:: csharp C#
- 
-    using Godot;
-    using System;
-
-    public class YourClassName : MultiMeshInstance
-    {
-        public override void _Ready()
-        {
-            // Create the multimesh.
-            Multimesh = new MultiMesh();
-            // Set the format first.
-            Multimesh.TransformFormat = MultiMesh.TransformFormatEnum.Transform3d;
-            Multimesh.ColorFormat = MultiMesh.ColorFormatEnum.None;
-            Multimesh.CustomDataFormat = MultiMesh.CustomDataFormatEnum.None;
-            // Then resize (otherwise, changing the format is not allowed)
-            Multimesh.InstanceCount = 1000;
-            // Maybe not all of them should be visible at first.
-            Multimesh.VisibleInstanceCount = 1000;
-
-            // Set the transform of the instances.
-            for (int i = 0; i < Multimesh.VisibleInstanceCount; i++)
-            {
-                Multimesh.SetInstanceTransform(i, new Transform(Basis.Identity, new Vector3(i * 20, 0, 0)));
-            }
-        }
-    }
+```

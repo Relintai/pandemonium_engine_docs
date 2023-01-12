@@ -74,20 +74,12 @@ You can also manage groups from scripts. The following code adds the node to
 which you attach the script to the ``guards`` group as soon as it enters the
 scene tree.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         add_to_group("guards")
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        base._Ready();
-
-        AddToGroup("guards");
-    }
+```
 
 Imagine you're creating an infiltration game. When an
 enemy spots the player, you want all guards and robots to be on alert.
@@ -95,18 +87,12 @@ enemy spots the player, you want all guards and robots to be on alert.
 In the fictional example below, we use ``SceneTree.call_group()`` to alert all
 enemies that the player was spotted.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_Player_spotted():
         get_tree().call_group("guards", "enter_alert_mode")
-
- .. code-tab:: csharp
-
-    public void _OnPlayerDiscovered()
-    {
-        GetTree().CallGroup("guards", "enter_alert_mode");
-    }
+```
 
 The above code calls the function ``enter_alert_mode`` on every member of the
 group ``guards``.
@@ -115,14 +101,11 @@ To get the full list of nodes in the ``guards`` group as an array, you can call
 :ref:`SceneTree.get_nodes_in_group()
 <class_SceneTree_method_get_nodes_in_group>`:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var guards = get_tree().get_nodes_in_group("guards")
-
- .. code-tab:: csharp
-
-    var guards = GetTree().GetNodesInGroup("guards");
+```
 
 The :ref:`SceneTree <class_SceneTree>` class provides many more useful methods
 to interact with scenes, their node hierarchy, and groups. It allows you to

@@ -33,9 +33,9 @@ Importing the project
 
 - Within the ``tasks.json`` file find the ``"tasks"`` array and add a new section to it:
 
-.. tabs::
-  .. code-tab:: js Linux/X11
+js Linux/X11
 
+```
     {
       "label": "build",
       "group": "build",
@@ -46,9 +46,11 @@ Importing the project
       ],
       "problemMatcher": "$msCompile"
     }
+```
 
-  .. code-tab:: js Windows
+js Windows
 
+```
     {
       "label": "build",
       "group": "build",
@@ -62,6 +64,7 @@ Importing the project
       ],
       "problemMatcher": "$msCompile"
     }
+```
 
 .. figure:: img/vscode_3_tasks.json.png
    :figclass: figure-w480
@@ -87,9 +90,9 @@ To run and debug the project you need to create a new configuration in the ``lau
   adjust the configuration example provided accordingly.
 - Within the ``launch.json`` file find the ``"configurations"`` array and add a new section to it:
 
-.. tabs::
-  .. code-tab:: js X11
+js X11
 
+```
     {
       "name": "Launch Project",
       "type": "lldb",
@@ -105,8 +108,12 @@ To run and debug the project you need to create a new configuration in the ``lau
       "externalConsole": false,
       "preLaunchTask": "build"
     }
-  .. code-tab:: js X11_gdb
 
+```
+
+js X11_gdb
+
+```
     {
       "name": "Launch Project",
       "type": "cppdbg",
@@ -130,9 +137,11 @@ To run and debug the project you need to create a new configuration in the ``lau
       ],
       "preLaunchTask": "build"
     }
+```
 
-  .. code-tab:: js Windows
+js Windows
 
+```
     {
       "name": "Launch Project",
       "type": "cppvsdbg",
@@ -148,6 +157,7 @@ To run and debug the project you need to create a new configuration in the ``lau
       "visualizerFile": "${workspaceFolder}/platform/windows/godot.natvis",
       "preLaunchTask": "build"
     }
+```
 
 .. figure:: img/vscode_2_launch.json.png
    :figclass: figure-w480

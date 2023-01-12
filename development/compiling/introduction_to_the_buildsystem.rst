@@ -297,18 +297,17 @@ options automatically without having to supply them via the command line.
 For instance, you may want to build Godot in parallel with the aforementioned
 ``-j`` option for all the future builds:
 
-.. tabs::
- .. code-tab:: bash Linux/macOS
+bash Linux/macOS
 
-     export SCONSFLAGS="-j4"
+``` export SCONSFLAGS="-j4" ```
 
- .. code-tab:: bat Windows (cmd)
+bat Windows (cmd)
 
-     set SCONSFLAGS=-j4
+``` set SCONSFLAGS=-j4 ```
 
- .. code-tab:: powershell Windows (powershell)
+powershell Windows (powershell)
 
-     $env:SCONSFLAGS="-j4"
+``` $env:SCONSFLAGS="-j4" ```
 
 Export templates
 ----------------

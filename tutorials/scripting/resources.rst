@@ -71,36 +71,25 @@ Loading resources from code
 
 There are two ways to load resources from code. First, you can use the ``load()`` function anytime:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
             var res = load("res://robi.png") # Godot loads the Resource when it reads the line.
             get_node("sprite").texture = res
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        var texture = (Texture)GD.Load("res://robi.png"); // Godot loads the Resource when it reads the line.
-        var sprite = GetNode<Sprite>("sprite");
-        sprite.Texture = texture;
-    }
+```
 
 You can also ``preload`` resources. Unlike ``load``, this function will read the
 file from disk and load it at compile-time. As a result, you cannot call preload
 with a variable path: you need to use a constant string.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
             var res = preload("res://robi.png") # Godot loads the resource at compile-time
             get_node("sprite").texture = res
-
- .. code-tab:: csharp
-
-    // 'preload()' is unavailable in C Sharp.
+```
 
 Loading scenes
 --------------
@@ -112,23 +101,13 @@ scene is packed inside a resource.
 To get an instance of the scene, you have to use the
 :ref:`PackedScene.instance() <class_PackedScene_method_instance>` method.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_shoot():
             var bullet = preload("res://bullet.tscn").instance()
             add_child(bullet)
-
-
- .. code-tab:: csharp
-
-    private PackedScene _bulletScene = (PackedScene)GD.Load("res://bullet.tscn");
-
-    public void OnShoot()
-    {
-        Node bullet = _bulletScene.Instance();
-        AddChild(bullet);
-    }
+```
 
 This method creates the nodes in the scene's hierarchy, configures them, and
 returns the root node of the scene. You can then add it as a child of any other
@@ -197,9 +176,9 @@ object you create.
 
 Let's see some examples.
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # bot_stats.gd
     extends Resource
     export(int) var health
@@ -223,54 +202,7 @@ Let's see some examples.
         # Uses an implicit, duck-typed interface for any 'health'-compatible resources.
         if stats:
             print(stats.health) # Prints '10'.
-  .. code-tab:: csharp
-
-        // BotStats.cs
-        using System;
-        using Godot;
-
-        namespace ExampleProject {
-            public class BotStats : Resource
-            {
-                [Export]
-                public int Health { get; set; }
-
-                [Export]
-                public Resource SubResource { get; set; }
-
-                [Export]
-                public String[] Strings { get; set; }
-
-                // Make sure that every parameter has a default value. 
-                // Otherwise, there will be problems with creating and editing
-                // your resource via the inspector.
-                public BotStats(int health = 0, Resource subResource = null, String[] strings = null)
-                {
-                    Health = health;
-                    SubResource = subResource;
-                    Strings = strings ?? new String[0];
-                }
-            }
-        }
-
-        // Bot.cs
-        using System;
-        using Godot;
-
-        namespace ExampleProject {
-            public class Bot : KinematicBody
-            {
-                [Export]
-                public Resource Stats;
-
-                public override void _Ready()
-                {
-                    if (Stats != null && Stats is BotStats botStats) {
-                        GD.Print(botStats.Health); // Prints '10'.
-                    }
-                }
-            }
-        }
+```
 
 .. note::
 
@@ -284,9 +216,9 @@ Let's see some examples.
     Resource scripts. DataTables are a String mapped to a custom struct, similar
     to a Dictionary mapping a String to a secondary custom Resource script.
 
-    .. tabs::
-      .. code-tab:: gdscript GDScript
+    gdscript GDScript
 
+    ```
         # bot_stats_table.gd
         extends Resource
 
@@ -315,6 +247,7 @@ Let's see some examples.
                 GD.Print(_stats);
             }
         }
+    ```
 
     Instead of just inlining the Dictionary values, one could also, alternatively...
 
@@ -338,9 +271,9 @@ Let's see some examples.
     extend ``Resource``, and then determine that the script failed to load for the
     Resource object since the types are incompatible.
 
-    .. tabs::
-      .. code-tab:: gdscript GDScript
+    gdscript GDScript
 
+    ```
         extends Node
 
         class MyResource:
@@ -352,24 +285,4 @@ Let's see some examples.
 
             # This will NOT serialize the 'value' property.
             ResourceSaver.save("res://my_res.tres", my_res)
-      .. code-tab:: csharp
-
-        using System;
-        using Godot;
-
-        public class MyNode : Node
-        {
-            public class MyResource : Resource
-            {
-                [Export]
-                public int Value { get; set; } = 5;
-            }
-
-            public override void _Ready()
-            {
-                var res = new MyResource();
-
-                // This will NOT serialize the 'Value' property.
-                ResourceSaver.Save("res://MyRes.tres", res);
-            }
-        }
+      ```

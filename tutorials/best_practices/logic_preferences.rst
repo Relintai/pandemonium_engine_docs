@@ -24,9 +24,9 @@ accessible to *all* scripting languages.
 So, when exactly does preloading occur versus loading, and when should one use
 either? Let's see an example:
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # my_buildings.gd
     extends Node
 
@@ -64,26 +64,7 @@ either? Let's see an example:
 
     # Successfully loads and only when one instantiates the script! Yay!
     var office_scn = load("res://office.tscn")
-
-  .. code-tab:: csharp
-
-    using System;
-    using Godot;
-
-    // C# and other languages have no concept of "preloading".
-    public class MyBuildings : Node
-    {
-        //This is a read-only field, it can only be assigned when it's declared or during a constructor.
-        public readonly PackedScene Building = ResourceLoader.Load<PackedScene>("res://building.tscn");
-
-        public PackedScene ABuilding;
-
-        public override void _Ready()
-        {
-            // Can assign the value during initialization.
-            ABuilding = GD.Load<PackedScene>("res://office.tscn");
-        }
-    }
+```
 
 Preloading allows the script to handle all the loading the moment one loads the
 script. Preloading is useful, but there are also times when one doesn't wish

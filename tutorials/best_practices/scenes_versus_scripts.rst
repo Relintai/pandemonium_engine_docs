@@ -23,38 +23,16 @@ But, choosing which one to use can be a dilemma. Creating script instances
 is identical to creating in-engine classes whereas handling scenes requires
 a change in API:
 
-    .. tabs::
-      .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
         const MyNode = preload("my_node.gd")
         const MyScene = preload("my_scene.tscn")
         var node = Node.new()
         var my_node = MyNode.new() # Same method call
         var my_scene = MyScene.instance() # Different method call
         var my_inherited_scene = MyScene.instance(PackedScene.GEN_EDIT_STATE_MAIN) # Create scene inheriting from MyScene
-
-      .. code-tab:: csharp
-
-        using System;
-        using Godot;
-
-        public class Game : Node
-        {
-            public readonly Script MyNodeScr = (Script)ResourceLoader.Load("MyNode.cs");
-            public readonly PackedScene MySceneScn = (PackedScene)ResourceLoader.Load("MyScene.tscn");
-            public Node ANode;
-            public Node MyNode;
-            public Node MyScene;
-            public Node MyInheritedScene;
-
-            public Game()
-            {
-                ANode = new Node();
-                MyNode = new MyNode(); // Same syntax
-                MyScene = MySceneScn.Instance(); // Different. Instantiated from a PackedScene
-                MyInheritedScene = MySceneScn.Instance(PackedScene.GenEditState.Main); // Create scene inheriting from MyScene
-            }
-        }
+```
 
 Also, scripts will operate a little slower than scenes due to the
 speed differences between engine and script code. The larger and more complex
@@ -160,9 +138,9 @@ The code example below creates a new ``Node``, changes its name, assigns a
 script to it, sets its future parent as its owner so it gets saved to disk along
 with it, and finally adds it as a child of the ``Main`` node:
 
-.. tabs::
-  .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Main.gd
     extends Node
 
@@ -172,25 +150,7 @@ with it, and finally adds it as a child of the ``Main`` node:
         child.script = preload("Child.gd")
         child.owner = self
         add_child(child)
-
-  .. code-tab:: csharp
-
-    using System;
-    using Godot;
-
-    public class Main : Resource
-    {
-        public Node Child { get; set; }
-
-        public Main()
-        {
-            Child = new Node();
-            Child.Name = "Child";
-            Child.Script = ResourceLoader.Load<Script>("child.gd");
-            Child.Owner = this;
-            AddChild(Child);
-        }
-    }
+```
 
 Script code like this is much slower than engine-side C++ code. Each instruction
 makes a call to the scripting API which leads to many "lookups" on the back-end
@@ -219,9 +179,9 @@ In the end, the best approach is to consider the following:
   this in 3.1 by declaring a script class and giving it a scene as a constant.
   The script becomes, in effect, a namespace:
 
-  .. tabs::
-    .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
       # game.gd
       extends Reference
       class_name Game # extends Reference, so it won't show up in the node creation dialog
@@ -231,3 +191,4 @@ In the end, the best approach is to consider the following:
       extends Node
       func _ready():
           add_child(Game.MyScene.instance())
+```

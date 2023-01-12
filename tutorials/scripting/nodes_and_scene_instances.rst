@@ -21,28 +21,16 @@ Sprite and Camera2D nodes to access them in your script.
 
 To do so, you can use the following code.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var sprite
     var camera2d
 
     func _ready():
         sprite = get_node("Sprite")
         camera2d = get_node("Camera2D")
-
- .. code-tab:: csharp
-
-    private Sprite _sprite;
-    private Camera2D _camera2d;
-
-    public override void _Ready()
-    {
-        base._Ready();
-
-        _sprite = GetNode<Sprite>("Sprite");
-        _camera2d = GetNode<Camera2D>("Camera2D");
-    }
+```
 
 Note that you get nodes using their name, not their type. Above, "Sprite" and
 "Camera2D" are the nodes' names in the scene.
@@ -68,24 +56,14 @@ node.
 
 To get the Tween node, you would use the following code.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var tween
 
     func _ready():
         tween = get_node("ShieldBar/Tween")
-
- .. code-tab:: csharp
-
-    private Tween _tween;
-
-    public override void _Ready()
-    {
-        base._Ready();
-
-        _tween = GetNode<Tween>("ShieldBar/Tween");
-    }
+```
 
 .. note:: As with file paths, you can use ".." to get a parent node. The best
           practice is to avoid doing that though not to break encapsulation.
@@ -122,40 +100,26 @@ You can store the newly created node's reference in a variable and call
 ``add_child()`` to add it as a child of the node to which you attached the
 script.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var sprite
 
     func _ready():
         var sprite = Sprite.new() # Create a new Sprite.
         add_child(sprite) # Add it as a child of this node.
-
- .. code-tab:: csharp
-
-    private Sprite _sprite;
-
-    public override void _Ready()
-    {
-        base._Ready();
-
-        _sprite = new Sprite(); // Create a new Sprite.
-        AddChild(_sprite); // Add it as a child of this node.
-    }
+```
 
 To delete a node and free it from memory, you can call its ``queue_free()``
 method. Doing so queues the node for deletion at the end of the current frame
 after it has finished processing. At that point, the engine removes the node from
 the scene and frees the object in memory.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     sprite.queue_free()
-
- .. code-tab:: csharp
-
-    _sprite.QueueFree();
+```
 
 Before calling ``sprite.queue_free()``, the remote scene tree looks like this.
 
@@ -185,39 +149,33 @@ steps:
 2. Creating an instance of the loaded :ref:`PackedScene <class_PackedScene>`
    resource.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var scene = load("res://MyScene.tscn")
-
- .. code-tab:: csharp
-
-    var scene = GD.Load<PackedScene>("res://MyScene.tscn");
+```
 
 Preloading the scene can improve the user's experience as the load operation
 happens when the compiler reads the script and not at runtime. This feature is
 only available with GDScript.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var scene = preload("res://MyScene.tscn")
+    ```
 
 At that point, ``scene`` is a packed scene resource, not a node. To create the
 actual node, you need to call :ref:`PackedScene.instance()
 <class_PackedScene_method_instance>`. It returns a tree of nodes that you can
 as a child of your current node.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var instance = scene.instance()
     add_child(instance)
-
- .. code-tab:: csharp
-
-    var instance = scene.Instance();
-    AddChild(instance);
+```
 
 The advantage of this two-step process is you can keep a packed scene loaded and
 create new instances on the fly. For example, to quickly instance several

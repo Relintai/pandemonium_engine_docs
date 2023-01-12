@@ -47,18 +47,18 @@ Step by step
 2. Set this key as environment variable in the console that you will use to
    compile Godot, like this:
 
-   .. tabs::
-    .. code-tab:: bash Linux/macOS
 
-       export SCRIPT_AES256_ENCRYPTION_KEY="your_generated_key"
+bash Linux/macOS
 
-    .. code-tab:: bat Windows (cmd)
+``` export SCRIPT_AES256_ENCRYPTION_KEY="your_generated_key" ```
 
-       set SCRIPT_AES256_ENCRYPTION_KEY=your_generated_key
+bat Windows (cmd)
 
-    .. code-tab:: bat Windows (PowerShell)
+``` set SCRIPT_AES256_ENCRYPTION_KEY=your_generated_key ````
 
-       $env:SCRIPT_AES256_ENCRYPTION_KEY="your_generated_key"
+bat Windows (PowerShell)
+
+``` $env:SCRIPT_AES256_ENCRYPTION_KEY="your_generated_key" ```
 
 3. Compile Godot export templates and set them as custom export templates
    in the export preset options.

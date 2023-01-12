@@ -24,9 +24,9 @@ Creating a Thread
 
 Creating a thread is very simple, just use the following code:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var thread
 
     # The thread will start here.
@@ -47,6 +47,7 @@ Creating a thread is very simple, just use the following code:
     # Thread must be disposed (or "joined"), for portability.
     func _exit_tree():
         thread.wait_to_finish()
+```
 
 Your function will, then, run in a separate thread until it returns.
 Even if the function has returned already, the thread must collect it, so call
@@ -75,9 +76,9 @@ allowed to proceed with the lock (but only one at a time).
 
 Here is an example of using a Mutex:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var counter = 0
     var mutex
     var thread
@@ -106,6 +107,7 @@ Here is an example of using a Mutex:
     func _exit_tree():
         thread.wait_to_finish()
         print("Counter is: ", counter) # Should be 2.
+```
 
 Semaphores
 ----------
@@ -120,9 +122,9 @@ The main thread, instead, uses
 :ref:`Semaphore.post()<class_Semaphore_method_post>` to signal that data is
 ready to be processed:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var counter = 0
     var mutex
     var semaphore
@@ -183,3 +185,4 @@ ready to be processed:
 
         # Print the counter.
         print("Counter is: ", counter)
+```

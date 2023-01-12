@@ -89,29 +89,11 @@ other options by default and click the Create button to create the script.
 The Script workspace should appear with your new ``Sprite.gd`` file open and the
 following line of code:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Sprite
-
- .. code-tab:: csharp C#
-
-    public class Sprite : Godot.Sprite
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-    {
-
-    }
-
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //
-    //  }
+```
 
 Every GDScript file is implicitly a class. The ``extends`` keyword defines the
 class this script inherits or extends. In this case, it's ``Sprite``, meaning
@@ -143,18 +125,12 @@ world!" to the Output bottom panel to get started.
 
 Add the following code to your script:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _init():
         print("Hello, world!")
-
- .. code-tab:: csharp C#
-
-    public Sprite()
-    {
-        GD.Print("Hello, world!");
-    }
+```
 
 
 Let's break it down. The ``func`` keyword defines a new function named
@@ -183,16 +159,12 @@ It's time to make our node move and rotate. To do so, we're going to add two
 member variables to our script: the movement speed in pixels per second and the
 angular speed in radians per second.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var speed = 400
     var angular_speed = PI
-
- .. code-tab:: csharp C#
-
-    private int Speed = 400;
-    private float AngularSpeed = Mathf.Pi;
+```
 
 Member variables sit near the top of the script, after any "extends" lines,
 but before functions. Every node
@@ -224,18 +196,12 @@ time elapsed since the last frame.
 
 At the bottom of the script, define the function:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _process(delta):
         rotation += angular_speed * delta
-
- .. code-tab:: csharp C#
-
-    public override void _Process(float delta)
-    {
-        Rotation += AngularSpeed * delta;
-    }
+```
 
 The ``func`` keyword defines a new function. After it, we have to write the
 function's name and arguments it takes in parentheses. A colon ends the
@@ -267,18 +233,13 @@ Let's now make the node move. Add the following two lines to the ``_process()``
 function, ensuring the new lines are indented the same way as the one before
 them.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var velocity = Vector2.UP.rotated(rotation) * speed
 
     position += velocity * delta
-
- .. code-tab:: csharp C#
-
-    var velocity = Vector2.Up.Rotated(Rotation) * Speed;
-
-    Position += velocity * delta;
+```
 
 As we already saw, the ``var`` keyword defines a new variable. If you put it at
 the top of the script, it defines a property of the class. Inside a function, it
@@ -311,9 +272,9 @@ Complete script
 
 Here is the complete ``Sprite.gd`` file for reference.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Sprite
 
     var speed = 400
@@ -326,22 +287,4 @@ Here is the complete ``Sprite.gd`` file for reference.
         var velocity = Vector2.UP.rotated(rotation) * speed
 
         position += velocity * delta
-
- .. code-tab:: csharp C#
-
-    using Godot;
-
-    public class Sprite : Godot.Sprite
-    {
-        private int Speed = 400;
-        private float AngularSpeed = Mathf.Pi;
-
-        public override void _Process(float delta)
-        {
-            Rotation += AngularSpeed * delta;
-            var velocity = Vector2.Up.Rotated(Rotation) * Speed;
-
-            Position += velocity * delta;
-
-        }
-    }
+```

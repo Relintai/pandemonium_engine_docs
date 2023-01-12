@@ -100,9 +100,9 @@ This node can be used to cause a seek command to happen to any sub-children of t
 
 After setting the time and changing the animation playback, the seek node automatically goes into sleep mode on the next process frame by setting its ``seek_position`` value to ``-1.0``.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Play child animation from the start.
     anim_tree.set("parameters/Seek/seek_position", 0.0)
     # Alternative syntax (same result as above).
@@ -112,14 +112,7 @@ After setting the time and changing the animation playback, the seek node automa
     anim_tree.set("parameters/Seek/seek_position", 12.0)
     # Alternative syntax (same result as above).
     anim_tree["parameters/Seek/seek_position"] = 12.0
-
- .. code-tab:: csharp
-
-    // Play child animation from the start.
-    animTree.Set("parameters/Seek/seek_position", 0.0);
-
-    // Play child animation from 12 second timestamp.
-    animTree.Set("parameters/Seek/seek_position", 12.0);
+```
 
 TimeScale
 ^^^^^^^^^
@@ -202,14 +195,11 @@ transformation visually (the animation will stay in place).
 
 Afterwards, the actual motion can be retrieved via the :ref:`AnimationTree <class_AnimationTree>` API as a transform:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     anim_tree.get_root_motion_transform()
-
- .. code-tab:: csharp
-
-    animTree.GetRootMotionTransform();
+```
 
 This can be fed to functions such as :ref:`KinematicBody.move_and_slide <class_KinematicBody_method_move_and_slide>` to control the character movement.
 
@@ -243,16 +233,13 @@ To modify these values from code, the property path must be obtained. This is do
 
 Which allows setting them or reading them:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     anim_tree.set("parameters/eye_blend/blend_amount", 1.0)
     # Simpler alternative form:
     anim_tree["parameters/eye_blend/blend_amount"] = 1.0
-
- .. code-tab:: csharp
-
-    animTree.Set("parameters/eye_blend/blend_amount", 1.0);
+```
 
 
 State machine travel
@@ -267,25 +254,19 @@ To use the travel ability, you should first retrieve the :ref:`AnimationNodeStat
 object from the ``AnimationTree`` node (it is exported as a property).
 
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var state_machine = anim_tree["parameters/playback"]
-
- .. code-tab:: csharp
-
-    AnimationNodeStateMachinePlayback stateMachine = (AnimationNodeStateMachinePlayback)animTree.Get("parameters/playback");
+```
 
 Once retrieved, it can be used by calling one of the many functions it offers:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     state_machine.travel("SomeState")
-
- .. code-tab:: csharp
-
-    stateMachine.Travel("SomeState");
+```
 
 The state machine must be running before you can travel. Make sure to either call ``start()`` or choose a node to **Autoplay on Load**.
 

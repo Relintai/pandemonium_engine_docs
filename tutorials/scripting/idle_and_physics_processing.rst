@@ -24,19 +24,13 @@ script. You can turn it off and back on by calling :ref:`Node.set_process()
 
 The engine calls this method every time it draws a frame:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _process(delta):
         # Do something...
         pass
-
- .. code-tab:: csharp
-
-    public override void _Process(float delta)
-    {
-        // Do something...
-    }
+```
 
 Keep in mind that the frequency at which the engine calls ``_process()`` depends
 on your application's framerate, which varies over time and across devices.
@@ -56,19 +50,13 @@ Physics Fps. By default, it's set to run 60 times per second.
 
 The engine calls this method every time it draws a frame:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _physics_process(delta):
         # Do something...
         pass
-
- .. code-tab:: csharp
-
-    public override void _PhysicsProcess(float delta)
-    {
-        // Do something...
-    }
+```
 
 The function ``_process()`` is not synchronized with physics. Its rate depends on
 hardware and game optimization. It also runs after the physics step in
@@ -77,9 +65,9 @@ single-threaded games.
 You can see the ``_process()`` function at work by creating a scene with a
 single Label node, with the following script attached to it:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Label
 
     var time = 0
@@ -87,18 +75,6 @@ single Label node, with the following script attached to it:
     func _process(delta):
         time += delta
         text = str(time) # 'text' is a built-in Label property.
-
- .. code-tab:: csharp
-
-    public class CustomLabel : Label
-    {
-        private float _time;
-
-        public override void _Process(float delta)
-        {
-            _time += delta;
-            Text = _time.ToString(); // 'Text' is a built-in Label property.
-        }
-    }
+```
 
 When you run the scene, you should see a counter increasing each frame.

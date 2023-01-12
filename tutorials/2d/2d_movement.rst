@@ -38,9 +38,9 @@ fact that the player can move diagonally by pressing two keys at the same time.
 
 Add a script to the kinematic body and add the following code:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     export (int) var speed = 200
@@ -62,43 +62,7 @@ Add a script to the kinematic body and add the following code:
     func _physics_process(delta):
         get_input()
         velocity = move_and_slide(velocity)
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class Movement : KinematicBody2D
-    {
-        [Export] public int speed = 200;
-
-        public Vector2 velocity = new Vector2();
-
-        public void GetInput()
-        {
-            velocity = new Vector2();
-
-            if (Input.IsActionPressed("right"))
-                velocity.x += 1;
-
-            if (Input.IsActionPressed("left"))
-                velocity.x -= 1;
-
-            if (Input.IsActionPressed("down"))
-                velocity.y += 1;
-
-            if (Input.IsActionPressed("up"))
-                velocity.y -= 1;
-
-            velocity = velocity.Normalized() * speed;
-        }
-
-        public override void _PhysicsProcess(float delta)
-        {
-            GetInput();
-            velocity = MoveAndSlide(velocity);
-        }
-    }
+```
 
 In the ``get_input()`` function, we check for the four key events and sum them
 up to get the velocity vector. This has the benefit of making two opposite keys
@@ -126,9 +90,9 @@ while up/down moves it forward or backward in whatever direction it's facing.
 
 .. image:: img/movement_rotate1.gif
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     export (int) var speed = 200
@@ -153,47 +117,7 @@ while up/down moves it forward or backward in whatever direction it's facing.
         get_input()
         rotation += rotation_dir * rotation_speed * delta
         velocity = move_and_slide(velocity)
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class Movement : KinematicBody2D
-    {
-        [Export] public int speed = 200;
-        [Export] public float rotationSpeed = 1.5f;
-
-        public Vector2 velocity = new Vector2();
-        public int rotationDir = 0;
-
-        public void GetInput()
-        {
-            rotationDir = 0;
-            velocity = new Vector2();
-
-            if (Input.IsActionPressed("right"))
-                rotationDir += 1;
-
-            if (Input.IsActionPressed("left"))
-                rotationDir -= 1;
-
-            if (Input.IsActionPressed("down"))
-                velocity = new Vector2(-speed, 0).Rotated(Rotation);
-
-            if (Input.IsActionPressed("up"))
-                velocity = new Vector2(speed, 0).Rotated(Rotation);
-
-            velocity = velocity.Normalized() * speed;
-        }
-
-        public override void _PhysicsProcess(float delta)
-        {
-            GetInput();
-            Rotation += rotationDir * rotationSpeed * delta;
-            velocity = MoveAndSlide(velocity);
-        }
-    }
+```
 
 Here we've added two new variables to track our rotation direction and speed.
 Again, pressing both keys at once will cancel out and result in no rotation.
@@ -213,9 +137,9 @@ is set by the mouse position instead of the keyboard. The character will always
 
 .. image:: img/movement_rotate2.gif
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     export (int) var speed = 200
@@ -233,51 +157,17 @@ is set by the mouse position instead of the keyboard. The character will always
     func _physics_process(delta):
         get_input()
         velocity = move_and_slide(velocity)
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class Movement : KinematicBody2D
-    {
-        [Export] public int speed = 200;
-
-        public Vector2 velocity = new Vector2();
-
-        public void GetInput()
-        {
-            LookAt(GetGlobalMousePosition());
-            velocity = new Vector2();
-
-            if (Input.IsActionPressed("down"))
-                velocity = new Vector2(-speed, 0).Rotated(Rotation);
-
-            if (Input.IsActionPressed("up"))
-                velocity = new Vector2(speed, 0).Rotated(Rotation);
-
-            velocity = velocity.Normalized() * speed;
-        }
-
-        public override void _PhysicsProcess(float delta)
-        {
-            GetInput();
-            velocity = MoveAndSlide(velocity);
-        }
-    }
+```
 
 Here we're using the :ref:`Node2D <class_Node2D>` ``look_at()`` method to
 point the player towards a given position. Without this function, you
 could get the same effect by setting the angle like this:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     rotation = get_global_mouse_position().angle_to_point(position)
-
- .. code-tab:: csharp
-
-    var rotation = GetGlobalMousePosition().AngleToPoint(Position);
+```
 
 
 Click-and-move
@@ -288,9 +178,9 @@ on the screen will cause the player to move to the target location.
 
 .. image:: img/movement_click.gif
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     export (int) var speed = 200
@@ -307,42 +197,7 @@ on the screen will cause the player to move to the target location.
         # look_at(target)
         if position.distance_to(target) > 5:
             velocity = move_and_slide(velocity)
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class Movement : KinematicBody2D
-    {
-        [Export] public int speed = 200;
-
-        public Vector2 target;
-        public Vector2 velocity = new Vector2();
-
-        public override void _Ready()
-        {
-            target = Position;
-        }
-
-        public override void _Input(InputEvent @event)
-        {
-            if (@event.IsActionPressed("click"))
-            {
-                target = GetGlobalMousePosition();
-            }
-        }
-
-        public override void _PhysicsProcess(float delta)
-        {
-            velocity = Position.DirectionTo(target) * speed;
-            // LookAt(target);
-            if (Position.DistanceTo(target) > 5)
-            {
-                velocity = MoveAndSlide(velocity);
-            }
-        }
-    }
+```
 
 
 Note the ``distance_to()`` check we make prior to movement. Without this test,

@@ -164,9 +164,9 @@ Creating custom Containers
 It is possible to easily create a custom container using script. Here is an example of a simple container that fits children
 to its rect size:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Container
 
     func _notification(what):
@@ -179,3 +179,4 @@ to its rect size:
     func set_some_setting():
         # Some setting changed, ask for children re-sort
         queue_sort()
+```

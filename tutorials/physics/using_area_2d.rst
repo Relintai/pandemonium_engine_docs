@@ -68,24 +68,14 @@ use ``area_entered``. However, let's assume our player is a ``KinematicBody2D``
 .. note:: If you're not familiar with using signals, see :ref:`doc_signals` for
           an introduction.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Area2D
 
     func _on_Coin_body_entered(body):
         queue_free()
-
- .. code-tab:: csharp
-
-    public class Coin : Area2D
-    {
-
-        public void OnCoinBodyEntered(PhysicsBody2D body)
-        {
-            QueueFree();
-        }
-    }
+```
 
 Now our player can collect the coins!
 

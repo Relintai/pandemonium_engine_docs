@@ -14,22 +14,14 @@ multiple locations, depending on the purpose.
 
 Here is a quick example, closing your game if the escape key is hit:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _unhandled_input(event):
         if event is InputEventKey:
             if event.pressed and event.scancode == KEY_ESCAPE:
                 get_tree().quit()
-
- .. code-tab:: csharp
-
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event is InputEventKey eventKey)
-            if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
-                GetTree().Quit();
-    }
+```
 
 However, it is cleaner and more flexible to use the provided :ref:`InputMap <class_InputMap>` feature,
 which allows you to define input actions and assign them different keys. This way,
@@ -39,22 +31,13 @@ and even build a key mapping feature on top of it to allow your game to change t
 
 You can set up your InputMap under **Project > Project Settings > Input Map** and then use those actions like this:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _process(delta):
         if Input.is_action_pressed("ui_right"):
             # Move right.
-
- .. code-tab:: csharp
-
-    public override void _Process(float delta)
-    {
-        if (Input.IsActionPressed("ui_right"))
-        {
-            // Move right.
-        }
-    }
+```
 
 How does it work?
 -----------------
@@ -180,24 +163,16 @@ from the game code (a good example of this is detecting gestures).
 The Input singleton has a method for this:
 :ref:`Input.parse_input_event() <class_input_method_parse_input_event>`. You would normally use it like this:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var ev = InputEventAction.new()
     # Set as move_left, pressed.
     ev.action = "move_left"
     ev.pressed = true
     # Feedback.
     Input.parse_input_event(ev)
-
- .. code-tab:: csharp
-
-    var ev = new InputEventAction();
-    // Set as move_left, pressed.
-    ev.SetAction("move_left");
-    ev.SetPressed(true);
-    // Feedback.
-    Input.ParseInputEvent(ev);
+`````
 
 InputMap
 --------

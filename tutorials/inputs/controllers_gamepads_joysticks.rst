@@ -46,9 +46,9 @@ There are 3 ways to get input in an analog-aware way:
 - When you have two axes (such as joystick or WASD movement) and want both
   axes to behave as a single input, use ``Input.get_vector()``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
     # This handles deadzone in a correct way for most use cases.
     # The resulting deadzone will have a circular shape as it generally should.
@@ -59,70 +59,42 @@ There are 3 ways to get input in an analog-aware way:
     # a square-ish shape when it should ideally have a circular shape.
     var velocity = Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")).clamped(1)
-
- .. code-tab:: csharp
-
-    // `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
-    // This handles deadzone in a correct way for most use cases.
-    // The resulting deadzone will have a circular shape as it generally should.
-    Vector2 velocity = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
-
-    // The line below is similar to `get_vector()`, except that it handles
-    // the deadzone in a less optimal way. The resulting deadzone will have
-    // a square-ish shape when it should ideally have a circular shape.
-    Vector2 velocity = new Vector2(Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
-		Input.GetActionStrength("move_back") - Input.GetActionStrength("move_forward")).Clamped(1);
+```
 
 - When you have one axis that can go both ways (such as a throttle on a
   flight stick), or when you want to handle separate axes individually,
   use ``Input.get_axis()``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # `walk` will be a floating-point number between `-1.0` and `1.0`.
     var walk = Input.get_axis("move_left", "move_right")
 
     # The line above is a shorter form of:
     var walk = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-
- .. code-tab:: csharp
-
-    // `walk` will be a floating-point number between `-1.0` and `1.0`.
-    float walk = Input.GetAxis("move_left", "move_right");
-
-    // The line above is a shorter form of:
-    float walk = Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left");
+```
 
 - For other types of analog input, such as handling a trigger or handling
   one direction at a time, use ``Input.get_action_strength()``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # `strength` will be a floating-point number between `0.0` and `1.0`.
     var strength = Input.get_action_strength("accelerate")
-
- .. code-tab:: csharp
-
-    // `strength` will be a floating-point number between `0.0` and `1.0`.
-    float strength = Input.GetActionStrength("accelerate");
+```
 
 For non-analog digital/boolean input (only "pressed" or "not pressed" values),
 such as controller buttons, mouse buttons or keyboard keys,
 use ``Input.is_action_pressed()``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # `jumping` will be a boolean with a value of `true` or `false`.
     var jumping = Input.is_action_pressed("jump")
-
-.. tabs::
- .. code-tab:: csharp
-
-    // `jumping` will be a boolean with a value of `true` or `false`.
-    bool jumping = Input.IsActionPressed("jump");
+```
 
 In Godot versions before 3.4, such as 3.3, ``Input.get_vector()`` and
 ``Input.get_axis()`` aren't available. Only ``Input.get_action_strength()``
@@ -205,21 +177,26 @@ in the `official Joypads demo <https://godotengine.org/asset-library/asset/140>`
 Once you have a working mapping for your controller, you can test it by defining
 the ``SDL_GAMECONTROLLERCONFIG`` environment variable before running Godot:
 
-.. tabs::
- .. code-tab:: bash Linux/macOS
+bash Linux/macOS
 
+```
     export SDL_GAMECONTROLLERCONFIG="your:mapping:here"
     ./path/to/godot.x86_64
+```
 
- .. code-tab:: bat Windows (cmd)
+bat Windows (cmd)
 
+```
     set SDL_GAMECONTROLLERCONFIG=your:mapping:here
     path\to\godot.exe
+```
 
- .. code-tab:: powershell Windows (powershell)
+powershell Windows (powershell)
 
+```
     $env:SDL_GAMECONTROLLERCONFIG="your:mapping:here"
     path\to\godot.exe
+```
 
 To test mappings on non-desktop platforms or to distribute your project with
 additional controller mappings, you can add them by calling

@@ -230,15 +230,14 @@ Using the module
 
 You can now use your newly created module from any script:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
-
+```
     var s = Summator.new()
     s.add(10)
     s.add(20)
     s.add(30)
     print(s.get_total())
     s.reset()
+```
 
 The output will be ``60``.
 

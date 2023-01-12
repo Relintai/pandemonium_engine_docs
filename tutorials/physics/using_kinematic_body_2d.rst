@@ -116,9 +116,9 @@ When using ``move_and_slide()`` it's possible to have multiple collisions occur,
 as the slide response is calculated. To process these collisions, use ``get_slide_count()``
 and ``get_slide_collision()``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # Using move_and_collide.
     var collision = move_and_collide(velocity * delta)
     if collision:
@@ -129,23 +129,7 @@ and ``get_slide_collision()``:
     for i in get_slide_count():
         var collision = get_slide_collision(i)
         print("I collided with ", collision.collider.name)
-        
- .. code-tab:: csharp
-
-    // Using MoveAndCollide.
-    var collision = MoveAndCollide(velocity * delta);
-    if (collision != null)
-    {
-        GD.Print("I collided with ", ((Node)collision.Collider).Name);
-    }
-
-    // Using MoveAndSlide.
-    velocity = MoveAndSlide(velocity);
-    for (int i = 0; i < GetSlideCount(); i++)
-    {
-        var collision = GetSlideCollision(i);
-        GD.Print("I collided with ", ((Node)collision.Collider).Name);
-    }
+```
 
 .. note:: `get_slide_count()` only counts times the body has collided and changed direction.      
 
@@ -164,9 +148,9 @@ the same collision response:
 
 .. image:: img/k2d_compare.gif
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     # using move_and_collide
     var collision = move_and_collide(velocity * delta)
     if collision:
@@ -174,17 +158,7 @@ the same collision response:
 
     # using move_and_slide
     velocity = move_and_slide(velocity)
-
- .. code-tab:: csharp
-
-    // using MoveAndCollide
-    var collision = MoveAndCollide(velocity * delta);
-    if (collision != null)
-    {
-        velocity = velocity.Slide(collision.Normal);
-    }
-    // using MoveAndSlide
-    velocity = MoveAndSlide(velocity);
+```
 
 Anything you do with ``move_and_slide()`` can also be done with ``move_and_collide()``,
 but it might take a little more code. However, as we'll see in the examples below,
@@ -226,9 +200,9 @@ size the rectangle to fit over the sprite image.
 
 Attach a script to the KinematicBody2D and add the following code:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     var speed = 250
@@ -250,42 +224,7 @@ Attach a script to the KinematicBody2D and add the following code:
     func _physics_process(delta):
         get_input()
         move_and_collide(velocity * delta)
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class KBExample : KinematicBody2D
-    {
-        public int Speed = 250;
-        private Vector2 _velocity = new Vector2();
-
-        public void GetInput()
-        {
-            // Detect up/down/left/right keystate and only move when pressed
-            _velocity = new Vector2();
-
-            if (Input.IsActionPressed("ui_right"))
-                _velocity.x += 1;
-
-            if (Input.IsActionPressed("ui_left"))
-                _velocity.x -= 1;
-
-            if (Input.IsActionPressed("ui_down"))
-                _velocity.y += 1;
-
-            if (Input.IsActionPressed("ui_up"))
-                _velocity.y -= 1;
-            _velocity = _velocity.Normalized() * Speed;
-        }
-
-        public override void _PhysicsProcess(float delta)
-        {
-            GetInput();
-            MoveAndCollide(_velocity * delta);
-        }
-    }
+```
 
 
 Run this scene and you'll see that ``move_and_collide()`` works as expected, moving
@@ -322,9 +261,9 @@ The Bullet and Wall are separate scenes so that they can be instanced.
 The Player is controlled by the `w` and `s` keys for forward and back. Aiming
 uses the mouse pointer. Here is the code for the Player, using ``move_and_slide()``:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     var Bullet = preload("res://Bullet.tscn")
@@ -354,63 +293,14 @@ uses the mouse pointer. Here is the code for the Player, using ``move_and_slide(
         if dir.length() > 5:
             rotation = dir.angle()
             velocity = move_and_slide(velocity)
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class KBExample : KinematicBody2D
-    {
-        private PackedScene _bullet = (PackedScene)GD.Load("res://Bullet.tscn");
-        public int Speed = 200;
-        private Vector2 _velocity = new Vector2();
-
-        public void GetInput()
-        {
-            // add these actions in Project Settings -> Input Map
-            _velocity = new Vector2();
-            if (Input.IsActionPressed("backward"))
-            {
-                _velocity = new Vector2(-Speed/3, 0).Rotated(Rotation);
-            }
-            if (Input.IsActionPressed("forward"))
-            {
-                _velocity = new Vector2(Speed, 0).Rotated(Rotation);
-            }
-            if (Input.IsActionPressed("mouse_click"))
-            {
-                Shoot();
-            }
-        }
-
-        public void Shoot()
-        {
-            // "Muzzle" is a Position2D placed at the barrel of the gun
-            var b = (Bullet)_bullet.Instance();
-            b.Start(GetNode<Node2D>("Muzzle").GlobalPosition, Rotation);
-            GetParent().AddChild(b);
-        }
-
-        public override void _PhysicsProcess(float delta)
-        {
-            GetInput();
-            var dir = GetGlobalMousePosition() - GlobalPosition;
-            // Don't move if too close to the mouse pointer
-            if (dir.Length() > 5)
-            {
-                Rotation = dir.Angle();
-                _velocity = MoveAndSlide(_velocity);
-            }
-        }
-    }
+```
 
 
 And the code for the Bullet:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     var speed = 750
@@ -430,43 +320,7 @@ And the code for the Bullet:
 
     func _on_VisibilityNotifier2D_screen_exited():
         queue_free()
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class Bullet : KinematicBody2D
-    {
-        public int Speed = 750;
-        private Vector2 _velocity = new Vector2();
-
-        public void Start(Vector2 pos, float dir)
-        {
-            Rotation = dir;
-            Position = pos;
-            _velocity = new Vector2(speed, 0).Rotated(Rotation);
-        }
-
-        public override void _PhysicsProcess(float delta)
-        {
-            var collision = MoveAndCollide(_velocity * delta);
-            if (collision != null)
-            {
-                _velocity = _velocity.Bounce(collision.Normal);
-                if (collision.Collider.HasMethod("Hit"))
-                {
-                    collision.Collider.Call("Hit");
-                }
-            }
-        }
-
-        public void OnVisibilityNotifier2DScreenExited()
-        {
-            QueueFree();
-        }
-    }
-
+```
 
 The action happens in ``_physics_process()``. After using ``move_and_collide()``, if a
 collision occurs, a ``KinematicCollision2D`` object is returned (otherwise, the return
@@ -495,9 +349,9 @@ They can be any shape and size. In the sample project, we're using
 Here's the code for the player body:
 
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     export (int) var run_speed = 100
@@ -527,49 +381,7 @@ Here's the code for the player body:
         if jumping and is_on_floor():
             jumping = false
         velocity = move_and_slide(velocity, Vector2(0, -1))
-
- .. code-tab:: csharp
-
-    using Godot;
-    using System;
-
-    public class KBExample : KinematicBody2D
-    {
-        [Export] public int RunSpeed = 100;
-        [Export] public int JumpSpeed = -400;
-        [Export] public int Gravity = 1200;
-
-        Vector2 velocity = new Vector2();
-        bool jumping = false;
-
-        public void GetInput()
-        {
-            velocity.x = 0;
-            bool right = Input.IsActionPressed("ui_right");
-            bool left = Input.IsActionPressed("ui_left");
-            bool jump = Input.IsActionPressed("ui_select");
-
-            if (jump && IsOnFloor())
-            {
-                jumping = true;
-                velocity.y = JumpSpeed;
-            }
-
-            if (right)
-                velocity.x += RunSpeed;
-            if (left)
-                velocity.x -= RunSpeed;
-        }
-
-        public override void _PhysicsProcess(float delta)
-        {
-            GetInput();
-            velocity.y += Gravity * delta;
-            if (jumping && IsOnFloor())
-                jumping = false;
-            velocity = MoveAndSlide(velocity, new Vector2(0, -1));
-        }
-    }
+```
 
 .. image:: img/k2d_platform.gif
 

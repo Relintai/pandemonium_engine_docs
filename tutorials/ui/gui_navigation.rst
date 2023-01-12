@@ -62,18 +62,12 @@ For keyboard and controller navigation to work correctly, any node must be focus
 using code when the scene starts. Without doing this, pressing buttons or keys won't
 do anything. Here is a basic example of setting initial focus with code:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _ready():
         $StartButton.grab_focus()
-
- .. code-tab:: csharp
-
-    public override void _Ready()
-    {
-        GetNode<Button>("StartButton").GrabFocus();
-    }
+```
 
 Now when the scene starts the "Start Button" node will be focused, and the keyboard
 or a controller can be used to navigate between it and other UI elements.

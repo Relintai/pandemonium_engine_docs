@@ -74,9 +74,9 @@ the ``play()`` and ``stop()`` methods. Here is a brief example to play the
 animation while the right arrow key is held, and stop it when the key is
 released.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     onready var _animated_sprite = $AnimatedSprite
@@ -86,30 +86,7 @@ released.
             _animated_sprite.play("run")
         else:
             _animated_sprite.stop()
-
- .. code-tab:: csharp
-
-    public class Character : KinematicBody2D
-    {
-        private AnimatedSprite _animatedSprite;
-
-        public override void _Ready()
-        {
-            _animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
-        }
-
-        public override _Process(float _delta)
-        {
-            if (Input.IsActionPressed("ui_right"))
-            {
-                _animatedSprite.Play("run");
-            }
-            else
-            {
-                _animatedSprite.Stop();
-            }
-        }
-    }
+```
 
 
 Sprite sheet with AnimatedSprite
@@ -213,9 +190,9 @@ the ``play()`` and ``stop()`` methods. Again, here is an example to play the
 animation while the right arrow key is held, and stop it when the key is
 released.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends KinematicBody2D
 
     onready var _animation_player = $AnimationPlayer
@@ -225,30 +202,7 @@ released.
             _animation_player.play("walk")
         else:
             _animation_player.stop()
-
- .. code-tab:: csharp
-
-    public class Character : KinematicBody2D
-    {
-        private AnimationPlayer _animationPlayer;
-
-        public override void _Ready()
-        {
-            _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-        }
-
-        public override void _Process(float _delta)
-        {
-            if (Input.IsActionPressed("ui_right"))
-            {
-                _animationPlayer.Play("walk");
-            }
-            else
-            {
-                _animationPlayer.Stop();
-            }
-        }
-    }
+```
 
 .. note:: If updating both an animation and a separate property at once
           (for example, a platformer may update the sprite's ``h_flip``/``v_flip``

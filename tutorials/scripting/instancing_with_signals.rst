@@ -25,27 +25,16 @@ player's location. See :ref:`doc_instancing` for details.
 We'll use an ``Area2D`` for the bullet, which moves in a straight line at a
 given velocity:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Area2D
 
     var velocity = Vector2.ZERO
 
     func _physics_process(delta):
         position += velocity * delta
-
- .. code-tab:: csharp
-
-    public class Bullet : Area2D
-    {
-        Vector2 Velocity = new Vector2();
-
-        public override void _PhysicsProcess(float delta)
-        {
-            Position += Velocity * delta;
-        }
-    }
+```
 
 However, if the bullets are added as children of the player, then they will
 remain "attached" to the player as it rotates:
@@ -60,16 +49,12 @@ scene, which may be the player's parent or even further up the tree.
 
 You could do this by adding the bullet to the main scene directly:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     var bullet_instance = Bullet.instance()
     get_parent().add_child(bullet_instance)
-
- .. code-tab:: csharp
-
-    Node bulletInstance = Bullet.Instance();
-    GetParent().AddChild(bulletInstance);
+```
 
 However, this will lead to a different problem. Now if you try to test your
 "Player" scene independently, it will crash on shooting, because there is no
@@ -85,9 +70,9 @@ appropriate action to spawn them.
 
 Here is the code for the player using signals to emit the bullet:
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     extends Sprite
 
     signal shoot(bullet, direction, location)
@@ -101,56 +86,21 @@ Here is the code for the player using signals to emit the bullet:
 
     func _process(delta):
         look_at(get_global_mouse_position())
-
- .. code-tab:: csharp
-
-    public class Player : Sprite
-    {
-        [Signal]
-        delegate void Shoot(PackedScene bullet, Vector2 direction, Vector2 location);
-
-        private PackedScene _bullet = GD.Load<PackedScene>("res://Bullet.tscn");
-
-        public override void _Input(InputEvent event)
-        {
-            if (input is InputEventMouseButton mouseButton)
-            {
-                if (mouseButton.ButtonIndex == (int)ButtonList.Left && mouseButton.Pressed)
-                {
-                    EmitSignal(nameof(Shoot), _bullet, Rotation, Position);
-                }
-            }
-        }
-
-        public override _Process(float delta)
-        {
-            LookAt(GetGlobalMousePosition());
-        }
-    }
+```
 
 In the main scene, we then connect the player's signal (it will appear in the
 "Node" tab).
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+gdscript GDScript
 
+```
     func _on_Player_shoot(Bullet, direction, location):
         var b = Bullet.instance()
         add_child(b)
         b.rotation = direction
         b.position = location
         b.velocity = b.velocity.rotated(direction)
-
- .. code-tab:: csharp
-
-    public void _on_Player_Shoot(PackedScene bullet, Vector2 direction, Vector2 location)
-    {
-        var bulletInstance = (Bullet)bullet.Instance();
-        AddChild(bulletInstance);
-        bulletInstance.Rotation = direction;
-        bulletInstance.Position = location;
-        bulletInstance.Velocity = bulletInstance.Velocity.Rotated(direction);
-    }
+```
 
 Now the bullets will maintain their own movement independent of the player's
 rotation:

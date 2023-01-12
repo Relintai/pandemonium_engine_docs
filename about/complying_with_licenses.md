@@ -6,7 +6,7 @@ Complying with licenses
 What are licenses?
 ------------------
 
-Godot is created and distributed under the `MIT License <https://opensource.org/licenses/MIT>`_.
+Godot is created and distributed under the `MIT License ( https://opensource.org/licenses/MIT )`_.
 It doesn't have a sole owner either, as every contributor that submits code to
 the project does it under this same license and keeps ownership of the
 contribution.
@@ -97,7 +97,7 @@ Third-party licenses
 --------------------
 
 Godot itself contains software written by
-`third parties <https://github.com/godotengine/godot/blob/master/COPYRIGHT.txt>`_.
+`third parties ( https://github.com/godotengine/godot/blob/master/COPYRIGHT.txt )`_.
 Most of it does not require license inclusion, but some do.
 Make sure to do it if these are compiled in your Godot export template. If
 you're using the official export templates, all libraries are enabled. This
@@ -108,7 +108,7 @@ Here's a list of libraries requiring attribution:
 FreeType
 ^^^^^^^^
 
-Godot uses `FreeType <https://www.freetype.org/>`_ to render fonts. Its license
+Godot uses `FreeType ( https://www.freetype.org/ )`_ to render fonts. Its license
 requires attribution, so the following text must be included together with the
 Godot license:
 
@@ -124,7 +124,7 @@ Godot license:
 ENet
 ^^^^
 
-Godot includes the `ENet <http://enet.bespin.org/>`_ library to handle
+Godot includes the `ENet ( http://enet.bespin.org/ )`_ library to handle
 high-level multiplayer. ENet has similar licensing terms as Godot:
 
 
@@ -139,7 +139,7 @@ high-level multiplayer. ENet has similar licensing terms as Godot:
 mbed TLS
 ^^^^^^^^
 
-If the project is exported with Godot 3.1 or later, it includes `mbed TLS <https://tls.mbed.org>`_.
+If the project is exported with Godot 3.1 or later, it includes `mbed TLS ( https://tls.mbed.org )`_.
 The Apache license needs to be complied to by including the following text:
 
     Copyright The Mbed TLS Contributors
@@ -156,12 +156,12 @@ The Apache license needs to be complied to by including the following text:
     See the License for the specific language governing permissions and
     limitations under the License.
 
-Keep in mind that Godot 2.x and 3.0 use `OpenSSL <https://www.openssl.org>`_ 1.x
+Keep in mind that Godot 2.x and 3.0 use `OpenSSL ( https://www.openssl.org )`_ 1.x
 instead. This old OpenSSL version used the OpenSSL license, not the Apache 2 license
 as the latest version of OpenSSL currently uses (as of April 2022).
 
 .. note::
 
     If you exported your project using a
-    `custom build with specific modules disabled <doc_optimizing_for_size>`,
+    `custom build with specific modules disabled <doc_optimizing_for_size )`,
     you don't need to list the disabled modules' licenses in your exported project.

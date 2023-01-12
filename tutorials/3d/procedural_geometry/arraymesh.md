@@ -10,14 +10,14 @@ which takes up to four parameters. The first two are required, while the second 
 
 The first parameter is the `PrimitiveType`, an OpenGL concept that instructs the GPU
 how to arrange the primitive based on the vertices given, i.e. whether they represent triangles,
-lines, points, etc. See `Mesh.PrimitiveType <enum_Mesh_PrimitiveType>` for the options available.
+lines, points, etc. See `Mesh.PrimitiveType <enum_Mesh_PrimitiveType )` for the options available.
 
 The second parameter, `arrays`, is the actual Array that stores the mesh information. The array is a
 normal Godot array that is constructed with empty brackets `[]`. It stores a `Pool**Array`
 (e.g. PoolVector3Array, PoolIntArray, etc.) for each type of information that will be used to build the surface.
 
 The possible elements of `arrays` are listed below, together with the position they must have within `arrays`.
-See also `Mesh.ArrayType <enum_Mesh_ArrayType>`.
+See also `Mesh.ArrayType <enum_Mesh_ArrayType )`.
 
 
 .. list-table::

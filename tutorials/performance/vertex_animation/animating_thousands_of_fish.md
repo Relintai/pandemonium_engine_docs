@@ -3,7 +3,7 @@
 Animating thousands of fish with MultiMeshInstance
 ==================================================
 
-This tutorial explores a technique used in the game `ABZU <https://www.gdcvault.com/play/1024409/Creating-the-Art-of-ABZ>`_
+This tutorial explores a technique used in the game `ABZU ( https://www.gdcvault.com/play/1024409/Creating-the-Art-of-ABZ )`_
 for rendering and animating thousands of fish using vertex animation and
 static mesh instancing.
 
@@ -24,7 +24,7 @@ Here is the fish we will be using for the example images, you can use any fish m
 
 ![](img/fish.png)
 
-.. note:: The fish model in this tutorial is made by `QuaterniusDev <http://quaternius.com>`_ and is
+.. note:: The fish model in this tutorial is made by `QuaterniusDev ( http://quaternius.com )`_ and is
           shared with a creative commons license. CC0 1.0 Universal (CC0 1.0) Public Domain
           Dedication https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -212,7 +212,7 @@ Now, set `instance_count` to the number of fish you want to have.
 Next we need to set the per-instance transforms.
 
 There are two ways to set per-instance transforms for MultiMeshes. The first is entirely in editor
-and is described in the `MultiMeshInstance tutorial <doc_using_multi_mesh_instance>`.
+and is described in the `MultiMeshInstance tutorial <doc_using_multi_mesh_instance )`.
 
 The second is to loop over all the instances and set their transforms in code. Below, we use GDScript
 to loop over all the instances and set their transform to a random position.

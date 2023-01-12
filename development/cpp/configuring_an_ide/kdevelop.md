@@ -3,7 +3,7 @@
 KDevelop
 ========
 
-`KDevelop <https://www.kdevelop.org>`_ is a free, open source IDE for all desktop platforms.
+`KDevelop ( https://www.kdevelop.org )`_ is a free, open source IDE for all desktop platforms.
 
 Importing the project
 ---------------------
@@ -84,4 +84,4 @@ Debugging the project
    :align: center
 
 If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`.
+`Godot's community channels ( https://godotengine.org/community )`.

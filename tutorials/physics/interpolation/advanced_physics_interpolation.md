@@ -8,16 +8,16 @@ Although the previous instructions will give satisfactory results in a lot of ga
 Exceptions to automatic physics interpolation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Even with physics interpolation active, there may be some local situations where you would benefit from disabling automatic interpolation for a `Node<class_Node>` (or branch of the `SceneTree<class_SceneTree>`), and have the finer control of performing interpolation manually.
+Even with physics interpolation active, there may be some local situations where you would benefit from disabling automatic interpolation for a `Node<class_Node )` (or branch of the `SceneTree<class_SceneTree )`), and have the finer control of performing interpolation manually.
 
-This is possible using the `Node.physics_interpolation_mode<class_Node_property_physics_interpolation_mode>` property which is present in all Nodes. If you for example, turn off interpolation for a Node, the children will recursively also be affected (as they default to inheriting the parent setting). This means you can easily disable interpolation for an entire subscene.
+This is possible using the `Node.physics_interpolation_mode<class_Node_property_physics_interpolation_mode )` property which is present in all Nodes. If you for example, turn off interpolation for a Node, the children will recursively also be affected (as they default to inheriting the parent setting). This means you can easily disable interpolation for an entire subscene.
 
 The most common situation where you may want to perform your own interpolation is Cameras.
 
 Cameras
 ^^^^^^^
 
-In many cases, a `Camera<class_Camera>` can use automatic interpolation just like any other node. However, for best results, especially at low physics tick rates, it is recommended that you take a manual approach to Camera interpolation.
+In many cases, a `Camera<class_Camera )` can use automatic interpolation just like any other node. However, for best results, especially at low physics tick rates, it is recommended that you take a manual approach to Camera interpolation.
 
 This is because viewers are very sensitive to Camera movement. For instance, a Camera that realigns slightly every 1/10th of a second (at 10tps tick rate) will often be noticeable. You can get a much smoother result by moving the Camera each frame in `_process`, and following an interpolated target manually.
 
@@ -34,7 +34,7 @@ There are two ways of doing this:
 
 ![](img/fti_camera_worldspace.png)
 
-2) Call `Spatial.set_as_toplevel<class_Spatial_method_set_as_toplevel>` and set this to `true`, which will make the Camera ignore the transform of its parent.
+2) Call `Spatial.set_as_toplevel<class_Spatial_method_set_as_toplevel )` and set this to `true`, which will make the Camera ignore the transform of its parent.
 
 Typical example
 ^^^^^^^^^^^^^^^
@@ -48,7 +48,7 @@ get_global_transform_interpolated()
 
 What we really want to focus the Camera on, is not the position of the target on the physics tick, but the *interpolated* position, i.e. the position at which the target will be rendered.
 
-We can do this using the `Spatial.get_global_transform_interpolated<class_Spatial_method_get_global_transform_interpolated>` function. This acts exactly like getting `Spatial.global_transform<class_Spatial_property_global_transform>` but it gives you the *interpolated* transform (during a `_process()` call).
+We can do this using the `Spatial.get_global_transform_interpolated<class_Spatial_method_get_global_transform_interpolated )` function. This acts exactly like getting `Spatial.global_transform<class_Spatial_property_global_transform )` but it gives you the *interpolated* transform (during a `_process()` call).
 
 .. important:: `get_global_transform_interpolated()` should only be used once or twice for special cases such as Cameras. It should **not** be used all over the place in your code (both for performance reasons, and to give correct gameplay).
 
@@ -93,12 +93,12 @@ Mouse look
 
 Mouse look is a very common way of controlling Cameras. But there is a problem. Unlike keyboard input which can be sampled periodically on the physics tick, mouse move events can come in continuously. The Camera will be expected to react and follow these mouse movements on the next frame, rather than waiting until the next physics tick.
 
-In this situation, it can be better to disable physics interpolation for the Camera node (using `Node.physics_interpolation_mode<class_Node_property_physics_interpolation_mode>`) and directly apply the mouse input to the Camera rotation, rather than apply it in `_physics_process`.
+In this situation, it can be better to disable physics interpolation for the Camera node (using `Node.physics_interpolation_mode<class_Node_property_physics_interpolation_mode )`) and directly apply the mouse input to the Camera rotation, rather than apply it in `_physics_process`.
 
 Sometimes, especially with Cameras, you will want to use a combination of interpolation and non-interpolation:
 
-* A first person camera may position the camera at a player location (perhaps using `Spatial.get_global_transform_interpolated<class_Spatial_method_get_global_transform_interpolated>`), but control the Camera rotation from mouse look *without* interpolation.
-* A third person camera may similarly determine the look at (target location) of the camera using `Spatial.get_global_transform_interpolated<class_Spatial_method_get_global_transform_interpolated>`, but position the camera using mouse look *without* interpolation.
+* A first person camera may position the camera at a player location (perhaps using `Spatial.get_global_transform_interpolated<class_Spatial_method_get_global_transform_interpolated )`), but control the Camera rotation from mouse look *without* interpolation.
+* A third person camera may similarly determine the look at (target location) of the camera using `Spatial.get_global_transform_interpolated<class_Spatial_method_get_global_transform_interpolated )`, but position the camera using mouse look *without* interpolation.
 
 There are many permutations and variations of Camera types, but it should be clear that in many cases, disabling automatic physics interpolation and handling this yourself can give a better result.
 
@@ -113,7 +113,7 @@ MultiMeshes
 
 Although most visual Nodes follow the single Node single visual instance paradigm, MultiMeshes can control several instances from the same Node. Therefore, they have some extra functions for controlling interpolation functionality on a *per-instance* basis. You should explore these functions if you are using interpolated MultiMeshes.
 
-- `MultiMesh.reset_instance_physics_interpolation<class_MultiMesh_method_reset_instance_physics_interpolation>`
-- `MultiMesh.set_as_bulk_array_interpolated<class_MultiMesh_method_set_as_bulk_array_interpolated>`
+- `MultiMesh.reset_instance_physics_interpolation<class_MultiMesh_method_reset_instance_physics_interpolation )`
+- `MultiMesh.set_as_bulk_array_interpolated<class_MultiMesh_method_set_as_bulk_array_interpolated )`
 
-Full details are in the `MultiMesh<class_MultiMesh>` documentation.
+Full details are in the `MultiMesh<class_MultiMesh )` documentation.

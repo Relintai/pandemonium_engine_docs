@@ -16,7 +16,7 @@ Getting started
 
 To modify or create pages in the reference manual, you need to edit `.rst`
 files in the `godot-docs GitHub repository
-<https://github.com/godotengine/godot-docs>`_. Modifying those pages in a pull
+( https://github.com/godotengine/godot-docs )`_. Modifying those pages in a pull
 request triggers a rebuild of the online documentation upon merging.
 
 .. seealso:: For details on Git usage and the pull request workflow, please
@@ -25,8 +25,8 @@ request triggers a rebuild of the online documentation upon merging.
              the docs repository.
 
 .. warning:: The class reference's source files are in the `Godot engine
-             repository <https://github.com/godotengine/godot>`_. We generate
-             the `Godot API <toc-class-ref>` section of this documentation
+             repository ( https://github.com/godotengine/godot )`_. We generate
+             the `Godot API <toc-class-ref )` section of this documentation
              from them. If you want to update the description of a class, its
              methods, or properties, read
              `doc_updating_the_class_reference`.
@@ -64,7 +64,7 @@ To edit an existing page, locate its `.rst` source file and open it in your
 favorite text editor. You can then commit the changes, push them to your fork,
 and make a pull request. **Note that the pages in** `classes/` **should not be
 edited here.** They are automatically generated from Godot’s `XML class
-reference <https://github.com/godotengine/godot/tree/master/doc/classes>`.
+reference ( https://github.com/godotengine/godot/tree/master/doc/classes )`.
 See `doc_updating_the_class_reference` for details.
 
 .. seealso:: To build the manual and test changes on your computer, see
@@ -104,7 +104,7 @@ Adding new pages
 Before adding a new page, please ensure that it fits in the documentation:
 
 1. Look for `existing issues
-   <https://github.com/godotengine/godot-docs/issues>`_ or open a new one to see
+   ( https://github.com/godotengine/godot-docs/issues )`_ or open a new one to see
    if the page is necessary.
 2. Ensure there isn't a page that already covers the topic.
 3. Read our `doc_content_guidelines`.
@@ -145,17 +145,17 @@ first letter capitalized.
 Sphinx and reStructuredText syntax
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Check Sphinx’s `reST Primer <https://www.sphinx-doc.org/en/stable/rest.html>`
-and the `official reference <http://docutils.sourceforge.net/rst.html>` for
+Check Sphinx’s `reST Primer ( https://www.sphinx-doc.org/en/stable/rest.html )`
+and the `official reference ( http://docutils.sourceforge.net/rst.html )` for
 details on the syntax.
 
 Sphinx uses specific reST comments to do specific operations, like defining the
 table of contents (`.. toctree::`) or cross-referencing pages. Check the
 `official Sphinx documentation
-<https://www.sphinx-doc.org/en/stable/index.html>` for more details. To learn
+( https://www.sphinx-doc.org/en/stable/index.html )` for more details. To learn
 how to use Sphinx directives like `.. note::` or `.. seealso::`, check out
 the `Sphinx directives documentation
-<https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html>`.
+( https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html )`.
 
 Adding images and attachments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -173,7 +173,7 @@ using this inline markup:
 
 .. code:: rst
 
-   :download:`myfilename.zip <files/myfilename.zip>`
+   :download:`myfilename.zip <files/myfilename.zip )`
 
 
 License
@@ -181,7 +181,7 @@ License
 
 This documentation and every page it contains is published under the terms of
 the `Creative Commons Attribution 3.0 license (CC-BY-3.0)
-<https://tldrlegal.com/license/creative-commons-attribution-(cc)>`_, with
+( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`_, with
 attribution to "Juan Linietsky, Ariel Manzur and the Godot community".
 
 By contributing to the documentation on the GitHub repository, you agree that

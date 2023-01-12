@@ -52,7 +52,7 @@ The location of the `user://` folder depends on what is configured in the
 Project Settings:
 
 - By default, the `user://` folder is created within Godot's
-  `editor data path <doc_data_paths_editor_data_paths>` in the
+  `editor data path <doc_data_paths_editor_data_paths )` in the
   `app_userdata/[project_name]` folder. This is the default so that prototypes
   and test projects stay self-contained within Godot's data folder.
 - If `application/config/use_custom_user_dir`
@@ -85,7 +85,7 @@ On desktop platforms, the actual directory paths for `user://` are:
 +---------------------+------------------------------------------------------------------------------+
 
 `[project_name]` is based on the application name defined in the Project Settings, but
-you can override it on a per-platform basis using `feature tags <doc_feature_tags>`.
+you can override it on a per-platform basis using `feature tags <doc_feature_tags )`.
 
 On mobile platforms, this path is unique to the project and is not accessible
 by other applications for security reasons.
@@ -141,12 +141,12 @@ depending on the platform. By default, these paths are:
   It can safely be removed when Godot is closed.
 
 Godot complies with the `XDG Base Directory Specification
-<https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html>`
+( https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html )`
 on all platforms. You can override environment variables following the
 specification to change the editor and project data paths.
 
 .. note:: If you use `Godot packaged as a Flatpak
-          <https://flathub.org/apps/details/org.godotengine.Godot>`, the
+          ( https://flathub.org/apps/details/org.godotengine.Godot )`, the
           editor data paths will be located in subfolders in
           `~/.var/app/org.godotengine.Godot/`.
 
@@ -162,7 +162,7 @@ This mode makes Godot write all editor data, settings, and cache to a directory
 named `editor_data/` in the same directory as the editor binary.
 You can use it to create a portable installation of the editor.
 
-The `Steam release of Godot <https://store.steampowered.com/app/404790/>` uses
+The `Steam release of Godot ( https://store.steampowered.com/app/404790/ )` uses
 self-contained mode by default.
 
 .. note::

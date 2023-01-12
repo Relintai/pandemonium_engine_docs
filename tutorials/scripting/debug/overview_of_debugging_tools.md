@@ -93,7 +93,7 @@ debug your game with an external editor.
 .. warning::
 
     Breakpoints won't break on code if it's
-    `running in a thread <doc_using_multiple_threads>`.
+    `running in a thread <doc_using_multiple_threads )`.
     This is a current limitation of the GDScript debugger.
 
 Debug project settings

@@ -7,13 +7,13 @@ Introduction
 ------------
 
 This tutorial explains how the 2D lighting works in the
-`lights and shadows <https://github.com/godotengine/godot-demo-projects/tree/master/2d/lights_and_shadows>`_ demo project.
+`lights and shadows ( https://github.com/godotengine/godot-demo-projects/tree/master/2d/lights_and_shadows )`_ demo project.
 It begins with a brief description of the resources used in the final demo and then describes how
 to make a scene like the demo step by step.
 
 ![](img/light_shadow_main.png)
 
-All the resources for this tutorial can be found in the `official demo repository <https://github.com/godotengine/godot-demo-projects>`_
+All the resources for this tutorial can be found in the `official demo repository ( https://github.com/godotengine/godot-demo-projects )`_
 on GitHub. I suggest you download it before starting. Alternatively,
 it can be downloaded from the Project Manager. Launch Godot and in the top
 bar select "Templates" and search for "2D Lights and Shadows Demo".
@@ -25,19 +25,19 @@ For this demo we use four textures: two for the lights, one for the shadow caste
 and one for the background. I've included links to them all here if you want to download them
 separately from the demo.
 
-The first is the background image (`background.png) <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/background.png)>`_)
+The first is the background image (`background.png) ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/background.png) )`_)
 used in the demo. You do not necessarily need a background, but we use one for the demo.
 
-The second is a plain black image (`caster.png) <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png)>`_)
+The second is a plain black image (`caster.png) ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png) )`_)
 to use as our shadow caster object. For a top down game this could be a wall or any
 other object that casts a shadow.
 
-Next is the light itself (`light.png) <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/light.png)>`_).
+Next is the light itself (`light.png) ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/light.png) )`_).
 If you click the link you will notice how large it is. The image you use
 for a light should cover the area you want your light to cover. This image is
 1024x1024 pixels, so you should use it to cover 1024x1024 pixels in your game.
 
-Lastly, we have the spotlight image (`spot.png) <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/spot.png)>`_).
+Lastly, we have the spotlight image (`spot.png) ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/spot.png) )`_).
 The demo uses a blob to show where the light is and the larger light
 image to show the effect of the light upon the rest of the scene.
 
@@ -51,7 +51,7 @@ The demo uses four different nodes:
   * `Light2D`
   * `LightOccluder2D`
 
-`CanvasModulate<class_CanvasModulate>` is used to darken the scene.
+`CanvasModulate<class_CanvasModulate )` is used to darken the scene.
 
 `Sprites` are used to display the textures for the light blobs, the
 background, and for the shadow casters.
@@ -150,7 +150,7 @@ This way we can show and hide them all at the same time.
 
 Each shadow caster is made of a `Sprite`
 child. For the demo the `Sprite` has a texture
-set to the `caster image <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png)>`_ and nothing else. The child `LightOccluder2D` is where all the magic happens. In a
+set to the `caster image ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png) )`_ and nothing else. The child `LightOccluder2D` is where all the magic happens. In a
 game the `Sprite` could be more than a black box; it could be an image of whatever object is casting
 the shadow: a wall, a magical chest, or anything else.
 
@@ -194,7 +194,7 @@ section set `Enable` to `on`. This turns on shadows with hard edges like in the 
 ![](img/light_shadow_filter0_pcf0.png)
 
 To give the shadows that nice, soft edge look we set the variables `filter`, `filter smooth`, and
-`gradient length`. Godot supports `Percentage Closer Filtering <https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch11.html>`_
+`gradient length`. Godot supports `Percentage Closer Filtering ( https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch11.html )`_
 (PCF), which takes multiple samples of the shadow map around a pixel and blurs them to create
 a smooth shadow effect. The higher the number of samples the smoother the shadow will
 look, but the slower it will run. That is why Godot provides 3-13 samples by default and allows you to choose.

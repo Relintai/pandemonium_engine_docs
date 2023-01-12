@@ -20,12 +20,12 @@ where to look if you need info on a specific feature.
 Before you start
 ----------------
 
-The `Tutorials and resources <doc_community_tutorials>` page lists
+The `Tutorials and resources <doc_community_tutorials )` page lists
 video tutorials contributed by the community. If you prefer video to text,
 those may be worth a look.
 
 In case you have trouble with one of the tutorials or your project,
-you can find help on the various `Community channels <doc_community_channels>`,
+you can find help on the various `Community channels <doc_community_channels )`,
 especially the Godot Discord community, Q&A, and IRC.
 
 About Godot Engine
@@ -47,30 +47,30 @@ if you need a quick writeup about Godot Engine.
     theirs, down to the last line of engine code. Godot's development is fully
     independent and community-driven, empowering users to help shape their
     engine to match their expectations. It is supported by the `Software
-    Freedom Conservancy <https://sfconservancy.org>`_ not-for-profit.
+    Freedom Conservancy ( https://sfconservancy.org )`_ not-for-profit.
 
 For a more in-depth view of the engine, you are encouraged to read this
 documentation further, especially the `Step by step
-<toc-learn-step_by_step>` tutorial.
+<toc-learn-step_by_step )` tutorial.
 
 About the documentation
 -----------------------
 
 This documentation is continuously written, corrected, edited, and revamped by
 members of the Godot Engine community. It is edited via text files in the
-`reStructuredText <http://www.sphinx-doc.org/en/stable/rest.html>`_ markup
+`reStructuredText ( http://www.sphinx-doc.org/en/stable/rest.html )`_ markup
 language and then compiled into a static website/offline document using the
-open source `Sphinx <http://www.sphinx-doc.org>`_ and `ReadTheDocs
-<https://readthedocs.org/>`_ tools.
+open source `Sphinx ( http://www.sphinx-doc.org )`_ and `ReadTheDocs
+( https://readthedocs.org/ )`_ tools.
 
 .. note:: You can contribute to Godot's documentation by opening issue tickets
           or sending patches via pull requests on its GitHub
-          `source repository <https://github.com/godotengine/godot-docs>`_, or
+          `source repository ( https://github.com/godotengine/godot-docs )`_, or
           translating it into your language on `Hosted Weblate
-          <https://hosted.weblate.org/projects/godot-engine/godot-docs/>`_.
+          ( https://hosted.weblate.org/projects/godot-engine/godot-docs/ )`_.
 
 All the contents are under the permissive Creative Commons Attribution 3.0
-(`CC-BY 3.0 <https://creativecommons.org/licenses/by/3.0/>`_) license, with
+(`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`_) license, with
 attribution to "Juan Linietsky, Ariel Manzur and the Godot Engine community".
 
 Organization of the documentation
@@ -86,7 +86,7 @@ relatively intuitive:
 - The `sec-learn` section is the *raison d'être* of this
   documentation, as it contains all the necessary information on using the
   engine to make games. It starts with the `Step by step
-  <toc-learn-step_by_step>` tutorial which should be the entry point for all
+  <toc-learn-step_by_step )` tutorial which should be the entry point for all
   new users.
 - The `sec-tutorials` section can be read as needed,
   in any order. It contains feature-specific tutorials and documentation.
@@ -105,6 +105,6 @@ relatively intuitive:
   `doc_updating_the_class_reference` for details.
 
 In addition to this documentation you may also want to take a look at the
-various `Godot demo projects <https://github.com/godotengine/godot-demo-projects>`_.
+various `Godot demo projects ( https://github.com/godotengine/godot-demo-projects )`_.
 
 Have fun reading and making games with Godot Engine!

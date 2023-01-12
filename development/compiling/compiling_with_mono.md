@@ -67,7 +67,7 @@ and the C# solution for the editor tools at `modules/mono/glue/GodotSharp/GodotS
 Once these files are generated, you can build Godot for all the desired targets
 without having to repeat this process.
 
-`<godot_binary>` refers to the tools binary you compiled above with the Mono
+`<godot_binary )` refers to the tools binary you compiled above with the Mono
 module enabled. Its exact name will differ based on your system and
 configuration, but should be of the form
 `bin/godot.<platform>.tools.<bits>.mono`, e.g. `bin/godot.x11.tools.64.mono`
@@ -117,7 +117,7 @@ the following files in the `bin` directory:
   for the editor and for export templates. This directory is important for
   proper functioning and must be distributed together with Godot.
   More details about this directory in
-  `Data directory<compiling_with_mono_data_directory>`.
+  `Data directory<compiling_with_mono_data_directory )`.
 
 Examples
 --------
@@ -173,13 +173,13 @@ Export templates
 
 The name of the data directory for an export template differs based on the
 configuration it was built with. The format is
-`data.mono.<platform>.<bits>.<target>`, e.g. `data.mono.x11.32.release_debug` or
+`data.mono.<platform>.<bits>.<target )`, e.g. `data.mono.x11.32.release_debug` or
 `data.mono.windows.64.release`.
 
 This directory must be placed with its original name next to the Godot export
 templates. When exporting a project, Godot will also copy this directory with
-the game executable but the name will be changed to `data_<APPNAME>`, where
-`<APPNAME>` is the application name as specified in the project setting
+the game executable but the name will be changed to `data_<APPNAME )`, where
+`<APPNAME )` is the application name as specified in the project setting
 `application/config/name`.
 
 In the case of macOS, where the export template is compressed as a ZIP archive,
@@ -232,7 +232,7 @@ that is installed on your system. This likely won't be the case when targeting o
 platforms like Android, iOS and WebAssembly. You will have to build the Mono runtime
 yourself for those platforms.
 
-We recommend using these `build scripts <https://github.com/godotengine/godot-mono-builds>`_.
+We recommend using these `build scripts ( https://github.com/godotengine/godot-mono-builds )`_.
 They simplify this process but also include some patches needed
 for proper functioning with Godot. See the README on the link above
 for instructions on how to use the scripts.
@@ -248,7 +248,7 @@ to the Gradle project.
 
 Once you've built Mono, you can proceed to build Godot with the instructions
 described in this page and the
-`Compiling for Android<doc_compiling_for_android>` page.
+`Compiling for Android<doc_compiling_for_android )` page.
 Make sure to let SCons know about the location of the Mono runtime you've just built, e.g.:
 `scons [...] mono_prefix="$HOME/mono-installs/android-armeabi-v7a-release"`
 (This path may be different on your system).
@@ -258,7 +258,7 @@ Targeting iOS
 
 Once you've built Mono, you can proceed to build Godot with the instructions
 described in this page and the
-`Compiling for iOS<doc_compiling_for_ios>` page.
+`Compiling for iOS<doc_compiling_for_ios )` page.
 Make sure to let SCons know about the location of the Mono runtime you've just built, e.g.:
 `scons [...] mono_prefix="$HOME/mono-installs/ios-arm64-release"`
 (This path may be different on your system).
@@ -307,7 +307,7 @@ Building for WebAssembly currently involves the same process regardless of wheth
 
 Once you've built Mono, you can proceed to build Godot with the instructions
 described in this page and the
-`Compiling for the Web<doc_compiling_for_web>` page.
+`Compiling for the Web<doc_compiling_for_web )` page.
 Make sure to let SCons know about the location of the Mono runtime you've just built, e.g.:
 `scons [...] mono_prefix="$HOME/mono-installs/wasm-runtime-release"`
 (This path may be different on your system).
@@ -316,8 +316,8 @@ Base Class Library
 ------------------
 
 The export templates must also include the BCL (Base Class Library) for each target platform.
-Godot looks for the BCL folder at `<templates>/bcl/<target_platform>`,
-where `<target_platform>` is the same name passed to the SCons `platform` option,
+Godot looks for the BCL folder at `<templates>/bcl/<target_platform )`,
+where `<target_platform )` is the same name passed to the SCons `platform` option,
 e.g.: `<templates>/bcl/windows`, `<templates>/bcl/javascript`.
 
 Alternatively, Godot will look for them in the following locations:
@@ -352,7 +352,7 @@ Godot will look for the cross-compiler executable in the AOT compilers folder.
 The location of this folder is `<data_folder>/Tools/aot-compilers/`.
 
 In order to build the cross-compilers we recommend using these
-`build scripts <https://github.com/godotengine/godot-mono-builds>`_.
+`build scripts ( https://github.com/godotengine/godot-mono-builds )`_.
 
 After building them, copy the executable to the Godot AOT compilers directory. The
 executable name is `<triple>-mono-sgen`, e.g.: `aarch64-apple-darwin-mono-sgen`.

@@ -23,7 +23,7 @@ children: `Sprite` and `CollisionShape2D`. You can use the Godot icon ("icon.png
 for the Sprite's texture or use any other 2D image you have.
 
 Open `Project -> Project Settings` and select the "Input Map" tab. Add the following
-input actions (see `InputEvent <doc_inputevent>` for details):
+input actions (see `InputEvent <doc_inputevent )` for details):
 
 ![](img/movement_inputs.png)
 
@@ -218,4 +218,4 @@ You may find these code samples useful as starting points for your own projects.
 Feel free to use them and experiment with them to see what you can make.
 
 You can download this sample project here:
-:download:`2D_movement_demo.zip <files/2D_movement_demo.zip>`
+:download:`2D_movement_demo.zip <files/2D_movement_demo.zip )`

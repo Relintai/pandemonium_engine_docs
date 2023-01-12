@@ -18,7 +18,7 @@ connect to that signal and call a function when the event occurs.
 Signals are a delegation mechanism built into Godot that allows one game object to
 react to a change in another without them referencing one another. Using signals
 limits `coupling
-<https://en.wikipedia.org/wiki/Coupling_(computer_programming)>`_ and keeps your
+( https://en.wikipedia.org/wiki/Coupling_(computer_programming) )`_ and keeps your
 code flexible.
 
 For example, you might have a life bar on the screen that represents the
@@ -142,7 +142,7 @@ node's motion.
 
 Our Sprite moves thanks to code in the `_process()` function. Godot provides a
 method to toggle processing on and off: `Node.set_process()
-<class_Node_method_set_process>`. Another method of the Node class,
+<class_Node_method_set_process )`. Another method of the Node class,
 `is_processing()`, returns `true` if idle processing is active. We can use
 the `not` keyword to invert the value.
 

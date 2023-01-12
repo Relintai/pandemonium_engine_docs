@@ -150,7 +150,7 @@ gdscript GDScript
                 print("T was pressed")
 ```
 
-.. tip:: See `@GlobalScope_KeyList <enum_@GlobalScope_KeyList>` for a list of scancode
+.. tip:: See `@GlobalScope_KeyList <enum_@GlobalScope_KeyList )` for a list of scancode
         constants.
 
 .. warning::
@@ -163,7 +163,7 @@ gdscript GDScript
 
     As a result, it's recommended to use a default keyboard layout that is designed to work well
     on a keyboard without antighosting. See
-    `this Gamedev Stack Exchange question <https://gamedev.stackexchange.com/a/109002>`
+    `this Gamedev Stack Exchange question ( https://gamedev.stackexchange.com/a/109002 )`
     for more information.
 
 Keyboard modifiers
@@ -187,7 +187,7 @@ gdscript GDScript
                     print("T was pressed")
 ```
 
-.. tip:: See `@GlobalScope_KeyList <enum_@GlobalScope_KeyList>` for a list of scancode
+.. tip:: See `@GlobalScope_KeyList <enum_@GlobalScope_KeyList )` for a list of scancode
         constants.
 
 Mouse events
@@ -201,7 +201,7 @@ means that all mouse events will contain a `position` property.
 Mouse buttons
 ~~~~~~~~~~~~~
 
-Capturing mouse buttons is very similar to handling key events. `@GlobalScope_ButtonList <enum_@GlobalScope_ButtonList>`
+Capturing mouse buttons is very similar to handling key events. `@GlobalScope_ButtonList <enum_@GlobalScope_ButtonList )`
 contains a list of `BUTTON_*` constants for each possible button, which will
 be reported in the event's `button_index` property. Note that the scrollwheel
 also counts as a button - two buttons, to be precise, with both

@@ -16,7 +16,7 @@ between several controls. Imagine that you use gray, blue, and red variants of `
 throughout your project. Setting it up every time you add a new button element to your interface
 is a tedious task.
 
-To help with the organization and to better utilize the `power of themes <doc_gui_skinning>`
+To help with the organization and to better utilize the `power of themes <doc_gui_skinning )`
 you can use theme type variations. These work like normal theme types, but instead
 of being self-sufficient and standalone they extend another, base type.
 
@@ -33,7 +33,7 @@ a combination of both types giving priority to the type variation.
 
 .. note::
    The way controls resolve what theme items they use from each type and each
-   theme is better described in the `Customizing a project <doc_gui_theme_in_project>`
+   theme is better described in the `Customizing a project <doc_gui_theme_in_project )`
    section of the "Introduction to GUI skinning" article.
 
 Creating a type variation

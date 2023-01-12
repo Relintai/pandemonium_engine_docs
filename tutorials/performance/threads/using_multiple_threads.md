@@ -51,7 +51,7 @@ gdscript GDScript
 
 Your function will, then, run in a separate thread until it returns.
 Even if the function has returned already, the thread must collect it, so call
-`Thread.wait_to_finish()<class_Thread_method_wait_to_finish>`, which will
+`Thread.wait_to_finish()<class_Thread_method_wait_to_finish )`, which will
 wait until the thread is done (if not done yet), then properly dispose of it.
 
 Mutexes
@@ -65,13 +65,13 @@ support multiple thread access.
 When processing your own data or calling your own functions, as a rule, try to
 avoid accessing the same data directly from different threads. You may run into
 synchronization problems, as the data is not always updated between CPU cores
-when modified. Always use a `Mutex<class_Mutex>` when accessing
+when modified. Always use a `Mutex<class_Mutex )` when accessing
 a piece of data from different threads.
 
-When calling `Mutex.lock()<class_Mutex_method_lock>`, a thread ensures that
+When calling `Mutex.lock()<class_Mutex_method_lock )`, a thread ensures that
 all other threads will be blocked (put on suspended state) if they try to *lock*
 the same mutex. When the mutex is unlocked by calling
-`Mutex.unlock()<class_Mutex_method_unlock>`, the other threads will be
+`Mutex.unlock()<class_Mutex_method_unlock )`, the other threads will be
 allowed to proceed with the lock (but only one at a time).
 
 Here is an example of using a Mutex:
@@ -114,12 +114,12 @@ Semaphores
 
 Sometimes you want your thread to work *"on demand"*. In other words, tell it
 when to work and let it suspend when it isn't doing anything.
-For this, `Semaphores<class_Semaphore>` are used. The function
-`Semaphore.wait()<class_Semaphore_method_wait>` is used in the thread to
+For this, `Semaphores<class_Semaphore )` are used. The function
+`Semaphore.wait()<class_Semaphore_method_wait )` is used in the thread to
 suspend it until some data arrives.
 
 The main thread, instead, uses
-`Semaphore.post()<class_Semaphore_method_post>` to signal that data is
+`Semaphore.post()<class_Semaphore_method_post )` to signal that data is
 ready to be processed:
 
 gdscript GDScript

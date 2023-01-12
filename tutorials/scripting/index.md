@@ -6,7 +6,7 @@ in Godot.
 
 Here, you will find information that is not already covered in more specific
 sections. For instance, to learn about inputs, we recommend you to read
-`Inputs <toc-learn-features-inputs>`.
+`Inputs <toc-learn-features-inputs )`.
 
 Programming languages
 ---------------------

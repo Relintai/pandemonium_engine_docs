@@ -5,7 +5,7 @@ Bug triage guidelines
 
 This page describes the typical workflow of the bug triage team aka
 bugsquad when handling issues and pull requests on Godot's
-`GitHub repository <https://github.com/godotengine/godot>`.
+`GitHub repository ( https://github.com/godotengine/godot )`.
 It is bound to evolve together with the bugsquad, so do not
 hesitate to propose modifications to the following guidelines.
 
@@ -61,15 +61,15 @@ The following labels are currently defined in the Godot repository:
 -  *Documentation*: issue related to the documentation. Mainly to request
    enhancements in the API documentation. Issues related to the ReadTheDocs
    documentation should be filed on the
-   `godot-docs <https://github.com/godotengine/godot-docs>`_ repository.
+   `godot-docs ( https://github.com/godotengine/godot-docs )`_ repository.
 -  *Enhancement*: describes a proposed enhancement to an existing
    functionality.
 -  *Feature proposal*: describes a wish for a new feature to be
    implemented. Note that the main Godot repository no longer accepts
    feature requests. Please use
-   `godot-proposals <https://github.com/godotengine/godot-proposals>` instead.
+   `godot-proposals ( https://github.com/godotengine/godot-proposals )` instead.
 -  *For PR meeting*: the issue needs to be discussed in a pull request meeting.
-   These meetings are public and are held on the `Godot Contributors Chat <https://chat.godotengine.org/>`_.
+   These meetings are public and are held on the `Godot Contributors Chat ( https://chat.godotengine.org/ )`_.
 -  *Good first issue*: the issue is *assumed* to be an easy one to fix, which makes
    it a great fit for new contributors who need to become familiar with
    the code base.
@@ -149,7 +149,7 @@ Android and Linux exclusively, select those two platforms).
 Documentation labels
 ~~~~~~~~~~~~~~~~~~~~
 
-In the `documentation repository <https://github.com/godotengine/godot-docs>`, we
+In the `documentation repository ( https://github.com/godotengine/godot-docs )`, we
 use the following labels:
 
 -  *Bug*: Incorrect information in an existing page. Not to be used for
@@ -177,7 +177,7 @@ use the following labels:
 Milestones
 ~~~~~~~~~~
 
-`Milestones <https://github.com/godotengine/godot/milestones>`_ correspond to
+`Milestones ( https://github.com/godotengine/godot/milestones )`_ correspond to
 planned future versions of Godot for which there is an existing roadmap. Issues
 that fit in the said roadmap should be filed under the corresponding milestone;
 if they don't correspond to any current roadmap, they should be left without

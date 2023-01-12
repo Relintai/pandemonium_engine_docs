@@ -3,7 +3,7 @@
 Using Containers
 ================
 
-`Anchors <doc_size_and_anchors>` are an efficient way to handle
+`Anchors <doc_size_and_anchors )` are an efficient way to handle
 different aspect ratios for basic multiple resolution handling in GUIs,
 
 For more complex user interfaces, they can become difficult to use.

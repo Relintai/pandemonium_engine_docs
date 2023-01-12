@@ -11,7 +11,7 @@ Exporting for the Web
 
 HTML5 export allows publishing games made in Godot Engine to the browser.
 This requires support for `WebAssembly
-<https://webassembly.org/>` and `WebGL <https://www.khronos.org/webgl/>`
+( https://webassembly.org/ )` and `WebGL ( https://www.khronos.org/webgl/ )`
 in the user's browser.
 
 .. important:: Use the browser-integrated developer console, usually opened
@@ -19,9 +19,9 @@ in the user's browser.
                engine, and WebGL errors.
 
 .. attention:: `There are significant bugs when running HTML5 projects on iOS
-               <https://github.com/godotengine/godot/issues?q=is:issue+is:open+label:platform:html5+ios>`
+               ( https://github.com/godotengine/godot/issues?q=is:issue+is:open+label:platform:html5+ios )`
                (regardless of the browser). We recommend using
-               `iOS' native export functionality <doc_exporting_for_ios>`
+               `iOS' native export functionality <doc_exporting_for_ios )`
                instead, as it will also result in better performance.
 
 WebGL version
@@ -40,7 +40,7 @@ specifically.
 Additionally, while most browsers support WebGL 2.0, this is not yet the case
 for **Safari**. WebGL 2.0 support is coming in Safari 15 for macOS, and is not
 available yet for any **iOS** browser (all WebKit-based like Safari).
-See `Can I use WebGL 2.0 <https://caniuse.com/webgl2>` for details.
+See `Can I use WebGL 2.0 ( https://caniuse.com/webgl2 )` for details.
 
 .. _doc_javascript_export_options:
 
@@ -56,13 +56,13 @@ You can choose the **Export Type** to select which features will be available:
 - *Regular*: is the most compatible across browsers, will not support threads,
   nor GDNative.
 - *Threads*: will require the browser to support `SharedArrayBuffer
-  <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer>`.
-  See `Can I use SharedArrayBuffer <https://caniuse.com/sharedarraybuffer>`
+  ( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer )`.
+  See `Can I use SharedArrayBuffer ( https://caniuse.com/sharedarraybuffer )`
   for details.
 - *GDNative*: enables GDNative support but makes the binary bigger and slower
   to load.
 
-If you plan to use `VRAM compression <doc_import_images>` make sure that
+If you plan to use `VRAM compression <doc_import_images )` make sure that
 **Vram Texture Compression** is enabled for the targeted platforms (enabling
 both **For Desktop** and **For Mobile** will result in a bigger, but more
 compatible export).
@@ -70,7 +70,7 @@ compatible export).
 If a path to a **Custom HTML shell** file is given, it will be used instead of
 the default HTML page. See `doc_customizing_html5_shell`.
 
-**Head Include** is appended into the `<head>` element of the generated
+**Head Include** is appended into the `<head )` element of the generated
 HTML page. This allows to, for example, load webfonts and third-party
 JavaScript APIs, include CSS, or run JavaScript code.
 
@@ -94,13 +94,13 @@ of limitations you should be aware of when porting a Godot game to the web.
 .. _doc_javascript_secure_contexts:
 
 .. important:: Browser vendors are making more and more functionalities only
-               available in `secure contexts <https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts>`_,
+               available in `secure contexts ( https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts )`_,
                this means that such features are only be available if the web
                page is served via a secure HTTPS connection (localhost is
                usually exempt from such requirement).
 
 .. tip:: Check the `list of open HTML5 issues on GitHub
-         <https://github.com/godotengine/godot/issues?q=is:open+is:issue+label:platform:html5>`
+         ( https://github.com/godotengine/godot/issues?q=is:open+is:issue+label:platform:html5 )`
          to see if the functionality you're interested in has an issue yet. If
          not, open one to communicate your interest.
 
@@ -132,18 +132,18 @@ user's side, this can be worked around by running the project in a separate
 Threads
 ~~~~~~~
 
-As mentioned `above <doc_javascript_export_options>` multi-threading is
+As mentioned `above <doc_javascript_export_options )` multi-threading is
 only available if the appropriate **Export Type** is set and support for it
 across browsers is still limited.
 
-.. warning:: Requires a `secure context <doc_javascript_secure_contexts>`.
+.. warning:: Requires a `secure context <doc_javascript_secure_contexts )`.
              Browsers also require that the web page is served with specific
-             `cross-origin isolation headers <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy>`.
+             `cross-origin isolation headers ( https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy )`.
 
 GDNative
 ~~~~~~~~
 
-As mentioned `above <doc_javascript_export_options>` GDNative is only
+As mentioned `above <doc_javascript_export_options )` GDNative is only
 available if the appropriate **Export Type** is set.
 
 The export will also copy the required GDNative `.wasm` files to the output
@@ -161,7 +161,7 @@ input event must currently be active.
 
 For the same reason, the full screen project setting doesn't work unless the
 engine is started from within a valid input event handler. This requires
-`customization of the HTML page <doc_customizing_html5_shell>`.
+`customization of the HTML page <doc_customizing_html5_shell )`.
 
 Audio
 ~~~~~
@@ -170,19 +170,19 @@ Chrome restricts how websites may play audio. It may be necessary for the
 player to click or tap or press a key to enable audio.
 
 .. seealso:: Google offers additional information about their `Web Audio autoplay
-             policies <https://sites.google.com/a/chromium.org/dev/audio-video/autoplay>`.
+             policies ( https://sites.google.com/a/chromium.org/dev/audio-video/autoplay )`.
 
 .. warning:: Access to microphone requires a
-             `secure context <doc_javascript_secure_contexts>`.
+             `secure context <doc_javascript_secure_contexts )`.
 
 Networking
 ~~~~~~~~~~
 
 Low level networking is not implemented due to lacking support in browsers.
 
-Currently, only `HTTP client <doc_http_client_class>`,
-`HTTP requests <doc_http_request_class>`,
-`WebSocket (client) <doc_websocket>` and `WebRTC <doc_webrtc>` are
+Currently, only `HTTP client <doc_http_client_class )`,
+`HTTP requests <doc_http_request_class )`,
+`WebSocket (client) <doc_websocket )` and `WebRTC <doc_webrtc )` are
 supported.
 
 The HTTP classes also have several restrictions on the HTML5 platform:
@@ -192,34 +192,34 @@ The HTTP classes also have several restrictions on the HTML5 platform:
  -  Cannot progress more than once per frame, so polling in a loop will freeze
  -  No chunked responses
  -  Host verification cannot be disabled
- -  Subject to `same-origin policy <https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy>`
+ -  Subject to `same-origin policy ( https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy )`
 
 Clipboard
 ~~~~~~~~~
 
 Clipboard synchronization between engine and the operating system requires a
-browser supporting the `Clipboard API <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API>`,
+browser supporting the `Clipboard API ( https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API )`,
 additionally, due to the API asynchronous nature might not be reliable when
 accessed from GDScript.
 
-.. warning:: Requires a `secure context <doc_javascript_secure_contexts>`.
+.. warning:: Requires a `secure context <doc_javascript_secure_contexts )`.
 
 Gamepads
 ~~~~~~~~
 
 Gamepads will not be detected until one of their button is pressed. Gamepads
 might have the wrong mapping depending on the browser/OS/gamepad combination,
-sadly the `Gamepad API <https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API>`
+sadly the `Gamepad API ( https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API )`
 does not provide a reliable way to detect the gamepad information necessary
 to remap them based on model/vendor/OS due to privacy considerations.
 
-.. warning:: Requires a `secure context <doc_javascript_secure_contexts>`.
+.. warning:: Requires a `secure context <doc_javascript_secure_contexts )`.
 
 Boot splash is not displayed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The default HTML page does not display the boot splash while loading. However,
-the image is exported as a PNG file, so `custom HTML pages <doc_customizing_html5_shell>`
+the image is exported as a PNG file, so `custom HTML pages <doc_customizing_html5_shell )`
 can display it.
 
 Shader language limitations
@@ -240,7 +240,7 @@ servers and can be renamed to e.g. `index.html` at any time, its name is
 never depended on by default.
 
 The HTML page draws the game at maximum size within the browser window.
-This way it can be inserted into an `<iframe>` with the game's size, as is
+This way it can be inserted into an `<iframe )` with the game's size, as is
 common on most web game hosting sites.
 
 The other exported files are served as they are, next to the `.html` file,
@@ -249,7 +249,7 @@ the engine. The `.pck` file is the Godot main pack containing your game. The
 `.js` file contains start-up code and is used by the `.html` file to access
 the engine. The `.png)` file contains the boot splash image. It is not used in
 the default HTML page, but is included for
-`custom HTML pages <doc_customizing_html5_shell>`.
+`custom HTML pages <doc_customizing_html5_shell )`.
 
 The `.pck` file is binary, usually delivered with the MIME-type
 :mimetype:`application/octet-stream`. The `.wasm` file is delivered as
@@ -267,7 +267,7 @@ of its original size with gzip compression.
 **Hosts that provide on-the-fly compression:** GitHub Pages (gzip)
 
 **Hosts that don't provide on-the-fly compression:** itch.io, GitLab Pages
-(`supports manual gzip precompression <https://webd97.de/post/gitlab-pages-compression/>`)
+(`supports manual gzip precompression ( https://webd97.de/post/gitlab-pages-compression/ )`)
 
 .. _doc_javascript_eval:
 
@@ -302,11 +302,11 @@ returned by `eval()` under certain circumstances:
 
 Any other JavaScript value is returned as `null`.
 
-HTML5 export templates may be `built <doc_compiling_for_web>` without
+HTML5 export templates may be `built <doc_compiling_for_web )` without
 support for the singleton to improve security. With such templates, and on
 platforms other than HTML5, calling `JavaScript.eval` will also return
 `null`. The availability of the singleton can be checked with the
-`JavaScript` `feature tag <doc_feature_tags>`::
+`JavaScript` `feature tag <doc_feature_tags )`::
 
     func my_func3():
         if OS.has_feature('JavaScript'):

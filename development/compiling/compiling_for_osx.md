@@ -14,13 +14,13 @@ Requirements
 
 For compiling under macOS, the following is required:
 
-- `Python 3.5+ <https://www.python.org>`_.
-- `SCons 3.0+ <https://www.scons.org>`_ build system.
-- `Xcode <https://apps.apple.com/us/app/xcode/id497799835>`_
+- `Python 3.5+ ( https://www.python.org )`_.
+- `SCons 3.0+ ( https://www.scons.org )`_ build system.
+- `Xcode ( https://apps.apple.com/us/app/xcode/id497799835 )`_
   (or the more lightweight Command Line Tools for Xcode).
-- *Optional* - `yasm <https://yasm.tortall.net/>`_ (for WebM SIMD optimizations).
+- *Optional* - `yasm ( https://yasm.tortall.net/ )`_ (for WebM SIMD optimizations).
 
-.. note:: If you have `Homebrew <https://brew.sh/>`_ installed, you can easily
+.. note:: If you have `Homebrew ( https://brew.sh/ )`_ installed, you can easily
           install SCons and yasm using the following command::
 
               brew install scons yasm
@@ -28,7 +28,7 @@ For compiling under macOS, the following is required:
           Installing Homebrew will also fetch the Command Line Tools
           for Xcode automatically if you don't have them already.
 
-          Similarly, if you have `MacPorts <https://www.macports.org/>`_
+          Similarly, if you have `MacPorts ( https://www.macports.org/ )`_
           installed, you can easily install SCons and yasm using the
           following command::
 
@@ -85,7 +85,7 @@ projects in an automated manner, use::
     scons platform=server tools=yes target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
 
 To compile a debug *server* build which can be used with
-`remote debugging tools <doc_command_line_tutorial>`, use::
+`remote debugging tools <doc_command_line_tutorial )`, use::
 
     scons platform=server tools=no target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
 
@@ -144,10 +144,10 @@ Cross-compiling for macOS from Linux
 
 It is possible to compile for macOS in a Linux environment (and maybe also in
 Windows using the Windows Subsystem for Linux). For that, you'll need to install
-`OSXCross <https://github.com/tpoechtrager/osxcross>` to be able to use macOS
+`OSXCross ( https://github.com/tpoechtrager/osxcross )` to be able to use macOS
 as a target. First, follow the instructions to install it:
 
-Clone the `OSXCross repository <https://github.com/tpoechtrager/osxcross>`
+Clone the `OSXCross repository ( https://github.com/tpoechtrager/osxcross )`
 somewhere on your machine (or download a ZIP file and extract it somewhere),
 e.g.::
 

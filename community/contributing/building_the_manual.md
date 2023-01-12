@@ -9,20 +9,20 @@ documentation as a PDF, EPUB, or LaTeX file, for example.
 
 To get started, you need to:
 
-1. Clone the `godot-docs repository <https://github.com/godotengine/godot-docs/>`.
-2. Install `Sphinx <https://www.sphinx-doc.org/>`
+1. Clone the `godot-docs repository ( https://github.com/godotengine/godot-docs/ )`.
+2. Install `Sphinx ( https://www.sphinx-doc.org/ )`
 3. To build the docs as HTML files, install the `readthedocs.org theme
-   <https://github.com/snide/sphinx_rtd_theme>`.
+   ( https://github.com/snide/sphinx_rtd_theme )`.
 4. Install the Sphinx extensions defined in the `godot-docs repository
-   <https://github.com/godotengine/godot-docs/>` `requirements.txt` file.
+   ( https://github.com/godotengine/godot-docs/ )` `requirements.txt` file.
 
-We recommend using `pip <https://pip.pypa.io>`, Python’s package manager to
+We recommend using `pip ( https://pip.pypa.io )`, Python’s package manager to
 install all these tools. It comes pre-installed with `Python
-<https://www.python.org/>`. Ensure that you install and use Python 3. Here are
+( https://www.python.org/ )`. Ensure that you install and use Python 3. Here are
 the commands to clone the repository and then install all requirements.
 
 .. note:: You may need to write `python3 -m pip` (Unix) or  `py -m pip` (Windows) instead of `pip3`.
-          If both approaches fail, `check that you have pip3 installed <https://pip.pypa.io/en/stable/installation/>`.
+          If both approaches fail, `check that you have pip3 installed ( https://pip.pypa.io/en/stable/installation/ )`.
 
 .. code:: sh
 
@@ -72,7 +72,7 @@ from the final HTML documentation but will keep the rest intact.
 .. note:: If you delete the `classes/` folder, do not use `git add .` when
           working on a pull request or the whole `classes/` folder will be
           removed when you commit. See `#3157
-          <https://github.com/godotengine/godot-docs/issues/3157>` for more
+          ( https://github.com/godotengine/godot-docs/issues/3157 )` for more
           detail.
 
 Alternatively, you can build the documentation by running the sphinx-build

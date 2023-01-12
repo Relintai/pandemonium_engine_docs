@@ -5,7 +5,7 @@ HTTP client class
 
 `HTTPClient` provides low-level access to HTTP communication.
 For a higher-level interface, you may want to take a look at `HTTPRequest` first,
-which has a tutorial available `here <doc_http_request_class>`.
+which has a tutorial available `here <doc_http_request_class )`.
 
 .. warning::
 

@@ -73,10 +73,10 @@ To resolve this:
   Try unlocking your device and accepting the authorization prompt if you see any.
   If you can't see this prompt, running `adb devices` on your PC should make
   the authorization prompt appear on the device.
-- Try `revoking the debugging authorization <https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized>`
+- Try `revoking the debugging authorization ( https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized )`
   in the device's developer settings, then follow the steps again.
 - Try using USB debugging instead of wireless debugging or vice versa.
   Sometimes, one of those can work better than the other.
 - On Linux, you may be missing the required
-  `udev rules <https://github.com/M0Rf30/android-udev-rules>`
+  `udev rules ( https://github.com/M0Rf30/android-udev-rules )`
   for your device to be recognized.

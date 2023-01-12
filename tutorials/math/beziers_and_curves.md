@@ -10,7 +10,7 @@ high level of flexibility.
 Unlike more abstract mathematical concepts, Bezier curves were created for
 industrial design. They are a popular tool in the graphics software industry.
 
-They rely on `interpolation<doc_interpolation>`, which we saw in the
+They rely on `interpolation<doc_interpolation )`, which we saw in the
 previous article, combining multiple steps to create smooth curves. To better
 understand how Bezier curves work, let's start from its simplest form: Quadratic
 Bezier.
@@ -197,8 +197,8 @@ Traversal
 
 The last common use case for the curves is to traverse them. Because of what was mentioned before regarding constant speed, this is also difficult.
 
-To make this easier, the curves need to be *baked* into equidistant points. This way, they can be approximated with regular interpolation (which can be improved further with a cubic option). To do this, just use the `Curve.interpolate_baked()<class_Curve_method_interpolate_baked>` method together with
-`Curve2D.get_baked_length()<class_Curve2D_method_get_baked_length>`. The first call to either of them will bake the curve internally.
+To make this easier, the curves need to be *baked* into equidistant points. This way, they can be approximated with regular interpolation (which can be improved further with a cubic option). To do this, just use the `Curve.interpolate_baked()<class_Curve_method_interpolate_baked )` method together with
+`Curve2D.get_baked_length()<class_Curve2D_method_get_baked_length )`. The first call to either of them will bake the curve internally.
 
 Traversal at constant speed, then, can be done with the following pseudo-code:
 

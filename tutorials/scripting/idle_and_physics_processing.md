@@ -20,7 +20,7 @@ There are two types of processing available to you:
 
 You can activate idle processing by defining the `_process()` method in a
 script. You can turn it off and back on by calling `Node.set_process()
-<class_Node_method_set_process>`.
+<class_Node_method_set_process )`.
 
 The engine calls this method every time it draws a frame:
 

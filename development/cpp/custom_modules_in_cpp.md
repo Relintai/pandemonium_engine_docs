@@ -35,7 +35,7 @@ Creating a new module
 ---------------------
 
 Before creating a module, make sure to `download the source code of Godot
-and compile it <toc-devel-compiling>`.
+and compile it <toc-devel-compiling )`.
 
 To create a new module, the first step is creating a directory inside
 `modules/`. If you want to maintain the module separately, you can checkout
@@ -251,7 +251,7 @@ The output will be `60`.
              template you plan to use, then specify the path to the custom
              template in each export preset. Otherwise, you'll get errors when
              running the project as the module isn't compiled in the export
-             template. See the `Compiling <toc-devel-compiling>` pages
+             template. See the `Compiling <toc-devel-compiling )` pages
              for more information.
 
 Compiling a module externally
@@ -303,7 +303,7 @@ and compile them accordingly, including our "summator" module.
 
 .. seealso::
 
-    `Introduction to the buildsystem - Custom modules build option <doc_buildsystem_custom_modules>`.
+    `Introduction to the buildsystem - Custom modules build option <doc_buildsystem_custom_modules )`.
 
 Improving the build system for development
 ------------------------------------------
@@ -312,7 +312,7 @@ Improving the build system for development
 
     This shared library support is not designed to support distributing a module
     to other users without recompiling the engine. For that purpose, use
-    `GDNative <doc_what_is_gdnative>` instead.
+    `GDNative <doc_what_is_gdnative )` instead.
 
 So far, we defined a clean SCsub that allows us to add the sources
 of our new module as part of the Godot binary.
@@ -478,8 +478,8 @@ main `doc/classes` directory.
 
 3. Now we can generate the documentation:
 
-We can do this via running Godot's doctool i.e. `godot --doctool <path>`,
-which will dump the engine API reference to the given `<path>` in XML format.
+We can do this via running Godot's doctool i.e. `godot --doctool <path )`,
+which will dump the engine API reference to the given `<path )` in XML format.
 
 In our case we'll point it to the root of the cloned repository. You can point it
 to an another folder, and just copy over the files that you need.
@@ -507,7 +507,7 @@ the things that you previously added. Of course if you point it to your godot
 folder, make sure you don't lose work by extracting older docs from an older engine build
 on top of the newer ones.
 
-Note that if you don't have write access rights to your supplied `<path>`,
+Note that if you don't have write access rights to your supplied `<path )`,
 you might encounter an error similar to the following:
 
 .. code-block:: console

@@ -3,7 +3,7 @@
 Xcode
 =====
 
-`Xcode <https://developer.apple.com/xcode>`_ is a free macOS-only IDE. You can 
+`Xcode ( https://developer.apple.com/xcode )`_ is a free macOS-only IDE. You can 
 download it from the Mac App Store.
 
 Importing the project
@@ -107,4 +107,4 @@ To check that everything is working, put a breakpoint in `platform/osx/godot_mai
 run the project.
 
 If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`.
+`Godot's community channels ( https://godotengine.org/community )`.

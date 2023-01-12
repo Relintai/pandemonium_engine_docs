@@ -222,7 +222,7 @@ Example class
 -------------
 
 You can find an example class for loading resources in threads here:
-:download:`resource_queue.gd <files/resource_queue.gd>`. Usage is as follows:
+:download:`resource_queue.gd <files/resource_queue.gd )`. Usage is as follows:
 
 ::
 
@@ -304,4 +304,4 @@ Example:
 
 **Note**: this code, in its current form, is not tested in real world
 scenarios. If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`.
+`Godot's community channels ( https://godotengine.org/community )`.

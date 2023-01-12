@@ -104,10 +104,10 @@ type:
 
 Currently you can use three types of… types:
 
-1. `Built-in <doc_gdscript_builtin_types>`
+1. `Built-in <doc_gdscript_builtin_types )`
 2. Core classes and nodes (`Object`, `Node`, `Area2D`,
    `Camera2D`, etc.)
-3. Your own custom classes. Look at the new `name <doc_gdscript_basics_class_name>`
+3. Your own custom classes. Look at the new `name <doc_gdscript_basics_class_name )`
    feature to register types in the editor.
 
 .. note::
@@ -191,7 +191,7 @@ an error or not at runtime.
 
 This happens when you get a child node. Let's take a timer for example:
 with dynamic code, you can get the node with `$Timer`. GDScript
-supports `duck-typing <https://stackoverflow.com/a/4205163/8125343>`,
+supports `duck-typing ( https://stackoverflow.com/a/4205163/8125343 )`,
 so even if your timer is of type `Timer`, it is also a `Node` and an
 `Object`, two classes it extends. With dynamic GDScript, you also
 don't care about the node's type as long as it has the methods you need
@@ -215,7 +215,7 @@ Define the return type of a function with the arrow ->
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To define the return type of a function, write a dash and a right angle
-bracket `->` after its declaration, followed by the return type:
+bracket `- )` after its declaration, followed by the return type:
 
 ::
 

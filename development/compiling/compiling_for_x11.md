@@ -150,7 +150,7 @@ projects in an automated manner, use::
     scons -j8 platform=server tools=yes target=release_debug
 
 To compile a debug *server* build which can be used with
-`remote debugging tools <doc_command_line_tutorial>`, use::
+`remote debugging tools <doc_command_line_tutorial )`, use::
 
     scons -j8 platform=server tools=no target=release_debug
 
@@ -239,13 +239,13 @@ link-time optimization, making the resulting binaries smaller and faster.
 Using Pyston for faster development
 -----------------------------------
 
-You can use `Pyston <https://www.pyston.org/>` to run SCons. Pyston is a JIT-enabled
+You can use `Pyston ( https://www.pyston.org/ )` to run SCons. Pyston is a JIT-enabled
 implementation of the Python language (which SCons is written in). It is currently
 only compatible with Linux. Pyston can speed up incremental builds significantly,
 often by a factor between 1.5× and 2×. Pyston can be combined with Clang and LLD
 to get even faster builds.
 
-- Download the `latest portable Pyston release <https://github.com/pyston/pyston/releases/latest>`.
+- Download the `latest portable Pyston release ( https://github.com/pyston/pyston/releases/latest )`.
 - Extract the portable `.tar.gz` to a set location, such as `$HOME/.local/opt/pyston/` (create folders as needed).
 - Use `cd` to reach the extracted Pyston folder from a terminal,
   then run `./pyston -m pip install scons` to install SCons within Pyston.
@@ -254,7 +254,7 @@ to get even faster builds.
 
     ln -s ~/.local/opt/pyston/bin/scons ~/.local/bin/pyston-scons
 
-- Instead of running `scons <build arguments>`, run `pyston-scons <build arguments>`
+- Instead of running `scons <build arguments )`, run `pyston-scons <build arguments )`
   to compile Godot.
 
 If you can't run `pyston-scons` after creating the symbolic link,

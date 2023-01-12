@@ -16,9 +16,9 @@ Interior environments can be created by using inverted primitives.
           extruded 2D polygons can be used with the CSGPolygon node).
 
           If you're looking for an easy to use level design tool for a project,
-          you may want to use `Qodot <https://github.com/Shfty/qodot-plugin>`
+          you may want to use `Qodot ( https://github.com/Shfty/qodot-plugin )`
           instead. It lets you design levels using
-          `TrenchBroom <https://kristianduske.com/trenchbroom/>` and import
+          `TrenchBroom ( https://kristianduske.com/trenchbroom/ )` and import
           them in Godot.
 
 ![](img/csg.gif)
@@ -204,7 +204,7 @@ another CSGCylinder and adjust the dimensions to use it as a pole.
 ![](img/csg_lamp_pole_stand.png)
 
 We will use a CSGPolygon for the lampshade. Use the **Spin** mode for the
-CSGPolygon and draw a `trapezoid <https://en.wikipedia.org/wiki/Trapezoid>`_
+CSGPolygon and draw a `trapezoid ( https://en.wikipedia.org/wiki/Trapezoid )`_
 while in **Front View** (numeric keypad 1); this shape will extrude around the
 origin and form the lampshade.
 
@@ -257,7 +257,7 @@ usage to organic surfaces like terrain. Still, when prototyping, it can be used
 to quickly apply textures to CSG-based levels.
 
 .. note:: If you need some textures for prototyping, Kenney made a
-          `set of CC0-licensed prototype textures <https://kenney.nl/assets/prototype-textures>`.
+          `set of CC0-licensed prototype textures ( https://kenney.nl/assets/prototype-textures )`.
 
 There are two ways to apply a material to a CSG node:
 

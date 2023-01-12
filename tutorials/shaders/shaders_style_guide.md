@@ -11,7 +11,7 @@ auto-formatting tools.
 Since the Godot shader language is close to C-style languages and GLSL, this
 guide is inspired by Godot's own GLSL formatting. You can view an example of a
 GLSL file in Godot's source code
-`here <https://github.com/godotengine/godot/blob/master/drivers/gles2/shaders/copy.glsl>`.
+`here ( https://github.com/godotengine/godot/blob/master/drivers/gles2/shaders/copy.glsl )`.
 
 Style guides aren't meant as hard rulebooks. At times, you may not be able to
 apply some of the guidelines below. When that happens, use your best judgment,
@@ -54,7 +54,7 @@ Encoding and special characters
 
 * Use line feed (**LF**) characters to break lines, not CRLF or CR. *(editor default)*
 * Use one line feed character at the end of each file. *(editor default)*
-* Use **UTF-8** encoding without a `byte order mark <https://en.wikipedia.org/wiki/Byte_order_mark>`_. *(editor default)*
+* Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`_. *(editor default)*
 * Use **Tabs** instead of spaces for indentation. *(editor default)*
 
 Indentation
@@ -102,7 +102,7 @@ Line breaks and blank lines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For a general indentation rule, follow
-`the "1TBS Style" <https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)>`_
+`the "1TBS Style" ( https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS) )`_
 which recommends placing the brace associated with a control statement on the
 same line. Always use braces for statements, even if they only span one line.
 This makes them easier to refactor and avoids mistakes when adding more lines to

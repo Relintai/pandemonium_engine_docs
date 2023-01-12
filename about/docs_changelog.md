@@ -5,7 +5,7 @@ Documentation changelog
 
 The documentation is continually being improved. The release of version 3.2
 includes many new tutorials, many fixes and updates for old tutorials, and many updates
-to the `class reference <toc-class-ref>`. Below is a list of new tutorials
+to the `class reference <toc-class-ref )`. Below is a list of new tutorials
 added since version 3.1.
 
 .. note:: This document only contains new tutorials so not all changes are reflected,
@@ -83,7 +83,7 @@ Creating content
 ^^^^^^^^^^^^^^^^
 
 Procedural geometry series:
-  - `Procedural geometry <toc-procedural_geometry>`
+  - `Procedural geometry <toc-procedural_geometry )`
   - `doc_arraymesh`
   - `doc_surfacetool`
   - `doc_meshdatatool`

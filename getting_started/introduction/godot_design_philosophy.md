@@ -17,7 +17,7 @@ your project, you need to try it out for yourself and
 understand its design and limitations.
 
 Please watch
-`Godot explained in 5 minutes <https://www.youtube.com/watch?v=KjX5llYZ5eQ>`_
+`Godot explained in 5 minutes ( https://www.youtube.com/watch?v=KjX5llYZ5eQ )`_
 if you're looking for an overview of the engine's features.
 
 Object-oriented design and composition
@@ -77,7 +77,7 @@ the ability to hot-reload locally and on remote devices, etc.
 The goal is to offer a full package to create games and a continuous
 user experience. You can still work with external programs as long as
 there is an import plugin for it. Or you can create one, like the `Tiled
-Map Importer <https://github.com/vnen/godot-tiled-importer>`.
+Map Importer ( https://github.com/vnen/godot-tiled-importer )`.
 
 That is also partly why Godot offers its own programming languages
 GDScript and VisualScript, along with C#. They're designed for the needs
@@ -111,12 +111,12 @@ manage states and transitions visually.*
 
 .. warning::
 
-    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`
+    `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
     As a result, creating new projects using visual scripting in Godot is not recommended.
     Future Godot 4.x releases may have VisualScript reimplemented as an extension.
 
     While Godot 3.x will keep VisualScript supported, we recommend
-    `trying out GDScript <toc-learn-scripting-gdscript>` instead,
+    `trying out GDScript <toc-learn-scripting-gdscript )` instead,
     especially if you intend to migrate your project to Godot 4.
 
 Open source

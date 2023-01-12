@@ -14,23 +14,23 @@ Requirements
 
 For compiling under Windows, the following is required:
 
-- `Visual Studio Community <https://www.visualstudio.com/vs/community/>`_,
+- `Visual Studio Community ( https://www.visualstudio.com/vs/community/ )`_,
   version 2017 or later. VS 2019 is recommended.
   **Make sure to read "Installing Visual Studio caveats" below or you
   will have to run/download the installer again.**
-- `MinGW-w64 <http://mingw-w64.org/>` with GCC can be used as an alternative to
+- `MinGW-w64 ( http://mingw-w64.org/ )` with GCC can be used as an alternative to
   Visual Studio. Be sure to install/configure it to use the `posix` thread model.
-- `Python 3.5+ <https://www.python.org/downloads/windows/>`_.
+- `Python 3.5+ ( https://www.python.org/downloads/windows/ )`_.
   **Make sure to enable the option to add Python to the `PATH` in the installer.**
-- `SCons <https://www.scons.org/>`_ build system. Using the latest release is
+- `SCons ( https://www.scons.org/ )`_ build system. Using the latest release is
   recommended, especially for proper support of recent Visual Studio releases.
 
-.. note:: If you have `Scoop <https://scoop.sh/>`_ installed, you can easily
+.. note:: If you have `Scoop ( https://scoop.sh/ )`_ installed, you can easily
           install MinGW and other dependencies using the following command::
 
               scoop install gcc python scons make
 
-.. note:: If you have `MSYS2 <https://www.msys2.org/>`_ installed, you can easily
+.. note:: If you have `MSYS2 ( https://www.msys2.org/ )`_ installed, you can easily
           install MinGW and other dependencies using the following command::
 
               pacman -S mingw-w64-x86_64-python3-pip mingw-w64-x86_64-gcc \
@@ -191,7 +191,7 @@ Cross-compiling for Windows from other operating systems
 --------------------------------------------------------
 
 If you are a Linux or macOS user, you need to install
-`MinGW-w64 <https://mingw-w64.org/doku.php>`, which typically comes in 32-bit
+`MinGW-w64 ( https://mingw-w64.org/doku.php )`, which typically comes in 32-bit
 and 64-bit variants. The package names may differ based on your distribution,
 here are some known ones:
 
@@ -243,7 +243,7 @@ Troubleshooting
 ~~~~~~~~~~~~~~~
 
 Cross-compiling from some Ubuntu versions may lead to
-`this bug <https://github.com/godotengine/godot/issues/9258>`_,
+`this bug ( https://github.com/godotengine/godot/issues/9258 )`_,
 due to a default configuration lacking support for POSIX threading.
 
 You can change that configuration following those instructions,
@@ -273,7 +273,7 @@ with the following flags::
     C:\godot> scons platform=windows tools=no target=release bits=64
 
 If you plan on replacing the standard export templates, copy these to the
-following location, replacing `<version>` with the version identifier
+following location, replacing `<version )` with the version identifier
 (such as `3.1.1.stable` or `3.2.dev`)::
 
     %USERPROFILE%\AppData\Roaming\Godot\templates\<version>\

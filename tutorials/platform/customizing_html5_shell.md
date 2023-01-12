@@ -19,7 +19,7 @@ Some use-cases where customizing the default page is useful include:
 - Passing custom command line arguments, e.g. `-s` to start a `MainLoop` script.
 
 The default HTML page is available in the Godot Engine repository at
-`/misc/dist/html/full-size.html <https://github.com/godotengine/godot/blob/master/misc/dist/html/full-size.html>`
+`/misc/dist/html/full-size.html ( https://github.com/godotengine/godot/blob/master/misc/dist/html/full-size.html )`
 but the following template can be used as a much simpler example:
 
 .. code-block:: html
@@ -43,14 +43,14 @@ but the following template can be used as a much simpler example:
 Setup
 -----
 As shown by the example above, it is mostly a regular HTML document, with few placeholders
-which needs to be replaced during export, an html `<canvas>` element, and some simple
+which needs to be replaced during export, an html `<canvas )` element, and some simple
 JavaScript code that calls the :js:class:`Engine` class.
 
 The only required placeholders are:
 
 - `$GODOT_URL`:
   The name of the main JavaScript file, which provides the :js:class:`Engine` class required
-  to start the engine and that must be included in the HTML as a `<script>`.
+  to start the engine and that must be included in the HTML as a `<script )`.
   The name is generated from the *Export Path* during the export process.
 
 - `$GODOT_CONFIG`:
@@ -60,11 +60,11 @@ The only required placeholders are:
 The following optional placeholders will enable some extra features in your custom HTML template.
 
 - `$GODOT_PROJECT_NAME`:
-  The project name as defined in the Project Settings. It is a good idea to use it as a `<title>`
+  The project name as defined in the Project Settings. It is a good idea to use it as a `<title )`
   in your template.
 
 - `$GODOT_HEAD_INCLUDE`:
-  A custom string to include in the HTML document just before the end of the `<head>` tag. It
+  A custom string to include in the HTML document just before the end of the `<head )` tag. It
   is customized in the export options under the *Html / Head Include* section. While you fully
   control the HTML page you create, this variable can be useful for configuring parts of the
   HTML `head` element from the Godot Editor, e.g. for different Web export presets.
@@ -80,12 +80,12 @@ To be able to start the game, you need to write a script that initializes the en
 code. This process consists of three steps, though as shown most of them can be skipped depending on
 how much customization is needed (or be left to a default behavior).
 
-See the `HTML5 shell class reference <doc_html5_shell_classref>`, for the full list of methods and options available.
+See the `HTML5 shell class reference <doc_html5_shell_classref )`, for the full list of methods and options available.
 
 First, the engine must be loaded, then it needs to be initialized, and after this the project
 can finally be started. You can perform every of these steps manually and with great control.
 However, in the simplest case all you need to do is to create an instance of the :js:class:`Engine`
-class with the exported configuration, and then call the :js:meth:`engine.startGame <Engine.prototype.startGame>` method
+class with the exported configuration, and then call the :js:meth:`engine.startGame <Engine.prototype.startGame )` method
 optionally overriding any :js:attr:`EngineConfig` parameters.
 
 .. code-block:: js
@@ -99,16 +99,16 @@ optionally overriding any :js:attr:`EngineConfig` parameters.
     });
 
 This snippet of code automatically loads and initializes the engine before starting the game.
-It uses the given configuration to to load the engine. The :js:meth:`engine.startGame <Engine.prototype.startGame>`
+It uses the given configuration to to load the engine. The :js:meth:`engine.startGame <Engine.prototype.startGame )`
 method is asynchronous and returns a `Promise`. This allows your control code to track if
 the game was loaded correctly without blocking execution or relying on polling.
 
 In case your project needs to have special control over the start arguments and dependency files,
-the :js:meth:`engine.start <Engine.prototype.start>` method can be used instead. Note, that this method do not
+the :js:meth:`engine.start <Engine.prototype.start )` method can be used instead. Note, that this method do not
 automatically preload the `pck` file, so you will probably want to manually preload it
-(and any other extra file) via the :js:meth:`engine.preloadFile <Engine.prototype.preloadFile>` method.
+(and any other extra file) via the :js:meth:`engine.preloadFile <Engine.prototype.preloadFile )` method.
 
-Optionally, you can also manually :js:meth:`engine.init <Engine.prototype.init>` to perform specific actions after
+Optionally, you can also manually :js:meth:`engine.init <Engine.prototype.init )` to perform specific actions after
 the module initialization, but before the engine starts.
 
 This process is a bit more complex, but gives you full control over the engine startup process.

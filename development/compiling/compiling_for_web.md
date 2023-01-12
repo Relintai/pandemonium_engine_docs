@@ -14,9 +14,9 @@ Requirements
 
 To compile export templates for the Web, the following is required:
 
--  `Emscripten 1.39.9+ <https://emscripten.org>`.
--  `Python 3.5+ <https://www.python.org/>`.
--  `SCons 3.0+ <https://www.scons.org>` build system.
+-  `Emscripten 1.39.9+ ( https://emscripten.org )`.
+-  `Python 3.5+ ( https://www.python.org/ )`.
+-  `SCons 3.0+ ( https://www.scons.org )` build system.
 
 .. seealso:: To get the Godot source code for compiling, see
              `doc_getting_source`.
@@ -38,7 +38,7 @@ either `release` for a release build or `release_debug` for a debug build::
     scons platform=javascript tools=no target=release
     scons platform=javascript tools=no target=release_debug
 
-By default, the `JavaScript singleton <doc_javascript_eval>` will be built
+By default, the `JavaScript singleton <doc_javascript_eval )` will be built
 into the engine. Official export templates also have the JavaScript singleton
 enabled. Since `eval()` calls can be a security concern, the
 `javascript_eval` option can be used to build without the singleton::
@@ -65,7 +65,7 @@ Threads and GDNative
 
 The default export templates do not include threads and GDNative support for
 performance and compatibility reasons. See the
-`export page <doc_javascript_export_options>` for more info.
+`export page <doc_javascript_export_options )` for more info.
 
 You can build the export templates using the option `threads_enabled=yes` or
 `gdnative_enabled=yes` to enable threads or GDNative support::
@@ -104,5 +104,5 @@ Once finished, the resulting file will be placed in the `bin` subdirectory.
 Its name will be `godot.javascript.opt.tools.threads.zip`. You can upload the
 zip content to your web server and visit it with your browser to use the editor.
 
-Refer to the `export page <doc_javascript_export_options>` for the web
+Refer to the `export page <doc_javascript_export_options )` for the web
 server requirements.

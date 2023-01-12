@@ -9,7 +9,7 @@ HTML5 and WebSocket
 The WebSocket protocol was standardized in 2011 with the original goal of allowing browsers to create stable and bidirectional connections with a server.
 Before that, browsers used to only support HTTPRequests, which is not well-suited for bidirectional communication.
 
-The protocol is quite simple, message based, and a very powerful tool to send push notifications to browsers, and has been used to implement chats, turn-based games, etc. It still uses a TCP connection, which is good for reliability but not for latency, so not good for real-time applications like VoIP and fast-paced games (see `WebRTC <doc_webrtc>` for those use cases).
+The protocol is quite simple, message based, and a very powerful tool to send push notifications to browsers, and has been used to implement chats, turn-based games, etc. It still uses a TCP connection, which is good for reliability but not for latency, so not good for real-time applications like VoIP and fast-paced games (see `WebRTC <doc_webrtc )` for those use cases).
 
 Due to its simplicity, its wide compatibility, and being easier to use than a raw TCP connection, WebSocket soon started to spread outside the browsers, in native applications as a mean to communicate with network servers.
 
@@ -159,4 +159,4 @@ This will print (when a client connects) something similar to this:
 Advanced chat demo
 ^^^^^^^^^^^^^^^^^^
 
-A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer demo are available in the `godot demo projects <https://github.com/godotengine/godot-demo-projects>`_ under `networking/websocket_chat` and `networking/websocket_multiplayer`.
+A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer demo are available in the `godot demo projects ( https://github.com/godotengine/godot-demo-projects )`_ under `networking/websocket_chat` and `networking/websocket_multiplayer`.

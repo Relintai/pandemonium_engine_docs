@@ -125,7 +125,7 @@ similar to other tools in the Editor Settings:
 Coordinate system
 -----------------
 
-Godot uses the `metric <https://en.wikipedia.org/wiki/Metric_system>`
+Godot uses the `metric ( https://en.wikipedia.org/wiki/Metric_system )`
 system for everything in 3D, with 1 unit being equal to 1 meter.
 Physics and other areas are tuned for this scale. Therefore, attempting to use a
 different scale is usually a bad idea (unless you know what you are doing).

@@ -70,17 +70,17 @@ member variables, constants, and signals in separate XML nodes.
 For each, you want to learn how they work in Godot's source code. Then, fill
 their documentation by completing or improving the text in these tags:
 
-- `<brief_description>`
-- `<description>`
-- `<constant>`
-- `<method>` (in its `<description>` tag; return types and arguments don't take separate
+- `<brief_description )`
+- `<description )`
+- `<constant )`
+- `<method )` (in its `<description )` tag; return types and arguments don't take separate
   documentation strings)
-- `<member>`
-- `<signal>` (in its `<description>` tag; arguments don't take separate documentation strings)
-- `<constant>`
+- `<member )`
+- `<signal )` (in its `<description )` tag; arguments don't take separate documentation strings)
+- `<constant )`
 
 Write in a clear and simple language. Always follow the `writing guidelines
-<doc_docs_writing_guidelines>` to keep your descriptions short and easy to read.
+<doc_docs_writing_guidelines )` to keep your descriptions short and easy to read.
 **Do not leave empty lines** in the descriptions: each line in the XML file will
 result in a new paragraph, even if it is empty.
 
@@ -108,7 +108,7 @@ errors if anything's wrong.
 
 Alternatively, you can build Godot and open the modified page in the built-in
 code reference. To learn how to compile the engine, read the `compilation
-guide <toc-devel-compiling>`.
+guide <toc-devel-compiling )`.
 
 We recommend using a code editor that supports XML files like Vim, Atom, Visual Studio Code,
 Notepad++, or another to comfortably edit the file. You can also use their
@@ -181,7 +181,7 @@ If you need to have different code version in GDScript and C#, use
 least one of the language-specific tags, `[gdscript]` and `[csharp]`.
 
 Always write GDScript code examples first! You can use this `experimental code
-translation tool <https://github.com/HaSa1002/codetranslator>`_ to speed up your
+translation tool ( https://github.com/HaSa1002/codetranslator )`_ to speed up your
 workflow.
 
 .. code-block:: none
@@ -243,4 +243,4 @@ pull of your changes. Another writer will take care of it.
 
 You can still look at the methods' implementation in Godot's source code on
 GitHub. If you have doubts, feel free to ask on the `Q&A website
-<https://godotengine.org/qa/>` and `Godot Contributors Chat <https://chat.godotengine.org/>`_.
+( https://godotengine.org/qa/ )` and `Godot Contributors Chat ( https://chat.godotengine.org/ )`_.

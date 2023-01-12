@@ -9,7 +9,7 @@ can contribute to the project:
   reference manual or the code reference.
 - Translating the editor or documentation from English to other languages.
 - Reporting issues or `writing detailed proposals
-  <https://github.com/godotengine/godot-proposals/>`.
+  ( https://github.com/godotengine/godot-proposals/ )`.
 
 Getting started
 ---------------
@@ -82,7 +82,7 @@ Class reference guides
 The pages below focus on the class reference.
 
 As the reference is included in the Godot editor, its source files are part of
-the `godot repository <https://github.com/godotengine/godot>`_. We use XML files
+the `godot repository ( https://github.com/godotengine/godot )`_. We use XML files
 to write it, so the process to contribute to the class reference differs from
 writing the online manual.
 

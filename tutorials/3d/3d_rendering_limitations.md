@@ -21,7 +21,7 @@ Texture size limits
 
 On desktops and laptops, textures larger than 8192×8192 may not be supported on
 older devices. You can check your target GPU's limitations on
-`GPUinfo.org <https://www.gpuinfo.org/>`.
+`GPUinfo.org ( https://www.gpuinfo.org/ )`.
 
 Mobile GPUs are typically limited to 4096×4096 textures. Also, some mobile GPUs
 don't support repeating non-power-of-two-sized textures. Therefore, if you want
@@ -46,13 +46,13 @@ There are two main ways to alleviate banding:
   It also requires HDR to be enabled in the Project Settings (which is the default).
 - Alternatively, bake some noise into your textures. This is mainly effective in 2D,
   e.g. for vignetting effects. In 3D, you can also use a
-  `custom debanding shader <https://github.com/fractilegames/godot-gles2-debanding-material>`
+  `custom debanding shader ( https://github.com/fractilegames/godot-gles2-debanding-material )`
   to be applied on your *materials*. This technique works even if your project is
   rendered in LDR, which means it will work when using the GLES2 renderer.
 
 .. seealso::
 
-    See `Banding in Games: A Noisy Rant <http://loopit.dk/banding_in_games.pdf>`
+    See `Banding in Games: A Noisy Rant ( http://loopit.dk/banding_in_games.pdf )`
     for more details about banding and ways to combat it.
 
 Depth buffer precision

@@ -80,7 +80,7 @@ Reuse Shaders and Materials
 
 The Godot renderer is a little different to what is out there. It's designed to
 minimize GPU state changes as much as possible. `SpatialMaterial
-<class_SpatialMaterial>` does a good job at reusing materials that need similar
+<class_SpatialMaterial )` does a good job at reusing materials that need similar
 shaders. If custom shaders are used, make sure to reuse them as much as
 possible. Godot's priorities are:
 
@@ -176,7 +176,7 @@ elsewhere.
 You can increase performance in a fill rate-limited project by reducing the
 amount of work the GPU has to do. You can do this by simplifying the shader
 (perhaps turn off expensive options if you are using a `SpatialMaterial
-<class_SpatialMaterial>`), or reducing the number and size of textures used.
+<class_SpatialMaterial )`), or reducing the number and size of textures used.
 
 **When targeting mobile devices, consider using the simplest possible shaders
 you can reasonably afford to use.**

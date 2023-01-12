@@ -3,8 +3,8 @@
 Visual Studio
 =============
 
-`Visual Studio Community <https://visualstudio.microsoft.com>` is a Windows-only IDE 
-by `Microsoft <https://microsoft.com>`_ that's free for non-commercial use.
+`Visual Studio Community ( https://visualstudio.microsoft.com )` is a Windows-only IDE 
+by `Microsoft ( https://microsoft.com )`_ that's free for non-commercial use.
 It has many useful features, such as memory view, performance view, source
 control and more.
 
@@ -53,7 +53,7 @@ project manager opens a project, the initial process is terminated and the debug
    :align: center
 
 To learn more about command line arguments, refer to the
-`command line tutorial <doc_command_line_tutorial>`.
+`command line tutorial <doc_command_line_tutorial )`.
 
 Even if you start the project without a debugger attached it can still be connected to the running
 process using **Debug > Attach to Process...** menu.
@@ -65,4 +65,4 @@ start debugging.
    :align: center
 
 If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`.
+`Godot's community channels ( https://godotengine.org/community )`.

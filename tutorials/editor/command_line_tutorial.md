@@ -45,27 +45,27 @@ Command line reference
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Command                                  | Description                                                                                                                                                  |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `-e`, `--editor`                     | Start the editor instead of running the scene (`tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).                                    |
+| `-e`, `--editor`                     | Start the editor instead of running the scene (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                    |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `-p`, `--project-manager`            | Start the project manager, even if a project is auto-detected (`tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).                    |
+| `-p`, `--project-manager`            | Start the project manager, even if a project is auto-detected (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                    |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `-q`, `--quit`                       | Quit after the first iteration.                                                                                                                              |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `-l <locale>`, `--language <locale>` | Use a specific locale (<locale> being a two-letter code). See `doc_locales` for more details.                                                           |
+| `-l <locale )`, `--language <locale )` | Use a specific locale (<locale> being a two-letter code). See `doc_locales` for more details.                                                           |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--path <directory>`                   | Path to a project (<directory> must contain a 'project.godot' file).                                                                                         |
+| `--path <directory )`                   | Path to a project (<directory> must contain a 'project.godot' file).                                                                                         |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `-u`, `--upwards`                    | Scan folders upwards for 'project.godot' file.                                                                                                               |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--main-pack <file>`                   | Path to a pack (.pck) file to load.                                                                                                                          |
+| `--main-pack <file )`                   | Path to a pack (.pck) file to load.                                                                                                                          |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--render-thread <mode>`               | Render thread mode ('unsafe', 'safe', 'separate'). See `Thread Model` for more details. |
+| `--render-thread <mode )`               | Render thread mode ('unsafe', 'safe', 'separate'). See `Thread Model` for more details. |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--remote-fs <address>`                | Remote filesystem (`<host/IP>[:<port>]` address).                                                                                                          |
+| `--remote-fs <address )`                | Remote filesystem (`<host/IP>[:<port>]` address).                                                                                                          |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--audio-driver <driver>`              | Audio driver. Use `--help` first to display the list of available drivers.                                                                                 |
+| `--audio-driver <driver )`              | Audio driver. Use `--help` first to display the list of available drivers.                                                                                 |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--video-driver <driver>`              | Video driver. Use `--help` first to display the list of available drivers.                                                                                 |
+| `--video-driver <driver )`              | Video driver. Use `--help` first to display the list of available drivers.                                                                                 |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 **Display options**
@@ -81,9 +81,9 @@ Command line reference
 +-----------------------------+----------------------------------------------------------------------------+
 | `-t`, `--always-on-top` | Request an always-on-top window.                                           |
 +-----------------------------+----------------------------------------------------------------------------+
-| `--resolution <W>x<H>`    | Request window resolution.                                                 |
+| `--resolution <W>x<H )`    | Request window resolution.                                                 |
 +-----------------------------+----------------------------------------------------------------------------+
-| `--position <X>,<Y>`      | Request window position.                                                   |
+| `--position <X>,<Y )`      | Request window position.                                                   |
 +-----------------------------+----------------------------------------------------------------------------+
 | `--low-dpi`               | Force low-DPI mode (macOS and Windows only).                               |
 +-----------------------------+----------------------------------------------------------------------------+
@@ -107,21 +107,21 @@ Command line reference
 +------------------------------+---------------------------------------------------------------------------------------------+
 | `--profiling`              | Enable profiling in the script debugger.                                                    |
 +------------------------------+---------------------------------------------------------------------------------------------+
-| `--remote-debug <address>` | Remote debug (`<host/IP>:<port>` address).                                                |
+| `--remote-debug <address )` | Remote debug (`<host/IP>:<port )` address).                                                |
 +------------------------------+---------------------------------------------------------------------------------------------+
 | `--debug-collisions`       | Show collision shapes when running the scene.                                               |
 +------------------------------+---------------------------------------------------------------------------------------------+
 | `--debug-navigation`       | Show navigation polygons when running the scene.                                            |
 +------------------------------+---------------------------------------------------------------------------------------------+
-| `--frame-delay <ms>`       | Simulate high CPU load (delay each frame by <ms> milliseconds).                             |
+| `--frame-delay <ms )`       | Simulate high CPU load (delay each frame by <ms> milliseconds).                             |
 +------------------------------+---------------------------------------------------------------------------------------------+
-| `--time-scale <scale>`     | Force time scale (higher values are faster, 1.0 is normal speed).                           |
+| `--time-scale <scale )`     | Force time scale (higher values are faster, 1.0 is normal speed).                           |
 +------------------------------+---------------------------------------------------------------------------------------------+
 | `--disable-render-loop`    | Disable render loop so rendering only occurs when called explicitly from script.            |
 +------------------------------+---------------------------------------------------------------------------------------------+
 | `--disable-crash-handler`  | Disable crash handler when supported by the platform code.                                  |
 +------------------------------+---------------------------------------------------------------------------------------------+
-| `--fixed-fps <fps>`        | Force a fixed number of frames per second. This setting disables real-time synchronization. |
+| `--fixed-fps <fps )`        | Force a fixed number of frames per second. This setting disables real-time synchronization. |
 +------------------------------+---------------------------------------------------------------------------------------------+
 | `--print-fps`              | Print the frames per second to the stdout.                                                  |
 +------------------------------+---------------------------------------------------------------------------------------------+
@@ -131,26 +131,26 @@ Command line reference
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Command                                | Description                                                                                                                                                                        |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `-s <script>`, `--script <script>` | Run a script.                                                                                                                                                                      |
+| `-s <script )`, `--script <script )` | Run a script.                                                                                                                                                                      |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `--check-only`                       | Only parse for errors and quit (use with `--script`).                                                                                                                            |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--export <target>`                  | Export the project using the given export target. Export only main pack if path ends with .pck or .zip (`tools <doc_introduction_to_the_buildsystem_tools>` must be enabled). |
+| `--export <target )`                  | Export the project using the given export target. Export only main pack if path ends with .pck or .zip (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled). |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--export-debug <target>`            | Like `--export`, but use debug template (`tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).                                                              |
+| `--export-debug <target )`            | Like `--export`, but use debug template (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                              |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--doctool <path>`                   | Dump the engine API reference to the given <path> in XML format, merging if existing files are found (`tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).   |
+| `--doctool <path )`                   | Dump the engine API reference to the given <path> in XML format, merging if existing files are found (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).   |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--no-docbase`                       | Disallow dumping the base types (used with `--doctool`, `tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).                                               |
+| `--no-docbase`                       | Disallow dumping the base types (used with `--doctool`, `tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                               |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--build-solutions`                  | Build the scripting solutions (e.g. for C# projects, `tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).                                                    |
+| `--build-solutions`                  | Build the scripting solutions (e.g. for C# projects, `tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                    |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--gdnative-generate-json-api`       | Generate JSON dump of the Godot API for GDNative bindings (`tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).                                              |
+| `--gdnative-generate-json-api`       | Generate JSON dump of the Godot API for GDNative bindings (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                              |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--test <test>`                      | Run a unit test. Use `--help` first to display the list of tests. (`tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).                                    |
+| `--test <test )`                      | Run a unit test. Use `--help` first to display the list of tests. (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                    |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--export-pack <preset> <path>`      | Like `--export`, but only export the game pack for the given preset. The <path> extension determines whether it will be in PCK or ZIP format.                                    |
-|                                        | (`tools <doc_introduction_to_the_buildsystem_tools>` must be enabled).                                                                                                        |
+| `--export-pack <preset> <path )`      | Like `--export`, but only export the game pack for the given preset. The <path> extension determines whether it will be in PCK or ZIP format.                                    |
+|                                        | (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                                                                        |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Path

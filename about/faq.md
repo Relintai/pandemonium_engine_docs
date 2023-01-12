@@ -9,7 +9,7 @@ Frequently asked questions
 What can I do with Godot? How much does it cost? What are the license terms?
 ----------------------------------------------------------------------------
 
-Godot is `Free and Open-Source Software <https://en.wikipedia.org/wiki/Free_and_open-source_software>`_ available under the `OSI-approved <https://opensource.org/licenses/MIT>`_ MIT license. This means it is free as in "free speech" as well as in "free beer."
+Godot is `Free and Open-Source Software ( https://en.wikipedia.org/wiki/Free_and_open-source_software )`_ available under the `OSI-approved ( https://opensource.org/licenses/MIT )`_ MIT license. This means it is free as in "free speech" as well as in "free beer."
 
 In short:
 
@@ -17,18 +17,18 @@ In short:
 * You are free to modify, distribute, redistribute, and remix Godot to your heart's content, for any reason, both non-commercially and commercially.
 
 All the contents of this accompanying documentation are published under
-the permissive Creative Commons Attribution 3.0 (`CC-BY 3.0 <https://creativecommons.org/licenses/by/3.0/>`_) license, with attribution
+the permissive Creative Commons Attribution 3.0 (`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`_) license, with attribution
 to "Juan Linietsky, Ariel Manzur and the Godot Engine community."
 
 Logos and icons are generally under the same Creative Commons license. Note
 that some third-party libraries included with Godot's source code may have
 different licenses.
 
-For full details, look at the `COPYRIGHT.txt <https://github.com/godotengine/godot/blob/master/COPYRIGHT.txt>`_ as well
-as the `LICENSE.txt <https://github.com/godotengine/godot/blob/master/LICENSE.txt>`_ and `LOGO_LICENSE.txt <https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.md>`_ files
+For full details, look at the `COPYRIGHT.txt ( https://github.com/godotengine/godot/blob/master/COPYRIGHT.txt )`_ as well
+as the `LICENSE.txt ( https://github.com/godotengine/godot/blob/master/LICENSE.txt )`_ and `LOGO_LICENSE.txt ( https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.md )`_ files
 in the Godot repository.
 
-Also, see `the license page on the Godot website <https://godotengine.org/license>`_.
+Also, see `the license page on the Godot website ( https://godotengine.org/license )`_.
 
 Which platforms are supported by Godot?
 ---------------------------------------
@@ -38,7 +38,7 @@ Which platforms are supported by Godot?
 * Windows
 * macOS
 * X11 (Linux, \*BSD)
-* `Web <doc_using_the_web_editor>`
+* `Web <doc_using_the_web_editor )`
 * Android (experimental)
 
 **For exporting your games:**
@@ -60,15 +60,15 @@ Additionally, there is some unofficial third-party work being done on building
 for some consoles. However, none of this is included in the default build
 scripts or export templates at this time.
 
-For more on this, see the sections on `exporting <toc-learn-workflow-export>`
-and `compiling Godot yourself <toc-devel-compiling>`.
+For more on this, see the sections on `exporting <toc-learn-workflow-export )`
+and `compiling Godot yourself <toc-devel-compiling )`.
 
 Which programming languages are supported in Godot?
 ---------------------------------------------------
 
 The officially supported languages for Godot are GDScript, Visual Scripting,
 C#, and C++. See the subcategories for each language in the
-`scripting <toc-learn-scripting>` section.
+`scripting <toc-learn-scripting )` section.
 
 If you are just starting out with either Godot or game development in general,
 GDScript is the recommended language to learn and use since it is native to Godot.
@@ -81,13 +81,13 @@ Note that C# support is still relatively new, and as such, you may encounter som
 issues along the way. Our friendly and hard-working development community is always
 ready to tackle new problems as they arise, but since this is an open-source project,
 we recommend that you first do some due diligence yourself. Searching through
-discussions on `open issues <https://github.com/godotengine/godot/issues>`_ is a
+discussions on `open issues ( https://github.com/godotengine/godot/issues )`_ is a
 great way to start your troubleshooting.
 
 As for new languages, support is possible via third parties using the GDNative /
 NativeScript / PluginScript facilities. (See the question about plugins below.)
 Work is currently underway, for example, on unofficial bindings for Godot
-to `Python <https://github.com/touilleMan/godot-python>`_ and `Nim <https://github.com/pragmagic/godot-nim>`_.
+to `Python ( https://github.com/touilleMan/godot-python )`_ and `Nim ( https://github.com/pragmagic/godot-nim )`_.
 
 .. _doc_faq_what_is_gdscript:
 
@@ -99,7 +99,7 @@ up to maximize Godot's potential in the least amount of code, affording both nov
 and expert developers alike to capitalize on Godot's strengths as fast as possible.
 If you've ever written anything in a language like Python before then you'll feel
 right at home. For examples, history, and a complete overview of the power GDScript
-offers you, check out the `GDScript scripting guide <doc_gdscript>`.
+offers you, check out the `GDScript scripting guide <doc_gdscript )`.
 
 There are several reasons to use GDScript--especially when you are prototyping, in
 alpha/beta stages of your project, or are not creating the next AAA title--but the
@@ -128,11 +128,11 @@ languages can be found in the `doc_gdscript_more_efficiently` tutorial.
 What were the motivations behind creating GDScript?
 ---------------------------------------------------
 
-In the early days, the engine used the `Lua <https://www.lua.org>`
+In the early days, the engine used the `Lua ( https://www.lua.org )`
 scripting language. Lua is fast, but creating bindings to an object
 oriented system (by using fallbacks) was complex and slow and took an
 enormous amount of code. After some experiments with
-`Python <https://www.python.org>`, it also proved difficult to embed.
+`Python ( https://www.python.org )`, it also proved difficult to embed.
 
 The main reasons for creating a custom scripting language for Godot were:
 
@@ -157,8 +157,8 @@ GDScript was designed to curtail the issues above, and more.
 What type of 3D model formats does Godot support?
 -------------------------------------------------
 
-Godot supports Collada via the `OpenCollada <https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools>`_ exporter (Maya, 3DSMax).
-If you are using Blender, take a look at our own `Better Collada Exporter <https://godotengine.org/download>`_.
+Godot supports Collada via the `OpenCollada ( https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools )`_ exporter (Maya, 3DSMax).
+If you are using Blender, take a look at our own `Better Collada Exporter ( https://godotengine.org/download )`_.
 
 As of Godot 3.0, glTF is supported.
 
@@ -191,9 +191,9 @@ How do I install the Godot editor on my system (for desktop integration)?
 Since you don't need to actually install Godot on your system to run it,
 this means desktop integration is not performed automatically.
 There are two ways to overcome this. You can install Godot from
-`Steam <https://store.steampowered.com/app/404790/Godot_Engine/>` (all platforms),
-`Scoop <https://scoop.sh/>` (Windows), `Homebrew <https://brew.sh/>` (macOS)
-or `Flathub <https://flathub.org/apps/details/org.godotengine.Godot>` (Linux).
+`Steam ( https://store.steampowered.com/app/404790/Godot_Engine/ )` (all platforms),
+`Scoop ( https://scoop.sh/ )` (Windows), `Homebrew ( https://brew.sh/ )` (macOS)
+or `Flathub ( https://flathub.org/apps/details/org.godotengine.Godot )` (Linux).
 This will automatically perform the required steps for desktop integration.
 
 Alternatively, you can manually perform the steps that an installer would do for you:
@@ -225,14 +225,14 @@ Linux
   This is typically `/usr/local/bin/godot` or `/usr/bin/godot`.
   Doing this requires administrator privileges,
   but this also allows you to
-  `run the Godot editor from a terminal <doc_command_line_tutorial>` by entering `godot`.
+  `run the Godot editor from a terminal <doc_command_line_tutorial )` by entering `godot`.
 
   - If you cannot move the Godot editor binary to a protected location, you can
     keep the binary somewhere in your home directory, and modify the `Path=`
     line in the `.desktop` file linked below to contain the full *absolute* path
     to the Godot binary.
 
-- Save `this .desktop file <https://raw.githubusercontent.com/godotengine/godot/3.x/misc/dist/linux/org.godotengine.Godot.desktop>`
+- Save `this .desktop file ( https://raw.githubusercontent.com/godotengine/godot/3.x/misc/dist/linux/org.godotengine.Godot.desktop )`
   to `$HOME/.local/share/applications/`. If you have administrator privileges,
   you can also save the `.desktop` file to `/usr/local/share/applications`
   to make the shortcut available for all users.
@@ -309,7 +309,7 @@ functionality in Godot. This is why we are aiming to move some core
 functionality to officially supported add-ons in future versions of Godot. In
 terms of binary size, this also has the advantage of making you pay only for what
 you actually use in your project. (In the meantime, you can
-`compile custom export templates with unused features disabled <doc_optimizing_for_size>`
+`compile custom export templates with unused features disabled <doc_optimizing_for_size )`
 to optimize the distribution size of your project.)
 
 How should assets be created to handle multiple resolutions and aspect ratios?
@@ -344,7 +344,7 @@ This is mostly needed for 2D, as in 3D it's just a matter of Camera XFov or YFov
    if there is one aspect ratio and you want black bars to appear
    instead. This is also explained in `doc_multiple_resolutions`.
 
-4. For user interfaces, use the `anchoring <doc_size_and_anchors>`
+4. For user interfaces, use the `anchoring <doc_size_and_anchors )`
    to determine where controls should stay and move. If UIs are more
    complex, consider learning about Containers.
 
@@ -359,16 +359,16 @@ How can I extend Godot?
 -----------------------
 
 For extending Godot, like creating Godot Editor plugins or adding support
-for additional languages, take a look at `EditorPlugins <doc_making_plugins>`
+for additional languages, take a look at `EditorPlugins <doc_making_plugins )`
 and tool scripts.
 
 Also, see the official blog posts on these topics:
 
-* `A look at the GDNative architecture <https://godotengine.org/article/look-gdnative-architecture>`_
-* `GDNative is here! <https://godotengine.org/article/dlscript-here>`_
+* `A look at the GDNative architecture ( https://godotengine.org/article/look-gdnative-architecture )`_
+* `GDNative is here! ( https://godotengine.org/article/dlscript-here )`_
 
 You can also take a look at the GDScript implementation, the Godot modules,
-as well as the `unofficial Python support <https://github.com/touilleMan/godot-python>`_ for Godot.
+as well as the `unofficial Python support ( https://github.com/touilleMan/godot-python )`_ for Godot.
 This would be a good starting point to see how another third-party library
 integrates with Godot.
 
@@ -384,8 +384,8 @@ I would like to contribute! How can I get started?
 Awesome! As an open-source project, Godot thrives off of the innovation and
 ambition of developers like you.
 
-The first place to get started is in the `issues <https://github.com/godotengine/godot/issues>`_.
-Find an issue that resonates with you, then proceed to the `How to Contribute <https://github.com/godotengine/godot/blob/master/CONTRIBUTING.md#contributing-pull-requests>`_
+The first place to get started is in the `issues ( https://github.com/godotengine/godot/issues )`_.
+Find an issue that resonates with you, then proceed to the `How to Contribute ( https://github.com/godotengine/godot/blob/master/CONTRIBUTING.md#contributing-pull-requests )`_
 guide to learn how to fork, modify, and submit a Pull Request (PR) with your changes.
 
 I have a great idea for Godot. How can I share it?
@@ -396,8 +396,8 @@ result in massive core changes, some sort of mimicry of what another
 game engine does, or alternative workflows that you'd like built into
 the editor. These are great, and we are thankful to have such motivated
 people want to contribute, but Godot's focus is and always will be the
-core functionality as outlined in the `Roadmap <https://github.com/godotengine/godot-roadmap/blob/master/ROADMAP.md>`_,
-`squashing bugs and addressing issues <https://github.com/godotengine/godot/issues>`_,
+core functionality as outlined in the `Roadmap ( https://github.com/godotengine/godot-roadmap/blob/master/ROADMAP.md )`_,
+`squashing bugs and addressing issues ( https://github.com/godotengine/godot/issues )`_,
 and conversations between Godot community members.
 
 Most developers in the Godot community will be more interested to learn
@@ -439,8 +439,8 @@ in the Project Settings to decrease CPU and GPU usage.
 That said, we wouldn't recommend using Godot to create a *mobile* application
 since low-processor mode isn't supported on mobile platforms yet.
 
-Check out `Material Maker <https://github.com/RodZill4/material-maker>` and
-`Pixelorama <https://github.com/Orama-Interactive/Pixelorama>` for examples of
+Check out `Material Maker ( https://github.com/RodZill4/material-maker )` and
+`Pixelorama ( https://github.com/Orama-Interactive/Pixelorama )` for examples of
 open source applications made with Godot.
 
 .. _doc_faq_use_godot_as_library:
@@ -474,9 +474,9 @@ have to deal with the LGPL licensing caveats that come with GTK or Qt. Lastly,
 this means Godot is "eating its own dog food" since the editor itself is one of
 the most complex users of Godot's UI system.
 
-This custom UI toolkit `can't be used as a library <doc_faq_use_godot_as_library>`,
+This custom UI toolkit `can't be used as a library <doc_faq_use_godot_as_library )`,
 but you can still
-`use Godot to create non-game applications by using the editor <doc_faq_non_game_applications>`.
+`use Godot to create non-game applications by using the editor <doc_faq_non_game_applications )`.
 
 .. _doc_faq_why_not_stl:
 
@@ -540,4 +540,4 @@ See `doc_ways_to_contribute`.
 Who is working on Godot? How can I contact you?
 -----------------------------------------------
 
-See the corresponding page on the `Godot website <https://godotengine.org/contact>`_.
+See the corresponding page on the `Godot website ( https://godotengine.org/contact )`_.

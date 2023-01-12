@@ -39,8 +39,8 @@ One size fits all
 The most common approach is to use a single *base* resolution and
 then fit it to everything else. This resolution is how most players are expected
 to play the game (given their hardware). For mobile, Google has useful `stats
-<https://developer.android.com/about/dashboards>`_ online, and for desktop,
-Steam `also does <https://store.steampowered.com/hwsurvey/>`_.
+( https://developer.android.com/about/dashboards )`_ online, and for desktop,
+Steam `also does ( https://store.steampowered.com/hwsurvey/ )`_.
 
 As an example, Steam shows that the most common *primary display resolution* is
 1920×1080, so a sensible approach is to develop a game for this resolution, then
@@ -302,7 +302,7 @@ Desktop game
     Godot currently doesn't have a way to enforce integer scaling when using the
     `2d` or `viewport` stretch mode, which means pixel art may look bad if the
     final window size is not a multiple of the base window size.
-    To fix this, use an add-on such as the `Integer Resolution Handler <https://github.com/Yukitty/godot-addon-integer_resolution_handler>`.
+    To fix this, use an add-on such as the `Integer Resolution Handler ( https://github.com/Yukitty/godot-addon-integer_resolution_handler )`.
 
 Mobile game in landscape mode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -407,8 +407,8 @@ Handling aspect ratios
 
 Once scaling for different resolutions is accounted for, make sure that
 your *user interface* also scales for different aspect ratios. This can be
-done using `anchors <doc_size_and_anchors>` and/or `containers
-<doc_gui_containers>`.
+done using `anchors <doc_size_and_anchors )` and/or `containers
+<doc_gui_containers )`.
 
 Field of view scaling
 ---------------------
@@ -439,5 +439,5 @@ that it allows enable linear filtering. This makes scaled 3D viewports look
 better in many cases.
 
 See the
-`3D viewport scaling demo <https://github.com/godotengine/godot-demo-projects/tree/master/viewport/3d_scaling>`
+`3D viewport scaling demo ( https://github.com/godotengine/godot-demo-projects/tree/master/viewport/3d_scaling )`
 for examples.

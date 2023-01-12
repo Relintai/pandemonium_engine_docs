@@ -12,15 +12,15 @@ translation effort of the community.
 
 These resources include:
 
-1. The `Godot editor's interface <https://hosted.weblate.org/projects/godot-engine/godot/>`
+1. The `Godot editor's interface ( https://hosted.weblate.org/projects/godot-engine/godot/ )`
    (ca. 15,000 words).
-2. The `online documentation <https://hosted.weblate.org/projects/godot-engine/godot-docs/>`
+2. The `online documentation ( https://hosted.weblate.org/projects/godot-engine/godot-docs/ )`
    (editor manual and tutorials, ca. 300,000 words).
-3. The `class reference <https://hosted.weblate.org/projects/godot-engine/godot-class-reference/>`,
+3. The `class reference ( https://hosted.weblate.org/projects/godot-engine/godot-class-reference/ )`,
    available both online and in the editor (ca. 200,000 words).
 
 To manage translations, we use the GNU gettext file format (`PO` files), and
-the open source `Weblate <https://weblate.org>` web-based localization
+the open source `Weblate ( https://weblate.org )` web-based localization
 platform, which allows easy collaboration of many contributors to complete the
 translation for the various components, and keep them up to date. Click the bold
 links above to access each resource on Weblate.
@@ -45,11 +45,11 @@ Weblate, and thus direct pull requests to the Git repositories are not accepted.
 Translations are synced manually between Weblate and the Godot repositories by
 maintainers.
 
-You should therefore `register on Weblate <https://hosted.weblate.org/accounts/register/>`
+You should therefore `register on Weblate ( https://hosted.weblate.org/accounts/register/ )`
 to contribute to Godot's translations.
 
 Once signed in, browse to the Godot resource which you want to contribute to (in
-this page we will use the `editor translation <https://hosted.weblate.org/projects/godot-engine/godot/>`
+this page we will use the `editor translation ( https://hosted.weblate.org/projects/godot-engine/godot/ )`
 as an example) to find the list of all languages:
 
 ![](img/l10n_01_language_list.png)
@@ -57,7 +57,7 @@ as an example) to find the list of all languages:
 .. seealso::
 
     Feel free to consult Weblate's own documentation on the `translation
-    workflow <https://docs.weblate.org/en/latest/user/translating.html>` for
+    workflow ( https://docs.weblate.org/en/latest/user/translating.html )` for
     more details.
 
 Adding a new language
@@ -262,7 +262,7 @@ external links, etc. Here are some examples::
     # syntax and should be preserved.
 
     Looking for the documentation of the current **development** branch?
-    `Have a look here <https://docs.godotengine.org/en/latest>`_.
+    `Have a look here ( https://docs.godotengine.org/en/latest )`_.
 
     # "|supported|" is an inline reference to an image and should stay unchanged.
     # "master" uses the markup for inline code, and will be styled as such.
@@ -281,7 +281,7 @@ external links, etc. Here are some examples::
 
     # Or it can be used with an optional custom title, which should thus be translated:
 
-    See `how to contribute <doc_ways_to_contribute>`.
+    See `how to contribute <doc_ways_to_contribute )`.
 
     # You may encounter other Sphinx roles, such as :kbd: used for shortcut keys.
     # You can translate the content between backticks to match the usual key names,
@@ -292,7 +292,7 @@ external links, etc. Here are some examples::
 
 .. seealso::
 
-    See Sphinx's `reStructured Text primer <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`
+    See Sphinx's `reStructured Text primer ( https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html )`
     for a quick overview of the markup language you may find in source strings.
     You may encounter especially the inline markup (bold, italics, inline code)
     and the internal and external hyperlink markup.
@@ -328,7 +328,7 @@ breaks if they are not part of the original translation.
 .. seealso::
 
     See our documentation for class reference writers for the `list of
-    BBCode-like tags <doc_class_reference_writing_guidelines_bbcode>` which are used
+    BBCode-like tags <doc_class_reference_writing_guidelines_bbcode )` which are used
     throughout the class reference.
 
 Offline translation and testing
@@ -336,8 +336,8 @@ Offline translation and testing
 
 While we advise using the Weblate interface to write translations, you also have
 the possibility to download the PO file locally to translate it with your
-preferred PO editing application, such as `Poedit <https://poedit.net/>` or
-`Lokalize <https://userbase.kde.org/Lokalize>`.
+preferred PO editing application, such as `Poedit ( https://poedit.net/ )` or
+`Lokalize ( https://userbase.kde.org/Lokalize )`.
 
 To download the PO file locally, browse to the translation overview for your
 language, and select the first item in the "Files" menu:
@@ -357,15 +357,15 @@ upload mode.
     version.
 
 If you want to test changes locally (especially for the editor translation), you
-can use the downloaded PO file and `compile Godot from source <toc-devel-compiling>`.
+can use the downloaded PO file and `compile Godot from source <toc-devel-compiling )`.
 
 Rename the editor translation PO file to `<lang>.po` (e.g. `eo.po` for
 Esperanto) and place it in the `editor/translations/` folder
-(`GitHub <https://github.com/godotengine/godot/tree/master/editor/translations>`).
+(`GitHub ( https://github.com/godotengine/godot/tree/master/editor/translations )`).
 
 You can also test class reference changes the same way by renaming the PO file
 similarly and placing it in the `doc/translations/` folder
-(`GitHub <https://github.com/godotengine/godot/tree/master/doc/translations>`).
+(`GitHub ( https://github.com/godotengine/godot/tree/master/doc/translations )`).
 
 Localizing documentation images
 -------------------------------
@@ -375,7 +375,7 @@ Godot editor, custom-made graphs, of any other kind of visual content. Some of
 it includes text and might thus be relevant to localize in your language.
 
 This part is not handled via Weblate, but directly on the `godot-docs-l10n
-<https://github.com/godotengine/godot-docs-l10n>`_ Git repository where the
+( https://github.com/godotengine/godot-docs-l10n )`_ Git repository where the
 documentation translations are synced from Weblate.
 
 .. note::
@@ -409,8 +409,8 @@ added before the extension, e.g. `project_manager_first_open.png)` would become
 
 Finally, on godot-docs-l10n_, recreate the same folder structure as for the
 original image in the `images` subfolder
-(`GitHub <https://github.com/godotengine/godot-docs-l10n/tree/master/images>`_),
+(`GitHub ( https://github.com/godotengine/godot-docs-l10n/tree/master/images )`_),
 and place your translated image there. In our example, the end result should be
 `images/getting_started/step_by_step/img/project_manager_first_open.fr.png)`.
 
-Repeat this for other images and `make a Pull Request <doc_pr_workflow>`.
+Repeat this for other images and `make a Pull Request <doc_pr_workflow )`.

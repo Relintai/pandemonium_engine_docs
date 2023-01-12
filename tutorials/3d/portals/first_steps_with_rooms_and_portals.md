@@ -4,7 +4,7 @@ First steps with Rooms and Portals
 The RoomManager
 ~~~~~~~~~~~~~~~
 
-Anytime you want to use the portal system, you need to include a special node in your scene tree, called the `RoomManager<class_RoomManager>`. The RoomManager is responsible for the runtime maintenance of the system, especially converting the objects in your rooms into a *room graph* which is used at runtime to perform occlusion culling and other tasks.
+Anytime you want to use the portal system, you need to include a special node in your scene tree, called the `RoomManager<class_RoomManager )`. The RoomManager is responsible for the runtime maintenance of the system, especially converting the objects in your rooms into a *room graph* which is used at runtime to perform occlusion culling and other tasks.
 
 Room Conversion
 ^^^^^^^^^^^^^^^
@@ -40,7 +40,7 @@ Rooms
 What is a room?
 ^^^^^^^^^^^^^^^
 
-`Room<class_Room>`\ s are a way of spatially partitioning your level into areas that make sense in terms of level design. Rooms often quite literally *are* rooms (like in a building). Ultimately though, as far as the engine is concerned, a room represents a **non-overlapping** convex volume in which you typically place most of your objects that fall within that area.
+`Room<class_Room )`\ s are a way of spatially partitioning your level into areas that make sense in terms of level design. Rooms often quite literally *are* rooms (like in a building). Ultimately though, as far as the engine is concerned, a room represents a **non-overlapping** convex volume in which you typically place most of your objects that fall within that area.
 
 A room doesn't need to correspond to a literal room. It could, for example, also be a canyon in an outdoor area or a smaller part of a concave room. With a little imagination, you can use the system in almost any scenario.
 
@@ -64,12 +64,12 @@ If you accidentally create overlapping rooms, the editor will warn you when you 
 
 The system does attempt to cope with overlapping rooms as best as possible by making the current room *"sticky"*. Each object remembers which room it was in during the previous frame and stays within it as long as it does not move outside the convex hull room bound. This can result in some hysteresis in these overlapping zones.
 
-There is one exception, however, for `internal rooms<doc_rooms_and_portals_internal_rooms>`. You do not have to worry about these to start with.
+There is one exception, however, for `internal rooms<doc_rooms_and_portals_internal_rooms )`. You do not have to worry about these to start with.
 
 How do I create a room?
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-A `Room<class_Room>` is a node type that can be added to the scene tree like any other. You can place objects within the room by making them children and grand-children of the Room node.
+A `Room<class_Room )` is a node type that can be added to the scene tree like any other. You can place objects within the room by making them children and grand-children of the Room node.
 
 How do I define the shape and position of my room convex hull?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -93,7 +93,7 @@ Portals
 
 If you create some rooms, place objects within them, then convert the level in the editor, you will see the objects in the rooms appearing and showing as you move between rooms. There is one problem, however! Although you can see the objects within the room that the camera is in, you can't see to any neighbouring rooms! For that we need portals.
 
-`Portal<class_Portal>`\ s are special convex polygons that you position over the openings between rooms in order to allow the system to see between them. You can create a portal node directly in the editor. The default portal has 4 points and behaves much like a `plane` `MeshInstance<class_MeshInstance>`. You can add or remove points using the inspector. A portal requires at least 3 points to work - this is because it needs to form a polygon rather than a point or line.
+`Portal<class_Portal )`\ s are special convex polygons that you position over the openings between rooms in order to allow the system to see between them. You can create a portal node directly in the editor. The default portal has 4 points and behaves much like a `plane` `MeshInstance<class_MeshInstance )`. You can add or remove points using the inspector. A portal requires at least 3 points to work - this is because it needs to form a polygon rather than a point or line.
 
 To save editing effort, **only one Portal is required between each pair of Rooms**. You *do not need* to (and indeed should not) create two Portals that overlap in opposite directions. Portals default to being two-way, but you can make them one-way in the Portal inspector.
 

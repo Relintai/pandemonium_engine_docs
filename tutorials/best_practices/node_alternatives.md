@@ -52,7 +52,7 @@ your project's features.
      can be save and loaded, therefore they extend from Resource.
 
    - **Advantages:** Much has
-     `already been said <doc_resources>`
+     `already been said <doc_resources )`
      on `Resource`'s advantages over traditional data
      storage methods. In the context of using Resources over Nodes though,
      their main advantage is in Inspector-compatibility. While nearly as

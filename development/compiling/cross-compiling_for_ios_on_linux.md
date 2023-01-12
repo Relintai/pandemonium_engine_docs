@@ -15,9 +15,9 @@ While it is possible to compile for iOS on a Linux environment, Apple is
 very restrictive about the tools to be used (especially hardware-wise),
 allowing pretty much only their products to be used for development. So
 this is **not official**. However, a `statement from Apple in 2010
-<http://www.apple.com/pr/library/2010/09/09Statement-by-Apple-on-App-Store-Review-Guidelines.html>`
+( http://www.apple.com/pr/library/2010/09/09Statement-by-Apple-on-App-Store-Review-Guidelines.html )`
 says they relaxed some of the `App Store review guidelines
-<https://developer.apple.com/app-store/review/guidelines/>`
+( https://developer.apple.com/app-store/review/guidelines/ )`
 to allow any tool to be used, as long as the resulting binary does not
 download any code, which means it should be OK to use the procedure
 described here and cross-compiling the binary.
@@ -25,21 +25,21 @@ described here and cross-compiling the binary.
 Requirements
 ------------
 
--  `XCode with the iOS SDK <https://developer.apple.com/xcode/download>`
+-  `XCode with the iOS SDK ( https://developer.apple.com/xcode/download )`
    (a dmg image)
--  `Clang >= 3.5 <http://clang.llvm.org>` for your development
+-  `Clang >= 3.5 ( http://clang.llvm.org )` for your development
    machine installed and in the `PATH`. It has to be version >= 3.5
    to target `arm64` architecture.
--  `Fuse <https://github.com/libfuse/libfuse>` for mounting and umounting
+-  `Fuse ( https://github.com/libfuse/libfuse )` for mounting and umounting
    the dmg image.
--  `darling-dmg <https://github.com/darlinghq/darling-dmg>`, which
+-  `darling-dmg ( https://github.com/darlinghq/darling-dmg )`, which
    needs to be built from source. The procedure for that is explained
    below.
 
    -  For building darling-dmg, you'll need the development packages of
       the following libraries: fuse, icu, openssl, zlib, bzip2.
 
--  `cctools-port <https://github.com/tpoechtrager/cctools-port>`
+-  `cctools-port ( https://github.com/tpoechtrager/cctools-port )`
    for the needed build tools. The procedure for building is quite
    peculiar and is described below.
 

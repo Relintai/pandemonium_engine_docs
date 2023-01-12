@@ -11,7 +11,7 @@ community at a given time.
 Godot versioning
 ----------------
 
-Godot loosely follows `Semantic Versioning <https://semver.org/>` with a
+Godot loosely follows `Semantic Versioning ( https://semver.org/ )` with a
 `major.minor.patch` versioning system, albeit with an interpretation of each
 term adapted to the complexity of a game engine:
 
@@ -146,4 +146,4 @@ the latest bug fixes for their production needs.
 As for the upcoming Godot 4.0, as of August 2022, we are aiming for a *beta*
 release in Q3 2022, and possibly a stable release by Q4 2022 (but experience
 has shown time and time again that such estimates tend to be overly optimistic).
-`Follow the Godot blog <https://godotengine.org/news>` for the latest updates.
+`Follow the Godot blog ( https://godotengine.org/news )` for the latest updates.

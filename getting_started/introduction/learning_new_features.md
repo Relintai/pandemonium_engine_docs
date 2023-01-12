@@ -33,7 +33,7 @@ from within the Godot editor. To do so, go to Help -> Search or press
 
 ![](img/manual_class_reference_search.png)
 
-To browse it online, head to the manual's `Class Reference <toc-class-ref>`
+To browse it online, head to the manual's `Class Reference <toc-class-ref )`
 section.
 
 A class reference's page tells you:
@@ -53,7 +53,7 @@ A class reference's page tells you:
 
 .. note:: If the manual or class reference is missing or has insufficient
           information, please open an Issue in the official `godot-docs
-          <https://github.com/godotengine/godot-docs/issues>`_ GitHub repository
+          ( https://github.com/godotengine/godot-docs/issues )`_ GitHub repository
           to report it.
 
 You can Ctrl-click any underlined text like the name of a class, property,
@@ -67,14 +67,14 @@ beyond the scope of Godot's documentation. If you're new to programming, we
 recommend two excellent free resources to get you started:
 
 1. Harvard university offers a free courseware to learn to program, `CS50
-   <https://cs50.harvard.edu/x/>`_. It will teach you programming
+   ( https://cs50.harvard.edu/x/ )`_. It will teach you programming
    fundamentals, how code works, and how to think like a programmer. These
    skills are essential to become a game developer and learn any game engine
    efficiently. You can see this course as an investment that will save you time
    and trouble when you learn to create games.
 
 2. If you prefer books, check out the free ebook `Automate The Boring Stuff With
-   Python <https://automatetheboringstuff.com/>`_ by Al Sweigart.
+   Python ( https://automatetheboringstuff.com/ )`_ by Al Sweigart.
 
 Learning with the community
 ---------------------------
@@ -82,10 +82,10 @@ Learning with the community
 Godot has a growing community of users. If you're stuck on a problem or need
 help to better understand how to achieve something, you can ask other users for
 help on one of the many `active
-communities <https://godotengine.org/community>`_.
+communities ( https://godotengine.org/community )`_.
 
 The best place to ask for questions and find already answered ones is the
-official `Questions & Answers <https://godotengine.org/qa/>`_ site. These
+official `Questions & Answers ( https://godotengine.org/qa/ )`_ site. These
 responses show up in search engine results and get saved, allowing other users
 to benefit from discussions on the platform. Once you asked a question there,
 you can share its link on other social platforms. Before asking a question, be
@@ -109,7 +109,7 @@ information:
 3. If there is code involved, **share a code sample**. Other users won't be able
    to help you fix a problem without seeing your code. Share the code as text
    directly. To do so, you can copy and paste a short code snippet in a chat
-   box, or use a website like `Pastebin <https://pastebin.com/>`_ to share long
+   box, or use a website like `Pastebin ( https://pastebin.com/ )`_ to share long
    files.
 
 4. **Share a screenshot** of your *Scene* dock along with your written code. Most of
@@ -123,15 +123,15 @@ information:
    should have a built-in tool to take screenshots with the :kbd:`PrtSc` (Print
    Screen) key.
 
-   Alternatively, you can use a program like `ShareX <https://getsharex.com/>`_
-   on Windows or `FlameShot <https://flameshot.org/>`_ on Linux.
+   Alternatively, you can use a program like `ShareX ( https://getsharex.com/ )`_
+   on Windows or `FlameShot ( https://flameshot.org/ )`_ on Linux.
 
 5. Sharing a video of your running game can also be really **useful to
    troubleshoot your game**. You can use programs like `OBS Studio
-   <https://obsproject.com/>`_ and `Screen to GIF
-   <https://www.screentogif.com/>`_ to capture your screen.
+   ( https://obsproject.com/ )`_ and `Screen to GIF
+   ( https://www.screentogif.com/ )`_ to capture your screen.
 
-   You can then use a service like `streamable <https://streamable.com/>`_ or a
+   You can then use a service like `streamable ( https://streamable.com/ )`_ or a
    cloud provider to upload and share your videos for free.
 
 6. If you're not using the stable version of Godot, please mention the version

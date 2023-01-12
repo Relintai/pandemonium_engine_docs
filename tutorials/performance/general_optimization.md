@@ -58,8 +58,8 @@ There are several methods of measuring performance, including:
 - Using the Godot profiler.
 - Using external third-party CPU profilers.
 - Using GPU profilers/debuggers such as
-  `NVIDIA Nsight Graphics <https://developer.nvidia.com/nsight-graphics>`
-  or `apitrace <https://apitrace.github.io/>`.
+  `NVIDIA Nsight Graphics ( https://developer.nvidia.com/nsight-graphics )`
+  or `apitrace ( https://apitrace.github.io/ )`.
 - Checking the frame rate (with V-Sync disabled).
 
 Be very aware that the relative performance of different areas can vary on
@@ -133,7 +133,7 @@ For more info about using Godot's built-in profiler, see `doc_debugger_panel`.
 Principles
 ==========
 
-`Donald Knuth <https://en.wikipedia.org/wiki/Donald_Knuth>` said:
+`Donald Knuth ( https://en.wikipedia.org/wiki/Donald_Knuth )` said:
 
     *Programmers waste enormous amounts of time thinking about, or worrying
     about, the speed of noncritical parts of their programs, and these attempts

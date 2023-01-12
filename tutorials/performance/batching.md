@@ -231,7 +231,7 @@ area between a light and a primitive, and limit rendering the light to
 *that area only*.
 
 Light scissoring is controlled with the `scissor_area_threshold
-<class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
+<class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
 project setting. This value is between 1.0 and 0.0, with 1.0 being off (no
 scissoring), and 0.0 being scissoring in every circumstance. The reason for the
 setting is that there may be some small cost to scissoring on some hardware.
@@ -537,7 +537,7 @@ Light scissoring threshold calculation
 
 The actual proportion of screen pixel area used as the threshold is the
 `scissor_area_threshold
-<class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
+<class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
 value to the power of 4.
 
 For example, on a screen size of 1920×1080, there are 2,073,600 pixels.
@@ -548,11 +548,11 @@ At a threshold of 1,000 pixels, the proportion would be::
     0.00048225 ^ (1/4) = 0.14819
 
 So a `scissor_area_threshold
-<class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
+<class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
 of `0.15` would be a reasonable value to try.
 
 Going the other way, for instance with a `scissor_area_threshold
-<class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
+<class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
 of `0.5`::
 
     0.5 ^ 4 = 0.0625

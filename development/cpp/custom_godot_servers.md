@@ -18,9 +18,9 @@ data types. If not, refer to `doc_custom_modules_in_c++`.
 References
 ~~~~~~~~~~~
 
-- `Why does Godot use servers and RIDs? <https://godotengine.org/article/why-does-godot-use-servers-and-rids>`
-- `Singleton pattern <https://en.wikipedia.org/wiki/Singleton_pattern>`
-- `Mediator pattern <https://en.wikipedia.org/wiki/Mediator_pattern>`
+- `Why does Godot use servers and RIDs? ( https://godotengine.org/article/why-does-godot-use-servers-and-rids )`
+- `Singleton pattern ( https://en.wikipedia.org/wiki/Singleton_pattern )`
+- `Mediator pattern ( https://en.wikipedia.org/wiki/Mediator_pattern )`
 
 What for?
 ---------
@@ -274,7 +274,7 @@ Custom managed resource data
 ----------------------------
 
 Godot servers implement a mediator pattern. All data types inherit `RID_Data`.
-`RID_Owner<MyRID_Data>` owns the object when `make_rid` is called. During debug mode only,
+`RID_Owner<MyRID_Data )` owns the object when `make_rid` is called. During debug mode only,
 RID_Owner maintains a list of RIDs. In practice, RIDs are similar to writing
 object-oriented C code.
 
@@ -315,8 +315,8 @@ object-oriented C code.
 References
 ~~~~~~~~~~~
 
-- `RID<class_rid>`
-- `core/rid.h <https://github.com/godotengine/godot/blob/3.x/core/rid.h>`
+- `RID<class_rid )`
+- `core/rid.h ( https://github.com/godotengine/godot/blob/3.x/core/rid.h )`
 
 Registering the class in GDScript
 ---------------------------------
@@ -373,7 +373,7 @@ is used to register the dummy class in GDScript.
 	void register_hilbert_hotel_types();
 	void unregister_hilbert_hotel_types();
 
-- `servers/register_server_types.cpp <https://github.com/godotengine/godot/blob/master/servers/register_server_types.cpp>`
+- `servers/register_server_types.cpp ( https://github.com/godotengine/godot/blob/master/servers/register_server_types.cpp )`
 
 Bind methods
 ~~~~~~~~~~~~
@@ -474,7 +474,7 @@ to execute the desired behavior. The queue will be flushed whenever either
 References:
 ~~~~~~~~~~~
 
-- `core/message_queue.cpp <https://github.com/godotengine/godot/blob/3.x/core/message_queue.cpp>`
+- `core/message_queue.cpp ( https://github.com/godotengine/godot/blob/3.x/core/message_queue.cpp )`
 
 Summing it up
 -------------
@@ -505,5 +505,5 @@ Here is the GDScript sample code:
 Notes
 ~~~~~
 
-- The actual `Hilbert Hotel <https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel>` is impossible.
+- The actual `Hilbert Hotel ( https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel )` is impossible.
 - Connecting signal example code is pretty hacky.

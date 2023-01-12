@@ -37,11 +37,11 @@ At its core, a Godot iOS plugin is an iOS library (*.a* archive file or *.xcfram
 
 An iOS plugin can have the same functionality as a Godot module but provides more flexibility and doesn't require to rebuild the engine.
 
-Here are the steps to get a plugin's development started. We recommend using `Xcode <https://developer.apple.com/develop/>`_ as your development environment.
+Here are the steps to get a plugin's development started. We recommend using `Xcode ( https://developer.apple.com/develop/ )`_ as your development environment.
 
-.. seealso:: The `Godot iOS Plugins <https://github.com/godotengine/godot-ios-plugins>`_ Godot iOS plugins.
+.. seealso:: The `Godot iOS Plugins ( https://github.com/godotengine/godot-ios-plugins )`_ Godot iOS plugins.
 
-    The `Godot iOS plugin template <https://github.com/naithar/godot_ios_plugin>`_ gives you all the boilerplate you need to get your iOS plugin started.
+    The `Godot iOS plugin template ( https://github.com/naithar/godot_ios_plugin )`_ gives you all the boilerplate you need to get your iOS plugin started.
 
 
 To build an iOS plugin:
@@ -50,7 +50,7 @@ To build an iOS plugin:
 
 2. Add the Godot engine header files as a dependency for your plugin library in `HEADER_SEARCH_PATHS`. You can find the setting inside the `Build Settings` tab:
 
-    - Download the Godot engine source from the `Godot GitHub page <https://github.com/godotengine/godot>`_.
+    - Download the Godot engine source from the `Godot GitHub page ( https://github.com/godotengine/godot )`_.
 
     - Run SCons to generate headers. You can learn the process by reading `doc_compiling_for_ios`. You don't have to wait for compilation to complete to move forward as headers are generated before the engine starts to compile.
 
@@ -127,7 +127,7 @@ To build an iOS plugin:
 
                 -   **system**: contains a list of iOS system frameworks that are required for plugin.
 
-                -   **capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at `Apple UIRequiredDeviceCapabilities documentation page <https://developer.apple.com/documentation/bundleresources/information_property_list/uirequireddevicecapabilities>`_.
+                -   **capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at `Apple UIRequiredDeviceCapabilities documentation page ( https://developer.apple.com/documentation/bundleresources/information_property_list/uirequireddevicecapabilities )`_.
 
                 -   **files**: contains a list of files that should be copied on export. This is useful for data files or images.
 

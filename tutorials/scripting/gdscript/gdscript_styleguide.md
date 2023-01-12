@@ -9,7 +9,7 @@ discussions, and tutorials. Hopefully, this will also support the development of
 auto-formatting tools.
 
 Since GDScript is close to Python, this guide is inspired by Python's
-`PEP 8 <https://www.python.org/dev/peps/pep-0008/>` programming
+`PEP 8 ( https://www.python.org/dev/peps/pep-0008/ )` programming
 style guide.
 
 Style guides aren't meant as hard rulebooks. At times, you may not be able to
@@ -98,7 +98,7 @@ Encoding and special characters
 
 * Use line feed (**LF**) characters to break lines, not CRLF or CR. *(editor default)*
 * Use one line feed character at the end of each file. *(editor default)*
-* Use **UTF-8** encoding without a `byte order mark <https://en.wikipedia.org/wiki/Byte_order_mark>`_. *(editor default)*
+* Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`_. *(editor default)*
 * Use **Tabs** instead of spaces for indentation. *(editor default)*
 
 Indentation
@@ -784,18 +784,18 @@ in that order.
 Static typing
 -------------
 
-Since Godot 3.1, GDScript supports `optional static typing<doc_gdscript_static_typing>`.
+Since Godot 3.1, GDScript supports `optional static typing<doc_gdscript_static_typing )`.
 
 Declared types
 ~~~~~~~~~~~~~~
 
-To declare a variable's type, use `<variable>: <type>`:
+To declare a variable's type, use `<variable>: <type )`:
 
 ::
 
    var health: int = 0
 
-To declare the return type of a function, use `-> <type>`:
+To declare the return type of a function, use `-> <type )`:
 
 ::
 
@@ -831,7 +831,7 @@ that type will be used to infer the type of the var.
    onready var health_bar := get_node("UI/LifeBar") as ProgressBar
    # health_bar will be typed as ProgressBar
 
-This option is also considered more `type-safe<doc_gdscript_static_typing_safe_lines>` than the first.
+This option is also considered more `type-safe<doc_gdscript_static_typing_safe_lines )` than the first.
 
 **Bad**:
 

@@ -127,4 +127,4 @@ override.
 ![](img/area2d_override.gif)
 
 You can download this project here:
-:download:`using_area_2d.zip <files/using_area_2d.zip>`
+:download:`using_area_2d.zip <files/using_area_2d.zip )`

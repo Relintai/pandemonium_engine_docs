@@ -15,9 +15,9 @@ To this end, profilers are useful tools.
 Recommended profilers
 ---------------------
 
-- `VerySleepy <http://www.codersnotes.com/sleepy/>` (Windows only)
-- `HotSpot <https://github.com/KDAB/hotspot>` (Linux only)
-- `Xcode Instruments <https://developer.apple.com/xcode/>` (macOS only)
+- `VerySleepy ( http://www.codersnotes.com/sleepy/ )` (Windows only)
+- `HotSpot ( https://github.com/KDAB/hotspot )` (Linux only)
+- `Xcode Instruments ( https://developer.apple.com/xcode/ )` (macOS only)
 
 These profilers may not be the most powerful or flexible options, but their
 standalone operation and limited feature set tends to make them easier to use.
@@ -53,7 +53,7 @@ If you're looking into optimizing Godot's startup/shutdown performance,
 you can tell the profiler to use the `--quit` command line option on the Godot binary.
 This will exit Godot just after it finished starting.
 The `--quit` option works with `--editor`, `--project-manager` or
-`--path <path to project directory>` (which runs a project directly).
+`--path <path to project directory )` (which runs a project directly).
 
 .. seealso::
 

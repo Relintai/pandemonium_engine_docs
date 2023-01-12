@@ -20,7 +20,7 @@ many ways to avoid global state thanks to the node tree and signals.
 
 For example, let's say we are building a platformer and want to collect coins
 that play a sound effect. There's a node for that: the `AudioStreamPlayer
-<class_AudioStreamPlayer>`. But if we call the `AudioStreamPlayer` while it is
+<class_AudioStreamPlayer )`. But if we call the `AudioStreamPlayer` while it is
 already playing a sound, the new sound interrupts the first.
 
 A solution is to code a global, auto-loaded sound manager class. It generates a
@@ -68,7 +68,7 @@ or data across many scenes.
 
 In the case of functions, you can create a new type of `Node` that provides
 that feature for an individual scene using the `name
-<doc_gdscript_basics_class_name>` keyword in GDScript.
+<doc_gdscript_basics_class_name )` keyword in GDScript.
 
 When it comes to data, you can either:
 

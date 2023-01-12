@@ -29,7 +29,7 @@ animation:
 ![](img/2d_animation_run_preview.gif)
 
 You can download the images here:
-:download:`run_animation.zip <files/run_animation.zip>`
+:download:`run_animation.zip <files/run_animation.zip )`
 
 Unzip the images and place them in your project folder. Set up your scene tree
 with the following nodes:
@@ -40,7 +40,7 @@ with the following nodes:
           `RigidBody2D`. The animation will still be
           made in the same way. Once the animation is completed, you can
           assign a shape to the CollisionShape2D. See
-          `Physics Introduction <doc_physics_introduction>` for more
+          `Physics Introduction <doc_physics_introduction )` for more
           information.
 
 Now select the `AnimatedSprite` and in its *SpriteFrames* property, select
@@ -147,7 +147,7 @@ setting up your scene tree:
           `RigidBody2D`. The animation will still be
           made in the same way. Once the animation is completed, you can
           assign a shape to the CollisionShape2D. See
-          `Physics Introduction <doc_physics_introduction>` for more
+          `Physics Introduction <doc_physics_introduction )` for more
           information.
 
 Drag the spritesheet into the Sprite's *Texture* property, and you'll see the

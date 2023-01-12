@@ -25,7 +25,7 @@ Available scripting languages
 
 Godot offers **five gameplay programming languages**: GDScript, C#,
 VisualScript, and, via its GDNative technology, C and C++. There are more
-`community-supported languages <doc_what_is_gdnative_third_party_bindings>`,
+`community-supported languages <doc_what_is_gdnative_third_party_bindings )`,
 but these are the official ones.
 
 You can use multiple languages in a single project. For instance, in a team, you
@@ -39,12 +39,12 @@ developers.
 
 .. warning::
 
-    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`
+    `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
     As a result, creating new projects using visual scripting in Godot is not recommended.
     Future Godot 4.x releases may have VisualScript reimplemented as an extension.
 
     While Godot 3.x will keep VisualScript supported, we recommend
-    `trying out GDScript <toc-learn-scripting-gdscript>` instead,
+    `trying out GDScript <toc-learn-scripting-gdscript )` instead,
     especially if you intend to migrate your project to Godot 4.
 
 Which language should I use?
@@ -58,7 +58,7 @@ with Godot.
 ![](img/scripting_gdscript.png)
 
 For C#, you will need an external code editor like
-`VSCode <https://code.visualstudio.com/>`_ or Visual Studio. While C# support is
+`VSCode ( https://code.visualstudio.com/ )`_ or Visual Studio. While C# support is
 now mature, you will find fewer learning resources for it compared to
 GDScript. That's why we recommend C# mainly to users who already have experience
 with the language.
@@ -68,9 +68,9 @@ Let's look at each language's features, as well as its pros and cons.
 GDScript
 ~~~~~~~~
 
-`GDScript<doc_gdscript>` is an
-`object-oriented <https://en.wikipedia.org/wiki/Object-oriented_programming>`_ and
-`imperative <https://en.wikipedia.org/wiki/Imperative_programming>`_
+`GDScript<doc_gdscript )` is an
+`object-oriented ( https://en.wikipedia.org/wiki/Object-oriented_programming )`_ and
+`imperative ( https://en.wikipedia.org/wiki/Imperative_programming )`_
 programming language built for Godot. It's made by and for game developers
 to save you time coding games. Its features include:
 
@@ -82,11 +82,11 @@ to save you time coding games. Its features include:
   linear algebra, a must for games.
 - Supports multiple threads as efficiently as statically typed languages.
 - No `garbage collection
-  <https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)>`_, as
+  ( https://en.wikipedia.org/wiki/Garbage_collection_(computer_science) )`_, as
   this feature eventually gets in the way when creating games. The engine counts
   references and manages the memory for you in most cases by default, but you
   can also control memory if you need to.
-- `Gradual typing <https://en.wikipedia.org/wiki/Gradual_typing>`_. Variables
+- `Gradual typing ( https://en.wikipedia.org/wiki/Gradual_typing )`_. Variables
   have dynamic types by default, but you also can use type hints for strong type
   checks.
 
@@ -111,7 +111,7 @@ languages, including Squirrel, Lua, and Python.
 ~~~~~~~~~
 
 As Microsoft's `C#
-<https://en.wikipedia.org/wiki/C_Sharp_(programming_language)>`_ is a favorite
+( https://en.wikipedia.org/wiki/C_Sharp_(programming_language) )`_ is a favorite
 amongst game developers, we officially support it. C# is a mature and flexible
 language with tons of libraries written for it. We could add support for it
 thanks to a generous donation from Microsoft.
@@ -123,9 +123,9 @@ should be aware of its garbage collector.
 
 .. note:: You must use the Mono edition of the Godot editor to script in C#. You
           can download it on the Godot website's `download
-          <https://godotengine.org/download/>`_ page.
+          ( https://godotengine.org/download/ )`_ page.
 
-Since Godot uses the `Mono <https://mono-project.com>`_ .NET runtime, in theory,
+Since Godot uses the `Mono ( https://mono-project.com )`_ .NET runtime, in theory,
 you can use any third-party .NET library or framework in Godot, as well as any
 Common Language Infrastructure-compliant programming language, such as F#, Boo,
 or ClojureCLR. However, C# is the only officially supported .NET option.
@@ -141,15 +141,15 @@ VisualScript
 
 .. warning::
 
-    `Godot 4.0 will remove VisualScript from core entirely. <https://godotengine.org/article/godot-4-will-discontinue-visual-scripting>`
+    `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
     As a result, creating new projects using visual scripting in Godot is not recommended.
     Future Godot 4.x releases may have VisualScript reimplemented as an extension.
 
     While Godot 3.x will keep VisualScript supported, we recommend
-    `trying out GDScript <toc-learn-scripting-gdscript>` instead,
+    `trying out GDScript <toc-learn-scripting-gdscript )` instead,
     especially if you intend to migrate your project to Godot 4.
 
-`Visual Scripting<doc_what_is_visual_script>` is a graph-based visual
+`Visual Scripting<doc_what_is_visual_script )` is a graph-based visual
 programming language where you connect blocks. It can be a great tool for
 non-programmers like game designers and artists.
 
@@ -166,7 +166,7 @@ is slow compared to using other programming languages.
 .. seealso::
 
     For more information, see
-    `Getting started with VisualScript <doc_getting_started_visual_script>`.
+    `Getting started with VisualScript <doc_getting_started_visual_script )`.
 
 C and C++ via GDNative
 ~~~~~~~~~~~~~~~~~~~~~~

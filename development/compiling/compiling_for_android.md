@@ -25,9 +25,9 @@ Requirements
 
 For compiling under Windows, Linux or macOS, the following is required:
 
--  `Python 3.5+ <https://www.python.org/downloads/>`_.
--  `SCons 3.0+ <https://scons.org/pages/download.html>`_ build system.
--  `Android SDK <https://developer.android.com/studio/#command-tools>`_
+-  `Python 3.5+ ( https://www.python.org/downloads/ )`_.
+-  `SCons 3.0+ ( https://scons.org/pages/download.html )`_ build system.
+-  `Android SDK ( https://developer.android.com/studio/#command-tools )`_
    (command-line tools are sufficient).
 
    -  Required SDK components will be automatically installed.
@@ -37,7 +37,7 @@ For compiling under Windows, Linux or macOS, the following is required:
 -  Gradle (will be downloaded and installed automatically if missing).
 -  JDK 11 (either OpenJDK or Oracle JDK).
 
-   -  You can download a build from `ojdkbuild <https://github.com/ojdkbuild/ojdkbuild>`_.
+   -  You can download a build from `ojdkbuild ( https://github.com/ojdkbuild/ojdkbuild )`_.
 
 .. seealso:: To get the Godot source code for compiling, see
              `doc_getting_source`.
@@ -181,7 +181,7 @@ with their respective names. The templates folder can be located in:
 -  Linux: `$HOME/.local/share/godot/templates/<version>/`
 -  macOS: `$HOME/Library/Application Support/Godot/templates/<version>/`
 
-`<version>` is of the form `major.minor[.patch].status` using values from
+`<version )` is of the form `major.minor[.patch].status` using values from
 `version.py` in your Godot source repository (e.g. `3.0.5.stable` or `3.1.dev`).
 You also need to write this same version string to a `version.txt` file located
 next to your export templates.
@@ -208,7 +208,7 @@ Platform doesn't appear in SCons
 Double-check that you've set the `ANDROID_SDK_ROOT`
 environment variable. This is required for the platform to appear in SCons'
 list of detected platforms.
-See `Setting up the buildsystem <doc_android_setting_up_the_buildsystem>`
+See `Setting up the buildsystem <doc_android_setting_up_the_buildsystem )`
 for more information.
 
 Application not installed
@@ -220,7 +220,7 @@ If so:
 -  Check that the debug keystore is properly generated.
 -  Check that the jarsigner executable is from JDK 8.
 
-If it still fails, open a command line and run `logcat <https://developer.android.com/studio/command-line/logcat>`_:
+If it still fails, open a command line and run `logcat ( https://developer.android.com/studio/command-line/logcat )`_:
 
 ::
 
@@ -239,7 +239,7 @@ one of the following reasons:
 -  Make sure to use export templates that match your editor version; if
    you use a new Godot version, you *have* to update the templates too.
 -  `libgodot_android.so` is not in `libs/<android_arch>/`
-   where `<android_arch>` is the device's architecture.
+   where `<android_arch )` is the device's architecture.
 -  The device's architecture does not match the exported one(s).
    Make sure your templates were built for that device's architecture,
    and that the export settings included support for that architecture.

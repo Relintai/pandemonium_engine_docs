@@ -16,17 +16,17 @@ The following steps detail what is needed to set up the Android SDK and the engi
 Install OpenJDK 11
 ------------------
 
-Download and install  `OpenJDK 11 <https://adoptium.net/?variant=openjdk11>`.
+Download and install  `OpenJDK 11 ( https://adoptium.net/?variant=openjdk11 )`.
 
 Download the Android SDK
 ------------------------
 
 Download and install the Android SDK.
 
-- You can install it using `Android Studio version 4.1 or later <https://developer.android.com/studio/>`.
+- You can install it using `Android Studio version 4.1 or later ( https://developer.android.com/studio/ )`.
 
-  - Run it once to complete the SDK setup using these `instructions <https://developer.android.com/studio/intro/update#sdk-manager>`.
-  - Ensure that the `required packages <https://developer.android.com/studio/intro/update#recommended>` are installed as well.
+  - Run it once to complete the SDK setup using these `instructions ( https://developer.android.com/studio/intro/update#sdk-manager )`.
+  - Ensure that the `required packages ( https://developer.android.com/studio/intro/update#recommended )` are installed as well.
 
     - Android SDK Platform-Tools version 30.0.5 or later
     - Android SDK Build-Tools version 30.0.3
@@ -35,9 +35,9 @@ Download and install the Android SDK.
     - CMake version 3.10.2.4988404
     - NDK version r23c (23.2.8568313)
 
-- You can install it using the `command line tools <https://developer.android.com/studio/#command-tools>`.
+- You can install it using the `command line tools ( https://developer.android.com/studio/#command-tools )`.
 
-  - Once the command line tools are installed, run the `sdkmanager <https://developer.android.com/studio/command-line/sdkmanager>` command to complete the setup process:
+  - Once the command line tools are installed, run the `sdkmanager ( https://developer.android.com/studio/command-line/sdkmanager )` command to complete the setup process:
 
 ::
 
@@ -62,7 +62,7 @@ the JDK can be used for this purpose::
 
     keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
 
-This will create a `debug.keystore` file in your current directory. You should move it to a memorable location such as `%USERPROFILE%\.android\`, because you will need its location in a later step. For more information on `keytool` usage, see `this Q&A article <https://godotengine.org/qa/21349/jdk-android-file-missing>`.
+This will create a `debug.keystore` file in your current directory. You should move it to a memorable location such as `%USERPROFILE%\.android\`, because you will need its location in a later step. For more information on `keytool` usage, see `this Q&A article ( https://godotengine.org/qa/21349/jdk-android-file-missing )`.
 
 Setting it up in Godot
 ----------------------
@@ -106,9 +106,9 @@ Launcher icons are used by Android launcher apps to represent your application t
 There are two types of icons required by Godot:
 
 - **Main Icon:** The "classic" icon. This will be used on all Android versions up to Android 8 (Oreo), exclusive. Must be at least 192×192 px.
-- **Adaptive Icons:** Starting from Android 8 (inclusive), `Adaptive Icons <https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive>`_ were introduced. Applications will need to include separate background and foreground icons to have a native look. The user's launcher application will control the icon's animation and masking. Must be at least 432×432 px.
+- **Adaptive Icons:** Starting from Android 8 (inclusive), `Adaptive Icons ( https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive )`_ were introduced. Applications will need to include separate background and foreground icons to have a native look. The user's launcher application will control the icon's animation and masking. Must be at least 432×432 px.
 
-.. seealso:: It's important to adhere to some rules when designing adaptive icons. `Google Design has provided a nice article <https://medium.com/google-design/designing-adaptive-icons-515af294c783>`_ that helps to understand those rules and some of the capabilities of adaptive icons.
+.. seealso:: It's important to adhere to some rules when designing adaptive icons. `Google Design has provided a nice article ( https://medium.com/google-design/designing-adaptive-icons-515af294c783 )`_ that helps to understand those rules and some of the capabilities of adaptive icons.
 
 .. caution:: The most important adaptive icon design rule is to have your icon critical elements inside the safe zone: a centered circle with a diameter of 66dp (264 pixels on `xxxhdpi`) to avoid being clipped by the launcher.
 
@@ -132,7 +132,7 @@ keystore file; such file can be generated like this:
     keytool -v -genkey -keystore mygame.keystore -alias mygame -keyalg RSA -validity 10000
 
 This keystore and key are used to verify your developer identity, remember the password and keep it in a safe place!
-Use Google's Android Developer guides to learn more about `APK signing <https://developer.android.com/studio/publish/app-signing>`.
+Use Google's Android Developer guides to learn more about `APK signing ( https://developer.android.com/studio/publish/app-signing )`.
 
 Now fill in the following forms in your Android Export Presets:
 
@@ -163,7 +163,7 @@ ARMv8 devices, but the opposite is not true.
 Since August 2019, Google Play requires all applications to be available in
 64-bit form. This means you cannot upload an APK that contains *just* an ARMv7
 library. To solve this, you can upload several APKs to Google Play using its
-`Multiple APK support <https://developer.android.com/google/play/publishing/multiple-apks>`.
+`Multiple APK support ( https://developer.android.com/google/play/publishing/multiple-apks )`.
 Each APK should target a single architecture; creating an APK for ARMv7
 and ARMv8 is usually sufficient to cover most devices in use today.
 

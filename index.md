@@ -9,15 +9,15 @@ Godot Docs – *3.5* branch
 
   .. tip:: This is the documentation for the 3.5 branch.
            Looking for the documentation of the current **development** branch?
-           `Have a look here <https://docs.godotengine.org/en/latest>`_.
+           `Have a look here ( https://docs.godotengine.org/en/latest )`_.
            You can also browse the documentation for the current stable
-           `3.4 <https://docs.godotengine.org/en/3.4>`_ branch.
+           `3.4 ( https://docs.godotengine.org/en/3.4 )`_ branch.
 
 .. only:: i18n
 
   .. note:: This documentation is translated from the `original English one
-            <https://docs.godotengine.org/en/latest>`_ by community members
-            on `Weblate <https://hosted.weblate.org/projects/godot-engine/godot-docs>`_.
+            ( https://docs.godotengine.org/en/latest )`_ by community members
+            on `Weblate ( https://hosted.weblate.org/projects/godot-engine/godot-docs )`_.
 
             Depending on the translation effort's completion level, you may
             find paragraphs or whole pages which are still in English. You can
@@ -28,17 +28,17 @@ Godot Docs – *3.5* branch
             the "latest" (development) branch, but should be suitable to learn
             how to use stable Godot releases nevertheless.
 
-Welcome to the official documentation of `Godot Engine <https://godotengine.org>`,
+Welcome to the official documentation of `Godot Engine ( https://godotengine.org )`,
 the free and open source community-driven 2D and 3D game engine! If you are new
 to this documentation, we recommend that you read the
-`introduction page <doc_about_intro>` to get an overview of what this
+`introduction page <doc_about_intro )` to get an overview of what this
 documentation has to offer.
 
 The table of contents below and in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function
 in the top left corner.
 
-You can also `download an HTML copy <https://nightly.link/godotengine/godot-docs/workflows/build_offline_docs/master/godot-docs-html-stable.zip>`
+You can also `download an HTML copy ( https://nightly.link/godotengine/godot-docs/workflows/build_offline_docs/master/godot-docs-html-stable.zip )`
 for offline reading (updated every Monday). Extract the ZIP archive then open
 the top-level `index.html` in a web browser.
 
@@ -50,12 +50,12 @@ the top-level `index.html` in a web browser.
           by letting us know!
 
           Submit an issue or pull request on the `GitHub repository
-          <https://github.com/godotengine/godot-docs/issues>`_,
+          ( https://github.com/godotengine/godot-docs/issues )`_,
           help us `translate the documentation
-          <https://hosted.weblate.org/engage/godot-engine/>`_ into your
+          ( https://hosted.weblate.org/engage/godot-engine/ )`_ into your
           language, or talk to us on the
           `#documentation` channel on the `Godot Contributors Chat
-          <https://chat.godotengine.org/>`_!
+          ( https://chat.godotengine.org/ )`_!
 
 .. centered:: |weblate_widget|
 

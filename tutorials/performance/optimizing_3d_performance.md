@@ -72,14 +72,14 @@ Transparent objects
 ~~~~~~~~~~~~~~~~~~~
 
 Godot sorts objects by `Material` and `Shader
-<class_Shader>` to improve performance. This, however, can not be done with
+<class_Shader )` to improve performance. This, however, can not be done with
 transparent objects. Transparent objects are rendered from back to front to make
 blending with what is behind work. As a result,
 **try to use as few transparent objects as possible**. If an object has a
 small section with transparency, try to make that section a separate surface
 with its own material.
 
-For more information, see the `GPU optimizations <doc_gpu_optimization>`
+For more information, see the `GPU optimizations <doc_gpu_optimization )`
 doc.
 
 Level of detail (LOD)
@@ -121,7 +121,7 @@ of many thousands of objects at very little performance cost, making it ideal
 for flocks, grass, particles, and anything else where you have thousands of
 identical objects.
 
-Also see the `Using MultiMesh <doc_using_multimesh>` doc.
+Also see the `Using MultiMesh <doc_using_multimesh )` doc.
 
 Bake lighting
 =============

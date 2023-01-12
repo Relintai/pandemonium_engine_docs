@@ -23,10 +23,10 @@ Godot can import the following image formats:
   - Precision is limited to 8 bits per channel upon importing (no HDR images).
 - Truevision Targa (`.tga`)
 - SVG (`.svg`, `.svgz`)
-  - SVGs are rasterized using `NanoSVG <https://github.com/memononen/nanosvg>`
+  - SVGs are rasterized using `NanoSVG ( https://github.com/memononen/nanosvg )`
   when importing them. Support is limited; complex vectors may not render correctly.
   For complex vectors, rendering them to PNGs using Inkscape is often a better solution.
-  This can be automated thanks to its `command-line interface <https://wiki.inkscape.org/wiki/index.php/Using_the_Command_Line#Export_files>`.
+  This can be automated thanks to its `command-line interface ( https://wiki.inkscape.org/wiki/index.php/Using_the_Command_Line#Export_files )`.
 - WebP (`.webp`)
   - WebP files support transparency and can be compressed lossily or losslessly.
   The precision is limited to 8 bits per channel.
@@ -129,7 +129,7 @@ Note that RGTC compression affects the resulting normal map image. You will have
 
   More information about normal maps (including a coordinate order table for
   popular engines) can be found
-  `here <http://wiki.polycount.com/wiki/Normal_Map_Technical_Details>`.
+  `here ( http://wiki.polycount.com/wiki/Normal_Map_Technical_Details )`.
 
 Flags
 -----

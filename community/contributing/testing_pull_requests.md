@@ -7,7 +7,7 @@ Many people are developing new features or fixing bugs on GitHub.
 To help with engine development, you may be asked to test those pull requests
 with a Godot build that includes code from the pull request in question.
 
-Thanks to GitHub Actions, all `pull requests <https://github.com/godotengine/godot/pulls>`
+Thanks to GitHub Actions, all `pull requests ( https://github.com/godotengine/godot/pulls )`
 have continuous builds available. These builds let you try out pull requests
 without having to compile anything from source.
 
@@ -23,7 +23,7 @@ depending on whether you have a GitHub account or not.
     Due to a GitHub Actions limitation, builds are only available for 90 days
     after the pull request was last updated. If you still wish to try a
     pull request locally, you can
-    `compile the pull request branch from source <doc_testing_pull_requests_compile>`
+    `compile the pull request branch from source <doc_testing_pull_requests_compile )`
     instead.
 
 If you have a GitHub account
@@ -48,13 +48,13 @@ If you have a GitHub account
   Note that Windows and macOS binaries are not code signed.
   This means you may have to bypass a security warning before you can run the executable.
   If you frequently test pull request builds, it may be better to disable
-  Windows SmartScreen or `disable macOS Gatekeeper <https://disable-gatekeeper.github.io/>` permanently.
+  Windows SmartScreen or `disable macOS Gatekeeper ( https://disable-gatekeeper.github.io/ )` permanently.
 
 If you don't have a GitHub account
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you don't have a GitHub account and can't sign up for one,
-you can use the third-party `nightly.link <https://nightly.link>` service
+you can use the third-party `nightly.link ( https://nightly.link )` service
 to generate a universal download link.
 
 - Open the pull request page. Click the *fork*'s branch name near the top of the page:
@@ -66,7 +66,7 @@ to generate a universal download link.
   Click the workflow file for the platform you wish to download artifacts for.
   *After* clicking on the file (which opens the file view), copy the page URL from your browser's address bar.
 
-- Open the `nightly.link <https://nightly.link>` website and paste the URL you just copied
+- Open the `nightly.link ( https://nightly.link )` website and paste the URL you just copied
   into the text field located below the heading **Paste a GitHub link, get a nightly.link!**.
   After pasting the URL, click **Get links** on the right.
   If the the format of the URL you pasted is correct, you should be presented
@@ -80,7 +80,7 @@ to generate a universal download link.
   Note that Windows and macOS binaries are not code signed.
   This means you may have to bypass a security warning before you can run the executable.
   If you frequently test pull request builds, it may be better to disable
-  Windows SmartScreen or `disable macOS Gatekeeper <https://disable-gatekeeper.github.io/>` permanently.
+  Windows SmartScreen or `disable macOS Gatekeeper ( https://disable-gatekeeper.github.io/ )` permanently.
 
 .. _doc_testing_pull_requests_compile:
 
@@ -100,5 +100,5 @@ by Godot's GitHub Actions setup.
 
 ![](img/testing_pull_requests_fork_zip.png)
 
-- Extract the ZIP archive and follow the `compiling <toc-devel-compiling>` instructions
+- Extract the ZIP archive and follow the `compiling <toc-devel-compiling )` instructions
   for your operating system.

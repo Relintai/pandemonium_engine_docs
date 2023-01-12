@@ -43,7 +43,7 @@ frame timer.
 .. note::
 
     You can use physics interpolation to mitigate physics-related jittering.
-    See `lawnjelly's smoothing-addon <https://github.com/lawnjelly/smoothing-addon>`
+    See `lawnjelly's smoothing-addon ( https://github.com/lawnjelly/smoothing-addon )`
     for an add-on that can be dropped into any project to enable physics interpolation.
 
 Stutter

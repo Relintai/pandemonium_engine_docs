@@ -8,7 +8,7 @@ Introduction
 
 *GDScript* is a high-level, dynamically typed programming language used to
 create content. It uses a syntax similar to
-`Python <https://en.wikipedia.org/wiki/Python_%28programming_language%29>`_
+`Python ( https://en.wikipedia.org/wiki/Python_%28programming_language%29 )`_
 (blocks are indent-based and many keywords are similar). Its goal is
 to be optimized for and tightly integrated with Godot Engine, allowing great
 flexibility for content creation and integration.
@@ -19,7 +19,7 @@ History
 .. note::
 
     Documentation about GDScript's history has been moved to the
-    `Frequently Asked Questions <doc_faq_what_is_gdscript>`.
+    `Frequently Asked Questions <doc_faq_what_is_gdscript )`.
 
 Example of GDScript
 ~~~~~~~~~~~~~~~~~~~
@@ -134,7 +134,7 @@ keywords are reserved words (tokens), they can't be used as identifiers.
 Operators (like `in`, `not`, `and` or `or`) and names of built-in types
 as listed in the following sections are also reserved.
 
-Keywords are defined in the `GDScript tokenizer <https://github.com/godotengine/godot/blob/master/modules/gdscript/gdscript_tokenizer.cpp>`_
+Keywords are defined in the `GDScript tokenizer ( https://github.com/godotengine/godot/blob/master/modules/gdscript/gdscript_tokenizer.cpp )`_
 in case you want to take a look under the hood.
 
 +------------+---------------------------------------------------------------------------------------------------------------+
@@ -200,17 +200,17 @@ in case you want to take a look under the hood.
 +------------+---------------------------------------------------------------------------------------------------------------+
 | assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`_.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| remote     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| remote     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| master     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| master     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| puppet     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| puppet     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| remotesync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| remotesync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| mastersync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| mastersync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| puppetsync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| puppetsync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
 | PI         | PI constant.                                                                                                  |
 +------------+---------------------------------------------------------------------------------------------------------------+
@@ -255,7 +255,7 @@ The following is the list of supported operators and their precedence.
 +------------------------------------------------------------------------+-----------------------------------------+
 | `-`                                                                  | Subtraction                             |
 +------------------------------------------------------------------------+-----------------------------------------+
-| `<<` `>>`                                                          | Bit shifting                            |
+| `<<` `> )`                                                          | Bit shifting                            |
 +------------------------------------------------------------------------+-----------------------------------------+
 | `&`                                                                  | Bitwise AND                             |
 +------------------------------------------------------------------------+-----------------------------------------+
@@ -263,7 +263,7 @@ The following is the list of supported operators and their precedence.
 +------------------------------------------------------------------------+-----------------------------------------+
 | `|`                                                                  | Bitwise OR                              |
 +------------------------------------------------------------------------+-----------------------------------------+
-| `<` `>` `==` `!=` `>=` `<=`                                | Comparisons                             |
+| `<` ` )` `==` `!=` `>=` `<=`                                | Comparisons                             |
 +------------------------------------------------------------------------+-----------------------------------------+
 | `in`                                                                 | When used with the `if` keyword it    |
 |                                                                        | checks if a value is within a string,   |
@@ -370,7 +370,7 @@ PoolRealArray store 32-bit single-precision "float" values.
 `String`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A sequence of characters in `Unicode format <https://en.wikipedia.org/wiki/Unicode>`_.
+A sequence of characters in `Unicode format ( https://en.wikipedia.org/wiki/Unicode )`_.
 Strings can contain the following escape sequences:
 
 +---------------------+---------------------------------+
@@ -724,7 +724,7 @@ dictionary of that name.
 Functions
 ~~~~~~~~~
 
-Functions always belong to a `class <Classes_>`_. The scope priority for
+Functions always belong to a `class <Classes_ )`_. The scope priority for
 variable look-up is: local → class member → global. The `self` variable is
 always available and is provided as an option for accessing class members, but
 is not always required (and should *not* be sent as the function's first
@@ -751,7 +751,7 @@ If a function argument has a default value, it's possible to infer the type::
         pass
 
 The return type of the function can be specified after the arguments list using
-the arrow token (`->`)::
+the arrow token (`- )`)::
 
     func my_int_function() -> int:
         return 0
@@ -1329,7 +1329,7 @@ Either of the *setter* or *getter* functions can be omitted::
     # Only a getter (note the comma).
     var my_var = 5 setget ,my_var_get
 
-Setters and getters are useful when `exporting variables <doc_gdscript_exports>`
+Setters and getters are useful when `exporting variables <doc_gdscript_exports )`
 to the editor in tool scripts or plugins, for validating input.
 
 As said, *local* access will *not* trigger the setter and getter. Here is an
@@ -1422,10 +1422,10 @@ to. To create custom signals for a class, use the `signal` keyword.
 .. note::
 
    Signals are a `Callback
-   <https://en.wikipedia.org/wiki/Callback_(computer_programming)>`_
+   ( https://en.wikipedia.org/wiki/Callback_(computer_programming) )`_
    mechanism. They also fill the role of Observers, a common programming
    pattern. For more information, read the `Observer tutorial
-   <https://gameprogrammingpatterns.com/observer.html>`_ in the
+   ( https://gameprogrammingpatterns.com/observer.html )`_ in the
    Game Programming Patterns ebook.
 
 You can connect these signals to methods the same way you connect built-in
@@ -1562,8 +1562,8 @@ Our `BattleLog` node receives each element in the binds array as an extra argume
 Coroutines with yield
 ~~~~~~~~~~~~~~~~~~~~~
 
-GDScript offers support for `coroutines <https://en.wikipedia.org/wiki/Coroutine>`_
-via the `yield<class_@GDScript_method_yield>` built-in function. Calling `yield()` will
+GDScript offers support for `coroutines ( https://en.wikipedia.org/wiki/Coroutine )`_
+via the `yield<class_@GDScript_method_yield )` built-in function. Calling `yield()` will
 immediately return from the current function, with the current frozen
 state of the same function as the return value. Calling `resume()` on
 this resulting object will continue execution and return whatever the

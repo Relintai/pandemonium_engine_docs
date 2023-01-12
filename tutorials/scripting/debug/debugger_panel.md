@@ -16,7 +16,7 @@ Debugger
 The Debugger tab opens automatically when the GDScript compiler reaches
 a breakpoint in your code.
 
-It gives you a `stack trace <https://en.wikipedia.org/wiki/Stack_trace>`,
+It gives you a `stack trace ( https://en.wikipedia.org/wiki/Stack_trace )`,
 information about the state of the object, and buttons to control
 the program's execution.
 
@@ -35,7 +35,7 @@ You can use the buttons in the top-right corner to:
 .. warning::
 
     Breakpoints won't break on code if it's
-    `running in a thread <doc_using_multiple_threads>`.
+    `running in a thread <doc_using_multiple_threads )`.
     This is a current limitation of the GDScript debugger.
 
 Errors

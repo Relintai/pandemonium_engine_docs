@@ -23,7 +23,7 @@ so this one could be seen more like a follow-up to that one.
 
 
 .. note:: We will be using the official demo as an example; you can
-          `download it from the Asset Library <https://godotengine.org/asset-library/asset/134>`_.
+          `download it from the Asset Library ( https://godotengine.org/asset-library/asset/134 )`_.
 
 Configuring the imported translation
 ------------------------------------
@@ -60,8 +60,8 @@ This automatic translation behavior may be undesirable in certain cases. For
 instance, when using a Label to display a player's name, you most likely don't
 want the player's name to be translated if it matches a translation key. To
 disable automatic translation on a specific node, use
-`Object.set_message_translation<class_Object_method_set_message_translation>`
-and send a `Object.notification<class_Object_method_notification>` to update the
+`Object.set_message_translation<class_Object_method_set_message_translation )`
+and send a `Object.notification<class_Object_method_notification )` to update the
 translation::
 
     func _ready():
@@ -143,4 +143,4 @@ For instance, for Spanish, this would be `application/name_es`:
 ![](img/localized_name.png)
 
 If you are unsure about the language code to use, refer to the
-`list of locale codes <doc_locales>`.
+`list of locale codes <doc_locales )`.

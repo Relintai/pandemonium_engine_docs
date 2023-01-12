@@ -36,13 +36,13 @@ the built-in control nodes. This is what gives the controls their distinct look
 out of the box. A theme only describes the configuration, however, and it is still
 the job of each individual control to use that configuration in the way it requires
 to display itself. This is important to remember when implementing
-`your own custom controls <doc_custom_gui_controls>`.
+`your own custom controls <doc_custom_gui_controls )`.
 
 .. note::
    Even the Godot editor itself relies on the default theme. But it doesn't look the
    same as a Godot project, because it applies its own heavily customized theme on top
    of the default one. In principle, this works exactly like it would in your game
-   as explained `below <doc_gui_theme_in_project>`.
+   as explained `below <doc_gui_theme_in_project )`.
 
 Theme items
 ~~~~~~~~~~~
@@ -139,7 +139,7 @@ control node in the single `Theme` resource.
    two places, but it is recommended to keep all variations to the project theme.
 
 You can learn more about creating and using theme type variations in a
-`dedicated article <doc_gui_theme_type_variations>`.
+`dedicated article <doc_gui_theme_type_variations )`.
 
 Customizing a control
 ---------------------
@@ -175,8 +175,8 @@ with a custom theme. Custom themes can be applied in two ways: as a project sett
 and as a node property throughout the tree of control nodes.
 
 There are two project settings that can be adjusted to affect your entire project:
-`gui/theme/custom<class_ProjectSettings_property_gui/theme/custom>` allows you to
-set a custom project-wide theme, and `gui/theme/custom_font<class_ProjectSettings_property_gui/theme/custom_font>`
+`gui/theme/custom<class_ProjectSettings_property_gui/theme/custom )` allows you to
+set a custom project-wide theme, and `gui/theme/custom_font<class_ProjectSettings_property_gui/theme/custom_font )`
 does the same to the default fallback font. When a theme item is requested by a control
 node the custom project theme, if present, is checked first. Only if it doesn't have
 the item the default theme is checked.

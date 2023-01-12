@@ -7,41 +7,41 @@ Projects exported for the Web expose the :js:class:`Engine` class to the JavaScr
 fine control over the engine's start-up process.
 
 This API is built in an asynchronous manner and requires basic understanding
-of `Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises>`.
+of `Promises ( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises )`.
 
 Engine
 ------
 
 The `Engine` class provides methods for loading and starting exported projects on the Web. For default export
 settings, this is already part of the exported HTML page. To understand practical use of the `Engine` class,
-see `Custom HTML page for Web export <doc_customizing_html5_shell>`.
+see `Custom HTML page for Web export <doc_customizing_html5_shell )`.
 
 Static Methods
 ^^^^^^^^^^^^^^
 
 +---------+-----------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`load <Engine.load>` **(** string basePath **)**                                     |
+| Promise | :js:attr:`load <Engine.load )` **(** string basePath **)**                                     |
 +---------+-----------------------------------------------------------------------------------------------+
-| void    | :js:attr:`unload <Engine.unload>` **(** **)**                                                 |
+| void    | :js:attr:`unload <Engine.unload )` **(** **)**                                                 |
 +---------+-----------------------------------------------------------------------------------------------+
-| boolean | :js:attr:`isWebGLAvailable <Engine.isWebGLAvailable>` **(** *[ number majorVersion=1 ]* **)** |
+| boolean | :js:attr:`isWebGLAvailable <Engine.isWebGLAvailable )` **(** *[ number majorVersion=1 ]* **)** |
 +---------+-----------------------------------------------------------------------------------------------+
 
 Instance Methods
 ^^^^^^^^^^^^^^^^
 
 +---------+---------------------------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`init <Engine.prototype.init>` **(** *[ string basePath ]* **)**                                     |
+| Promise | :js:attr:`init <Engine.prototype.init )` **(** *[ string basePath ]* **)**                                     |
 +---------+---------------------------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`preloadFile <Engine.prototype.preloadFile>` **(** string\|ArrayBuffer file *[, string path ]* **)** |
+| Promise | :js:attr:`preloadFile <Engine.prototype.preloadFile )` **(** string\|ArrayBuffer file *[, string path ]* **)** |
 +---------+---------------------------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`start <Engine.prototype.start>` **(** EngineConfig override **)**                                   |
+| Promise | :js:attr:`start <Engine.prototype.start )` **(** EngineConfig override **)**                                   |
 +---------+---------------------------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`startGame <Engine.prototype.startGame>` **(** EngineConfig override **)**                           |
+| Promise | :js:attr:`startGame <Engine.prototype.startGame )` **(** EngineConfig override **)**                           |
 +---------+---------------------------------------------------------------------------------------------------------------+
-| void    | :js:attr:`copyToFS <Engine.prototype.copyToFS>` **(** string path, ArrayBuffer buffer **)**                   |
+| void    | :js:attr:`copyToFS <Engine.prototype.copyToFS )` **(** string path, ArrayBuffer buffer **)**                   |
 +---------+---------------------------------------------------------------------------------------------------------------+
-| void    | :js:attr:`requestQuit <Engine.prototype.requestQuit>` **(** **)**                                             |
+| void    | :js:attr:`requestQuit <Engine.prototype.requestQuit )` **(** **)**                                             |
 +---------+---------------------------------------------------------------------------------------------------------------+
 
 .. js:class:: Engine( initConfig )
@@ -123,9 +123,9 @@ Instance Methods
    .. js:function:: prototype.start( override )
 
       Start the engine instance using the given override configuration (if any).
-      :js:meth:`startGame <Engine.prototype.startGame>` can be used in typical cases instead.
+      :js:meth:`startGame <Engine.prototype.startGame )` can be used in typical cases instead.
 
-      This will initialize the instance if it is not initialized. For manual initialization, see :js:meth:`init <Engine.prototype.init>`.
+      This will initialize the instance if it is not initialized. For manual initialization, see :js:meth:`init <Engine.prototype.init )`.
       The engine must be loaded beforehand.
 
       Fails if a canvas cannot be found on the page, or not specified in the configuration.
@@ -142,7 +142,7 @@ Instance Methods
 
       Start the game instance using the given configuration override (if any).
 
-      This will initialize the instance if it is not initialized. For manual initialization, see :js:meth:`init <Engine.prototype.init>`.
+      This will initialize the instance if it is not initialized. For manual initialization, see :js:meth:`init <Engine.prototype.init )`.
 
       This will load the engine if it is not loaded, and preload the main pck.
 
@@ -258,7 +258,7 @@ Properties
       Specify a language code to select the proper localization for the game.
 
       The browser locale will be used if none is specified. See complete list of
-      `supported locales <doc_locales>`.
+      `supported locales <doc_locales )`.
 
       :type: string
 
@@ -283,9 +283,9 @@ Properties
 
       The arguments to be passed as command line arguments on startup.
 
-      See `command line tutorial <doc_command_line_tutorial>`.
+      See `command line tutorial <doc_command_line_tutorial )`.
 
-      **Note**: :js:meth:`startGame <Engine.prototype.startGame>` will always add the `--main-pack` argument.
+      **Note**: :js:meth:`startGame <Engine.prototype.startGame )` will always add the `--main-pack` argument.
 
       :type: Array.<string>
 

@@ -60,7 +60,7 @@ an export template selected while doing so.
 
 ![](img/export_pck.png)
 
-Another method would be to `export from the command line <doc_command_line_tutorial_exporting>`.
+Another method would be to `export from the command line <doc_command_line_tutorial_exporting )`.
 If the output file ends with a PCK or ZIP file extension, then the export
 process will build that type of file for the chosen platform.
 

@@ -15,7 +15,7 @@ and how to use a noise generator in GDScript.
 
     Computers cannot generate "true" random numbers. Instead, they rely on
     `pseudorandom number generators
-    <https://en.wikipedia.org/wiki/Pseudorandom_number_generator>` (PRNGs).
+    ( https://en.wikipedia.org/wiki/Pseudorandom_number_generator )` (PRNGs).
 
 Global scope versus RandomNumberGenerator class
 -----------------------------------------------
@@ -27,8 +27,8 @@ Global scope methods are easier to set up, but they don't offer as much control.
 
 RandomNumberGenerator requires more code to use, but exposes many methods not
 found in global scope such as `randi_range()
-<class_RandomNumberGenerator_method_randi_range>` and `randfn()
-<class_RandomNumberGenerator_method_randfn>`. On top of that, it allows creating
+<class_RandomNumberGenerator_method_randi_range )` and `randfn()
+<class_RandomNumberGenerator_method_randfn )`. On top of that, it allows creating
 multiple instances each with their own seed.
 
 This tutorial uses global scope methods, except when the method only exists in
@@ -38,7 +38,7 @@ The randomize() method
 ----------------------
 
 In global scope, you can find a `randomize()
-<class_@GDScript_method_randomize>` method. **This method should be called only
+<class_@GDScript_method_randomize )` method. **This method should be called only
 once when your project starts to initialize the random seed.** Calling it
 multiple times is unnecessary and may impact performance negatively.
 
@@ -52,7 +52,7 @@ gdscript GDScript
 ```
 
 You can also set a fixed random seed instead using `seed()
-<class_@GDScript_method_seed>`. Doing so will give you *deterministic* results
+<class_@GDScript_method_seed )`. Doing so will give you *deterministic* results
 across runs:
 
 gdscript GDScript
@@ -104,7 +104,7 @@ other things.
 
 `randfn()` returns a random
 floating-point number following a `normal distribution
-<https://en.wikipedia.org/wiki/Normal_distribution>`. This means the returned
+( https://en.wikipedia.org/wiki/Normal_distribution )`. This means the returned
 value is more likely to be around the mean (0.0 by default),
 varying by the deviation (1.0 by default):
 
@@ -129,7 +129,7 @@ gdscript GDScript
 ```
 
 `RandomNumberGenerator.randi_range()
-<class_RandomNumberGenerator_method_randi_range>` takes two arguments `from`
+<class_RandomNumberGenerator_method_randi_range )` takes two arguments `from`
 and `to`, and returns a random integer between `from` and `to`:
 
 gdscript GDScript
@@ -203,7 +203,7 @@ gdscript GDScript
 This approach can be useful to make random number generation feel less
 repetitive. Still, it doesn't prevent results from "ping-ponging" between a
 limited set of values. To prevent this, use the `shuffle bag
-<doc_random_number_generation_shuffle_bags>` pattern instead.
+<doc_random_number_generation_shuffle_bags )` pattern instead.
 
 Get a random dictionary value
 -----------------------------

@@ -48,7 +48,7 @@ The following operators are available:
 +------------------------+-------------------------------------------------------------------------------------+
 
 Spaces around operators are optional. Also, keep in mind the usual
-`order of operations <https://en.wikipedia.org/wiki/Order_of_operations>`
+`order of operations ( https://en.wikipedia.org/wiki/Order_of_operations )`
 applies. Use parentheses to override the order of operations if needed.
 
 All the Variant types supported in Godot can be used: integers, floating-point

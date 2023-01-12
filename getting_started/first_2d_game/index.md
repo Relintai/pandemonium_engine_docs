@@ -45,18 +45,18 @@ Prerequisites
 -------------
 
 This step-by-step tutorial is intended for beginners who followed the complete
-`Getting Started <toc-learn-step_by_step>`.
+`Getting Started <toc-learn-step_by_step )`.
 
 If you're an experienced programmer, you can find the complete demo's source
 code here: `Godot demo projects
-<https://github.com/godotengine/godot-demo-projects>`.
+( https://github.com/godotengine/godot-demo-projects )`.
 
 We prepared some game assets you'll need to download so we can jump straight to
 the code.
 
 You can download them by clicking the link below.
 
-:download:`dodge_assets.zip <files/dodge_assets.zip>`.
+:download:`dodge_assets.zip <files/dodge_assets.zip )`.
 
 Contents
 --------

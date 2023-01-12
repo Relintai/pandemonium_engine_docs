@@ -4,11 +4,11 @@ Android in-app purchases
 ========================
 
 Godot offers a first-party `GodotGooglePlayBilling` Android plugin since Godot 3.2.2.
-The new plugin uses the `Google Play Billing library <https://developer.android.com/google/play/billing>`
+The new plugin uses the `Google Play Billing library ( https://developer.android.com/google/play/billing )`
 instead of the now deprecated AIDL IAP implementation.
 
 If you learn better by looking at an example, you can find the demo project
-`here <https://github.com/godotengine/godot-demo-projects/tree/master/mobile/android_iap>`.
+`here ( https://github.com/godotengine/godot-demo-projects/tree/master/mobile/android_iap )`.
 
 
 Migrating from Godot 3.2.1 and lower (GodotPaymentsV3)
@@ -22,7 +22,7 @@ Changes
 - You need to enable the Custom Build option in your Android export settings and install
   the `GodotGooglePlayBilling` plugin manually (see below for details)
 - All purchases have to be acknowledged by your app. This is a
-  `requirement from Google <https://developer.android.com/google/play/billing/integrate#process>`.
+  `requirement from Google ( https://developer.android.com/google/play/billing/integrate#process )`.
   Purchases that are not acknowledged by your app will be refunded.
 - Support for subscriptions
 - Signals (no polling or callback objects)
@@ -34,8 +34,8 @@ Usage
 Getting started
 ***************
 
-If not already done, make sure you have enabled and successfully set up `Android Custom Builds <doc_android_custom_build>`.
-Grab the`GodotGooglePlayBilling` plugin binary and config from the `releases page <https://github.com/godotengine/godot-google-play-billing/releases>`
+If not already done, make sure you have enabled and successfully set up `Android Custom Builds <doc_android_custom_build )`.
+Grab the`GodotGooglePlayBilling` plugin binary and config from the `releases page ( https://github.com/godotengine/godot-google-play-billing/releases )`
 and put both into `res://android/plugins`.
 The plugin should now show up in the Android export settings, where you can enable it.
 

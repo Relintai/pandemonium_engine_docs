@@ -20,7 +20,7 @@ own limitations:
    that require it, but frequently saving and loading data is cumbersome and
    may be slow.
 
-The `Singleton pattern <https://en.wikipedia.org/wiki/Singleton_pattern>`_ is
+The `Singleton pattern ( https://en.wikipedia.org/wiki/Singleton_pattern )`_ is
 a useful tool for solving the common use case where you need to store
 persistent information between scenes. In our case, it's possible to reuse the
 same scene or class for multiple singletons as long as they have different
@@ -43,7 +43,7 @@ Autoloading nodes and scripts can give us these characteristics.
 .. tip::
 
     If you're creating an autoload as part of an editor plugin, consider
-    `registering it automatically in the Project Settings <doc_making_plugins_autoload>`
+    `registering it automatically in the Project Settings <doc_making_plugins_autoload )`
     when the plugin is enabled.
 
 AutoLoad
@@ -112,7 +112,7 @@ method (see `doc_scene_tree` for details). However, if you need more
 complex behavior when changing scenes, this method provides more functionality.
 
 To begin, download the template from here:
-:download:`autoload.zip <files/autoload.zip>` and open it in Godot.
+:download:`autoload.zip <files/autoload.zip )` and open it in Godot.
 
 The project contains two scenes: `Scene1.tscn` and `Scene2.tscn`. Each
 scene contains a label displaying the scene name and a button with its

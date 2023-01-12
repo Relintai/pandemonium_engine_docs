@@ -10,7 +10,7 @@ needs. Either way, you have decided to write your own and now you need to figure
 out where to start.
 
 This tutorial will explain how to write a Spatial shader and will cover more
-topics than the `CanvasItem <doc_your_first_canvasitem_shader>` tutorial.
+topics than the `CanvasItem <doc_your_first_canvasitem_shader )` tutorial.
 
 Spatial shaders have more built-in functionality than CanvasItem shaders. The
 expectation with spatial shaders is that Godot has already provided the
@@ -20,7 +20,7 @@ rendering) workflow.
 
 This is a two-part tutorial. In this first part we are going to go through how
 to make a simple terrain using vertex displacement from a heightmap in the
-vertex function. In the `second part <doc_your_second_spatial_shader>` we
+vertex function. In the `second part <doc_your_second_spatial_shader )` we
 are going to take the concepts from this tutorial and walk through how to set up
 custom materials in a fragment shader by writing an ocean water shader.
 
@@ -28,7 +28,7 @@ custom materials in a fragment shader by writing an ocean water shader.
           (`vec2`, `float`, `sampler2D`), and functions. If you are
           uncomfortable with these concepts it is best to get a gentle
           introduction from `The Book of Shaders
-          <https://thebookofshaders.com>`_ before completing this tutorial.
+          ( https://thebookofshaders.com )`_ before completing this tutorial.
 
 Where to assign my material
 ---------------------------
@@ -38,12 +38,12 @@ type that store geometry (the shape of your object) and materials (the color and
 how the object reacts to light) in units called "surfaces". A Mesh can have
 multiple surfaces, or just one. Typically, you would import a mesh from another
 program (e.g. Blender). But Godot also has a few `PrimitiveMeshes
-<class_primitivemesh>` that allow you to add basic geometry to a scene without
+<class_primitivemesh )` that allow you to add basic geometry to a scene without
 importing Meshes.
 
 There are multiple node types that you can use to draw a mesh. The main one is
 `MeshInstance`, but you can also use `Particles
-<class_particles>`, `MultiMeshes` (with a
+<class_particles )`, `MultiMeshes` (with a
 `MultiMeshInstance`), or others.
 
 Typically, a material is associated with a given surface in a mesh, but some
@@ -81,7 +81,7 @@ Now set `Subdivide Width` and `Subdivide Depth` to `32`.
 ![](img/plane-sub-set.png)
 
 You can see that there are now many more triangles in the
-`Mesh<class_MeshInstance>`. This will give us more vertices to work with
+`Mesh<class_MeshInstance )`. This will give us more vertices to work with
 and thus allow us to add more detail.
 
 ![](img/plane-sub.png)
@@ -111,7 +111,7 @@ because this is a spatial shader.
   shader_type spatial;
 
 Next we will define the `vertex()` function. The `vertex()` function
-determines where the vertices of your `Mesh<class_MeshInstance>` appear in
+determines where the vertices of your `Mesh<class_MeshInstance )` appear in
 the final scene. We will be using it to offset the height of each vertex and
 make our flat plane appear like a little terrain.
 
@@ -206,7 +206,7 @@ this case we'll use the `r`, or `x` channel.
 
 Note: `xyzw` is the same as `rgba` in GLSL, so instead of `texture().x`
 above, we could use `texture().r`. See the `OpenGL documentation
-<https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Vectors>`_ for more
+( https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Vectors )`_ for more
 details.
 
 Using this code you can see the texture creates random looking hills.
@@ -223,7 +223,7 @@ Uniforms
 Uniform variables allow you to pass data from the game into the shader. They are
 very useful for controlling shader effects. Uniforms can be almost any datatype
 that can be used in the shader. To use a uniform, you declare it in your
-`Shader<class_Shader>` using the keyword `uniform`.
+`Shader<class_Shader )` using the keyword `uniform`.
 
 Let's make a uniform that changes the height of the terrain.
 
@@ -251,8 +251,8 @@ the shader.
           `get_surface_material()` or `material_override`.
 
 Remember that the string passed into `set_shader_param()` must match the name
-of the uniform variable in the `Shader<class_Shader>`. You can use the
-uniform variable anywhere inside your `Shader<class_Shader>`. Here, we will
+of the uniform variable in the `Shader<class_Shader )`. You can use the
+uniform variable anywhere inside your `Shader<class_Shader )`. Here, we will
 use it to set the height value instead of arbitrarily multiplying by `0.5`.
 
 .. code-block:: glsl
@@ -278,7 +278,7 @@ again, where it says "Perspective", and select "Display Normal".
 Note how the mesh color goes flat. This is because the lighting on it is flat.
 Let's add a light!
 
-First, we will add an `OmniLight<class_OmniLight>` to the scene.
+First, we will add an `OmniLight<class_OmniLight )` to the scene.
 
 ![](img/light.png)
 

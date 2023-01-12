@@ -19,9 +19,9 @@ do anything on their own: instead, nodes use the data contained in resources.
 Anything Godot saves or loads from disk is a resource. Be it a scene (a `.tscn`
 or an `.scn` file), an image, a script... Here are some `Resource` examples:
 `Texture`, `Mesh
-<class_Mesh>`, `Animation`, `AudioStream
-<class_AudioStream>`, `Font`, `Translation
-<class_Translation>`.
+<class_Mesh )`, `Animation`, `AudioStream
+<class_AudioStream )`, `Font`, `Translation
+<class_Translation )`.
 
 When the engine loads a resource from disk, **it only loads it once**. If a copy
 of that resource is already in memory, trying to load the resource again will
@@ -114,7 +114,7 @@ returns the root node of the scene. You can then add it as a child of any other
 node.
 
 The approach has several advantages. As the `PackedScene.instance()
-<class_PackedScene_method_instance>` function is fast, you can create new
+<class_PackedScene_method_instance )` function is fast, you can create new
 enemies, bullets, effects, etc. without having to load them again from disk each
 time. Remember that, as always, images, meshes, etc. are all shared between the
 scene instances.
@@ -169,7 +169,7 @@ those values and saves the resource, the Inspector serializes the custom propert
 too! To save a resource from the Inspector, click the Inspector's tools menu (top right),
 and select "Save" or "Save As...".
 
-If the script's language supports `script classes <doc_gdscript_basics_class_name>`,
+If the script's language supports `script classes <doc_gdscript_basics_class_name )`,
 then it streamlines the process. Defining a name for your script alone will add it to
 the Inspector's creation dialog. This will auto-add your script to the Resource
 object you create.

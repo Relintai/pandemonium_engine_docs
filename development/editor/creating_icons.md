@@ -12,7 +12,7 @@ Creating icons
 ~~~~~~~~~~~~~~
 
 To create new icons, you first need a vector graphics editor installed.
-For instance, you can use the open source `Inkscape <https://inkscape.org/>`_ editor.
+For instance, you can use the open source `Inkscape ( https://inkscape.org/ )`_ editor.
 
 Clone the `godot` repository containing all the editor icons:
 
@@ -38,7 +38,7 @@ Color conversion for light editor themes
 
 If the user has configured their editor to use a light theme, Godot will
 convert the icon's colors based on a
-`set of predefined color mappings <https://github.com/godotengine/godot/blob/b9f2e57d6240346f1833fd0390de195c956299e7/editor/editor_themes.cpp#L122-L184>`.
+`set of predefined color mappings ( https://github.com/godotengine/godot/blob/b9f2e57d6240346f1833fd0390de195c956299e7/editor/editor_themes.cpp#L122-L184 )`.
 This is to ensure the icon always displays with a sufficient contrast rate.
 Try to restrict your icon's color palette to colors found in the list above.
 Otherwise, your icon may become difficult to read on a light background.
@@ -50,9 +50,9 @@ Because the editor renders SVGs once at load time, they need to be small
 in size so they can be efficiently parsed. Editor icons must be first
 optimized before being added to the engine, to do so:
 
-1. Install `svgcleaner <https://github.com/RazrFalcon/svgcleaner>`
+1. Install `svgcleaner ( https://github.com/RazrFalcon/svgcleaner )`
    by downloading a binary from its
-   `Releases tab <https://github.com/RazrFalcon/svgcleaner/releases/latest>`
+   `Releases tab ( https://github.com/RazrFalcon/svgcleaner/releases/latest )`
    and placing it into a location in your `PATH` environment variable.
 
 2. Run the command below, replacing `svg_source.svg` with the path to your
@@ -86,7 +86,7 @@ make a separate pull request for your icons to be available within the editor
 as they can be self-contained.
 
 For specific instructions on how to create module icons, refer to
-`Creating custom module icons<doc_custom_module_icons>`.
+`Creating custom module icons<doc_custom_module_icons )`.
 
 Troubleshooting
 ~~~~~~~~~~~~~~~
@@ -101,4 +101,4 @@ If icons don't appear in the editor, make sure that:
 References
 ~~~~~~~~~~
 
--  `editor/icons <https://github.com/godotengine/godot/tree/master/editor/icons>`
+-  `editor/icons ( https://github.com/godotengine/godot/tree/master/editor/icons )`

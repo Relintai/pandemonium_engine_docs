@@ -17,8 +17,8 @@ data types. If not, refer to this guide `doc_custom_modules_in_c++`.
 References
 ~~~~~~~~~~
 
-- `ResourceLoader<class_resourceloader>`
-- `core/io/resource_loader.cpp <https://github.com/godotengine/godot/blob/master/core/io/resource_loader.cpp>`_
+- `ResourceLoader<class_resourceloader )`
+- `core/io/resource_loader.cpp ( https://github.com/godotengine/godot/blob/master/core/io/resource_loader.cpp )`_
 
 What for?
 ---------
@@ -38,7 +38,7 @@ ImageFormatLoader should be used to load images.
 References
 ~~~~~~~~~~
 
-- `core/io/image_loader.h <https://github.com/godotengine/godot/blob/master/core/io/image_loader.h>`_
+- `core/io/image_loader.h ( https://github.com/godotengine/godot/blob/master/core/io/image_loader.h )`_
 
 
 Creating a ResourceFormatLoader
@@ -302,9 +302,9 @@ calls into `std::istream`.
 References
 ~~~~~~~~~~
 
-- `istream <http://www.cplusplus.com/reference/istream/istream/>`_
-- `streambuf <http://www.cplusplus.com/reference/streambuf/streambuf/?kw=streambuf>`_
-- `core/io/fileaccess.h <https://github.com/godotengine/godot/blob/master/core/os/file_access.h>`_
+- `istream ( http://www.cplusplus.com/reference/istream/istream/ )`_
+- `streambuf ( http://www.cplusplus.com/reference/streambuf/streambuf/?kw=streambuf )`_
+- `core/io/fileaccess.h ( https://github.com/godotengine/godot/blob/master/core/os/file_access.h )`_
 
 Registering the new file format
 -------------------------------
@@ -355,7 +355,7 @@ when `load` is called.
 References
 ~~~~~~~~~~
 
-- `core/io/resource_loader.cpp <https://github.com/godotengine/godot/blob/master/core/io/resource_loader.cpp>`_
+- `core/io/resource_loader.cpp ( https://github.com/godotengine/godot/blob/master/core/io/resource_loader.cpp )`_
 
 Loading it on GDScript
 ----------------------

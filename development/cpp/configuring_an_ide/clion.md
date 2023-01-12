@@ -3,15 +3,15 @@
 CLion
 =====
 
-`CLion <https://www.jetbrains.com/clion/>`_ is a commercial 
-`JetBrains <https://www.jetbrains.com/>`_ IDE for C++.
+`CLion ( https://www.jetbrains.com/clion/ )`_ is a commercial 
+`JetBrains ( https://www.jetbrains.com/ )`_ IDE for C++.
 
 Importing the project
 ---------------------
 
 CLion requires a `CMakeLists.txt` file as a project file, which is problematic
 for Godot because it uses the SCons buildsystem instead of CMake. However, 
-there is a `CMakeLists.txt` configuration for `Android Studio <doc_configuring_an_ide_android_studio>` 
+there is a `CMakeLists.txt` configuration for `Android Studio <doc_configuring_an_ide_android_studio )` 
 which can also be used by CLion.
 
 - From the CLion's welcome window choose the option to import an existing 
@@ -41,13 +41,13 @@ which can also be used by CLion.
   work once the project has finished indexing.
 
 If you run into any issues, ask for help in one of
-`Godot's community channels <https://godotengine.org/community>`.
+`Godot's community channels ( https://godotengine.org/community )`.
 
 Debugging the project
 ---------------------
 
 Since CLion does not support SCons, you won't be able to compile, launch, and debug Godot from CLion in one step.
-You will first need to `compile godot yourself <https://docs.godotengine.org/en/stable/development/compiling/index.html>` and run the binary without CLion. You will then be able to debug Godot by using the `Attach to process <https://www.jetbrains.com/help/clion/attaching-to-local-process.html>` feature.
+You will first need to `compile godot yourself ( https://docs.godotengine.org/en/stable/development/compiling/index.html )` and run the binary without CLion. You will then be able to debug Godot by using the `Attach to process ( https://www.jetbrains.com/help/clion/attaching-to-local-process.html )` feature.
 
 - Run the compilation in debug mode by entering `scons`.
 

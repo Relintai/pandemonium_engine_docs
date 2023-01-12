@@ -64,7 +64,7 @@ to 3.1+, you should go with the second approach.
 Simple approach
 ---------------
 
-The first step is to, in our custom gizmo plugin, override the `has_gizmo()<class_EditorSpatialGizmoPlugin_method_has_gizmo>`
+The first step is to, in our custom gizmo plugin, override the `has_gizmo()<class_EditorSpatialGizmoPlugin_method_has_gizmo )`
 method so that it returns `true` when the spatial parameter is of our target type.
 
 ::
@@ -78,7 +78,7 @@ method so that it returns `true` when the spatial parameter is of our target typ
 
     # ...
 
-Then we can override methods like `redraw()<class_EditorSpatialGizmoPlugin_method_redraw>`
+Then we can override methods like `redraw()<class_EditorSpatialGizmoPlugin_method_redraw )`
 or all the handle related ones.
 
 ::
@@ -113,7 +113,7 @@ or all the handle related ones.
     # ...
 
 Note that we created a material in the `_init` method, and retrieved it in the `redraw`
-method using `get_material()<class_EditorSpatialGizmoPlugin_method_get_material>`. This
+method using `get_material()<class_EditorSpatialGizmoPlugin_method_get_material )`. This
 method retrieves one of the material's variants depending on the state of the gizmo
 (selected and/or editable).
 
@@ -165,12 +165,12 @@ to get properly working handles.
 Alternative approach
 --------------------
 
-In some cases we want to provide our own implementation of `EditorSpatialGizmo<class_EditorSpatialGizmo>`,
+In some cases we want to provide our own implementation of `EditorSpatialGizmo<class_EditorSpatialGizmo )`,
 maybe because we want to have some state stored in each gizmo or because we are porting
 an old gizmo plugin and we don't want to go through the rewriting process.
 
 In these cases all we need to do is, in our new gizmo plugin, override
-`create_gizmo()<class_EditorSpatialGizmoPlugin_method_create_gizmo>`, so it returns our custom gizmo implementation
+`create_gizmo()<class_EditorSpatialGizmoPlugin_method_create_gizmo )`, so it returns our custom gizmo implementation
 for the Spatial nodes we want to target.
 
 ::
@@ -195,7 +195,7 @@ for the Spatial nodes we want to target.
             return null
 
 This way all the gizmo logic and drawing methods can be implemented in a new class extending
-`EditorSpatialGizmo<class_EditorSpatialGizmo>`, like so:
+`EditorSpatialGizmo<class_EditorSpatialGizmo )`, like so:
 
 ::
 
@@ -233,5 +233,5 @@ This way all the gizmo logic and drawing methods can be implemented in a new cla
     # (get_handle_name(), get_handle_value(), commit_handle()...).
 
 Note that we just added some handles in the redraw method, but we still need to implement
-the rest of handle-related callbacks in `EditorSpatialGizmo<class_EditorSpatialGizmo>`
+the rest of handle-related callbacks in `EditorSpatialGizmo<class_EditorSpatialGizmo )`
 to get properly working handles.

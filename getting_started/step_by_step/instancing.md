@@ -14,7 +14,7 @@ the previous lesson was an example. We call those files "Packed Scenes" as they
 pack information about your scene's content.
 
 Here's an example of a ball. It's composed of a `RigidBody2D
-<class_RigidBody2D>` node as its root named Ball, which allows the ball to fall
+<class_RigidBody2D )` node as its root named Ball, which allows the ball to fall
 and bounce on walls, a `Sprite` node, and a
 `CollisionShape2D`.
 
@@ -40,7 +40,7 @@ In practice
 
 Let's use instancing in practice to see how it works in Godot. We invite
 you to download the ball's sample project we prepared for you:
-:download:`instancing.zip <files/instancing.zip>`.
+:download:`instancing.zip <files/instancing.zip )`.
 
 Extract the archive on your computer. Then, open Godot, and in the project
 manager, click the Import button to import the project.

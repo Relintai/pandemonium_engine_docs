@@ -11,7 +11,7 @@ Finding plugins
 ~~~~~~~~~~~~~~~
 
 The preferred way to find Godot plugins is to use the
-`Asset Library <https://godotengine.org/asset-library/>`_. While it can be
+`Asset Library ( https://godotengine.org/asset-library/ )`_. While it can be
 browsed online, it's more convenient to use it directly from the editor.
 To do so, click the **AssetLib** tab at the top of the editor:
 

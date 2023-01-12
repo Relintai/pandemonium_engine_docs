@@ -9,7 +9,7 @@ Mobile rendering limitations
 
 To improve out-of-the-box performance on mobile devices, Godot automatically uses
 low-end-friendly settings by default on both Android and iOS. These are configured
-by project settings with a `.mobile` `feature tag <doc_feature_tags>` suffix.
+by project settings with a `.mobile` `feature tag <doc_feature_tags )` suffix.
 
 One of the most notable changes on mobile that will affect 3D projects is that
 lighting is done per-vertex instead of per-pixel. This improves performance a

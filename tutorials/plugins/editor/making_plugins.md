@@ -71,7 +71,7 @@ You should end up with a directory structure like this:
 The name and description help people understand what it does.
 Your name helps you get properly credited for your work.
 The version number helps others know if they have an outdated version;
-if you are unsure on how to come up with the version number, check out `Semantic Versioning <https://semver.org/>`_.
+if you are unsure on how to come up with the version number, check out `Semantic Versioning ( https://semver.org/ )`_.
 The main script file will instruct Godot what your plugin does in the editor
 once it is active.
 
@@ -130,7 +130,7 @@ custom behavior.
 
   Nodes added via an EditorPlugin are "CustomType" nodes. While they work
   with any scripting language, they have fewer features than
-  `the Script Class system <doc_gdscript_basics_class_name>`. If you
+  `the Script Class system <doc_gdscript_basics_class_name )`. If you
   are writing GDScript or NativeScript, we recommend using Script Classes instead.
 
 To create a new node type, you can use the function
@@ -227,7 +227,7 @@ gdscript GDScript
 ```
 
 Then create the script `custom_dock.gd` in the same folder. Fill it with the
-`template we've seen before <doc_making_plugins_template_code>` to get a
+`template we've seen before <doc_making_plugins_template_code )` to get a
 good start.
 
 Since we're trying to add a new custom dock, we need to create the contents of
@@ -309,7 +309,7 @@ it is a powerful way to create specialized editors without having to delve into
 C++ modules.
 
 You can make your own plugins to help yourself and share them in the
-`Asset Library <https://godotengine.org/asset-library/>`_ so that people
+`Asset Library ( https://godotengine.org/asset-library/ )`_ so that people
 can benefit from your work.
 
 .. _doc_making_plugins_autoload:
@@ -318,7 +318,7 @@ Registering autoloads/singletons in plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is possible for editor plugins to automatically register
-`autoloads <doc_singletons_autoload>` when the plugin is enabled.
+`autoloads <doc_singletons_autoload )` when the plugin is enabled.
 This also includes unregistering the autoload when the plugin is disabled.
 
 This makes setting up plugins faster for users, as they no longer have to manually

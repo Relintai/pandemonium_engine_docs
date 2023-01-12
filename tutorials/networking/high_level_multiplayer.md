@@ -35,8 +35,8 @@ In summary, you can use the low-level networking API for maximum control and imp
           https://gafferongames.com/post/udp_vs_tcp/
 
           Gaffer On Games has a lot of useful articles about networking in Games
-          (`here <https://gafferongames.com/categories/game-networking/>`), including the comprehensive
-          `introduction to networking models in games <https://gafferongames.com/post/what_every_programmer_needs_to_know_about_game_networking/>`.
+          (`here ( https://gafferongames.com/categories/game-networking/ )`), including the comprehensive
+          `introduction to networking models in games ( https://gafferongames.com/post/what_every_programmer_needs_to_know_about_game_networking/ )`.
 
           If you want to use your low-level networking library of choice instead of Godot's built-in networking,
           see here for an example:
@@ -262,7 +262,7 @@ If `sync` is included, the call can also be made locally. For example, to allow 
 
 .. tip:: You can also use `SceneTree.get_rpc_sender_id()` to have more advanced rules on how an rpc can be called.
 
-These keywords are further explained in `Synchronizing the game <doc_high_level_multiplayer_synchronizing>`.
+These keywords are further explained in `Synchronizing the game <doc_high_level_multiplayer_synchronizing )`.
 
 With this, lobby management should be more or less explained. Once you have your game going, you will most likely want to add some
 extra security to make sure clients don't do anything funny (just validate the info they send from time to time, or before
@@ -394,7 +394,7 @@ If you have paid attention to the previous example, it's possible you noticed th
 Each time this piece of code is executed on each peer, the peer makes itself master on the node it controls, and all other nodes remain as puppets with the server being their network master.
 
 To clarify, here is an example of how this looks in the
-`bomber demo <https://github.com/godotengine/godot-demo-projects/tree/master/networking/multiplayer_bomber>`_:
+`bomber demo ( https://github.com/godotengine/godot-demo-projects/tree/master/networking/multiplayer_bomber )`_:
 
 ![](img/nmms.png)
 

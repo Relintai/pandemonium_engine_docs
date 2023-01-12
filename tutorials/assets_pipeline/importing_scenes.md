@@ -31,7 +31,7 @@ Exporting DAE files from Maya and 3DS Max
 Autodesk added built-in COLLADA support to Maya and 3DS Max, but it's
 broken by default and should not be used. The best way to export this format
 is by using the
-`OpenCollada <https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools>`
+`OpenCollada ( https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools )`
 plugins. They work well, although they are not always up-to date
 with the latest version of the software.
 
@@ -75,7 +75,7 @@ Exporting DAE files from Blender
 Blender has built-in COLLADA support, but it does not work properly for the needs of game engines
 and should not be used as is.
 
-Godot provides a `Blender plugin <https://github.com/godotengine/collada-exporter>`_
+Godot provides a `Blender plugin ( https://github.com/godotengine/collada-exporter )`_
 that will correctly export COLLADA scenes for use in Godot. It does not work in Blender 2.8 or
 newer, but there are plans to update it in the future.
 
@@ -83,12 +83,12 @@ Exporting ESCN files from Blender
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The most powerful one, called `godot-blender-exporter
-<https://github.com/godotengine/godot-blender-exporter>`.
+( https://github.com/godotengine/godot-blender-exporter )`.
 It uses a .escn file, which is kind of another name for a .tscn file (Godot scene file);
 it keeps as much information as possible from a Blender scene. However, it is considered
 experimental.
 
-The ESCN exporter has a detailed `document <escn_exporter/index.html>` describing
+The ESCN exporter has a detailed `document <escn_exporter/index.html )` describing
 its functionality and usage.
 
 Exporting textures separately
@@ -96,8 +96,8 @@ Exporting textures separately
 
 While textures can be exported with a model in certain file formats, such as glTF 2.0, you can also export them
 separately. Godot uses PBR (physically based rendering) for its materials, so if a texturing program can export PBR
-textures, they can work in Godot. This includes the `Substance suite <https://www.substance3d.com/>`,
-`ArmorPaint (open source) <https://armorpaint.org/>`, and `Material Maker (open source) <https://github.com/RodZill4/material-maker>`.
+textures, they can work in Godot. This includes the `Substance suite ( https://www.substance3d.com/ )`,
+`ArmorPaint (open source) ( https://armorpaint.org/ )`, and `Material Maker (open source) ( https://github.com/RodZill4/material-maker )`.
 
 .. note:: For more information on Godot's materials, see `doc_spatial_material`.
 
@@ -266,7 +266,7 @@ Ensure Tangents
 
 If textures with normal mapping are to be used, meshes need to have tangent arrays.
 This option ensures that these are generated if not present in the source scene.
-Godot uses `Mikktspace <http://www.mikktspace.com/>` for this,
+Godot uses `Mikktspace ( http://www.mikktspace.com/ )` for this,
 but it's always better to have them generated in the exporter.
 
 Storage

@@ -10,7 +10,7 @@ Y or Z? This article covers a variety of topics related to these dilemmas.
 
   This article makes references to "[something]-time" operations. This
   terminology comes from algorithm analysis'
-  `Big O Notation <https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/>`_.
+  `Big O Notation ( https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/ )`_.
 
   Long-story short, it describes the worst-case scenario of runtime length.
   In laymen's terms:
@@ -40,12 +40,12 @@ Array vs. Dictionary vs. Object
 -------------------------------
 
 Godot stores all variables in the scripting API in the
-`Variant <https://docs.godotengine.org/en/latest/development/cpp/variant_class.html>`_
+`Variant ( https://docs.godotengine.org/en/latest/development/cpp/variant_class.html )`_
 class. Variants can store Variant-compatible data structures such as
 `Array` as well as
 `Object` s.
 
-Godot implements Array as a `Vector<Variant>`. The engine stores the Array
+Godot implements Array as a `Vector<Variant )`. The engine stores the Array
 contents in a contiguous section of memory, i.e. they are in a row adjacent
 to each other.
 
@@ -55,7 +55,7 @@ to each other.
   type, meaning that its records can only contain a particular type (denoted
   by angled brackets). So, for example, a
   `PoolStringArray` would be something like
-  a `Vector<String>`.
+  a `Vector<String )`.
 
 Contiguous memory stores imply the following operation performance:
 
@@ -102,7 +102,7 @@ Contiguous memory stores imply the following operation performance:
       though. Done by re-sorting the Array after every edit and writing an
       ordered-aware search algorithm.
 
-Godot implements Dictionary as an `OrderedHashMap<Variant, Variant>`. The engine
+Godot implements Dictionary as an `OrderedHashMap<Variant, Variant )`. The engine
 stores a small array (initialized to 2^3 or 8 records) of key-value pairs. When
 one attempts to access a value, they provide it a key. It then *hashes* the
 key, i.e. converts it into a number. The "hash" is used to calculate the index
@@ -334,4 +334,4 @@ for blending, i.e. enabling smooth transitions between these animations. There
 may also be a hierarchical structure between animations that one plans out for
 their object. These are the cases where the `AnimationTree`
 shines. One can find an in-depth guide on using the AnimationTree
-`here <doc_animation_tree>`.
+`here <doc_animation_tree )`.

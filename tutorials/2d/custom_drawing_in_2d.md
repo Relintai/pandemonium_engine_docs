@@ -308,14 +308,14 @@ Let's run again! This time, the rotation displays fine!
 Antialiased drawing
 ^^^^^^^^^^^^^^^^^^^
 
-Godot offers method parameters in `draw_line<class_CanvasItem_method_draw_line>`
+Godot offers method parameters in `draw_line<class_CanvasItem_method_draw_line )`
 to enable antialiasing, but it doesn't work reliably in all situations
 (for instance, on mobile/web platforms, or when HDR is enabled).
 There is also no `antialiased` parameter available in
-`draw_polygon<class_CanvasItem_method_draw_polygon>`.
+`draw_polygon<class_CanvasItem_method_draw_polygon )`.
 
 As a workaround, install and use the
-`Antialiased Line2D add-on <https://github.com/godot-extended-libraries/godot-antialiased-line2d>`
+`Antialiased Line2D add-on ( https://github.com/godot-extended-libraries/godot-antialiased-line2d )`
 (which also supports antialiased Polygon2D drawing). Note that this add-on relies
 on high-level nodes, rather than low-level `_draw()` functions.
 

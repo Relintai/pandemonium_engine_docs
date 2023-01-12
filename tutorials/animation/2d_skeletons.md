@@ -36,13 +36,13 @@ Setup
    animating within Godot.
 
 For this tutorial, we will be using a single image to construct our character.
-Download it from :download:`gBot_pieces.png) <img/gBot_pieces.png)>` or save the
+Download it from :download:`gBot_pieces.png) <img/gBot_pieces.png) )` or save the
 image below.
 
 ![](img/gBot_pieces.png)
 
 It is also advised to download the final character image
-:download:`gBot_complete.png) <img/gBot_complete.png)>` to have a good reference
+:download:`gBot_complete.png) <img/gBot_complete.png) )` to have a good reference
 for putting the different pieces together.
 
 ![](img/gBot_complete.png)

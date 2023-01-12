@@ -7,7 +7,7 @@ Introduction
 ------------
 
 `Gridmaps` are a tool for creating 3D
-game levels, similar to the way `TileMap <doc_using_tilemaps>`
+game levels, similar to the way `TileMap <doc_using_tilemaps )`
 works in 2D. You start with a predefined collection of 3D meshes (a
 `MeshLibrary`) that can be placed on a grid,
 as if you were building a level with an unlimited amount of Lego blocks.
@@ -19,7 +19,7 @@ Example project
 ---------------
 
 To learn how GridMaps work, start by downloading the sample project:
-:download:`gridmap_demo.zip <files/gridmap_demo.zip>`.
+:download:`gridmap_demo.zip <files/gridmap_demo.zip )`.
 
 Unzip this project and add it to the Project Manager using the "Import"
 button.

@@ -22,14 +22,14 @@ Requirements
 
 .. warning::
 
-    Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the `Running Godot apps on macOS <doc_running_on_macos>` page for more information.
+    Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the `Running Godot apps on macOS <doc_running_on_macos )` page for more information.
 
 Code signing and notarization
 -----------------------------
 
-By default, macOS will run only applications that are signed and notarized. If you use any other signing configuration, see `Running Godot apps on macOS <doc_running_on_macos>` for workarounds.
+By default, macOS will run only applications that are signed and notarized. If you use any other signing configuration, see `Running Godot apps on macOS <doc_running_on_macos )` for workarounds.
 
-To notarize an app, you **must** have a valid `Apple Developer ID Certificate <https://developer.apple.com/>`.
+To notarize an app, you **must** have a valid `Apple Developer ID Certificate ( https://developer.apple.com/ )`.
 
 If you have an Apple Developer ID Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,15 +42,15 @@ If `Notarization` is enabled, Godot will automatically upload the exported proje
 
 You can use the `xcrun notarytool history` command to check notarization status and use the `xcrun notarytool log {ID}` command to download the notarization log.
 
-If you encounter notarization issues, see `Resolving common notarization issues <https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/resolving_common_notarization_issues>` for more info.
+If you encounter notarization issues, see `Resolving common notarization issues ( https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/resolving_common_notarization_issues )` for more info.
 
-After notarization is completed, `staple the ticket <https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/customizing_the_notarization_workflow>` to the exported project.
+After notarization is completed, `staple the ticket ( https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/customizing_the_notarization_workflow )` to the exported project.
 
 If you do not have an Apple Developer ID Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Keep `Code Signing` enabled and leave the `Identity` option empty (when exporting from a computer running macOS, on other platforms this option is hidden).
-In this case Godot will use a ad-hoc signature, which will make running an exported app easier for the end users, see the `Running Godot apps on macOS <doc_running_on_macos>` page for more information.
+In this case Godot will use a ad-hoc signature, which will make running an exported app easier for the end users, see the `Running Godot apps on macOS <doc_running_on_macos )` page for more information.
 
 Signing Options
 ~~~~~~~~~~~~~~~
@@ -88,12 +88,12 @@ Notarization Options
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Apple ID Name      | Apple ID account name (email address)                                                                                                                                        |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Apple ID Password  | Apple ID app-specific password. See `Using app-specific passwords <https://support.apple.com/en-us/HT204397>` to enable two-factor authentication and create app password. |
+| Apple ID Password  | Apple ID app-specific password. See `Using app-specific passwords ( https://support.apple.com/en-us/HT204397 )` to enable two-factor authentication and create app password. |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Apple Team ID      | Team ID, if your Apple ID belongs to multiple teams                                                                                                                          |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-See `Notarizing macOS Software Before Distribution <https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution?language=objc>` for more info.
+See `Notarizing macOS Software Before Distribution ( https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution?language=objc )` for more info.
 
 .. note::
 
@@ -106,7 +106,7 @@ Hardened Runtime Entitlements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Hardened Runtime entitlements manage security options and resource access policy.
-See `Hardened Runtime <https://developer.apple.com/documentation/security/hardened_runtime?language=objc>` for more info.
+See `Hardened Runtime ( https://developer.apple.com/documentation/security/hardened_runtime?language=objc )` for more info.
 
 +---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Entitlement                           | Description                                                                                                                                                                                      |
@@ -145,7 +145,7 @@ App Sandbox Entitlement
 
 The App Sandbox restricts access to user data, networking and devices.
 Sandboxed apps can't access most of the file system, can't use custom file dialogs and execute binaries (using `OS.execute` and `OS.create_process`) outside the `.app` bundle.
-See `App Sandbox <https://developer.apple.com/documentation/security/app_sandbox?language=objc>` for more info.
+See `App Sandbox ( https://developer.apple.com/documentation/security/app_sandbox?language=objc )` for more info.
 
 .. note::
 

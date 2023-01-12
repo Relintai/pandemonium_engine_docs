@@ -8,7 +8,7 @@ and gives practical advice on how to migrate shaders from other sources, such as
 Shadertoy and The Book of Shaders, into Godot shaders.
 
 For detailed information on Godot's shading language, please refer to the
-`Shading Language <doc_shading_language>` reference.
+`Shading Language <doc_shading_language )` reference.
 
 GLSL
 ----
@@ -36,7 +36,7 @@ In GLSL, you can pass in per-vertex information using attributes and have the
 flexibility to pass in as much or as little as you want. In Godot, you have a
 set number of input attributes, including `VERTEX` (position), `COLOR`,
 `UV`, `UV2`, `NORMAL`. For a complete list, see the `Shading language
-reference <doc_shading_language>`.
+reference <doc_shading_language )`.
 
 gl_Position
 ^^^^^^^^^^^
@@ -126,15 +126,15 @@ In GLSL, you can define the precision of a given type (float or int) at the top
 of the shader with the `precision` keyword. In Godot, you can set the
 precision of individual variables as you need by placing precision qualifiers
 `lowp`, `mediump`, and `highp` before the type when defining the variable.
-For more information, see the `Shading Language <doc_shading_language>`
+For more information, see the `Shading Language <doc_shading_language )`
 reference.
 
 Shadertoy
 ---------
 
-`Shadertoy <https://www.shadertoy.com/results?query=&sort=popular&from=10&num=4>`_
+`Shadertoy ( https://www.shadertoy.com/results?query=&sort=popular&from=10&num=4 )`_
 is a website that makes it easy to write fragment shaders and
-create `pure magic <https://www.shadertoy.com/view/4tjGRh>`_.
+create `pure magic ( https://www.shadertoy.com/view/4tjGRh )`_.
 
 Shadertoy does not give the user full control over the shader. It handles all
 the input and uniforms and only lets the user write the fragment shader.
@@ -197,19 +197,19 @@ Coordinates
 ^^^^^^^^^^^
 
 `fragCoord` behaves the same as `gl_FragCoord` in `GLSL
-<glsl_coordinates>` and `FRAGCOORD` in Godot.
+<glsl_coordinates )` and `FRAGCOORD` in Godot.
 
 
 The Book of Shaders
 -------------------
 
-Similar to Shadertoy, `The Book of Shaders <https://thebookofshaders.com>`_
+Similar to Shadertoy, `The Book of Shaders ( https://thebookofshaders.com )`_
 provides access to a fragment shader in the web browser, with which the user may
 interact. The user is restricted to writing fragment shader code with a set list
 of uniforms passed in and with no ability to add additional uniforms.
 
 For further help on porting shaders to various frameworks generally, The Book of
-Shaders provides a `page <https://thebookofshaders.com/04>`_ on running shaders
+Shaders provides a `page ( https://thebookofshaders.com/04 )`_ on running shaders
 in various frameworks.
 
 Types
@@ -250,4 +250,4 @@ Coordinates
 ^^^^^^^^^^^
 
 The Book of Shaders uses the same coordinate system as
-`GLSL <glsl_coordinates>`.
+`GLSL <glsl_coordinates )`.

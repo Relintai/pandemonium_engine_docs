@@ -14,7 +14,7 @@ C++ and Objective-C
 -------------------
 
 There are no written guidelines, but the code style agreed upon by the
-developers is enforced via the `clang-format <http://clang.llvm.org/docs/ClangFormat.html>`
+developers is enforced via the `clang-format ( http://clang.llvm.org/docs/ClangFormat.html )`
 code beautifier, which takes care for you of all our conventions.
 To name a few:
 
@@ -25,7 +25,7 @@ To name a few:
 - See further down regarding header includes
 
 The rules used by clang-format are outlined in the
-`.clang-format <https://github.com/godotengine/godot/blob/master/.clang-format>`
+`.clang-format ( https://github.com/godotengine/godot/blob/master/.clang-format )`
 file of the Godot repository.
 
 As long as you ensure that your style matches the surrounding code and that you
@@ -68,10 +68,10 @@ Here's how to install clang-format:
 - Linux: It will usually be available out-of-the-box with the clang toolchain
   packaged by your distribution. If your distro version is not the required one,
   you can download a pre-compiled version from the
-  `LLVM website <http://releases.llvm.org/download.html>`, or if you are on
-  a Debian derivative, use the `upstream repos <http://apt.llvm.org/>`.
+  `LLVM website ( http://releases.llvm.org/download.html )`, or if you are on
+  a Debian derivative, use the `upstream repos ( http://apt.llvm.org/ )`.
 - macOS and Windows: You can download precompiled binaries from the
-  `LLVM website <http://releases.llvm.org/download.html>`. You may need to add
+  `LLVM website ( http://releases.llvm.org/download.html )`. You may need to add
   the path to the binary's folder to your system's `PATH` environment
   variable to be able to call `clang-format` out of the box.
 
@@ -117,12 +117,12 @@ clang-format automatically, for example each time you save a file.
 
 Here is a non-exhaustive list of beautifier plugins for some IDEs:
 
-- Qt Creator: `Beautifier plugin <http://doc.qt.io/qtcreator/creator-beautifier.html>`
-- Visual Studio Code: `Clang-Format <https://marketplace.visualstudio.com/items?itemName=xaver.clang-format>`
-- Visual Studio: `ClangFormat <https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.ClangFormat>`
-- vim: `vim-clang-format <https://github.com/rhysd/vim-clang-format>`
+- Qt Creator: `Beautifier plugin ( http://doc.qt.io/qtcreator/creator-beautifier.html )`
+- Visual Studio Code: `Clang-Format ( https://marketplace.visualstudio.com/items?itemName=xaver.clang-format )`
+- Visual Studio: `ClangFormat ( https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.ClangFormat )`
+- vim: `vim-clang-format ( https://github.com/rhysd/vim-clang-format )`
 - CLion: Starting from version `2019.1`, no plugin is required. Instead, enable
-  `ClangFormat <https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html#clion-support>`
+  `ClangFormat ( https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html#clion-support )`
 
 (Pull requests welcome to extend this list with tested plugins.)
 
@@ -149,7 +149,7 @@ ones, the following rules should be followed:
   separation.
 - Finally, third-party headers (either from `thirdparty` or from the system's
   include paths) come next and should be included with the < and > symbols, e.g.
-  `#include <png.h>`. The block of third-party headers should also be followed
+  `#include <png.h )`. The block of third-party headers should also be followed
   by an empty line for separation.
 - Godot and third-party headers should be included in the file that requires
   them, i.e. in the `.h` header if used in the declarative code or in the `.cpp`
@@ -256,8 +256,8 @@ Python
 Godot's SCons buildsystem is written in Python, and various scripts included
 in the source tree are also using Python.
 
-For those, we follow the `Black style guide <https://github.com/psf/black#the-black-code-style>`.
-Blacken your Python changes using `Black <https://pypi.org/project/black/>`.
+For those, we follow the `Black style guide ( https://github.com/psf/black#the-black-code-style )`.
+Blacken your Python changes using `Black ( https://pypi.org/project/black/ )`.
 
 Using black locally
 ~~~~~~~~~~~~~~~~~~~
@@ -308,7 +308,7 @@ Editor integration
 
 Many IDEs or code editors have beautifier plugins that can be configured to run
 black automatically, for example each time you save a file. For details you can
-check `Black editor integration <https://github.com/psf/black#editor-integration>`.
+check `Black editor integration ( https://github.com/psf/black#editor-integration )`.
 
 Comment style guide
 -------------------
@@ -344,7 +344,7 @@ Don't repeat what the code says in a comment. Explain the *why* rather than *how
 You can use Javadoc-style comments above function or macro definitions. It's
 recommended to use Javadoc-style comments *only* for methods which are not
 exposed to scripting. This is because exposed methods should be documented in
-the `class reference XML <doc_updating_the_class_reference>`
+the `class reference XML <doc_updating_the_class_reference )`
 instead.
 
 **Example:**

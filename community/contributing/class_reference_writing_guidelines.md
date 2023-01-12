@@ -15,8 +15,7 @@ See also:
 
 The reference for each class is contained in an XML file like the one below:
 
-.. code-block:: xml
-
+```
     <class name="Node2D" inherits="CanvasItem" version="4.0">
         <brief_description>
             A 2D game object, inherited by all 2D-related nodes. Has a position, rotation, scale, and Z index.
@@ -61,7 +60,7 @@ The reference for each class is contained in an XML file like the one below:
         <constants>
         </constants>
     </class>
-
+```
 
 It starts with brief and long descriptions. In the generated docs, the brief
 description is always at the top of the page, while the long description lies
@@ -71,14 +70,14 @@ member variables, constants, and signals in separate XML nodes.
 For each, you want to learn how they work in Godot's source code. Then, fill
 their documentation by completing or improving the text in these tags:
 
-- `<brief_description )`
-- `<description )`
-- `<constant )`
-- `<method )` (in its `<description )` tag; return types and arguments don't take separate
+- `<brief_description>`
+- `<description>`
+- `<constant>`
+- `<method>` (in its `<description>` tag; return types and arguments don't take separate
   documentation strings)
-- `<member )`
-- `<signal )` (in its `<description )` tag; arguments don't take separate documentation strings)
-- `<constant )`
+- `<member>`
+- `<signal>` (in its `<description>` tag; arguments don't take separate documentation strings)
+- `<constant>`
 
 Write in a clear and simple language. Always follow the `writing guidelines
 ( doc_docs_writing_guidelines )` to keep your descriptions short and easy to read.
@@ -110,7 +109,7 @@ errors if anything's wrong.
 
 Alternatively, you can build Godot and open the modified page in the built-in
 code reference. To learn how to compile the engine, read the `compilation
-guide <toc-devel-compiling )`.
+guide ( toc-devel-compiling )`.
 
 We recommend using a code editor that supports XML files like Vim, Atom, Visual Studio Code,
 Notepad++, or another to comfortably edit the file. You can also use their
@@ -162,21 +161,21 @@ Use `[codeblock]` for pre-formatted code blocks. Inside `[codeblock]`,
 always use **four spaces** for indentation. The parser will delete tabs. For
 example:
 
-.. code-block:: none
-
+```
     [codeblock]
     func _ready():
         var sprite = get_node("Sprite")
         print(sprite.get_pos())
     [/codeblock]
+```
 
 Will display as:
 
-.. code-block:: gdscript
-
+```
     func _ready():
         var sprite = get_node("Sprite")
         print(sprite.get_pos())
+```
 
 If you need to have different code version in GDScript and C#, use
 `[codeblocks]` instead. If you use `[codeblocks]`, you also need to have at
@@ -186,8 +185,7 @@ Always write GDScript code examples first! You can use this `experimental code
 translation tool ( https://github.com/HaSa1002/codetranslator )` to speed up your
 workflow.
 
-.. code-block:: none
-
+```
     [codeblocks]
     [gdscript]
     func _ready():
@@ -202,6 +200,7 @@ workflow.
     }
     [/csharp]
     [/codeblocks]
+```
 
 The above will display as:
 
@@ -215,24 +214,24 @@ gdscript GDScript
 To denote important information, add a paragraph starting with "[b]Note:[/b]" at
 the end of the description:
 
-.. code-block:: none
-
+```
     [b]Note:[/b] Only available when using the Vulkan renderer.
+```
 
 To denote crucial information that could cause security issues or loss of data
 if not followed carefully, add a paragraph starting with "[b]Warning:[/b]" at
 the end of the description:
 
-.. code-block:: none
-
+```
     [b]Warning:[/b] If this property is set to [code]true[/code], it allows clients to execute arbitrary code on the server.
+```
 
 For deprecated properties, add a paragraph starting with "[i]Deprecated.[/i]".
 Notice the use of italics instead of bold:
 
-.. code-block:: none
-
+```
     [i]Deprecated.[/i] This property has been replaced by [member other_property].
+```
 
 In all the paragraphs described above, make sure the punctuation is part of the
 BBCode tags for consistency.

@@ -48,24 +48,30 @@ Prompts, since it comes with these tools and they can be located in the path.
 You can get more detailed instructions from `Microsoft's documentation
 ( https://msdn.microsoft.com/en-us/library/windows/desktop/jj835832(v=vs.85).aspx )`.
 
-First, run `MakeCert` to create a private key::
+First, run `MakeCert` to create a private key:
 
+```
     MakeCert /n publisherName /r /h 0 /eku "1.3.6.1.5.5.7.3.3,1.3.6.1.4.1.311.10.3.13" /e expirationDate /sv MyKey.pvk MyKey.cer
+```
 
 Where `publisherName` matches the Publisher Name of your package and
 `expirationDate` is in the `mm/dd/yyyy` format.
 
-Next, create a Personal Information Exchange (.pfx) file using `Pvk2Pfx.exe`::
+Next, create a Personal Information Exchange (.pfx) file using `Pvk2Pfx.exe`:
 
+```
     Pvk2Pfx /pvk MyKey.pvk /pi pvkPassword /spc MyKey.cer /pfx MyKey.pfx [/po pfxPassword]
+```
 
 If you don't specify a password with `/po` argument, the PFX will have the
 same password as the private key.
 
 You will also need to trust this certificate in order to be able to install your
-app. Open the Command Prompt as Administrator and run the following command::
+app. Open the Command Prompt as Administrator and run the following command:
 
+```
     Certutil -addStore TrustedPeople MyKey.cer
+```
 
 Setting up automatic signing
 ----------------------------

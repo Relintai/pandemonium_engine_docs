@@ -174,8 +174,7 @@ with the geometry etc.
 
 Create a script like this:
 
-::
-
+```
     tool # Needed so it runs in the editor.
     extends EditorScenePostImport
 
@@ -183,6 +182,7 @@ Create a script like this:
     func post_import(scene):
         # Do your stuff here.
         return scene # remember to return the imported scene
+```
 
 The `post_import` function takes the imported scene as argument (the
 parameter is actually the root node of the scene). The scene that
@@ -339,15 +339,19 @@ hood).
 
 The script must start with an animation filter statement (as denoted by the line beginning with an
 `@`). For example, if we would like to apply filters to all imported animations which have a name
-ending in `"_Loop"`::
+ending in `"_Loop"`:
 
+```
     @+*_Loop
+```
 
 Similarly, additional patterns can be added to the same line, separated by commas. Here is a
 modified example to additionally *include* all animations with names that begin with `"Arm_Left"`,
-but also *exclude* all animations which have names ending in `"Attack"`::
+but also *exclude* all animations which have names ending in `"Attack"`:
 
+```
     @+*_Loop, +Arm_Left*, -*Attack
+```
 
 Following the animation selection filter statement, we add track filtering patterns to indicate
 which animation tracks should be kept or discarded. If no track filter patterns are specified, then
@@ -360,12 +364,14 @@ further down in the filter script.
 
 For example: include all tracks in animations with names ending in `"_Loop"`, but discard any
 tracks affecting a `"Skeleton"` which end in `"Control"`, unless they have `"Arm"` in their
-name::
+name:
 
+```
     @+*_Loop
     +*
     -Skeleton:*Control
     +*Arm*
+```
 
 In the above example, tracks like `"Skeleton:Leg_Control"` would be discarded, while tracks such
 as `"Skeleton:Head"` or `"Skeleton:Arm_Left_Control"` would be retained.

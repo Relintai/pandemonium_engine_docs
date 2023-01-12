@@ -85,9 +85,9 @@ Manual usage
 You can apply clang-format manually one or more files with the following
 command:
 
-::
-
+```
     clang-format -i <path/to/file(s)>
+```
 
 - `-i` means that the changes should be written directly to the file (by
   default clang-format would only output the fixed version to the terminal).
@@ -159,8 +159,7 @@ ones, the following rules should be followed:
 
 Example:
 
-.. code-block:: cpp
-
+```
     /*************************************************************************/
     /*  my_new_file.h                                                        */
     /*************************************************************************/
@@ -203,9 +202,9 @@ Example:
     ...
 
     #endif // MY_NEW_FILE_H
+```
 
-.. code-block:: cpp
-
+```
     /*************************************************************************/
     /*  my_new_file.cpp                                                      */
     /*************************************************************************/
@@ -243,6 +242,7 @@ Example:
 
     #include <zlib.h>
     #include <zstd.h>
+```
 
 Java
 ----
@@ -272,10 +272,9 @@ Installation
 
 Here's how to install black:
 
-::
-
+```
     pip3 install black --user
-
+```
 
 You then have different possibilities to apply black to your changes:
 
@@ -285,9 +284,9 @@ Manual usage
 You can apply `black` manually to one or more files with the following
 command:
 
-::
-
+```
     black -l 120 <path/to/file(s)>
+```
 
 - `-l 120` means that the allowed number of characters per line is 120.
   This number was agreed upon by the developers.
@@ -328,20 +327,20 @@ Godot's codebase.
 
 **Example:**
 
-.. code-block:: cpp
-
+```
     // Compute the first 10,000 decimals of Pi.
     // FIXME: Don't crash when computing the 1,337th decimal due to `increment`
     //        being negative.
+```
 
 Don't repeat what the code says in a comment. Explain the *why* rather than *how*.
 
 **Bad:**
 
-.. code-block:: cpp
-
+```
     // Draw loading screen.
     draw_load_screen();
+```
 
 You can use Javadoc-style comments above function or macro definitions. It's
 recommended to use Javadoc-style comments *only* for methods which are not
@@ -351,8 +350,7 @@ instead.
 
 **Example:**
 
-.. code-block:: cpp
-
+```
     /**
      * Returns the number of nodes in the universe.
      * This can potentially be a very large number, hence the 64-bit return type.
@@ -360,14 +358,15 @@ instead.
     uint64_t Universe::get_node_count() {
         // ...
     }
+```
 
 For member variables, don't use Javadoc-style comments but use single-line comments instead:
 
-.. code-block:: cpp
-
+```
     class Universe {
         // The cached number of nodes in the universe.
         // This value may not always be up-to-date with the current number of nodes
         // in the universe.
         uint64_t node_count_cached = 0;
     };
+```

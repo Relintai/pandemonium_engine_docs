@@ -41,60 +41,60 @@ See also:
 Distro-specific one-liners
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **Alpine Linux** | ::                                                                                                        |
+| **Alpine Linux** |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     apk add scons pkgconf gcc g++ libx11-dev libxcursor-dev libxinerama-dev libxi-dev libxrandr-dev \     |
 |                  |         mesa-dev libexecinfo-dev eudev-dev alsa-lib-dev pulseaudio-dev                                    |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **Arch Linux**   | ::                                                                                                        |
+| **Arch Linux**   |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     pacman -S --needed scons pkgconf gcc libxcursor libxinerama libxi libxrandr mesa glu libglvnd \       |
 |                  |         alsa-lib pulseaudio yasm                                                                          |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **Debian** /     | ::                                                                                                        |
+| **Debian** /     |                                                                                                         |
 | **Ubuntu**       |                                                                                                           |
 |                  |     sudo apt-get install build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev \     |
 |                  |         libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm   |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **Fedora**       | ::                                                                                                        |
+| **Fedora**       |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     sudo dnf install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \    |
 |                  |         libXi-devel mesa-libGL-devel mesa-libGLU-devel alsa-lib-devel pulseaudio-libs-devel \             |
 |                  |         libudev-devel yasm gcc-c++ libstdc++-static libatomic-static                                      |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **FreeBSD**      | ::                                                                                                        |
+| **FreeBSD**      |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     sudo pkg install py37-scons pkgconf xorg-libraries libXcursor libXrandr libXi xorgproto libGLU \      |
 |                  |         alsa-lib pulseaudio yasm                                                                          |
 |                  |                                                                                                           |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **Gentoo**       | ::                                                                                                        |
+| **Gentoo**       |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     emerge -an dev-util/scons x11-libs/libX11 x11-libs/libXcursor x11-libs/libXinerama x11-libs/libXi \   |
 |                  |         media-libs/mesa media-libs/glu media-libs/alsa-lib media-sound/pulseaudio dev-lang/yasm           |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **Mageia**       | ::                                                                                                        |
+| **Mageia**       |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     urpmi scons task-c++-devel pkgconfig "pkgconfig(alsa)" "pkgconfig(glu)" "pkgconfig(libpulse)" \       |
 |                  |         "pkgconfig(udev)" "pkgconfig(x11)" "pkgconfig(xcursor)" "pkgconfig(xinerama)" "pkgconfig(xi)" \   |
 |                  |         "pkgconfig(xrandr)" yasm                                                                          |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **OpenBSD**      | ::                                                                                                        |
+| **OpenBSD**      |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     pkg_add python scons llvm yasm                                                                        |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **openSUSE**     | ::                                                                                                        |
+| **openSUSE**     |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     sudo zypper install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \ |
 |                  |             libXi-devel Mesa-libGL-devel alsa-devel libpulse-devel libudev-devel libGLU1 yasm             |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **NetBSD**       | ::                                                                                                        |
+| **NetBSD**       |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     pkg_add pkg-config py37-scons yasm                                                                    |
 |                  |                                                                                                           |
 |                  | For audio support, you can optionally install `pulseaudio`.                                             |
 +------------------+-----------------------------------------------------------------------------------------------------------+
-| **Solus**        | ::                                                                                                        |
+| **Solus**        |                                                                                                         |
 |                  |                                                                                                           |
 |                  |     sudo eopkg install -c system.devel scons libxcursor-devel libxinerama-devel libxi-devel \             |
 |                  |         libxrandr-devel mesalib-devel libglu alsa-lib-devel pulseaudio-devel yasm                         |
@@ -105,9 +105,9 @@ Compiling
 
 Start a terminal, go to the root dir of the engine source code and type:
 
-::
-
+```
     scons -j8 platform=x11
+```
 
 A good rule of thumb for the `-j` (*jobs*) flag, is to have at least as many
 threads compiling Godot as you have cores in your CPU, if not one or two more.
@@ -123,9 +123,9 @@ Note:
 
     If you wish to compile using Clang rather than GCC, use this command:
 
-    ::
-
+```
         scons platform=x11 use_llvm=yes
+```
 
     Using Clang appears to be a requirement for OpenBSD, otherwise fonts
     would not build.
@@ -150,19 +150,25 @@ Compiling a headless/server build
 ---------------------------------
 
 To compile a *headless* build which provides editor functionality to export
-projects in an automated manner, use::
+projects in an automated manner, use:
 
+```
     scons -j8 platform=server tools=yes target=release_debug
+```
 
 To compile a debug *server* build which can be used with
-`remote debugging tools ( doc_command_line_tutorial )`, use::
+`remote debugging tools ( doc_command_line_tutorial )`, use:
 
+```
     scons -j8 platform=server tools=no target=release_debug
+```
 
 To compile a *server* build which is optimized to run dedicated game servers,
-use::
+use:
 
+```
     scons -j8 platform=server tools=no target=release
+```
 
 Building export templates
 -------------------------
@@ -181,35 +187,35 @@ following parameters:
 
 -  (32 bits)
 
-::
-
+```
     scons platform=x11 tools=no target=release bits=32
     scons platform=x11 tools=no target=release_debug bits=32
+```
 
 -  (64 bits)
 
-::
-
+```
     scons platform=x11 tools=no target=release bits=64
     scons platform=x11 tools=no target=release_debug bits=64
+```
 
 Note that cross-compiling for the opposite bits (64/32) as your host
 platform is not always straight-forward and might need a chroot environment.
 
 To create standard export templates, the resulting files must be copied to:
 
-::
-
+```
     $HOME/.local/share/godot/templates/[gd-version]/
+```
 
 and named like this (even for \*BSD which is seen as "Linux X11" by Godot):
 
-::
-
+```
     linux_x11_32_debug
     linux_x11_32_release
     linux_x11_64_debug
     linux_x11_64_release
+```
 
 However, if you are writing your custom modules or custom C++ code, you
 might instead want to configure your binaries as custom export templates
@@ -232,9 +238,11 @@ the default GCC + GNU ld setup:
 - Clang tends to give more useful error messages compared to GCC.
 
 To do so, install Clang and the `lld` package from your distribution's package manager
-then use the following SCons command::
+then use the following SCons command:
 
+```
     scons platform=x11 use_llvm=yes use_lld=yes
+```
 
 After the build is completed, a new binary with a `.llvm` suffix will be
 created in the `bin/` folder.
@@ -256,9 +264,11 @@ to get even faster builds.
 - Use `cd` to reach the extracted Pyston folder from a terminal,
   then run `./pyston -m pip install scons` to install SCons within Pyston.
 - To make SCons via Pyston easier to run, create a symbolic link of its wrapper
-  script to a location in your `PATH` environment variable::
+  script to a location in your `PATH` environment variable:
 
+```
     ln -s ~/.local/opt/pyston/bin/scons ~/.local/bin/pyston-scons
+```
 
 - Instead of running `scons ( build arguments )`, run `pyston-scons ( build arguments )`
   to compile Godot.

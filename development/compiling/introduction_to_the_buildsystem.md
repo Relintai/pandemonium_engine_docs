@@ -59,8 +59,9 @@ SCons is invoked by just calling `scons`. If no platform is specified,
 SCons will detect the target platform automatically based on the host platform.
 It will then start building for the target platform right away.
 
-To list the available target platforms, use `scons platform=list`::
+To list the available target platforms, use `scons platform=list`:
 
+```
     scons platform=list
     scons: Reading SConscript files ...
     The following platforms are available:
@@ -72,13 +73,14 @@ To list the available target platforms, use `scons platform=list`::
         x11
 
     Please run SCons again and select a valid platform: platform=<string>
+```
 
 To build for a platform (for example, x11), run with the `platform=` (or
 `p=` to make it short) argument:
 
-::
-
+```
     scons platform=x11
+```
 
 This will start the build process, which will take a while. If you want
 SCons to build faster, use the `-j <cores )` parameter to specify how many
@@ -87,32 +89,36 @@ can use your computer for something else :)
 
 Example for using 4 cores:
 
-::
-
+```
     scons platform=x11 -j 4
+```
 
 Resulting binary
 ----------------
 
 The resulting binaries will be placed in the `bin/` subdirectory,
-generally with this naming convention::
+generally with this naming convention:
 
+```
     godot.<platform>.[opt].[tools/debug].<architecture>[extension]
+```
 
-For the previous build attempt, the result would look like this::
+For the previous build attempt, the result would look like this:
 
+```
     ls bin
     bin/godot.x11.tools.64
+```
 
 This means that the binary is for X11, is not optimized, has tools (the
 whole editor) compiled in, and is meant for 64 bits.
 
 A Windows binary with the same configuration will look like this:
 
-.. code-block:: console
-
+```
     C:\godot> dir bin/
     godot.windows.tools.64.exe
+```
 
 Copy that binary to any location you like, as it contains the project manager,
 editor and all means to execute the game. However, it lacks the data to export
@@ -133,10 +139,9 @@ disabled for everything else. Disabling tools produces a binary that can
 run projects but that does not include the editor or the project
 manager.
 
-::
-
+```
     scons platform=<platform> tools=yes/no
-
+```
 
 
 Target
@@ -154,9 +159,9 @@ Target controls optimization and debug flags. Each mode means:
    `tools=yes`, as the editor requires some debug functionality and run-time
    checks to run.
 
-::
-
+```
     scons platform=<platform> target=debug/release_debug/release
+```
 
 This flag appends the `.debug` suffix (for debug), or `.tools` (for debug
 with tools enabled). When optimization is enabled (release), it appends
@@ -173,9 +178,9 @@ else.
 -  **64**: Build binaries for 64-bit platforms.
 -  **default**: Build for the architecture that matches the host platform.
 
-::
-
+```
     scons platform=<platform> bits=default/32/64
+```
 
 This flag appends `.32` or `.64` suffixes to resulting binaries when
 relevant. If `bits=default` is used, the suffix will match the detected
@@ -197,9 +202,9 @@ packages, just like the built-in `modules/` directory.
 For instance, it's possible to provide both relative, absolute, and user
 directory paths containing such modules:
 
-::
-
+```
     scons custom_modules="../modules,/abs/path/to/modules,~/src/godot_modules"
+```
 
 Note:
 
@@ -246,14 +251,14 @@ Using a file
 The default `custom.py` file can be created at the root of the Godot Engine
 source to initialize any SCons build options passed via the command line:
 
-.. code-block:: python
-
+```
     # custom.py
 
     optimize = "size"
     module_mono_enabled = "yes"
     use_llvm = "yes"
     extra_suffix = "game_title"
+```
 
 You can also disable some of the builtin modules before compiling, saving some
 time it takes to build the engine. See `doc_optimizing_for_size` page for more details.
@@ -269,9 +274,9 @@ See also:
 Another custom file can be specified explicitly with the `profile` command
 line option, both overriding the default build configuration:
 
-.. code-block:: shell
-
+```
     scons profile=path/to/custom.py
+```
 
 Note:
  Build options set from the file can be overridden by the command line
@@ -279,8 +284,7 @@ Note:
 
 It's also possible to override the options conditionally:
 
-.. code-block:: python
-
+```
     # custom.py
 
     import version
@@ -290,6 +294,7 @@ It's also possible to override the options conditionally:
         pass
     elif version.major == 4:
         pass
+```
 
 Using the SCONSFLAGS
 ^^^^^^^^^^^^^^^^^^^^
@@ -324,8 +329,7 @@ If you download the official export templates package and unzip it, you
 will notice that most files are optimized binaries or packages for each
 platform:
 
-.. code-block:: none
-
+```
     android_debug.apk
     android_release.apk
     webassembly_debug.zip
@@ -342,6 +346,7 @@ platform:
     windows_32_release.exe
     windows_64_debug.exe
     windows_64_release.exe
+```
 
 To create those yourself, follow the instructions detailed for each
 platform in this same tutorial section. Each platform explains how to

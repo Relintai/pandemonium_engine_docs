@@ -70,8 +70,7 @@ gdscript GDScript
 As you press keys, move the mouse, and perform other inputs, you'll see each
 event scroll by in the output window. Here's an example of the output:
 
-::
-
+```
     A
     InputEventMouseMotion : button_mask=0, position=(108, 108), relative=(26, 1), speed=(164.152496, 159.119843), pressure=(0), tilt=(0, 0)
     InputEventMouseButton : button_index=BUTTON_LEFT, pressed=true, position=(108, 107), button_mask=1, doubleclick=false
@@ -80,6 +79,7 @@ event scroll by in the output window. Here's an example of the output:
     F
     Alt
     InputEventMouseMotion : button_mask=0, position=(108, 107), relative=(0, -1), speed=(164.152496, 159.119843), pressure=(0), tilt=(0, 0)
+```
 
 As you can see, the results are very different for the different types of
 input. Key events are even printed as their key symbols. For example, let's

@@ -3,8 +3,6 @@
 Exporting projects
 ==================
 
-.. highlight:: none
-
 Why export?
 -----------
 
@@ -142,9 +140,9 @@ with the `--export` and `--export-debug` command line parameters.
 Exporting from the command line still requires an export preset to define
 the export parameters. A basic invocation of the command would be:
 
-.. code-block:: shell
-
+```
     godot --export "Windows Desktop" some_name.exe
+```
 
 This will export to `some_name.exe`, assuming there is a preset
 called "Windows Desktop" and the template can be found. (The export preset name
@@ -166,17 +164,17 @@ You can also configure it to export *only* the PCK or ZIP file, allowing
 a single exported main pack file to be used with multiple Godot executables.
 When doing so, the export preset name must still be specified on the command line:
 
-.. code-block:: shell
-
+```
     godot --export-pack "Windows Desktop" some_name.pck
+```
 
 It is often useful to combine the `--export` flag with the `--path`
 flag, so that you do not need to `cd` to the project folder before running
 the command:
 
-.. code-block:: shell
-
+```
     godot --path /path/to/project --export "Windows Desktop" some_name.exe
+```
 
 See also:
 
@@ -211,14 +209,16 @@ Warning:
     Due to a `known bug ( https://github.com/godotengine/godot/pull/42123 )`,
     when using a ZIP file as a pack file, the exported binary will not try to use
     it automatically. Therefore, you have to create a *launcher script* that
-    the player can double-click or run from a terminal to launch the project::
+    the player can double-click or run from a terminal to launch the project:
 
-        :: launch.bat (Windows)
+```
+        launch.bat (Windows)
         @echo off
         my_project.exe --main-pack my_project.zip
 
         # launch.sh (Linux)
         ./my_project.x86_64 --main-pack my_project.zip
+```
 
     Save the launcher script and place it in the same folder as the exported binary.
     On Linux, make sure to give executable permissions to the launcher script using

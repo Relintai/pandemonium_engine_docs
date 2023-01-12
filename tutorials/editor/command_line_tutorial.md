@@ -173,21 +173,21 @@ for any of the following commands to work correctly.
 This can be done by giving the path to the `project.godot` file
 of your project as either the first argument, like this:
 
-::
-
+```
     godot path_to_your_project/project.godot [other] [commands] [and] [args]
+```
 
 Or by using the `--path` argument:
 
-::
-
+```
     godot --path path_to_your_project [other] [commands] [and] [args]
+```
 
 For example, the full command for exporting your game (as explained below) might look like this:
 
-::
-
+```
     godot --path path_to_your_project --export my_export_preset_name game.exe
+```
 
 Creating a project
 ------------------
@@ -197,11 +197,11 @@ Creating a project from the command line can be done by navigating the
 shell to the desired place and making a project.godot file.
 
 
-::
-
+```
     mkdir newgame
     cd newgame
     touch project.godot
+```
 
 
 The project can now be opened with Godot.
@@ -214,16 +214,16 @@ Running the editor is done by executing Godot with the `-e` flag. This
 must be done from within the project directory or a subdirectory,
 otherwise the command is ignored and the project manager appears.
 
-::
-
+```
     godot -e
+```
 
 If a scene has been created and saved, it can be edited later by running
 the same code with that scene as argument.
 
-::
-
+```
     godot -e scene.tscn
+```
 
 Erasing a scene
 ---------------
@@ -232,9 +232,9 @@ Godot is friends with your filesystem and will not create extra
 metadata files. Use `rm` to erase a scene file. Make sure nothing
 references that scene or else an error will be thrown upon opening.
 
-::
-
+```
     rm scene.tscn
+```
 
 Running the game
 ----------------
@@ -242,16 +242,16 @@ Running the game
 To run the game, simply execute Godot within the project directory or
 subdirectory.
 
-::
-
+```
     godot
+```
 
 When a specific scene needs to be tested, pass that scene to the command
 line.
 
-::
-
+```
     godot scene.tscn
+```
 
 Debugging
 ---------
@@ -260,14 +260,13 @@ Catching errors in the command line can be a difficult task because they
 just fly by. For this, a command line debugger is provided by adding
 `-d`. It works for running either the game or a simple scene.
 
-::
-
+```
     godot -d
+```
 
-::
-
+```
     godot -d scene.tscn
-
+```
 
 
 Exporting
@@ -277,10 +276,10 @@ Exporting the project from the command line is also supported. This is
 especially useful for continuous integration setups. The version of Godot
 that is headless (server build, no video) is ideal for this.
 
-::
-
+```
     godot --export "Linux/X11" /var/builds/project
     godot --export Android /var/builds/project.apk
+```
 
 The preset name must match the name of an export preset defined in the
 project's `export_presets.cfg` file. If the preset name contains spaces or
@@ -311,21 +310,21 @@ The script must inherit from `SceneTree` or `MainLoop`.
 
 Here is a simple `sayhello.gd` example of how it works:
 
-.. code-block:: python
-
+```
     #!/usr/bin/env -S godot -s
     extends SceneTree
 
     func _init():
         print("Hello!")
         quit()
+```
 
 And how to run it:
 
-::
-
+```
     # Prints "Hello!" to standard output.
     godot -s sayhello.gd
+```
 
 If no `project.godot` exists at the path, current path is assumed to be the
 current working directory (unless `--path` is specified).
@@ -335,16 +334,16 @@ a *shebang*. If the Godot binary is in your `PATH` as `godot`,
 it allows you to run the script as follows in modern Linux
 distributions, as well as macOS:
 
-::
-
+```
     # Mark script as executable.
     chmod +x sayhello.gd
     # Prints "Hello!" to standard output.
     ./sayhello.gd
+```
 
 If the above doesn't work in your current version of Linux or macOS, you can
 always have the shebang run Godot straight from where it is located as follows:
 
-::
-
+```
     #!/usr/bin/godot -s
+```

@@ -28,8 +28,7 @@ As an example, one can usually place into a single folder their basic assets,
 such as sprite images, 3D model meshes, materials, and music, etc.
 They can then use a separate folder to store built levels that use them.
 
-.. code-block:: none
-
+```
     /project.godot
     /docs/.gdignore  # See "Ignoring specific folders" below
     /docs/learning.html
@@ -43,6 +42,7 @@ They can then use a separate folder to store built levels that use them.
     /characters/npcs/suzanne/suzanne.dae
     /characters/npcs/suzanne/suzanne.png)
     /levels/riverdale/riverdale.scn
+```
 
 Style guide
 -----------
@@ -112,16 +112,20 @@ Note:
 
 On Windows 10, to further avoid mistakes related to case sensitivity,
 you can also make the project folder case-sensitive. After enabling the Windows
-Subsystem for Linux feature, run the following command in a PowerShell window::
+Subsystem for Linux feature, run the following command in a PowerShell window:
 
+```
     # To enable case-sensitivity:
     fsutil file setcasesensitiveinfo <path to project folder> enable
 
     # To disable case-sensitivity:
     fsutil file setcasesensitiveinfo <path to project folder> disable
+```
 
 If you haven't enabled the Windows Subsystem for Linux, you can enter the
 following line in a PowerShell window *running as Administrator* then reboot
-when asked::
+when asked:
 
+```
     Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```

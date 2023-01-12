@@ -16,9 +16,9 @@ For instance, you can use the open source `Inkscape ( https://inkscape.org/ )` e
 
 Clone the `godot` repository containing all the editor icons:
 
-.. code-block:: bash
-
+```
     git clone https://github.com/godotengine/godot.git
+```
 
 The icons must be created in a vector graphics editor in SVG format. There are
 two main requirements to follow:
@@ -58,9 +58,9 @@ optimized before being added to the engine, to do so:
 2. Run the command below, replacing `svg_source.svg` with the path to your
    SVG file (which can be a relative or absolute path):
 
-   .. code-block:: bash
-
+```
        svgcleaner --multipass svg_source.svg svg_optimized.svg
+```
 
 The `--multipass` switch improves compression, so make sure to include it.
 The optimized icon will be saved to `svg_optimized.svg`. You can also change

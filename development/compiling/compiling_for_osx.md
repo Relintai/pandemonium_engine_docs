@@ -23,18 +23,22 @@ For compiling under macOS, the following is required:
 
 Note:
  If you have `Homebrew ( https://brew.sh/ )` installed, you can easily
-          install SCons and yasm using the following command::
+          install SCons and yasm using the following command:
 
+```
               brew install scons yasm
+```
 
           Installing Homebrew will also fetch the Command Line Tools
           for Xcode automatically if you don't have them already.
 
           Similarly, if you have `MacPorts ( https://www.macports.org/ )`
           installed, you can easily install SCons and yasm using the
-          following command::
+          following command:
 
+```
               sudo port install scons yasm
+```
 
 See also:
  To get the Godot source code for compiling, see
@@ -48,17 +52,23 @@ Compiling
 
 Start a terminal, go to the root directory of the engine source code.
 
-To compile for Intel (x86-64) powered Macs, use::
+To compile for Intel (x86-64) powered Macs, use
 
+```
     scons platform=osx arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
+```
 
-To compile for Apple Silicon (ARM64) powered Macs, use::
+To compile for Apple Silicon (ARM64) powered Macs, use:
 
+```
     scons platform=osx arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
+```
 
-To support both architectures in a single "Universal 2" binary, run the above two commands and then use `lipo` to bundle them together::
+To support both architectures in a single "Universal 2" binary, run the above two commands and then use `lipo` to bundle them together:
 
+```
     lipo -create bin/godot.osx.tools.x86_64 bin/godot.osx.tools.arm64 -output bin/godot.osx.tools.universal
+```
 
 If all goes well, the resulting binary executable will be placed in the
 `bin/` subdirectory. This executable file contains the whole engine and
@@ -73,30 +83,38 @@ Note:
 
 To create an `.app` bundle like in the official builds, you need to use the
 template located in `misc/dist/osx_tools.app`. Typically, for an optimized
-editor binary built with `target=release_debug`::
+editor binary built with `target=release_debug`:
 
+```
     cp -r misc/dist/osx_tools.app ./Godot.app
     mkdir -p Godot.app/Contents/MacOS
     cp bin/godot.osx.opt.tools.universal Godot.app/Contents/MacOS/Godot
     chmod +x Godot.app/Contents/MacOS/Godot
+```
 
 Compiling a headless/server build
 ---------------------------------
 
 To compile a *headless* build which provides editor functionality to export
-projects in an automated manner, use::
+projects in an automated manner, use:
 
+```
     scons platform=server tools=yes target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
+```
 
 To compile a debug *server* build which can be used with
-`remote debugging tools ( doc_command_line_tutorial )`, use::
+`remote debugging tools ( doc_command_line_tutorial )`, use:
 
+```
     scons platform=server tools=no target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
+```
 
 To compile a release *server* build which is optimized to run dedicated game servers,
-use::
+use:
 
+```
     scons platform=server tools=no target=release --jobs=$(sysctl -n hw.logicalcpu)
+```
 
 Building export templates
 -------------------------
@@ -109,39 +127,49 @@ Official templates are universal binaries which support both Intel x86_64 and
 ARM64 architectures. You can also create export templates that support only one
 of those two architectures by leaving out the `lipo` step below.
 
-- For Intel x86_64::
+- For Intel x86_64:
 
+```
     scons platform=osx tools=no target=release arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
     scons platform=osx tools=no target=release_debug arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
+```
 
-- For ARM64 (Apple M1)::
+- For ARM64 (Apple M1):
 
+```
     scons platform=osx tools=no target=release arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
     scons platform=osx tools=no target=release_debug arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
+```
 
 To support both architectures in a single "Universal 2" binary, run the above
-two commands blocks and then use `lipo` to bundle them together::
+two commands blocks and then use `lipo` to bundle them together:
 
+```
     lipo -create bin/godot.osx.opt.x86_64 bin/godot.osx.opt.arm64 -output bin/godot.osx.opt.universal
     lipo -create bin/godot.osx.opt.debug.x86_64 bin/godot.osx.opt.debug.arm64 -output bin/godot.osx.opt.debug.universal
+```
 
 To create an `.app` bundle like in the official builds, you need to use the
 template located in `misc/dist/osx_template.app`. The release and debug
 builds should be placed in `osx_template.app/Contents/MacOS` with the names
 `godot_osx_release.64` and `godot_osx_debug.64` respectively. You can do so
 with the following commands (assuming a universal build, otherwise replace the
-`.universal` extension with the one of your arch-specific binaries)::
+`.universal` extension with the one of your arch-specific binaries):
 
+```
     cp -r misc/dist/osx_template.app .
     mkdir -p osx_template.app/Contents/MacOS
     cp bin/godot.osx.opt.universal osx_template.app/Contents/MacOS/godot_osx_release.64
     cp bin/godot.osx.opt.debug.universal osx_template.app/Contents/MacOS/godot_osx_debug.64
     chmod +x osx_template.app/Contents/MacOS/godot_osx*
+```
 
 You can then zip the `osx_template.app` folder to reproduce the `osx.zip`
-template from the official Godot distribution::
+template from the official Godot distribution:
 
+```
     zip -q -9 -r osx.zip osx_template.app
+```
 
 Cross-compiling for macOS from Linux
 ------------------------------------
@@ -153,9 +181,11 @@ as a target. First, follow the instructions to install it:
 
 Clone the `OSXCross repository ( https://github.com/tpoechtrager/osxcross )`
 somewhere on your machine (or download a ZIP file and extract it somewhere),
-e.g.::
+e.g.:
 
+```
     git clone --depth=1 https://github.com/tpoechtrager/osxcross.git "$HOME/osxcross"
+```
 
 1. Follow the instructions to package the SDK:
    https://github.com/tpoechtrager/osxcross#packaging-the-sdk
@@ -164,14 +194,20 @@ e.g.::
 
 After that, you will need to define the `OSXCROSS_ROOT` as the path to
 the OSXCross installation (the same place where you cloned the
-repository/extracted the zip), e.g.::
+repository/extracted the zip), e.g.:
 
+```
     export OSXCROSS_ROOT="$HOME/osxcross"
+```
 
-Now you can compile with SCons like you normally would::
+Now you can compile with SCons like you normally would:
 
+```
     scons platform=osx
+```
 
-If you have an OSXCross SDK version different from the one expected by the SCons buildsystem, you can specify a custom one with the `osxcross_sdk` argument::
+If you have an OSXCross SDK version different from the one expected by the SCons buildsystem, you can specify a custom one with the `osxcross_sdk` argument:
 
+```
     scons platform=osx osxcross_sdk=darwin15
+```

@@ -61,11 +61,10 @@ Below every heading comes zero or more `key = value` pairs. The
 values can be complex datatypes such as Arrays, Transforms, Colors, and
 so on. For example, a spatial node looks like:
 
-::
-
+```
     [node name="Cube" type="Spatial" parent="."]
     transform=Transform( 1.0, 0.0, 0.0 ,0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0 )
-
+```
 
 The scene tree
 --------------
@@ -90,20 +89,18 @@ the scene root's name. If the node is a direct child of the scene root,
 the path should be `"."`. Here is an example scene tree
 (but without any node content):
 
-::
-
+```
     [node name="Player" type="Spatial"]             ; The scene root
     [node name="Arm" parent="." type="Spatial"]     ; Parented to the scene root
     [node name="Hand" parent="Arm" type="Spatial"]
     [node name="Finger" parent="Arm/Hand" type="Spatial"]
-
+```
 
 Similar to the internal resource, the document for each node is currently
 incomplete. Fortunately, it is easy to find out because you can simply
 save a file with that node in it. Some example nodes are:
 
-::
-
+```
     [node type="CollisionShape" name="SphereCollision" parent="SpherePhysics"]
 
     shape = SubResource(8)
@@ -134,7 +131,7 @@ save a file with that node in it. Some example nodes are:
     fov = 50
     transform = Transform( 0.6859206557273865 , -0.32401350140571594 , 0.6515582203865051 , 0.0 , 0.8953956365585327 , 0.44527143239974976 , -0.7276763319969177 , -0.3054208755493164 , 0.6141703724861145 ,14.430776596069336 ,10.093015670776367 ,13.058500289916992  )
     far = 100.0
-
+```
 
 NodePath
 ~~~~~~~~
@@ -145,23 +142,21 @@ the node anywhere in the scene tree. For instance, MeshInstance uses
 `NodePath()` to point to its skeleton. Likewise, Animation tracks use
 `NodePath()` to point to node properties to animate.
 
-::
-
+```
     [node name="mesh" type="MeshInstance" parent="Armature001"]
 
     mesh = SubResource(1)
     skeleton = NodePath("..:")
+```
 
-
-::
-
+```
     [sub_resource id=3 type="Animation"]
 
     ...
     tracks/0/type = "transform
     tracks/0/path = NodePath("Cube:")
     ...
-
+```
 
 Skeleton
 ~~~~~~~~
@@ -187,8 +182,7 @@ bone attributes consist of:
 
 Here's an example of a skeleton node with two bones:
 
-::
-
+```
     [node name="Skeleton" type="Skeleton" parent="Armature001" index="0"]
 
     bones/0/name = "Bone.001"
@@ -203,7 +197,7 @@ Here's an example of a skeleton node with two bones:
     bones/1/pose = Transform( 1.0, 0.0, -0.0, 0.0, 1.0, -0.0, -0.0, -0.0, 1.0, 0.0, 0.0, -0.0 )
     bones/1/enabled = true
     bones/1/bound_children = [  ]
-
+```
 
 BoneAttachment
 ~~~~~~~~~~~~~~
@@ -215,8 +209,7 @@ BoneAttachment node in its `bound_children` list.
 
 An example of one MeshInstance parented to a bone in Skeleton:
 
-::
-
+```
     [node name="Armature" type="Skeleton" parent="."]
 
     transform = Transform(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, -0.0219986, 0.0125825, 0.0343127)
@@ -235,7 +228,7 @@ An example of one MeshInstance parented to a bone in Skeleton:
 
     mesh = SubResource(1)
     transform = Transform(1.0, 0.0, 0.0, 0.0, 1.86265e-09, 1.0, 0.0, -1.0, 0.0, 0.0219986, -0.0343127, 2.25595)
-
+```
 
 AnimationPlayer
 ~~~~~~~~~~~~~~~
@@ -246,8 +239,7 @@ Animation resource. All the animation resources use the root node of
 AnimationPlayer. The root node is stored as
 `root_node=NodePath(Path/To/Node)`.
 
-::
-
+```
     [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
     root_node = NodePath("..")
@@ -257,7 +249,7 @@ AnimationPlayer. The root node is stored as
     playback_speed = 1.0
     anims/default = SubResource( 2 )
     blend_times = [  ]
-
+```
 
 Resources
 ---------
@@ -287,11 +279,10 @@ are also valid.
 
 Some example external resources are:
 
-::
-
+```
     [ext_resource path="res://characters/player.dae" type="PackedScene" id=1]
     [ext_resource path="metal.tres" type="Material" id=2]
-
+```
 
 Like TSCN files, a TRES file may contain single-line comments starting with a
 semicolon (`;`). However, comments will be discarded when saving the resource
@@ -306,13 +297,12 @@ resource looks similar to those of external resources, except that it doesn't
 have a path. Internal resources also have `key=value` pairs under each
 heading. For example, a capsule collision shape looks like:
 
-::
-
+```
     [sub_resource type="CapsuleShape" id=2]
 
     radius = 0.5
     height = 3.0
-
+```
 
 Some internal resources contain links to other internal resources (such as a
 mesh having a material). In this case, the referring resource must appear
@@ -357,8 +347,7 @@ TSCN files support two surface formats:
 
 An example of ArrayMesh:
 
-::
-
+```
     [sub_resource id=1 type="ArrayMesh"]
 
     surfaces/0 = {
@@ -376,7 +365,7 @@ An example of ArrayMesh:
         ],
         "morph_arrays":[]
     }
-
+```
 
 Animation
 ~~~~~~~~~
@@ -424,8 +413,7 @@ Each track is described by a list of key-value pairs in the format
       4-number rotation quaternion (X, Y, Z, W) and finally a 3-number
       scale vector. The default transition in a Transform track is 1.0.
 
-::
-
+```
     [sub_resource type="Animation" id=2]
 
     length = 4.95833
@@ -445,3 +433,4 @@ Each track is described by a list of key-value pairs in the format
     tracks/1/imported = true
     tracks/1/enabled = false
     tracks/1/keys = PoolRealArray( 0, 1, 0, 5.96046e-08, 0, 0, 0, 0, 1, 1, 1, 1, 4.95833, 1, 0, 5.96046e-08, 0, 0, 0, 0, 1, 1, 1, 1 )
+```

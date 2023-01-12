@@ -21,15 +21,15 @@ export an ICO file with GIMP.
 It is also possible to convert a PNG image to an hiDPI-friendly ICO file
 using this `ImageMagick ( https://www.imagemagick.org/ )` command:
 
-.. code-block:: none
-
+```
     magick convert icon.png) -define icon:auto-resize=256,128,64,48,32,16 icon.ico
+```
 
 Depending on which version of ImageMagick you installed, you might need to leave out the `magick` and run this command instead:
 
-.. code-block:: none
-
+```
     convert icon.png) -define icon:auto-resize=256,128,64,48,32,16 icon.ico
+```
 
 Warning:
 

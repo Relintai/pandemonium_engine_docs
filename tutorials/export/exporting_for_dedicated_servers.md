@@ -80,9 +80,11 @@ same folder as the PCK file you've exported. The server binary should have the
 same name as the PCK (excluding the extension). This lets Godot detect and use
 the PCK file automatically. If you want to start a server with a PCK that has a
 different name, you can specify the path to the PCK file using the
-`--main-pack` command-line argument::
+`--main-pack` command-line argument:
 
+```
     ./godot-server --main-pack my_project.pck
+```
 
 Starting the dedicated server
 -----------------------------
@@ -90,23 +92,27 @@ Starting the dedicated server
 If both your client and server are part of the same Godot project, you will have
 to add a way to start the server directly using a command-line argument. This
 can be done by adding the following code snippet in your main scene (or a
-singleton)'s `ready()` method::
+singleton)'s `ready()` method:
 
+```
     if "--server" in OS.get_cmdline_args():
         # Run your server startup code here...
         # Using this check, you can start a dedicated server by running
         # a Godot binary (headless or not) with the `--server` command-line argument.
         pass
+```
 
 Alternatively, you can make the dedicated server always start up if a headless
-or server binary is detected::
+or server binary is detected:
 
+```
     # Note: Feature tags are case-sensitive! It's "Server", not "server".
     if OS.has_feature("Server"):
         # Run your server startup code here...
         # Note that using this check may break unit testing scripts when
         # running them with headless or server binaries.
         pass
+```
 
 If your client and server are separate Godot projects, your server should most
 likely be configured in a way where running the main scene starts a server

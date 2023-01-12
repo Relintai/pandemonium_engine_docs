@@ -61,15 +61,15 @@ Setting up the buildsystem
     -  Accept the SDK component licenses by running the following command 
        where `android_sdk_path` is the path to the Android SDK, then answering all the prompts with `y`:
 
-    ::
-
+```
         tools/bin/sdkmanager --sdk_root=( android_sdk_path> --licenses
+```
 
     -  Complete setup by running the following command where `android_sdk_path` is the path to the Android SDK.
 
-    ::
-
+```
         tools/bin/sdkmanager --sdk_root=( android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-29" "cmdline-tools;latest" "cmake;3.10.2.4988404"
+```
 
 See also:
    To set the environment variable on Windows, press :kbd:`Windows + R`, type 
@@ -95,8 +95,7 @@ root directory with the following arguments:
 
 -  Release template (used when exporting with **Debugging Enabled** unchecked)
 
-::
-
+```
     scons platform=android target=release android_arch=armv7
     scons platform=android target=release android_arch=arm64v8
     cd platform/android/java
@@ -104,14 +103,13 @@ root directory with the following arguments:
     .\gradlew generateGodotTemplates
     # On Linux and macOS
     ./gradlew generateGodotTemplates
-
+```
 
 The resulting APK will be located at `bin/android_release.apk`.
 
 -  Debug template (used when exporting with **Debugging Enabled** checked)
 
-::
-
+```
     scons platform=android target=release_debug android_arch=armv7
     scons platform=android target=release_debug android_arch=arm64v8
     cd platform/android/java
@@ -119,7 +117,7 @@ The resulting APK will be located at `bin/android_release.apk`.
     .\gradlew generateGodotTemplates
     # On Linux and macOS
     ./gradlew generateGodotTemplates
-
+```
 
 The resulting APK will be located at `bin/android_debug.apk`.
 
@@ -131,8 +129,7 @@ command a third and fourth time with the `android_arch=x86`, and
 `android_arch=x86_64` arguments before building the APK with Gradle. For
 example, for the release template:
 
-::
-
+```
     scons platform=android target=release android_arch=armv7
     scons platform=android target=release android_arch=arm64v8
     scons platform=android target=release android_arch=x86
@@ -142,7 +139,7 @@ example, for the release template:
     .\gradlew generateGodotTemplates
     # On Linux and macOS
     ./gradlew generateGodotTemplates
-
+```
 
 This will create a fat binary that works on all platforms.
 The final APK size of exported projects will depend on the platforms you choose
@@ -154,14 +151,13 @@ Cleaning the generated export templates
 
 You can use the following commands to remove the generated export templates:
 
-::
-
+```
     cd platform/android/java
     # On Windows
     .\gradlew cleanGodotTemplates
     # On Linux and macOS
     ./gradlew cleanGodotTemplates
-
+```
 
 Using the export templates
 --------------------------
@@ -226,9 +222,9 @@ If so:
 
 If it still fails, open a command line and run `logcat ( https://developer.android.com/studio/command-line/logcat )`:
 
-::
-
+```
     adb logcat
+```
 
 Then check the output while the application is installed;
 the error message should be presented there.

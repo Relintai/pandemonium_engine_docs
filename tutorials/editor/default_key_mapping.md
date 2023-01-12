@@ -1,6 +1,3 @@
-.. meta::
-    :keywords: cheatsheet, cheat sheet, shortcut
-
 
 
 Default editor shortcuts

@@ -30,16 +30,16 @@ Step by step
    Alternatively, you can generate it yourself using
    `OpenSSL ( https://www.openssl.org/ )` command-line tools:
 
-   ::
-
+```
        openssl rand -hex 32 > godot.gdkey
+```
 
    The output in `godot.gdkey` should be similar to:
 
-   ::
-
+```
        # NOTE: Do not use the key below! Generate your own key instead.
        aeb1bc56aaf580cc31784e9c41551e9ed976ecba10d315db591e749f3f64890f
+```
 
    You can generate the key without redirecting the output to a file, but
    that way you can minimize the risk of exposing the key.
@@ -76,8 +76,7 @@ If you get an error like below, it means the key wasn't properly included in
 your Godot build. Godot is encrypting the scripts during export, but can't read
 them at runtime.
 
-::
-
+```
    ERROR: open_and_parse: Condition "String::md5(md5.digest) != String::md5(md5d)" is true. Returning: ERR_FILE_CORRUPT
       At: core/io/file_access_encrypted.cpp:103
    ERROR: load_byte_code: Condition ' err ' is true. returned: err
@@ -98,3 +97,4 @@ them at runtime.
         At: core/object.cpp:2081
    ERROR: clear: Resources Still in use at Exit!
       At: core/resource.cpp:425
+```

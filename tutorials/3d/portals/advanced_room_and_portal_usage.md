@@ -23,14 +23,14 @@ You can choose to either receive these callbacks as `signals`, or as `notificati
 
 Notifications can be handled in GDScript or other scripting languages:
 
-.. code-block:: none
-
+```
 	func _notification(what):
 		match what:
 			NOTIFICATION_ENTER_GAMEPLAY:
 				print("notification enter gameplay")
 			NOTIFICATION_EXIT_GAMEPLAY:
 				print("notification exit gameplay")
+```
 
 Signals are sent just as any other signal. They can be attached to functions using the editor inspector. The signals are called `gameplay_entered` and `gameplay_exited`.
 

@@ -96,13 +96,13 @@ to escape any double quotes a message may contain by preceding them with
 another double quote. Alternatively, you can select another delimiter than
 comma in the import options.
 
-.. code-block:: none
-
+```
     keys,en,es,ja
     GREET,"Hello, friend!","Hola, amigo!",こんにちは
     ASK,How are you?,Cómo está?,元気ですか
     BYE,Goodbye,Adiós,さようなら
     QUOTE,"""Hello"" said the man.","""Hola"" dijo el hombre.",「こんにちは」男は言いました
+```
 
 CSV importer
 ------------

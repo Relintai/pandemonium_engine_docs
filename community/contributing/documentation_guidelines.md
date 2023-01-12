@@ -94,12 +94,10 @@ Titles
 
 Always begin pages with their title and a Sphinx reference name:
 
-::
-
-    
-
+```
     Insert your title here
     ======================
+```
 
 The reference allows linking to this page using the ``` format, e.g.
 ```doc_insert_your_title_here``` would link to the above example page

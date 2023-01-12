@@ -32,8 +32,7 @@ Importing the project
 
 - Under **Language Support** open the **Includes/Imports** tab and add the following paths:
 
-  .. code-block:: none
-
+```
      .  // A dot, to indicate the root of the Godot project
      core/
      core/os/
@@ -41,6 +40,7 @@ Importing the project
      drivers/
      platform/<your_platform>/  // Replace <your_platform> with a folder 
                                    corresponding to your current platform
+```
 
 .. figure:: img/kdevelop_addincludes.png)
    :figclass: figure-w480

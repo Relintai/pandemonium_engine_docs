@@ -63,32 +63,36 @@ want the player's name to be translated if it matches a translation key. To
 disable automatic translation on a specific node, use
 `Object.set_message_translation( Object_method_set_message_translation )`
 and send a `Object.notification( Object_method_notification )` to update the
-translation::
+translation:
 
+```
     func _ready():
         # This assumes you have a node called "Label" as a child of the node
         # that has the script attached.
         var label = get_node("Label")
         label.set_message_translation(false)
         label.notification(NOTIFICATION_TRANSLATION_CHANGED)
+```
 
-For more complex UI nodes such as OptionButtons, you may have to use this instead::
+For more complex UI nodes such as OptionButtons, you may have to use this instead:
 
+```
     func _ready():
         var option_button = get_node("OptionButton")
         option_button.set_message_translation(false)
         option_button.notification(NOTIFICATION_TRANSLATION_CHANGED)
         option_button.get_popup().set_message_translation(false)
         option_button.get_popup().notification(NOTIFICATION_TRANSLATION_CHANGED)
+```
 
 In code, the `Object.tr()`
 function can be used. This will just look up the text in the
 translations and convert it if found:
 
-::
-
+```
     level.set_text(tr("LEVEL_5_NAME"))
     status.set_text(tr("GAME_STATUS_" + str(status_index)))
+```
 
 Making controls resizable
 --------------------------
@@ -128,9 +132,9 @@ Translations can also be tested when running Godot from the command line.
 For example, to test a game in French, the following argument can be
 supplied:
 
-.. code-block:: shell
-
+```
    godot --language fr
+```
 
 Translating the project name
 ----------------------------

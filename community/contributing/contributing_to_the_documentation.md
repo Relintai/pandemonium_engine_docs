@@ -125,12 +125,10 @@ Titles
 
 Always begin pages with their title and a Sphinx reference name:
 
-::
-
-    
-
+```
     Insert your title here
     ======================
+```
 
 The reference `doc_insert_your_title_here` and the title should match.
 
@@ -169,18 +167,17 @@ Adding images and attachments
 To add images, please put them in an `img/` folder next to the `.rst` file with
 a meaningful name and include them in your page with:
 
-.. code:: rst
-
+```
    ![](img/image_name.png)
+```
 
 Similarly, you can include attachments, like assets as support material for a
 tutorial, by placing them into a `files/` folder next to the `.rst` file, and
 using this inline markup:
 
-.. code:: rst
-
+```
    :download:`myfilename.zip ( files/myfilename.zip )`
-
+```
 
 License
 -------

@@ -45,8 +45,7 @@ To center a control in its parent, set its anchors to 0.5 and each margin
 to half of its relevant dimension. For example, the code below shows how
 a TextureRect can be centered in its parent:
 
-::
-
+```
     var rect = TextureRect.new()
     rect.texture = load("res://icon.png)")
     rect.anchor_left = 0.5
@@ -59,6 +58,7 @@ a TextureRect can be centered in its parent:
     rect.margin_top = -texture_size.y / 2
     rect.margin_bottom = -texture_size.y / 2
     add_child(rect)
+```
 
 Setting each anchor to 0.5 moves the reference point for the margins to
 the center of its parent. From there, we set negative margins so that

@@ -9,8 +9,7 @@ If you want to debug an official build of the editor it should be re-signed with
 
 Create an `editor.entitlements` text file with the following contents:
 
-.. code-block:: xml
-
+```
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -31,10 +30,13 @@ Create an `editor.entitlements` text file with the following contents:
             <true/>
         </dict>
     </plist>
+```
 
-Then use the following command to re-sign the editor::
+Then use the following command to re-sign the editor:
 
+```
     codesign -s - --deep --force --options=runtime --entitlements ./editor.entitlements ./path/to/Godot.app
+```
 
 Debugging exported project
 --------------------------

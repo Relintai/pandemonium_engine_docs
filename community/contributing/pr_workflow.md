@@ -95,9 +95,9 @@ Note:
 
 To clone your fork from GitHub, use the following command:
 
-::
-
+```
     $ git clone https://github.com/USERNAME/godot
+```
 
 Note:
  In our examples, the "$" character denotes the command line prompt
@@ -107,16 +107,16 @@ Note:
 After a little while, you should have a `godot` directory in your current
 working directory. Move into it using the `cd` command:
 
-::
-
+```
     $ cd godot
+```
 
 We will start by setting up a reference to the original repository that we forked:
 
-::
-
+```
     $ git remote add upstream https://github.com/godotengine/godot
     $ git fetch upstream
+```
 
 This will create a reference named `upstream` pointing to the original
 `godotengine/godot` repository. This will be useful when you want to pull new
@@ -150,44 +150,44 @@ By default, the `git clone` should have put you on the `master` branch of
 your fork (`origin`). To start your own feature development, we will create
 a feature branch:
 
-::
-
+```
     # Create the branch based on the current branch (master)
     $ git branch better-project-manager
 
     # Change the current branch to the new one
     $ git checkout better-project-manager
+```
 
 This command is equivalent:
 
-::
-
+```
     # Change the current branch to a new named one, based on the current branch
     $ git checkout -b better-project-manager
+```
 
 If you want to go back to the `master` branch, you'd use:
 
-::
-
+```
     $ git checkout master
+```
 
 You can see which branch you are currently on with the `git branch`
 command:
 
-::
-
+```
     $ git branch
       2.1
     * better-project-manager
       master
+```
 
 Be sure to always go back to the `master` branch before creating a new branch,
 as your current branch will be used as the base for the new one. Alternatively,
 you can specify a custom base branch after the new branch's name:
 
-::
-
+```
     $ git checkout -b my-new-feature master
+```
 
 Updating your branch
 --------------------
@@ -202,9 +202,9 @@ To ensure there won't be conflicts between the feature you develop and the
 current upstream `master` branch, you will have to update your branch by
 *pulling* the upstream branch.
 
-::
-
+```
     $ git pull --rebase upstream master
+```
 
 The `--rebase` argument will ensure that any local changes that you committed
 will be re-applied *on top* of the pulled branch, which is usually what we want
@@ -299,8 +299,7 @@ need to make changes, and learn by doing.
 
 Here's how the shell history could look like on our example:
 
-::
-
+```
     # It's nice to know where you're starting from
     $ git log
 
@@ -328,6 +327,7 @@ Here's how the shell history could look like on our example:
     $ git add editor/project_manager.cpp
     $ git commit -m "Add a pretty banner to the project manager"
     $ git log
+```
 
 With this, we should have two new commits in our `better-project-manager`
 branch which were not in the `master` branch. They are still only local
@@ -341,17 +341,17 @@ done in the local repository (unlike Subversion where a commit will modify
 the remote repository directly). You need to *push* the new commits to a
 remote branch to share them with the world. The syntax for this is:
 
-::
-
+```
     $ git push ( remote> ( local branch>[:( remote branch>]
+```
 
 The part about the remote branch can be omitted if you want it to have the
 same name as the local branch, which is our case in this example, so we will
 do:
 
-::
-
+```
     $ git push origin better-project-manager
+```
 
 Git will ask you for your username and password, and the changes will be sent
 to your remote. If you check the fork's page on GitHub, you should see a new
@@ -390,8 +390,7 @@ The good news is that you can modify a pull request simply by acting on the
 branch you made the pull request from. You can e.g. make a new commit on that
 branch, push it to your fork, and the PR will be updated automatically:
 
-::
-
+```
     # Check out your branch again if you had changed in the meantime
     $ git checkout better-project-manager
 
@@ -400,6 +399,7 @@ branch, push it to your fork, and the PR will be updated automatically:
     $ git add editor/project_manager.cpp
     $ git commit -m "Fix a typo in the banner's title"
     $ git push origin better-project-manager
+```
 
 However, be aware that in our PR workflow, we favor commits that bring the
 codebase from one functional state to another functional state, without having
@@ -409,8 +409,7 @@ reason to keep the changes separate). Instead of authoring a new commit,
 consider using `git commit --amend` to amend the previous commit with your
 fixes. The above example would then become:
 
-::
-
+```
     # Check out your branch again if you had changed in the meantime
     $ git checkout better-project-manager
 
@@ -423,6 +422,7 @@ fixes. The above example would then become:
     # As we modified the last commit, it no longer matches the one from your
     # remote branch, so we need to force push to overwrite that branch.
     $ git push --force origin better-project-manager
+```
 
 .. Kept for compatibility with the previous title, linked in many PRs.
 
@@ -457,9 +457,9 @@ While you can give any commit ID to `git rebase -i` and review everything in
 between, the most common and convenient workflow involves rebasing on the
 upstream `master` branch, which you can do with:
 
-::
-
+```
     $ git rebase -i upstream/master
+```
 
 Note:
  Referencing branches in Git is a bit tricky due to the distinction
@@ -481,10 +481,10 @@ This will open a text editor (`vi` by default, see
 `Git docs ( https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_editor )`
 to configure your favorite one) with something which may look like this:
 
-.. code-block:: text
-
+```
     pick 1b4aad7 Add a pretty banner to the project manager
     pick e07077e Fix a typo in the banner's title
+```
 
 The editor will also show instructions regarding how you can act on those
 commits. In particular, it should tell you that "pick" means to use that
@@ -494,10 +494,10 @@ that "fixup" will discard the commit log from the squashed commit. In our
 example, we are not interested in keeping the log of the "Fix a typo" commit,
 so we use:
 
-.. code-block:: text
-
+```
     pick 1b4aad7 Add a pretty banner to the project manager
     fixup e07077e Fix a typo in the banner's title
+```
 
 Upon saving and quitting the editor, the rebase will occur. The second commit
 will be melded into the first one, and `git log` and `git show` should
@@ -509,22 +509,22 @@ diverged. Indeed, commit 1b4aad7 in the above example will have changed, and
 therefore got a new commit hash. If you try to push to your remote branch, it
 will raise an error:
 
-::
-
+```
     $ git push origin better-project-manager
     To https://github.com/akien-mga/godot
      ! [rejected]        better-project-manager -> better-project-manager (non-fast-forward)
     error: failed to push some refs to 'https://akien-mga@github.com/akien-mga/godot'
     hint: Updates were rejected because the tip of your current branch is behind
     hint: its remote counterpart.
+```
 
 This is a sane behavior, Git will not let you push changes that would
 override remote content. But that's actually what we want to do here, so we
 will have to *force* it:
 
-::
-
+```
     $ git push --force origin better-project-manager
+```
 
 And tadaa! Git will happily *replace* your remote branch with what you had
 locally (so make sure that's what you wanted, using `git log`). This will
@@ -540,18 +540,18 @@ for the remote branch on GitHub.
 
 To delete our better project manager branch locally, use this command:
 
-::
-
+```
     $ git branch -d better-project-manager
+```
 
 Alternatively, if the branch hadn't been merged yet and we wanted to delete it anyway, instead
 of `-d` you would use `-D`.
 
 Next, to delete the remote branch on GitHub use this command:
 
-::
-
+```
     $ git push origin -d better-project-manager
+```
 
 You can also delete the remote branch from the GitHub PR itself, a button should appear once
 it has been merged or closed.

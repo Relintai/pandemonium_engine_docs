@@ -35,18 +35,22 @@ and `source ./emsdk_env.sh`/`emsdk_env.bat`.
 
 Open a terminal and navigate to the root directory of the engine source code.
 Then instruct SCons to build the JavaScript platform. Specify `target` as
-either `release` for a release build or `release_debug` for a debug build::
+either `release` for a release build or `release_debug` for a debug build:
 
+```
     scons platform=javascript tools=no target=release
     scons platform=javascript tools=no target=release_debug
+```
 
 By default, the `JavaScript singleton ( doc_javascript_eval )` will be built
 into the engine. Official export templates also have the JavaScript singleton
 enabled. Since `eval()` calls can be a security concern, the
-`javascript_eval` option can be used to build without the singleton::
+`javascript_eval` option can be used to build without the singleton:
 
+```
     scons platform=javascript tools=no target=release javascript_eval=no
     scons platform=javascript tools=no target=release_debug javascript_eval=no
+```
 
 The engine will now be compiled to WebAssembly by Emscripten. Once finished,
 the resulting file will be placed in the `bin` subdirectory. Its name is
@@ -54,13 +58,17 @@ the resulting file will be placed in the `bin` subdirectory. Its name is
 for debug.
 
 Finally, rename the zip archive to `webassembly_release.zip` for the
-release template::
+release template:
 
+```
     mv bin/godot.javascript.opt.zip bin/webassembly_release.zip
+```
 
-And `webassembly_debug.zip` for the debug template::
+And `webassembly_debug.zip` for the debug template:
 
+```
     mv bin/godot.javascript.opt.debug.zip bin/webassembly_debug.zip
+```
 
 Threads and GDNative
 --------------------
@@ -70,37 +78,45 @@ performance and compatibility reasons. See the
 `export page ( doc_javascript_export_options )` for more info.
 
 You can build the export templates using the option `threads_enabled=yes` or
-`gdnative_enabled=yes` to enable threads or GDNative support::
+`gdnative_enabled=yes` to enable threads or GDNative support:
 
+```
     scons platform=javascript tools=no threads_enabled=yes target=release
     scons platform=javascript tools=no threads_enabled=yes target=release_debug
 
     scons platform=javascript tools=no gdnative_enabled=yes target=release
     scons platform=javascript tools=no gdnative_enabled=yes target=release_debug
+```
 
 Once finished, the resulting file will be placed in the `bin` subdirectory.
 Its name will have either the `.threads` or `.gdnative` suffix.
 
 Finally, rename the zip archives to `webassembly_release_threads.zip` and
-`webassembly_release_gdnative.zip` for the release template::
+`webassembly_release_gdnative.zip` for the release template:
 
+```
     mv bin/godot.javascript.opt.threads.zip bin/webassembly_threads_release.zip
     mv bin/godot.javascript.opt.gdnative.zip bin/webassembly_gdnative_release.zip
+```
 
 And `webassembly_debug_threads.zip` and `webassembly_debug_gdnative.zip` for
-the debug template::
+the debug template:
 
+```
     mv bin/godot.javascript.opt.debug.threads.zip bin/webassembly_threads_debug.zip
     mv bin/godot.javascript.opt.debug.gdnative.zip bin/webassembly_gdnative_debug.zip
+```
 
 Building the Editor
 -------------------
 
 It is also possible to build a version of the Godot editor that can run in the
 browser. The editor version requires threads support and is not recommended
-over the native build. You can build the editor with::
+over the native build. You can build the editor with:
 
+```
     scons platform=javascript tools=yes threads_enabled=yes target=release_debug
+```
 
 Once finished, the resulting file will be placed in the `bin` subdirectory.
 Its name will be `godot.javascript.opt.tools.threads.zip`. You can upload the

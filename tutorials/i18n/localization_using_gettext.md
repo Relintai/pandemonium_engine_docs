@@ -71,14 +71,14 @@ each locale will be defined in its own file.
 Create a directory named `locale` in the project directory. In this directory,
 save a file named `messages.pot` with the following contents:
 
-::
-
+```
     # Don't remove the two lines below, they're required for gettext to work correctly.
     msgid ""
     msgstr ""
 
     msgid "Hello world!"
     msgstr ""
+```
 
 Messages in gettext are made of `msgid` and `msgstr` pairs.
 `msgid` is the source string (usually in English), `msgstr` will be
@@ -95,27 +95,27 @@ create and update the POT file from your scene files and scripts.
 
 After installing `babel` and `babel-godot`, for example using pip:
 
-.. code-block:: shell
-
+```
     pip3 install babel babel-godot
+```
 
 Write a mapping file (for example `babelrc`) which will indicate which files
 pybabel needs to process (note that we process GDScript as Python, which is
 generally sufficient):
 
-.. code-block:: none
-
+```
     [python: **.gd]
     encoding = utf-8
 
     [godot_scene: **.tscn]
     encoding = utf-8
+```
 
 You can then run pybabel like so:
 
-.. code-block:: shell
-
+```
     pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr -o godot-l10n.pot .
+```
 
 Use the `-k` option to specify what needs to be extracted. In this case,
 arguments to `tr()` will be translated, as well
@@ -129,9 +129,9 @@ The `msginit` command is used to turn a PO template into a messages file.
 For instance, to create a French localization file, use the following command
 while in the `locale` directory:
 
-.. code-block:: shell
-
+```
     msginit --no-translator --input=messages.pot --locale=fr
+```
 
 The command above will create a file named `fr.po` in the same directory
 as the PO template.
@@ -160,10 +160,10 @@ that they contain new strings, while removing strings that are no longer
 present in the PO template. This can be done automatically using the
 `msgmerge` tool:
 
-.. code-block:: shell
-
+```
     # The order matters: specify the message file *then* the PO template!
     msgmerge --update --backup=none fr.po messages.pot
+```
 
 If you want to keep a backup of the original message file (which would be
 saved as `fr.po~` in this example), remove the `--backup=none` argument.
@@ -185,9 +185,9 @@ Checking the validity of a PO file or template
 It is possible to check whether a gettext file's syntax is valid by running
 the command below:
 
-.. code-block:: shell
-
+```
     msgfmt fr.po --check
+```
 
 If there are syntax errors or warnings, they will be displayed in the console.
 Otherwise, `msgfmt` won't output anything.
@@ -202,9 +202,9 @@ PO files.
 
 You can generate a MO file with the command below:
 
-.. code-block:: shell
-
+```
     msgfmt fr.po --no-hash -o fr.mo
+```
 
 If the PO file is valid, this command will create a `fr.mo` file besides
 the PO file. This MO file can then be loaded in Godot as described below.
@@ -213,9 +213,9 @@ The original PO file should be kept in version control so you can update
 your translation in the future. In case you lose the original PO file and
 wish to decompile a MO file into a text-based PO file, you can do so with:
 
-.. code-block:: shell
-
+```
     msgunfmt fr.mo > fr.po
+```
 
 The decompiled file will not include comments or fuzzy strings, as these are
 never compiled in the MO file in the first place.

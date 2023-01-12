@@ -26,15 +26,15 @@ project. To launch a project directly, you need to run the editor by
 passing the `-e` argument to Godot Engine's binary from within your
 project's folder. Typically:
 
-.. code-block:: none
-
+```
     $ cd ~/myproject
     $ gdb godot
     > run -e
+```
 
 Or:
 
-.. code-block:: none
-
+```
     $ gdb godot
     > run -e --path ~/myproject
+```

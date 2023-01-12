@@ -30,24 +30,24 @@ Compiling
 
 Open a Terminal, go to the root dir of the engine source code and type:
 
-::
-
+```
     $ scons p=iphone target=debug
+```
 
 for a debug build, or:
 
-::
-
+```
     $ scons p=iphone target=release
+```
 
 for a release build (check `platform/iphone/detect.py` for the compiler
 flags used for each configuration).
 
 Alternatively, you can run
 
-::
-
+```
     $ scons p=iphone arch=x86_64 target=debug
+```
 
 for a Simulator executable.
 
@@ -57,24 +57,24 @@ The best way to provide these is to create a bundle in which there are both 32-b
 It can be done in three steps: first compile the 32-bit version, then compile the 64-bit version and then use `lipo` to bundle them into one "universal" binary.
 All those steps can be performed with following commands:
 
-::
-
+```
     $ scons p=iphone tools=no target=release arch=arm
     $ scons p=iphone tools=no target=release arch=arm64
     $ lipo -create bin/libgodot.iphone.opt.arm.a bin/libgodot.iphone.opt.arm64.a -output bin/libgodot.iphone.release.fat.a
     $ lipo -create bin/libgodot_camera_module.iphone.opt.arm.a bin/libgodot_camera_module.iphone.opt.arm64.a -output bin/libgodot_camera_module.iphone.release.fat.a
     $ lipo -create bin/libgodot_arkit_module.iphone.opt.arm.a bin/libgodot_arkit_module.iphone.opt.arm64.a -output bin/libgodot_arkit_module.iphone.release.fat.a
+```
 
 If you also want to provide a simulator build (reduces the chance of any linker errors with dependencies), you'll need to build and lipo the `x86_64` architecture as well.
 
-::
-
+```
     $ scons p=iphone tools=no target=release arch=arm
     $ scons p=iphone tools=no target=release arch=arm64
     $ scons p=iphone tools=no target=release arch=x86_64
     $ lipo -create bin/libgodot.iphone.opt.arm.a bin/libgodot.iphone.opt.arm64.a bin/libgodot.iphone.opt.x86_64.a -output bin/libgodot.iphone.release.fat.a
     $ lipo -create bin/libgodot_camera_module.iphone.opt.arm.a bin/libgodot_camera_module.iphone.opt.arm64.a bin/libgodot_camera_module.iphone.opt.x86_64.a -output bin/libgodot_camera_module.iphone.release.fat.a
     $ lipo -create bin/libgodot_arkit_module.iphone.opt.arm.a bin/libgodot_arkit_module.iphone.opt.arm64.a bin/libgodot_arkit_module.iphone.opt.x86_64.a -output bin/libgodot_arkit_module.iphone.release.fat.a
+```
 
 Run
 ---

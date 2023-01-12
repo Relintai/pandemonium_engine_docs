@@ -38,8 +38,7 @@ Creating a Godot server
 At minimum, a server must have a static instance, a sleep timer, a thread loop,
 an initialization state and a cleanup procedure.
 
-.. code-block:: cpp
-
+```
 	#ifndef HILBERT_HOTEL_H
 	#define HILBERT_HOTEL_H
 
@@ -91,9 +90,9 @@ an initialization state and a cleanup procedure.
 	};
 
 	#endif
+```
 
-.. code-block:: cpp
-
+```
 	#include "hilbert_hotel.h"
 
 	#include "core/dictionary.h"
@@ -235,9 +234,9 @@ an initialization state and a cleanup procedure.
 	HilbertHotel::HilbertHotel() {
 		singleton = this;
 	}
+```
 
-.. code-block:: cpp
-
+```
 	/* prime_225.h */
 
 	#include "core/int_types.h"
@@ -269,6 +268,7 @@ an initialization state and a cleanup procedure.
 			1283,1289,1291,1297,1301,1303,1307,1319,1321,
 			1327,1361,1367,1373,1381,1399,1409,1423,1427
 	};
+```
 
 Custom managed resource data
 ----------------------------
@@ -278,8 +278,7 @@ Godot servers implement a mediator pattern. All data types inherit `RID_Data`.
 RID_Owner maintains a list of RIDs. In practice, RIDs are similar to writing
 object-oriented C code.
 
-.. code-block:: cpp
-
+```
 	class InfiniteBus : public RID_Data {
 		RID self;
 
@@ -311,6 +310,7 @@ object-oriented C code.
 		InfiniteBus(uint64_t prime) : prime_num(prime), num(1) {};
 		~InfiniteBus() {};
 	}
+```
 
 References
 ~~~~~~~~~~~
@@ -332,8 +332,7 @@ class must be created to reference the proper Godot server.
 In `register_server_types()`, `Engine::get_singleton()->add_singleton`
 is used to register the dummy class in GDScript.
 
-.. code-block:: cpp
-
+```
 	/* register_types.cpp */
 
 	#include "register_types.h"
@@ -364,14 +363,15 @@ is used to register the dummy class in GDScript.
 			memdelete(_hilbert_hotel);
 		}
 	}
+```
 
-.. code-block:: cpp
-
+```
 	/* register_types.h */
 
 	/* Yes, the word in the middle must be the same as the module folder name */
 	void register_hilbert_hotel_types();
 	void unregister_hilbert_hotel_types();
+```
 
 - `servers/register_server_types.cpp ( https://github.com/godotengine/godot/blob/master/servers/register_server_types.cpp )`
 
@@ -380,24 +380,23 @@ Bind methods
 
 The dummy class binds singleton methods to GDScript. In most cases, the dummy class methods wraps around.
 
-.. code-block:: cpp
-
+```
 	Variant _HilbertHotel::get_bus_info(RID id) {
 		return HilbertHotel::get_singleton()->get_bus_info(id);
 	}
+```
 
 Binding Signals
 
 It is possible to emit signals to GDScript by calling the GDScript dummy object.
 
-.. code-block:: cpp
-
+```
 	void HilbertHotel::_emit_occupy_room(uint64_t room, RID rid) {
 		_HilbertHotel::get_singleton()->_occupy_room(room, rid);
 	}
+```
 
-.. code-block:: cpp
-
+```
 	class _HilbertHotel : public Object {
 		GDCLASS(_HilbertHotel, Object);
 
@@ -422,9 +421,9 @@ It is possible to emit signals to GDScript by calling the GDScript dummy object.
 	};
 
 	#endif
+```
 
-.. code-block:: cpp
-
+```
 	_HilbertHotel *_HilbertHotel::singleton = NULL;
 	_HilbertHotel *_HilbertHotel::get_singleton() { return singleton; }
 
@@ -461,6 +460,7 @@ It is possible to emit signals to GDScript by calling the GDScript dummy object.
 
 	_HilbertHotel::~_HilbertHotel() {
 	}
+```
 
 MessageQueue
 ------------
@@ -481,8 +481,7 @@ Summing it up
 
 Here is the GDScript sample code:
 
-::
-
+```
     extends Node
 
     func _ready():
@@ -501,6 +500,7 @@ Here is the GDScript sample code:
     func _print_occupy_room(room_number, r_id):
         print("Room number: "  + str(room_number) + ", RID: " + str(r_id))
         print(HilbertHotel.get_bus_info(r_id))
+```
 
 Notes
 ~~~~~

@@ -54,9 +54,11 @@ Set the `ANGLE_SRC_PATH` to the directory where you downloaded the ANGLE
 source code. The build process will also build ANGLE to produce the
 required DLLs for the selected architecture.
 
-Once you're set, run the SCons command similarly to the other platforms::
+Once you're set, run the SCons command similarly to the other platforms:
 
+```
     C:\godot>scons platform=uwp
+```
 
 Creating UWP export templates
 -----------------------------
@@ -66,10 +68,12 @@ You need all three architectures with `debug` and `release` templates to
 be able to export.
 
 Open the command prompt for one architecture and run SCons twice (once for
-each target)::
+each target):
 
+```
     C:\godot>scons platform=uwp target=release_debug
     C:\godot>scons platform=uwp target=release
+```
 
 Repeat for the other architectures.
 
@@ -84,14 +88,16 @@ under `winrt/10/src/Release_%arch%` (where `%arch%` can be `Win32`,
 putting them along with the executable.
 
 Add the files in the `uwp_template` folder to a ZIP. Rename the resulting
-Zip according to the target/architecture of the template::
+Zip according to the target/architecture of the template:
 
+```
     uwp_x86_debug.zip
     uwp_x86_release.zip
     uwp_x64_debug.zip
     uwp_x64_release.zip
     uwp_arm_debug.zip
     uwp_arm_release.zip
+```
 
 Move those templates to the `[versionstring]\templates` folder in Godot
 settings path, where `versionstring` is the version of Godot you have compiled

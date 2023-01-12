@@ -19,10 +19,9 @@ Each *feature* is represented as a string, which can refer to many of the follow
 
 Features can be queried at run-time from the singleton API by calling:
 
-::
-
+```
     OS.has_feature(name)
-
+```
 
 Default features
 ----------------

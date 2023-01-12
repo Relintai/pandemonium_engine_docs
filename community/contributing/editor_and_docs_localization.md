@@ -3,8 +3,6 @@
 Editor and docs localization
 ============================
 
-.. highlight:: none
-
 Godot aims to make game development available to everyone, including people who
 may not know or be comfortable with English. Therefore, we do our best to make
 the most important resources available in many languages, thanks to the
@@ -222,7 +220,7 @@ The editor translations originate from C++ strings, and may use:
   placed in your translation where necessary for it to be meaningful after
   substitution. You may need to refer to the source string location to
   understand what kind of content will be substituted if it's not clear from the
-  sentence. Example (`%s`  will be substituted with a file name or path)::
+  sentence. Example (`%s`  will be substituted with a file name or path):
 
     # PO file:
     "There is no '%s' file."
@@ -236,7 +234,7 @@ The editor translations originate from C++ strings, and may use:
   breaks in the same way as the original English string (Weblate will issue a
   warning if you don't). Line breaks might sometimes be used for vertical
   spacing, or manual wrapping of long lines which would otherwise be too long
-  especially in the editor translation). Example::
+  especially in the editor translation). Example:
 
     # PO file:
     "Scene '%s' is currently being edited.\n"
@@ -256,8 +254,9 @@ Online documentation (RST)
 
 The documentation translations originate from reStructuredText (RST) files,
 which also use their own markup syntax to style text, create internal and
-external links, etc. Here are some examples::
+external links, etc. Here are some examples:
 
+```
     # "development" is styled bold.
     # "Have a look here" is a link pointing to https://docs.godotengine.org/en/latest.
     # You should translate "Have a look here", but not the URL, unless there is
@@ -293,6 +292,7 @@ external links, etc. Here are some examples::
 
     Save the scene. Click Scene -> Save, or press :kbd:`Ctrl + S` on Windows/Linux
     or :kbd:`Cmd + S` on macOS.
+```
 
 See also:
 
@@ -312,13 +312,15 @@ Some of the tags used are from the original BBCode (e.g. `[b]Bold[/b]` and
 `[i]Italics[/i]`), while others are Godot-specific and used for advanced
 features such as inline code (e.g. `[code]true[/code]`), linking to another
 class (e.g. `[Node2D]`) or to a property in a given class (e.g.
-`[member Node2D.position]`), or for multiline code blocks. Example::
+`[member Node2D.position]`), or for multiline code blocks. Example:
 
+```
     Returns a color according to the standardized [code]name[/code] with [code]alpha[/code] ranging from 0 to 1.
     [codeblock]
     red = ColorN("red", 1)
     [/codeblock]
     Supported color names are the same as the constants defined in [Color].
+```
 
 In the above example, `[code]name[/code]`, `[code]alpha[/code]`, and
 `[Color]` should *not* be translated, as they refer respectively to argument

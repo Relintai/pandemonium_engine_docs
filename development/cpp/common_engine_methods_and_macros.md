@@ -10,8 +10,7 @@ but it can also be useful for those writing custom C++ modules.
 Print text
 ----------
 
-.. code-block:: cpp
-
+```
     // Prints a message to standard output.
     print_line("Message");
 
@@ -27,6 +26,7 @@ Print text
     // This can be used to avoid spamming the console output.
     ERR_PRINT_ONCE("Message");
     WARN_PRINT_ONCE("Message");
+```
 
 If you need to add placeholders in your messages, use format strings as
 described below.
@@ -37,8 +37,7 @@ Format a string
 The `vformat()` function returns a formatted `String`. It behaves
 in a way similar to C's `sprintf()`:
 
-.. code-block:: cpp
-
+```
     vformat("My name is %s.", "Godette");
     vformat("%d bugs on the wall!", 1234);
     vformat("Pi is approximately %f.", 3.1416);
@@ -47,6 +46,7 @@ in a way similar to C's `sprintf()`:
     // You may need to do this if passing the result as an argument
     // to a method that expects a `const char *` instead of a String.
     vformat("My name is %s.", "Godette").c_str();
+```
 
 In most cases, try to use `vformat()` instead of string concatenation as it
 makes for more readable code.
@@ -56,13 +56,13 @@ Convert an integer or float to a string
 
 This is mainly useful when printing numbers directly.
 
-.. code-block:: cpp
-
+```
     // Prints "42" using integer-to-string conversion.
     print_line(itos(42));
 
     // Prints "123.45" using real-to-string conversion.
     print_line(rtos(123.45));
+```
 
 Internationalize a string
 -------------------------
@@ -77,20 +77,20 @@ There are two types of internationalization in Godot's codebase:
   projects if they provide a translation for the given string. This kind of
   translation shouldn't be used in editor-only code.
 
-.. code-block:: cpp
-
+```
     // Returns the translated string that matches the user's locale settings.
     // Translations are located in `editor/translations`.
     // The localization template is generated automatically; don't modify it.
     TTR("Exit the editor?");
+```
 
 To insert placeholders in localizable strings, wrap the localization macro in a
 `vformat()` call as follows:
 
-.. code-block:: cpp
-
+```
     String file_path = "example.txt";
     vformat(TTR("Couldn't open \"%s\" for reading."), file_path);
+```
 
 Note:
 
@@ -106,14 +106,14 @@ Clamp a value
 Godot provides macros for clamping a value with a lower bound (`MAX`), an
 upper bound (`MIN`) or both (`CLAMP`):
 
-.. code-block:: cpp
-
+```
     int a = 3;
     int b = 5;
 
     MAX(b, 6); // 6
     MIN(2, a); // 2
     CLAMP(a, 10, 30); // 10
+```
 
 This works with any type that can be compared to other values (like `int` and
 `float`).
@@ -124,14 +124,14 @@ Microbenchmarking
 If you want to benchmark a piece of code but don't know how to use a profiler,
 use this snippet:
 
-.. code-block:: cpp
-
+```
     uint64_t begin = OS::get_singleton()->get_ticks_usec();
 
     // Your code here...
 
     uint64_t end = OS::get_singleton()->get_ticks_usec();
     print_line(vformat("Snippet took %d microseconds", end - begin));
+```
 
 This will print the time spent between the `begin` declaration and the `end`
 declaration.
@@ -149,8 +149,7 @@ Get project/editor settings
 
 There are four macros available for this:
 
-.. code-block:: cpp
-
+```
     // Returns the specified project setting's value,
     // defaulting to `false` if it doesn't exist.
     GLOBAL_DEF("section/subsection/value", false);
@@ -158,16 +157,17 @@ There are four macros available for this:
     // Returns the specified editor setting's value,
     // defaulting to "Untitled" if it doesn't exist.
     EDITOR_DEF("section/subsection/value", "Untitled");
+```
 
 If a default value has been specified elsewhere, don't specify it again to avoid
 repetition:
 
-.. code-block:: cpp
-
+```
     // Returns the value of the project setting.
     GLOBAL_GET("section/subsection/value");
     // Returns the value of the editor setting.
     EDITOR_GET("section/subsection/value");
+```
 
 It's recommended to use `GLOBAL_DEF`/`EDITOR_DEF` only once per setting and
 use `GLOBAL_GET`/`EDITOR_GET` in all other places where it's referenced.
@@ -200,8 +200,7 @@ Note:
     Also, always try to return processable data so the engine can keep running
     well.
 
-.. code-block:: cpp
-
+```
     // Conditionally prints an error message and returns from the function.
     // Use this in methods which don't return a value.
     ERR_FAIL_COND_MSG(!mesh.is_valid(), vformat("Couldn't load mesh at: %s", path));
@@ -237,7 +236,7 @@ Note:
     // except for testing crash handling code. Godot's philosophy
     // is to never crash, both in the editor and in exported projects.
     CRASH_NOW_MSG("Can't predict the future! Aborting.");
-
+```
 
 See also:
 

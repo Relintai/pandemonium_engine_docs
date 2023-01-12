@@ -81,9 +81,9 @@ To enable debugging support you need to edit the external build target's build a
   the project directory within the script.
 - Create a script that will give the binary a name that Xcode can recognize, e.g.:
 
-.. code-block:: shell
-
+```
   ln -f ${PROJECT_DIR}/godot/bin/godot.osx.tools.64 ${PROJECT_DIR}/godot/bin/godot
+```
 
 .. figure:: img/xcode_7_setup_build_post_action.png)
    :figclass: figure-w480

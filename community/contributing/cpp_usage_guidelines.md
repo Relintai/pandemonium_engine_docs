@@ -75,13 +75,13 @@ Note:
 Please don't use the `auto` keyword for type inference. While it can avoid
 repetition, it can also lead to confusing code:
 
-.. code-block:: cpp
-
+```
     // Not so confusing...
     auto button = memnew(Button);
 
     // ...but what about this?
     auto result = EditorNode::get_singleton()->get_complex_result();
+```
 
 Keep in mind hover documentation often isn't readily available for pull request
 reviewers. Most of the time, reviewers will use GitHub's online viewer to review

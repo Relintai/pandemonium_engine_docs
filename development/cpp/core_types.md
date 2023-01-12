@@ -79,24 +79,24 @@ should not be used. Instead, a few other ones are provided.
 
 For C-style allocation, Godot provides a few macros:
 
-.. code-block:: none
-
+```
     memalloc()
     memrealloc()
     memfree()
+```
 
 These are equivalent to the usual malloc, realloc, free of the standard C
 library.
 
 For C++-style allocation, special macros are provided:
 
-.. code-block:: none
-
+```
     memnew( Class / Class(args) )
     memdelete( instance )
 
     memnew_arr( Class , amount )
     memdelete_arr( pointer to array )
+```
 
 which are equivalent to new, delete, new[] and delete[].
 
@@ -107,21 +107,21 @@ For dynamic memory, the PoolVector<> template is provided. PoolVector is a
 standard vector class, and is very similar to vector in the C++ standard library.
 To create a PoolVector buffer, use this:
 
-.. code-block:: cpp
-
+```
     PoolVector<int> data;
+```
 
 PoolVector can be accessed using the [] operator and a few helpers exist for this:
 
-.. code-block:: cpp
-
+```
     PoolVector<int>::Read r = data.read()
     int someint = r[4]
+```
 
-.. code-block:: cpp
-
+```
     PoolVector<int>::Write w = data.write()
     w[4] = 22;
+```
 
 These operations allow fast read/write from PoolVectors and keep it
 locked until they go out of scope. However, PoolVectors should be used
@@ -149,11 +149,11 @@ in C++ are often inlined and make the binary size much fatter, both in
 debug symbols and code. List, Set and Map can be iterated using
 pointers, like this:
 
-.. code-block:: cpp
-
+```
     for(List<int>::Element *E=somelist.front();E;E=E->next()) {
         print_line(E->get()); // print the element
     }
+```
 
 The Vector<> class also has a few nice features:
 

@@ -288,10 +288,10 @@ same name. It takes a string as an argument and executes it as JavaScript code.
 This allows interacting with the browser in ways not possible with script
 languages integrated into Godot.
 
-::
-
+```
     func my_func():
         JavaScript.eval("alert('Calling JavaScript per GDScript!');")
+```
 
 The value of the last JavaScript statement is converted to a GDScript value and
 returned by `eval()` under certain circumstances:
@@ -302,11 +302,11 @@ returned by `eval()` under certain circumstances:
  * JavaScript `ArrayBuffer`, `TypedArray` and `DataView` are returned as
    GDScript `PoolByteArray`
 
-::
-
+```
     func my_func2():
         var js_return = JavaScript.eval("var myNumber = 1; myNumber + 2;")
         print(js_return) # prints '3.0'
+```
 
 Any other JavaScript value is returned as `null`.
 
@@ -314,8 +314,9 @@ HTML5 export templates may be `built ( doc_compiling_for_web )` without
 support for the singleton to improve security. With such templates, and on
 platforms other than HTML5, calling `JavaScript.eval` will also return
 `null`. The availability of the singleton can be checked with the
-`JavaScript` `feature tag ( doc_feature_tags )`::
+`JavaScript` `feature tag ( doc_feature_tags )`:
 
+```
     func my_func3():
         if OS.has_feature('JavaScript'):
             JavaScript.eval("""
@@ -323,6 +324,7 @@ platforms other than HTML5, calling `JavaScript.eval` will also return
             """)
         else:
             print("The JavaScript singleton is NOT available")
+```
 
 Tip:
  GDScript's multi-line strings, surrounded by 3 quotes `"""` as in
@@ -330,9 +332,11 @@ Tip:
 
 The `eval` method also accepts a second, optional Boolean argument, which
 specifies whether to execute the code in the global execution context,
-defaulting to `false` to prevent polluting the global namespace::
+defaulting to `false` to prevent polluting the global namespace:
 
+```
     func my_func4():
         # execute in global execution context,
         # thus adding a new JavaScript global variable `SomeGlobal`
         JavaScript.eval("var SomeGlobal = {};", true)
+```

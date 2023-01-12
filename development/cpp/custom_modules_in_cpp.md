@@ -44,8 +44,7 @@ a different VCS into modules and use it.
 The example module will be called "summator" (`godot/modules/summator`).
 Inside we will create a simple summator class:
 
-.. code-block:: cpp
-
+```
     /* summator.h */
 
     #ifndef SUMMATOR_H
@@ -70,11 +69,11 @@ Inside we will create a simple summator class:
     };
 
     #endif // SUMMATOR_H
+```
 
 And then the cpp file.
 
-.. code-block:: cpp
-
+```
     /* summator.cpp */
 
     #include "summator.h"
@@ -104,27 +103,26 @@ And then the cpp file.
 Then, the new class needs to be registered somehow, so two more files
 need to be created:
 
-.. code-block:: none
-
+```
     register_types.h
     register_types.cpp
+```
 
-.. important::
+.. important:
     These files must be in the top-level folder of your module (next to your
     `SCsub` and `config.py` files) for the module to be registered properly.
 
 These files should contain the following:
 
-.. code-block:: cpp
-
+```
     /* register_types.h */
 
     void register_summator_types();
     void unregister_summator_types();
     /* yes, the word in the middle must be the same as the module folder name */
+```
 
-.. code-block:: cpp
-
+```
     /* register_types.cpp */
 
     #include "register_types.h"
@@ -139,25 +137,26 @@ These files should contain the following:
     void unregister_summator_types() {
        // Nothing to do here in this example.
     }
+```
 
 Next, we need to create a `SCsub` file so the build system compiles
 this module:
 
-.. code-block:: python
-
+```
     # SCsub
 
     Import('env')
 
     env.add_source_files(env.modules_sources, "*.cpp") # Add all cpp files to the build
+```
 
 With multiple sources, you can also add each file individually to a Python
 string list:
 
-.. code-block:: python
-
+```
     src_list = ["summator.cpp", "other.cpp", "etc.cpp"]
     env.add_source_files(env.modules_sources, src_list)
+```
 
 This allows for powerful possibilities using Python to construct the file list
 using loops and logic statements. Look at some modules that ship with Godot by
@@ -166,17 +165,16 @@ default for examples.
 To add include directories for the compiler to look at you can append it to the
 environment's paths:
 
-.. code-block:: python
-
+```
     env.Append(CPPPATH=["mylib/include"]) # this is a relative path
     env.Append(CPPPATH=["#myotherlib/include"]) # this is an 'absolute' path
+```
 
 If you want to add custom compiler flags when building your module, you need to clone
 `env` first, so it won't add those flags to whole Godot build (which can cause errors).
 Example `SCsub` with custom flags:
 
-.. code-block:: python
-
+```
     # SCsub
 
     Import('env')
@@ -188,12 +186,12 @@ Example `SCsub` with custom flags:
     # If you need to, you can:
     # - Append CFLAGS for C code only.
     # - Append CXXFLAGS for C++ code only.
+```
 
 And finally, the configuration file for the module, this is a simple
 python script that must be named `config.py`:
 
-.. code-block:: python
-
+```
     # config.py
 
     def can_build(env, platform):
@@ -201,6 +199,7 @@ python script that must be named `config.py`:
 
     def configure(env):
         pass
+```
 
 The module is asked if it's OK to build for the specific platform (in
 this case, `True` means it will build for every platform).
@@ -208,14 +207,14 @@ this case, `True` means it will build for every platform).
 And that's it. Hope it was not too complex! Your module should look like
 this:
 
-.. code-block:: none
-
+```
     godot/modules/summator/config.py
     godot/modules/summator/summator.h
     godot/modules/summator/summator.cpp
     godot/modules/summator/register_types.h
     godot/modules/summator/register_types.cpp
     godot/modules/summator/SCsub
+```
 
 You can then zip it and share the module with everyone else. When
 building for every platform (instructions in the previous sections),
@@ -281,18 +280,18 @@ practical thing to do:
 So if you feel like the independent structure of custom modules is needed, lets
 take our "summator" module and move it to the engine's parent directory:
 
-.. code-block:: shell
-
+```
     mkdir ../modules
     mv modules/summator ../modules
+```
 
 Compile the engine with our module by providing `custom_modules` build option
 which accepts a comma-separated list of directory paths containing custom C++
 modules, similar to the following:
 
-.. code-block:: shell
-
+```
     scons custom_modules=../modules
+```
 
 The build system shall detect all modules under the `../modules` directory
 and compile them accordingly, including our "summator" module.
@@ -333,8 +332,7 @@ changed, finding such files and eventually linking the final binary takes a long
 The solution to avoid such a cost is to build our own module as a shared
 library that will be dynamically loaded when starting our game's binary.
 
-.. code-block:: python
-
+```
     # SCsub
 
     Import('env')
@@ -370,16 +368,17 @@ library that will be dynamically loaded when starting our game's binary.
     # (e.g. ".x11.tools.64") but without the final ".so".
     shared_lib_shim = shared_lib[0].name.rsplit('.', 1)[0]
     env.Append(LIBS=[shared_lib_shim])
+```
 
 Once compiled, we should end up with a `bin` directory containing both the
 `godot*` binary and our `libsummator*.so`. However given the .so is not in
 a standard directory (like `/usr/lib`), we have to help our binary find it
 during runtime with the `LD_LIBRARY_PATH` environment variable:
 
-.. code-block:: shell
-
+```
     export LD_LIBRARY_PATH="$PWD/bin/"
     ./bin/godot*
+```
 
 Note:
 
@@ -391,8 +390,7 @@ module as shared library (for development) or as a part of the Godot binary
 (for release). To do that we can define a custom flag to be passed to SCons
 using the `ARGUMENT` command:
 
-.. code-block:: python
-
+```
     # SCsub
 
     Import('env')
@@ -416,6 +414,7 @@ using the `ARGUMENT` command:
     else:
         # Static compilation
         module_env.add_source_files(env.modules_sources, sources)
+```
 
 Now by default `scons` command will build our module as part of Godot's binary
 and as a shared library when passing `summator_shared=yes`.
@@ -423,9 +422,9 @@ and as a shared library when passing `summator_shared=yes`.
 Finally, you can even speed up the build further by explicitly specifying your
 shared module as target in the SCons command:
 
-.. code-block:: shell
-
+```
     scons summator_shared=yes platform=x11 bin/libsummator.x11.tools.64.so
+```
 
 Writing custom documentation
 ----------------------------
@@ -443,8 +442,7 @@ There are several steps in order to setup custom docs for the module:
 
 2. Now, we need to edit `config.py`, add the following snippet:
 
-   .. code-block:: python
-
+```
         def get_doc_path():
             return "doc_classes"
 
@@ -452,6 +450,7 @@ There are several steps in order to setup custom docs for the module:
             return [
                 "Summator",
             ]
+```
 
 The `get_doc_path()` function is used by the build system to determine
 the location of the docs. In this case, they will be located in the
@@ -468,12 +467,15 @@ Tip:
 
 
     You can use Git to check if you have missed some of your classes by checking the
-    untracked files with `git status`. For example::
+    untracked files with `git status`. For example:
 
+```
         user@host:~/godot$ git status
+```
 
-    Example output::
+    Example output:
 
+```
         Untracked files:
             (use "git add <file>..." to include in what will be committed)
 
@@ -482,7 +484,7 @@ Tip:
             doc/classes/MyClass5D.xml
             doc/classes/MyClass6D.xml
             ...
-
+```
 
 3. Now we can generate the documentation:
 
@@ -494,9 +496,9 @@ to an another folder, and just copy over the files that you need.
 
 Run command:
 
-   ::
-
+```
       user@host:~/godot/bin$ ./bin/<godot_binary> --doctool .
+```
 
 Now if you go to the `godot/modules/summator/doc_classes` folder, you will see
 that it contains a `Summator.xml` file, or any other classes, that you referenced
@@ -518,11 +520,10 @@ on top of the newer ones.
 Note that if you don't have write access rights to your supplied `<path )`,
 you might encounter an error similar to the following:
 
-.. code-block:: console
-
+```
     ERROR: Can't write doc file: docs/doc/classes/@GDScript.xml
        At: editor/doc/doc_data.cpp:956
-
+```
 
 
 
@@ -548,10 +549,10 @@ Once you've created your icon(s), proceed with the following steps:
 If you'd like to store your icons somewhere else within your module,
 add the following code snippet to `config.py` to override the default path:
 
-   .. code-block:: python
-
+```
        def get_icons_path():
            return "path/to/icons"
+```
 
 Summing up
 ----------

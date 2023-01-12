@@ -45,8 +45,7 @@ ResourceLoader. ResourceLoader loads once and references the same
 object regardless how many times `load` is called on a specific resource.
 Therefore, playback state must be self-contained in AudioStreamPlayback.
 
-.. code-block:: cpp
-
+```
 	/* audiostream_mytone.h */
 
 	#include "core/reference.h"
@@ -75,9 +74,9 @@ Therefore, playback state must be self-contained in AudioStreamPlayback.
 	protected:
 		static void _bind_methods();
 	};
+```
 
-.. code-block:: cpp
-
+```
 	/* audiostream_mytone.cpp */
 
 	#include "audiostream_mytone.h"
@@ -112,6 +111,7 @@ Therefore, playback state must be self-contained in AudioStreamPlayback.
 		ClassDB::bind_method(D_METHOD("reset"), &AudioStreamMyTone::reset);
 		ClassDB::bind_method(D_METHOD("get_stream_name"), &AudioStreamMyTone::get_stream_name);
 	}
+```
 
 References:
 ~~~~~~~~~~~
@@ -126,8 +126,7 @@ AudioStreamPlayer uses `mix` callback to obtain PCM data. The callback must matc
 
 Since AudioStreamPlayback is controlled by the audio thread, i/o and dynamic memory allocation are forbidden.
 
-.. code-block:: cpp
-
+```
 	/*  audiostreamplayer_mytone.h */
 
 	#include "core/reference.h"
@@ -163,9 +162,9 @@ Since AudioStreamPlayback is controlled by the audio thread, i/o and dynamic mem
 		AudioStreamPlaybackMyTone();
 		~AudioStreamPlaybackMyTone();
 	};
+```
 
-.. code-block:: cpp
-
+```
 	/* audiostreamplayer_mytone.cpp */
 
 	#include "audiostreamplayer_mytone.h"
@@ -227,6 +226,7 @@ Since AudioStreamPlayback is controlled by the audio thread, i/o and dynamic mem
 	bool AudioStreamPlaybackMyTone::is_playing() const {
 		return active;
 	}
+```
 
 Resampling
 ~~~~~~~~~~
@@ -238,8 +238,7 @@ Godot provides cubic interpolation for audio resampling.
 Instead of overloading `mix`, AudioStreamPlaybackResampled uses `mix_internal` to
 query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
 
-.. code-block:: cpp
-
+```
 	#include "core/reference.h"
 	#include "core/resource.h"
 	#include "servers/audio/audio_stream.h"
@@ -279,8 +278,7 @@ query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
 		~AudioStreamPlaybackResampledMyTone();
 	};
 
-.. code-block:: cpp
-
+```
 	#include "mytone_audiostream_resampled.h"
 
 	#include "core/math/math_funcs.h"
@@ -343,6 +341,7 @@ query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
 	bool AudioStreamPlaybackResampledMyTone::is_playing() const {
 		return active;
 	}
+```
 
 References:
 ~~~~~~~~~~~

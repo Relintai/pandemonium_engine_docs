@@ -55,8 +55,7 @@ resources with the `load` function. To load a resource, `load` must
 read and handle data serialization.
 
 
-.. code-block:: cpp
-
+```
     /* resource_loader_json.h */
 
     #ifndef RESOURCE_LOADER_JSON_H
@@ -73,9 +72,9 @@ read and handle data serialization.
     	virtual String get_resource_type(const String &p_path) const;
     };
     #endif // RESOURCE_LOADER_JSON_H
+```
 
-.. code-block:: cpp
-
+```
     /* resource_loader_json.cpp */
 
     #include "resource_loader_json.h"
@@ -104,6 +103,7 @@ read and handle data serialization.
     bool ResourceFormatLoaderJson::handles_type(const String &p_type) const {
     	return ClassDB::is_parent_class(p_type, "Resource");
     }
+```
 
 Creating a ResourceFormatSaver
 ------------------------------
@@ -111,8 +111,7 @@ Creating a ResourceFormatSaver
 If you'd like to be able to edit and save a resource, you can implement a
 `ResourceFormatSaver`:
 
-.. code-block:: cpp
-
+```
     /* resource_saver_json.h */
 
     #ifndef RESOURCE_SAVER_JSON_H
@@ -128,9 +127,9 @@ If you'd like to be able to edit and save a resource, you can implement a
     	virtual void get_recognized_extensions(const RES &p_resource, List<String> *r_extensions) const;
     };
     #endif // RESOURCE_SAVER_JSON_H
+```
 
-.. code-block:: cpp
-
+```
     /* resource_saver_json.cpp */
 
     #include "resource_saver_json.h"
@@ -153,6 +152,7 @@ If you'd like to be able to edit and save a resource, you can implement a
     		r_extensions->push_back("json");
     	}
     }
+```
 
 Creating custom data types
 --------------------------
@@ -163,8 +163,7 @@ understand additional binary formats such as machine learning models.
 
 Here is an example of creating a custom datatype:
 
-.. code-block:: cpp
-
+```
     /* resource_json.h */
 
     #ifndef RESOURCE_JSON_H
@@ -195,9 +194,9 @@ Here is an example of creating a custom datatype:
     	Dictionary get_dict();
     };
     #endif // RESOURCE_JSON_H
+```
 
-.. code-block:: cpp
-
+```
     /* resource_json.cpp */
 
     #include "resource_json.h"
@@ -257,6 +256,7 @@ Here is an example of creating a custom datatype:
     Dictionary JsonResource::get_dict() {
     	return content;
     }
+```
 
 Considerations
 ~~~~~~~~~~~~~~
@@ -267,8 +267,7 @@ Therefore, Godot call translations are required.
 For example, here is the code for translating `FileAccess`
 calls into `std::istream`.
 
-.. code-block:: cpp
-
+```
     #include "core/os/file_access.h"
 
     #include <istream>
@@ -297,7 +296,7 @@ calls into `std::istream`.
     private:
     	FileAccess *_file;
     };
-
+```
 
 References
 ~~~~~~~~~~
@@ -313,15 +312,14 @@ Godot registers `ResourcesFormatLoader` with a `ResourceLoader`
 handler. The handler selects the proper loader automatically
 when `load` is called.
 
-.. code-block:: cpp
-
+```
     /* register_types.h */
 
     void register_json_types();
     void unregister_json_types();
+```
 
-.. code-block:: cpp
-
+```
     /* register_types.cpp */
 
     #include "register_types.h"
@@ -351,6 +349,7 @@ when `load` is called.
     	ResourceSaver::remove_resource_format_saver(json_saver);
     	json_saver.unref();
     }
+```
 
 References
 ~~~~~~~~~~
@@ -363,8 +362,7 @@ Loading it on GDScript
 Save a file called `demo.json` with the following contents and place it in the
 project's root folder:
 
-.. code-block:: json
-
+```
     {
       "savefilename": "demo.json",
       "demo": [
@@ -375,12 +373,15 @@ project's root folder:
         "loaders"
       ]
     }
+```
 
 Then attach the following script to any node::
 
+```
     extends Node
 
     onready var json_resource = load("res://demo.json")
 
     func _ready():
         print(json_resource.get_dict())
+```

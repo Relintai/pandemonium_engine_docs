@@ -137,14 +137,16 @@ To handle clicked `[url]` tags, connect the RichTextLabel node's
 `meta_clicked` signal to a script function.
 
 For example, the following method can be connected to `meta_clicked` to open
-clicked URLs using the user's default web browser::
+clicked URLs using the user's default web browser:
 
+```
     # This assumes RichTextLabel's `meta_clicked` signal was connected to
     # the function below using the signal connection dialog.
     func _richtextlabel_on_meta_clicked(meta):
         # `meta` is not guaranteed to be a String, so convert it to a String
         # to avoid script errors at run-time.
         OS.shell_open(str(meta))
+```
 
 For more advanced use cases, it's also possible to store JSON in an `[url]`
 tag's option and parse it in the function that handles the `meta_clicked` signal.
@@ -270,8 +272,7 @@ Here are some examples of custom effects:
 Ghost
 ~~~~~
 
-::
-
+```
     tool
     extends RichTextEffect
     class_name RichTextGhost
@@ -289,12 +290,12 @@ Ghost
         var alpha = sin(char_fx.elapsed_time * speed + (char_fx.absolute_index / span)) * 0.5 + 0.5
         char_fx.color.a = alpha
         return true
+```
 
 Pulse
 ~~~~~
 
-::
-
+```
     tool
     extends RichTextEffect
     class_name RichTextPulse
@@ -316,12 +317,12 @@ Pulse
         char_fx.color = char_fx.color.linear_interpolate(color, sined_time)
         char_fx.offset = Vector2(0, -1) * y_off
         return true
+```
 
 Matrix
 ~~~~~~
 
-::
-
+```
     tool
     extends RichTextEffect
     class_name RichTextMatrix
@@ -352,10 +353,11 @@ Matrix
             value += 65
         char_fx.character = value
         return true
+```
 
 This will add a few new BBCode commands, which can be used like so:
 
-::
-
+```
     [center][ghost]This is a custom [matrix]effect[/matrix][/ghost] made in
     [pulse freq=5.0 height=2.0][pulse color=#00FFAA freq=2.0]GDScript[/pulse][/pulse].[/center]
+```

@@ -25,40 +25,39 @@ Note:
  You may need to write `python3 -m pip` (Unix) or  `py -m pip` (Windows) instead of `pip3`.
           If both approaches fail, `check that you have pip3 installed ( https://pip.pypa.io/en/stable/installation/ )`.
 
-.. code:: sh
-
+```
     git clone https://github.com/godotengine/godot-docs.git
     pip3 install -r requirements.txt
-
+```
 
 With the programs installed, you can build the HTML documentation from the root
 folder of this repository with the following command:
 
-.. code:: sh
-
+```
     # On Linux and macOS
     make html
 
     # On Windows, you need to execute the `make.bat` file instead.
     make.bat html
+```
 
 If you run into errors, you may try the following command:
 
-.. code:: sh
-
+```
     make SPHINXBUILD=~/.local/bin/sphinx-build html
+```
 
 Building the documentation requires at least 8 GB of RAM to run without disk
 swapping, which slows it down. If you have at least 16 GB of RAM, you can speed
 up compilation by running:
 
-.. code:: sh
-
+```
     # On Linux/macOS
     make html SPHINXOPTS=-j2
 
     # On Windows
     set SPHINXOPTS=-j2 && make html
+```
 
 The compilation will take some time as the `classes/` folder contains hundreds
 of files.

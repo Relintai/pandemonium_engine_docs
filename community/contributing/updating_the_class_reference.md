@@ -70,9 +70,11 @@ When you create a new class or modify the engine's API, you need to re-generate 
 To do so, you first need to compile Godot. See the
 `doc_introduction_to_the_buildsystem` page to learn how. Then, execute the
 compiled Godot binary from the Godot root directory with the `--doctool` option.
-For example, if you're on 64-bit Linux, the command is::
+For example, if you're on 64-bit Linux, the command is:
 
+```
     ./bin/godot.linuxbsd.tools.64 --doctool
+```
 
 The XML files in doc/classes should then be up-to-date with current Godot Engine
 features. You can then check what changed using the `git diff` command. Please

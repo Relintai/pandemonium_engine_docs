@@ -18,7 +18,7 @@ follows its parent by default. Imagine you want the camera to shake when the pla
 takes damage. As this feature is not built into Godot, you would attach a script
 to the Camera2D node and code the shake.
 
-.. image:: img/scripting_camera_shake.gif
+![](img/scripting_camera_shake.gif)
 
 Available scripting languages
 -----------------------------
@@ -55,7 +55,7 @@ language specifically for Godot and the needs of game developers. It has a
 lightweight and straightforward syntax and provides the tightest integration
 with Godot.
 
-.. image:: img/scripting_gdscript.png
+![](img/scripting_gdscript.png)
 
 For C#, you will need an external code editor like
 `VSCode <https://code.visualstudio.com/>`_ or Visual Studio. While C# support is
@@ -116,7 +116,7 @@ amongst game developers, we officially support it. C# is a mature and flexible
 language with tons of libraries written for it. We could add support for it
 thanks to a generous donation from Microsoft.
 
-.. image:: img/scripting_csharp.png
+![](img/scripting_csharp.png)
 
 C# offers a good tradeoff between performance and ease of use, although you
 should be aware of its garbage collector.
@@ -153,7 +153,7 @@ VisualScript
 programming language where you connect blocks. It can be a great tool for
 non-programmers like game designers and artists.
 
-.. image:: img/scripting_visualscript.png
+![](img/scripting_visualscript.png)
 
 You can use other languages to create custom blocks that are specific to your
 game, for example, to script AIs, quests, or dialogues. That's where the
@@ -174,7 +174,7 @@ C and C++ via GDNative
 GDNative allows you to write game code in C or C++ without needing to recompile
 or even restart Godot.
 
-.. image:: img/scripting_cpp.png
+![](img/scripting_cpp.png)
 
 You can use any version of the language or mix compiler brands and versions for
 the generated shared libraries, thanks to our use of an internal C API Bridge.

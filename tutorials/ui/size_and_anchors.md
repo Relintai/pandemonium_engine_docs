@@ -17,26 +17,26 @@ that the screen resolution has changed and the controls need to be
 re-positioned. Some will need to follow the bottom of the screen, others
 the top of the screen, or maybe the right or left margins.
 
-.. image:: img/anchors.png
+![](img/anchors.png)
 
 This is done by editing the *margin* properties of controls. Each
 control has four margins: left, right, bottom and top. By default, all of
 them represent a distance in pixels relative to the top-left corner of
 the parent control or (in case there is no parent control) the viewport.
 
-.. image:: img/margin.png
+![](img/margin.png)
 
 When horizontal (left, right) and/or vertical (top, bottom) anchors are
 changed to 1, the margin values become relative to the bottom-right
 corner of the parent control or viewport.
 
-.. image:: img/marginend.png
+![](img/marginend.png)
 
 Here, the control is set to expand its bottom-right corner with that of
 the parent, so when re-sizing the parent, the control will always cover
 it, leaving a 20 pixel margin:
 
-.. image:: img/marginaround.png
+![](img/marginaround.png)
 
 Centering a control
 -------------------
@@ -48,7 +48,7 @@ a TextureRect can be centered in its parent:
 ::
 
     var rect = TextureRect.new()
-    rect.texture = load("res://icon.png")
+    rect.texture = load("res://icon.png)")
     rect.anchor_left = 0.5
     rect.anchor_right = 0.5
     rect.anchor_top = 0.5
@@ -71,4 +71,4 @@ Instead of manually adjusting the margin and anchor values, you can use the
 toolbar's Layout menu, above the viewport. Besides centering, it gives you many
 options to align and resize control nodes.
 
-.. image:: img/layout_dropdown_menu.png
+![](img/layout_dropdown_menu.png)

@@ -16,7 +16,7 @@ Nodes
 ingredients in a recipe. There are dozens of kinds that can display an image,
 play a sound, represent a camera, and much more.
 
-.. image:: img/nodes_and_scenes_nodes.png
+![](img/nodes_and_scenes_nodes.png)
 
 All nodes have the following attributes:
 
@@ -32,7 +32,7 @@ combining them produces more complex behavior. As we saw before, you can build a
 playable character the camera follows using a kinematic body node named
 "Character", a sprite node, a camera node, and a collision shape node.
 
-.. image:: img/nodes_and_scenes_character_nodes.png
+![](img/nodes_and_scenes_character_nodes.png)
 
 Scenes
 ------
@@ -46,7 +46,7 @@ Scenes allow you to structure your game's code however you want. You can
 **compose nodes** to create custom and complex node types, like a game character
 that runs and jumps, a life bar, a chest with which you can interact, and more.
 
-.. image:: img/nodes_and_scenes_3d_scene_example.png
+![](img/nodes_and_scenes_3d_scene_example.png)
 
 The Godot editor essentially is a **scene editor**. It has plenty of tools for
 editing 2D and 3D scenes, as well as user interfaces. A Godot project can
@@ -68,7 +68,7 @@ Let's create our first scene with a single node. To do so, you will need to
 create a new project first. After opening the project, you should see an empty
 editor.
 
-.. image:: img/nodes_and_scenes_01_empty_editor.png
+![](img/nodes_and_scenes_01_empty_editor.png)
 
 In an empty scene, the Scene dock on the left shows several options to add a
 root node quickly. "2D Scene" adds a Node2D node, "3D Scene" adds a Spatial
@@ -83,20 +83,20 @@ text on the screen.
 
 Press the "Add Child Node" button or "Other Node" to create a root node.
 
-.. image:: img/nodes_and_scenes_02_scene_dock.png
+![](img/nodes_and_scenes_02_scene_dock.png)
 
 The Create Node dialog opens, showing the long list of available nodes.
 
-.. image:: img/nodes_and_scenes_03_create_node_window.png
+![](img/nodes_and_scenes_03_create_node_window.png)
 
 Select the Label node. You can type its name to filter down the list.
 
-.. image:: img/nodes_and_scenes_04_create_label_window.png
+![](img/nodes_and_scenes_04_create_label_window.png)
 
 Click on the Label node to select it and click the Create button at the bottom
 of the window.
 
-.. image:: img/nodes_and_scenes_05_editor_with_label.png
+![](img/nodes_and_scenes_05_editor_with_label.png)
 
 A lot happens when you add a scene's first node. The scene changes to the 2D
 workspace because Label is a 2D node type. The Label appears, selected, in the
@@ -112,19 +112,19 @@ The next step is to change the Label's "Text" property. Let's change it to
 Head to the Inspector dock on the right of the viewport. Click inside the field
 below the Text property and type "Hello World".
 
-.. image:: img/nodes_and_scenes_06_label_text.png
+![](img/nodes_and_scenes_06_label_text.png)
 
 You will see the text draw in the viewport as you type.
 
 You can move your Label node in the viewport by selecting the move tool in the
 toolbar.
 
-.. image:: img/nodes_and_scenes_07_move_tool.png
+![](img/nodes_and_scenes_07_move_tool.png)
 
 With the Label selected, click and drag anywhere in the viewport to
 move it to the center of the view delimited by the rectangle.
 
-.. image:: img/nodes_and_scenes_08_hello_world_text.png
+![](img/nodes_and_scenes_08_hello_world_text.png)
 
 Running the scene
 -----------------
@@ -132,16 +132,16 @@ Running the scene
 Everything's ready to run the scene! Press the Play Scene button in the
 top-right of the screen or press :kbd:`F6` (:kbd:`Cmd + R` on macOS).
 
-.. image:: img/nodes_and_scenes_09_play_scene_button.png
+![](img/nodes_and_scenes_09_play_scene_button.png)
 
 A popup invites you to save the scene, which is required to run it.
 
-.. image:: img/nodes_and_scenes_10_save_scene_popup.png
+![](img/nodes_and_scenes_10_save_scene_popup.png)
 
 Click the Yes button, and in the file browser that appears, press the Save
 button to save it as "Label.tscn".
 
-.. image:: img/nodes_and_scenes_11_save_scene_as.png
+![](img/nodes_and_scenes_11_save_scene_as.png)
 
 .. note:: The Save Scene As dialog, like other file dialogs in the editor, only
           allows you to save files inside the project. The `res://` path at
@@ -151,7 +151,7 @@ button to save it as "Label.tscn".
 
 The application should open in a new window and display the text "Hello World".
 
-.. image:: img/nodes_and_scenes_12_final_result.png
+![](img/nodes_and_scenes_12_final_result.png)
 
 Close the window or press :kbd:`F8` to quit the running scene.
 
@@ -168,16 +168,16 @@ To run our test scene, we used the Play Scene button. Another button next to it
 allows you to set and run the project's main scene. You can press :kbd:`F5`
 (:kbd:`Cmd + B` on macOS) to do so.
 
-.. image:: img/nodes_and_scenes_13_play_button.png
+![](img/nodes_and_scenes_13_play_button.png)
 
 A popup window appears and invites you to select the main scene.
 
-.. image:: img/nodes_and_scenes_14_main_scene_popup.png
+![](img/nodes_and_scenes_14_main_scene_popup.png)
 
 Click the Select button, and in the file dialog that appears, double click on
 Label.tscn.
 
-.. image:: img/nodes_and_scenes_15_select_main_scene.png
+![](img/nodes_and_scenes_15_select_main_scene.png)
 
 The demo should run again. Moving forward, every time you run the project, Godot
 will use this scene as a starting point.

@@ -54,7 +54,7 @@ Base size
 A base size for the window can be specified in the Project Settings under
 **Display → Window**.
 
-.. image:: img/screenres.png
+![](img/screenres.png)
 
 However, what it does is not completely obvious; the engine will *not*
 attempt to switch the monitor to this resolution. Rather, think of this
@@ -106,7 +106,7 @@ Stretch settings
 
 Stretch settings are located in the project settings and provide several options:
 
-.. image:: img/stretchsettings.png
+![](img/stretchsettings.png)
 
 Stretch Mode
 ^^^^^^^^^^^^
@@ -114,14 +114,14 @@ Stretch Mode
 The **Stretch Mode** setting defines how the base size is stretched to fit
 the resolution of the window or screen.
 
-.. image:: img/stretch.png
+![](img/stretch.png)
 
 The animations below use a "base size" of just 16×9 pixels to
 demonstrate the effect of different stretch modes. A single sprite, also
 16×9 pixels in size, covers the entire viewport, and a diagonal
 `Line2D` is added on top of it:
 
-.. image:: img/stretch_demo_scene.png
+![](img/stretch_demo_scene.png)
 
 .. Animated GIFs are generated from:
 .. https://github.com/ttencate/godot_scaling_mode
@@ -130,7 +130,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
    unit in the scene corresponds to one pixel on the screen. In this
    mode, the **Stretch Aspect** setting has no effect.
 
-   .. image:: img/stretch_disabled_expand.gif
+   ![](img/stretch_disabled_expand.gif)
 
 -  **Stretch Mode = 2D**: In this mode, the base size specified in
    width and height in the project settings is
@@ -140,7 +140,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
    while in 2D, there is no longer a 1:1 correspondence between sprite
    pixels and screen pixels, which may result in scaling artifacts.
 
-   .. image:: img/stretch_2d_expand.gif
+   ![](img/stretch_2d_expand.gif)
 
 -  **Stretch Mode = Viewport**: Viewport scaling means that the size of
    the root `Viewport` is set precisely to the
@@ -149,7 +149,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
    is scaled to fit the screen (taking the **Stretch Aspect** setting into
    account).
 
-   .. image:: img/stretch_viewport_expand.gif
+   ![](img/stretch_viewport_expand.gif)
 
 Stretch Aspect
 ^^^^^^^^^^^^^^
@@ -168,7 +168,7 @@ to the region outside the blue frame you see in the 2D editor.
    result in nonuniform stretching: things looking wider or taller than
    designed.
 
-   .. image:: img/stretch_viewport_ignore.gif
+   ![](img/stretch_viewport_ignore.gif)
 
 -  **Stretch Aspect = Keep**: Keep aspect ratio when stretching the
    screen. This means that the viewport retains its original size
@@ -180,7 +180,7 @@ to the region outside the blue frame you see in the 2D editor.
    devices in advance, or if you don't want to handle different aspect
    ratios.
 
-   .. image:: img/stretch_viewport_keep.gif
+   ![](img/stretch_viewport_keep.gif)
 
 -  **Stretch Aspect = Keep Width**: Keep aspect ratio when stretching the
    screen. If the screen is wider than the base size, black bars are
@@ -193,7 +193,7 @@ to the region outside the blue frame you see in the 2D editor.
    so some controls can be anchored to the bottom
    (`doc_size_and_anchors`).
 
-   .. image:: img/stretch_viewport_keep_width.gif
+   ![](img/stretch_viewport_keep_width.gif)
 
 -  **Stretch Aspect = Keep Height**: Keep aspect ratio when stretching
    the screen. If the screen is taller than the base size, black
@@ -205,7 +205,7 @@ to the region outside the blue frame you see in the 2D editor.
    This is usually the best option for 2D games that scroll horizontally
    (like runners or platformers).
 
-   .. image:: img/stretch_viewport_keep_height.gif
+   ![](img/stretch_viewport_keep_height.gif)
 
 -  **Stretch Aspect = Expand**: Keep aspect ratio when stretching the
    screen, but keep neither the base width nor height. Depending on the
@@ -214,7 +214,7 @@ to the region outside the blue frame you see in the 2D editor.
    in the vertical direction (if the screen is taller than the original
    size).
 
-   .. image:: img/stretch_viewport_expand.gif
+   ![](img/stretch_viewport_expand.gif)
 
 .. tip::
 

@@ -36,7 +36,7 @@ on the `Create` button in the top-right.
 
 You will see the dialog appear, like so:
 
-.. image:: img/making_plugins-create_plugin_dialog.png
+![](img/making_plugins-create_plugin_dialog.png)
 
 The placeholder text in each field describes how it affects the plugin's
 creation of the files and the config file's values.
@@ -65,7 +65,7 @@ ini GDScript
 
 You should end up with a directory structure like this:
 
-.. image:: img/making_plugins-my_custom_mode_folder.png
+![](img/making_plugins-my_custom_mode_folder.png)
 
 `plugin.cfg` is a simple INI file with metadata about your plugin.
 The name and description help people understand what it does.
@@ -163,10 +163,10 @@ gdscript GDScript
 That's it for our basic button. You can save this as `my_button.gd` inside the
 plugin folder. You'll also need a 16×16 icon to show in the scene tree. If you
 don't have one, you can grab the default one from the engine and save it in your
-`addons/my_custom_node` folder as `icon.png`, or use the default Godot logo
-(`preload("res://icon.png")`). You can also use SVG icons if desired.
+`addons/my_custom_node` folder as `icon.png)`, or use the default Godot logo
+(`preload("res://icon.png)")`). You can also use SVG icons if desired.
 
-.. image:: img/making_plugins-custom_node_icon.png
+![](img/making_plugins-custom_node_icon.png)
 
 Now, we need to add it as a custom type so it shows on the **Create New Node**
 dialog. For that, change the `custom_node.gd` script to the following:
@@ -181,7 +181,7 @@ gdscript GDScript
     func _enter_tree():
         # Initialization of the plugin goes here.
         # Add the new type with a name, a parent type, a script and an icon.
-        add_custom_type("MyButton", "Button", preload("my_button.gd"), preload("icon.png"))
+        add_custom_type("MyButton", "Button", preload("my_button.gd"), preload("icon.png)"))
 
 
     func _exit_tree():
@@ -195,13 +195,13 @@ With that done, the plugin should already be available in the plugin list in the
 
 Then try it out by adding your new node:
 
-.. image:: img/making_plugins-custom_node_create.png
+![](img/making_plugins-custom_node_create.png)
 
 When you add the node, you can see that it already has the script you created
 attached to it. Set a text to the button, save and run the scene. When you
 click the button, you can see some text in the console:
 
-.. image:: img/making_plugins-custom_node_console.png
+![](img/making_plugins-custom_node_console.png)
 
 A custom dock
 ^^^^^^^^^^^^^
@@ -240,7 +240,7 @@ The name of the root node will also be the name that appears on the dock tab,
 so be sure to give it a short and descriptive name.
 Also, don't forget to add some text to your button.
 
-.. image:: img/making_plugins-my_custom_dock_scene.png
+![](img/making_plugins-my_custom_dock_scene.png)
 
 Save this scene as `my_dock.tscn`. Now, we need to grab the scene we created
 then add it as a dock in the editor. For this, you can rely on the function
@@ -292,13 +292,13 @@ Settings** and click on the **Plugins** tab. Your plugin should be the only one
 on the list. If it is not showing, click on the **Update** button in the
 top-right corner.
 
-.. image:: img/making_plugins-project_settings.png
+![](img/making_plugins-project_settings.png)
 
 You can see the plugin is inactive on the **Status** column; click on the status
 to select **Active**. The dock should become visible before you even close
 the settings window. You should now have a custom dock:
 
-.. image:: img/making_plugins-custom_dock.png
+![](img/making_plugins-custom_dock.png)
 
 Going beyond
 ~~~~~~~~~~~~

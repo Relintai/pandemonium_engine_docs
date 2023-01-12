@@ -54,7 +54,7 @@ This saves SFX artists the need to add reverb to the sound effects,
 reducing their size greatly and ensuring correct trimming. Say no to SFX
 with baked reverb!
 
-.. image:: img/reverb.png
+![](img/reverb.png)
 
 As you can see above, sound effects become huge with reverb added.
 

@@ -15,7 +15,7 @@ The preferred way to find Godot plugins is to use the
 browsed online, it's more convenient to use it directly from the editor.
 To do so, click the **AssetLib** tab at the top of the editor:
 
-.. image:: img/installing_plugins_assetlib_tab.png
+![](img/installing_plugins_assetlib_tab.png)
 
 You can also find assets on code hosting websites such as GitHub.
 
@@ -45,7 +45,7 @@ declared to be stable by its author.
 On GitHub, if the plugin doesn't have any *tags* declared, use the **Download ZIP**
 button to download a ZIP of the latest revision:
 
-.. image:: img/installing_plugins_github_download_zip.png
+![](img/installing_plugins_github_download_zip.png)
 
 Extract the ZIP archive and move the `addons/` folder it contains into your
 project folder. If your project already contains an `addons/` folder, move the
@@ -62,7 +62,7 @@ correctly, you should see it in the list of plugins. Click on the gray
 **Inactive** text and choose **Active** to enable the plugin. The word
 **Active** will display in green to confirm the plugin was enabled.
 
-.. image:: img/installing_plugins_project_settings.png
+![](img/installing_plugins_project_settings.png)
 
 
 You can use the plugin immediately after enabling it; there's no need to restart

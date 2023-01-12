@@ -26,7 +26,7 @@ There are three types of light nodes: `Directional light`_,
 `Omni light`_ and `Spot light`_. Let's take a look at the common
 parameters for lights:
 
-.. image:: img/light_params.png
+![](img/light_params.png)
 
 Each one has a specific function:
 
@@ -57,11 +57,11 @@ There is a list of generic shadow parameters, each also has a specific function:
 Below is an image of what tweaking bias looks like. Default values work for most
 cases, but in general it depends on the size and complexity of geometry.
 
-.. image:: img/shadow_bias.png
+![](img/shadow_bias.png)
 
 Finally, if gaps can't be solved, the **Contact** option can help (at a performance cost):
 
-.. image:: img/shadow_contact.png
+![](img/shadow_contact.png)
 
 Any sort of bias issues can always be fixed by increasing the shadow map resolution,
 although that may lead to decreased performance.
@@ -99,7 +99,7 @@ covering the whole scene. The directional light node is represented by a big arr
 indicates the direction of the light rays. However, the position of the node
 does not affect the lighting at all and can be anywhere.
 
-.. image:: img/light_directional.png
+![](img/light_directional.png)
 
 Every face whose front-side is hit by the light rays is lit, while the others stay dark. Most light types
 have specific parameters, but directional lights are pretty simple in nature, so they don't.
@@ -111,20 +111,20 @@ To compute shadow maps, the scene is rendered (only depth) from an orthogonal po
 the whole scene (or up to the max distance). There is, however, a problem with this approach because objects
 closer to the camera receive blocky shadows.
 
-.. image:: img/shadow_blocky.png
+![](img/shadow_blocky.png)
 
 To fix this, a technique named "Parallel Split Shadow Maps" (or PSSM) is used. This splits the view frustum in 2 or 4 areas. Each
 area gets its own shadow map. This allows small areas close to the viewer to have the same shadow resolution as a huge, far-away area.
 
-.. image:: img/pssm_explained.png
+![](img/pssm_explained.png)
 
 With this, shadows become more detailed:
 
-.. image:: img/shadow_pssm.png
+![](img/shadow_pssm.png)
 
 To control PSSM, a number of parameters are exposed:
 
-.. image:: img/directional_shadow_params.png
+![](img/directional_shadow_params.png)
 
 Each split distance is controlled relative to the camera far (or shadow
 **Max Distance** if greater than zero), so *0.0* is the eye position and *1.0*
@@ -139,13 +139,13 @@ Sometimes, the transition between a split and the next can look bad. To fix this
 the **"Blend Splits"** option can be turned on, which sacrifices detail in exchange
 for smoother transitions:
 
-.. image:: img/blend_splits.png
+![](img/blend_splits.png)
 
 The **"Normal Bias"** parameter can be used to fix special cases of self shadowing
 when objects are perpendicular to the light. The only downside is that it makes
 the shadow a bit thinner.
 
-.. image:: img/normal_bias.png
+![](img/normal_bias.png)
 
 The **"Bias Split Scale"** parameter can control extra bias for the splits that
 are far away. If self shadowing occurs only on the splits far away, this value can fix them.
@@ -159,7 +159,7 @@ Just experiment which setting works better for your scene.
 
 Shadowmap size for directional lights can be changed in Project Settings -> Rendering -> Quality:
 
-.. image:: img/project_setting_shadow.png
+![](img/project_setting_shadow.png)
 
 Increasing it can solve bias problems, but decrease performance. Shadow mapping is an art of tweaking.
 
@@ -169,18 +169,18 @@ Omni light
 Omni light is a point source that emits light spherically in all directions up to a given
 radius.
 
-.. image:: img/light_omni.png
+![](img/light_omni.png)
 
 In real life, light attenuation is an inverse function, which means omni lights don't have a radius.
 This is a problem because it means computing several omni lights would become demanding.
 
 To solve this, a *Range* is introduced together with an attenuation function.
 
-.. image:: img/light_omni_params.png
+![](img/light_omni_params.png)
 
 These two parameters allow tweaking how this works visually in order to find aesthetically pleasing results.
 
-.. image:: img/light_attenuation.png
+![](img/light_attenuation.png)
 
 
 Omni shadow mapping
@@ -193,7 +193,7 @@ Omni Shadows can be rendered as either **"Dual Paraboloid" or "Cube Mapped"**.
 The former renders quickly, but can cause deformations,
 while the later is more correct, but costlier.
 
-.. image:: img/shadow_omni_dp_cm.png
+![](img/shadow_omni_dp_cm.png)
 
 If the objects being rendered are mostly irregular, Dual Paraboloid is usually
 enough. In any case, as these shadows are cached in a shadow atlas (more on that at the end), it
@@ -207,7 +207,7 @@ Spot lights are similar to omni lights, except they emit light only into a cone
 car lights, reflectors, spots, etc. This type of light is also attenuated towards the
 opposite direction it points to.
 
-.. image:: img/light_spot.png
+![](img/light_spot.png)
 
 Spot lights share the same **Range** and **Attenuation** as **OmniLight**, and add two extra parameters:
 
@@ -226,15 +226,15 @@ Shadow atlas
 Unlike Directional lights, which have their own shadow texture, Omni and Spot lights are assigned to slots of a shadow atlas.
 This atlas can be configured in Project Settings -> Rendering -> Quality -> Shadow Atlas.
 
-.. image:: img/shadow_atlas.png
+![](img/shadow_atlas.png)
 
 The resolution applies to the whole Shadow Atlas. This atlas is divided into four quadrants:
 
-.. image:: img/shadow_quadrants.png
+![](img/shadow_quadrants.png)
 
 Each quadrant can be subdivided to allocate any number of shadow maps; the following is the default subdivision:
 
-.. image:: img/shadow_quadrants2.png
+![](img/shadow_quadrants2.png)
 
 The allocation logic is simple. The biggest shadow map size (when no subdivision is used)
 represents a light the size of the screen (or bigger).
@@ -259,8 +259,8 @@ The filter quality of shadows can be tweaked. This can be found in
 Project Settings -> Rendering -> Quality -> Shadows.
 Godot supports no filter, PCF5 and PCF13.
 
-.. image:: img/shadow_pcf1.png
+![](img/shadow_pcf1.png)
 
 It affects the blockyness of the shadow outline:
 
-.. image:: img/shadow_pcf2.png
+![](img/shadow_pcf2.png)

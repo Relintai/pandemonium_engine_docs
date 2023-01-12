@@ -55,7 +55,7 @@ it to the viewports, starting by the "root" `Viewport` (the first
 node of the scene tree). Viewport does quite a lot of stuff with the
 received input, in order:
 
-.. image:: img/input_event_flow.png
+![](img/input_event_flow.png)
 
 1. First of all, the standard `Node._input()` function
    will be called in any node that overrides it (and hasn't disabled input processing with `Node.set_process_input()`).
@@ -90,7 +90,7 @@ When sending events to all listening nodes within a scene, the viewport
 will do so in a reverse depth-first order: Starting with the node at
 the bottom of the scene tree, and ending at the root node:
 
-.. image:: img/input_event_scene_flow.png
+![](img/input_event_scene_flow.png)
 
 GUI events also travel up the scene tree but, since these events target
 specific Controls, only direct ancestors of the targeted Control node receive the event.

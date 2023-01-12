@@ -29,7 +29,7 @@ We will start by adding objects we wish to save to the "Persist" group. We can
 do this through either the GUI or script. Let's add the relevant nodes using the
 GUI:
 
-.. image:: img/groups.png
+![](img/groups.png)
 
 Once this is done, when we need to save the game, we can get all objects
 to save them and then tell them all to save with this script:

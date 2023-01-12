@@ -32,7 +32,7 @@ Example of file system contents:
     /project.godot
     /enemy/enemy.tscn
     /enemy/enemy.gd
-    /enemy/enemysprite.png
+    /enemy/enemysprite.png)
     /player/player.gd
 
 project.godot
@@ -101,8 +101,8 @@ to be fixed manually (Godot detects this and helps you fix them anyway, but why
 go the hard route?).
 
 The second is that, under Windows and macOS, file and path names are case insensitive.
-If a developer working in a case insensitive host file system saves an asset as `myfile.PNG`,
-but then references it as `myfile.png`, it will work fine on their platform, but not
+If a developer working in a case insensitive host file system saves an asset as `myfile.png)`,
+but then references it as `myfile.png)`, it will work fine on their platform, but not
 on other platforms, such as Linux, Android, etc. This may also apply to exported binaries,
 which use a compressed package to store all files.
 

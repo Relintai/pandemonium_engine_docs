@@ -4,7 +4,7 @@ Physics properties
 Exporting physics properties is done by enabling "Rigid Body" in Blender's
 physics tab:
 
-.. image:: img/enable_physics.png
+![](img/enable_physics.png)
 
 .. important::
     By default, a single Blender object with rigid body enabled will export as
@@ -17,7 +17,7 @@ Blender only has the concept of "Active" and "Passive" rigid bodies. These
 turn into Static and RigidBody nodes. To create a kinematic body, enable the
 "animated" checkbox on an "Active" body:
 
-.. image:: img/body_type.jpg
+![](img/body_type.jpg
 
 Collision shapes
 ----------------
@@ -27,7 +27,7 @@ of the collision shapes are also not present. However, almost all of the
 options in Blender's rigid body collision and rigid body dynamics interfaces
 are supported:
 
-.. image:: img/collision_shapes.jpg
+![](img/collision_shapes.jpg
 
 There are the following caveats:
  - Not all of the collision shapes are supported. Only `Mesh`, `Convex
@@ -51,7 +51,7 @@ graphical meshes, but by default, the exporter will export a mesh along with the
 collision shape. To only export the collision shape, set the object's maximum
 draw type to Wire:
 
-.. image:: img/col_only.png
+![](img/col_only.png)
 
 This will also influence how the object is shown in Blender's viewport.
 Most of the time, you want your collision geometry to be shown see-through when

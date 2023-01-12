@@ -120,7 +120,7 @@ Translating existing pages
 
 You can help to translate the official Godot documentation on our `Hosted Weblate <https://hosted.weblate.org/engage/godot-engine/>`_.
 
-.. image:: https://hosted.weblate.org/widgets/godot-engine/-/godot-docs/287x66-white.png
+![](https://hosted.weblate.org/widgets/godot-engine/-/godot-docs/287x66-white.png)
     :alt: Translation state
     :align: center
     :target: https://hosted.weblate.org/engage/godot-engine/?utm_source=widget

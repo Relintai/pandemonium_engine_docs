@@ -23,7 +23,7 @@ circles using GDScript. As we mentioned `in the introduction
 <toc-learn-introduction>`, we assume you have programming foundations.
 The equivalent C# code has been included in another tab for convenience.
 
-.. image:: img/scripting_first_script_rotating_godot.gif
+![](img/scripting_first_script_rotating_godot.gif)
 
 .. seealso:: To learn more about GDScript, its keywords, and its syntax, head to
              the `GDScript reference<doc_gdscript>`.
@@ -42,33 +42,33 @@ community.
 We need to create a Sprite node to display it in the game. In the Scene dock,
 click the Other Node button.
 
-.. image:: img/scripting_first_script_click_other_node.png
+![](img/scripting_first_script_click_other_node.png)
 
 Type "Sprite" in the search bar to filter nodes and double-click on Sprite to
 create the node.
 
-.. image:: img/scripting_first_script_add_sprite_node.png
+![](img/scripting_first_script_add_sprite_node.png)
 
 Your Scene tab should now only have a Sprite node.
 
-.. image:: img/scripting_first_script_scene_tree.png
+![](img/scripting_first_script_scene_tree.png)
 
 A Sprite node needs a texture to display. In the Inspector on the right, you can
 see that the Texture property says "[empty]". To display the Godot icon, click
-and drag the file `icon.png` from the FileSystem dock onto the Texture slot.
+and drag the file `icon.png)` from the FileSystem dock onto the Texture slot.
 
-.. image:: img/scripting_first_script_setting_texture.png
+![](img/scripting_first_script_setting_texture.png)
 
 .. note::
 
     You can create Sprite nodes automatically by dragging and dropping images on
     the viewport.
 
-    .. image:: img/scripting_first_script_dragging_sprite.png
+    ![](img/scripting_first_script_dragging_sprite.png)
 
 Then, click and drag the icon in the viewport to center it in the game view.
 
-.. image:: img/scripting_first_script_centering_sprite.png
+![](img/scripting_first_script_centering_sprite.png)
 
 Creating a new script
 ---------------------
@@ -76,7 +76,7 @@ Creating a new script
 To create and attach a new script to our node, right-click on Sprite in the
 scene dock and select "Attach Script".
 
-.. image:: img/scripting_first_script_attach_script.png
+![](img/scripting_first_script_attach_script.png)
 
 The Attach Node Script window appears. It allows you to select the script's
 language and file path, among other options.
@@ -84,7 +84,7 @@ language and file path, among other options.
 Change the Template from Default to Empty to start with a clean file. Leave the
 other options by default and click the Create button to create the script.
 
-.. image:: img/scripting_first_script_attach_node_script.png
+![](img/scripting_first_script_attach_node_script.png)
 
 The Script workspace should appear with your new `Sprite.gd` file open and the
 following line of code:
@@ -147,7 +147,7 @@ Save the scene if you haven't already, then press :kbd:`F6` (:kbd:`Cmd + R` on m
 to run it. Look at the **Output** bottom panel that expands.
 It should display "Hello, world!".
 
-.. image:: img/scripting_first_script_print_hello_world.png
+![](img/scripting_first_script_print_hello_world.png)
 
 Delete the `_init()` function, so you're only left with the line `extends
 Sprite`.
@@ -224,7 +224,7 @@ our node and works with radians.
 
 Run the scene to see the Godot icon turn in-place.
 
-.. image:: img/scripting_first_script_godot_turning_in_place.gif
+![](img/scripting_first_script_godot_turning_in_place.gif)
 
 Moving forward
 ~~~~~~~~~~~~~~
@@ -258,7 +258,7 @@ representing a 2D vector.
 
 Run the scene to see the Godot head run in circles.
 
-.. image:: img/scripting_first_script_rotating_godot.gif
+![](img/scripting_first_script_rotating_godot.gif)
 
 .. note:: Moving a node like that does not take into account colliding with
           walls or the floor. In `doc_your_first_2d_game`, you will learn

@@ -42,7 +42,7 @@ that lighting is on an unwrapped texture, so transitions and resolution may not
 be that good. GIProbe looks less accurate (as it's an approximation), but
 smoother overall.
 
-.. image:: img/baked_light_comparison.png
+![](img/baked_light_comparison.png)
 
 Setting up
 ----------
@@ -64,7 +64,7 @@ across reimports, so it will only be regenerated when needed.
 Select the imported scene in the filesystem dock, then go to the **Import** dock.
 There, the following option can be modified:
 
-.. image:: img/baked_light_import.png
+![](img/baked_light_import.png)
 
 The **Light Baking** mode needs to be set to **Gen Lightmaps**. A texel size
 in world units must also be provided, as this will determine the
@@ -91,7 +91,7 @@ Unwrap from within Godot
 Godot has an option to unwrap meshes and visualize the UV channels.
 It can be found in the Mesh menu:
 
-.. image:: img/baked_light_mesh_menu.png
+![](img/baked_light_mesh_menu.png)
 
 This will generate a second set of UV2 coordinates which can be used for baking,
 and it will also set the texture size automatically.
@@ -107,12 +107,12 @@ so having it unwrapped before import can be faster.
 
 Simply do an unwrap on the second UV2 layer.
 
-.. image:: img/baked_light_blender.png
+![](img/baked_light_blender.png)
 
 Then import the 3D scene normally. Remember you will need to set the texture
 size on the mesh after import.
 
-.. image:: img/baked_light_lmsize.png
+![](img/baked_light_lmsize.png)
 
 If you use external meshes on import, the size will be kept.
 Be wary that most unwrappers in 3D DCCs are not quality oriented, as they are
@@ -125,7 +125,7 @@ Checking UV2
 In the mesh menu mentioned before, the UV2 texture coordinates can be visualized.
 Make sure, if something is failing, to check that the meshes have these UV2 coordinates:
 
-.. image:: img/baked_light_uvchannel.png
+![](img/baked_light_uvchannel.png)
 
 Setting up the scene
 --------------------
@@ -134,7 +134,7 @@ Before anything is done, a **BakedLightmap** node needs to be added to a scene.
 This will enable light baking on all nodes (and sub-nodes) in that scene, even
 on instanced scenes.
 
-.. image:: img/baked_light_scene.png
+![](img/baked_light_scene.png)
 
 A sub-scene can be instanced several times, as this is supported by the baker, and
 each will be assigned a lightmap of its own (just make sure to respect the rule
@@ -147,7 +147,7 @@ Lightmap needs an approximate volume of the area affected because it uses it to
 transfer light to dynamic objects inside it (more on that later). Just
 cover the scene with the volume as you do with `GIProbe`:
 
-.. image:: img/baked_light_bounds.png
+![](img/baked_light_bounds.png)
 
 Setting up meshes
 ~~~~~~~~~~~~~~~~~
@@ -155,7 +155,7 @@ Setting up meshes
 For a **MeshInstance** node to take part in the baking process, it needs to have
 the **Use in Baked Light** property enabled.
 
-.. image:: img/baked_light_use.png
+![](img/baked_light_use.png)
 
 When auto-generating lightmaps on scene import, this is enabled automatically.
 
@@ -169,7 +169,7 @@ that light will be baked.
 Lights can be disabled (no bake) or be fully baked (direct and indirect). This
 can be controlled from the **Bake Mode** menu in lights:
 
-.. image:: img/baked_light_bake_mode.png
+![](img/baked_light_bake_mode.png)
 
 The modes are:
 
@@ -220,7 +220,7 @@ This size is used to provide softer shadows depending on the distance between
 the shadow caster and the object receiving the shadow. This mimics real life
 shadow appearance:
 
-.. image:: img/baked_light_omnilight_size.png
+![](img/baked_light_omnilight_size.png)
 
 The light's **Size** property is ignored for real-time shadows; it will only affect baked
 shadows. When the **Size** property is changed, lightmaps must be baked again to
@@ -232,7 +232,7 @@ Baking
 To begin the bake process, just push the **Bake Lightmaps** button on top
 when selecting the BakedLightmap node:
 
-.. image:: img/baked_light_bake.png
+![](img/baked_light_bake.png)
 
 This can take from seconds to minutes (or hours) depending on scene size, bake
 method and quality selected.
@@ -375,4 +375,4 @@ automatic, so you don't have to do anything. Just move your objects around, and
 they will be lit accordingly. Of course, you have to make sure you set up your
 scene bounds accordingly or it won't work.
 
-.. image:: img/baked_light_indirect.gif
+![](img/baked_light_indirect.gif)

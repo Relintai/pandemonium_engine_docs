@@ -49,7 +49,7 @@ Sphinx uses specific reST comments to do specific operations, like defining the 
 
 To add images, please put them in an `img/` folder next to the .rst file with a meaningful name and include them in your page with:
 ```rst
-.. image:: img/image_name.png
+![](img/image_name.png)
 ```
 
 Similarly, you can include attachments (like assets as support material for a tutorial) by placing them into a `files/` folder next to the .rst file, and using this inline markup:

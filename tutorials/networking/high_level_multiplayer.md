@@ -396,7 +396,7 @@ Each time this piece of code is executed on each peer, the peer makes itself mas
 To clarify, here is an example of how this looks in the
 `bomber demo <https://github.com/godotengine/godot-demo-projects/tree/master/networking/multiplayer_bomber>`_:
 
-.. image:: img/nmms.png
+![](img/nmms.png)
 
 
 Master and puppet keywords

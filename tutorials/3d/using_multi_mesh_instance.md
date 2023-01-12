@@ -34,7 +34,7 @@ In the tree case, this would be the tree itself.
 In our example, we would use a `Spatial` node as the root node of
 the scene. Your scene tree would look like this:
 
-.. image:: img/multimesh_scene_tree.png
+![](img/multimesh_scene_tree.png)
 
 .. note:: For simplicity's sake, this tutorial uses built-in primitives.
 
@@ -43,9 +43,9 @@ toolbar, you should see an extra button called `MultiMesh` next to `View`.
 Click it and select *Populate surface* in the dropdown menu. A new window titled
 *Populate MultiMesh* will pop up.
 
-.. image:: img/multimesh_toolbar.png
+![](img/multimesh_toolbar.png)
 
-.. image:: img/multimesh_settings.png
+![](img/multimesh_settings.png)
 
 MultiMesh settings
 ~~~~~~~~~~~~~~~~~~
@@ -101,6 +101,6 @@ result, you can delete the mesh instance used as the source mesh.
 
 The end result should look like this:
 
-.. image:: img/multimesh_result.png
+![](img/multimesh_result.png)
 
 To change the result, repeat the previous steps with different parameters.

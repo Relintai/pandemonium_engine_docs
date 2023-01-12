@@ -18,7 +18,7 @@ demo project.
 Label3D
 -------
 
-.. image:: img/label_3d.png
+![](img/label_3d.png)
 
 Label3D behaves like a label node but in a 3D space. Unlike label
 node this can not inherit properties of a GUI theme. However its
@@ -36,7 +36,7 @@ for more information.
 Text mesh
 ---------
 
-.. image:: img/text_mesh.png
+![](img/text_mesh.png)
 
 Text meshes have similarities to Label3D. They display text in a 3D
 scene, and will use the same DynamicFont subresource. However text is 3D and
@@ -44,9 +44,9 @@ has the properties of a mesh. A text mesh cast shadows onto the environment
 and can have a material applied to it. Here is an example of a texture and
 how it's applied to the mesh.
 
-.. image:: img/text_mesh_texture.png
+![](img/text_mesh_texture.png)
 
-.. image:: img/text_mesh_textured.png
+![](img/text_mesh_textured.png)
 
 There are two limitations to text mesh. It can't use bitmap fonts, or fonts
 with self intersection.

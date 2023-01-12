@@ -32,7 +32,7 @@ Translations can get updated and re-imported when they change, but
 they still have to be added to the project. This is done in
 **Project → Project Settings → Localization**:
 
-.. image:: img/localization_dialog.png
+![](img/localization_dialog.png)
 
 The above dialog is used to add or remove translations project-wide.
 
@@ -43,7 +43,7 @@ It is also possible to instruct Godot to use alternate versions of
 assets (resources) depending on the current language. The **Remaps** tab
 can be used for this:
 
-.. image:: img/localization_remaps.png
+![](img/localization_remaps.png)
 
 Select the resource to be remapped, then add some alternatives for each
 locale.
@@ -117,7 +117,7 @@ property. Set this property to the locale code of the language you want to test.
 run the project with that locale when the project is run (either from the editor or when
 exported).
 
-.. image:: img/locale_test.png
+![](img/locale_test.png)
 
 Keep in mind that since this is a project setting, it will show up in version control when
 it is set to a non-empty value. Therefore, it should be set back to an empty value before
@@ -140,7 +140,7 @@ than one language, create a new setting `application/name` in the **Project
 Settings** and append the locale identifier to it.
 For instance, for Spanish, this would be `application/name_es`:
 
-.. image:: img/localized_name.png
+![](img/localized_name.png)
 
 If you are unsure about the language code to use, refer to the
 `list of locale codes <doc_locales>`.

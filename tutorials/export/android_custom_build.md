@@ -22,7 +22,7 @@ Set up the custom build environment
 
 Go to the Project menu, and install the *Custom Build* template:
 
-.. image:: img/custom_build_install_template.png
+![](img/custom_build_install_template.png)
 
 Make sure export templates are downloaded. If not, this menu will help you
 download them.
@@ -38,13 +38,13 @@ Enabling the custom build and exporting
 When setting up the Android project in the **Project > Export** dialog,
 **Custom Build** needs to be enabled:
 
-.. image:: img/custom_build_enable.png
+![](img/custom_build_enable.png)
 
 From now on, attempting to export the project or one-click deploy will call the
 `Gradle <https://gradle.org/>`__ build system to generate fresh templates (this
 window will appear every time):
 
-.. image:: img/custom_build_gradle.png
+![](img/custom_build_gradle.png)
 
 The templates built will be used automatically afterwards, so no further
 configuration is needed.

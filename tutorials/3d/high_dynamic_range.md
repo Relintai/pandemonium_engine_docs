@@ -62,7 +62,7 @@ However, Godot currently only supports sRGB displays.
 The sRGB standard is based around the nonlinear relationship between the current
 to light output of common desktop computing CRT displays.
 
-.. image:: img/hdr_gamma.png
+![](img/hdr_gamma.png)
 
 The mathematics of a scene-referred model require that we multiply the scene by
 different values to adjust the intensities and exposure to different

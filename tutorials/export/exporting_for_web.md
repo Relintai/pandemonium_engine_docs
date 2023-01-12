@@ -247,7 +247,7 @@ The other exported files are served as they are, next to the `.html` file,
 names unchanged. The `.wasm` file is a binary WebAssembly module implementing
 the engine. The `.pck` file is the Godot main pack containing your game. The
 `.js` file contains start-up code and is used by the `.html` file to access
-the engine. The `.png` file contains the boot splash image. It is not used in
+the engine. The `.png)` file contains the boot splash image. It is not used in
 the default HTML page, but is included for
 `custom HTML pages <doc_customizing_html5_shell>`.
 

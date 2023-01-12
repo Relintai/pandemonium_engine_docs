@@ -14,7 +14,7 @@ This guide explains how to use the `EditorInspectorPlugin` and
 replacing the default behavior with a button that generates random values
 between 0 and 99.
 
-.. figure:: img/inspector_plugin_example.png
+.. figure:: img/inspector_plugin_example.png)
    :align: center
 
    The default behavior on the left and the end result on the right.

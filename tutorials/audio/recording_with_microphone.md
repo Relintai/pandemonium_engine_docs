@@ -22,9 +22,9 @@ We will focus on the audio part. In this demo, a bus named `Record` with the
 effect `Record` is created to handle the audio recording.
 An `AudioStreamPlayer` named `AudioStreamRecord` is used for recording.
 
-.. image:: img/record_bus.png
+![](img/record_bus.png)
 
-.. image:: img/record_stream_player.png
+![](img/record_stream_player.png)
 
 gdscript GDScript
 

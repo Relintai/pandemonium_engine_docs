@@ -72,7 +72,7 @@ The following optional placeholders will enable some extra features in your cust
 When the custom page is ready, it can be selected in the export options under the *Html / Custom Html Shell*
 section.
 
-.. image:: img/html5_export_options.png
+![](img/html5_export_options.png)
 
 Starting the project
 --------------------

@@ -33,7 +33,7 @@ description of each setting and how it works can be found in the `NavigationMesh
 Once the settings have been properly configured press the "Bake NavMesh"
 button at the top of the inspector to generate it.
 
-.. image:: img/bake_navmesh.png
+![](img/bake_navmesh.png)
 
 .. note::
 
@@ -43,7 +43,7 @@ button at the top of the inspector to generate it.
 Once the mesh has finished generating you should see the transparent
 navigation mesh above the areas in the scene that can be navigated to.
 
-.. image:: img/baked_navmesh.png
+![](img/baked_navmesh.png)
 
 Keep in mind that the navmesh shows where the center of an entity can
 go. For example, if you set the agent radius to 0.5 then the

@@ -116,7 +116,7 @@ A new Godot project includes a number of default actions already defined. To
 see them, and to add your own, open Project -> Project Settings and select
 the InputMap tab:
 
-.. image:: img/inputs_inputmap.png
+![](img/inputs_inputmap.png)
 
 Capturing actions
 ~~~~~~~~~~~~~~~~~

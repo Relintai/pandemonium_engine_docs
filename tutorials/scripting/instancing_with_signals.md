@@ -39,7 +39,7 @@ gdscript GDScript
 However, if the bullets are added as children of the player, then they will
 remain "attached" to the player as it rotates:
 
-.. image:: img/signals_shoot1.gif
+![](img/signals_shoot1.gif)
 
 Instead, we need the bullets to be independent of the player's movement - once
 fired, they should continue traveling in a straight line and the player can no
@@ -105,4 +105,4 @@ gdscript GDScript
 Now the bullets will maintain their own movement independent of the player's
 rotation:
 
-.. image:: img/signals_shoot2.gif
+![](img/signals_shoot2.gif)

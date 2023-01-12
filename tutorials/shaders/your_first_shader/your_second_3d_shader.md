@@ -66,7 +66,7 @@ Let's set it to a nice shade of blue.
     ALBEDO = vec3(0.1, 0.3, 0.5);
   }
 
-.. image:: img/albedo.png
+![](img/albedo.png)
 
 We set it to a very dark shade of blue because most of the blueness of the water
 will come from reflections from the sky.
@@ -87,7 +87,7 @@ the reflection and the `ALBEDO` color. A high `METALLIC` almost ignores
 `ROUGHNESS` increases from `0` to `1` from left to right while
 `METALLIC` increase from `0` to `1` from top to bottom.
 
-.. image:: img/PBR.png
+![](img/PBR.png)
 
 .. note:: `METALLIC` should be close to `0` or `1` for proper PBR shading.
           Only set it between them for blending between materials.
@@ -104,7 +104,7 @@ low as well.
     ALBEDO = vec3(0.1, 0.3, 0.5);
   }
 
-.. image:: img/plastic.png
+![](img/plastic.png)
 
 Now we have a smooth plastic looking surface. It is time to think about some
 particular properties of water that we want to emulate. There are two main ones
@@ -123,7 +123,7 @@ has larger specular highlights.
 
   render_mode specular_toon;
 
-.. image:: img/specular-toon.png
+![](img/specular-toon.png)
 
 Second we will add rim lighting. Rim lighting increases the effect of light at
 glancing angles. Usually it is used to emulate the way light passes through
@@ -139,7 +139,7 @@ watery effect.
     ALBEDO = vec3(0.1, 0.3, 0.5);
   }
 
-.. image:: img/rim.png
+![](img/rim.png)
 
 In order to add fresnal reflectance, we will compute a fresnel term in our
 fragment shader. Here, we aren't going to use a real fresnel term for
@@ -169,14 +169,14 @@ set them based on any mathematical function that we can dream up.
     ALBEDO = vec3(0.1, 0.3, 0.5) + (0.1 * fresnel);
   }
 
-.. image:: img/fresnel.png
+![](img/fresnel.png)
 
 And now, with only 5 lines of code, you can have complex looking water. Now that
 we have lighting, this water is looking too bright. Let's darken it. This is
 done easily by decreasing the values of the `vec3` we pass into `ALBEDO`.
 Let's set them to `vec3(0.01, 0.03, 0.05)`.
 
-.. image:: img/dark-water.png
+![](img/dark-water.png)
 
 Animating with `TIME`
 -----------------------
@@ -298,7 +298,7 @@ We can now replace the contents of our `height()` function with `wave()`.
 
 Using this, you get:
 
-.. image:: img/wave1.png
+![](img/wave1.png)
 
 The shape of the sin wave is too obvious. So let's spread the waves out a bit.
 We do this by scaling `position`.
@@ -312,7 +312,7 @@ We do this by scaling `position`.
 
 Now it looks much better.
 
-.. image:: img/wave2.png
+![](img/wave2.png)
 
 We can do even better if we layer multiple waves on top of each other at varying
 frequencies and amplitudes. What this means is that we are going to scale
@@ -341,7 +341,7 @@ keeps the wave in the 0-1 range.
 With this code you should end up with more complex looking waves and all you had
 to do was add a bit of math!
 
-.. image:: img/wave3.png
+![](img/wave3.png)
 
 For more information about Spatial shaders read the `Shading Language
 <doc_shading_language>` doc and the `Spatial Shaders <doc_spatial_shader>`

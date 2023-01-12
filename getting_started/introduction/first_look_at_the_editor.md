@@ -22,19 +22,19 @@ When you launch Godot, the first window you see is the Project Manager. In the
 default tab, "Projects," you can manage existing projects, import or create new
 ones, and more.
 
-.. image:: img/editor_intro_project_manager.png
+![](img/editor_intro_project_manager.png)
 
 At the top of the window, there is another tab named "Asset Library Projects".
 In the open-source asset library you can search for demo projects, templates,
 and completed projects, including many that are developed by the community.
 
-.. image:: img/editor_intro_project_templates.png
+![](img/editor_intro_project_templates.png)
 
 You can also change the editor's language using the drop-down menu to the right
 of the engine's version in the window's top-right corner. By default, it is in
 English (EN).
 
-.. image:: img/editor_intro_language.png
+![](img/editor_intro_language.png)
 
 First look at Godot's editor
 ----------------------------
@@ -42,51 +42,51 @@ First look at Godot's editor
 When you open a new or an existing project, the editor's interface appears.
 Let's look at its main areas.
 
-.. image:: img/editor_intro_editor_empty.png
+![](img/editor_intro_editor_empty.png)
 
 By default, it features **menus**, **main screens**, and playtest buttons along
 the window's top edge.
 
-.. image:: img/editor_intro_top_menus.png
+![](img/editor_intro_top_menus.png)
 
 In the center is the **viewport** with its **toolbar** at the top, where you'll
 find tools to move, scale, or lock the scene's nodes.
 
-.. image:: img/editor_intro_3d_viewport.png
+![](img/editor_intro_3d_viewport.png)
 
 On either side of the viewport sit the **docks**. And at the bottom of the
 window lies the **bottom panel**.
 
 The toolbar changes based on the context and selected node. Here is the 2D toolbar.
 
-.. image:: img/editor_intro_toolbar_2d.png
+![](img/editor_intro_toolbar_2d.png)
 
 Below is the 3D one.
 
-.. image:: img/editor_intro_toolbar_3d.png
+![](img/editor_intro_toolbar_3d.png)
 
 Let's look at the docks. The **FileSystem** dock lists your project files, be it
 scripts, images, audio samples, and more.
 
-.. image:: img/editor_intro_filesystem_dock.png
+![](img/editor_intro_filesystem_dock.png)
 
 The **Scene** dock lists the active scene's nodes.
 
-.. image:: img/editor_intro_scene_dock.png
+![](img/editor_intro_scene_dock.png)
 
 The **Inspector** allows you to edit the properties of a selected node.
 
-.. image:: img/editor_intro_inspector_dock.png
+![](img/editor_intro_inspector_dock.png)
 
 The **bottom panel**, situated below the viewport, is the host for the debug
 console, the animation editor, the audio mixer, and more. They can take precious
 space, that's why they're folded by default.
 
-.. image:: img/editor_intro_bottom_panels.png
+![](img/editor_intro_bottom_panels.png)
 
 When you click on one, it expands vertically. Below, you can see the animation editor opened.
 
-.. image:: img/editor_intro_bottom_panel_animation.png
+![](img/editor_intro_bottom_panel_animation.png)
 
 The four main screens
 ---------------------
@@ -97,17 +97,17 @@ There are four main screen buttons centered at the top of the editor:
 You'll use the **2D screen** for all types of games. In addition to 2D games,
 the 2D screen is where you'll build your interfaces.
 
-.. image:: img/editor_intro_workspace_2d.png
+![](img/editor_intro_workspace_2d.png)
 
 In the **3D screen**, you can work with meshes, lights, and design levels for
 3D games.
 
-.. image:: img/editor_intro_workspace_3d.png
+![](img/editor_intro_workspace_3d.png)
 
 Notice the perspective button under the toolbar. Clicking on it opens a list of
 options related to the 3D view.
 
-.. image:: img/editor_intro_3d_viewport_perspective.png
+![](img/editor_intro_3d_viewport_perspective.png)
 
 .. note:: Read `doc_introduction_to_3d` for more detail about the **3D
           main screen**.
@@ -115,12 +115,12 @@ options related to the 3D view.
 The **Script screen** is a complete code editor with a debugger, rich
 auto-completion, and built-in code reference.
 
-.. image:: img/editor_intro_workspace_script.png
+![](img/editor_intro_workspace_script.png)
 
 Finally, the **AssetLib** is a library of free and open-source add-ons, scripts,
 and assets to use in your projects.
 
-.. image:: img/editor_intro_workspace_assetlib.png
+![](img/editor_intro_workspace_assetlib.png)
 
 .. seealso:: You can learn more about the asset library in
              `doc_what_is_assetlib`.
@@ -140,13 +140,13 @@ signal by any one of the following methods:
   or built-in variable in the script editor.
 
 
-.. image:: img/editor_intro_search_help_button.png
+![](img/editor_intro_search_help_button.png)
 
 When you do any of these, a window pops up. Type to search for any item. You can
 also use it to browse available objects and methods.
 
-.. image:: img/editor_intro_search_help.png
+![](img/editor_intro_search_help.png)
 
 Double-click on an item to open the corresponding page in the script main screen.
 
-.. image:: img/editor_intro_help_class_animated_sprite.png
+![](img/editor_intro_help_class_animated_sprite.png)

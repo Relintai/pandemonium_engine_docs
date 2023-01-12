@@ -7,14 +7,14 @@ This is a short tutorial on how to make trees and other types of vegetation from
 
 The aim is to not focus on the modelling techniques (there are plenty of tutorials about that), but how to make them look good in Godot.
 
-.. image:: img/tree_sway.gif
+![](img/tree_sway.gif)
 
 Start with a tree
 -----------------
 
 I took this tree from SketchFab:
 
-.. image:: img/tree_base.png
+![](img/tree_base.png)
 
 https://sketchfab.com/models/ea5e6ed7f9d6445ba69589d503e8cebf
 
@@ -25,11 +25,11 @@ Paint with vertex colors
 
 The first thing you may want to do is to use the vertex colors to paint how much the tree will sway when there is wind. Just use the vertex color painting tool of your favorite 3D modelling program and paint something like this:
 
-.. image:: img/tree_vertex_paint.png
+![](img/tree_vertex_paint.png)
 
 This is a bit exaggerated, but the idea is that color indicates how much sway affects every part of the tree. This scale here represents it better:
 
-.. image:: img/tree_gradient.png
+![](img/tree_gradient.png)
 
 Write a custom shader for the leaves
 ------------------------------------

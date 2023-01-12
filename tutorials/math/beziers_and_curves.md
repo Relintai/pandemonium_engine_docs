@@ -20,7 +20,7 @@ Quadratic Bezier
 
 Take three points, the minimum required for Quadratic Bezier to work:
 
-.. image:: img/bezier_quadratic_points.png
+![](img/bezier_quadratic_points.png)
 
 To draw a curve between them, we first interpolate gradually over the two
 vertices of each of the two segments formed by the three points, using values
@@ -47,7 +47,7 @@ gdscript GDScript
 
 This type of curve is called a *Quadratic Bezier* curve.
 
-.. image:: img/bezier_quadratic_points2.gif
+![](img/bezier_quadratic_points2.gif)
 
 *(Image credit: Wikipedia)*
 
@@ -57,7 +57,7 @@ Cubic Bezier
 Building upon the previous example, we can get more control by interpolating
 between four points.
 
-.. image:: img/bezier_cubic_points.png
+![](img/bezier_cubic_points.png)
 
 We first use a function with four parameters to take four points as an input,
 `p0`, `p1`, `p2` and `p3`:
@@ -116,7 +116,7 @@ gdscript GDScript
 
 The result will be a smooth curve interpolating between all four points:
 
-.. image:: img/bezier_cubic_points.gif
+![](img/bezier_cubic_points.gif)
 
 *(Image credit: Wikipedia)*
 
@@ -139,7 +139,7 @@ This way, we have two points and two control points which are relative vectors
 to the respective points. If you've used graphics or animation software before,
 this might look familiar:
 
-.. image:: img/bezier_cubic_handles.png
+![](img/bezier_cubic_handles.png)
 
 This is how graphics software presents Bezier curves to the users, and how they
 work and look in Godot.
@@ -151,7 +151,7 @@ There are two objects that contain curves: `Curve3D` (for 3D and 2D respectively
 
 They can contain several points, allowing for longer paths. It is also possible to set them to nodes: `Path` (also for 3D and 2D respectively):
 
-.. image:: img/bezier_path_2d.png
+![](img/bezier_path_2d.png)
 
 Using them, however, may not be completely obvious, so following is a description of the most common use cases for Bezier curves.
 
@@ -172,7 +172,7 @@ gdscript GDScript
         position = _cubic_bezier(p0, p1, p2, p3, t)
 ```
 
-.. image:: img/bezier_interpolation_speed.gif
+![](img/bezier_interpolation_speed.gif)
 
 As you can see, the speed (in pixels per second) of the circle varies, even though `t` is increased at constant speed. This makes beziers difficult to use for anything practical out of the box.
 
@@ -183,7 +183,7 @@ Drawing beziers (or objects based on the curve) is a very common use case, but i
 
 The reason is that some sections of a curve (specifically, corners) may require considerable amounts of points, while other sections may not:
 
-.. image:: img/bezier_point_amount.png
+![](img/bezier_point_amount.png)
 
 Additionally, if both control points were `0, 0` (remember they are relative vectors), the Bezier curve would just be a straight line (so drawing a high amount of points would be wasteful).
 
@@ -214,4 +214,4 @@ gdscript GDScript
 
 And the output will, then, move at constant speed:
 
-.. image:: img/bezier_interpolation_baked.gif
+![](img/bezier_interpolation_baked.gif)

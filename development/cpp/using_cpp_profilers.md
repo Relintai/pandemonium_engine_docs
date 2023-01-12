@@ -72,7 +72,7 @@ VerySleepy
   will spawn a child process for every project edited or run.
 - Open VerySleepy and select the Godot executable in the list of processes on the left:
 
-.. image:: img/cpp_profiler_verysleepy_select_process.png
+![](img/cpp_profiler_verysleepy_select_process.png)
 
 - Click the **Profile All** button on the right to start profiling.
 - Perform the actions you wish to profile in the editor or project. When you're done, click **Stop** (*not* Abort).
@@ -83,14 +83,14 @@ VerySleepy
   **Filter Module to <Godot executable name>** in the dropdown that appears.
 - Your results window should now look something like this:
 
-.. image:: img/cpp_profiler_verysleepy_results_filtered.png
+![](img/cpp_profiler_verysleepy_results_filtered.png)
 
 HotSpot
 ^^^^^^^
 
 - Open HotSpot. Click **Record Data**:
 
-.. image:: img/cpp_profiler_hotspot_welcome.png
+![](img/cpp_profiler_hotspot_welcome.png)
 
 - In the next window, specify the path to the Godot binary that includes debug symbols.
 - Specify command line arguments to run a specific project, with or without the editor.
@@ -102,7 +102,7 @@ HotSpot
   Otherwise, some events may be missing in the capture.
   Your settings should now look something like this:
 
-.. image:: img/cpp_profiler_hotspot_record.png
+![](img/cpp_profiler_hotspot_record.png)
 
 - Click **Start Recording** and perform the actions you wish to profile in the editor/project.
 - Quit the editor/project normally or use the **Stop Profiling** button in HotSpot
@@ -110,7 +110,7 @@ HotSpot
   if you're not interested in the engine's quit procedure.
 - Click **View Results** and wait for the profiling visualization to be generated:
 
-.. image:: img/cpp_profiler_hotspot_view_results.png
+![](img/cpp_profiler_hotspot_view_results.png)
 
 - Use the tabs at the top to navigate between the different views. These views
   show the same data, but in different ways. The **Flame Graph** tab is a good
@@ -121,7 +121,7 @@ HotSpot
   started by the engine among with the CPU utilization for each thread.
   This lets you see threads that can be a bottleneck at a given point in time.
 
-.. image:: img/cpp_profiler_hotspot_flame_graph.png
+![](img/cpp_profiler_hotspot_flame_graph.png)
 
 .. note::
 
@@ -138,20 +138,20 @@ Xcode Instruments
 - Open Xcode. Select **Open Developer Tool** - **Instruments** from the **Xcode** app menu:
 - Double-click on **Time Profiler** in the **Instruments** window:
 
-.. image:: img/cpp_profiler_xcode_menu.png
+![](img/cpp_profiler_xcode_menu.png)
 
 - In the Time Profiler window, click on the **Target** menu, select **Choose target...**
   and specify the path to the Godot binary, command line arguments and environment variables
   in the next window.
 
-.. image:: img/cpp_profiler_time_profiler.png
+![](img/cpp_profiler_time_profiler.png)
 
 - You can also attach the Time Profiler to a running process by selecting it from the **Target**
   menu.
 
 - Click the **Start an immediate mode recording** button to start profiling.
 
-.. image:: img/cpp_profiler_time_profiler_record.png
+![](img/cpp_profiler_time_profiler_record.png)
 
 - Perform the actions you wish to profile in the editor or project. When you're done,
   click the **Stop** button.
@@ -163,4 +163,4 @@ Xcode Instruments
   remove external modules.
 - You can use the timeline at the top of the window to display details for the specific time period.
 
-.. image:: img/cpp_profiler_time_profiler_result.png
+![](img/cpp_profiler_time_profiler_result.png)

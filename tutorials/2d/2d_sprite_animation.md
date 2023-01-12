@@ -26,7 +26,7 @@ In this scenario, you have a collection of images, each containing one of your
 character's animation frames. For this example, we'll use the following
 animation:
 
-.. image:: img/2d_animation_run_preview.gif
+![](img/2d_animation_run_preview.gif)
 
 You can download the images here:
 :download:`run_animation.zip <files/run_animation.zip>`
@@ -34,7 +34,7 @@ You can download the images here:
 Unzip the images and place them in your project folder. Set up your scene tree
 with the following nodes:
 
-.. image:: img/2d_animation_tree1.png
+![](img/2d_animation_tree1.png)
 
 .. note:: The root node could also be `Area2D` or
           `RigidBody2D`. The animation will still be
@@ -46,18 +46,18 @@ with the following nodes:
 Now select the `AnimatedSprite` and in its *SpriteFrames* property, select
 "New SpriteFrames".
 
-.. image:: img/2d_animation_new_spriteframes.png
+![](img/2d_animation_new_spriteframes.png)
 
 Click on the new SpriteFrames resource and you'll see a new panel appear at the
 bottom of the editor window:
 
-.. image:: img/2d_animation_spriteframes.png
+![](img/2d_animation_spriteframes.png)
 
 From the FileSystem dock on the left side, drag the 8 individual images into
 the center part of the SpriteFrames panel. On the left side, change the name
 of the animation from "default" to "run".
 
-.. image:: img/2d_animation_spriteframes_done.png
+![](img/2d_animation_spriteframes_done.png)
 
 Back in the Inspector, check the box for the *Playing* property. You should
 now see the animation playing in the viewport. However, it is a bit slow. To
@@ -94,7 +94,7 @@ Sprite sheet with AnimatedSprite
 
 You can also easily animate from a sprite sheet with the class `AnimatedSprite`. We will use this public domain sprite sheet:
 
-.. image:: img/2d_animation_frog_spritesheet.png
+![](img/2d_animation_frog_spritesheet.png)
 
 Right-click the image and choose "Save Image As" to download it, and then copy the image into your project folder.
 
@@ -103,25 +103,25 @@ Set up your scene tree the same way you did previously when using individual ima
 
 Click on the new SpriteFrames resource. This time, when the bottom panel appears, select "Add frames from a Sprite Sheet".
 
-.. image:: img/2d_animation_add_from_spritesheet.png
+![](img/2d_animation_add_from_spritesheet.png)
 
 You will be prompted to open a file. Select your sprite sheet.
 
 A new window will open, showing your sprite sheet. The first thing you will need to do is to change the number of vertical and horizontal images in your sprite sheet. In this sprite sheet, we have four images horizontally and two images vertically.
 
-.. image:: img/2d_animation_spritesheet_select_rows.png
+![](img/2d_animation_spritesheet_select_rows.png)
 
 Next, select the frames from the sprite sheet that you want to include in your animation. We will select the top four, then click "Add 4 frames" to create the animation.
 
-.. image:: img/2d_animation_spritesheet_selectframes.png
+![](img/2d_animation_spritesheet_selectframes.png)
 
 You will now see your animation under the list of animations in the bottom panel. Double click on default to change the name of the animation to jump.
 
-.. image:: img/2d_animation_spritesheet_animation.png
+![](img/2d_animation_spritesheet_animation.png)
 
 Finally, check Playing on the AnimatedSprite in the inspector to see your frog jump!
 
-.. image:: img/2d_animation_play_spritesheet_animation.png
+![](img/2d_animation_play_spritesheet_animation.png)
 
 
 Sprite sheet with AnimationPlayer
@@ -133,7 +133,7 @@ change from texture to texture with `AnimationPlayer`.
 
 Consider this sprite sheet, which contains 6 frames of animation:
 
-.. image:: img/2d_animation_player-run.png
+![](img/2d_animation_player-run.png)
 
 Right-click the image and choose "Save Image As" to download, then copy the
 image into your project folder.
@@ -141,7 +141,7 @@ image into your project folder.
 Our goal is to display these images one after another in a loop. Start by
 setting up your scene tree:
 
-.. image:: img/2d_animation_tree2.png
+![](img/2d_animation_tree2.png)
 
 .. note:: The root node could also be `Area2D` or
           `RigidBody2D`. The animation will still be
@@ -156,7 +156,7 @@ expand the *Animation* section in the Inspector and set the *Hframes* to `6`.
 *Hframes* and *Vframes* are the number of horizontal and vertical frames in
 your sprite sheet.
 
-.. image:: img/2d_animation_setframes.png
+![](img/2d_animation_setframes.png)
 
 Now try changing the value of the *Frame* property. You'll see that it ranges
 from `0` to `5` and the image displayed by the Sprite changes accordingly.
@@ -166,21 +166,21 @@ Select the `AnimationPlayer` and click the "Animation" button followed by
 "New". Name the new animation "walk". Set the animation length to `0.6` and
 click the "Loop" button so that our animation will repeat.
 
-.. image:: img/2d_animation_new_animation.png
+![](img/2d_animation_new_animation.png)
 
 Now select the `Sprite` node and click the key icon to add a new track.
 
-.. image:: img/2d_animation_new_track.png
+![](img/2d_animation_new_track.png)
 
 Continue adding frames at each point in the timeline (`0.1` seconds by
 default), until you have all the frames from 0 to 5. You'll see the frames
 actually appearing in the animation track:
 
-.. image:: img/2d_animation_full_animation.png
+![](img/2d_animation_full_animation.png)
 
 Press "Play" on the animation to see how it looks.
 
-.. image:: img/2d_animation_running.gif
+![](img/2d_animation_running.gif)
 
 Controlling an AnimationPlayer animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -117,6 +117,6 @@ Select the `.csv` file and access the **Import** dock to define import
 options. You can toggle the compression of the imported translations, and
 select the delimiter to use when parsing the CSV file.
 
-.. image:: img/import_csv.png
+![](img/import_csv.png)
 
 Be sure to click **Reimport** after any change to these options.

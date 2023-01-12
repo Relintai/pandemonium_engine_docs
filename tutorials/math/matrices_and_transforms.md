@@ -35,7 +35,7 @@ The identity matrix represents a transform with no translation,
 no rotation, and no scale. Let's start by looking at the identity
 matrix and how its components relate to how it visually appears.
 
-.. image:: img/matrices_and_transforms/identity.png
+![](img/matrices_and_transforms/identity.png)
 
 Matrices have rows and columns, and a transformation matrix has
 specific conventions on what each does.
@@ -62,13 +62,13 @@ Applying a scale is one of the easiest operations to understand.
 Let's start by placing the Godot logo underneath our vectors
 so that we can visually see the effects on an object:
 
-.. image:: img/matrices_and_transforms/identity-godot.png
+![](img/matrices_and_transforms/identity-godot.png)
 
 Now, to scale the matrix, all we need to do is multiply each
 component by the scale we want. Let's scale it up by 2. 1 times 2
 becomes 2, and 0 times 2 becomes 0, so we end up with this:
 
-.. image:: img/matrices_and_transforms/scale.png
+![](img/matrices_and_transforms/scale.png)
 
 To do this in code, we can simply multiply each of the vectors:
 
@@ -98,7 +98,7 @@ Rotating the transformation matrix
 We'll start the same way as earlier, with the Godot logo underneath
 the identity matrix:
 
-.. image:: img/matrices_and_transforms/identity-godot.png
+![](img/matrices_and_transforms/identity-godot.png)
 
 As an example, let's say we want to rotate our Godot logo clockwise
 by 90 degrees. Right now the X axis points right and the Y axis
@@ -115,7 +115,7 @@ so means we'll set X to (0, 1) and Y to (-1, 0). These are
 also the values of `Vector2.DOWN` and `Vector2.LEFT`.
 When we do this, we get the desired result of rotating the object:
 
-.. image:: img/matrices_and_transforms/rotate1.png
+![](img/matrices_and_transforms/rotate1.png)
 
 If you have trouble understanding the above, try this exercise:
 Cut a square of paper, draw X and Y vectors on top of it, place
@@ -127,7 +127,7 @@ to calculate the transformation matrix from a rotation angle.
 Don't worry if this part seems complicated, I promise it's the
 hardest thing you need to know.
 
-.. image:: img/matrices_and_transforms/rotate2.png
+![](img/matrices_and_transforms/rotate2.png)
 
 .. note:: Godot represents all rotations with radians, not degrees.
           A full turn is `TAU` or `PI*2` radians, and a quarter
@@ -144,7 +144,7 @@ In order to perform a rotation of 0.5 radians (about 28.65 degrees),
 we simply plug in a value of 0.5 to the formula above and evaluate
 to find what the actual values should be:
 
-.. image:: img/matrices_and_transforms/rotate3.png
+![](img/matrices_and_transforms/rotate3.png)
 
 Here's how that would be done in code (place the script on a Node2D):
 
@@ -200,12 +200,12 @@ Let's work through an example to help understand this. We will start
 with the identity transform like last time, except we will keep track
 of the origin vector this time.
 
-.. image:: img/matrices_and_transforms/identity-origin.png
+![](img/matrices_and_transforms/identity-origin.png)
 
 If we want the object to move to a position of (1, 2), we simply need
 to set its `origin` vector to (1, 2):
 
-.. image:: img/matrices_and_transforms/translate.png
+![](img/matrices_and_transforms/translate.png)
 
 There is also a `translated()` method, which performs a different
 operation to adding or changing `origin` directly. The `translated()`
@@ -227,7 +227,7 @@ Let's set the translation to (350, 150), rotate by -0.5 rad, and scale by 3.
 I've posted a screenshot, and the code to reproduce it, but I encourage
 you to try and reproduce the screenshot without looking at the code!
 
-.. image:: img/matrices_and_transforms/putting-all-together.png
+![](img/matrices_and_transforms/putting-all-together.png)
 
 gdscript GDScript
 
@@ -268,7 +268,7 @@ understanding shearing helps you understand how transforms work.
 To show you visually how it will look, let's overlay a grid onto the Godot
 logo:
 
-.. image:: img/matrices_and_transforms/identity-grid.png
+![](img/matrices_and_transforms/identity-grid.png)
 
 Each point on this grid is obtained by adding the basis vectors together.
 The bottom-right corner is X + Y, while the top-right corner is X - Y.
@@ -279,7 +279,7 @@ the basis vectors.
 
 As an example, let's set Y to (1, 1):
 
-.. image:: img/matrices_and_transforms/shear.png
+![](img/matrices_and_transforms/shear.png)
 
 gdscript GDScript
 
@@ -406,7 +406,7 @@ overwhelming with so many numbers, but remember that each number
 is displayed twice (next to the arrows and also in the matrices),
 and that almost half of the numbers are zero.
 
-.. image:: img/matrices_and_transforms/apply.png
+![](img/matrices_and_transforms/apply.png)
 
 The only transformations going on here are that the parent node has
 been given a scale of (2, 1), the child has been given a scale of
@@ -512,7 +512,7 @@ component and multiply it; to rotate, we change where each basis vector
 is pointing; to translate, we manipulate the origin; and to shear, we
 change the basis vectors to be non-perpendicular.
 
-.. image:: img/matrices_and_transforms/3d-identity.png
+![](img/matrices_and_transforms/3d-identity.png)
 
 If you would like, it's a good idea to play around with transforms
 to get an understanding of how they work. Godot allows you to edit

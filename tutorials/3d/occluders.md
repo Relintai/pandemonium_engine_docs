@@ -24,13 +24,13 @@ The sphere is one of the simplest and fastest occluders, and is easy to setup an
 
 Once you have added an OccluderNode and chosen to add a new `OccluderShapeSphere` in the inspector, click the OccluderShapeSphere in the inspector to bring up the parameters.
 
-.. image:: img/occluder_shape_sphere_inspector.png
+![](img/occluder_shape_sphere_inspector.png)
 
 Unlike many Nodes, the `OccluderShapeSphere` can store multiple spheres in the same object. This is more efficient in the engine, and keeps your SceneTree clearer. You don't have to store all your spheres in one Occluder as it could become tricky to manage, but it is perfectly reasonable to add 10 or so spheres or more. They are very cheap, and often the more you place, the better the match you will get to your geometry.
 
 In order to store multiple spheres, they are stored as an Array. If you click on the Array in the inspector, you can increase the size of the Array to add one.
 
-.. image:: img/occluder_shape_sphere_terrain.png
+![](img/occluder_shape_sphere_terrain.png)
 
 The sphere will appear as a small pink spherical object in the editor window. There are two handles on each sphere. The larger middle handle enables you to move the sphere around in the local space of the Occluder, and the small handle enables you to adjust the radius.
 
@@ -56,18 +56,18 @@ Editing and details
 
 Occluder polygons are edited as a list of points which define a *convex* polygon, on a single plane. In order to confine the polygon to a single plane, the points are defined in 2D space rather than 3D. The orientation, position and scale of the polygon is taken instead from the transform of the `Occluder` Node.
 
-.. image:: img/occluder_shape_polygon_inspector.png
+![](img/occluder_shape_polygon_inspector.png)
 
 If you create an Occluder and add to it a `OccluderShapePolygon` resource, by default it will create 4 starting points forming a rectangle. If you move the position and rotation of the Occluder Node you will see how the rectangle follows the node. When the Occluder is selected in the editor, handles will appear for each of the points. You can actually click and drag these handles, to match your polygon to the environment of your scene.
 
-.. image:: img/occluder_shape_polygon.png
+![](img/occluder_shape_polygon.png)
 
 You are not restricted to 4 points, you can add and remove points in the Inspector, but note that:
 
 -  The editor will automatically sanitize your points to form a convex polygon. If you drag a point into a position that would form a concave polygon, it will be ignored.
 -  In general, the less edges (and thus points), the faster the polygon will work at runtime. A polygon with 6 edges will have to make twice the calculations of a polygon with 3 edges. In most cases 4 is a good number.
 
-.. image:: img/occluder_shape_polygon2.png
+![](img/occluder_shape_polygon2.png)
 
 Holes
 ~~~~~
@@ -76,7 +76,7 @@ Real world game levels don't always have large continuous areas that should be o
 
 In the inspector you will notice that as well as a set of points for the polygon, the polygon has a set of points for a single "hole". If you add 3 or 4 to your polygon, you will see they appear in the editor as smaller handles. You can drag these around just like the polygon handles, to form a convex hole.
 
-.. image:: img/occluder_shape_polygon_hole.png
+![](img/occluder_shape_polygon_hole.png)
 
 The hole can be totally within the polygon (such as a window), abutting the edge (like a door) or crossing the edge of the polygon completely, to make the occluder concave. The way the hole works is that the culling follows a simple rule:
 

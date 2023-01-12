@@ -11,7 +11,7 @@ Importing the project
 
 - From Xcode's main screen create a new project using the **Other > External Build System** template.
 
-.. figure:: img/xcode_1_create_external_build_project.png
+.. figure:: img/xcode_1_create_external_build_project.png)
    :figclass: figure-w480
    :align: center
 
@@ -26,20 +26,20 @@ Importing the project
   | Directory  | A full path to the Godot root folder                                         |
   +------------+------------------------------------------------------------------------------+
 
-.. figure:: img/xcode_2_configure_scons.png
+.. figure:: img/xcode_2_configure_scons.png)
    :figclass: figure-w480
    :align: center
 
 - Add a Command Line Tool target which will be used for indexing the project by
   choosing **File > New > Target...**.
 
-.. figure:: img/xcode_3_add_new_target.png
+.. figure:: img/xcode_3_add_new_target.png)
    :figclass: figure-w480
    :align: center
 
 - Select **OS X > Application > Command Line Tool**.
 
-.. figure:: img/xcode_4_select_command_line_target.png
+.. figure:: img/xcode_4_select_command_line_target.png)
    :figclass: figure-w480
    :align: center
 
@@ -53,14 +53,14 @@ Importing the project
 - Add the Godot source to the project by dragging and dropping it into the project file browser.
 - Uncheck **Create external build system project**.
 
-.. figure:: img/xcode_5_after_add_godot_source_to_project.png
+.. figure:: img/xcode_5_after_add_godot_source_to_project.png)
    :figclass: figure-w480
    :align: center
 
 - Next select **Create groups** for the **Added folders** option and check *only* 
   your command line indexing target in the **Add to targets** section.
 
-.. figure:: img/xcode_6_after_add_godot_source_to_project_2.png
+.. figure:: img/xcode_6_after_add_godot_source_to_project_2.png)
    :figclass: figure-w480
    :align: center
 
@@ -84,7 +84,7 @@ To enable debugging support you need to edit the external build target's build a
 
   ln -f ${PROJECT_DIR}/godot/bin/godot.osx.tools.64 ${PROJECT_DIR}/godot/bin/godot
 
-.. figure:: img/xcode_7_setup_build_post_action.png
+.. figure:: img/xcode_7_setup_build_post_action.png)
    :figclass: figure-w480
    :align: center
 
@@ -92,7 +92,7 @@ To enable debugging support you need to edit the external build target's build a
 
 - Open the scheme editor again and select **Run**.
 
-.. figure:: img/xcode_8_setup_run_scheme.png
+.. figure:: img/xcode_8_setup_run_scheme.png)
    :figclass: figure-w480
    :align: center
 

@@ -6,7 +6,7 @@ Example SceneTree
 
 Putting all the ideas together, here is an example scene tree:
 
-.. image:: img/example_scenetree.png
+![](img/example_scenetree.png)
 
 - We have used a `RoomGroup<class_RoomGroup>` to denote an outside area.
 - The `MeshInstance<class_MeshInstance>`\ s inside the `Room<class_Room>`\ s are either `STATIC` or `DYNAMIC`.
@@ -77,7 +77,7 @@ Portals are defined by a combination of the transform of the portal node, and by
 
 The default portal has 4 corners as shown in the inspector:
 
-.. image:: img/portal_point_editing.png
+![](img/portal_point_editing.png)
 
 You can edit these points in the gizmo or inspector to make a better match to the opening in your game level. It's generally better to keep the number of points as low as possible for the efficiency of the system. For example, it's better to risk rendering a little too much than to spend the time culling objects at 20 different edges.
 
@@ -88,7 +88,7 @@ Room point editing
 
 You also have the option to manually edit the points used to define the convex hull of a room. These points are not present by default. You would typically create them by pressing the **Generate Points** button in the editor toolbar when a room is selected. This will transfer the auto bound from the geometry (or manual `-bound` mesh) into the inspector. Once there are points in the inspector, they will be used and override any other method. So if you wish to revert your manual editing, delete all the room's points.
 
-.. image:: img/room_point_editing.png
+![](img/room_point_editing.png)
 
 Manually editing points can be useful in some situations, especially where the auto-bound doesn't *quite* get the right result you want. It is usually a good idea to use a lot of **Simplification** in the inspector for the Room before generating the points. Be aware though that by default, the **Simplification** value will be inherited from the RoomManager.
 

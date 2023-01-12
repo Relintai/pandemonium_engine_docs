@@ -103,7 +103,7 @@ Custom features
 It is possible to add custom features to a build; use the relevant
 field in the *export preset* used to generate it:
 
-.. image:: img/feature_tags1.png
+![](img/feature_tags1.png)
 
 .. note::
 
@@ -121,11 +121,11 @@ This allows you to better customize any configuration when doing a build.
 In the following example, a different icon is added for the demo build of the game (which was
 customized in a special export preset, which, in turn, includes only demo levels).
 
-.. image:: img/feature_tags2.png
+![](img/feature_tags2.png)
 
 After overriding, a new field is added for this specific configuration:
 
-.. image:: img/feature_tags3.png
+![](img/feature_tags3.png)
 
 .. note::
 
@@ -142,7 +142,7 @@ Default overrides
 There are already a lot of settings that come with overrides by default; they can be found
 in many sections of the project settings.
 
-.. image:: img/feature_tags4.png
+![](img/feature_tags4.png)
 
 Customizing the build
 ---------------------

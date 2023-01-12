@@ -85,7 +85,7 @@ As a result, in 2D, if shaders that use `SCREEN_TEXTURE` overlap, the second one
 will not use the result of the first one, resulting in unexpected
 visuals:
 
-.. image:: img/texscreen_demo1.png
+![](img/texscreen_demo1.png)
 
 In the above image, the second sphere (top right) is using the same
 source for `SCREEN_TEXTURE` as the first one below, so the first one
@@ -95,11 +95,11 @@ In 2D, this can be corrected via the `BackBufferCopy`
 node, which can be instantiated between both spheres. BackBufferCopy can work by
 either specifying a screen region or the whole screen:
 
-.. image:: img/texscreen_bbc.png
+![](img/texscreen_bbc.png)
 
 With correct back-buffer copying, the two spheres blend correctly:
 
-.. image:: img/texscreen_demo2.png
+![](img/texscreen_demo2.png)
 
 .. warning:
 

@@ -65,7 +65,7 @@ bat Windows (PowerShell)
 
 4. Set the encryption key in the **Script** tab of the export preset:
 
-   .. image:: img/script_encryption_key.png
+   ![](img/script_encryption_key.png)
 
 5. Export the project. The game should run with encrypted scripts now.
 

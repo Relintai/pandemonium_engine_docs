@@ -37,7 +37,7 @@ Process Modes
 Each node in Godot has a "Pause Mode" that defines when it processes. It can
 be found and changed under a node's `Node` properties in the inspector.
 
-.. image:: img/pausemode.png
+![](img/pausemode.png)
 
 You can also alter the property with code:
 

@@ -48,7 +48,7 @@ gdscript GDScript
 
 It will produce the following motion:
 
-.. image:: img/interpolation_vector.gif
+![](img/interpolation_vector.gif)
 
 Transform interpolation
 -----------------------
@@ -58,7 +58,7 @@ For this, the function `Transform.interpolate_with()` can be used.
 
 Here is an example of transforming a monkey from Position1 to Position2:
 
-.. image:: img/interpolation_positions.png
+![](img/interpolation_positions.png)
 
 Using the following pseudocode:
 
@@ -75,7 +75,7 @@ gdscript GDScript
 
 And again, it will produce the following motion:
 
-.. image:: img/interpolation_monkey.gif
+![](img/interpolation_monkey.gif)
 
 
 Smoothing motion
@@ -96,6 +96,6 @@ gdscript GDScript
 
 Here is how it looks:
 
-.. image:: img/interpolation_follow.gif
+![](img/interpolation_follow.gif)
 
 This useful for smoothing camera movement, allies following you (ensuring they stay within a certain range), and many other common game patterns.

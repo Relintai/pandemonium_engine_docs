@@ -13,7 +13,7 @@ the look of every control in your user interface, including your custom controls
 Here is an example of this system in action — a game with the GUI that is
 radically different from the default UI theme of the engine:
 
-.. figure:: img/tank-kings-by-winterpixel-games.png
+.. figure:: img/tank-kings-by-winterpixel-games.png)
    :align: center
 
    A "Gear Up!" screen in Tank Kings, courtesy of Winterpixel Games
@@ -151,7 +151,7 @@ the Inspector dock, or scripts. This allows to make granular changes to a
 particular part of the UI, while not affecting anything else in the project,
 including this control's children.
 
-.. figure:: img/themecheck.png
+.. figure:: img/themecheck.png)
    :align: center
 
 Local overrides are less useful for the visual flair of your user interface,

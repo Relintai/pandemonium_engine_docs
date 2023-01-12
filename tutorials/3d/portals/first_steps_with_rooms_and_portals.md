@@ -11,20 +11,20 @@ Room Conversion
 
 This conversion must take place every time you want to activate the system. It does not store the *room graph* in your project (for flexibility and to save memory). You can either trigger it by pressing the **Convert Rooms** button in the editor toolbar (which also has a keyboard shortcut) or by calling the `rooms_convert()` method in the RoomManager. The latter method will be what you use in-game. Note that for safety, best practice is to call `rooms_clear()` before unloading or changing levels.
 
-.. image:: img/convert_rooms_button.png
+![](img/convert_rooms_button.png)
 
 If you convert the level while the editor is running, the portal culling system will take over from the normal Godot frustum culling, potentially interfering with editor features. To get around this, you can turn portal culling on and off using either the **View Portal Culling** toggle in the **View** menu on the editor toolbar (which also has a keyboard shortcut) or the **Active** setting in the RoomManager node.
 
 .. note:: To use the RoomManager, you have to tell it where the rooms are in your scene tree, or, more specifically, where the RoomList node is. This RoomList is the parent of your rooms - see below. If the RoomList is not set, conversion will fail, and you will see a warning dialog box.
 
-.. image:: img/room_manager.png
+![](img/room_manager.png)
 
 The RoomList
 ^^^^^^^^^^^^
 
 Before we create any rooms, we must first create a node to be the parent of all the static objects, rooms, roomgroups, and so on in our level. This node is referred to as the the `RoomList`.
 
-.. image:: img/roomlist_node.png
+![](img/roomlist_node.png)
 
 .. note:: The roomlist is **not** a special node type – it can just be a regular Spatial.
 
@@ -51,7 +51,7 @@ Rooms are defined as convex volumes (or *convex hulls*) because it's trivial to 
 
 *A convex hull. The hull is defined as a series of planes facing outward. If a point is behind all the planes, it is within the hull.*
 
-.. image:: img/convex_hull.png
+![](img/convex_hull.png)
 
 Why non-overlapping?
 ^^^^^^^^^^^^^^^^^^^^
@@ -60,7 +60,7 @@ If two rooms overlap, and a camera or player is in this overlapping zone, then t
 
 If you accidentally create overlapping rooms, the editor will warn you when you convert the rooms, indicating any overlapping zones in red.
 
-.. image:: img/room_overlap.png
+![](img/room_overlap.png)
 
 The system does attempt to cope with overlapping rooms as best as possible by making the current room *"sticky"*. Each object remembers which room it was in during the previous frame and stays within it as long as it does not move outside the convex hull room bound. This can result in some hysteresis in these overlapping zones.
 
@@ -86,7 +86,7 @@ The automatic method is used whenever a manual bound is not supplied.
 
 *A simple pair of rooms. The portal margin is shown with translucent red, and the room hulls are shown with green wireframe.*
 
-.. image:: img/simple_room.png
+![](img/simple_room.png)
 
 Portals
 ~~~~~~~
@@ -99,7 +99,7 @@ To save editing effort, **only one Portal is required between each pair of Rooms
 
 You should therefore place a portal in only one of each pair of neighbouring rooms - this is the portal's *"source room"*. Generally it doesn't matter which you choose as the source room. The portal normal (the arrow in the gizmo) should face *outward* from the source room.
 
-.. image:: img/portal_inspector.png
+![](img/portal_inspector.png)
 
 Do not be confused by the arrow. Although the arrow shows which direction the portal faces, most portals will be *two-way*, and can be seen through from both directions. The arrow is more important for ensuring that the portal links to the correct neighbouring room.
 
@@ -118,7 +118,7 @@ Trying it out
 
 By now you should be able to create a couple of rooms, add some nodes such as MeshInstances within the rooms, and add a portal between the rooms. Try converting the rooms in the editor and see if you can now view the objects in neighbouring rooms through the portal.
 
-.. image:: img/simple_scenetree.png
+![](img/simple_scenetree.png)
 
 You have now mastered the basic principles of the system.
 

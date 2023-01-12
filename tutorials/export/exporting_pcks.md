@@ -58,7 +58,7 @@ In order to pack all resources of a project into a PCK file open the project
 and go to Project/Export and click on “Export PCK/Zip”. Also make sure to have
 an export template selected while doing so.
 
-.. image:: img/export_pck.png
+![](img/export_pck.png)
 
 Another method would be to `export from the command line <doc_command_line_tutorial_exporting>`.
 If the output file ends with a PCK or ZIP file extension, then the export

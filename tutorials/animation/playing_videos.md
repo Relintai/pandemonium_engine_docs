@@ -67,7 +67,7 @@ AspectRatioContainer node to match your video's aspect ratio. You can use math
 formulas in the inspector to help yourself. Remember to make one of the operands
 a float. Otherwise, the division's result will always be an integer.
 
-.. figure:: img/playing_videos_aspect_ratio_container.png
+.. figure:: img/playing_videos_aspect_ratio_container.png)
    :figclass: figure-w480
    :align: center
    :alt: AspectRatioContainer's Ratio property being modified in the editor inspector

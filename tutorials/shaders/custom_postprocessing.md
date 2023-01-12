@@ -40,12 +40,12 @@ another `Control` node.
 For this demo, we will use a `Node2D` with a `ViewportContainer` and finally a
 `Viewport`. Your **Scene** tab should look like this:
 
-.. image:: img/post_hierarchy1.png
+![](img/post_hierarchy1.png)
 
 Inside the `Viewport`, you can have whatever you want. This will contain
 your main scene. For this tutorial, we will use a field of random boxes:
 
-.. image:: img/post_boxes.png
+![](img/post_boxes.png)
 
 Add a new `ShaderMaterial` to the `ViewportContainer`, and assign a new
 shader resource to it. You can access your rendered `Viewport` with the built-in `TEXTURE` uniform.
@@ -96,7 +96,7 @@ Copy the following code to your shader. The above code is a single pass edge det
     center and -8 for the center pixel. The choice of weights is called a "kernel". You can use different
     kernels to create edge detection filters, outlines, and all sorts of effects.
 
-    .. image:: img/post_outline.png
+    ![](img/post_outline.png)
 
 Multi-pass post-processing
 --------------------------
@@ -112,7 +112,7 @@ another and then rendering the last `Viewport` into the root `Viewport`.
 
 Your scene hierarchy will look something like this:
 
-.. image:: img/post_hierarchy2.png
+![](img/post_hierarchy2.png)
 
 Godot will render the bottom `Viewport` node first. So if the order of the passes matters for your
 shaders, make sure that you assign the shader you want to apply first to the lowest `ViewportContainer` in
@@ -167,6 +167,6 @@ does not matter:
 
 Using the above code, you should end up with a full screen blur effect like below.
 
-.. image:: img/post_blur.png
+![](img/post_blur.png)
 
 For more information on how `Viewport` nodes work, see the `Viewports Tutorial <doc_viewports>`.

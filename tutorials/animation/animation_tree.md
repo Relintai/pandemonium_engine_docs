@@ -31,7 +31,7 @@ new scene which contains the imported one. Afterwards, point the `AnimationTree`
 
 This is how it's done in the `Third Person Shooter demo <https://github.com/godotengine/tps-demo>`_, for reference:
 
-.. image:: img/animtree1.png
+![](img/animtree1.png)
 
 A new scene was created for the player with a `KinematicBody` as root. Inside this scene, the original `.dae` (Collada) file was instantiated
 and an `AnimationTree` node was created.
@@ -47,7 +47,7 @@ There are three main types of nodes that can be used in `AnimationTree`:
 
 To set a root node in `AnimationTree`, a few types are available:
 
-.. image:: img/animtree2.png
+![](img/animtree2.png)
 
 * `AnimationNodeAnimation`: Selects an animation from the list and plays it. This is the simplest root node, and generally not used directly as root.
 * `AnimationNodeBlendTree`: Contains many *blend* type nodes, such as mix, blend2, blend3, one shot, etc. This is one of the most commonly used roots.
@@ -60,13 +60,13 @@ Blend tree
 
 An `AnimationNodeBlendTree` can contain both root and regular nodes used for blending. Nodes are added to the graph from a menu:
 
-.. image:: img/animtree3.png
+![](img/animtree3.png)
 
 All blend trees contain an `Output` node by default, and something has to be connected to it in order for animations to play.
 
 The easiest way to test this functionality is to connect an `Animation` node to it directly:
 
-.. image:: img/animtree4.png
+![](img/animtree4.png)
 
 This will simply play back the animation. Make sure that the `AnimationTree` is active for something to actually happen.
 
@@ -77,21 +77,21 @@ Blend2 / Blend3
 
 These nodes will blend between two or three inputs by a user-specified blend value:
 
-.. image:: img/animtree5.gif
+![](img/animtree5.gif)
 
 For more complex blending, it is advised to use blend spaces instead.
 
 Blending can also use filters, i.e. you can control individually which tracks go through the blend function.
 This is very useful for layering animations on top of each other.
 
-.. image:: img/animtree6.png
+![](img/animtree6.png)
 
 OneShot
 ^^^^^^^
 
 This node will execute a sub-animation and return once it finishes. Blend times for fading in and out can be customized, as well as filters.
 
-.. image:: img/animtree6b.gif
+![](img/animtree6b.gif)
 
 Seek
 ^^^^
@@ -130,23 +130,23 @@ BlendSpace2D
 `BlendSpace2D` is a node to do advanced blending in two dimensions. Points are added to a two-dimensional space and then a position
 can be controlled to determine blending:
 
-.. image:: img/animtree7.gif
+![](img/animtree7.gif)
 
 The ranges in X and Y can be controlled (and labeled for convenience). By default, points can be placed anywhere (just right-click on
 the coordinate system or use the *add point* button) and triangles will be generated automatically using Delaunay.
 
-.. image:: img/animtree8.gif
+![](img/animtree8.gif)
 
 It is also possible to draw the triangles manually by disabling the *auto triangle* option, though this is rarely necessary:
 
-.. image:: img/animtree9.png
+![](img/animtree9.png)
 
 Finally, it is possible to change the blend mode. By default, blending happens by interpolating points inside the closest triangle.
 When dealing with 2D animations (frame by frame), you may want to switch to *Discrete* mode.
 Alternatively, if you want to keep the current play position when switching between discrete animations, there is a *Carry* mode.
 This mode can be changed in the *Blend* menu:
 
-.. image:: img/animtree10.png
+![](img/animtree10.png)
 
 BlendSpace1D
 ^^^^^^^^^^^^
@@ -159,11 +159,11 @@ StateMachine
 This node acts as a state machine with root nodes as states. Root nodes can be created and connected via lines. States are connected via *Transitions*,
 which are connections with special properties. Transitions are uni-directional, but two can be used to connect in both directions.
 
-.. image:: img/animtree11.gif
+![](img/animtree11.gif)
 
 There are many types of transition:
 
-.. image:: img/animtree12.png
+![](img/animtree12.png)
 
 * *Immediate*: Will switch to the next state immediately. The current state will end and blend into the beginning of the new one.
 * *Sync*: Will switch to the next state immediately, but will seek the new state to the playback position of the old state.
@@ -171,7 +171,7 @@ There are many types of transition:
 
 Transitions also have a few properties. Click any transition and it will be displayed in the inspector dock:
 
-.. image:: img/animtree13.png
+![](img/animtree13.png)
 
 * *Switch Mode* is the transition type (see above), it can be modified after creation here.
 * *Auto Advance* will turn on the transition automatically when this state is reached. This works best with the *At End* switch mode.
@@ -191,7 +191,7 @@ This allows animating characters in a way where steps actually match the floor b
 When playing back the animation in Godot, it is possible to select this bone as the *root motion track*. Doing so will cancel the bone
 transformation visually (the animation will stay in place).
 
-.. image:: img/animtree14.png
+![](img/animtree14.png)
 
 Afterwards, the actual motion can be retrieved via the `AnimationTree` API as a transform:
 
@@ -206,7 +206,7 @@ This can be fed to functions such as `KinematicBody.move_and_slide` to control t
 There is also a tool node, `RootMotionView`, that can be placed in a scene and will act as a custom floor for your
 character and animations (this node is disabled by default during the game).
 
-.. image:: img/animtree15.gif
+![](img/animtree15.gif)
 
 
 Controlling from code
@@ -222,14 +222,14 @@ or reuse nodes with a complex layout (such as a state machine or blend space) in
 The actual animation data is contained in the `AnimationTree` node and is accessed via properties.
 Check the "Parameters" section of the `AnimationTree` node to see all the parameters that can be modified in real-time:
 
-.. image:: img/animtree16.png
+![](img/animtree16.png)
 
 This is handy because it makes it possible to animate them from an `AnimationPlayer`, or even the `AnimationTree` itself,
 allowing the realization of very complex animation logic.
 
 To modify these values from code, the property path must be obtained. This is done easily by hovering the mouse over any of the parameters:
 
-.. image:: img/animtree17.png
+![](img/animtree17.png)
 
 Which allows setting them or reading them:
 
@@ -270,4 +270,4 @@ gdscript GDScript
 
 The state machine must be running before you can travel. Make sure to either call `start()` or choose a node to **Autoplay on Load**.
 
-.. image:: img/animtree18.png
+![](img/animtree18.png)

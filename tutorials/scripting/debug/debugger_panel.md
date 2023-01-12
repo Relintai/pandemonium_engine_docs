@@ -6,7 +6,7 @@ Debugger panel
 Many of Godot's debugging tools, including the debugger, can be found in the
 debugger panel at the bottom of the screen. Click on **Debugger** to open it.
 
-.. image:: img/overview_debugger.png
+![](img/overview_debugger.png)
 
 The debugger panel is split into several tabs, each focusing on a specific task.
 
@@ -99,7 +99,7 @@ It provides a list of every resource using video RAM by resource path, the type
 of resource it is, what format it is in, and how much Video RAM that resource is
 using. There is also a total video RAM usage number at the top right of the panel.
 
-.. image:: img/video_ram.png
+![](img/video_ram.png)
 
 Misc
 ++++

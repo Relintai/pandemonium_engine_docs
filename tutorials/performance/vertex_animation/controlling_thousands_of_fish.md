@@ -136,7 +136,7 @@ on the `VELOCITY`. Just use `CUSTOM.y`.
 
 This code gives you the following behavior:
 
-.. image:: img/scene.gif
+![](img/scene.gif)
 
 Using a ParticlesMaterial you can make the fish behavior as simple or complex as you like. In this
 tutorial we only set Velocity, but in your own Shaders you can also set `COLOR`, rotation, scale

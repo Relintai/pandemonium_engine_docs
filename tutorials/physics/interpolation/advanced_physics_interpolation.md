@@ -32,7 +32,7 @@ There are two ways of doing this:
 
 1) Move the Camera so it is independent on its own branch, rather than being a child of a moving object.
 
-.. image:: img/fti_camera_worldspace.png
+![](img/fti_camera_worldspace.png)
 
 2) Call `Spatial.set_as_toplevel<class_Spatial_method_set_as_toplevel>` and set this to `true`, which will make the Camera ignore the transform of its parent.
 

@@ -106,7 +106,7 @@ gdscript GDScript
         VisualServer.canvas_item_set_parent(ci_rid, get_canvas_item())
         # Draw a texture on it.
         # Remember, keep this reference.
-        texture = load("res://my_texture.png")
+        texture = load("res://my_texture.png)")
         # Add it, centered.
         VisualServer.canvas_item_add_texture_rect(ci_rid, Rect2(texture.get_size() / 2, texture.get_size()), texture)
         # Add the item, rotated 45 degrees and translated.

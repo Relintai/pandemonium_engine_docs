@@ -23,7 +23,7 @@ Create a new empty scene, add a CanvasLayer as the root node and add a script to
 - Button.pressed: When the button is pressed, we will start the request.
 - HTTPRequest.request_completed: When the request is completed, we will get the requested data as an argument.
 
-.. image:: img/rest_api_scene.png
+![](img/rest_api_scene.png)
 
 Scripting
 ---------

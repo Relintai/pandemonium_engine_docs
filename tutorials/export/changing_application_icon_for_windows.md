@@ -23,13 +23,13 @@ using this `ImageMagick <https://www.imagemagick.org/>`_ command:
 
 .. code-block:: none
 
-    magick convert icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
+    magick convert icon.png) -define icon:auto-resize=256,128,64,48,32,16 icon.ico
 
 Depending on which version of ImageMagick you installed, you might need to leave out the `magick` and run this command instead:
 
 .. code-block:: none
 
-    convert icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
+    convert icon.png) -define icon:auto-resize=256,128,64,48,32,16 icon.ico
 
 .. warning::
 
@@ -46,13 +46,13 @@ Changing the taskbar icon
 The taskbar icon is the icon that shows up on the taskbar when your project
 is running.
 
-.. image:: img/icon_taskbar_icon.png
+![](img/icon_taskbar_icon.png)
 
 To change the taskbar icon, go to
 **Project → Project Settings → Application → Config → Windows Native Icon**.
 Click on the folder icon and select your ICO file.
 
-.. image:: img/icon_project_settings.png
+![](img/icon_project_settings.png)
 
 This setting only changes the icon for your exported game on Windows.
 To set the icon for macOS, use `Macos Native Icon`. And for any other platform,
@@ -76,7 +76,7 @@ an embedded PCK.
 The file icon is the icon of the executable that you click on to start
 the project.
 
-.. image:: img/icon_file_icon.png
+![](img/icon_file_icon.png)
 
 Before selecting it in the export options, you will need to install
 an extra tool called **rcedit**.
@@ -93,7 +93,7 @@ Navigate to and select the rcedit executable.
     Linux and macOS users will also need to install
     `WINE <https://www.winehq.org/>`_ to use rcedit.
 
-.. image:: img/icon_rcedit.png
+![](img/icon_rcedit.png)
 
 You should now have everything in place to change the file icon.
 To do that, you will need to specify the icon when exporting.
@@ -101,7 +101,7 @@ Go to **Project → Export**. Assuming you have already created
 a Windows Desktop preset, select your icon in ICO format in
 the **Application → Icon** field.
 
-.. image:: img/icon_export_settings.png
+![](img/icon_export_settings.png)
 
 .. note::
 
@@ -119,7 +119,7 @@ Testing the result
 
 You can now export the project. If it worked correctly, you should see this:
 
-.. image:: img/icon_result.png
+![](img/icon_result.png)
 
 .. note::
 

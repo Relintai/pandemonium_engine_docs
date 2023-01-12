@@ -28,8 +28,8 @@ slow down your project significantly.
 
 After profiling, you can look back at the results for a frame.
 
-.. figure:: img/godot_profiler.png
-.. figure:: img/godot_profiler.png
+.. figure:: img/godot_profiler.png)
+.. figure:: img/godot_profiler.png)
    :alt: Screenshot of the Godot profiler
 
    Results of a profile of one of the demo projects.
@@ -68,7 +68,7 @@ You can use a number of third party profilers to do this including
           optimized. Bottlenecks are often in a different place in debug builds,
           so you should profile release builds whenever possible.
 
-.. figure:: img/valgrind.png
+.. figure:: img/valgrind.png)
    :alt: Screenshot of Callgrind
 
    Example results from Callgrind, which is part of Valgrind.

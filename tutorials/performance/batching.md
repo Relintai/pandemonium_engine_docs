@@ -109,7 +109,7 @@ And now, a sleight of hand. Even though the idea of painter's order is that
 objects are rendered from back to front, consider 3 objects `A`, `B` and
 `C`, that contain 2 different textures: grass and wood.
 
-.. image:: img/overlap1.png
+![](img/overlap1.png)
 
 In painter's order they are ordered::
 
@@ -128,7 +128,7 @@ rendered result will be the same. What if we could take advantage of this?
 Item reordering
 ^^^^^^^^^^^^^^^
 
-.. image:: img/overlap2.png
+![](img/overlap2.png)
 
 It turns out that we can reorder items. However, we can only do this if the
 items satisfy the conditions of an overlap test, to ensure that the end result
@@ -157,7 +157,7 @@ Consider 2 sprites `A` and `B`, with identical texture and material. Without
 lights, they would be batched together and drawn in one draw call. But with 3
 lights, they would be drawn as follows, each line being a draw call:
 
-.. image:: img/lights_overlap.png
+![](img/lights_overlap.png)
 
 ::
 
@@ -181,7 +181,7 @@ we can use the same trick to get around painter's order for lights!
 If `A` and `B` are not overlapping, we can render them together in a batch,
 so the drawing process is as follows:
 
-.. image:: img/lights_separate.png
+![](img/lights_separate.png)
 
 ::
 
@@ -250,7 +250,7 @@ The exact relationship is probably not necessary for users to worry about, but
 is included in the appendix out of interest:
 `doc_batching_light_scissoring_threshold_calculation`
 
-.. figure:: img/scissoring.png
+.. figure:: img/scissoring.png)
    :alt: Light scissoring example diagram
 
    Bottom right is a light, the red area is the pixels saved by the scissoring

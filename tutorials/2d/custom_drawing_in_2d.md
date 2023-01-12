@@ -186,7 +186,7 @@ gdscript GDScript
 
 Result:
 
-.. image:: img/result_drawarc.png
+![](img/result_drawarc.png)
 
 Arc polygon function
 ^^^^^^^^^^^^^^^^^^^^
@@ -210,7 +210,7 @@ gdscript GDScript
         draw_polygon(points_arc, colors)
 ```
 
-.. image:: img/result_drawarc_poly.png
+![](img/result_drawarc_poly.png)
 
 Dynamic custom drawing
 ^^^^^^^^^^^^^^^^^^^^^^

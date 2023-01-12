@@ -43,7 +43,7 @@ Gameplay callbacks have one more useful function. By default in Godot, animation
 
 The engine's solution to this problem is the `VisibilityNotifier<class_VisibilityNotifier>` node, and its slightly easier to use variation, the `VisibilityEnabler<class_VisibilityEnabler>` node. VisibilityEnabler can be used to switch off animation and sleep physics when an object is outside the view frustum. You do this by simply placing a VisibilityEnabler node in your subscene (for e.g. a monster). It will do the rest. Consult the `VisibilityEnabler<class_VisibilityEnabler>` documentation for full details.
 
-.. image:: img/visibility_enabler.png
+![](img/visibility_enabler.png)
 
 What if the VisibilityEnabler could turn off objects when they were occlusion culled? Well it turns out VisibilityEnabler can. All you have to do is enable the **Gameplay Monitor** in the RoomManager and the rest happens automatically.
 
@@ -54,13 +54,13 @@ RoomGroups
 
 A `RoomGroup<class_RoomGroup>` is a special node which allows you to deal with a group of rooms at once, instead of having write code for them individually. This is especially useful in conjunction with gameplay callbacks. The most important use for RoomGroups is to delineate between "inside" and "outside" areas.
 
-.. image:: img/roomgroups.png
+![](img/roomgroups.png)
 
 For instance, when outside you may wish to use a `DirectionalLight<class_DirectionalLight>` to represent the sun. When the outside RoomGroup receives an `enter gameplay` callback, you can turn the light on, and you can turn it off when the RoomGroup exits gameplay. With the light off, performance will increase as there is no need to render it indoors.
 
 This is an example of a simple RoomGroup script to turn on and off a DirectionalLight. Note that you can also use signals for callbacks (the choice is up to you):
 
-.. image:: img/roomgroup_notification.png
+![](img/roomgroup_notification.png)
 
 .. tip:: You can apply the same technique for switching on and off weather effects, skyboxes and much more.
 
@@ -95,11 +95,11 @@ Internal room example
 
 The tent is a simple room inside a terrain room (which contains the ground, the trees etc).
 
-.. image:: img/tent.png
+![](img/tent.png)
 
 .. note:: To use internal rooms for buildings, it is usually a good idea to split the *interior* mesh of the building from the *exterior*. The exterior can be placed in the outer room (so it can be seen from outside, but not from the inside), and the interior should be placed in the interior room (so it only visible inside, or through the portal).
 
-.. image:: img/tent_terrain.png
+![](img/tent_terrain.png)
 
 This is perfect for improving performance in open world games. Often your buildings can be scenes (including the rooms and portals) that can be reused. When viewed from the outside, interiors will mostly be culled, and when viewing from the inside other buildings and most of the outside will be culled. The same goes for other players and objects that are inside and outside the buildings.
 
@@ -110,7 +110,7 @@ Internal room scenes
 
 Let us look in detail at another practical example for an open world. We want to place houses (as internal rooms) on an island, but have each house as a self-contained scene containing both the interior *and* the external mesh of the house.
 
-.. image:: img/house_scene.png
+![](img/house_scene.png)
 
 We have created a Room node (which will become the internal room) into which we have placed the interior meshes. We have also created a Portal with no links (so autolinking will be used). The exterior mesh is *not* within the room. It will be autoplaced, and we are intending for it to be placed within the outer room.
 
@@ -120,7 +120,7 @@ To get around this problem, there is a special setting to enable you to express 
 
 However, if we set this autoplace priority to `-1` for example, the autoplace will always choose a `-1` priority room (if one is present at that location). So if we set the outer room priority to `-1`, it will always place our exterior into our "outside" room.
 
-.. image:: img/autoplace_priority.png
+![](img/autoplace_priority.png)
 
 This gives us a helpful extra bit of control for these kinds of situations, and makes the entire system much more flexible.
 
@@ -128,6 +128,6 @@ This gives us a helpful extra bit of control for these kinds of situations, and 
 
 The final scene looks something like this, with houses instanced wherever you want them on a giant outer room.
 
-.. image:: img/island.png
+![](img/island.png)
 
 The house exteriors will be placed in the outer room, and therefore can always be seen when looking from the outside. The interiors will only be rendered when a view into the entry portals is visible.

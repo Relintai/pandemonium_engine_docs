@@ -165,7 +165,7 @@ a meaningful name and include them in your page with:
 
 .. code:: rst
 
-   .. image:: img/image_name.png
+   ![](img/image_name.png)
 
 Similarly, you can include attachments, like assets as support material for a
 tutorial, by placing them into a `files/` folder next to the `.rst` file, and

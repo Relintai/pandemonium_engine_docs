@@ -27,12 +27,12 @@ instead (`bbcode_text`). Writing to this property will trigger the parsing of yo
 markup to format the text as requested. Before this happens, you need to toggle the
 "Enabled" checkbox in the "Bb Code" section (`bbcode_enabled`).
 
-.. image:: img/bbcodeText.png
+![](img/bbcodeText.png)
 
 For example, `BBCode [color=blue]blue[/color]` would render the word "blue" with
 a blue color.
 
-.. image:: img/bbcodeDemo.png
+![](img/bbcodeDemo.png)
 
 You'll notice that after writing in the BBCode "Text" property the regular "Text"
 property now has the text without the BBCode. While the text property will be updated
@@ -167,7 +167,7 @@ effects are provided out of the box, and you can easily create your own.
 Wave
 ~~~~
 
-.. image:: img/wave.png
+![](img/wave.png)
 
 Wave makes the text go up and down. Its tag format is `[wave amp=50 freq=2][/wave]`.
 `amp` controls how high and low the effect goes, and `freq` controls how fast the
@@ -176,7 +176,7 @@ text goes up and down.
 Tornado
 ~~~~~~~
 
-.. image:: img/tornado.png
+![](img/tornado.png)
 
 Tornao makes the text move around in a circle. Its tag format is
 `[tornado radius=5 freq=2][/tornado]`.
@@ -186,7 +186,7 @@ fast the text moves in a circle.
 Shake
 ~~~~~
 
-.. image:: img/shake.png
+![](img/shake.png)
 
 Shake makes the text shake. Its tag format is `[shake rate=5 level=10][/shake]`.
 `rate` controls how fast the text shakes, `level` controls how far the text is
@@ -195,7 +195,7 @@ offset from the origin.
 Fade
 ~~~~
 
-.. image:: img/fade.png
+![](img/fade.png)
 
 Fade creates a fade effect over the text that is not animated. Its tag format is
 `[fade start=4 length=14][/fade]`.
@@ -206,7 +206,7 @@ out take place.
 Rainbow
 ~~~~~~~
 
-.. image:: img/rainbow.png
+![](img/rainbow.png)
 
 Rainbow gives the text a rainbow color that changes over time. Its tag format is
 `[rainbow freq=0.2 sat=10 val=20][/rainbow]`.

@@ -18,7 +18,7 @@ program such as Blender, and then bring it back into Godot.
 
 To export a scene in the editor go to **Project > Tools > Export GLTF...**
 
-.. image:: img/gltf_godot_export.png
+![](img/gltf_godot_export.png)
 
 Limitations
 -----------

@@ -43,46 +43,46 @@ lessons.
 
 Create a new scene by going to the menu Scene -> New Scene.
 
-.. image:: img/signals_01_new_scene.png
+![](img/signals_01_new_scene.png)
 
 In the Scene dock, click the 2D Scene button. This will add a Node2D as our
 root.
 
-.. image:: img/signals_02_2d_scene.png
+![](img/signals_02_2d_scene.png)
 
 In the FileSystem dock, click and drag the `Sprite.tscn` file you saved
 previously onto the Node2D to instantiate it.
 
-.. image:: img/signals_03_dragging_scene.png
+![](img/signals_03_dragging_scene.png)
 
 We want to add another node as a sibling of the Sprite. To do so, right-click on
 Node2D and select Add Child Node.
 
-.. image:: img/signals_04_add_child_node.png
+![](img/signals_04_add_child_node.png)
 
 Search for the Button node type and add it.
 
-.. image:: img/signals_05_add_button.png
+![](img/signals_05_add_button.png)
 
 The node is small by default. Click and drag on the bottom-right handle of the
 Button in the viewport to resize it.
 
-.. image:: img/signals_06_drag_button.png
+![](img/signals_06_drag_button.png)
 
 If you don't see the handles, ensure the select tool is active in the toolbar.
 
-.. image:: img/signals_07_select_tool.png
+![](img/signals_07_select_tool.png)
 
 Click and drag on the button itself to move it closer to the sprite.
 
 You can also write a label on the Button by editing its Text property in the
 Inspector. Enter "Toggle motion".
 
-.. image:: img/signals_08_toggle_motion_text.png
+![](img/signals_08_toggle_motion_text.png)
 
 Your scene tree and viewport should look like this.
 
-.. image:: img/signals_09_scene_setup.png
+![](img/signals_09_scene_setup.png)
 
 Save your newly created scene. You can then run it with :kbd:`F6`.
 At the moment, the button will be visible, but nothing will happen if you
@@ -98,15 +98,15 @@ have a script attached to the Sprite node, which we do from the previous lesson.
 You can connect signals in the Node dock. Select the Button node and, on the
 right side of the editor, click on the tab named "Node" next to the Inspector.
 
-.. image:: img/signals_10_node_dock.png
+![](img/signals_10_node_dock.png)
 
 The dock displays a list of signals available on the selected node.
 
-.. image:: img/signals_11_pressed_signals.png
+![](img/signals_11_pressed_signals.png)
 
 Double-click the "pressed" signal to open the node connection window.
 
-.. image:: img/signals_12_node_connection.png
+![](img/signals_12_node_connection.png)
 
 There, you can connect the signal to the Sprite node. The node needs a receiver
 method, a function that Godot will call when the Button emits the signal. The
@@ -119,7 +119,7 @@ editor generates one for you. By convention, we name these callback methods
    modes. The simple one only allows you to connect to nodes that have a
    script attached to them and creates a new callback function on them.
 
-   .. image:: img/signals_advanced_connection_window.png
+   ![](img/signals_advanced_connection_window.png)
 
    The advanced view lets you connect to any node and any built-in
    function, add arguments to the callback, and set options. You can
@@ -130,12 +130,12 @@ Click the Connect button to complete the signal connection and jump to the
 Script workspace. You should see the new method with a connection icon in the
 left margin.
 
-.. image:: img/signals_13_signals_connection_icon.png
+![](img/signals_13_signals_connection_icon.png)
 
 If you click the icon, a window pops up and displays information about the
 connection. This feature is only available when connecting nodes in the editor.
 
-.. image:: img/signals_14_signals_connection_info.png
+![](img/signals_14_signals_connection_info.png)
 
 Let's replace the line with the `pass` keyword with code that'll toggle the
 node's motion.
@@ -208,16 +208,16 @@ In the Scene dock, right-click on the Sprite node and add a new child node.
 Search for Timer and add the corresponding node. Your scene should now look like
 this.
 
-.. image:: img/signals_15_scene_tree.png
+![](img/signals_15_scene_tree.png)
 
 With the Timer node selected, go to the Inspector and check the **Autostart**
 property.
 
-.. image:: img/signals_18_timer_autostart.png
+![](img/signals_18_timer_autostart.png)
 
 Click the script icon next to Sprite to jump back to the scripting workspace.
 
-.. image:: img/signals_16_click_script.png
+![](img/signals_16_click_script.png)
 
 We need to do two operations to connect the nodes via code:
 
@@ -339,7 +339,7 @@ gdscript GDScript
 Your signals work the same way as built-in ones: they appear in the Node tab and
 you can connect to them like any other.
 
-.. image:: img/signals_17_custom_signal.png
+![](img/signals_17_custom_signal.png)
 
 To emit a signal in your scripts, call `emit_signal()`.
 

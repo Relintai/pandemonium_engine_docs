@@ -26,7 +26,7 @@ Using project settings
 
 Open project settings, go to Display>Mouse Cursor. You will see Custom Image and Custom Image Hotspot.
 
-.. image:: img/cursor_project_settings.png
+![](img/cursor_project_settings.png)
 
 Custom Image is the desired image that you would like to set as the mouse cursor.
 Custom Hotspot is the point in the image that you would like to use as the cursor's detection point.
@@ -45,8 +45,8 @@ gdscript GDScript
 
 
     # Load the custom images for the mouse cursor.
-    var arrow = load("res://arrow.png")
-    var beam = load("res://beam.png")
+    var arrow = load("res://arrow.png)")
+    var beam = load("res://beam.png)")
 
 
     func _ready():

@@ -26,7 +26,7 @@ The idea is to find the fastest route between the two peers and establish whenev
 
 However, this comes at a price, which is that some media information must be exchanged between the two peers before the communication can start (in the form of Session Description Protocol - SDP strings). This usually takes the form of a so-called WebRTC Signaling Server.
 
-.. image:: img/webrtc_signaling.png
+![](img/webrtc_signaling.png)
 
 Peers connect to a signaling server (for example a WebSocket server) and send their media information. The server then relays this information to other peers, allowing them to establish the desired direct communication. Once this step is done, peers can disconnect from the signaling server and keep the direct Peer-to-Peer (P2P) connection open.
 

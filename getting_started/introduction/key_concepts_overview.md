@@ -24,12 +24,12 @@ a weapon, a menu in the user interface, a single house, an entire level, or
 anything you can think of. Godot's scenes are flexible; they fill the role of
 both prefabs and scenes in some other game engines.
 
-.. image:: img/key_concepts_main_menu.png
+![](img/key_concepts_main_menu.png)
 
 You can also nest scenes. For example, you can put your character in a level,
 and drag and drop a scene as a child of it.
 
-.. image:: img/key_concepts_scene_example.png
+![](img/key_concepts_scene_example.png)
 
 Nodes
 -----
@@ -38,7 +38,7 @@ A scene is composed of one or more **nodes**. Nodes are your game's smallest
 building blocks that you arrange into trees. Here's an example of a character's
 nodes.
 
-.. image:: img/key_concepts_character_nodes.png
+![](img/key_concepts_character_nodes.png)
 
 It is made of a `KinematicBody2D` node named "Character", a `Sprite`, a
 `Camera2D`, and a `CollisionShape2D`.
@@ -54,7 +54,7 @@ Godot provides an extensive library of base node types you can combine and
 extend to build more powerful ones. 2D, 3D, or user interface, you will do most
 things with these nodes.
 
-.. image:: img/key_concepts_node_menu.png
+![](img/key_concepts_node_menu.png)
 
 The scene tree
 --------------
@@ -64,7 +64,7 @@ scenes. And as scenes are trees of nodes, the scene tree also is a tree of
 nodes. But it's easier to think of your game in terms of scenes as they can
 represent characters, weapons, doors, or your user interface.
 
-.. image:: img/key_concepts_scene_tree.png
+![](img/key_concepts_scene_tree.png)
 
 Signals
 -------
@@ -73,7 +73,7 @@ Nodes emit signals when some event occurs. This feature allows you to make
 nodes communicate without hard-wiring them in code. It gives you a lot of
 flexibility in how you structure your scenes.
 
-.. image:: img/key_concepts_signals.png
+![](img/key_concepts_signals.png)
 
 .. note:: Signals are Godot's version of the *observer* pattern. You can read
           more about it here:

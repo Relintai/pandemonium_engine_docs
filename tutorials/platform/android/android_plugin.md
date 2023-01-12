@@ -125,7 +125,7 @@ Move the plugin configuration file (e.g.: `MyPlugin.gdap`) and, if any, its loca
 
 The Godot editor will automatically parse all `.gdap` files in the `res://android/plugins` directory and show a list of detected and toggleable plugins in the Android export presets window under the **Plugins** section.
 
-.. image:: img/android_export_preset_plugins_section.png
+![](img/android_export_preset_plugins_section.png)
 
 From your script:
 

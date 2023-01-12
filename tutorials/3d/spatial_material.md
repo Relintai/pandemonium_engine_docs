@@ -17,7 +17,7 @@ the *Material* property of the mesh. It can be added in the *Material* property 
 the node using the mesh (such as a MeshInstance node), the *Material Override* property
 of the node using the mesh, and the *Material Overlay*.
 
-.. image:: img/add_material.png
+![](img/add_material.png)
 
 If you add a material to the mesh itself, every time that mesh is used it will have that
 material. If you add a material to the node using the mesh, the material will only be used
@@ -34,7 +34,7 @@ Flags
 
 Spatial materials have many flags determining the general usage of a material.
 
-.. image:: img/spatial_material1.png
+![](img/spatial_material1.png)
 
 Transparent
 ~~~~~~~~~~~
@@ -69,7 +69,7 @@ However, in some cases you might want to show just the albedo (color) and
 ignore the rest. Toggling this flag on will remove all shading and display
 pure, unlit color.
 
-.. image:: img/spatial_material26.png
+![](img/spatial_material26.png)
 
 Vertex Lighting
 ~~~~~~~~~~~~~~~
@@ -85,7 +85,7 @@ cases.
 Additionally, on low-end or mobile devices, switching to vertex lighting
 can considerably increase rendering performance.
 
-.. image:: img/spatial_material2.png
+![](img/spatial_material2.png)
 
 Keep in mind that when vertex lighting is enabled, only directional lighting
 can produce shadows (for performance reasons).
@@ -101,7 +101,7 @@ Disabling this makes the most sense for drawing indicators in world space,
 and works very well with the *Render Priority* property of Material
 (see the bottom of this page).
 
-.. image:: img/spatial_material3.png
+![](img/spatial_material3.png)
 
 Use Point Size
 ~~~~~~~~~~~~~~~
@@ -147,7 +147,7 @@ Vertex Color
 This setting allows choosing what is done by default to vertex colors that come
 from your 3D modelling application. By default, they are ignored.
 
-.. image:: img/spatial_material4.png
+![](img/spatial_material4.png)
 
 Use as Albedo
 ~~~~~~~~~~~~~
@@ -166,7 +166,7 @@ Parameters
 `SpatialMaterial` also has several configurable parameters to tweak
 many aspects of the rendering:
 
-.. image:: img/spatial_material5.png
+![](img/spatial_material5.png)
 
 Diffuse Mode
 ~~~~~~~~~~~~
@@ -186,7 +186,7 @@ the object. The default is *Burley*. Other modes are also available:
   ambient light settings or disable ambient light in the spatial material
   to achieve a better effect.
 
-.. image:: img/spatial_material6.png
+![](img/spatial_material6.png)
 
 Specular Mode
 ~~~~~~~~~~~~~
@@ -201,7 +201,7 @@ represents the shape of a light source reflected in the object.
 * **Toon:** Creates a toon blob, which changes size depending on roughness.
 * **Disabled:** Sometimes the blob gets in the way. Begone!
 
-.. image:: img/spatial_material7.png
+![](img/spatial_material7.png)
 
 Blend Mode
 ~~~~~~~~~~
@@ -215,7 +215,7 @@ other than *Mix* forces the object to go through the transparent pipeline.
 * **Sub:** Object is subtracted.
 * **Mul:** Object is multiplied.
 
-.. image:: img/spatial_material8.png
+![](img/spatial_material8.png)
 
 Cull Mode
 ~~~~~~~~~
@@ -248,7 +248,7 @@ Specifies when depth rendering must take place.
   with the opaque parts, then transparency is drawn above.
   Use this option with transparent grass or tree foliage.
 
-.. image:: img/material_depth_draw.png
+![](img/material_depth_draw.png)
 
 Line Width
 ~~~~~~~~~~
@@ -274,7 +274,7 @@ faces the camera:
 * **Particles:** Most suited for particle systems, because it allows
   specifying animation options.
 
-.. image:: img/spatial_material9.png
+![](img/spatial_material9.png)
 
 The above options are only enabled for Particle Billboard.
 
@@ -288,12 +288,12 @@ Grow
 
 Grows the object vertices in the direction pointed by their normals:
 
-.. image:: img/spatial_material10.png
+![](img/spatial_material10.png)
 
 This is commonly used to create cheap outlines. Add a second material pass,
 make it black and unshaded, reverse culling (Cull Front), and add some grow:
 
-.. image:: img/spatial_material11.png
+![](img/spatial_material11.png)
 
 
 Use Alpha Scissor
@@ -302,7 +302,7 @@ Use Alpha Scissor
 When transparency other than `0` or `1` is not needed, it's possible to
 set a threshold to prevent the object from rendering semi-transparent pixels.
 
-.. image:: img/spatial_material12.png
+![](img/spatial_material12.png)
 
 This renders the object via the opaque pipeline, which is faster and allows it
 to use mid- and post-process effects such as SSAO, SSR, etc.
@@ -344,7 +344,7 @@ it unless you need to).
 The minimum internal reflectivity is `0.04`, so it's impossible to make a
 material completely unreflective, just like in real life.
 
-.. image:: img/spatial_material13.png
+![](img/spatial_material13.png)
 
 Roughness
 ~~~~~~~~~
@@ -354,7 +354,7 @@ perfect mirror while a value of `1` completely blurs the reflection (simulating
 natural microsurfacing). Most common types of materials can be achieved with
 the right combination of *Metallic* and *Roughness*.
 
-.. image:: img/spatial_material14.png
+![](img/spatial_material14.png)
 
 Emission
 ~~~~~~~~
@@ -364,7 +364,7 @@ does not include light surrounding geometry unless `doc_gi_probes` are used).
 This value is added to the resulting final image and is not affected by other
 lighting in the scene.
 
-.. image:: img/spatial_material15.png
+![](img/spatial_material15.png)
 
 Normal map
 ~~~~~~~~~~
@@ -374,7 +374,7 @@ This does not modify geometry, only the incident angle for light. In Godot,
 only the red and green channels of normal maps are used for better compression
 and wider compatibility.
 
-.. image:: img/spatial_material16.png
+![](img/spatial_material16.png)
 
 .. note::
 
@@ -395,7 +395,7 @@ emulates this with the *Rim* parameter. Unlike other rim lighting implementation
 which just use the emission channel, this one actually takes light into account
 (no light means no rim). This makes the effect considerably more believable.
 
-.. image:: img/spatial_material17.png
+![](img/spatial_material17.png)
 
 Rim size depends on roughness, and there is a special parameter to specify how
 it must be colored. If *Tint* is `0`, the color of the light is used for the
@@ -416,7 +416,7 @@ lighting or looking at a material a specific way to notice a difference.
 This can be seen in the image below where clearcoat is turned on in the
 right.
 
-.. image:: img/clearcoat_comparison.png
+![](img/clearcoat_comparison.png)
 
 .. note:: The effect will be more noticeable in Godot 4.
 
@@ -429,7 +429,7 @@ This changes the shape of the specular blob and aligns it to tangent space.
 Anisotropy is commonly used with hair, or to make materials such as brushed
 aluminum more realistic. It works especially well when combined with flowmaps.
 
-.. image:: img/spatial_material18.png
+![](img/spatial_material18.png)
 
 Ambient Occlusion
 ~~~~~~~~~~~~~~~~~~
@@ -440,7 +440,7 @@ light by default). While it is possible to use Screen-Space Ambient Occlusion
 (SSAO) to generate ambient occlusion, nothing beats the quality of a well-baked
 AO map. It is recommended to bake ambient occlusion whenever possible.
 
-.. image:: img/spatial_material19.png
+![](img/spatial_material19.png)
 
 Depth
 ~~~~~
@@ -453,7 +453,7 @@ added geometry, but an illusion of depth. It may not work for complex objects,
 but it produces a realistic depth effect for textures. For best results,
 *Depth* should be used together with normal mapping.
 
-.. image:: img/spatial_material20.png
+![](img/spatial_material20.png)
 
 Subsurface Scattering
 ~~~~~~~~~~~~~~~~~~~~~
@@ -464,7 +464,7 @@ This effect emulates light that penetrates an object's surface, is scattered,
 and then comes out. It is useful to create realistic skin, marble, colored
 liquids, etc.
 
-.. image:: img/spatial_material21.png
+![](img/spatial_material21.png)
 
 Transmission
 ~~~~~~~~~~~~
@@ -473,7 +473,7 @@ This controls how much light from the lit side (visible to light) is transferred
 to the dark side (opposite from the light). This works well for thin objects
 such as plant leaves, grass, human ears, etc.
 
-.. image:: img/spatial_material22.png
+![](img/spatial_material22.png)
 
 Refraction
 ~~~~~~~~~~~
@@ -484,7 +484,7 @@ When refraction is enabled, it supersedes alpha blending, and Godot attempts to
 fetch information from behind the object being rendered instead. This allows
 distorting the transparency in a way similar to refraction in real life.
 
-.. image:: img/spatial_material23.png
+![](img/spatial_material23.png)
 
 Detail
 ~~~~~~
@@ -493,7 +493,7 @@ Godot allows using secondary albedo and normal maps to generate a detail
 texture, which can be blended in many ways. By combining this with secondary
 UV or triplanar modes, many interesting textures can be achieved.
 
-.. image:: img/spatial_material24.png
+![](img/spatial_material24.png)
 
 There are several settings that control how detail is used.
 
@@ -545,7 +545,7 @@ performed in either world space or object space.
 In the image below, you can see how all primitives share the same material with
 world triplanar, so the brick texture continues smoothly between them.
 
-.. image:: img/spatial_material25.png
+![](img/spatial_material25.png)
 
 Proximity and distance fade
 ----------------------------
@@ -559,7 +559,7 @@ given distance.
 Keep in mind enabling these enables alpha blending, so abusing them for an
 entire scene is usually not a good idea.
 
-.. image:: img/spatial_material_proxfade.gif
+![](img/spatial_material_proxfade.gif)
 
 Render priority
 ---------------

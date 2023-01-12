@@ -30,7 +30,7 @@ Sometimes you don't want some objects exported (e.g. high-res models used for
 baking). An object will not be exported if it is not rendered in the scene.
 This can be set in the outliner:
 
-.. image:: img/hide.jpg
+![](img/hide.jpg
 
 Objects hidden in the viewport will be exported, but will be hidden in the
 Godot scene.

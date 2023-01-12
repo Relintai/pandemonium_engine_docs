@@ -21,20 +21,20 @@ which can also be used by CLion.
   `CMakeLists.txt` file is located there) and select it (but *not* the
   `CMakeLists.txt` file itself), then click **OK**.
 
-.. figure:: img/clion_1_open.png
+.. figure:: img/clion_1_open.png)
    :align: center
 
    The folder containing the `CMakeLists.txt` file.
 
 - If this popup window appears, select **This Window** to open the project:
 
-.. figure:: img/clion_2_this_window.png
+.. figure:: img/clion_2_this_window.png)
    :align: center
 
 - Choose **Tools > CMake > Change Project Root** from the top menu and select 
   the Godot root folder.
 
-.. figure:: img/clion_3_change_project_root.png
+.. figure:: img/clion_3_change_project_root.png)
    :align: center
 
 - You should be now be able to see all the project files. Autocomplete should
@@ -55,12 +55,12 @@ You will first need to `compile godot yourself <https://docs.godotengine.org/en/
 
 - In CLion, go to **Run > Attach to Process...**
 
-.. figure:: img/clion_4_select_attach_to_process.png
+.. figure:: img/clion_4_select_attach_to_process.png)
    :align: center
 
 - Find and Select godot in the list (or type the binary name/Process ID)
 
-.. figure:: img/clion_5_select_godot_process.png
+.. figure:: img/clion_5_select_godot_process.png)
    :align: center
 
 You can now use the debugging tools from CLion.

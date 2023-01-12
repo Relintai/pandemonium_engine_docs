@@ -18,7 +18,7 @@ An iOS plugin requires a `.gdip` configuration file, a binary file which can be 
 
 3. You can find and activate detected plugins by going to Project -> Export... -> iOS and in the Options tab, scrolling to the Plugins section.
 
-.. image:: img/ios_export_preset_plugins_section.png
+![](img/ios_export_preset_plugins_section.png)
 
 When a plugin is active, you can access it in your using `Engine.get_singleton()`::
 

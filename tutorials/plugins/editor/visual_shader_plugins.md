@@ -17,15 +17,15 @@ code from this `GPU noise shaders plugin
 
 Create a Sprite and assign a `ShaderMaterial` to its material slot:
 
-.. image:: img/visual_shader_plugins_start.png
+![](img/visual_shader_plugins_start.png)
 
 Assign `VisualShader` to the shader slot of the material:
 
-.. image:: img/visual_shader_plugins_start2.png
+![](img/visual_shader_plugins_start2.png)
 
 Don't forget to change its mode to "CanvasItem" (if you are using a Sprite):
 
-.. image:: img/visual_shader_plugins_start3.png
+![](img/visual_shader_plugins_start3.png)
 
 Create a script which derives from `VisualShaderNodeCustom`. This is
 all you need to initialize your plugin.
@@ -192,10 +192,10 @@ all you need to initialize your plugin.
 
 Save it and open the Visual Shader. You should see your new node type within the member's dialog (if you can't see your new node, try restarting the editor):
 
-.. image:: img/visual_shader_plugins_result1.png
+![](img/visual_shader_plugins_result1.png)
 
 Place it on a graph and connect the required ports:
 
-.. image:: img/visual_shader_plugins_result2.png
+![](img/visual_shader_plugins_result2.png)
 
 That is everything you need to do, as you can see it is easy to create your own custom VisualShader nodes!

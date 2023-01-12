@@ -13,11 +13,11 @@ At first, this seems easy. For simple games, this way of thinking may even be en
 
 Angles in three dimensions are most commonly referred to as "Euler Angles".
 
-.. image:: img/transforms_euler.png
+![](img/transforms_euler.png)
 
 Euler angles were introduced by mathematician Leonhard Euler in the early 1700s.
 
-.. image:: img/transforms_euler_himself.png
+![](img/transforms_euler_himself.png)
 
 This way of representing 3D rotations was groundbreaking at the time, but it has several shortcomings when used in game development (which is to be expected from a guy with a funny
 hat).
@@ -42,7 +42,7 @@ from 3 different angles, depending on *the order of the rotations*.
 
 Following is a visualization of rotation axes (in X, Y, Z order) in a gimbal (from Wikipedia). As you can see, the orientation of each axis depends on the rotation of the previous one:
 
-.. image:: img/transforms_gimbal.gif
+![](img/transforms_gimbal.gif)
 
 You may be wondering how this affects you. Let's look at a practical example:
 
@@ -50,11 +50,11 @@ Imagine you are working on a first-person controller (e.g. an FPS game). Moving 
 
 In this case to achieve the desired effect, rotation must be applied first in the *Y* axis ("up" in this case, since Godot uses a "Y-Up" orientation), followed by rotation in the *X* axis.
 
-.. image:: img/transforms_rotate1.gif
+![](img/transforms_rotate1.gif)
 
 If we were to apply rotation in the *X* axis first, and then in *Y*, the effect would be undesired:
 
-.. image:: img/transforms_rotate2.gif
+![](img/transforms_rotate2.gif)
 
 Depending on the type of game or effect desired, the order in which you want axis rotations to be applied may differ. Therefore, applying rotations in X, Y, and Z is not enough: you also need a *rotation order*.
 
@@ -63,11 +63,11 @@ Interpolation
 
 Another problem with using Euler angles is interpolation. Imagine you want to transition between two different camera or enemy positions (including rotations). One logical way to approach this is to interpolate the angles from one position to the next. One would expect it to look like this:
 
-.. image:: img/transforms_interpolate1.gif
+![](img/transforms_interpolate1.gif)
 
 But this does not always have the expected effect when using angles:
 
-.. image:: img/transforms_interpolate2.gif
+![](img/transforms_interpolate2.gif)
 
 The camera actually rotated the opposite direction!
 
@@ -110,16 +110,16 @@ Following the OpenGL convention, `X` is the *Right* axis, `Y` is the *Up* axis a
 
 Together with the *basis*, a transform also has an *origin*. This is a *Vector3* specifying how far away from the actual origin `(0, 0, 0)` this transform is. Combining the *basis* with the *origin*, a *transform* efficiently represents a unique translation, rotation, and scale in space.
 
-.. image:: img/transforms_camera.png
+![](img/transforms_camera.png)
 
 
 One way to visualize a transform is to look at an object's 3D gizmo while in "local space" mode.
 
-.. image:: img/transforms_local_space.png
+![](img/transforms_local_space.png)
 
 The gizmo's arrows show the `X`, `Y`, and `Z` axes (in red, green, and blue respectively) of the basis, while the gizmo's center is at the object's origin.
 
-.. image:: img/transforms_gizmo.png
+![](img/transforms_gizmo.png)
 
 For more information on the mathematics of vectors and transforms, please read the `doc_vector_math` tutorials.
 

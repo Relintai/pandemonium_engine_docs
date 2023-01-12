@@ -36,7 +36,7 @@ able to keep playing our game on our computer after we switch to touch input.
 In **Project > Project Settings**, under **Input Devices > Pointing**, enable
 **Emulate Touch From Mouse**.
 
-.. image:: img/export_touchsettings.png
+![](img/export_touchsettings.png)
 
 We also want to ensure that the game scales consistently on different-sized screens,
 so in the project settings go to **Display**, then click on **Window**. In the **Stretch**
@@ -45,7 +45,7 @@ options, set **Mode** to `2d` and **Aspect** to `keep`.
 Since we are already in the **Window** settings, we should also set under **Handheld**
 the **Orientation** to `portrait`.
 
-.. image:: img/export_handheld_stretchsettings.png
+![](img/export_handheld_stretchsettings.png)
 
 Next, we need to modify the `Player.gd` script to change the input method.
 We'll remove the key inputs and make the player move towards a "target" that's
@@ -142,7 +142,7 @@ http://godotengine.org/download. These templates are optimized versions of the e
 without the editor pre-compiled for each platform. You can also
 download them in Godot by clicking on **Editor -> Manage Export Templates**:
 
-.. image:: img/export_template_menu.png
+![](img/export_template_menu.png)
 
 .. note::
 
@@ -154,7 +154,7 @@ download them in Godot by clicking on **Editor -> Manage Export Templates**:
 In the window that appears, you can click **Download** to get the template
 version that matches your version of Godot.
 
-.. image:: img/export_template_manager.png
+![](img/export_template_manager.png)
 
 .. note::
 
@@ -169,7 +169,7 @@ Next, you can configure the export settings by clicking on **Project -> Export**
 Create a new export preset by clicking **Add...** and selecting a platform. You
 can make as many presets as you like with different settings.
 
-.. image:: img/export_presets_window.png
+![](img/export_presets_window.png)
 
 At the bottom of the window are two buttons. **Export PCK/ZIP** only creates
 a packed version of your project's data. This doesn't include an executable
@@ -241,7 +241,7 @@ Click on *Editor -> Editor Settings* in Godot and select the *Export/Android*
 section. Here, you need to set the paths to the Android SDK applications on
 your system and the location of the keystore you just created.
 
-.. image:: img/export_editor_android_settings.png
+![](img/export_editor_android_settings.png)
 
 Now you're ready to export. Click on **Project -> Export** and add a preset
 for Android (see above). Select the newly added Android preset. Under **Options**,
@@ -262,7 +262,7 @@ on your device. To do this on the command line, use the following:
 If your system supports it, connecting a compatible Android device will cause
 a **One-click Deploy** button to appear in Godot's playtest button area:
 
-.. image:: img/export_android_oneclick.png
+![](img/export_android_oneclick.png)
 
 Clicking this button builds the APK and copies it onto your device in one step.
 
@@ -280,14 +280,14 @@ logging in to your Apple developer account and looking in the **Membership** sec
 
 You must also provide icons and splash screen images as shown below:
 
-.. image:: img/export_ios_settings.png
+![](img/export_ios_settings.png)
 
 Click **Export Project** and select a destination folder.
 
 Once you have successfully exported the project, you'll find the following
 folders and files have been created in your selected location:
 
-.. image:: img/export_xcode_project_folders.png
+![](img/export_xcode_project_folders.png)
 
 You can now open the project in Xcode and build the project for iOS.
 The Xcode build procedure is beyond the scope of this tutorial.
@@ -303,7 +303,7 @@ of the default settings.
 When the export is complete, you'll have a folder containing the following
 files:
 
-.. image:: img/export_web_files.png
+![](img/export_web_files.png)
 
 Viewing the `.html` file in your browser lets you play the game. However, you
 can't open the file directly. Instead, it needs to be served by a web server. If
@@ -313,13 +313,13 @@ suggestions for your specific OS.
 Point your browser at the URL where you've placed the HTML file. You may have
 to wait a few moments while the game loads before you see the start screen.
 
-.. image:: img/export_web_example.png
+![](img/export_web_example.png)
 
 The console window beneath the game tells you if anything goes wrong. You can
 disable it by disabling **Export With Debug** in the final file dialog that appears
 when you export the project.
 
-.. image:: img/export_web_export_with_debug_disabled.png
+![](img/export_web_export_with_debug_disabled.png)
 
 .. note::
 

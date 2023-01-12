@@ -8,7 +8,7 @@ Portal mode
 
 If you look in the inspector, every VisualInstance in Godot is derived from a `CullInstance<class_CullInstance>`, where you can set a `PortalMode`. This determines how objects will behave in the portal system.
 
-.. image:: img/cull_instance.png
+![](img/cull_instance.png)
 
 STATIC
 ^^^^^^
@@ -45,7 +45,7 @@ Autoplace
 
 However, for ease of use, it is also possible to place `STATIC` and `DYNAMIC` objects *outside* the rooms in the scene tree, but within the RoomList branch. The system will attempt to **autoplace** the objects into the appropriate room. This works in most cases but if in doubt, use the explicit approach. The explicit approach is especially needed when dealing with internal rooms, which have some restrictions for sprawling objects.
 
-.. image:: img/freeform.png
+![](img/freeform.png)
 
 Note that if you place `STATIC` and `DYNAMIC` objects outside of rooms, they will not contribute to the room bound. If you are using the room geometry to derive the bound, tables and chairs can be placed outside the room. However, walls and floors should be explicitly within the Room's branch of the scene tree to ensure the bound is correct.
 

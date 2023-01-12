@@ -33,20 +33,20 @@ Converting Sprites to 2D meshes
 You can take advantage of this optimization by converting a `Sprite` to a `MeshInstance2D`.
 Start with an image that contains large amounts of transparency on the edges, like this tree:
 
-.. image:: img/mesh2d1.png
+![](img/mesh2d1.png)
 
 Put it in a `Sprite` and select "Convert to 2D Mesh" from the menu:
 
-.. image:: img/mesh2d2.png
+![](img/mesh2d2.png)
 
 A dialog will appear, showing a preview of how the 2D mesh will be created:
 
-.. image:: img/mesh2d3.png
+![](img/mesh2d3.png)
 
 The default values are good enough for many cases, but you can change growth and simplification according to your needs:
 
-.. image:: img/mesh2d4.png
+![](img/mesh2d4.png)
 
 Finally, push the `Convert 2D Mesh` button and your Sprite will be replaced:
 
-.. image:: img/mesh2d5.png
+![](img/mesh2d5.png)

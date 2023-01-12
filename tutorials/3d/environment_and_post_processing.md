@@ -19,7 +19,7 @@ Camera node
 
 An Environment can be set to a camera. It will have priority over any other setting.
 
-.. image:: img/environment_camera.png
+![](img/environment_camera.png)
 
 This is mostly useful when wanting to override an existing environment,
 but in general it's a better idea to use the option below.
@@ -30,7 +30,7 @@ WorldEnvironment node
 The WorldEnvironment node can be added to any scene, but only one can exist per
 active scene tree. Adding more than one will result in a warning.
 
-.. image:: img/environment_world.png
+![](img/environment_world.png)
 
 Any Environment added has higher priority than the default Environment
 (explained below). This means it can be overridden on a per-scene basis,
@@ -43,7 +43,7 @@ A default environment can be set, which acts as a fallback when no Environment
 was set to a Camera or WorldEnvironment.
 Just head to Project Settings -> Rendering -> Environment:
 
-.. image:: img/environment_default.png
+![](img/environment_default.png)
 
 New projects created from the Project Manager come with a default environment
 (`default_env.tres`). If one needs to be created, save it to disk before
@@ -63,7 +63,7 @@ the screen where objects were not drawn). In Godot 3.0, the background not only
 serves the purpose of displaying an image or color, it can also change how objects
 are affected by ambient and reflected light.
 
-.. image:: img/environment_background1.png
+![](img/environment_background1.png)
 
 There are many ways to set the background:
 
@@ -84,7 +84,7 @@ color multiplied by the material albedo) and then one obtained from the *Sky*
 (as described before, but a sky needs to be set as background for this to be
 enabled).
 
-.. image:: img/environment_ambient.png
+![](img/environment_ambient.png)
 
 When a *Sky* is set as background, it's possible to blend between ambient color
 and sky using the **Sky Contribution** setting (this value is 1.0 by default for
@@ -92,7 +92,7 @@ convenience, so only the sky affects objects).
 
 Here is a comparison of how different ambient light affects a scene:
 
-.. image:: img/environment_ambient2.png
+![](img/environment_ambient2.png)
 
 Finally, there is an **Energy** setting, which is a multiplier. It's useful when
 working with HDR.
@@ -104,7 +104,7 @@ ambient light from ReflectionProbe or GIProbe, which will more faithfully simula
 how indirect light propagates. Below is a comparison, in terms of quality, between using a
 flat ambient color and a GIProbe:
 
-.. image:: img/environment_ambient_comparison.png
+![](img/environment_ambient_comparison.png)
 
 Using one of the methods described above, objects get constant ambient lighting
 replaced by ambient light from the probes.
@@ -119,7 +119,7 @@ There are two kinds of fog in Godot:
 - **Depth Fog:** This one is applied based on the distance from the camera.
 - **Height Fog:** This one is applied to any objects below (or above) a certain height, regardless of the distance from the camera.
 
-.. image:: img/environment_fog_depth_height.png
+![](img/environment_fog_depth_height.png)
 
 Both of these fog types can have their curve tweaked, making their transition more or less sharp.
 
@@ -132,7 +132,7 @@ will be changed, simulating the sunlight passing through the fog.
 The second is **Transmit Enabled** which simulates more realistic light transmittance.
 In practice, it makes light stand out more across the fog.
 
-.. image:: img/environment_fog_transmission.png
+![](img/environment_fog_transmission.png)
 
 Tonemap
 ^^^^^^^
@@ -187,7 +187,7 @@ interior areas with low light and outdoors. Auto exposure simulates the camera
 (or eye) in an effort to adapt between light and dark locations and their
 different amounts of light.
 
-.. image:: img/environment_hdr_autoexp.gif
+![](img/environment_hdr_autoexp.gif)
 
 The simplest way to use auto exposure is to make sure outdoor lights (or other
 strong lights) have energy beyond 1.0. This is done by tweaking their **Energy**
@@ -199,12 +199,12 @@ By combining Auto Exposure with *Glow* post processing (more on that below),
 pixels that go over the tonemap **White** will bleed to the glow buffer,
 creating the typical bloom effect in photography.
 
-.. image:: img/environment_hdr_bloom.png
+![](img/environment_hdr_bloom.png)
 
 The user-controllable values in the Auto Exposure section come with sensible
 defaults, but you can still tweak them:
 
-.. image:: img/environment_hdr.png
+![](img/environment_hdr.png)
 
 - **Scale:** Value to scale the lighting. Brighter values produce brighter images, smaller ones produce darker ones.
 - **Min Luma:** Minimum luminance that auto exposure will aim to adjust for. Luminance is the average of the light in all the pixels of the screen.
@@ -227,7 +227,7 @@ GIProbe), they may not provide enough detail for all situations. Scenarios
 where Screen Space Reflections make the most sense are when objects are in
 contact with each other (object over floor, over a table, floating on water, etc).
 
-.. image:: img/environment_ssr.png
+![](img/environment_ssr.png)
 
 The other advantage (even if only enabled to a minimum), is that it works in real-time
 (while the other types of reflections are pre-computed). This can be used to
@@ -263,7 +263,7 @@ This can be simulated with Screen Space Ambient Occlusion. As you can see in the
 image below, its purpose is to make sure concave areas are darker, simulating
 a narrower path for the light to enter:
 
-.. image:: img/environment_ssao.png
+![](img/environment_ssao.png)
 
 It is a common mistake to enable this effect, turn on a light, and not be able to
 appreciate it. This is because SSAO only acts on *ambient* light, not direct light.
@@ -274,11 +274,11 @@ the **Light Affect** parameter (even though this is not correct, some artists li
 
 SSAO looks best when combined with a real source of indirect light, like GIProbe:
 
-.. image:: img/environment_ssao2.png
+![](img/environment_ssao2.png)
 
 Tweaking SSAO is possible with several parameters:
 
-.. image:: img/environment_ssao_parameters.png
+![](img/environment_ssao_parameters.png)
 
 - **Radius/Intensity:** To control the radius or intensity of the occlusion, these two parameters are available. Radius is in world (Metric) units.
 - **Radius2/Intensity2:** A Secondary radius/intensity can be used. Combining a large and a small radius AO generally works well.
@@ -296,7 +296,7 @@ This effect simulates focal distance on high end cameras. It blurs objects behin
 a given range. It has an initial **Distance** with a **Transition** region
 (in world units):
 
-.. image:: img/environment_dof_far.png
+![](img/environment_dof_far.png)
 
 The **Amount** parameter controls the amount of blur. For larger blurs, tweaking
 the **Quality** may be needed in order to avoid artifacts.
@@ -308,7 +308,7 @@ This effect simulates focal distance on high end cameras. It blurs objects close
 to the camera (acts in the opposite direction as far blur).
 It has an initial **Distance** with a **Transition** region (in world units):
 
-.. image:: img/environment_dof_near.png
+![](img/environment_dof_near.png)
 
 The **Amount** parameter controls the amount of blur. For larger blurs, tweaking
 the **Quality** may be needed in order to avoid artifacts.
@@ -316,7 +316,7 @@ the **Quality** may be needed in order to avoid artifacts.
 It is common to use both blurs together to focus the viewer's attention on a
 given object:
 
-.. image:: img/environment_mixed_blur.png
+![](img/environment_mixed_blur.png)
 
 Glow
 ^^^^
@@ -325,18 +325,18 @@ In photography and film, when light amount exceeds the maximum supported by the
 media (be it analog or digital), it generally bleeds outwards to darker regions
 of the image. This is simulated in Godot with the **Glow** effect.
 
-.. image:: img/environment_glow1.png
+![](img/environment_glow1.png)
 
 By default, even if the effect is enabled, it will be weak or invisible. One of
 two conditions need to happen for it to actually show:
 
 - 1) The light in a pixel surpasses the **HDR Threshold** (where 0 is all light surpasses it, and 1.0 is light over the tonemapper **White** value). Normally, this value is expected to be at 1.0, but it can be lowered to allow more light to bleed. There is also an extra parameter, **HDR Scale**, that allows scaling (making brighter or darker) the light surpassing the threshold.
 
-.. image:: img/environment_glow_threshold.png
+![](img/environment_glow_threshold.png)
 
 - 2) The Bloom effect has a value set greater than 0. As it increases, it sends the whole screen to the glow processor at higher amounts.
 
-.. image:: img/environment_glow_bloom.png
+![](img/environment_glow_bloom.png)
 
 Both will cause the light to start bleeding out of the brighter areas.
 
@@ -356,19 +356,19 @@ To change the glow effect size and shape, Godot provides **Levels**. Smaller
 levels are strong glows that appear around objects, while large levels are hazy
 glows covering the whole screen:
 
-.. image:: img/environment_glow_layers.png
+![](img/environment_glow_layers.png)
 
 The real strength of this system, though, is to combine levels to create more
 interesting glow patterns:
 
-.. image:: img/environment_glow_layers2.png
+![](img/environment_glow_layers2.png)
 
 Finally, as the highest layers are created by stretching small blurred images,
 it is possible that some blockiness may be visible. Enabling **Bicubic Upscaling**
 gets rids of it, at a minimal performance cost.
 *Note that this is effective only when using the GLES3 backend.*
 
-.. image:: img/environment_glow_bicubic.png
+![](img/environment_glow_bicubic.png)
 
 Adjustments
 ^^^^^^^^^^^
@@ -376,18 +376,18 @@ Adjustments
 At the end of processing, Godot offers the possibility to do some standard
 image adjustments.
 
-.. image:: img/environment_adjustments.png
+![](img/environment_adjustments.png)
 
 The first one is being able to change the typical Brightness, Contrast,
 and Saturation:
 
-.. image:: img/environment_adjustments_bcs.png
+![](img/environment_adjustments_bcs.png)
 
 The second is by supplying a color correction gradient. A regular black to
 white gradient like the following one will produce no effect:
 
-.. image:: img/environment_adjusments_default_gradient.png
+![](img/environment_adjusments_default_gradient.png)
 
 But creating custom ones will allow to map each channel to a different color:
 
-.. image:: img/environment_adjusments_custom_gradient.png
+![](img/environment_adjusments_custom_gradient.png)

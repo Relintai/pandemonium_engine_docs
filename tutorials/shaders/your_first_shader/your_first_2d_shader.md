@@ -42,7 +42,7 @@ To begin, create a Sprite node. You can use any CanvasItem, but for this
 tutorial we will use a Sprite.
 
 In the Inspector, click beside "Texture" where it says "[empty]" and select
-"Load", then select "Icon.png". For new projects, this is the Godot icon. You
+"Load", then select "Icon.png)". For new projects, this is the Godot icon. You
 should now see the icon in the viewport.
 
 Next, look down in the Inspector, under the CanvasItem section, click beside
@@ -101,7 +101,7 @@ an input variable to the fragment function and the final output from it.
     COLOR = vec4(0.4, 0.6, 0.9, 1.0);
   }
 
-.. image:: img/blue-box.png
+![](img/blue-box.png)
 
 Congratulations! You're done. You have successfully written your first shader in
 Godot.
@@ -118,7 +118,7 @@ other functions or to assign values to `COLOR` directly.
 
 `UV` varies between 0-1 from left-right and from top-bottom.
 
-.. image:: img/iconuv.png
+![](img/iconuv.png)
 
 .. code-block:: glsl
 
@@ -126,7 +126,7 @@ other functions or to assign values to `COLOR` directly.
     COLOR = vec4(UV, 0.5, 1.0);
   }
 
-.. image:: img/UV.png
+![](img/UV.png)
 
 Using `TEXTURE` built-in
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -155,7 +155,7 @@ can be accessed in the shader using `TEXTURE`. Use it together with `UV` and
     COLOR.b = 1.0; //set blue channel to 1.0
   }
 
-.. image:: img/blue-tex.png
+![](img/blue-tex.png)
 
 Uniform input
 ^^^^^^^^^^^^^

@@ -14,7 +14,7 @@ But there is a problem here. What happens if the physics ticks do not coincide w
 
 This problem is easier to understand if we consider an extreme scenario. If you set the physics tick rate to 10 ticks per second, in a simple game with a rendered frame rate of 60 FPS. If we plot a graph of the positions of an object against the rendered frames, you can see that the positions will appear to "jump" every 1/10th of a second, rather than giving a smooth motion. When the physics calculates a new position for a new object, it is not rendered in this position for just one frame, but for 6 frames.
 
-.. image:: img/fti_graph_fixed_ticks.png
+![](img/fti_graph_fixed_ticks.png)
 
 This jump can be seen in other combinations of tick / frame rate as glitches, or jitter, caused by this staircasing effect due to the discrepancy between physics tick time and rendered frame time.
 
@@ -50,7 +50,7 @@ Instead of keeping track of just the current position of a physics object in the
 
 Why do we need the previous position *(in fact the entire transform, including rotation and scaling)*? By using a little math magic, we can use **interpolation** to calculate what the transform of the object would be between those two points, in our ideal world of smooth continuous movement.
 
-.. image:: img/fti_graph_interpolated.png
+![](img/fti_graph_interpolated.png)
 
 Linear interpolation
 ^^^^^^^^^^^^^^^^^^^^

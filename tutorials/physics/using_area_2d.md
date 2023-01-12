@@ -28,7 +28,7 @@ Area properties
 
 Areas have many properties you can use to customize their behavior.
 
-.. image:: img/area2d_properties.png
+![](img/area2d_properties.png)
 
 The first eight properties are used to configure the area's physics override
 behavior. We'll look at how to use those in the section below.
@@ -57,7 +57,7 @@ to disappear when the player touches it.
 
 Here's the node setup for the coin:
 
-.. image:: img/area2d_coin_nodes.png
+![](img/area2d_coin_nodes.png)
 
 To detect the overlap, we'll connect the appropriate signal on the Area2d. Which
 signal to use depends on the player's node type. If the player is another area,
@@ -124,7 +124,7 @@ Examples
 The example project attached below has three areas demonstrating physics
 override.
 
-.. image:: img/area2d_override.gif
+![](img/area2d_override.gif)
 
 You can download this project here:
 :download:`using_area_2d.zip <files/using_area_2d.zip>`

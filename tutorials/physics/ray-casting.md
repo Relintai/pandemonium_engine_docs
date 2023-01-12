@@ -128,7 +128,7 @@ about the world around it. One problem with this is that the same character
 has a collider, so the ray will only detect its parent's collider,
 as shown in the following image:
 
-.. image:: img/raycast_falsepositive.png
+![](img/raycast_falsepositive.png)
 
 To avoid self-intersection, the `intersect_ray()` function can take an
 optional third parameter which is an array of exceptions. This is an
@@ -186,7 +186,7 @@ orthogonal. Because of this, both the ray origin and direction must be
 obtained. This is because `origin` changes in orthogonal mode, while
 `normal` changes in perspective mode:
 
-.. image:: img/raycast_projection.png
+![](img/raycast_projection.png)
 
 To obtain it using a camera, the following code can be used:
 

@@ -172,7 +172,7 @@ resource will be imported. If a set of selected options is common, you can also
 create different presets to make it easier for the user. The following image
 shows how the options will appear in the editor:
 
-.. image:: img/import_plugin_options.png
+![](img/import_plugin_options.png)
 
 Since there might be many presets and they are identified with a number, it's a
 good practice to use an enum so you can refer to them using names.
@@ -415,7 +415,7 @@ SphereMesh. Unfold the Material section in the Inspector and then drag the file
 from the FileSystem dock to the material property. The object will update in the
 viewport with the blue color of the imported material.
 
-.. image:: img/import_plugin_trying.png
+![](img/import_plugin_trying.png)
 
 Go to Import dock, enable the "Use Red Anyway" option, and click on "Reimport".
 This will update the imported material and should automatically update the view

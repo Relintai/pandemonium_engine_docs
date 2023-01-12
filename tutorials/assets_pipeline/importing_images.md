@@ -19,7 +19,7 @@ Godot can import the following image formats:
   - Supports HDR (highly recommended for panorama skies).
 - JPEG (`.jpg`, `.jpeg`)
   - Doesn't support transparency per the format's limitations.
-- PNG (`.png`)
+- PNG (`.png)`)
   - Precision is limited to 8 bits per channel upon importing (no HDR images).
 - Truevision Targa (`.tga`)
 - SVG (`.svg`, `.svgz`)
@@ -45,7 +45,7 @@ efficient.
 
 Import options are vast:
 
-.. image:: img/image_import1.png
+![](img/image_import1.png)
 
 Detect 3D
 ~~~~~~~~~
@@ -96,11 +96,11 @@ advantages and disadvantages (|good| = best, |bad| = worst):
 | Load Time      | |regular| Normal       | |bad| Slow                    | |bad| Slow              | |good| Fast                                          |
 +----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
 
-.. |bad| image:: img/bad.png
+.. |bad| image:: img/bad.png)
 
-.. |good| image:: img/good.png
+.. |good| image:: img/good.png)
 
-.. |regular| image:: img/regular.png
+.. |regular| image:: img/regular.png)
 
 HDR Mode
 ~~~~~~~~
@@ -193,7 +193,7 @@ Fix Alpha Border
 This puts pixels of the same surrounding color in transition from transparency to non transparency. It helps mitigate the outline effect when exporting images
 from Photoshop and the like.
 
-.. image:: img/fixedborder.png
+![](img/fixedborder.png)
 
 It's a good idea to leave it on by default, unless specific values are needed.
 

@@ -1,7 +1,7 @@
 Skeleton
 ========
 
-.. image:: img/armature.jpg
+![](img/armature.jpg
 
 Rest Bone
 ---------

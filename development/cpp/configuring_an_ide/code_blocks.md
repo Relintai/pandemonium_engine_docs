@@ -10,19 +10,19 @@ Creating a new project
 
 From Code::Blocks' main screen, click **Create a new project** or select **File > New > Project...**.
 
-.. figure:: img/code_blocks_file_new_project.png
+.. figure:: img/code_blocks_file_new_project.png)
    :figclass: figure-w480
    :align: center
 
 In the **New from template** window, from **Projects**, select **Empty project**, and click **Go**.
 
-.. figure:: img/code_blocks_new_empty_project.png
+.. figure:: img/code_blocks_new_empty_project.png)
    :figclass: figure-w480
    :align: center
 
 Click Next, to pass the welcome to the new empty project wizard.
 
-.. figure:: img/code_blocks_wizard_welcome.png
+.. figure:: img/code_blocks_wizard_welcome.png)
    :figclass: figure-w480
    :align: center
 
@@ -30,13 +30,13 @@ The project file should be created in the root of the cloned project folder. To 
 
 Second, ensure that the **Folder to create project in** is the folder you ran the Git clone command from, not the `godot` project folder. Confirm that the **Resulting filename** field will create the project file in the root of the cloned project folder.
 
-.. figure:: img/code_blocks_project_title_and_location.png
+.. figure:: img/code_blocks_project_title_and_location.png)
    :figclass: figure-w480
    :align: center
 
 The compiler and configuration settings are managed through **SCons** and will be configured later. However, it's worth deselecting the **Create "Release" configuration** option; so only a single build target is created before clicking **Finish**.
 
-.. figure:: img/code_blocks_compiler_and_configuration.png
+.. figure:: img/code_blocks_compiler_and_configuration.png)
    :figclass: figure-w480
    :align: center
 
@@ -45,19 +45,19 @@ Configuring the build
 
 The first step is to change the project properties. Right-click on the new project and select **Properties...**.
 
-.. figure:: img/code_blocks_open_properties.png
+.. figure:: img/code_blocks_open_properties.png)
    :figclass: figure-w480
    :align: center
 
 Check the **This is a custom Makefile** property. Click OK to save the changes.
 
-.. figure:: img/code_blocks_project_properties.png
+.. figure:: img/code_blocks_project_properties.png)
    :figclass: figure-w480
    :align: center
 
 The next step is to change the build options. Right-click on the new project and select **Build Options...**.
 
-.. figure:: img/code_blocks_open_build_options.png
+.. figure:: img/code_blocks_open_build_options.png)
    :figclass: figure-w480
    :align: center
 
@@ -65,17 +65,17 @@ Select the **"Make" commands** tab and remove all the existing commands for all 
 
 If you're using Windows, all the commands need to be preceded with `cmd /c` to iniitalize the command interpreter.
 
-.. figure:: img/code_blocks_scons_minimum.png
+.. figure:: img/code_blocks_scons_minimum.png)
    :figclass: figure-w480
    :align: center
 
-.. figure:: img/code_blocks_scons_clean.png
+.. figure:: img/code_blocks_scons_clean.png)
    :figclass: figure-w480
    :align: center
 
 Windows example:
 
-.. figure:: img/code_blocks_scons_windows.png
+.. figure:: img/code_blocks_scons_windows.png)
    :figclass: figure-w480
    :align: center
 
@@ -88,7 +88,7 @@ Once **SCons** has successfully built the desired target, reopen the project **P
 
 Deselect the **Auto-generate filename prefix** and **Auto-generate filename extension** options.
 
-.. figure:: img/code_blocks_build_targets.png
+.. figure:: img/code_blocks_build_targets.png)
    :figclass: figure-w480
    :align: center
 
@@ -101,13 +101,13 @@ Adding files to the project
 
 To add all the Godot code files to the project, right-click on the new project and select **Add files recursively...**.
 
-.. figure:: img/code_blocks_add_files_recursively.png
+.. figure:: img/code_blocks_add_files_recursively.png)
    :figclass: figure-w480
    :align: center
 
 It should automatically select the project folder; so simply click **Open**. By default, all code files are included, so simply click **OK**.
 
-.. figure:: img/code_blocks_select_files.png
+.. figure:: img/code_blocks_select_files.png)
    :figclass: figure-w480
    :align: center
 
@@ -116,13 +116,13 @@ Code style configuration
 
 Before editing any files, remember that all code needs to comply with the `doc_code_style_guidelines`. One important difference with Godot is the use of tabs for indents. Therefore, the key default editor setting that needs to be changed in Code::Blocks is to enable tabs for indents. This setting can be found by selecting **Settings > Editor**.
 
-.. figure:: img/code_blocks_update_editor_settings.png
+.. figure:: img/code_blocks_update_editor_settings.png)
    :figclass: figure-w480
    :align: center
 
 Under **General Settings**, on the **Editor Settings** tab, under **Tab Options** check **Use TAB character**.
 
-.. figure:: img/code_block_use_tab_character.png
+.. figure:: img/code_block_use_tab_character.png)
    :figclass: figure-w480
    :align: center
 

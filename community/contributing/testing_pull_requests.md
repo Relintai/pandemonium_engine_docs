@@ -31,18 +31,18 @@ If you have a GitHub account
 
 - Open the pull request page. Click the **Checks** tab near the top of the page:
 
-.. image:: img/testing_pull_requests_access_checks.png
+![](img/testing_pull_requests_access_checks.png)
 
 - In the list of platforms that appears on the left, select your platform by clicking
   it then choose the type of build you need (editor or export template).
   If in doubt, select an editor build:
 
-.. image:: img/testing_pull_requests_checks_platforms.png
+![](img/testing_pull_requests_checks_platforms.png)
 
 - Click the **Artifacts** dropdown on the right of the page then click the artifact's
   name to download it:
 
-.. image:: img/testing_pull_requests_checks_artifacts.png
+![](img/testing_pull_requests_checks_artifacts.png)
 
 - Extract the ZIP archive then run the executable.
   Note that Windows and macOS binaries are not code signed.
@@ -59,7 +59,7 @@ to generate a universal download link.
 
 - Open the pull request page. Click the *fork*'s branch name near the top of the page:
 
-.. image:: img/testing_pull_requests_access_fork.png
+![](img/testing_pull_requests_access_fork.png)
 
 - Now that you are on the fork's branch page, click the `.github` folder at the top of the file list.
   Then, click on the `workflows` folder (whicb is inside the `.github` folder).
@@ -72,7 +72,7 @@ to generate a universal download link.
   If the the format of the URL you pasted is correct, you should be presented
   with a page like this:
 
-.. image:: img/testing_pull_requests_nightly_link.png
+![](img/testing_pull_requests_nightly_link.png)
 
 - Click the URL of the artifact you wish to download.
 
@@ -93,12 +93,12 @@ by Godot's GitHub Actions setup.
 
 - Open the pull request page. Click the *fork*'s branch name near the top of the page:
 
-.. image:: img/testing_pull_requests_access_fork.png
+![](img/testing_pull_requests_access_fork.png)
 
 - Now that you are on the fork's branch page, click the green **Code** button on the right of the page
   then choose **Download ZIP** in the dropdown:
 
-.. image:: img/testing_pull_requests_fork_zip.png
+![](img/testing_pull_requests_fork_zip.png)
 
 - Extract the ZIP archive and follow the `compiling <toc-devel-compiling>` instructions
   for your operating system.

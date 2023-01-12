@@ -146,7 +146,7 @@ is that `move_and_slide()` is a special case, and `move_and_collide()`
 is more general. For example, the following two code snippets result in
 the same collision response:
 
-.. image:: img/k2d_compare.gif
+![](img/k2d_compare.gif)
 
 gdscript GDScript
 
@@ -191,7 +191,7 @@ Movement and walls
 If you've downloaded the sample project, this example is in "BasicMovement.tscn".
 
 For this example, add a `KinematicBody2D` with two children: a `Sprite` and a
-`CollisionShape2D`. Use the Godot "icon.png" as the Sprite's texture (drag it
+`CollisionShape2D`. Use the Godot "icon.png)" as the Sprite's texture (drag it
 from the Filesystem dock to the *Texture* property of the `Sprite`). In the
 `CollisionShape2D`'s *Shape* property, select "New RectangleShape2D" and
 size the rectangle to fit over the sprite image.
@@ -333,7 +333,7 @@ If the colliding object (`collider`) has a `hit` method,
 we also call it. In the example project, we've added a flashing color effect to
 the Wall to demonstrate this.
 
-.. image:: img/k2d_bullet_bounce.gif
+![](img/k2d_bullet_bounce.gif)
 
 Platformer movement
 ~~~~~~~~~~~~~~~~~~~
@@ -383,7 +383,7 @@ gdscript GDScript
         velocity = move_and_slide(velocity, Vector2(0, -1))
 ```
 
-.. image:: img/k2d_platform.gif
+![](img/k2d_platform.gif)
 
 When using `move_and_slide()`, the function returns a vector representing the
 movement that remained after the slide collision occurred. Setting that value back

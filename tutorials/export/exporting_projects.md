@@ -63,18 +63,18 @@ supported yet, but the supported platforms continue to grow.
 
 To open the export menu, click the **Export** button:
 
-.. image:: img/export.png
+![](img/export.png)
 
 The export menu will open. However, it will be completely empty.
 This is because we need to add an export preset.
 
-.. image:: img/export_dialog.png
+![](img/export_dialog.png)
 
 To create an export preset, click the **Add…** button at the top
 of the export menu. This will open a drop-down list of platforms
 to choose from for an export preset.
 
-.. image:: img/export_preset.png
+![](img/export_preset.png)
 
 The default options are often enough to export, so tweaking them is
 usually not necessary. However, many platforms require additional
@@ -83,7 +83,7 @@ needs export templates installed to create packages. The export menu
 will complain when something is missing and will not allow the user to
 export for that platform until they resolve it:
 
-.. image:: img/export_error.png
+![](img/export_error.png)
 
 At that time, the user is expected to come back to the documentation and follow
 instructions on how to properly set up that platform.
@@ -99,7 +99,7 @@ TPZ file (which is a renamed ZIP archive) from the
 Once downloaded, they can be installed using the **Install Export Templates**
 option in the editor:
 
-.. image:: img/exptemp.png
+![](img/exptemp.png)
 
 .. _doc_exporting_projects_export_mode:
 
@@ -113,14 +113,14 @@ creates the package. There are 3 different modes for exporting:
 -  Export selected scenes (and dependencies)
 -  Export selected resources (and dependencies)
 
-.. image:: img/expres.png
+![](img/expres.png)
 
 **Export all resources in the project** will export every resource in the
 project. **Export selected scenes** and **Export selected resources** gives
 you a list of the scenes or resources in the project, and you have to
 select every scene or resource you want to export.
 
-.. image:: img/expselected.png
+![](img/expselected.png)
 
 .. note::
 
@@ -131,7 +131,7 @@ select every scene or resource you want to export.
 Below the list of resources are two filters that can be setup. The first allows
 non resource files such as `.txt`,`.json` and `.csv` to be exported with
 the project. The second filter can be used to exclude every file of a certain
-type without manually deselecting every one. For example, `.png` files.
+type without manually deselecting every one. For example, `.png)` files.
 
 Exporting from the command line
 -------------------------------

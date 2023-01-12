@@ -10,7 +10,7 @@ Think of a `Viewport` as a screen onto which the game is projected. In order
 to see the game, we need to have a surface on which to draw it; that surface is
 the Root `Viewport`.
 
-.. image:: img/viewportnode.png
+![](img/viewportnode.png)
 
 
 `Viewports` can also be added to the scene so that there
@@ -43,7 +43,7 @@ nearest `Viewport` not to receive input by checking
 'Disable Input' to 'on'; this will allow the next nearest `Viewport` in the tree to capture
 the input.
 
-.. image:: img/input.png
+![](img/input.png)
 
 For more information on how Godot handles input, please read the `Input Event Tutorial<doc_inputevent>`.
 
@@ -64,7 +64,7 @@ When using a `Camera` /
 closest parent `Viewport` (going towards the root). For example, in the
 following hierarchy:
 
-.. image:: img/cameras.png
+![](img/cameras.png)
 
 CameraA will display on the Root `Viewport` and it will draw MeshA. CameraB
 will be captured by the `Viewport` Node along with MeshB. Even though MeshB is in the scene
@@ -164,7 +164,7 @@ Viewport Container
 
 If the `Viewport`, it will become active and display anything it has inside. The layout looks like this:
 
-.. image:: img/container.png
+![](img/container.png)
 
 The `Viewport` completely
 if `Stretch<class_viewportcontainer_property_stretch>` is set to `true` in `ViewportContainer`.
@@ -191,7 +191,7 @@ Godot also provides a way of customizing how everything is drawn inside `Viewpor
 Debug Draw allows you to specify one of four options for how the `Viewport` will display things drawn
 inside it. Debug Draw is disabled by default.
 
-.. image:: img/default_scene.png
+![](img/default_scene.png)
 
 *A scene drawn with Debug Draw disabled*
 
@@ -199,13 +199,13 @@ The other three options are Unshaded, Overdraw, and Wireframe. Unshaded draws th
 without using lighting information so all the objects appear flatly colored the color of
 their albedo.
 
-.. image:: img/unshaded.png
+![](img/unshaded.png)
 
 *The same scene with Debug Draw set to Unshaded*
 
 Overdraw draws the meshes semi-transparent with an additive blend so you can see how the meshes overlap.
 
-.. image:: img/overdraw.png
+![](img/overdraw.png)
 
 *The same scene with Debug Draw set to Overdraw*
 
@@ -230,11 +230,11 @@ This can be requested via code using (for example):
 
 Or it can be assigned in the editor by selecting "New ViewportTexture"
 
-.. image:: img/texturemenu.png
+![](img/texturemenu.png)
 
 and then selecting the `Viewport` you want to use.
 
-.. image:: img/texturepath.png
+![](img/texturepath.png)
 
 Every frame, the `Viewport`'s texture is cleared away with the default clear color (or a transparent
 color if `Transparent Bg<class_Viewport_property_transparent_bg>` is set to `true`). This can be changed by setting `Clear Mode<class_Viewport_property_render_target_clear_mode>` to Never or Next Frame.

@@ -15,15 +15,15 @@ Distinguishing between them
 
 A game running at a normal framerate without exhibiting any effect will appear smooth:
 
-.. image:: img/motion_normal.gif
+![](img/motion_normal.gif)
 
 A game exhibiting *jitter* will shake constantly in a very subtle way:
 
-.. image:: img/motion_jitter.gif
+![](img/motion_jitter.gif)
 
 Finally, a game exhibiting *stutter* will appear smooth, but appear to *stop* or *roll back a frame* every few seconds:
 
-.. image:: img/motion_stutter.gif
+![](img/motion_stutter.gif)
 
 
 Jitter

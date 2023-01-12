@@ -38,18 +38,18 @@ Setting up
 Just like a `ReflectionProbe`, simply set up the `GIProbe` by wrapping it around
 the geometry that will be affected.
 
-.. image:: img/giprobe_wrap.png
+![](img/giprobe_wrap.png)
 
 Afterwards, make sure to enable the **Use In Baked Light** property on the geometry instances
 in the inspector. This is required for `GIProbe` to recognize objects,
 otherwise they will be ignored:
 
-.. image:: img/giprobe_bake_property.png
+![](img/giprobe_bake_property.png)
 
 Once the geometry is set up, push the Bake button that appears on the 3D editor
 toolbar to begin the pre-baking process:
 
-.. image:: img/giprobe_bake.png
+![](img/giprobe_bake.png)
 
 .. warning::
 
@@ -66,16 +66,16 @@ Lights need to be added to the scene to have an effect.
 The effect of indirect light can be viewed quickly (it is recommended you turn
 off all ambient/sky lighting to tweak this, though, as shown below):
 
-.. image:: img/giprobe_indirect.png
+![](img/giprobe_indirect.png)
 
 In some situations, though, indirect light may be too weak. Lights have an
 indirect multiplier to tweak this:
 
-.. image:: img/giprobe_light_indirect.png
+![](img/giprobe_light_indirect.png)
 
 And, as `GIProbe` lighting updates in real-time, this effect is immediate:
 
-.. image:: img/giprobe_indirect_energy_result.png
+![](img/giprobe_indirect_energy_result.png)
 
 Reflections
 -----------
@@ -84,12 +84,12 @@ For very metallic materials with low roughness, it's possible to appreciate
 voxel reflections. Keep in mind that these have far less detail than Reflection
 Probes or Screen Space Reflections, but fully reflect volumetrically.
 
-.. image:: img/giprobe_voxel_reflections.png
+![](img/giprobe_voxel_reflections.png)
 
 `GIProbe`\ s can be easily mixed with Reflection Probes and Screen Space Reflections,
 as a full 3-stage fallback-chain. This allows to have precise reflections where needed:
 
-.. image:: img/giprobe_ref_blending.png
+![](img/giprobe_ref_blending.png)
 
 Interior vs exterior
 --------------------
@@ -97,12 +97,12 @@ Interior vs exterior
 GI Probes normally allow mixing with lighting from the sky. This can be disabled
 when turning on the *Interior* setting.
 
-.. image:: img/giprobe_interior_setting.png
+![](img/giprobe_interior_setting.png)
 
 The difference becomes clear in the image below, where light from the sky goes
 from spreading inside to being ignored.
 
-.. image:: img/giprobe_interior.png
+![](img/giprobe_interior.png)
 
 As complex buildings may mix interiors with exteriors, combining GIProbes
 for both parts works well.
@@ -112,7 +112,7 @@ Tweaking
 
 GI Probes support a few parameters for tweaking:
 
-.. image:: img/giprobe_tweaking.png
+![](img/giprobe_tweaking.png)
 
 - **Subdiv** Subdivision used for the probe. The default (128) is generally good for small- to medium-sized areas. Bigger subdivisions use more memory.
 - **Extents** Size of the probe. Can be tweaked from the gizmo.
@@ -131,4 +131,4 @@ Quality
 `GIProbe`\ s are quite demanding. It is possible to use lower quality voxel cone
 tracing in exchange for more performance.
 
-.. image:: img/giprobe_quality.png
+![](img/giprobe_quality.png)

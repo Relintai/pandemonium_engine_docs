@@ -11,7 +11,7 @@ Godot also supports the use of version control systems in the editor itself.
 However, VCS in the editor requires a plugin for the specific VCS you are using.
 VCS can be setup or shut down in the editor under **Project > Version Control**.
 
-.. image:: img/version_control_menu.png
+![](img/version_control_menu.png)
 
 Official Git plugin
 -------------------

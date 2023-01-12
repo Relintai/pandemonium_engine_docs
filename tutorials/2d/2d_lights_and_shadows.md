@@ -11,7 +11,7 @@ This tutorial explains how the 2D lighting works in the
 It begins with a brief description of the resources used in the final demo and then describes how
 to make a scene like the demo step by step.
 
-.. image:: img/light_shadow_main.png
+![](img/light_shadow_main.png)
 
 All the resources for this tutorial can be found in the `official demo repository <https://github.com/godotengine/godot-demo-projects>`_
 on GitHub. I suggest you download it before starting. Alternatively,
@@ -25,19 +25,19 @@ For this demo we use four textures: two for the lights, one for the shadow caste
 and one for the background. I've included links to them all here if you want to download them
 separately from the demo.
 
-The first is the background image (`background.png <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/background.png>`_)
+The first is the background image (`background.png) <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/background.png)>`_)
 used in the demo. You do not necessarily need a background, but we use one for the demo.
 
-The second is a plain black image (`caster.png <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png>`_)
+The second is a plain black image (`caster.png) <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png)>`_)
 to use as our shadow caster object. For a top down game this could be a wall or any
 other object that casts a shadow.
 
-Next is the light itself (`light.png <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/light.png>`_).
+Next is the light itself (`light.png) <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/light.png)>`_).
 If you click the link you will notice how large it is. The image you use
 for a light should cover the area you want your light to cover. This image is
 1024x1024 pixels, so you should use it to cover 1024x1024 pixels in your game.
 
-Lastly, we have the spotlight image (`spot.png <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/spot.png>`_).
+Lastly, we have the spotlight image (`spot.png) <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/spot.png)>`_).
 The demo uses a blob to show where the light is and the larger light
 image to show the effect of the light upon the rest of the scene.
 
@@ -70,7 +70,7 @@ Lights
 `Lights` cover the entire extent of their respective Texture. They use additive
 blending to add the color of their texture to the scene.
 
-.. image:: img/light_shadow_light.png
+![](img/light_shadow_light.png)
 
 `Lights` have four `Modes`: `Add`, `Sub`, `Mix`, and `Mask`.
 
@@ -89,7 +89,7 @@ is the effect of the light), and a `Sprite` blob which is an image showing the
 location of the light source. A child `Sprite` is not necessary to make a
 `Light` work.
 
-.. image:: img/light_shadow_light_blob.png
+![](img/light_shadow_light_blob.png)
 
 Shadows
 -------
@@ -113,13 +113,13 @@ the process of making a scene like the one found in the demo.
 First add a `Sprite`_. For your game this can be any
 background you choose. For this style of shadow it is most likely to be a floor texture.
 
-.. image:: img/light_shadow_background.png
+![](img/light_shadow_background.png)
 
 Next create three `Light2D's`_. You can alter their
 color in the top section. By default shadows are turned off and the `mode` is set to `add`. This
 means that each light adds its own color to whatever is underneath.
 
-.. image:: img/light_shadow_all_lights_no_blob.png
+![](img/light_shadow_all_lights_no_blob.png)
 
 Next add a child `Sprite` nodes, and set
 the `Sprite's`_. Each of these
@@ -128,7 +128,7 @@ itself while the `Light` shows the effect that the light has on the scene. The
 `LightOccluder2D's`
 node, which is why we want the blob to be centered on its parent `Light`.
 
-.. image:: img/light_shadow_all_lights.png
+![](img/light_shadow_all_lights.png)
 
 .. note:: The animations in the demo will not be covered here. See `doc_introduction_animation`
           for information on creating animations.
@@ -140,7 +140,7 @@ This is why the demo uses a `CanvasModulate` in the scene. The
 Add a `CanvasModulate` to the scene and set its color to `rgb(70, 70, 70)`.
 This will make the scene sufficiently dark to see the effects of the lights distinctly.
 
-.. image:: img/light_shadow_ambient.png
+![](img/light_shadow_ambient.png)
 
 Now we add the shadow casters.
 
@@ -150,11 +150,11 @@ This way we can show and hide them all at the same time.
 
 Each shadow caster is made of a `Sprite`
 child. For the demo the `Sprite` has a texture
-set to the `caster image <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png>`_ and nothing else. The child `LightOccluder2D` is where all the magic happens. In a
+set to the `caster image <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png)>`_ and nothing else. The child `LightOccluder2D` is where all the magic happens. In a
 game the `Sprite` could be more than a black box; it could be an image of whatever object is casting
 the shadow: a wall, a magical chest, or anything else.
 
-.. image:: img/light_shadow_sprites.png
+![](img/light_shadow_sprites.png)
 
 `LightOccluder2Ds` tell the game what shape the occluder has. They hold
 an `OccluderPolygon2D`, which is a container
@@ -173,15 +173,15 @@ To illustrate the difference, here is an image of a `LightOccluder2D` with `Clos
 set to `off` in the corresponding `OccluderPolygon2D`, so that the
 lines of the polygon can be seen:
 
-.. image:: img/light_shadow_cull_disabled.png
+![](img/light_shadow_cull_disabled.png)
 
 .. note:: `Cull Mode` is set to `Disabled`. All three lines cast shadows.
 
-.. image:: img/light_shadow_cull_clockwise.png
+![](img/light_shadow_cull_clockwise.png)
 
 .. note:: `Cull Mode` is set to `Clockwise`. Only the top and right lines cast shadows.
 
-.. image:: img/light_shadow_cull_counter_clockwise.png
+![](img/light_shadow_cull_counter_clockwise.png)
 
 .. note:: `Cull Mode` is set to `Counter-Clockwise`. Only the bottom line casts a shadow.
           If `Closed` was set to `on` there would be an additional vertical line on the
@@ -191,7 +191,7 @@ When you have added the `LightOccluder2Ds` the shadows still won't
 appear. You need to go back into the `Light2Ds` and under the Shadow
 section set `Enable` to `on`. This turns on shadows with hard edges like in the image below.
 
-.. image:: img/light_shadow_filter0_pcf0.png
+![](img/light_shadow_filter0_pcf0.png)
 
 To give the shadows that nice, soft edge look we set the variables `filter`, `filter smooth`, and
 `gradient length`. Godot supports `Percentage Closer Filtering <https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch11.html>`_
@@ -200,12 +200,12 @@ a smooth shadow effect. The higher the number of samples the smoother the shadow
 look, but the slower it will run. That is why Godot provides 3-13 samples by default and allows you to choose.
 The demo uses PCF7.
 
-.. image:: img/light_shadow_normal.png
+![](img/light_shadow_normal.png)
 
 .. note:: This is a shadow rendered with the demo's settings. `gradient length` is set
           to `1.3`, `filter smooth` is set to `11.1`, and `filter` is set to `PCF7`.
 
-.. image:: img/light_shadow_pcf13.png
+![](img/light_shadow_pcf13.png)
 
 .. note:: `filter` is set to `PCF13`. Notice how the shadow becomes wider, this is because the
           distance between samples is based on the variable `filter smooth`.
@@ -215,14 +215,14 @@ This dictates how far apart the samples are. If you want the soft area to extend
 the size of `filter smooth`. However, with few samples and a large filter smooth, you can see lines
 forming between the samples.
 
-.. image:: img/light_shadow_filter30.png
+![](img/light_shadow_filter30.png)
 
 .. note:: `filter smooth` is set to `30`.
 
 The different `Light` nodes in the demo use different values for filter smooth.
 Play around with it and see what you like.
 
-.. image:: img/light_shadow_filter0.png
+![](img/light_shadow_filter0.png)
 
 .. note:: `filter smooth` is set to `0`.
 
@@ -230,11 +230,11 @@ Lastly, there is the variable `gradient length`. For some smooth shadows it is p
 shadow start immediately on the object, as this produces a hard edge. The gradient length variable creates
 a smooth gradient to begin the shadow to reduce the effect of the hard edge.
 
-.. image:: img/light_shadow_grad0.png
+![](img/light_shadow_grad0.png)
 
 .. note:: `gradient length` is set to `0`.
 
-.. image:: img/light_shadow_grad10.png
+![](img/light_shadow_grad10.png)
 
 .. note:: `gradient length` is set to `10`.
 

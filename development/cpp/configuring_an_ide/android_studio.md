@@ -14,7 +14,7 @@ Importing the project
 - From the Android Studio's welcome window select **Open an existing 
   Android Studio project**.
 
-.. figure:: img/android_studio_setup_project_1.png
+.. figure:: img/android_studio_setup_project_1.png)
    :figclass: figure-w480
    :align: center
    

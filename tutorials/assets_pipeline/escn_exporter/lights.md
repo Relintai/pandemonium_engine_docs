@@ -11,7 +11,7 @@ Lights
 Sun, point and spot lamps are all exported from Blender along with many of their
 properties:
 
-.. image:: img/light_properties.jpg
+![](img/light_properties.jpg
 
 There are some things to note:
 

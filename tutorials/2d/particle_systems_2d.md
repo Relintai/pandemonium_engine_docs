@@ -31,7 +31,7 @@ are provided via node properties in CPUParticles2D (with the exception of the tr
 You can convert a Particles2D node into a CPUParticles2D node by clicking on the node in the
 inspector, and selecting "Convert to CPUParticles2D" in the "Particles" menu of the toolbar.
 
-.. image:: img/particles_convert.png
+![](img/particles_convert.png)
 
 The rest of this tutorial is going to use the Particles2D node. First, add a Particles2D
 node to your scene. After creating that node you will notice that only a white dot was created,
@@ -45,12 +45,12 @@ To add a process material to your particles node, go to `Process Material` in
 your inspector panel. Click on the box next to `Material`, and from the dropdown
 menu select `New ParticlesMaterial`.
 
-.. image:: img/particles_material.png
+![](img/particles_material.png)
 
 Your Particles2D node should now be emitting
 white points downward.
 
-.. image:: img/particles1.png
+![](img/particles1.png)
 
 Texture
 ~~~~~~~
@@ -59,7 +59,7 @@ A particle system uses a single texture (in the future this might be
 extended to animated textures via spritesheet). The texture is set via
 the relevant texture property:
 
-.. image:: img/particles2.png
+![](img/particles2.png)
 
 Time parameters
 ---------------
@@ -72,11 +72,11 @@ ends, a new particle is created to replace it.
 
 Lifetime: 0.5
 
-.. image:: img/paranim14.gif
+![](img/paranim14.gif)
 
 Lifetime: 4.0
 
-.. image:: img/paranim15.gif
+![](img/paranim15.gif)
 
 One Shot
 ~~~~~~~~
@@ -113,7 +113,7 @@ this, and forces particles to be emitted all together. Ranges are:
 Values in the middle are also allowed. This feature is useful for
 creating explosions or sudden bursts of particles:
 
-.. image:: img/paranim18.gif
+![](img/paranim18.gif)
 
 Randomness
 ~~~~~~~~~~
@@ -161,12 +161,12 @@ By default this option is on, and it means that the space that particles
 are emitted to is relative to the node. If the node is moved, all
 particles are moved with it:
 
-.. image:: img/paranim20.gif
+![](img/paranim20.gif)
 
 If disabled, particles will emit to global space, meaning that if the
 node is moved, already emitted particles are not affected:
 
-.. image:: img/paranim21.gif
+![](img/paranim21.gif)
 
 Draw Order
 ~~~~~~~~~~
@@ -185,13 +185,13 @@ This is the base direction at which particles emit. The default is
 `Vector3(1, 0, 0)` which makes particles emit to the right. However,
 with the default gravity settings, particles will go straight down.
 
-.. image:: img/direction1.png
+![](img/direction1.png)
 
 For this property to be noticeable, you need an *initial velocity* greater
 than 0. Here, we set the initial velocity to 40. You'll notice that
 particles emit toward the right, then go down because of gravity.
 
-.. image:: img/direction2.png
+![](img/direction2.png)
 
 Spread
 ~~~~~~
@@ -201,7 +201,7 @@ either direction to the base `Direction`. A spread of `180` will emit
 in all directions (+/- 180). For spread to do anything the "Initial Velocity"
 parameter must be greater than 0.
 
-.. image:: img/paranim3.gif
+![](img/paranim3.gif)
 
 Flatness
 ~~~~~~~~
@@ -213,7 +213,7 @@ Gravity
 
 The gravity applied to every particle.
 
-.. image:: img/paranim7.gif
+![](img/paranim7.gif)
 
 Initial Velocity
 ~~~~~~~~~~~~~~~~
@@ -222,7 +222,7 @@ Initial velocity is the speed at which particles will be emitted (in
 pixels/sec). Speed might later be modified by gravity or other
 accelerations (as described further below).
 
-.. image:: img/paranim4.gif
+![](img/paranim4.gif)
 
 Angular Velocity
 ~~~~~~~~~~~~~~~~
@@ -235,14 +235,14 @@ Spin Velocity
 Spin velocity is the speed at which particles turn around their center
 (in degrees/sec).
 
-.. image:: img/paranim5.gif
+![](img/paranim5.gif)
 
 Orbit Velocity
 ~~~~~~~~~~~~~~
 
 Orbit velocity is used to make particles turn around their center.
 
-.. image:: img/paranim6.gif
+![](img/paranim6.gif)
 
 Linear Acceleration
 ~~~~~~~~~~~~~~~~~~~
@@ -255,7 +255,7 @@ Radial Acceleration
 If this acceleration is positive, particles are accelerated away from
 the center. If negative, they are absorbed towards it.
 
-.. image:: img/paranim8.gif
+![](img/paranim8.gif)
 
 Tangential Acceleration
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -263,7 +263,7 @@ Tangential Acceleration
 This acceleration will use the tangent vector to the center. Combining
 with radial acceleration can do nice effects.
 
-.. image:: img/paranim9.gif
+![](img/paranim9.gif)
 
 Damping
 ~~~~~~~
@@ -272,7 +272,7 @@ Damping applies friction to the particles, forcing them to stop. It is
 especially useful for sparks or explosions, which usually begin with a
 high linear velocity and then stop as they fade.
 
-.. image:: img/paranim10.gif
+![](img/paranim10.gif)
 
 Angle
 ~~~~~
@@ -280,14 +280,14 @@ Angle
 Determines the initial angle of the particle (in degrees). This parameter
 is mostly useful randomized.
 
-.. image:: img/paranim11.gif
+![](img/paranim11.gif)
 
 Scale
 ~~~~~
 
 Determines the initial scale of the particles.
 
-.. image:: img/paranim12.gif
+![](img/paranim12.gif)
 
 Color
 ~~~~~
@@ -311,15 +311,15 @@ These can be generated from textures in your project.
 Ensure that a ParticlesMaterial is set, and the Particles2D node is selected.
 A "Particles" menu should appear in the Toolbar:
 
-.. image:: img/emission_shapes1.png
+![](img/emission_shapes1.png)
 
 Open it and select "Load Emission Mask":
 
-.. image:: img/emission_shapes2.png
+![](img/emission_shapes2.png)
 
 Then select which texture you want to use as your mask:
 
-.. image:: img/emission_shapes3.png
+![](img/emission_shapes3.png)
 
 A dialog box with several settings will appear.
 
@@ -331,18 +331,18 @@ Three types of emission masks can be generated from a texture:
 -  Solid Pixels: Particles will spawn from any area of the texture,
    excluding transparent areas.
 
-.. image:: img/emission_mask_solid.gif
+![](img/emission_mask_solid.gif)
 
 -  Border Pixels: Particles will spawn from the outer edges of the texture.
 
-.. image:: img/emission_mask_border.gif
+![](img/emission_mask_border.gif)
 
 -  Directed Border Pixels: Similar to Border Pixels, but adds extra
    information to the mask to give particles the ability to emit away
    from the borders. Note that an `Initial Velocity` will need to
    be set in order to utilize this.
 
-.. image:: img/emission_mask_directed_border.gif
+![](img/emission_mask_directed_border.gif)
 
 Emission Colors
 ~~~~~~~~~~~~~~~
@@ -351,7 +351,7 @@ Emission Colors
 
 Once you click "OK", the mask will be generated and set to the ParticlesMaterial, under the `Emission Shape` section:
 
-.. image:: img/emission_shapes4.png
+![](img/emission_shapes4.png)
 
 All of the values within this section have been automatically generated by the
 "Load Emission Mask" menu, so they should generally be left alone.

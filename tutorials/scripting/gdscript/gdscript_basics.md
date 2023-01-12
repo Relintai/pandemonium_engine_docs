@@ -1091,9 +1091,9 @@ class will then appear with its new icon in the editor::
    # Item.gd
 
    extends Node
-   class_name Item, "res://interface/icons/item.png"
+   class_name Item, "res://interface/icons/item.png)"
 
-.. image:: img/class_name_editor_register_example.png
+![](img/class_name_editor_register_example.png)
 
 .. warning::
 
@@ -1522,7 +1522,7 @@ These arguments show up in the editor's node dock, and Godot can use them to
 generate callback functions for you. However, you can still emit any number of
 arguments when you emit signals; it's up to you to emit the correct values.
 
-.. image:: img/gdscript_basics_signals_node_tab_1.png
+![](img/gdscript_basics_signals_node_tab_1.png)
 
 GDScript can bind an array of values to connections between a signal
 and a method. When the signal is emitted, the callback method receives

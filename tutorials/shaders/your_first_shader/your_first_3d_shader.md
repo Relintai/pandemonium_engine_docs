@@ -74,17 +74,17 @@ to display the scene. Select 'Display Wireframe'.
 
 This will allow you to see the triangles making up the plane.
 
-.. image:: img/plane.png
+![](img/plane.png)
 
 Now set `Subdivide Width` and `Subdivide Depth` to `32`.
 
-.. image:: img/plane-sub-set.png
+![](img/plane-sub-set.png)
 
 You can see that there are now many more triangles in the
 `Mesh<class_MeshInstance>`. This will give us more vertices to work with
 and thus allow us to add more detail.
 
-.. image:: img/plane-sub.png
+![](img/plane-sub.png)
 
 `PrimitiveMeshes`, like PlaneMesh, only have one
      surface, so instead of an array of materials there is only one. Click
@@ -99,7 +99,7 @@ first Spatial shader!
 Shader magic
 ------------
 
-.. image:: img/shader-error.png
+![](img/shader-error.png)
 
 Notice how there is already error? This is because the shader editor reloads
 shaders on the fly. The first thing Godot shaders need is a declaration of what
@@ -134,7 +134,7 @@ shader. We can easily start to make changes by adding a single line:
 
 Adding this line, you should get an image like the one below.
 
-.. image:: img/cos.png
+![](img/cos.png)
 
 Okay, let's unpack this. The `y` value of the `VERTEX` is being increased.
 And we are passing the `x` and `z` components of the `VERTEX` as arguments
@@ -151,7 +151,7 @@ What we want to achieve is the look of little hills; after all. `cos` and
     VERTEX.y += cos(VERTEX.x * 4.0) * sin(VERTEX.z * 4.0);
   }
 
-.. image:: img/cos4.png
+![](img/cos4.png)
 
 This looks better, but it is still too spiky and repetitive, let's make it a
 little more interesting.
@@ -186,7 +186,7 @@ OpenSimplexNoise".
 
 Once you set it up and should look like this.
 
-.. image:: img/noise-set.png
+![](img/noise-set.png)
 
 Now, access the noise texture using the `texture()` function. `texture()`
 takes a texture as the first argument and a `vec2` for the position on the
@@ -211,7 +211,7 @@ details.
 
 Using this code you can see the texture creates random looking hills.
 
-.. image:: img/noise.png
+![](img/noise.png)
 
 Right now it is too spiky, we want to soften the hills a bit. To do that, we
 will use a uniform. You already used a uniform above to pass in the noise
@@ -261,7 +261,7 @@ use it to set the height value instead of arbitrarily multiplying by `0.5`.
 
 Now it looks  much better.
 
-.. image:: img/noise-low.png
+![](img/noise-low.png)
 
 Using uniforms, we can even change the value every frame to animate the height
 of the terrain. Combined with `Tweens`, this can be
@@ -273,14 +273,14 @@ Interacting with light
 First, turn wireframe off. To do so, click in the upper-left of the Viewport
 again, where it says "Perspective", and select "Display Normal".
 
-.. image:: img/normal.png
+![](img/normal.png)
 
 Note how the mesh color goes flat. This is because the lighting on it is flat.
 Let's add a light!
 
 First, we will add an `OmniLight<class_OmniLight>` to the scene.
 
-.. image:: img/light.png
+![](img/light.png)
 
 You can see the light affecting the terrain, but it looks odd. The problem is
 the light is affecting the terrain as if it were a flat plane. This is because
@@ -307,7 +307,7 @@ do that by passing in a second noise texture.
 Set this second uniform texture to another NoiseTexture with another
 OpenSimplexNoise. But this time, check off "As Normalmap".
 
-.. image:: img/normal-set.png
+![](img/normal-set.png)
 
 Now, because this is a normalmap and not a per-vertex normal, we are going to
 assign it in the `fragment()` function. The `fragment()` function will be
@@ -353,11 +353,11 @@ And now we can access `tex_position` from the `fragment()` function.
 With the normals in place the light now reacts to the height of the mesh
 dynamically.
 
-.. image:: img/normalmap.png
+![](img/normalmap.png)
 
 We can even drag the light around and the lighting will update automatically.
 
-.. image:: img/normalmap2.png
+![](img/normalmap2.png)
 
 Here is the full code for this tutorial. You can see it is not very long as
 Godot handles most of the difficult stuff for you.

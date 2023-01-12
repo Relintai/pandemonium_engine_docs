@@ -67,4 +67,4 @@ Contents
    09.adding_animations
    going_further
 
-.. |image0| image:: img/squash-the-creeps-final.gif
+.. |image0| image:: img/squash-the-creeps-final.gif)

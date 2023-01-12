@@ -12,7 +12,7 @@ passes a plane. Planes divide the entire space into positive
 (over the plane) and negative (under the plane), and (contrary to
 popular belief) you can also use their math in 2D:
 
-.. image:: img/tutovec10.png
+![](img/tutovec10.png)
 
 Unit vectors that are perpendicular to a surface (so, they describe the
 orientation of the surface) are called **unit normal vectors**. Though,
@@ -46,7 +46,7 @@ gdscript GDScript
 But not just the absolute distance, if the point is in the negative half
 space the distance will be negative, too:
 
-.. image:: img/tutovec11.png
+![](img/tutovec11.png)
 
 This allows us to tell which side of the plane a point is.
 
@@ -65,7 +65,7 @@ With this in mind, let's describe a full plane as a **normal** *N* and a
 **distance from the origin** scalar *D*. Thus, our plane is represented
 by N and D. For example:
 
-.. image:: img/tutovec12.png
+![](img/tutovec12.png)
 
 For 3D math, Godot provides a `Plane`
 built-in type that handles this.
@@ -196,7 +196,7 @@ We go through all planes, if we can find a plane where the distance to
 the point is positive, then the point is outside the polygon. If we
 can't, then the point is inside.
 
-.. image:: img/tutovec13.png
+![](img/tutovec13.png)
 
 Code should be something like this:
 
@@ -223,7 +223,7 @@ With another polygon, we must find a plane where *all* *the* *other*
 performed with the planes of A against the points of B, and then with
 the planes of B against the points of A:
 
-.. image:: img/tutovec14.png
+![](img/tutovec14.png)
 
 Code should be something like this:
 
@@ -295,13 +295,13 @@ In 3D though, there is a problem to this approach, because it is
 possible that, in some cases a separating plane can't be found. This is
 an example of such situation:
 
-.. image:: img/tutovec22.png
+![](img/tutovec22.png)
 
 To avoid it, some extra planes need to be tested as separators, these
 planes are the cross product between the edges of polygon A and the
 edges of polygon B
 
-.. image:: img/tutovec23.png
+![](img/tutovec23.png)
 
 So the final algorithm is something like:
 

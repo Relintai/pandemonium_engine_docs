@@ -16,7 +16,7 @@ class also supports HTTPS by using this same wrapper.
 Godot includes SSL certificates from Mozilla, but you can provide your own
 with a .crt file in the project settings:
 
-.. image:: img/ssl_certs.png
+![](img/ssl_certs.png)
 
 This file should contain any number of public certificates in
 `PEM format <https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail>`__.
@@ -24,7 +24,7 @@ This file should contain any number of public certificates in
 Of course, remember to add .crt as filter so the exporter recognizes
 this when exporting your project.
 
-.. image:: img/add_crt.png
+![](img/add_crt.png)
 
 There are two ways to obtain certificates:
 

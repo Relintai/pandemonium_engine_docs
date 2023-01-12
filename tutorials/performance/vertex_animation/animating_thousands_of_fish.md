@@ -22,7 +22,7 @@ and add a new `ShaderMaterial`.
 
 Here is the fish we will be using for the example images, you can use any fish model you like.
 
-.. image:: img/fish.png
+![](img/fish.png)
 
 .. note:: The fish model in this tutorial is made by `QuaterniusDev <http://quaternius.com>`_ and is
           shared with a creative commons license. CC0 1.0 Universal (CC0 1.0) Public Domain
@@ -68,7 +68,7 @@ of `cos(time)`.
 
 The resulting animation should look something like this:
 
-.. image:: img/sidetoside.gif
+![](img/sidetoside.gif)
 
 Next, we add the pivot. Because the fish is centered at (0, 0), all we have to do is multiply `VERTEX` by a
 rotation matrix for it to rotate around the center of the fish.
@@ -90,7 +90,7 @@ And then we apply it in the `x` and `z` axes by multiplying it by `VERTEX.xz`.
 
 With only the pivot applied you should see something like this:
 
-.. image:: img/pivot.gif
+![](img/pivot.gif)
 
 The next two motions need to pan down the spine of the fish. For that, we need a new variable, `body`.
 `body` is a float that is `0` at the tail of the fish and `1` at its head.
@@ -112,7 +112,7 @@ This looks very similar to the side to side motion we defined above, but in this
 using `body` to offset `cos` each vertex along the spine has a different position in
 the wave making it look like a wave is moving along the fish.
 
-.. image:: img/wave.gif
+![](img/wave.gif)
 
 The last motion is the twist, which is a panning roll along the spine. Similarly to the pivot,
 we first construct a rotation matrix.
@@ -132,11 +132,11 @@ this to work, the fish's spine needs to be centered on the `z` axis.
 
 Here is the fish with twist applied:
 
-.. image:: img/twist.gif
+![](img/twist.gif)
 
 If we apply all these motions one after another, we get a fluid jelly-like motion.
 
-.. image:: img/all_motions.gif
+![](img/all_motions.gif)
 
 Normal fish swim mostly with the back half of their body. Accordingly, we need to limit the
 panning motions to the back half of the fish. To do this, we create a new variable, `mask`.
@@ -151,7 +151,7 @@ panning motions to the back half of the fish. To do this, we create a new variab
 
 Below is an image of the fish with `mask` used as `COLOR`:
 
-.. image:: img/mask.png
+![](img/mask.png)
 
 For the wave, we multiply the motion by `mask` which will limit it to the back half.
 
@@ -173,7 +173,7 @@ version. If we multiplied that by `mask`, we would shrink the fish.
 
 Putting the four motions together gives us the final animation.
 
-.. image:: img/all_motions_mask.gif
+![](img/all_motions_mask.gif)
 
 Go ahead and play with the uniforms in order to alter the swim cycle of the fish. You will
 find that you can create a wide variety of swim styles using these four motions.

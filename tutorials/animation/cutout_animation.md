@@ -57,7 +57,7 @@ For this tutorial, we will use as demo content the pieces of the
 `GBot <https://www.youtube.com/watch?v=S13FrWuBMx4&list=UUckpus81gNin1aV8WSffRKw>`__
 character, created by Andreas Esau.
 
-.. image:: img/tuto_cutout_walk.gif
+![](img/tuto_cutout_walk.gif)
 
 Get your assets: :download:`gbot_resources.zip <files/gbot_resources.zip>`.
 
@@ -66,31 +66,31 @@ Setting up the rig
 
 Create an empty Node2D as root of the scene, we will work under it:
 
-.. image:: img/tuto_cutout1.png
+![](img/tuto_cutout1.png)
 
 The first node of the model is the hip.
 Generally, both in 2D and 3D, the hip is the root of the skeleton. This
 makes it easier to animate:
 
-.. image:: img/tuto_cutout2.png
+![](img/tuto_cutout2.png)
 
 Next will be the torso. The torso needs to be a child of the hip, so
 create a child sprite and load the torso texture, later accommodate it properly:
 
-.. image:: img/tuto_cutout3.png
+![](img/tuto_cutout3.png)
 
 This looks good. Let's see if our hierarchy works as a skeleton by
 rotating the torso. We can do this be pressing :kbd:`E` to enter rotate mode,
 and dragging with the left mouse button. To exit rotate mode hit :kbd:`ESC`.
 
-.. image:: img/tutovec_torso1.gif
+![](img/tutovec_torso1.gif)
 
 The rotation pivot is wrong and needs to be adjusted.
 
 This small cross in the middle of the `Sprite` is
 the rotation pivot:
 
-.. image:: img/tuto_cutout4.png
+![](img/tuto_cutout4.png)
 
 Adjusting the pivot
 ~~~~~~~~~~~~~~~~~~~
@@ -98,25 +98,25 @@ Adjusting the pivot
 The pivot can be adjusted by changing the *offset* property in the
 Sprite:
 
-.. image:: img/tuto_cutout5.png
+![](img/tuto_cutout5.png)
 
 The pivot can also be adjusted *visually*. While hovering over the
 desired pivot point,  press :kbd:`V` to move the pivot there for the
 selected Sprite. There is also a tool in the tool bar that has a
 similar function.
 
-.. image:: img/tutovec_torso2.gif
+![](img/tutovec_torso2.gif)
 
 Continue adding body pieces, starting with the
 right arm. Make sure to put each sprite in its correct place in the hierarchy,
 so its rotations and translations are relative to its parent:
 
-.. image:: img/tuto_cutout6.png
+![](img/tuto_cutout6.png)
 
 With the left arm there's a problem. In 2D, child nodes appear in front of
 their parents:
 
-.. image:: img/tuto_cutout7.png
+![](img/tuto_cutout7.png)
 
 We want the left arm to appear *behind*
 the hip and the torso. We could move the left arm nodes behind the hip (above
@@ -142,12 +142,12 @@ Create another RemoteTransform2D node inside the first and call it `remote_hand_
 Use the `Remote Path` property of the two new nodes to target the `arm_l` and
 `hand_l` sprites respectively:
 
-.. image:: img/tuto_cutout9.png
+![](img/tuto_cutout9.png)
 
 Moving the `RemoteTransform2D` nodes now moves the sprites. So we can create
 animations by adjusting the `RemoteTransform2D` transforms:
 
-.. image:: img/tutovec_torso4.gif
+![](img/tutovec_torso4.gif)
 
 Completing the skeleton
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,7 +155,7 @@ Completing the skeleton
 Complete the skeleton by following the same steps for the rest of the
 parts. The resulting scene should look similar to this:
 
-.. image:: img/tuto_cutout10.png
+![](img/tuto_cutout10.png)
 
 The resulting rig will be easy to animate. By selecting the nodes and
 rotating them you can animate forward kinematics (FK) efficiently.
@@ -178,15 +178,15 @@ nodes are called skeletons.
 As an example, let's turn the right arm into a skeleton. To create
 a skeleton, a chain of nodes must be selected from top to bottom:
 
-.. image:: img/tuto_cutout11.png
+![](img/tuto_cutout11.png)
 
 Then, click on the Skeleton menu and select `Make Bones`.
 
-.. image:: img/tuto_cutout12.png
+![](img/tuto_cutout12.png)
 
 This will add bones covering the arm, but the result may be surprising.
 
-.. image:: img/tuto_cutout13.png
+![](img/tuto_cutout13.png)
 
 Why does the hand lack a bone? In Godot, a bone connects a
 node with its parent. And there's currently no child of the hand node.
@@ -197,12 +197,12 @@ but `Position2D` is preferred because it's
 visible in the editor. The endpoint node will ensure that the last bone
 has orientation.
 
-.. image:: img/tuto_cutout14.png
+![](img/tuto_cutout14.png)
 
 Now select the whole chain, from the endpoint to the arm and create
 bones:
 
-.. image:: img/tuto_cutout15.png
+![](img/tuto_cutout15.png)
 
 The result resembles a skeleton a lot more, and now the arm and forearm
 can be selected and animated.
@@ -216,11 +216,11 @@ Godot has connected the hip node to the scene root with a bone, and we don't
 want that. To fix this, select the root and hip node, open the Skeleton menu,
 click `clear bones`.
 
-.. image:: img/tuto_cutout15_2.png
+![](img/tuto_cutout15_2.png)
 
 Your final skeleton should look something like this:
 
-.. image:: img/tuto_cutout16.png
+![](img/tuto_cutout16.png)
 
 You might have noticed a second set of endpoints in the hands. This will make
 sense soon.
@@ -244,21 +244,21 @@ To create an IK chain, select a chain of bones from endpoint to
 the base for the chain. For example, to create an IK chain for the right
 leg, select the following:
 
-.. image:: img/tuto_cutout17.png
+![](img/tuto_cutout17.png)
 
 Then enable this chain for IK. Go to Edit > Make IK Chain.
 
-.. image:: img/tuto_cutout18.png
+![](img/tuto_cutout18.png)
 
 As a result, the base of the chain will turn *Yellow*.
 
-.. image:: img/tuto_cutout19.png
+![](img/tuto_cutout19.png)
 
 Once the IK chain is set-up grab any child or grand-child of the base of the
 chain (e.g. a foot) and move it. You'll see the rest of the chain adjust as you
 adjust its position.
 
-.. image:: img/tutovec_torso5.gif
+![](img/tutovec_torso5.gif)
 
 Animation tips
 ~~~~~~~~~~~~~~
@@ -273,7 +273,7 @@ Setting keyframes and excluding properties
 Special contextual elements appear in the top toolbar when the animation editor
 window is open:
 
-.. image:: img/tuto_cutout20.png
+![](img/tuto_cutout20.png)
 
 The key button inserts location, rotation, and scale keyframes for the
 selected objects or bones at the current playhead position.
@@ -310,7 +310,7 @@ toolbar.
 their current arrangement. This pose can now be recalled when necessary in
 your game by playing the "rest" animation you've created.
 
-.. image:: img/tuto_cutout21.png
+![](img/tuto_cutout21.png)
 
 Modifying rotation only
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -322,7 +322,7 @@ Location and scale are rarely used.
 So when inserting keys, you might find it convenient to have only the "rot"
 toggle active most of the time:
 
-.. image:: img/tuto_cutout22.png
+![](img/tuto_cutout22.png)
 
 This will avoid the creation of unwanted animation tracks for position
 and scale.
@@ -348,7 +348,7 @@ Node2D-inheriting nodes. When planning your rig, think about the movements it
 will need to perform and give some thought to how you'll use "Behind Parent"
 and/or RemoteTransform2D nodes. They provide overlapping functionality.
 
-.. image:: img/tuto_cutout23.png
+![](img/tuto_cutout23.png)
 
 Setting easing curves for multiple keys
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -360,7 +360,7 @@ To apply the same easing curve to multiple keyframes at once:
    will open the transition editor.
 3. In the transition editor, click on the desired curve to apply it.
 
-.. image:: img/tuto_cutout24.png
+![](img/tuto_cutout24.png)
 
 2D Skeletal deform
 ~~~~~~~~~~~~~~~~~~

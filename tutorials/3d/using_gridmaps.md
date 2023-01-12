@@ -31,7 +31,7 @@ To begin, you need a `MeshLibrary`, which is a collection
 of individual meshes that can be used in the gridmap. Open the "MeshLibrary_Source.tscn"
 scene to see an example of how to set up the mesh library.
 
-.. image:: img/gridmap_meshlibrary1.png
+![](img/gridmap_meshlibrary1.png)
 
 As you can see, this scene has a `Spatial` node as its root, and
 a number of `MeshInstance` node children.
@@ -46,14 +46,14 @@ You can manually assign a `StaticBody` and
 `CollisionShape` to each mesh. Alternatively, you can use the "Mesh" menu
 to automatically create the collision body based on the mesh data.
 
-.. image:: img/gridmap_create_body.png
+![](img/gridmap_create_body.png)
 
 Note that a "Convex" collision body will work better for simple meshes. For more
 complex shapes, select "Create Trimesh Static Body". Once each mesh has
 a physics body and collision shape assigned, your mesh library is ready to
 be used.
 
-.. image:: img/gridmap_mesh_scene.png
+![](img/gridmap_mesh_scene.png)
 
 
 Materials
@@ -78,7 +78,7 @@ geometry nodes below and bake the NavigationMesh.
     With small grid cells it is often necessary to reduce the NavigationMesh properties
     for agent radius and region minimum size.
 
-.. image:: img/meshlibrary_scene.png
+![](img/meshlibrary_scene.png)
 
 Nodes below the NavigationMeshInstance are ignored for the MeshLibrary scene export, so
 additional nodes can be added as source geometry just for baking the navmesh.
@@ -94,7 +94,7 @@ Exporting the MeshLibrary
 To export the library, click on Scene -> Convert To.. -> MeshLibrary.., and save it
 as a resource.
 
-.. image:: img/gridmap_export.png
+![](img/gridmap_export.png)
 
 You can find an already exported MeshLibrary in the project named "MeshLibrary.tres".
 
@@ -105,7 +105,7 @@ Create a new scene and add a GridMap node. Add the mesh library by dragging
 the resource file from the FileSystem dock and dropping it in the "Theme" property
 in the Inspector.
 
-.. image:: img/gridmap_main.png
+![](img/gridmap_main.png)
 
 The "Cell/Size" property should be set to the size of your meshes. You can leave
 it at the default value for the demo. Set the "Center Y" property to "Off".
@@ -117,18 +117,18 @@ and use Right-click.
 Click on the "GridMap" menu to see options and shortcuts. For example, pressing
 :kbd:`S` rotates a tile around the y-axis.
 
-.. image:: img/gridmap_menu.png
+![](img/gridmap_menu.png)
 
 Holding :kbd:`Shift` and dragging with the left mouse button will draw a selection
 box. You can duplicate or clear the selected area using the respective menu
 options.
 
-.. image:: img/gridmap_select.png
+![](img/gridmap_select.png)
 
 In the menu, you can also change the axis you're drawing on, as well as shift
 the drawing plane higher or lower on its axis.
 
-.. image:: img/gridmap_shift_axis.png
+![](img/gridmap_shift_axis.png)
 
 Using GridMap in code
 ---------------------

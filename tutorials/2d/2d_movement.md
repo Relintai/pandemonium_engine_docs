@@ -19,13 +19,13 @@ Setup
 -----
 
 Each example below uses the same scene setup. Start with a `KinematicBody2D` with two
-children: `Sprite` and `CollisionShape2D`. You can use the Godot icon ("icon.png")
+children: `Sprite` and `CollisionShape2D`. You can use the Godot icon ("icon.png)")
 for the Sprite's texture or use any other 2D image you have.
 
 Open `Project -> Project Settings` and select the "Input Map" tab. Add the following
 input actions (see `InputEvent <doc_inputevent>` for details):
 
-.. image:: img/movement_inputs.png
+![](img/movement_inputs.png)
 
 8-way movement
 --------------
@@ -34,7 +34,7 @@ In this scenario, you want the user to press the four directional keys (up/left/
 or W/A/S/D) and move in the selected direction. The name "8-way movement" comes from the
 fact that the player can move diagonally by pressing two keys at the same time.
 
-.. image:: img/movement_8way.gif
+![](img/movement_8way.gif)
 
 Add a script to the kinematic body and add the following code:
 
@@ -88,7 +88,7 @@ This type of movement is sometimes called "Asteroids-style" because it resembles
 how that classic arcade game worked. Pressing left/right rotates the character,
 while up/down moves it forward or backward in whatever direction it's facing.
 
-.. image:: img/movement_rotate1.gif
+![](img/movement_rotate1.gif)
 
 gdscript GDScript
 
@@ -135,7 +135,7 @@ This style of movement is a variation of the previous one. This time, the direct
 is set by the mouse position instead of the keyboard. The character will always
 "look at" the mouse pointer. The forward/back inputs remain the same, however.
 
-.. image:: img/movement_rotate2.gif
+![](img/movement_rotate2.gif)
 
 gdscript GDScript
 
@@ -176,7 +176,7 @@ Click-and-move
 This last example uses only the mouse to control the character. Clicking
 on the screen will cause the player to move to the target location.
 
-.. image:: img/movement_click.gif
+![](img/movement_click.gif)
 
 gdscript GDScript
 

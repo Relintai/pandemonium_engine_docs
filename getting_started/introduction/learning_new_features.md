@@ -21,7 +21,7 @@ explore broad topics while the search bar will help you find more specific
 pages. If a page exists for a given theme, it will often link to more related
 content.
 
-.. image:: img/manual_search.png
+![](img/manual_search.png)
 
 The manual has a companion class reference that explains each Godot class's
 available functions and properties when programming. While the manual covers
@@ -31,7 +31,7 @@ access it both online and offline. We recommend browsing the reference offline,
 from within the Godot editor. To do so, go to Help -> Search or press
 :kbd:`F1`.
 
-.. image:: img/manual_class_reference_search.png
+![](img/manual_class_reference_search.png)
 
 To browse it online, head to the manual's `Class Reference <toc-class-ref>`
 section.
@@ -42,7 +42,7 @@ A class reference's page tells you:
    links to jump to parent classes and see the properties and methods a type
    inherits.
 
-   .. image:: img/manual_class_reference_inheritance.png
+   ![](img/manual_class_reference_inheritance.png)
 
 2. A summary of the class's role and use cases.
 
@@ -116,7 +116,7 @@ information:
    the code you write affects nodes in your scenes. As a result, you should
    think of those scenes as part of your source code.
 
-   .. image:: img/key_concepts_scene_tree.png
+   ![](img/key_concepts_scene_tree.png)
 
    Also, please don't take a picture with your phone, the low quality and screen
    reflections can make it hard to understand the image. Your operating system

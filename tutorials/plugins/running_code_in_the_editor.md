@@ -85,7 +85,7 @@ gdscript GDScript
 
 Save the script and return to the editor. You should now see your object rotate. If you run the game, it will also rotate.
 
-.. image:: img/rotating_in_editor.gif
+![](img/rotating_in_editor.gif)
 
 .. note:: If you don't see the changes, reload the scene (close it and open it again).
 

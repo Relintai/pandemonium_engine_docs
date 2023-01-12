@@ -18,17 +18,17 @@ Importing the project
   **File > Open Folder...**.
 - Press :kbd:`Ctrl + Shift + P` to open the command prompt window and enter *Configure Task*.
 
-.. figure:: img/vscode_configure_task.png
+.. figure:: img/vscode_configure_task.png)
    :align: center
 
 - Select the **Create tasks.json file from template** option.
 
-.. figure:: img/vscode_create_tasksjson.png
+.. figure:: img/vscode_create_tasksjson.png)
    :align: center
 
 - Then select **Others**.
 
-.. figure:: img/vscode_create_tasksjson_others.png
+.. figure:: img/vscode_create_tasksjson_others.png)
    :align: center
 
 - Within the `tasks.json` file find the `"tasks"` array and add a new section to it:
@@ -66,7 +66,7 @@ js Windows
     }
 ```
 
-.. figure:: img/vscode_3_tasks.json.png
+.. figure:: img/vscode_3_tasks.json.png)
    :figclass: figure-w480
    :align: center
 
@@ -83,7 +83,7 @@ To run and debug the project you need to create a new configuration in the `laun
 - Press :kbd:`Ctrl + Shift + D` to open the Run panel.
 - If `launch.json` file is missing you will be prompted to create a new one.
 
-.. figure:: img/vscode_1_create_launch.json.png
+.. figure:: img/vscode_1_create_launch.json.png)
    :align: center
 
 - Select **C++ (GDB/LLDB)**. There may be another platform specific option here. If selected,
@@ -159,7 +159,7 @@ js Windows
     }
 ```
 
-.. figure:: img/vscode_2_launch.json.png
+.. figure:: img/vscode_2_launch.json.png)
    :figclass: figure-w480
    :align: center
 

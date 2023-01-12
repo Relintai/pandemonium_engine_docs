@@ -10,13 +10,13 @@ Importing the project
 
 - From the Qt Creator's main screen select **New Project > Import Project > Import Existing Project**.
 
-.. figure:: img/qtcreator-new-project.png
+.. figure:: img/qtcreator-new-project.png)
    :figclass: figure-w480
    :align: center
 
 - Under **Location** select the Godot root folder.
 
-.. figure:: img/qtcreator-set-project-path.png
+.. figure:: img/qtcreator-set-project-path.png)
    :figclass: figure-w480
    :align: center
 
@@ -25,14 +25,14 @@ Importing the project
   `*.glsl` for shader files, `*.py` for buildsystem files,
   `*.java` for Android platform development, `*.mm` for macOS platform development.
 
-.. figure:: img/qtcreator-apply-import-filter.png
+.. figure:: img/qtcreator-apply-import-filter.png)
    :figclass: figure-w480
    :align: center
 
 .. note:: You can change this configuration later by right-clicking on your project
           and selecting the **Edit Files...** option.
 
-          .. figure:: img/qtcreator-edit-files-menu.png
+          .. figure:: img/qtcreator-edit-files-menu.png)
             :figclass: figure-w480
             :align: center
 
@@ -41,14 +41,14 @@ Importing the project
 - Open the `project_name.includes` file and add a line containing `.` to it
   to correctly enable the code completion.
 
-.. figure:: img/qtcreator-project-name-includes.png
+.. figure:: img/qtcreator-project-name-includes.png)
    :figclass: figure-w480
    :align: center
 
 - From the left-side menu select **Projects** and open the **Build** tab.
 - Delete the predefined `make` build step.
 
-.. figure:: img/qtcreator-projects-build.png
+.. figure:: img/qtcreator-projects-build.png)
    :figclass: figure-w480
    :align: center
 
@@ -61,7 +61,7 @@ Importing the project
   | Arguments | See `doc_introduction_to_the_buildsystem` for a full list of arguments. |
   +-----------+------------------------------------------------------------------------------+
 
-.. figure:: img/qtcreator-set-scons-command.png
+.. figure:: img/qtcreator-set-scons-command.png)
    :figclass: figure-w480
    :align: center
 
@@ -80,7 +80,7 @@ Debugging the project
 - If you want to run a specific project, specify its root folder under **Working directory**.
 - If you want to run the editor, add `-e` to the **Command line arguments** field.
 
-.. figure:: img/qtcreator-run-command.png
+.. figure:: img/qtcreator-run-command.png)
    :figclass: figure-w480
    :align: center
 
@@ -95,7 +95,7 @@ and the IDE should help them follow it. By default, Qt Creator uses spaces
 for indentation which doesn't match the Godot code style guidelines. You can
 change this behavior by changing the **Code Style** in **Tools > Options > C++**.
 
-.. figure:: img/qtcreator-options-cpp.png
+.. figure:: img/qtcreator-options-cpp.png)
    :figclass: figure-w480
    :align: center
 
@@ -103,7 +103,7 @@ Click on **Edit** to change the current settings, then click on
 **Copy Built-in Code Style** button to set a new code style. Set a name for it
 (e.g. Godot) and change the Tab policy to be **Tabs Only**.
 
-.. figure:: img/qtcreator-edit-codestyle.png
+.. figure:: img/qtcreator-edit-codestyle.png)
    :figclass: figure-w480
    :align: center
 

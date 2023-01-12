@@ -33,7 +33,7 @@ To change the import parameters of an asset in Godot (again, keep in mind
 import parameters are only present in non-native Godot resource types)
 select the relevant resource in the filesystem dock:
 
-.. image:: img/asset_workflow1.png
+![](img/asset_workflow1.png)
 
 Then, after adjusting the parameters, press "Reimport". These parameters
 will only be used for this asset and on future reimports.
@@ -51,7 +51,7 @@ those specific parameters changed. To do this, select every asset you want
 to reimport in the file system. In the import tab there will now be a
 checkbox to the left of every import parameter.
 
-.. image:: img/reimport_multiple.png
+![](img/reimport_multiple.png)
 
 Select the checkbox of the parameters you want to change on your imported
 assets, then change the parameters normally. Finally, click the reimport
@@ -71,11 +71,11 @@ Files generated
 Importing will add an extra `<asset>.import` file, containing the import
 configuration. Make sure to commit these to your version control system!
 
-.. image:: img/asset_workflow4.png
+![](img/asset_workflow4.png)
 
 Additionally, extra assets will be preset in the hidden `res://.import` folder:
 
-.. image:: img/asset_workflow5.png
+![](img/asset_workflow5.png)
 
 If any of the files present in this folder is erased (or the whole folder), the
 asset or assets will be reimported automatically. As such, committing this folder
@@ -90,7 +90,7 @@ Some source assets can be imported as different types of resources.
 For this, select the relevant type of resource desired and
 press "Reimport":
 
-.. image:: img/asset_workflow2.png
+![](img/asset_workflow2.png)
 
 
 Changing default import parameters
@@ -101,7 +101,7 @@ Changing the defaults per project can be achieved by using the
 "Preset.." Menu. Besides some resource types offering presets,
 the default setting can be saved and cleared too:
 
-.. image:: img/asset_workflow3.png
+![](img/asset_workflow3.png)
 
 Simplicity is key!
 ------------------

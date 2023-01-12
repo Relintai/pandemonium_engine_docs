@@ -34,7 +34,7 @@ Creating a ShaderMaterial
 Create a new ShaderMaterial in some object of your choice. Go to the
 "Material" property and create a ShaderMaterial.
 
-.. image:: img/shader_material_create.png
+![](img/shader_material_create.png)
 
 Next, click on the shader material to see its properties. From here you
 can create a shader or visual shader. Regular shaders use code to set
@@ -45,22 +45,22 @@ However you can't convert a text shader to a visual shader.
 
 Choose one of them and you can start editing your shader.
 
-.. image:: img/shader_create.png
+![](img/shader_create.png)
 
 If you create a regular shader click on it and the shader editor will open.
 
-.. image:: img/shader_material_editor.png
+![](img/shader_material_editor.png)
 
 If you create a visual shader the visual shader editor will open automatically.
 
-.. image:: img/visual_shader_editor.png
+![](img/visual_shader_editor.png)
 
 In the visual shader editor you can click a button and see what your visual
 shader looks like as shader code. This can be useful if you're trying to
 replicate a text shader as nodes, or it can be used as a preview for converting
 your visual shader to a text shader.
 
-.. image:: img/visual_shader_code.png
+![](img/visual_shader_code.png)
 
 .. note::
 
@@ -73,7 +73,7 @@ It is possible to convert from SpatialMaterial, CanvasItemMaterial and
 ParticlesMaterial to ShaderMaterial. To do so, go to the material properties
 and select the convert option.
 
-.. image:: img/shader_material_convert.png
+![](img/shader_material_convert.png)
 
 .. note::
 

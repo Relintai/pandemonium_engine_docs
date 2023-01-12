@@ -81,7 +81,7 @@ Examples
     # but only in scripts in "tool" mode.
 
     # String is a path to a PNG file in the global filesystem.
-    export(String, FILE, GLOBAL, "*.png") var tool_image
+    export(String, FILE, GLOBAL, "*.png)") var tool_image
     # String is a path to a directory in the global filesystem.
     export(String, DIR, GLOBAL) var tool_dir
 

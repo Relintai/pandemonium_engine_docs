@@ -24,7 +24,7 @@ In 2D space, coordinates are defined using a horizontal axis (`x`) and
 a vertical axis (`y`). A particular position in 2D space is written
 as a pair of values such as `(4, 3)`.
 
-.. image:: img/vector_axis1.png
+![](img/vector_axis1.png)
 
 .. note:: If you're new to computer graphics, it might seem odd that the
           positive `y` axis points **downwards** instead of upwards,
@@ -36,7 +36,7 @@ way. However, we can also think of the position `(4, 3)` as an **offset**
 from the `(0, 0)` point, or **origin**. Draw an arrow pointing from
 the origin to the point:
 
-.. image:: img/vector_xy1.png
+![](img/vector_xy1.png)
 
 This is a **vector**. A vector represents a lot of useful information. As
 well as telling us that the point is at `(4, 3)`, we can also think of
@@ -48,7 +48,7 @@ A very important point to consider about vectors is that they only
 represent **relative** direction and magnitude. There is no concept of
 a vector's position. The following two vectors are identical:
 
-.. image:: img/vector_xy2.png
+![](img/vector_xy2.png)
 
 Both vectors represent a point 4 units to the right and 3 units below some
 starting point. It does not matter where on the plane you draw the vector,
@@ -103,7 +103,7 @@ gdscript GDScript
 We can also see this visually by adding the second vector at the end of
 the first:
 
-.. image:: img/vector_add1.png
+![](img/vector_add1.png)
 
 Note that adding `a + b` gives the same result as `b + a`.
 
@@ -122,7 +122,7 @@ gdscript GDScript
     var d = b / 3  # (3, 6) / 3 = (1, 2)
 ```
 
-.. image:: img/vector_mult1.png
+![](img/vector_mult1.png)
 
 .. note:: Multiplying a vector by a scalar does not change its direction,
           only its magnitude. This is how you **scale** a vector.
@@ -141,7 +141,7 @@ a velocity vector of `(2,1)`. The velocity vector represents how far the
 ship moves each step. We can find the position for step 2 by adding
 the velocity to the current position.
 
-.. image:: img/vector_movement1.png
+![](img/vector_movement1.png)
 
 .. tip:: Velocity measures the **change** in position per unit of time. The
          new position is found by adding velocity to the previous position.
@@ -153,7 +153,7 @@ In this scenario, you have a tank that wishes to point its turret at a
 robot. Subtracting the tank's position from the robot's position gives the
 vector pointing from the tank to the robot.
 
-.. image:: img/vector_subtract2.png
+![](img/vector_subtract2.png)
 
 .. tip:: To find a vector pointing from `A` to `B` use `B - A`.
 
@@ -194,7 +194,7 @@ operations involving surfaces.
 For example, imagine we have a moving ball that we want to bounce off a
 wall or other object:
 
-.. image:: img/vector_reflect1.png
+![](img/vector_reflect1.png)
 
 The surface normal has a value of `(0, -1)` because this is a horizontal
 surface. When the ball collides, we take its remaining motion (the amount
@@ -225,11 +225,11 @@ direction, a scalar value has only magnitude.
 
 The formula for dot product takes two common forms:
 
-.. image:: img/vector_dot1.png
+![](img/vector_dot1.png)
 
 and
 
-.. image:: img/vector_dot2.png
+![](img/vector_dot2.png)
 
 However, in most cases it is easiest to use the built-in method. Note that
 the order of the two vectors does not matter:
@@ -245,7 +245,7 @@ The dot product is most useful when used with unit vectors, making the
 first formula reduce to just `cosθ`. This means we can use the dot
 product to tell us something about the angle between two vectors:
 
-.. image:: img/vector_dot3.png
+![](img/vector_dot3.png)
 
 When using unit vectors, the result will always be between `-1` (180°)
 and `1` (0°).
@@ -257,7 +257,7 @@ We can use this fact to detect whether an object is facing toward another
 object. In the diagram below, the player `P` is trying to avoid the
 zombies `A` and `B`. Assuming a zombie's field of view is **180°**, can they see the player?
 
-.. image:: img/vector_facing2.png
+![](img/vector_facing2.png)
 
 The green arrows `fA` and `fB` are **unit vectors** representing the
 zombies' facing directions and the blue semicircle represents its field of
@@ -285,9 +285,9 @@ However, the result of the cross product is a vector with a direction
 that is perpendicular to both. Its magnitude depends on their relative angle.
 If two vectors are parallel, the result of their cross product will be a null vector.
 
-.. image:: img/vector_cross1.png
+![](img/vector_cross1.png)
 
-.. image:: img/vector_cross2.png
+![](img/vector_cross2.png)
 
 The cross product is calculated like this:
 

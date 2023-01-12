@@ -10,7 +10,7 @@ This tutorial will introduce you to using the `Viewport` as a
 texture that can be applied to 3D objects. In order to do so, it will walk you through the process
 of making a procedural planet like the one below:
 
-.. image:: img/planet_example.png
+![](img/planet_example.png)
 
 .. note:: This tutorial does not cover how to code a dynamic atmosphere like the one this planet has.
 
@@ -37,7 +37,7 @@ Next, set the size of the `Viewport` to `(1024, 512)`. The
 The width needs to be double the height so that the image will accurately map onto the
 sphere, as we will be using equirectangular projection, but more on that later.
 
-.. image:: img/planet_new_viewport.png
+![](img/planet_new_viewport.png)
 
 Next, disable HDR and disable 3D. We don't need HDR because our planet's surface will not be especially
 bright, so values between `0` and `1` will be fine. And we will be using a `ColorRect`
@@ -48,7 +48,7 @@ Select the Viewport and add a `ColorRect` as a child.
 Set the anchors "Right" and "Bottom" to `1`, then make sure all the margins are set to `0`. This
 will ensure that the `ColorRect`.
 
-.. image:: img/planet_new_colorrect.png
+![](img/planet_new_colorrect.png)
 
 Next, we add a `Shader Material `New ShaderMaterial`).
 
@@ -67,7 +67,7 @@ ColorRect > CanvasItem > Material > Material > click / Edit > ShaderMaterial > S
 
 The above code renders a gradient like the one below.
 
-.. image:: img/planet_gradient.png
+![](img/planet_gradient.png)
 
 Now we have the basics of a `Viewport` that we render to and we have a unique image that we can
 apply to the sphere.
@@ -87,15 +87,15 @@ Open the newly created `SpatialMaterial` and scroll down to the "Albedo" section
 and click beside the "Texture" property to add an Albedo Texture. Here we will apply the texture we made.
 Choose "New ViewportTexture"
 
-.. image:: img/planet_new_viewport_texture.png
+![](img/planet_new_viewport_texture.png)
 
 Then, from the menu that pops up, select the Viewport that we rendered to earlier.
 
-.. image:: img/planet_pick_viewport_texture.png
+![](img/planet_pick_viewport_texture.png)
 
 Your sphere should now be colored in with the colors we rendered to the Viewport.
 
-.. image:: img/planet_seam.png
+![](img/planet_seam.png)
 
 Notice the ugly seam that forms where the texture wraps around? This is because we are picking
 a color based on UV coordinates and UV coordinates do not wrap around the texture. This is a classic
@@ -115,7 +115,7 @@ the sphere in a nice way? One solution is to use a function that repeats on the 
 
     COLOR.xyz = vec3(sin(UV.x * 3.14159 * 4.0) * cos(UV.y * 3.14159 * 4.0) * 0.5 + 0.5);
 
-.. image:: img/planet_sincos.png
+![](img/planet_sincos.png)
 
 Not too bad. If you look around, you can see that the seam has now disappeared, but in its place, we
 have pinching at the poles. This pinching is due to the way Godot maps textures to spheres in its
@@ -148,7 +148,7 @@ coordinates.
 
 And if we use `unit` as an output `COLOR` value, we get:
 
-.. image:: img/planet_normals.png
+![](img/planet_normals.png)
 
 Now that we can calculate the 3D position of the surface of the sphere, we can use 3D noise
 to make the planet. We will be using this noise function directly from a `Shadertoy <https://www.shadertoy.com/view/Xsl3Dl>`_:
@@ -187,7 +187,7 @@ Now to use `noise`, add the following to the    `fragment` function:
     float n = noise(unit * 5.0);
     COLOR.xyz = vec3(n * 0.5 + 0.5);
 
-.. image:: img/planet_noise.png
+![](img/planet_noise.png)
 
 .. note:: In order to highlight the texture, we set the material to unshaded.
 
@@ -215,7 +215,7 @@ all alien planets need red terrain). And finally, they are mixed together by `n 
 `n` smoothly varies between `-1` and `1`. So we map it into the `0-1` range that `mix` expects.
 Now you can see that the colors change between blue and red.
 
-.. image:: img/planet_noise_color.png
+![](img/planet_noise_color.png)
 
 That is a little more blurry than we want. Planets typically have a relatively clear separation between
 land and sea. In order to do that, we will change the last term to `smoothstep(-0.1, 0.0, n)`.
@@ -230,7 +230,7 @@ third argument is larger than the second and smoothly blends between `0` and `1`
 is between the first and the second. So in this line, `smoothstep` returns `0` whenever `n` is less than `-0.1`
 and it returns `1` whenever `n` is above `0`.
 
-.. image:: img/planet_noise_smooth.png
+![](img/planet_noise_smooth.png)
 
 One more thing to make this a little more planet-y. The land shouldn't be so blobby; let's make the edges
 a little rougher. A trick that is often used in shaders to make rough looking terrain with noise is
@@ -248,11 +248,11 @@ instead of just one. `n` becomes:
 
 And now the planet looks like:
 
-.. image:: img/planet_noise_fbm.png
+![](img/planet_noise_fbm.png)
 
 And with shading turned back on, it looks like:
 
-.. image:: img/planet_noise_fbm_shaded.png
+![](img/planet_noise_fbm_shaded.png)
 
 Making an ocean
 ---------------
@@ -277,7 +277,7 @@ Next, under the "Roughness" section, set `Roughness` to `1` and set the roughnes
 Finally, set the `Texture Channel` to `Alpha`. This instructs the renderer to use the `alpha`
 channel of our output `COLOR` as the `Roughness` value.
 
-.. image:: img/planet_ocean.png
+![](img/planet_ocean.png)
 
 You'll notice that very little changes except that the planet is no longer reflecting the sky.
 This is happening because, by default, when something is rendered with an
@@ -300,6 +300,6 @@ Now the planet should look like it is reflecting light on the ocean but not the 
 so already, add an `OmniLight` to the scene so you can move it around and see the
 effect of the reflections on the ocean.
 
-.. image:: img/planet_ocean_reflect.png
+![](img/planet_ocean_reflect.png)
 
 And there you have it. A procedural planet generated using a `Viewport`.

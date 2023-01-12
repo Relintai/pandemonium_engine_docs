@@ -32,27 +32,27 @@ Using the Node dock
 You can add nodes in the current scene to groups using the Groups tab in the
 Node dock.
 
-.. image:: img/groups_node_tab.png
+![](img/groups_node_tab.png)
 
 Select one or more nodes in the Scene dock and write the group name in the
 field, then click Add.
 
-.. image:: img/groups_add_node_to_group.png
+![](img/groups_add_node_to_group.png)
 
 You should now see the group appear.
 
-.. image:: img/groups_node_after_adding.png
+![](img/groups_node_after_adding.png)
 
 In a complex project, you may end up with many groups or large scenes with many
 nodes. You can add or remove any node to groups using the Group Editor window.
 To access it, click the Manage Groups button.
 
-.. image:: img/groups_manage_groups_button.png
+![](img/groups_manage_groups_button.png)
 
 The Group Editor window appears. Here's a screenshot from a complex project to
 illustrate the tool's purpose.
 
-.. image:: img/groups_group_editor_window.png
+![](img/groups_group_editor_window.png)
 
 It has three columns:
 

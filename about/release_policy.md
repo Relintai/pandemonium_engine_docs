@@ -116,10 +116,10 @@ on GitHub.
 | Godot 1.0   | December 2014        | |eol| No longer supported.                                               |
 +-------------+----------------------+--------------------------------------------------------------------------+
 
-.. |supported| image:: img/supported.png
-.. |partial| image:: img/partial.png
-.. |eol| image:: img/eol.png
-.. |unstable| image:: img/unstable.png
+.. |supported| image:: img/supported.png)
+.. |partial| image:: img/partial.png)
+.. |eol| image:: img/eol.png)
+.. |unstable| image:: img/unstable.png)
 
 **Legend:**
 |supported| Full support –

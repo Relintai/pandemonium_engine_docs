@@ -9,7 +9,7 @@ Godot can be used with an external text editor, such as Sublime Text or Visual
 Studio Code. Browse to the relevant editor settings: `Editor -> Editor Settings
 -> Text Editor -> External`
 
-.. image:: img/editor_settings.png
+![](img/editor_settings.png)
 
 There are two fields: the executable path and command-line flags. The flags
 allow you to integrate the editor with Godot, passing it the file path to open

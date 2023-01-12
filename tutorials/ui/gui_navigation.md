@@ -31,7 +31,7 @@ takes across the user interface of your project. The settings for individual
 nodes can be found in the Inspector dock, under the "Focus" category of the
 "Control" section.
 
-.. image:: img/focus_settings.png
+![](img/focus_settings.png)
 
 Neighbor options are used to define nodes for 4-directional navigation, such
 as using arrow keys or a D-pad on a controller. For example, the bottom neighbor

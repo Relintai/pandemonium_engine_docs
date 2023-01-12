@@ -15,7 +15,7 @@ optimized for drawing large numbers of tiles. Finally, you can add collision,
 occlusion, and navigation shapes to tiles, adding additional functionality to
 the TileMap.
 
-.. image:: img/tileset_draw_atlas.png
+![](img/tileset_draw_atlas.png)
 
 Project setup
 -------------
@@ -24,7 +24,7 @@ This demo will use the following tiles taken from Kenney's "Abstract Platformer"
 art pack. You can find the complete set `here <https://kenney.nl/assets/abstract-platformer>`_
 but for this demo we'll stick to this small set.
 
-.. image:: img/tilesheet.png
+![](img/tilesheet.png)
 
 Create a new project and place the above image in the project folder.
 
@@ -40,12 +40,12 @@ Add a new `TileMap` node to the scene. By default, a TileMap
 uses a square grid of tiles. You can also use a perspective-based "Isometric" mode
 or define your own custom tile shape.
 
-.. image:: img/tilemap_mode.png
+![](img/tilemap_mode.png)
 
 Under the "Cell" section in the Inspector are many properties you can adjust to
 customize your tilemap's behavior:
 
-.. image:: img/tilemap_size.png
+![](img/tilemap_size.png)
 
 - `Cell Size`
     This defines the size of the grid. This should match the pixel size
@@ -79,32 +79,32 @@ runs, the TileMap combines the individual tiles into a single object.
 To add a new TileSet, click on the "Tile Set" property and select "New
 TileSet".
 
-.. image:: img/tilemap_add_tileset.png
+![](img/tilemap_add_tileset.png)
 
 Click on the TileSet property, and the "TileSet" panel will open at the bottom
 of the editor window:
 
-.. image:: img/tilemap_tool.png
+![](img/tilemap_tool.png)
 
 First, you need to add the texture(s) that you'll use for the tiles. Click the
-"Add Texture(s) to TileSet" button and select the `tilesheet.png` image.
+"Add Texture(s) to TileSet" button and select the `tilesheet.png)` image.
 
 Next, click "New Single Tile" and drag in the image to select the tile you want.
 Click the "Enable Snap" button to make it easier to select the entire tile. A
 yellow rectangle appears around the selected tile.
 
-.. image:: img/tilemap_add_tile.png
+![](img/tilemap_add_tile.png)
 
 Click on the TileMap in the scene tree, and you'll see that the newly created
 tile now appears on the right side. Click in the viewport and you can place
 tiles. Right-click to remove them.
 
-.. image:: img/tilemap_draw.png
+![](img/tilemap_draw.png)
 
 It's easy to accidentally select and move the tilemap node. To avoid this, use
 the node's lock button:
 
-.. image:: img/tile_lock.png
+![](img/tile_lock.png)
 
 Collision shapes
 ----------------
@@ -119,7 +119,7 @@ tool. Click the tile you previously defined (outlined in yellow). Select the
 still have grid snap enabled, then click and drag in the tile. A square
 collision shape appears in light blue:
 
-.. image:: img/tileset_add_collision.png
+![](img/tileset_add_collision.png)
 
 You can add occlusion and navigation shapes to the tile in the same way.
 
@@ -132,13 +132,13 @@ tiles from the group.
 
 Click "New Atlas" and drag to select the entire tile sheet.
 
-.. image:: img/tileset_atlas.png
+![](img/tileset_atlas.png)
 
 If you haven't already, make sure to change the "Step" in the snap settings to
 `(64, 64)`, or your tiles may be chopped into smaller pieces. You can find
 this in the Inspector:
 
-.. image:: img/tileset_snap.png
+![](img/tileset_snap.png)
 
 Once you've defined the atlas you can add collision shapes to the individual
 tiles as before. You can also click "Icon" to select one of the tiles to represent
@@ -147,7 +147,7 @@ the atlas.
 Back in the TileMap, you can select the atlas tile and you'll see all of the
 tiles it contains:
 
-.. image:: img/tileset_draw_atlas.png
+![](img/tileset_draw_atlas.png)
 
 In addition to saving time when defining the tiles, this can help by grouping
 similar tiles together when you're working with a large number of tiles.
@@ -221,7 +221,7 @@ Key:
 - Red: "on"
 - White: "off"
 
-.. image:: img/autotile_template_2x2.png
+![](img/autotile_template_2x2.png)
 
 3x3 (minimal)
 ~~~~~~~~~~~~~
@@ -254,7 +254,7 @@ Key:
 - Red: "on"
 - White: "off"
 
-.. image:: img/autotile_template_3x3_minimal.png
+![](img/autotile_template_3x3_minimal.png)
 
 
 **Template - Generic 16 tiles:**
@@ -268,7 +268,7 @@ Key:
 - White: "off"
 - Blue-checkered: "ignore"
 
-.. image:: img/autotile_template_3x3_minimal_16.png
+![](img/autotile_template_3x3_minimal_16.png)
 
 
 **Template - Top-down floor in 3/4 perspective:**
@@ -281,17 +281,17 @@ Key (applies to the four templates below):
 - Grey: hidden due to overlap
 - Transparent: air
 
-.. image:: img/autotile_template_3x3_minimal_topdown_floor.png
+![](img/autotile_template_3x3_minimal_topdown_floor.png)
 
 **Template - Top-down wall in 3/4 perspective:**
 
-.. image:: img/autotile_template_3x3_minimal_topdown_walls.png
+![](img/autotile_template_3x3_minimal_topdown_walls.png)
 
 **Template - Top-down wall in 3/4 perspective (thick walls):**
 
 When using this template, set the TileSet subtile size to `Vector2(64, 88)`.
 
-.. image:: img/autotile_template_3x3_minimal_topdown_walls_thick.png
+![](img/autotile_template_3x3_minimal_topdown_walls_thick.png)
 
 **Template - Top-down wall in 3/4 perspective (tall walls):**
 
@@ -299,7 +299,7 @@ When using this template, set the "Snap Options" Step to `Vector2(64, 184)`
 and the "Selected Tile" Texture offset to height minus the cell size.
 This means the texture offset should be `Vector2(0, -120)`:
 
-.. image:: img/autotile_template_3x3_minimal_topdown_walls_tall.png
+![](img/autotile_template_3x3_minimal_topdown_walls_tall.png)
 
 3x3
 ~~~
@@ -351,4 +351,4 @@ Tips and tricks
 - Tools such as copy, paste, and bucket fill, can be found in the "TileMap"
   menu in the upper-right.
 
-.. image:: img/tilemap_menu.png
+![](img/tilemap_menu.png)

@@ -30,17 +30,17 @@ App is signed, notarized and distributed outside App Store
 
 When you run the app for the first time, the following dialog is displayed:
 
-.. image:: img/signed_and_notarized_0.png
+![](img/signed_and_notarized_0.png)
 
 Click `Open` to start the app.
 
 If you see the following warning dialog, your Mac is set up to allow apps only from the App Store.
 
-.. image:: img/signed_and_notarized_1.png
+![](img/signed_and_notarized_1.png)
 
 To allow third-party apps, open `System Preferences`, click `Security & Privacy`, then click `General`, unlock settings, and select `App Store and identified developers`.
 
-.. image:: img/sys_pref_0.png
+![](img/sys_pref_0.png)
 
 App is signed (including ad-hoc signatures) but not notarized
 -------------------------------------------------------------
@@ -51,21 +51,21 @@ App is signed (including ad-hoc signatures) but not notarized
 
 When you run the app for the first time, the following dialog is displayed:
 
-.. image:: img/signed_0.png
+![](img/signed_0.png)
 
 To run this app, you can temporarily override Gatekeeper:
 
 * Either open `System Preferences`, click `Security & Privacy`, then click `General`, and click `Open Anyway`.
 
-  .. image:: img/sys_pref_1.png
+  ![](img/sys_pref_1.png)
 
 * Or, right-click (Control-click) on the app icon in the Finder window and select `Open` from the menu.
 
-  .. image:: img/signed_1.png
+  ![](img/signed_1.png)
 
 * Then click `Open` in the confirmation dialog.
 
-  .. image:: img/signed_2.png
+  ![](img/signed_2.png)
 
 * Enter your password if you're prompted.
 
@@ -78,7 +78,7 @@ App is not-signed, executable is linker-signed
 
 When you run the app for the first time, the following dialog is displayed:
 
-.. image:: img/linker_signed_1.png
+![](img/linker_signed_1.png)
 
 To run this app, you should remove the quarantine extended file attribute manually:
 
@@ -99,7 +99,7 @@ Neither app nor executable is signed (relevant for Apple Silicon macs only)
 
 When you run the app for the first time, the following dialog is displayed:
 
-.. image:: img/unsigned_1.png
+![](img/unsigned_1.png)
 
 To run this app, you can ad-hoc sign it yourself:
 

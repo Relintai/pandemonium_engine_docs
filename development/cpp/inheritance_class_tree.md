@@ -4,26 +4,26 @@ Inheritance class tree
 Object
 ------
 
-.. image:: img/Object.png
+![](img/Object.png)
 
 Reference
 ---------
 
-.. image:: img/Reference.png
+![](img/Reference.png)
 
 Control
 -------
 
-.. image:: img/Control.png
+![](img/Control.png)
 
 Node2D
 ------
 
-.. image:: img/Node2D.png
+![](img/Node2D.png)
 
 Spatial
 -------
 
-.. image:: img/Spatial.png
+![](img/Spatial.png)
 
 Source files: :download:`tree.zip <files/class_tree.zip>`.

@@ -10,7 +10,7 @@ Importing the project
 
 - From the KDevelop's main screen select **Open Project**.
 
-.. figure:: img/kdevelop_newproject.png
+.. figure:: img/kdevelop_newproject.png)
    :figclass: figure-w480
    :align: center
 
@@ -19,14 +19,14 @@ Importing the project
 - Navigate to the Godot root folder and select it.
 - On the next screen, choose **Custom Build System** for the **Project Manager**.
 
-.. figure:: img/kdevelop_custombuild.png
+.. figure:: img/kdevelop_custombuild.png)
    :figclass: figure-w480
    :align: center
 
 - After the project has been imported, open the project configuration by right-clicking 
   on it in the **Projects** panel and selecting **Open Configuration..** option.
 
-.. figure:: img/kdevelop_openconfig.png
+.. figure:: img/kdevelop_openconfig.png)
    :figclass: figure-w480
    :align: center
 
@@ -42,7 +42,7 @@ Importing the project
      platform/<your_platform>/  // Replace <your_platform> with a folder 
                                    corresponding to your current platform
 
-.. figure:: img/kdevelop_addincludes.png
+.. figure:: img/kdevelop_addincludes.png)
    :figclass: figure-w480
    :align: center
 
@@ -59,7 +59,7 @@ Importing the project
   | Arguments       | See `doc_introduction_to_the_buildsystem` for a full list of arguments. |
   +-----------------+------------------------------------------------------------------------------+
 
-.. figure:: img/kdevelop_buildconfig.png
+.. figure:: img/kdevelop_buildconfig.png)
    :figclass: figure-w480
    :align: center
 
@@ -70,7 +70,7 @@ Debugging the project
 
 - Select **Run > Configure Launches...** from the top menu.
 
-.. figure:: img/kdevelop_configlaunches.png
+.. figure:: img/kdevelop_configlaunches.png)
    :figclass: figure-w480
    :align: center
 
@@ -79,7 +79,7 @@ Debugging the project
   the `<Godot root directory>/bin` folder. The name depends on your build configuration,
   e.g. `godot.x11.tools.64` for 64-bit X11 platform with `tools` enabled.
 
-.. figure:: img/kdevelop_configlaunches2.png
+.. figure:: img/kdevelop_configlaunches2.png)
    :figclass: figure-w480
    :align: center
 

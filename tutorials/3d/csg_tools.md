@@ -21,7 +21,7 @@ Interior environments can be created by using inverted primitives.
           `TrenchBroom <https://kristianduske.com/trenchbroom/>`__ and import
           them in Godot.
 
-.. image:: img/csg.gif
+![](img/csg.gif)
 
 Introduction to CSG nodes
 -------------------------
@@ -37,9 +37,9 @@ the CSG nodes:
 - `CSGMesh`
 - `CSGCombiner`
 
-.. image:: img/csg_nodes.png
+![](img/csg_nodes.png)
 
-.. image:: img/csg_mesh.png
+![](img/csg_mesh.png)
 
 CSG tools features
 ~~~~~~~~~~~~~~~~~~
@@ -52,9 +52,9 @@ Every CSG node supports 3 kinds of boolean operations:
 - **Subtraction:** The second shape is subtracted from the first, leaving a dent
   with its shape.
 
-.. image:: img/csg_operation_menu.png
+![](img/csg_operation_menu.png)
 
-.. image:: img/csg_operation.png
+![](img/csg_operation.png)
 
 CSGPolygon
 ~~~~~~~~~~
@@ -67,9 +67,9 @@ The `CSGPolygon` node extrude along a Polygon drawn in
 - **Path:** Extruded along a Path node. This operation is commonly called
   lofting.
 
-.. image:: img/csg_poly_mode.png
+![](img/csg_poly_mode.png)
 
-.. image:: img/csg_poly.png
+![](img/csg_poly.png)
 
 .. note:: The **Path** mode must be provided with a `Path`
           node to work. In the Path node, draw the path and the polygon in
@@ -88,7 +88,7 @@ supported. There are some restrictions for geometry:
 - it must not contain internal faces,
 - every edge must connect to only two other faces.
 
-.. image:: img/csg_custom_mesh.png
+![](img/csg_custom_mesh.png)
 
 CSGCombiner
 ~~~~~~~~~~~
@@ -133,14 +133,14 @@ Create a scene with a Spatial node as root node.
          the 3D viewport menu, or add a DirectionalLight node to help you see
          clearly.
 
-.. image:: img/csg_overdraw.png
+![](img/csg_overdraw.png)
 
 Create a CSGBox and name it `room`, enable **Invert Faces** and change the
 dimensions of your room.
 
-.. image:: img/csg_room.png
+![](img/csg_room.png)
 
-.. image:: img/csg_room_invert.png
+![](img/csg_room_invert.png)
 
 Next, create a CSGCombiner and name it `desk`.
 
@@ -153,7 +153,7 @@ A desk has one surface and 4 legs:
 
 Adjust their placement to resemble a desk.
 
-.. image:: img/csg_desk.png
+![](img/csg_desk.png)
 
 .. note:: CSG nodes inside a CSGCombiner will only process their operation
           within the combiner. Therefore, CSGCombiners are used to organize
@@ -165,22 +165,22 @@ Our bed consists of 3 parts: the bed, the mattress and a pillow. Create a CSGBox
 and adjust its dimension for the bed. Create another CSGBox and adjust its
 dimension for the mattress.
 
-.. image:: img/csg_bed_mat.png
+![](img/csg_bed_mat.png)
 
 We will create another CSGCombiner named `pillow` as the child of  `bed`.
 The scene tree should look like this:
 
-.. image:: img/csg_bed_tree.png
+![](img/csg_bed_tree.png)
 
 We will combine 3 CSGSphere nodes in **Union** mode to form a pillow. Scale the
 Y axis of the spheres and enable **Smooth Faces**.
 
-.. image:: img/csg_pillow_smooth.png
+![](img/csg_pillow_smooth.png)
 
 Select the `pillow` node and switch the mode to **Subtraction**; the combined
 spheres will cut a hole into the mattress.
 
-.. image:: img/csg_pillow_hole.png
+![](img/csg_pillow_hole.png)
 
 Try to re-parent the `pillow` node to the root `Spatial` node; the hole will
 disappear.
@@ -193,7 +193,7 @@ disappear.
 Undo the re-parent after observing the effect. The bed you've built should look
 like this:
 
-.. image:: img/csg_bed.png
+![](img/csg_bed.png)
 
 Create a CSGCombiner and name it `lamp`.
 
@@ -201,46 +201,46 @@ A lamp consists of 3 parts: the stand, the pole and the lampshade.
 Create a CSGCylinder, enable the **Cone** option and make it the stand. Create
 another CSGCylinder and adjust the dimensions to use it as a pole.
 
-.. image:: img/csg_lamp_pole_stand.png
+![](img/csg_lamp_pole_stand.png)
 
 We will use a CSGPolygon for the lampshade. Use the **Spin** mode for the
 CSGPolygon and draw a `trapezoid <https://en.wikipedia.org/wiki/Trapezoid>`_
 while in **Front View** (numeric keypad 1); this shape will extrude around the
 origin and form the lampshade.
 
-.. image:: img/csg_lamp_spin.png
+![](img/csg_lamp_spin.png)
 
-.. image:: img/csg_lamp_polygon.png
+![](img/csg_lamp_polygon.png)
 
-.. image:: img/csg_lamp_extrude.png
+![](img/csg_lamp_extrude.png)
 
 Adjust the placement of the 3 parts to make it look like a lamp.
 
-.. image:: img/csg_lamp.png
+![](img/csg_lamp.png)
 
 Create a CSGCombiner and name it `bookshelf`.
 
 We will use 3 CSGBox nodes for the bookshelf. Create a CSGBox and adjust its
 dimensions; this will be the size of the bookshelf.
 
-.. image:: img/csg_shelf_big.png
+![](img/csg_shelf_big.png)
 
 Duplicate the CSGBox and shorten the dimensions of each axis and change the mode
 to **Subtraction**.
 
-.. image:: img/csg_shelf_subtract.png
+![](img/csg_shelf_subtract.png)
 
-.. image:: img/csg_shelf_subtract_menu.png
+![](img/csg_shelf_subtract_menu.png)
 
 You've almost built a shelf. Create one more CSGBox for dividing the shelf into
 two levels.
 
-.. image:: img/csg_shelf.png
+![](img/csg_shelf.png)
 
 Position your furniture in your room as you like and your scene should look
 this:
 
-.. image:: img/csg_room_result.png
+![](img/csg_room_result.png)
 
 You've successfully prototyped a room level with the CSG tools in Godot.
 CSG tools can be used for designing all kinds of levels, such as a maze

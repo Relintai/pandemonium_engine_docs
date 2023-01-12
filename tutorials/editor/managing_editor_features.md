@@ -25,7 +25,7 @@ will open the **Manage Editor Feature Profiles** window. By default there
 will be no profile. Click on **Create Profile** and give it a name. You will
 then see a list of all the features in the Godot editor.
 
-..img:: img/configure_profile.png
+..img:: img/configure_profile.png)
 
 The first section allows major editor features to be removed, such as the 3D
 editor or scripting editor. Below the main features is every class and node in
@@ -33,7 +33,7 @@ Godot, which can be disabled as well. Click on a node and all of its properties
 and options will be listed in the **Extra Items** box, these can all be
 individually disabled.
 
-..img:: img/node_features.png
+..img:: img/node_features.png)
 
 Sharing a profile
 -----------------

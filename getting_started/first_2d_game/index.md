@@ -73,4 +73,4 @@ Contents
    06.heads_up_display
    07.finishing-up
 
-.. |image0| image:: img/dodge_preview.gif
+.. |image0| image:: img/dodge_preview.gif)

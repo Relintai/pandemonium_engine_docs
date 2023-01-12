@@ -78,7 +78,7 @@ These nodes allow you to draw the shape directly in the editor workspace.
                 the `Node2D` scale handles. Scaling a shape can result in unexpected
                 collision behavior.
 
-.. image:: img/player_coll_shape.png
+![](img/player_coll_shape.png)
 
 Physics process callback
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -130,7 +130,7 @@ Keeping track of what you're using each layer for can be difficult, so you
 may find it useful to assign names to the layers you're using. Names can
 be assigned in Project Settings -> Layer Names.
 
-.. image:: img/physics_layer_names.png
+![](img/physics_layer_names.png)
 
 GUI example
 ^^^^^^^^^^^
@@ -145,8 +145,8 @@ place each node type in its respective layer using the "Layer" property.
 Then set each node's "Mask" property by selecting the layers it should
 interact with. For example, the Player's settings would look like this:
 
-.. image:: img/player_collision_layers.png
-.. image:: img/player_collision_mask.png
+![](img/player_collision_layers.png)
+![](img/player_collision_mask.png)
 
 .. _doc_physics_introduction_collision_layer_code_example:
 

@@ -11,7 +11,7 @@ Building upon the previous lesson `doc_scripting_first_script`, let's look
 at another important feature of any game: giving control to the player.
 To add this, we need to modify our `Sprite.gd` code.
 
-.. image:: img/scripting_first_script_moving_with_input.gif
+![](img/scripting_first_script_moving_with_input.gif)
 
 You have two main tools to process the player's input in Godot:
 
@@ -122,7 +122,7 @@ gdscript GDScript
 If you run the scene, you should now be able to rotate with the left and right
 arrow keys and move forward by pressing :kbd:`Up`.
 
-.. image:: img/scripting_first_script_moving_with_input.gif
+![](img/scripting_first_script_moving_with_input.gif)
 
 Summary
 -------

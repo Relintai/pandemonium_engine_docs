@@ -73,14 +73,14 @@ To setup automatic signing on export you need to go to Editor Settings > Export 
 From there you need to click on the folder for `Signtool`, and navigate to
 the `SignTool.exe` file on your computer.
 
-.. image:: img/UWP_sign_tool.png
+![](img/UWP_sign_tool.png)
 
 After setting that up close the editor settings, go to Project > Export,
 and select the UWP preset. Under the `Signing` options click on the folder
 next to `Certificate` and go to the certificate file. Then enter the
 pfxPassword in the password field.
 
-.. image:: img/UWP_export_signing.png
+![](img/UWP_export_signing.png)
 
 Your project will now be automatically signed on export.
 

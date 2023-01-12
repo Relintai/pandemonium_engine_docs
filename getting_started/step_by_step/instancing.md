@@ -18,13 +18,13 @@ Here's an example of a ball. It's composed of a `RigidBody2D
 and bounce on walls, a `Sprite` node, and a
 `CollisionShape2D`.
 
-.. image:: img/instancing_ball_scene.png
+![](img/instancing_ball_scene.png)
 
 Once you saved a scene, it works as a blueprint: you can reproduce it in other
 scenes as many times as you'd like. Replicating an object from a template like
 this is called **instancing**.
 
-.. image:: img/instancing_ball_instances_example.png
+![](img/instancing_ball_instances_example.png)
 
 As we mentioned in the previous part, instanced scenes behave like a node: the
 editor hides their content by default. When you instance the Ball, you only see
@@ -45,44 +45,44 @@ you to download the ball's sample project we prepared for you:
 Extract the archive on your computer. Then, open Godot, and in the project
 manager, click the Import button to import the project.
 
-.. image:: img/instancing_import_button.png
+![](img/instancing_import_button.png)
 
 In the pop-up that appears, click the browse button and navigate to the folder
 you extracted.
 
-.. image:: img/instancing_import_browse.png
+![](img/instancing_import_browse.png)
 
 Double-click the `project.godot` file to open it.
 
-.. image:: img/instancing_import_project_file.png
+![](img/instancing_import_project_file.png)
 
 Finally, click the Import & Edit button.
 
-.. image:: img/instancing_import_and_edit_button.png
+![](img/instancing_import_and_edit_button.png)
 
 The project contains two packed scenes: `Main.tscn`, containing walls against
 which the ball collides, and `Ball.tscn`. The Main scene should open
 automatically.
 
-.. image:: img/instancing_main_scene.png
+![](img/instancing_main_scene.png)
 
 Let's add a ball as a child of the Main node. In the Scene dock, select the Main
 node. Then, click the link icon at the top of the scene dock. This button allows
 you to add an instance of a scene as a child of the currently selected node.
 
-.. image:: img/instancing_scene_link_button.png
+![](img/instancing_scene_link_button.png)
 
 Double-click the ball scene to instance it.
 
-.. image:: img/instancing_instance_child_window.png
+![](img/instancing_instance_child_window.png)
 
 The ball appears in the top-left corner of the viewport.
 
-.. image:: img/instancing_ball_instanced.png
+![](img/instancing_ball_instanced.png)
 
 Click on it and drag it towards the center of the view.
 
-.. image:: img/instancing_ball_moved.png
+![](img/instancing_ball_moved.png)
 
 Play the game by pressing F5. You should see it fall.
 
@@ -90,11 +90,11 @@ Now, we want to create more instances of the Ball node. With the ball still
 selected, press :kbd:`Ctrl-D` (:kbd:`Cmd-D` on macOS) to call the duplicate
 command. Click and drag to move the new ball to a different location.
 
-.. image:: img/instancing_ball_duplicated.png
+![](img/instancing_ball_duplicated.png)
 
 You can repeat this process until you have several in the scene.
 
-.. image:: img/instancing_main_scene_with_balls.png
+![](img/instancing_main_scene_with_balls.png)
 
 Play the game again. You should now see every ball fall independently from one
 another. This is what instances do. Each is an independent reproduction of a
@@ -117,12 +117,12 @@ There is more to instances. With this feature, you can:
 Let's try this. Open `Ball.tscn` and select the Ball node. In the Inspector on
 the right, click on the PhysicsMaterial property to expand it.
 
-.. image:: img/instancing_physics_material_expand.png
+![](img/instancing_physics_material_expand.png)
 
 Set its Bounce property to `2` by clicking on the number field, typing `2`,
 and pressing :kbd:`Enter`.
 
-.. image:: img/instancing_property_bounce_updated.png
+![](img/instancing_property_bounce_updated.png)
 
 Play the game by pressing :kbd:`F5` and notice how all balls now bounce a lot
 more. As the Ball scene is a template for all instances, modifying it and saving
@@ -131,16 +131,16 @@ causes all instances to update accordingly.
 Let's now adjust an individual instance. Head back to the Main scene by clicking
 on the corresponding tab above the viewport.
 
-.. image:: img/instancing_scene_tabs.png
+![](img/instancing_scene_tabs.png)
 
 Select one of the instanced Ball nodes and, in the Inspector, set its Gravity
 Scale value to `10`.
 
-.. image:: img/instancing_property_gravity_scale.png
+![](img/instancing_property_gravity_scale.png)
 
 A grey "revert" button appears next to the adjusted property.
 
-.. image:: img/instancing_property_revert_icon.png
+![](img/instancing_property_revert_icon.png)
 
 This icon indicates you are overriding a value from the source packed scene.
 Even if you modify the property in the original scene, the value override will
@@ -172,7 +172,7 @@ and structure your code around them.
 
 For example, you could break down a shooter game like so:
 
-.. image:: img/instancing_diagram_shooter.png
+![](img/instancing_diagram_shooter.png)
 
 You can come up with a diagram like this for almost any type of game. Each
 rectangle represents an entity that's visible in the game from the player's
@@ -191,7 +191,7 @@ scene instantiation means you need little other architectural code.
 Here's the example of a scene diagram for an open-world game with tons of assets
 and nested elements:
 
-.. image:: img/instancing_diagram_open_world.png
+![](img/instancing_diagram_open_world.png)
 
 Imagine we started by creating the room. We could make a couple of different
 room scenes, with unique arrangements of furniture in them. Later, we could make

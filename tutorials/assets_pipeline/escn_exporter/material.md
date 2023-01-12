@@ -20,7 +20,7 @@ exporter will fall back to exporting the material from Blender.
 Where the exporter searches for the `.tres` file is determined by the "Material
 Search Paths" option:
 
-.. image:: img/material_search.jpg
+![](img/material_search.jpg
 
 This can take the value of:
  - Project Directory - Attempts to find the `project.Godot` and recursively
@@ -62,8 +62,8 @@ The default configuration of material exporting would keep all the materials int
 the `escn` file. There is an option which could enable generating external `.material`
 file when the `escn` file opens in Godot.
 
-.. image:: img/external_mat_option.jpg
+![](img/external_mat_option.jpg
 
 `.material` file can be assigned to any material slot to be a external resource.
 
-.. image:: img/gd_dot_material.jpg
+![](img/gd_dot_material.jpg

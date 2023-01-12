@@ -34,14 +34,14 @@ They can then use a separate folder to store built levels that use them.
     /docs/.gdignore  # See "Ignoring specific folders" below
     /docs/learning.html
     /models/town/house/house.dae
-    /models/town/house/window.png
-    /models/town/house/door.png
+    /models/town/house/window.png)
+    /models/town/house/door.png)
     /characters/player/cubio.dae
-    /characters/player/cubio.png
+    /characters/player/cubio.png)
     /characters/enemies/goblin/goblin.dae
-    /characters/enemies/goblin/goblin.png
+    /characters/enemies/goblin/goblin.png)
     /characters/npcs/suzanne/suzanne.dae
-    /characters/npcs/suzanne/suzanne.png
+    /characters/npcs/suzanne/suzanne.png)
     /levels/riverdale/riverdale.scn
 
 Style guide

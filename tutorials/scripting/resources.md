@@ -33,7 +33,7 @@ types of Properties, like String, integer, Vector2, etc., and any of these types
 can become a resource. This means that both nodes and resources can contain
 resources as properties:
 
-.. image:: img/nodes_resources.png
+![](img/nodes_resources.png)
 
 External vs built-in
 --------------------
@@ -46,19 +46,19 @@ There are two ways to save resources. They can be:
 To be more specific, here's a `Texture`
 in a `Sprite` node:
 
-.. image:: img/spriteprop.png
+![](img/spriteprop.png)
 
 Clicking the resource preview allows us to view and edit the resource's properties.
 
-.. image:: img/resourcerobi.png
+![](img/resourcerobi.png)
 
 The path property tells us where the resource comes from. In this case, it comes
-from a PNG image called `robi.png`. When the resource comes from a file like
+from a PNG image called `robi.png)`. When the resource comes from a file like
 this, it is an external resource. If you erase the path or this path is empty,
 it becomes a built-in resource.
 
 The switch between built-in and external resources happens when you save the
-scene. In the example above, if you erase the path `"res://robi.png"` and
+scene. In the example above, if you erase the path `"res://robi.png)"` and
 save, Godot will save the image inside the `.tscn` scene file.
 
 .. note::
@@ -75,7 +75,7 @@ gdscript GDScript
 
 ```
     func _ready():
-            var res = load("res://robi.png") # Godot loads the Resource when it reads the line.
+            var res = load("res://robi.png)") # Godot loads the Resource when it reads the line.
             get_node("sprite").texture = res
 ```
 
@@ -87,7 +87,7 @@ gdscript GDScript
 
 ```
     func _ready():
-            var res = preload("res://robi.png") # Godot loads the resource at compile-time
+            var res = preload("res://robi.png)") # Godot loads the resource at compile-time
             get_node("sprite").texture = res
 ```
 

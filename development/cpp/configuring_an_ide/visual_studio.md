@@ -23,7 +23,7 @@ with the solution file, it can be generated using SCons.
 .. warning:: Visual Studio must be configured with the C++ package. It can be selected
              in the intaller:
 
-             .. figure:: img/vs_1_install_cpp_package.png
+             .. figure:: img/vs_1_install_cpp_package.png)
                 :align: center
 
 Debugging the project
@@ -41,7 +41,7 @@ project manager opens a project, the initial process is terminated and the debug
 - To configure the launch options to use with the debugger use **Project > Properties**
   from the top menu:
 
-.. figure:: img/vs_2_project_properties.png
+.. figure:: img/vs_2_project_properties.png)
    :align: center
 
 - Open the **Debugging** section and under **Command Arguments** add two new arguments: 
@@ -49,7 +49,7 @@ project manager opens a project, the initial process is terminated and the debug
   tells the executable to open the specified project (must be provided as an *absolute* path 
   to the project root, not the `project.godot` file).
 
-.. figure:: img/vs_3_debug_command_line.png
+.. figure:: img/vs_3_debug_command_line.png)
    :align: center
 
 To learn more about command line arguments, refer to the
@@ -61,7 +61,7 @@ process using **Debug > Attach to Process...** menu.
 To check that everything is working, put a breakpoint in `main.cpp` and press :kbd:`F5` to
 start debugging.
 
-.. figure:: img/vs_4_debugging_main.png
+.. figure:: img/vs_4_debugging_main.png)
    :align: center
 
 If you run into any issues, ask for help in one of

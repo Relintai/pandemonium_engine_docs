@@ -71,11 +71,11 @@ Enter the Editor Settings screen. This screen contains the editor
 settings for the user account in the computer (it's independent of the
 project).
 
-.. image:: img/editorsettings.png
+![](img/editorsettings.png)
 
 Scroll down to the section where the Android settings are located:
 
-.. image:: img/androidsdk.png
+![](img/androidsdk.png)
 
 In that screen, 2 paths need to be set:
 
@@ -136,7 +136,7 @@ Use Google's Android Developer guides to learn more about `APK signing <https://
 
 Now fill in the following forms in your Android Export Presets:
 
-.. image:: img/editor-export-presets-android.png
+![](img/editor-export-presets-android.png)
 
 - **Release:** Enter the path to the keystore file you just generated.
 - **Release User:** Replace with the key alias.
@@ -148,7 +148,7 @@ it to your `.gitignore` file or equivalent.
 
 Don't forget to uncheck the **Export With Debug** checkbox while exporting.
 
-.. image:: img/export-with-debug-button.png
+![](img/export-with-debug-button.png)
 
 Optimizing the APK size
 -----------------------

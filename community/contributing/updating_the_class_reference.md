@@ -13,7 +13,7 @@ the entire reference on their own. Godot needs you, and all of us, to
 contribute.
 
 **Important:** If you plan to make large changes, you should create an issue on
-the `godot-docs repository ( https://github.com/godotengine/godot-docs/ )`_
+the `godot-docs repository ( https://github.com/godotengine/godot-docs/ )`
 or comment on an existing issue. Doing so lets others know you're already
 taking care of a given class.
 
@@ -29,17 +29,17 @@ See also:
     language, see `doc_editor_and_docs_localization`.
 
     This guide is also available as a `video tutorial on YouTube
-    ( https://www.youtube.com/watch?v=5jeHXxeX-JY )`_.
+    ( https://www.youtube.com/watch?v=5jeHXxeX-JY )`.
 
 See also:
 
 
     Not sure which class to contribute to? Take a look at the class reference's
-    completion status `here ( https://godotengine.github.io/doc-status/ )`_.
+    completion status `here ( https://godotengine.github.io/doc-status/ )`.
 
 You can find the source files for the class reference in Godot's GitHub
 repository: `doc/classes/
-( https://github.com/godotengine/godot/tree/master/doc/classes )`_.
+( https://github.com/godotengine/godot/tree/master/doc/classes )`.
 
 Note:
  For some modules in the engine's source code, you'll find the XML
@@ -49,7 +49,7 @@ Warning:
  Always edit the API reference through these source XML files. Do
              not edit the generated `.rst` files `in the online documentation
              ( toc-class-ref )`, hosted in the `godot-docs
-             ( https://github.com/godotengine/godot-docs )`_ repository.
+             ( https://github.com/godotengine/godot-docs )` repository.
 
 Warning:
 

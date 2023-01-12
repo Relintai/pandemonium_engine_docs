@@ -139,8 +139,8 @@ gdscript GDScript
 
 
 Let's break it down. The `func` keyword defines a new function named
-`_init`. This is a special name for our class's constructor. The engine calls
-`_init()` on every object or node upon creating it in memory, if you define
+`init`. This is a special name for our class's constructor. The engine calls
+`init()` on every object or node upon creating it in memory, if you define
 this function.
 
 Note:
@@ -155,7 +155,7 @@ It should display "Hello, world!".
 
 ![](img/scripting_first_script_print_hello_world.png)
 
-Delete the `_init()` function, so you're only left with the line `extends
+Delete the `init()` function, so you're only left with the line `extends
 Sprite`.
 
 Turning around
@@ -183,7 +183,7 @@ Note:
           to calculate angles in degrees instead.
 
 To move our icon, we need to update its position and rotation every frame in the
-game loop. We can use the `_process()` virtual function of the `Node` class.
+game loop. We can use the `process()` virtual function of the `Node` class.
 If you define it in any class that extends the Node class, like Sprite, Godot
 will call the function every frame and pass it an argument named `delta`, the
 time elapsed since the last frame.
@@ -217,7 +217,7 @@ definition, and the indented blocks that follow are the function's content or
 instructions.
 
 Note:
- Notice how `_process()`, like `_init()`, starts with a leading
+ Notice how `process()`, like `init()`, starts with a leading
           underscore. By convention, Godot's virtual functions, that is to say,
           built-in functions you can override to communicate with the engine,
           start with an underscore.
@@ -228,7 +228,7 @@ from the class `Node2D`, which `Sprite` extends. It controls the rotation of
 our node and works with radians.
 
 .. tip:: In the code editor, you can ctrl-click on any built-in property or
-         function like `position`, `rotation`, or `_process` to open the
+         function like `position`, `rotation`, or `process` to open the
          corresponding documentation in a new tab.
 
 Run the scene to see the Godot icon turn in-place.
@@ -238,7 +238,7 @@ Run the scene to see the Godot icon turn in-place.
 Moving forward
 ~~~~~~~~~~~~~~
 
-Let's now make the node move. Add the following two lines to the `_process()`
+Let's now make the node move. Add the following two lines to the `process()`
 function, ensuring the new lines are indented the same way as the one before
 them.
 

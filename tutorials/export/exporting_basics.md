@@ -335,4 +335,4 @@ Note:
     emerging technology and you may find some things that don't work. Make sure
     you have updated your browser to the most recent version, and report any
     bugs you find on the
-    `Godot GitHub repository ( https://github.com/godotengine/godot/issues )`_.
+    `Godot GitHub repository ( https://github.com/godotengine/godot/issues )`.

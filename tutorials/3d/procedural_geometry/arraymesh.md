@@ -84,7 +84,7 @@ from code without creating one.
 
 Next, add a script to the MeshInstance.
 
-Under `_ready()`, create a new Array.
+Under `ready()`, create a new Array.
 
 gdscript GDScript
 

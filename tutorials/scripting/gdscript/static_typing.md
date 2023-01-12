@@ -155,7 +155,7 @@ collide with the Player, a `KinematicBody2D` with a script called
 `PlayerController` attached to it. You use the `on_body_entered`
 signal to detect the collision. With typed code, the body you detect is
 going to be a generic `PhysicsBody2D`, and not your
-`PlayerController` on the `_on_body_entered` callback.
+`PlayerController` on the `on_body_entered` callback.
 
 You can check if this `PhysicsBody2D` is your Player with the `as`
 casting keyword, and using the colon `:` again to force the variable

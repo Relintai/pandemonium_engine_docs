@@ -265,7 +265,7 @@ external links, etc. Here are some examples::
     # syntax and should be preserved.
 
     Looking for the documentation of the current **development** branch?
-    `Have a look here ( https://docs.godotengine.org/en/latest )`_.
+    `Have a look here ( https://docs.godotengine.org/en/latest )`.
 
     # "|supported|" is an inline reference to an image and should stay unchanged.
     # "master" uses the markup for inline code, and will be styled as such.
@@ -381,7 +381,7 @@ Godot editor, custom-made graphs, of any other kind of visual content. Some of
 it includes text and might thus be relevant to localize in your language.
 
 This part is not handled via Weblate, but directly on the `godot-docs-l10n
-( https://github.com/godotengine/godot-docs-l10n )`_ Git repository where the
+( https://github.com/godotengine/godot-docs-l10n )` Git repository where the
 documentation translations are synced from Weblate.
 
 Note:
@@ -416,7 +416,7 @@ added before the extension, e.g. `project_manager_first_open.png)` would become
 
 Finally, on godot-docs-l10n_, recreate the same folder structure as for the
 original image in the `images` subfolder
-(`GitHub ( https://github.com/godotengine/godot-docs-l10n/tree/master/images )`_),
+(`GitHub ( https://github.com/godotengine/godot-docs-l10n/tree/master/images )`),
 and place your translated image there. In our example, the end result should be
 `images/getting_started/step_by_step/img/project_manager_first_open.fr.png)`.
 

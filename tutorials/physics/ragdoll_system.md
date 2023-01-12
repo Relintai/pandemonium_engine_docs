@@ -11,7 +11,7 @@ Since version 3.1, Godot supports ragdoll physics. Ragdolls rely on physics simu
 In this tutorial, we will be using the Platformer3D demo to set up a ragdoll.
 
 Note:
- You can download the Platformer3D demo on `GitHub ( https://github.com/godotengine/godot-demo-projects/tree/master/3d/platformer )`_ or using the `Asset Library ( https://godotengine.org/asset-library/asset/125 )`_.
+ You can download the Platformer3D demo on `GitHub ( https://github.com/godotengine/godot-demo-projects/tree/master/3d/platformer )` or using the `Asset Library ( https://godotengine.org/asset-library/asset/125 )`.
 
 Setting up the ragdoll
 ----------------------
@@ -61,7 +61,7 @@ This is the final result:
 Simulating the ragdoll
 ----------------------
 
-The ragdoll is now ready to use. To start the simulation and play the ragdoll animation, you need to call the `physical_bones_start_simulation` method. Attach a script to the skeleton node and call the method in the `_ready` method:
+The ragdoll is now ready to use. To start the simulation and play the ragdoll animation, you need to call the `physical_bones_start_simulation` method. Attach a script to the skeleton node and call the method in the `ready` method:
 
 ```
     func _ready():

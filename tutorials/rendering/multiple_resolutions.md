@@ -39,8 +39,8 @@ One size fits all
 The most common approach is to use a single *base* resolution and
 then fit it to everything else. This resolution is how most players are expected
 to play the game (given their hardware). For mobile, Google has useful `stats
-( https://developer.android.com/about/dashboards )`_ online, and for desktop,
-Steam `also does ( https://store.steampowered.com/hwsurvey/ )`_.
+( https://developer.android.com/about/dashboards )` online, and for desktop,
+Steam `also does ( https://store.steampowered.com/hwsurvey/ )`.
 
 As an example, Steam shows that the most common *primary display resolution* is
 1920×1080, so a sensible approach is to develop a game for this resolution, then
@@ -355,7 +355,7 @@ Non-game application
 - Keep the stretch aspect to its default value, `ignore`
   (its value won't be used since the stretch mode is `disabled`).
 - You can define a minimum window size by setting `OS.min_window_size` in a
-  script's `_ready()` function. This prevents the user from resizing the application
+  script's `ready()` function. This prevents the user from resizing the application
   below a certain size, which could break the UI layout.
 
 Note:

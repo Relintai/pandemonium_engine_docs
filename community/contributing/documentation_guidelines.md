@@ -6,15 +6,15 @@ Documentation guidelines
 This page describes the rules to follow if you want to contribute to Godot
 Engine by writing or reviewing documentation, or by translating existing
 documentation. Also, have a look at README of the
-`godot-docs GitHub repository ( https://github.com/godotengine/godot-docs )`_
-and the `docs front page ( https://docs.godotengine.org )`_
+`godot-docs GitHub repository ( https://github.com/godotengine/godot-docs )`
+and the `docs front page ( https://docs.godotengine.org )`
 on what steps to follow and how to contact the docs team.
 
 How to contribute
 -----------------
 
 Creating or modifying documentation pages is mainly done via the
-`godot-docs GitHub repository ( https://github.com/godotengine/godot-docs )`_.
+`godot-docs GitHub repository ( https://github.com/godotengine/godot-docs )`.
 The HTML (or PDF and EPUB) documentation is generated from the .rst files
 (reStructuredText markup language) in that repository. Modifying those pages
 in a pull request and getting it merged will trigger a rebuild of the online
@@ -28,7 +28,7 @@ See also:
 
 Warning:
  The class reference's source files are in the `Godot engine repository
-             ( https://github.com/godotengine/godot )`_. We generate the `Godot API
+             ( https://github.com/godotengine/godot )`. We generate the `Godot API
              ( toc-class-ref )` section of this documentation from them. If you want to update the
              description of a class, its methods, or properties, read
              `doc_updating_the_class_reference`.
@@ -44,7 +44,7 @@ Warning:
 The 'Edit on GitHub' link
 -------------------------
 
-If you're reading documentation on `docs.godotengine.org ( https://docs.godotengine.org )`_,
+If you're reading documentation on `docs.godotengine.org ( https://docs.godotengine.org )`,
 you'll see an **Edit on GitHub** hyperlink at the top right of the page.
 Once you've created a GitHub account, you can propose changes to a page you're
 reading as follows:
@@ -121,7 +121,7 @@ letter.
 Translating existing pages
 --------------------------
 
-You can help to translate the official Godot documentation on our `Hosted Weblate ( https://hosted.weblate.org/engage/godot-engine/ )`_.
+You can help to translate the official Godot documentation on our `Hosted Weblate ( https://hosted.weblate.org/engage/godot-engine/ )`.
 
 ![](https://hosted.weblate.org/widgets/godot-engine/-/godot-docs/287x66-white.png)
     :alt: Translation state
@@ -131,14 +131,14 @@ You can help to translate the official Godot documentation on our `Hosted Weblat
     :height: 66
 
 There also is the official
-`Godot i18n repository ( https://github.com/godotengine/godot-docs-l10n )`_
+`Godot i18n repository ( https://github.com/godotengine/godot-docs-l10n )`
 where you can see when the data was last synchronized.
 
 License
 -------
 
 This documentation and every page it contains is published under the terms of
-the `Creative Commons Attribution 3.0 license (CC-BY-3.0) ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`_, with attribution to "Juan Linietsky, Ariel Manzur and the Godot community".
+the `Creative Commons Attribution 3.0 license (CC-BY-3.0) ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with attribution to "Juan Linietsky, Ariel Manzur and the Godot community".
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.

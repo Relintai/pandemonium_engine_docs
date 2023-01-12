@@ -64,7 +64,7 @@ on. If a state can't be found in any of the grandparents, the pause state
 in SceneTree is used. This means that, by default, when the game is paused
 every node will be paused. Several things happen when a node stops processing.
 
-The `_process`, `_physics_process`, `_input`, and `_input_event` functions
+The `process`, `physics_process`, `input`, and `input_event` functions
 will not be called. However signals still work and cause their connected function to
 run, even if that function's script is attached to a node that has its pause
 mode set to "Stop".

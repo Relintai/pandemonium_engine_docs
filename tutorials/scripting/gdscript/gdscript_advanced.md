@@ -468,7 +468,7 @@ while() loops are the same everywhere:
 Custom iterators
 ----------------
 You can create custom iterators in case the default ones don't quite meet your
-needs by overriding the Variant class's `_iter_init`, `_iter_next`, and `_iter_get`
+needs by overriding the Variant class's `iter_init`, `iter_next`, and `iter_get`
 functions in your script. An example implementation of a forward iterator follows:
 
 ::
@@ -507,7 +507,7 @@ And it can be used like any other iterator:
     for i in itr:
         print(i) # Will print 0, 2, and 4.
 
-Make sure to reset the state of the iterator in `_iter_init`, otherwise nested
+Make sure to reset the state of the iterator in `iter_init`, otherwise nested
 for-loops that use custom iterators will not work as expected.
 
 Duck typing

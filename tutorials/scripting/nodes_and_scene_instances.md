@@ -11,7 +11,7 @@ Getting nodes
 
 You can get a reference to a node by calling the `Node.get_node()
 ( Node_method_get_node )` method. For this to work, the child node must be
-present in the scene tree. Getting it in the parent node's `_ready()` function
+present in the scene tree. Getting it in the parent node's `ready()` function
 guarantees that.
 
 If, for example,  you have a scene tree like this, and you want to get a reference to the
@@ -77,7 +77,7 @@ Syntactic sugar
 
 You can use two shorthands to shorten your code in GDScript. Firstly, putting the
 `onready` keyword before a member variable makes it initialize right before
-the `_ready()` callback.
+the `ready()` callback.
 
 .. code-block:: gdscript
 

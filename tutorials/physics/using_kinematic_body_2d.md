@@ -40,7 +40,7 @@ a collision is detected with another body. After a KinematicBody2D has collided,
 any *collision response* must be coded manually.
 
 Warning:
- You should only do Kinematic body movement in the `_physics_process()` callback.
+ You should only do Kinematic body movement in the `physics_process()` callback.
 
 The two movement methods serve different purposes, and later in this tutorial, you'll
 see examples of how they work.
@@ -326,7 +326,7 @@ gdscript GDScript
         queue_free()
 ```
 
-The action happens in `_physics_process()`. After using `move_and_collide()`, if a
+The action happens in `physics_process()`. After using `move_and_collide()`, if a
 collision occurs, a `KinematicCollision2D` object is returned (otherwise, the return
 is `Nil`).
 

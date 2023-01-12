@@ -45,7 +45,7 @@ powered by Godot, and so is the voxel RPG creator RPG in a box.
 
 ![](img/introduction_rpg_in_a_box.png)
 
-You can find many more examples in the `official showcase videos`_.
+You can find many more examples in the `official showcase videos`.
 
 How does it work and look?
 --------------------------
@@ -106,7 +106,7 @@ Godot relies on the object-oriented programming paradigm. Being comfortable with
 concepts such as classes and objects will help you code efficiently in it.
 
 If you are entirely new to programming, we recommend following the `CS50 open
-courseware`_ from Harvard University. It's a great free course that will teach
+courseware` from Harvard University. It's a great free course that will teach
 you everything you need to know to be off to a good start. It will save you
 countless hours and hurdles learning any game engine afterward.
 

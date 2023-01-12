@@ -18,7 +18,7 @@ connect to that signal and call a function when the event occurs.
 Signals are a delegation mechanism built into Godot that allows one game object to
 react to a change in another without them referencing one another. Using signals
 limits `coupling
-( https://en.wikipedia.org/wiki/Coupling_(computer_programming) )`_ and keeps your
+( https://en.wikipedia.org/wiki/Coupling_(computer_programming) )` and keeps your
 code flexible.
 
 For example, you might have a life bar on the screen that represents the
@@ -142,7 +142,7 @@ connection. This feature is only available when connecting nodes in the editor.
 Let's replace the line with the `pass` keyword with code that'll toggle the
 node's motion.
 
-Our Sprite moves thanks to code in the `_process()` function. Godot provides a
+Our Sprite moves thanks to code in the `process()` function. Godot provides a
 method to toggle processing on and off: `Node.set_process()
 ( Node_method_set_process )`. Another method of the Node class,
 `is_processing()`, returns `true` if idle processing is active. We can use
@@ -158,7 +158,7 @@ gdscript GDScript
 This function will toggle processing and, in turn, the icon's motion on and off
 upon pressing the button.
 
-Before trying the game, we need to simplify our `_process()` function to move
+Before trying the game, we need to simplify our `process()` function to move
 the node automatically and not wait for user input. Replace it with the
 following code, which we saw two lessons ago:
 
@@ -252,7 +252,7 @@ editor, you would have to change the call to `get_node("BlinkingTimer")`.
 
 .. add seealso to a page that explains node features.
 
-We can now connect the Timer to the Sprite in the `_ready()` function.
+We can now connect the Timer to the Sprite in the `ready()` function.
 
 gdscript GDScript
 

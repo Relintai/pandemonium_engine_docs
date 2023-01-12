@@ -113,7 +113,7 @@ or all the handle related ones.
 
     # ...
 
-Note that we created a material in the `_init` method, and retrieved it in the `redraw`
+Note that we created a material in the `init` method, and retrieved it in the `redraw`
 method using `get_material()( EditorSpatialGizmoPlugin_method_get_material )`. This
 method retrieves one of the material's variants depending on the state of the gizmo
 (selected and/or editable).

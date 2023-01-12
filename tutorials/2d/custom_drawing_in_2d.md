@@ -32,7 +32,7 @@ Drawing
 
 Add a script to any `CanvasItem`
 derived node, like `Control` or
-`Node2D`. Then override the `_draw()` function.
+`Node2D`. Then override the `draw()` function.
 
 gdscript GDScript
 
@@ -50,12 +50,12 @@ class reference. There are plenty of them.
 Updating
 --------
 
-The `_draw()` function is only called once, and then the draw commands
+The `draw()` function is only called once, and then the draw commands
 are cached and remembered, so further calls are unnecessary.
 
 If re-drawing is required because a state or something else changed,
 call `CanvasItem.update()`
-in that same node and a new `_draw()` call will happen.
+in that same node and a new `draw()` call will happen.
 
 Here is a little more complex example, a texture variable that will be
 redrawn if modified:
@@ -78,7 +78,7 @@ gdscript GDScript
 ```
 
 In some cases, it may be desired to draw every frame. For this, just
-call `update()` from the `_process()` callback, like this:
+call `update()` from the `process()` callback, like this:
 
 gdscript GDScript
 
@@ -170,7 +170,7 @@ Draw the arc on the screen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We now have a function that draws stuff on the screen;
-it is time to call it inside the `_draw()` function:
+it is time to call it inside the `draw()` function:
 
 gdscript GDScript
 
@@ -245,7 +245,7 @@ they reach the maximum integer value Godot can manage (`2^31 - 1`).
 When this happens, Godot may crash or produce unexpected behavior.
 
 Finally, we must not forget to call the `update()` function, which automatically
-calls `_draw()`. This way, you can control when you want to refresh the frame.
+calls `draw()`. This way, you can control when you want to refresh the frame.
 
 gdscript GDScript
 
@@ -261,7 +261,7 @@ gdscript GDScript
         update()
 ```
 
-Also, don't forget to modify the `_draw()` function to make use of these variables:
+Also, don't forget to modify the `draw()` function to make use of these variables:
 
 gdscript GDScript
 
@@ -279,14 +279,14 @@ It works, but the arc is rotating insanely fast! What's wrong?
 
 The reason is that your GPU is actually displaying the frames as fast as it can.
 We need to "normalize" the drawing by this speed; to achieve that, we have to make
-use of the `delta` parameter of the `_process()` function. `delta` contains the
+use of the `delta` parameter of the `process()` function. `delta` contains the
 time elapsed between the two last rendered frames. It is generally small
 (about 0.0003 seconds, but this depends on your hardware), so using `delta` to
 control your drawing ensures that your program runs at the same speed on
 everybody's hardware.
 
 In our case, we simply need to multiply our `rotation_angle` variable by `delta`
-in the `_process()` function. This way, our 2 angles will be increased by a much
+in the `process()` function. This way, our 2 angles will be increased by a much
 smaller value, which directly depends on the rendering speed.
 
 gdscript GDScript
@@ -317,7 +317,7 @@ There is also no `antialiased` parameter available in
 As a workaround, install and use the
 `Antialiased Line2D add-on ( https://github.com/godot-extended-libraries/godot-antialiased-line2d )`
 (which also supports antialiased Polygon2D drawing). Note that this add-on relies
-on high-level nodes, rather than low-level `_draw()` functions.
+on high-level nodes, rather than low-level `draw()` functions.
 
 Tools
 -----

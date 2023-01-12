@@ -15,11 +15,11 @@ it uses a Windows-only format called ICO. You can create your application icon
 in any program but you will have to convert it to an ICO file using a program such
 as GIMP.
 
-`This video tutorial ( https://www.youtube.com/watch?v=uqV3UfM-n5Y )`_ goes over how to
+`This video tutorial ( https://www.youtube.com/watch?v=uqV3UfM-n5Y )` goes over how to
 export an ICO file with GIMP.
 
 It is also possible to convert a PNG image to an hiDPI-friendly ICO file
-using this `ImageMagick ( https://www.imagemagick.org/ )`_ command:
+using this `ImageMagick ( https://www.imagemagick.org/ )` command:
 
 .. code-block:: none
 
@@ -82,7 +82,7 @@ the project.
 
 Before selecting it in the export options, you will need to install
 an extra tool called **rcedit**.
-You can download it `here ( https://github.com/electron/rcedit/releases )`_.
+You can download it `here ( https://github.com/electron/rcedit/releases )`.
 
 After downloading, you need to tell Godot the path to the rcedit executable
 on your computer.
@@ -94,7 +94,7 @@ Note:
 
 
     Linux and macOS users will also need to install
-    `WINE ( https://www.winehq.org/ )`_ to use rcedit.
+    `WINE ( https://www.winehq.org/ )` to use rcedit.
 
 ![](img/icon_rcedit.png)
 

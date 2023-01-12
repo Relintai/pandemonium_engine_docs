@@ -3,7 +3,7 @@
 Xcode
 =====
 
-`Xcode ( https://developer.apple.com/xcode )`_ is a free macOS-only IDE. You can 
+`Xcode ( https://developer.apple.com/xcode )` is a free macOS-only IDE. You can 
 download it from the Mac App Store.
 
 Importing the project

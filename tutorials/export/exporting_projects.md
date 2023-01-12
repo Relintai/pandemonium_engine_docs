@@ -94,7 +94,7 @@ Export templates
 Apart from setting up the platform, the export templates must be
 installed to be able to export projects. They can be obtained as a
 TPZ file (which is a renamed ZIP archive) from the
-`download page of the website ( https://www.godotengine.org/download )`_.
+`download page of the website ( https://www.godotengine.org/download )`.
 
 Once downloaded, they can be installed using the **Install Export Templates**
 option in the editor:

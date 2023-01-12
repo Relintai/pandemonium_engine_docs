@@ -160,10 +160,10 @@ following checks, in order:
 - If not found, it does an explicit check to see if the user wants to access
   the "script" or "meta" properties.
 
-- If not, it checks for a `_set`/`_get` implementation (depending on type
+- If not, it checks for a `set`/`get` implementation (depending on type
   of access) in the CanvasItem and its inherited types. These methods can
   execute logic that gives the impression that the Object has a property. This
-  is also the case with the `_get_property_list` method.
+  is also the case with the `get_property_list` method.
 
   - Note that this happens even for non-legal symbol names such as in the
     case of `TileSet`'s "1/tile_name" property. This

@@ -15,8 +15,8 @@ To add this, we need to modify our `Sprite.gd` code.
 
 You have two main tools to process the player's input in Godot:
 
-1. The built-in input callbacks, mainly `_unhandled_input()`. Like
-   `_process()`, it's a built-in virtual function that Godot calls every time
+1. The built-in input callbacks, mainly `unhandled_input()`. Like
+   `process()`, it's a built-in virtual function that Godot calls every time
    the player presses a key. It's the tool you want to use to react to events
    that don't happen every frame, like pressing :kbd:`Space` to jump. To learn
    more about input callbacks, see `doc_inputevent`.
@@ -27,7 +27,7 @@ You have two main tools to process the player's input in Godot:
 We're going to use the `Input` singleton here as we need to know if the player
 wants to turn or move every frame.
 
-For turning, we should use a new variable: `direction`. In our `_process()`
+For turning, we should use a new variable: `direction`. In our `process()`
 function, replace the `rotation += angular_speed * delta` line with the
 code below.
 
@@ -138,12 +138,12 @@ properties, also called member variables. Besides variables, you can define
 functions, which, for the most part, will be your classes' methods.
 
 Godot provides several virtual functions you can define to connect your class
-with the engine. These include `_process()`, to apply changes to the node
-every frame, and `_unhandled_input()`, to receive input events like key and
+with the engine. These include `process()`, to apply changes to the node
+every frame, and `unhandled_input()`, to receive input events like key and
 button presses from the users. There are quite a few more.
 
 The `Input` singleton allows you to react to the players' input anywhere in
-your code. In particular, you'll get to use it in the `_process()` loop.
+your code. In particular, you'll get to use it in the `process()` loop.
 
 In the next lesson `doc_signals`, we'll build upon the relationship between
 scripts and nodes by having our nodes trigger code in scripts.

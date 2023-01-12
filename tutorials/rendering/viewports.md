@@ -127,7 +127,7 @@ For 2D, each `Viewport`.
 This suffices in most cases, but in case sharing them may be desired, it
 is possible to do so by setting the `Viewport's` manually.
 
-For an example of how this works, see the demo projects `3D in 2D ( https://github.com/godotengine/godot-demo-projects/tree/master/viewport/3d_in_2d )`_ and `2D in 3D ( https://github.com/godotengine/godot-demo-projects/tree/master/viewport/2d_in_3d )`_ respectively.
+For an example of how this works, see the demo projects `3D in 2D ( https://github.com/godotengine/godot-demo-projects/tree/master/viewport/3d_in_2d )` and `2D in 3D ( https://github.com/godotengine/godot-demo-projects/tree/master/viewport/2d_in_3d )` respectively.
 
 Capture
 -------
@@ -149,7 +149,7 @@ following code:
    # Set Sprite Texture.
    $sprite.texture = tex
 
-But if you use this in `_ready()` or from the first frame of the `Viewport's` initialization,
+But if you use this in `ready()` or from the first frame of the `Viewport's` initialization,
 you will get an empty texture because there is nothing to get as texture. You can deal with
 it using (for example):
 

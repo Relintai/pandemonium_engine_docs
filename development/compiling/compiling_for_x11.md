@@ -144,7 +144,7 @@ Note:
  If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
           `doc_data_paths_self_contained_mode` by creating a file called
-          `._sc_` or `_sc_` in the `bin/` folder.
+          `._sc_` or `sc_` in the `bin/` folder.
 
 Compiling a headless/server build
 ---------------------------------

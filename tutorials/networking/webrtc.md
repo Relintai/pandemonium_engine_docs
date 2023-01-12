@@ -215,4 +215,4 @@ This will print something similar to this:
 Remote signaling with WebSocket
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A more advanced demo using WebSocket for signaling peers and `WebRTCMultiplayer`_ under `networking/webrtc_signaling`.
+A more advanced demo using WebSocket for signaling peers and `WebRTCMultiplayer` under `networking/webrtc_signaling`.

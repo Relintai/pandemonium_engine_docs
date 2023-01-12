@@ -235,7 +235,7 @@ Godot's AudioServer currently uses 44100 Hz sample rate. When other sample rates
 needed such as 48000, either provide one or use AudioStreamPlaybackResampled.
 Godot provides cubic interpolation for audio resampling.
 
-Instead of overloading `mix`, AudioStreamPlaybackResampled uses `_mix_internal` to
+Instead of overloading `mix`, AudioStreamPlaybackResampled uses `mix_internal` to
 query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
 
 .. code-block:: cpp

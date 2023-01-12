@@ -17,7 +17,7 @@ your project, you need to try it out for yourself and
 understand its design and limitations.
 
 Please watch
-`Godot explained in 5 minutes ( https://www.youtube.com/watch?v=KjX5llYZ5eQ )`_
+`Godot explained in 5 minutes ( https://www.youtube.com/watch?v=KjX5llYZ5eQ )`
 if you're looking for an overview of the engine's features.
 
 Object-oriented design and composition
@@ -101,7 +101,7 @@ to create new code blocks.*
 Note that the 3D workspace doesn't feature as many tools as the 2D workspace.
 You'll need external programs or add-ons to edit terrains, animate complex characters, and so on.
 Godot provides a complete API to extend the editor's functionality using
-game code. See `The Godot editor is a Godot game`_ below.
+game code. See `The Godot editor is a Godot game` below.
 
 |image4|
 

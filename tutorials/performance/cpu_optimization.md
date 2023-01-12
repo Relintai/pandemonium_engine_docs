@@ -191,8 +191,8 @@ Other languages
 ~~~~~~~~~~~~~~~
 
 Third parties provide support for several other languages, including `Rust
-( https://github.com/godot-rust/godot-rust )`_ and `Javascript
-( https://github.com/GodotExplorer/ECMAScript )`_.
+( https://github.com/godot-rust/godot-rust )` and `Javascript
+( https://github.com/GodotExplorer/ECMAScript )`.
 
 C++
 ~~~
@@ -226,8 +226,8 @@ SceneTree
 =========
 
 Although Nodes are an incredibly powerful and versatile concept, be aware that
-every node has a cost. Built-in functions such as `_process()` and
-`_physics_process()` propagate through the tree. This housekeeping can reduce
+every node has a cost. Built-in functions such as `process()` and
+`physics_process()` propagate through the tree. This housekeeping can reduce
 performance when you have very large numbers of nodes (usually in the thousands).
 
 Each node is handled individually in the Godot renderer. Therefore, a smaller

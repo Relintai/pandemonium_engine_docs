@@ -183,7 +183,7 @@ If you need to have different code version in GDScript and C#, use
 least one of the language-specific tags, `[gdscript]` and `[csharp]`.
 
 Always write GDScript code examples first! You can use this `experimental code
-translation tool ( https://github.com/HaSa1002/codetranslator )`_ to speed up your
+translation tool ( https://github.com/HaSa1002/codetranslator )` to speed up your
 workflow.
 
 .. code-block:: none
@@ -245,4 +245,4 @@ pull of your changes. Another writer will take care of it.
 
 You can still look at the methods' implementation in Godot's source code on
 GitHub. If you have doubts, feel free to ask on the `Q&A website
-( https://godotengine.org/qa/ )` and `Godot Contributors Chat ( https://chat.godotengine.org/ )`_.
+( https://godotengine.org/qa/ )` and `Godot Contributors Chat ( https://chat.godotengine.org/ )`.

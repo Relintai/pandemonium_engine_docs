@@ -558,7 +558,7 @@ Summing up
 Remember to:
 
 -  use `GDCLASS` macro for inheritance, so Godot can wrap it
--  use `_bind_methods` to bind your functions to scripting, and to
+-  use `bind_methods` to bind your functions to scripting, and to
    allow them to work as callbacks for signals.
 
 But this is not all, depending what you do, you will be greeted with

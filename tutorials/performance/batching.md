@@ -529,7 +529,7 @@ primitive types are currently available:
 - LINE
 
 With non-batched primitives, you may be able to get better performance by
-drawing them manually with polys in a `_draw()` function.
+drawing them manually with polys in a `draw()` function.
 See `doc_custom_drawing_in_2d` for more information.
 
 

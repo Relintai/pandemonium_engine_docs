@@ -24,7 +24,7 @@ so this one could be seen more like a follow-up to that one.
 
 Note:
  We will be using the official demo as an example; you can
-          `download it from the Asset Library ( https://godotengine.org/asset-library/asset/134 )`_.
+          `download it from the Asset Library ( https://godotengine.org/asset-library/asset/134 )`.
 
 Configuring the imported translation
 ------------------------------------

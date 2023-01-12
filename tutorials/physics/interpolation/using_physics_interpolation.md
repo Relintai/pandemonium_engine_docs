@@ -20,7 +20,7 @@ It is likely that nothing looks hugely different, particularly if you are runnin
 Move (almost) all game logic from _process to _physics_process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The most fundamental requirement for physics interpolation (which you may be doing already) is that you should be moving and performing game logic on your objects within `_physics_process` (which runs at a physics tick) rather than `_process` (which runs on a rendered frame). This means your scripts should typically be doing the bulk of their processing within `_physics_process`, including responding to input and AI.
+The most fundamental requirement for physics interpolation (which you may be doing already) is that you should be moving and performing game logic on your objects within `physics_process` (which runs at a physics tick) rather than `process` (which runs on a rendered frame). This means your scripts should typically be doing the bulk of their processing within `physics_process`, including responding to input and AI.
 
 Setting the transform of objects only within physics ticks allows the automatic interpolation to deal with transforms *between* physics ticks, and ensures the game will run the same whatever machine it is run on. As a bonus, this also reduces CPU usage if the game is rendering at high FPS, since AI logic (for example) will no longer run on every rendered frame.
 
@@ -74,4 +74,4 @@ Even if you intend to run physics at 60 TPS, in order to thoroughly test your in
 
 The gameplay may not work perfectly, but it should enable you to more easily see cases where you should be calling `Node.reset_physics_interpolation( Node_method_reset_physics_interpolation )`, or where you should be using your own custom interpolation on e.g. a `Camera( Camera )`. Once you have these cases fixed, you can set the physics tick rate back to the desired setting.
 
-The other great advantage to testing at a low tick rate is you can often notice other game systems that are synchronized to the physics tick and creating glitches which you may want to work around. Typical examples include setting animation blend values, which you may decide to set in `_process()` and interpolate manually.
+The other great advantage to testing at a low tick rate is you can often notice other game systems that are synchronized to the physics tick and creating glitches which you may want to work around. Typical examples include setting animation blend values, which you may decide to set in `process()` and interpolate manually.

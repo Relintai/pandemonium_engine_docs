@@ -100,6 +100,6 @@ Both nodes have this property, which must be enabled manually:
 ![](img/audio_stream_doppler.png)
 
 Enable it by setting it depending on how objects will be moved:
-use **Idle** for objects moved using `_process`, or **Physics**
-for objects moved using `_physics_process`. The tracking will
+use **Idle** for objects moved using `process`, or **Physics**
+for objects moved using `physics_process`. The tracking will
 happen automatically.

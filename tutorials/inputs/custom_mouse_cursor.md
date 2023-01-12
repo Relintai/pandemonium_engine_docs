@@ -14,7 +14,7 @@ Note:
 
 
     You could display a "software" mouse cursor by hiding the mouse cursor and
-    moving a Sprite to the cursor position in a `_process` method, but this
+    moving a Sprite to the cursor position in a `process` method, but this
     will add at least one frame of latency compared to an "hardware" mouse
     cursor. Therefore, it's recommended to use the approach described here
     whenever possible.

@@ -63,7 +63,7 @@ A quick example in GDScript:
     print(actual_string)
     # Output: "We're waiting for Godot"
 
-There are other `format specifiers`_, but they are only applicable when using
+There are other `format specifiers`, but they are only applicable when using
 the `%` operator.
 
 
@@ -72,7 +72,7 @@ Multiple placeholders
 
 Format strings may contain multiple placeholders. In such a case, the values
 are handed in the form of an array, one value per placeholder (unless using a
-format specifier with `*`, see `dynamic padding`_):
+format specifier with `*`, see `dynamic padding`):
 
 ::
 
@@ -144,7 +144,7 @@ conditions.
 | `-`   | **Pad to the right** rather than the left.                        |
 +---------+-------------------------------------------------------------------+
 | `*`   | **Dynamic padding**, expect additional integral parameter to set  |
-|         | padding or precision after `.`, see `dynamic padding`_.         |
+|         | padding or precision after `.`, see `dynamic padding`.         |
 +---------+-------------------------------------------------------------------+
 
 

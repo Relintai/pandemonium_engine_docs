@@ -26,9 +26,9 @@ Requirements
 
 For compiling under Windows, Linux or macOS, the following is required:
 
--  `Python 3.5+ ( https://www.python.org/downloads/ )`_.
--  `SCons 3.0+ ( https://scons.org/pages/download.html )`_ build system.
--  `Android SDK ( https://developer.android.com/studio/#command-tools )`_
+-  `Python 3.5+ ( https://www.python.org/downloads/ )`.
+-  `SCons 3.0+ ( https://scons.org/pages/download.html )` build system.
+-  `Android SDK ( https://developer.android.com/studio/#command-tools )`
    (command-line tools are sufficient).
 
    -  Required SDK components will be automatically installed.
@@ -38,7 +38,7 @@ For compiling under Windows, Linux or macOS, the following is required:
 -  Gradle (will be downloaded and installed automatically if missing).
 -  JDK 11 (either OpenJDK or Oracle JDK).
 
-   -  You can download a build from `ojdkbuild ( https://github.com/ojdkbuild/ojdkbuild )`_.
+   -  You can download a build from `ojdkbuild ( https://github.com/ojdkbuild/ojdkbuild )`.
 
 See also:
  To get the Godot source code for compiling, see
@@ -224,7 +224,7 @@ If so:
 -  Check that the debug keystore is properly generated.
 -  Check that the jarsigner executable is from JDK 8.
 
-If it still fails, open a command line and run `logcat ( https://developer.android.com/studio/command-line/logcat )`_:
+If it still fails, open a command line and run `logcat ( https://developer.android.com/studio/command-line/logcat )`:
 
 ::
 

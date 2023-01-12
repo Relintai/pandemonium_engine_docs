@@ -55,7 +55,7 @@ Encoding and special characters
 
 * Use line feed (**LF**) characters to break lines, not CRLF or CR. *(editor default)*
 * Use one line feed character at the end of each file. *(editor default)*
-* Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`_. *(editor default)*
+* Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`. *(editor default)*
 * Use **Tabs** instead of spaces for indentation. *(editor default)*
 
 Indentation
@@ -103,7 +103,7 @@ Line breaks and blank lines
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For a general indentation rule, follow
-`the "1TBS Style" ( https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS) )`_
+`the "1TBS Style" ( https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS) )`
 which recommends placing the brace associated with a control statement on the
 same line. Always use braces for statements, even if they only span one line.
 This makes them easier to refactor and avoids mistakes when adding more lines to

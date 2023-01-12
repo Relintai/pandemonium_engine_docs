@@ -15,14 +15,14 @@ Requirements
 
 For compiling under macOS, the following is required:
 
-- `Python 3.5+ ( https://www.python.org )`_.
-- `SCons 3.0+ ( https://www.scons.org )`_ build system.
-- `Xcode ( https://apps.apple.com/us/app/xcode/id497799835 )`_
+- `Python 3.5+ ( https://www.python.org )`.
+- `SCons 3.0+ ( https://www.scons.org )` build system.
+- `Xcode ( https://apps.apple.com/us/app/xcode/id497799835 )`
   (or the more lightweight Command Line Tools for Xcode).
-- *Optional* - `yasm ( https://yasm.tortall.net/ )`_ (for WebM SIMD optimizations).
+- *Optional* - `yasm ( https://yasm.tortall.net/ )` (for WebM SIMD optimizations).
 
 Note:
- If you have `Homebrew ( https://brew.sh/ )`_ installed, you can easily
+ If you have `Homebrew ( https://brew.sh/ )` installed, you can easily
           install SCons and yasm using the following command::
 
               brew install scons yasm
@@ -30,7 +30,7 @@ Note:
           Installing Homebrew will also fetch the Command Line Tools
           for Xcode automatically if you don't have them already.
 
-          Similarly, if you have `MacPorts ( https://www.macports.org/ )`_
+          Similarly, if you have `MacPorts ( https://www.macports.org/ )`
           installed, you can easily install SCons and yasm using the
           following command::
 
@@ -69,7 +69,7 @@ Note:
  If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
           `doc_data_paths_self_contained_mode` by creating a file called
-          `._sc_` or `_sc_` in the `bin/` folder.
+          `._sc_` or `sc_` in the `bin/` folder.
 
 To create an `.app` bundle like in the official builds, you need to use the
 template located in `misc/dist/osx_tools.app`. Typically, for an optimized

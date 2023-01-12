@@ -258,8 +258,8 @@ automatically be calculated by the physics engine.
 However, if you do wish to have some control over the body, you should take
 care - altering the `position`, `linear_velocity`, or other physics properties
 of a rigid body can result in unexpected behavior. If you need to alter any
-of the physics-related properties, you should use the `_integrate_forces()`
-callback instead of `_physics_process()`. In this callback, you have access
+of the physics-related properties, you should use the `integrate_forces()`
+callback instead of `physics_process()`. In this callback, you have access
 to the body's `Physics2DDirectBodyState`,
 which allows for safely changing properties and synchronizing them with
 the physics engine.
@@ -292,7 +292,7 @@ properties directly, but rather applying forces (`thrust` and `torque`) to
 the body and letting the physics engine calculate the resulting movement.
 
 Note:
- When a rigid body goes to sleep, the `_integrate_forces()`
+ When a rigid body goes to sleep, the `integrate_forces()`
           function will not be called. To override this behavior, you will
           need to keep the body awake by creating a collision, applying a
           force to it, or by disabling the `can_sleep`

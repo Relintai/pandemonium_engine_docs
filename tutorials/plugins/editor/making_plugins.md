@@ -72,7 +72,7 @@ You should end up with a directory structure like this:
 The name and description help people understand what it does.
 Your name helps you get properly credited for your work.
 The version number helps others know if they have an outdated version;
-if you are unsure on how to come up with the version number, check out `Semantic Versioning ( https://semver.org/ )`_.
+if you are unsure on how to come up with the version number, check out `Semantic Versioning ( https://semver.org/ )`.
 The main script file will instruct Godot what your plugin does in the editor
 once it is active.
 
@@ -93,8 +93,8 @@ Warning:
 
 It's important to deal with initialization and clean-up of resources.
 A good practice is to use the virtual function
-`_enter_tree()` to initialize your plugin and
-`_exit_tree()` to clean it up. Thankfully,
+`enter_tree()` to initialize your plugin and
+`exit_tree()` to clean it up. Thankfully,
 the dialog generates these callbacks for you. Your script should look something
 like this:
 
@@ -194,7 +194,7 @@ gdscript GDScript
 ```
 
 With that done, the plugin should already be available in the plugin list in the
-**Project Settings**, so activate it as explained in `Checking the results`_.
+**Project Settings**, so activate it as explained in `Checking the results`.
 
 Then try it out by adding your new node:
 
@@ -312,7 +312,7 @@ it is a powerful way to create specialized editors without having to delve into
 C++ modules.
 
 You can make your own plugins to help yourself and share them in the
-`Asset Library ( https://godotengine.org/asset-library/ )`_ so that people
+`Asset Library ( https://godotengine.org/asset-library/ )` so that people
 can benefit from your work.
 
 

@@ -106,7 +106,7 @@ with the main scene of the game:
 
 The function `goto_scene` is called from the game when the scene
 needs to be switched. It requests an interactive loader, and calls
-`set_process(true)` to start polling the loader in the `_process`
+`set_process(true)` to start polling the loader in the `process`
 callback. It also starts a "loading" animation, which could show a
 progress bar or loading screen.
 
@@ -126,7 +126,7 @@ progress bar or loading screen.
 
         wait_frames = 1
 
-`_process` is where the loader is polled. `poll` is called, and then
+`process` is where the loader is polled. `poll` is called, and then
 we deal with the return value from that call. `OK` means keep polling,
 `ERR_FILE_EOF` means loading is done, anything else means there was an
 error. Also note we skip one frame (via `wait_frames`, set on the

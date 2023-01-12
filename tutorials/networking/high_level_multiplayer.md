@@ -6,7 +6,7 @@ High-level multiplayer
 High-level vs low-level API
 ---------------------------
 
-The following explains the differences of high- and low-level networking in Godot as well as some fundamentals. If you want to jump in head-first and add networking to your first nodes, skip to `Initializing the network`_ below. But make sure to read the rest later on!
+The following explains the differences of high- and low-level networking in Godot as well as some fundamentals. If you want to jump in head-first and add networking to your first nodes, skip to `Initializing the network` below. But make sure to read the rest later on!
 
 Godot always supported standard low-level networking via UDP, TCP and some higher level protocols such as SSL and HTTP.
 These protocols are flexible and can be used for almost anything. However, using them to synchronize game state manually can be a large amount of work. Sometimes that work can't be avoided or is worth it, for example when working with a custom server implementation on the backend. But in most cases, it's worthwhile to consider Godot's high-level networking API, which sacrifices some of the fine-grained control of low-level networking for greater ease of use.
@@ -320,7 +320,7 @@ every peer and RPC will work great! Here is an example:
 
 Note:
  Depending on when you execute pre_configure_game(), you may need to change any calls to `add_child()`
-          to be deferred via `call_deferred()`, as the SceneTree is locked while the scene is being created (e.g. when `_ready()` is being called).
+          to be deferred via `call_deferred()`, as the SceneTree is locked while the scene is being created (e.g. when `ready()` is being called).
 
 Synchronizing game start
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -400,7 +400,7 @@ If you have paid attention to the previous example, it's possible you noticed th
 Each time this piece of code is executed on each peer, the peer makes itself master on the node it controls, and all other nodes remain as puppets with the server being their network master.
 
 To clarify, here is an example of how this looks in the
-`bomber demo ( https://github.com/godotengine/godot-demo-projects/tree/master/networking/multiplayer_bomber )`_:
+`bomber demo ( https://github.com/godotengine/godot-demo-projects/tree/master/networking/multiplayer_bomber )`:
 
 ![](img/nmms.png)
 

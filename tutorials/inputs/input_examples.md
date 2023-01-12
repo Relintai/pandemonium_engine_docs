@@ -23,7 +23,7 @@ Events versus polling
 Sometimes you want your game to respond to a certain input event - pressing
 the "jump" button, for example. For other situations, you might want something
 to happen as long as a key is pressed, such as movement. In the first case,
-you can use the `_input()` function, which will be called whenever an input
+you can use the `input()` function, which will be called whenever an input
 event occurs. In the second case, Godot provides the `Input`
 singleton, which you can use to query the state of an input.
 
@@ -47,7 +47,7 @@ This gives you the flexibility to mix-and-match the type of input processing
 you do.
 
 For the remainder of this tutorial, we'll focus on capturing individual
-events in `_input()`.
+events in `input()`.
 
 Input events
 ------------

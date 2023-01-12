@@ -17,7 +17,7 @@ Getting started
 
 To modify or create pages in the reference manual, you need to edit `.rst`
 files in the `godot-docs GitHub repository
-( https://github.com/godotengine/godot-docs )`_. Modifying those pages in a pull
+( https://github.com/godotengine/godot-docs )`. Modifying those pages in a pull
 request triggers a rebuild of the online documentation upon merging.
 
 See also:
@@ -28,7 +28,7 @@ See also:
 
 Warning:
  The class reference's source files are in the `Godot engine
-             repository ( https://github.com/godotengine/godot )`_. We generate
+             repository ( https://github.com/godotengine/godot )`. We generate
              the `Godot API ( toc-class-ref )` section of this documentation
              from them. If you want to update the description of a class, its
              methods, or properties, read
@@ -108,7 +108,7 @@ Adding new pages
 Before adding a new page, please ensure that it fits in the documentation:
 
 1. Look for `existing issues
-   ( https://github.com/godotengine/godot-docs/issues )`_ or open a new one to see
+   ( https://github.com/godotengine/godot-docs/issues )` or open a new one to see
    if the page is necessary.
 2. Ensure there isn't a page that already covers the topic.
 3. Read our `doc_content_guidelines`.
@@ -132,7 +132,7 @@ Always begin pages with their title and a Sphinx reference name:
     Insert your title here
     ======================
 
-The reference `_doc_insert_your_title_here` and the title should match.
+The reference `doc_insert_your_title_here` and the title should match.
 
 The reference allows linking to this page using the ``` format, e.g.
 ```doc_insert_your_title_here``` would link to the above example page (note
@@ -187,7 +187,7 @@ License
 
 This documentation and every page it contains is published under the terms of
 the `Creative Commons Attribution 3.0 license (CC-BY-3.0)
-( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`_, with
+( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with
 attribution to "Juan Linietsky, Ariel Manzur and the Godot community".
 
 By contributing to the documentation on the GitHub repository, you agree that

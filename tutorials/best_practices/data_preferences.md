@@ -11,7 +11,7 @@ Note:
 
   This article makes references to "[something]-time" operations. This
   terminology comes from algorithm analysis'
-  `Big O Notation ( https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/ )`_.
+  `Big O Notation ( https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/ )`.
 
   Long-story short, it describes the worst-case scenario of runtime length.
   In laymen's terms:
@@ -41,7 +41,7 @@ Array vs. Dictionary vs. Object
 -------------------------------
 
 Godot stores all variables in the scripting API in the
-`Variant ( https://docs.godotengine.org/en/latest/development/cpp/variant_class.html )`_
+`Variant ( https://docs.godotengine.org/en/latest/development/cpp/variant_class.html )`
 class. Variants can store Variant-compatible data structures such as
 `Array` as well as
 `Object` s.

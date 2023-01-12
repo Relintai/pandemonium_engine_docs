@@ -3,8 +3,8 @@
 Android Studio
 ==============
 
-`Android Studio ( https://developer.android.com/studio )`_ is a free
-`JetBrains ( https://www.jetbrains.com/ )`_ IDE for Android development.
+`Android Studio ( https://developer.android.com/studio )` is a free
+`JetBrains ( https://www.jetbrains.com/ )` IDE for Android development.
 It has a feature-rich editor which supports Java and C/C++. It can be used to
 work on Godot's core engine as well as the Android platform codebase.
 

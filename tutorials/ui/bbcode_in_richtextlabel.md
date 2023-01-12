@@ -231,12 +231,12 @@ Warning:
     **Custom Effects** property, no effect will be visible and the original
     tag will be left as-is.
 
-There is only one function that you need to extend: `_process_custom_fx(char_fx)`.
+There is only one function that you need to extend: `process_custom_fx(char_fx)`.
 Optionally, you can also provide a custom BBCode identifier simply by adding a member
 name `bbcode`. The code will check the `bbcode` property automatically or will
 use the name of the file to determine what the BBCode tag should be.
 
-`_process_custom_fx`
+`process_custom_fx`
 ~~~~~~~~~~~~~~~~~~~~~~
 
 This is where the logic of each effect takes place and is called once per character

@@ -194,7 +194,7 @@ Note:
     the invalid value in question to ease debugging.
 
     For internal error checking where displaying a human-readable message isn't
-    necessary, remove `_MSG` at the end of the macro name and don't supply a
+    necessary, remove `MSG` at the end of the macro name and don't supply a
     message argument.
 
     Also, always try to return processable data so the engine can keep running

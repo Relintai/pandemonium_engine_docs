@@ -29,7 +29,7 @@ Note:
           (`vec2`, `float`, `sampler2D`), and functions. If you are
           uncomfortable with these concepts it is best to get a gentle
           introduction from `The Book of Shaders
-          ( https://thebookofshaders.com )`_ before completing this tutorial.
+          ( https://thebookofshaders.com )` before completing this tutorial.
 
 Where to assign my material
 ---------------------------
@@ -207,7 +207,7 @@ this case we'll use the `r`, or `x` channel.
 
 Note: `xyzw` is the same as `rgba` in GLSL, so instead of `texture().x`
 above, we could use `texture().r`. See the `OpenGL documentation
-( https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Vectors )`_ for more
+( https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Vectors )` for more
 details.
 
 Using this code you can see the texture creates random looking hills.

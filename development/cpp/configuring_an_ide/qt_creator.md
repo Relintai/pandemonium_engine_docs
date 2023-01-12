@@ -3,7 +3,7 @@
 Qt Creator
 ==========
 
-`Qt Creator ( https://doc.qt.io/qtcreator/index.html )`_ is a free, open source IDE for all desktop platforms.
+`Qt Creator ( https://doc.qt.io/qtcreator/index.html )` is a free, open source IDE for all desktop platforms.
 
 Importing the project
 ---------------------

@@ -25,13 +25,13 @@ organization of Godot's Git repository.
 Git source repository
 ---------------------
 
-The `repository on GitHub ( https://github.com/godotengine/godot )`_ is a
-`Git ( https://git-scm.com )`_ code repository together with an embedded
+The `repository on GitHub ( https://github.com/godotengine/godot )` is a
+`Git ( https://git-scm.com )` code repository together with an embedded
 issue tracker and PR system.
 
 Note:
  If you are contributing to the documentation, its repository can
-          be found `here ( https://github.com/godotengine/godot-docs )`_.
+          be found `here ( https://github.com/godotengine/godot-docs )`.
 
 The Git version control system is the tool used to keep track of successive
 edits to the source code - to contribute efficiently to Godot, learning the
@@ -47,7 +47,7 @@ See also:
  The first sections of Git's "Book" are a good introduction to
              the tool's philosophy and the various commands you need to
              master in your daily workflow. You can read them online on the
-             `Git SCM ( https://git-scm.com/book/en/v2 )`_ website.
+             `Git SCM ( https://git-scm.com/book/en/v2 )` website.
              You can also try out `GitHub's interactive guide ( https://try.github.io/ )`.
 
 The branches on the Git repository are organized as follows:
@@ -72,7 +72,7 @@ The branches on the Git repository are organized as follows:
 Forking and cloning
 -------------------
 
-The first step is to *fork* the `godotengine/godot ( https://github.com/godotengine/godot )`_
+The first step is to *fork* the `godotengine/godot ( https://github.com/godotengine/godot )`
 repository on GitHub. To do so, you will need to have a GitHub account and to
 be logged in. In the top right corner of the repository's GitHub page, you
 should see the "Fork" button as shown below:
@@ -86,7 +86,7 @@ Godot repo, with your GitHub username as namespace:
 
 You can then *clone* your fork, i.e. create a local copy of the online
 repository (in Git speak, the *origin remote*). If you haven't already,
-download Git from `its website ( https://git-scm.com )`_ if you're using Windows or
+download Git from `its website ( https://git-scm.com )` if you're using Windows or
 macOS, or install it through your package manager if you're using Linux.
 
 Note:
@@ -371,7 +371,7 @@ that will let you issue a pull request on the `godotengine/godot` upstream
 repository. It should show you your two commits, and state "Able to merge".
 If not (e.g. it has way more commits, or says there are merge conflicts),
 don't create the PR yet, something went wrong. Go to our
-`Godot Contributors Chat ( https://chat.godotengine.org/ )`_ and ask for support :)
+`Godot Contributors Chat ( https://chat.godotengine.org/ )` and ask for support :)
 
 Use an explicit title for the PR and put the necessary details in the comment
 area. You can drag and drop screenshots, GIFs or zipped projects if relevant,
@@ -477,7 +477,7 @@ Note:
           with this little by little).
 
 This will open a text editor (`vi` by default, see
-`Git docs ( https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_editor )`_
+`Git docs ( https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_editor )`
 to configure your favorite one) with something which may look like this:
 
 .. code-block:: text

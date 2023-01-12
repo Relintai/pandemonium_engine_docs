@@ -77,7 +77,7 @@ Exporting DAE files from Blender
 Blender has built-in COLLADA support, but it does not work properly for the needs of game engines
 and should not be used as is.
 
-Godot provides a `Blender plugin ( https://github.com/godotengine/collada-exporter )`_
+Godot provides a `Blender plugin ( https://github.com/godotengine/collada-exporter )`
 that will correctly export COLLADA scenes for use in Godot. It does not work in Blender 2.8 or
 newer, but there are plans to update it in the future.
 

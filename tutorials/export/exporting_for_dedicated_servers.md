@@ -90,7 +90,7 @@ Starting the dedicated server
 If both your client and server are part of the same Godot project, you will have
 to add a way to start the server directly using a command-line argument. This
 can be done by adding the following code snippet in your main scene (or a
-singleton)'s `_ready()` method::
+singleton)'s `ready()` method::
 
     if "--server" in OS.get_cmdline_args():
         # Run your server startup code here...

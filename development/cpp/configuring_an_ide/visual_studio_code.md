@@ -3,15 +3,15 @@
 Visual Studio Code
 ==================
 
-`Visual Studio Code ( https://code.visualstudio.com )`_ is a free cross-platform code editor
-by `Microsoft ( https://microsoft.com )`_ (not to be confused with `doc_configuring_an_ide_vs`).
+`Visual Studio Code ( https://code.visualstudio.com )` is a free cross-platform code editor
+by `Microsoft ( https://microsoft.com )` (not to be confused with `doc_configuring_an_ide_vs`).
 
 Importing the project
 ---------------------
 
 - Make sure the C/C++ extension is installed. You can find instructions in
-  the `official documentation ( https://code.visualstudio.com/docs/languages/cpp )`_.
-  Alternatively, `clangd ( https://open-vsx.org/extension/llvm-vs-code-extensions/vscode-clangd )`_
+  the `official documentation ( https://code.visualstudio.com/docs/languages/cpp )`.
+  Alternatively, `clangd ( https://open-vsx.org/extension/llvm-vs-code-extensions/vscode-clangd )`
   can be used instead.
 - When using the clangd extension, run `scons compiledb=yes`.
 - From the Visual Studio Code's main screen open the Godot root folder with
@@ -170,7 +170,7 @@ Note:
 
 
     Due to sporadic performance issues, it is recommended to use LLDB over GDB on Unix-based systems.
-    Make sure that the `CodeLLDB extension ( https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb )`_
+    Make sure that the `CodeLLDB extension ( https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb )`
     is installed.
 
     If you encounter issues with lldb, you may consider using gdb (see the X11_gdb configuration).

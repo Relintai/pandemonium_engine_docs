@@ -8,7 +8,7 @@ Introduction
 
 *GDScript* is a high-level, dynamically typed programming language used to
 create content. It uses a syntax similar to
-`Python ( https://en.wikipedia.org/wiki/Python_%28programming_language%29 )`_
+`Python ( https://en.wikipedia.org/wiki/Python_%28programming_language%29 )`
 (blocks are indent-based and many keywords are similar). Its goal is
 to be optimized for and tightly integrated with Godot Engine, allowing great
 flexibility for content creation and integration.
@@ -123,7 +123,7 @@ Identifiers
 ~~~~~~~~~~~
 
 Any string that restricts itself to alphabetic characters (`a` to
-`z` and `A` to `Z`), digits (`0` to `9`) and `_` qualifies
+`z` and `A` to `Z`), digits (`0` to `9`) and `` qualifies
 as an identifier. Additionally, identifiers must not begin with a digit.
 Identifiers are case-sensitive (`foo` is different from `FOO`).
 
@@ -135,17 +135,17 @@ keywords are reserved words (tokens), they can't be used as identifiers.
 Operators (like `in`, `not`, `and` or `or`) and names of built-in types
 as listed in the following sections are also reserved.
 
-Keywords are defined in the `GDScript tokenizer ( https://github.com/godotengine/godot/blob/master/modules/gdscript/gdscript_tokenizer.cpp )`_
+Keywords are defined in the `GDScript tokenizer ( https://github.com/godotengine/godot/blob/master/modules/gdscript/gdscript_tokenizer.cpp )`
 in case you want to take a look under the hood.
 
 +------------+---------------------------------------------------------------------------------------------------------------+
 |  Keyword   | Description                                                                                                   |
 +============+===============================================================================================================+
-| if         | See `if/else/elif`_.                                                                                          |
+| if         | See `if/else/elif`.                                                                                          |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| elif       | See `if/else/elif`_.                                                                                          |
+| elif       | See `if/else/elif`.                                                                                          |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| else       | See `if/else/elif`_.                                                                                          |
+| else       | See `if/else/elif`.                                                                                          |
 +------------+---------------------------------------------------------------------------------------------------------------+
 | for        | See for_.                                                                                                     |
 +------------+---------------------------------------------------------------------------------------------------------------+
@@ -195,11 +195,11 @@ in case you want to take a look under the hood.
 +------------+---------------------------------------------------------------------------------------------------------------+
 | breakpoint | Editor helper for debugger breakpoints.                                                                       |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| preload    | Preloads a class or variable. See `Classes as resources`_.                                                    |
+| preload    | Preloads a class or variable. See `Classes as resources`.                                                    |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| yield      | Coroutine support. See `Coroutines with yield`_.                                                              |
+| yield      | Coroutine support. See `Coroutines with yield`.                                                              |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`_.               |
+| assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
 | remote     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
@@ -309,7 +309,7 @@ Literals
 | `$NodePath`            | Shorthand for `get_node("NodePath")` |
 +--------------------------+----------------------------------------+
 
-Integers and floats can have their numbers separated with `_` to make them more readable.
+Integers and floats can have their numbers separated with `` to make them more readable.
 The following ways to write numbers are all valid::
 
     12_345_678  # Equal to 12345678.
@@ -371,7 +371,7 @@ PoolRealArray store 32-bit single-precision "float" values.
 `String`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A sequence of characters in `Unicode format ( https://en.wikipedia.org/wiki/Unicode )`_.
+A sequence of characters in `Unicode format ( https://en.wikipedia.org/wiki/Unicode )`.
 Strings can contain the following escape sequences:
 
 +---------------------+---------------------------------+
@@ -727,7 +727,7 @@ dictionary of that name.
 Functions
 ~~~~~~~~~
 
-Functions always belong to a `class <Classes_ )`_. The scope priority for
+Functions always belong to a `class <Classes_ )`. The scope priority for
 variable look-up is: local → class member → global. The `self` variable is
 always available and is provided as an option for accessing class members, but
 is not always required (and should *not* be sent as the function's first
@@ -1186,8 +1186,8 @@ in other languages)::
         .some_func(x) # Calls the same function on the parent class.
 
 Note:
- Default functions like  `_init`, and most notifications such as
-          `_enter_tree`, `_exit_tree`, `_process`, `_physics_process`,
+ Default functions like  `init`, and most notifications such as
+          `enter_tree`, `exit_tree`, `process`, `physics_process`,
           etc. are called in all parent classes automatically.
           There is no need to call them explicitly when overloading them.
 
@@ -1195,7 +1195,7 @@ Note:
 Class constructor
 ^^^^^^^^^^^^^^^^^
 
-The class constructor, called on class instantiation, is named `_init`. As
+The class constructor, called on class instantiation, is named `init`. As
 mentioned earlier, the constructors of parent classes are called automatically
 when inheriting a class. So, there is usually no need to call `._init()`
 explicitly.
@@ -1232,13 +1232,13 @@ This is better explained through examples. Consider this scenario::
 
 There are a few things to keep in mind here:
 
-1. If the inherited class (`State.gd`) defines a `_init` constructor that takes
+1. If the inherited class (`State.gd`) defines a `init` constructor that takes
    arguments (`e` in this case), then the inheriting class (`Idle.gd`) *must*
-   define `_init` as well and pass appropriate parameters to `_init` from `State.gd`.
+   define `init` as well and pass appropriate parameters to `init` from `State.gd`.
 2. `Idle.gd` can have a different number of arguments than the parent class `State.gd`.
 3. In the example above, `e` passed to the `State.gd` constructor is the same `e` passed
    in to `Idle.gd`.
-4. If `Idle.gd`'s `_init` constructor takes 0 arguments, it still needs to pass some value
+4. If `Idle.gd`'s `init` constructor takes 0 arguments, it still needs to pass some value
    to the `State.gd` parent class, even if it does nothing. This brings us to the fact that you
    can pass literals in the base constructor as well, not just variables, e.g.::
 
@@ -1432,10 +1432,10 @@ Note:
 
 
    Signals are a `Callback
-   ( https://en.wikipedia.org/wiki/Callback_(computer_programming) )`_
+   ( https://en.wikipedia.org/wiki/Callback_(computer_programming) )`
    mechanism. They also fill the role of Observers, a common programming
    pattern. For more information, read the `Observer tutorial
-   ( https://gameprogrammingpatterns.com/observer.html )`_ in the
+   ( https://gameprogrammingpatterns.com/observer.html )` in the
    Game Programming Patterns ebook.
 
 You can connect these signals to methods the same way you connect built-in
@@ -1443,7 +1443,7 @@ signals of nodes like `Button` or `RigidBody`.
 
 In the example below, we connect the `health_depleted` signal from a
 `Character` node to a `Game` node. When the `Character` node emits the
-signal, the game node's `_on_Character_health_depleted` is called::
+signal, the game node's `on_Character_health_depleted` is called::
 
     # Game.gd
 
@@ -1573,7 +1573,7 @@ Our `BattleLog` node receives each element in the binds array as an extra argume
 Coroutines with yield
 ~~~~~~~~~~~~~~~~~~~~~
 
-GDScript offers support for `coroutines ( https://en.wikipedia.org/wiki/Coroutine )`_
+GDScript offers support for `coroutines ( https://en.wikipedia.org/wiki/Coroutine )`
 via the `yield( @GDScript_method_yield )` built-in function. Calling `yield()` will
 immediately return from the current function, with the current frozen
 state of the same function as the return value. Calling `resume()` on
@@ -1737,7 +1737,7 @@ be obtained when a call to `Node._ready()` is made.
 
 This can get a little cumbersome, especially when nodes and external
 references pile up. For this, GDScript has the `onready` keyword, that
-defers initialization of a member variable until `_ready()` is called. It
+defers initialization of a member variable until `ready()` is called. It
 can replace the above code with a single line::
 
     onready var my_label = get_node("MyLabel")

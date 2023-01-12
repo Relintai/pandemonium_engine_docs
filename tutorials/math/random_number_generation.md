@@ -43,7 +43,7 @@ In global scope, you can find a `randomize()
 once when your project starts to initialize the random seed.** Calling it
 multiple times is unnecessary and may impact performance negatively.
 
-Putting it in your main scene script's `_ready()` method is a good choice:
+Putting it in your main scene script's `ready()` method is a good choice:
 
 gdscript GDScript
 
@@ -193,7 +193,7 @@ gdscript GDScript
 
         # Note: if the random element to pick is passed by reference,
         # such as an array or dictionary,
-        # use `_last_fruit = random_fruit.duplicate()` instead.
+        # use `last_fruit = random_fruit.duplicate()` instead.
         _last_fruit = random_fruit
 
         # Returns "apple", "orange", "pear", or "banana" every time the code runs.
@@ -303,7 +303,7 @@ ends up empty. When that happens, you reinitialize it to its default value::
             _fruits.shuffle()
 
         # Get a random fruit, since we shuffled the array,
-        # and remove it from the `_fruits` array.
+        # and remove it from the `fruits` array.
         var random_fruit = _fruits.pop_front()
         # Prints "apple", "orange", "pear", or "banana" every time the code runs.
         return random_fruit

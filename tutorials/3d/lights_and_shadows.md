@@ -22,8 +22,8 @@ in the `doc_spatial_material` tutorial.
 Light nodes
 -----------
 
-There are three types of light nodes: `Directional light`_,
-`Omni light`_ and `Spot light`_. Let's take a look at the common
+There are three types of light nodes: `Directional light`,
+`Omni light` and `Spot light`. Let's take a look at the common
 parameters for lights:
 
 ![](img/light_params.png)

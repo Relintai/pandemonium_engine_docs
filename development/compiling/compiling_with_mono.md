@@ -233,7 +233,7 @@ that is installed on your system. This likely won't be the case when targeting o
 platforms like Android, iOS and WebAssembly. You will have to build the Mono runtime
 yourself for those platforms.
 
-We recommend using these `build scripts ( https://github.com/godotengine/godot-mono-builds )`_.
+We recommend using these `build scripts ( https://github.com/godotengine/godot-mono-builds )`.
 They simplify this process but also include some patches needed
 for proper functioning with Godot. See the README on the link above
 for instructions on how to use the scripts.
@@ -353,7 +353,7 @@ Godot will look for the cross-compiler executable in the AOT compilers folder.
 The location of this folder is `<data_folder>/Tools/aot-compilers/`.
 
 In order to build the cross-compilers we recommend using these
-`build scripts ( https://github.com/godotengine/godot-mono-builds )`_.
+`build scripts ( https://github.com/godotengine/godot-mono-builds )`.
 
 After building them, copy the executable to the Godot AOT compilers directory. The
 executable name is `<triple>-mono-sgen`, e.g.: `aarch64-apple-darwin-mono-sgen`.

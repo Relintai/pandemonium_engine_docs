@@ -154,7 +154,7 @@ And if we use `unit` as an output `COLOR` value, we get:
 ![](img/planet_normals.png)
 
 Now that we can calculate the 3D position of the surface of the sphere, we can use 3D noise
-to make the planet. We will be using this noise function directly from a `Shadertoy ( https://www.shadertoy.com/view/Xsl3Dl )`_:
+to make the planet. We will be using this noise function directly from a `Shadertoy ( https://www.shadertoy.com/view/Xsl3Dl )`:
 
 .. code-block:: glsl
 

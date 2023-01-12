@@ -10,16 +10,16 @@ Godot Docs – *3.5* branch
 
   .. tip:: This is the documentation for the 3.5 branch.
            Looking for the documentation of the current **development** branch?
-           `Have a look here ( https://docs.godotengine.org/en/latest )`_.
+           `Have a look here ( https://docs.godotengine.org/en/latest )`.
            You can also browse the documentation for the current stable
-           `3.4 ( https://docs.godotengine.org/en/3.4 )`_ branch.
+           `3.4 ( https://docs.godotengine.org/en/3.4 )` branch.
 
 .. only:: i18n
 
   Note:
  This documentation is translated from the `original English one
-            ( https://docs.godotengine.org/en/latest )`_ by community members
-            on `Weblate ( https://hosted.weblate.org/projects/godot-engine/godot-docs )`_.
+            ( https://docs.godotengine.org/en/latest )` by community members
+            on `Weblate ( https://hosted.weblate.org/projects/godot-engine/godot-docs )`.
 
             Depending on the translation effort's completion level, you may
             find paragraphs or whole pages which are still in English. You can
@@ -53,12 +53,12 @@ Note:
           by letting us know!
 
           Submit an issue or pull request on the `GitHub repository
-          ( https://github.com/godotengine/godot-docs/issues )`_,
+          ( https://github.com/godotengine/godot-docs/issues )`,
           help us `translate the documentation
-          ( https://hosted.weblate.org/engage/godot-engine/ )`_ into your
+          ( https://hosted.weblate.org/engage/godot-engine/ )` into your
           language, or talk to us on the
           `#documentation` channel on the `Godot Contributors Chat
-          ( https://chat.godotengine.org/ )`_!
+          ( https://chat.godotengine.org/ )`!
 
 .. centered:: |weblate_widget|
 

@@ -67,7 +67,7 @@ properties, constants, etc. It's only called once. If an Object derived
 class is instanced but has not been registered, it will be registered as
 virtual automatically.
 
-Inside `_bind_methods`, there are a couple of things that can be done.
+Inside `bind_methods`, there are a couple of things that can be done.
 Registering functions is one:
 
 .. code-block:: cpp
@@ -85,7 +85,7 @@ efficiency. Argument names are used for introspection, but when
 compiling on release, the macro ignores them, so the strings are unused
 and optimized away.
 
-Check `_bind_methods` of Control or Object for more examples.
+Check `bind_methods` of Control or Object for more examples.
 
 If just adding modules and functionality that is not expected to be
 documented as thoroughly, the `D_METHOD()` macro can safely be ignored and a
@@ -115,7 +115,7 @@ convertible to int, for this a macro is provided:
 
     VARIANT_ENUM_CAST(MyClass::SomeMode); // now functions that take SomeMode can be bound.
 
-The constants can also be bound inside `_bind_methods`, by using:
+The constants can also be bound inside `bind_methods`, by using:
 
 .. code-block:: cpp
 
@@ -166,7 +166,7 @@ functions is preferred for legibility. Many properties are also bound
 with categories, such as "animation/frame" which also make indexing
 impossible unless using operator [].
 
-From `_bind_methods()`, properties can be created and bound as long as
+From `bind_methods()`, properties can be created and bound as long as
 set/get functions exist. Example:
 
 .. code-block:: cpp
@@ -177,7 +177,7 @@ This creates the property using the setter and the getter.
 
 
 
-Binding properties using `_set`/`_get`/`_get_property_list`
+Binding properties using `set`/`get`/`get_property_list`
 -----------------------------------------------------------------
 
 An additional method of creating properties exists when more flexibility
@@ -228,10 +228,10 @@ languages). Connecting to them is rather easy:
     // for example:
     obj->connect("enter_tree", this, "_node_entered_tree")
 
-The method `_node_entered_tree` must be registered to the class using
+The method `node_entered_tree` must be registered to the class using
 `ClassDB::bind_method` (explained before).
 
-Adding signals to a class is done in `_bind_methods`, using the
+Adding signals to a class is done in `bind_methods`, using the
 `ADD_SIGNAL` macro, for example:
 
 .. code-block:: cpp
@@ -241,7 +241,7 @@ Adding signals to a class is done in `_bind_methods`, using the
 Notifications
 -------------
 
-All objects in Godot have a `_notification`
+All objects in Godot have a `notification`
 method that allows it to respond to engine level callbacks that may relate to it.
 More information can be found on the `doc_godot_notifications` page.
 

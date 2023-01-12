@@ -33,7 +33,7 @@ you should end up with a new `addons/my_inspector_plugin` folder that contains
 two files: `plugin.cfg` and `plugin.gd`.
 
 As before, `plugin.gd` is a script extending `EditorPlugin` and you
-need to introduce new code for its `_enter_tree` and `_exit_tree` methods.
+need to introduce new code for its `enter_tree` and `exit_tree` methods.
 To set up your inspector plugin, you must load its script, then create and add
 the instance by calling `add_inspector_plugin()`. If the plugin is disabled,
 you should remove the instance you have added by calling
@@ -127,7 +127,7 @@ anything but can house any other control nodes, including complex scenes.
 There are three essential parts to the script extending
 `EditorProperty`:
 
-1. You must define the `_init()` method to set up the control nodes'
+1. You must define the `init()` method to set up the control nodes'
    structure.
 
 2. You should implement the `update_property()` to handle changes to the data

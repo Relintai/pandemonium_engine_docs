@@ -26,7 +26,7 @@ Checking control size
 Unlike 2D nodes, "size" is important with controls, as it helps to
 organize them in proper layouts. For this, the
 `Control.rect_size`
-property is provided. Checking it during `_draw()` is vital to ensure
+property is provided. Checking it during `draw()` is vital to ensure
 everything is kept in-bounds.
 
 Checking focus

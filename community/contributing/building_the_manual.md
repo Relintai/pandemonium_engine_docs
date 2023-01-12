@@ -63,7 +63,7 @@ up compilation by running:
 The compilation will take some time as the `classes/` folder contains hundreds
 of files.
 
-You can then browse the documentation by opening `_build/html/index.html` in
+You can then browse the documentation by opening `build/html/index.html` in
 your web browser.
 
 In case you of a `MemoryError` or `EOFError`, you can remove the

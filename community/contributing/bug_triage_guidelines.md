@@ -61,7 +61,7 @@ The following labels are currently defined in the Godot repository:
 -  *Documentation*: issue related to the documentation. Mainly to request
    enhancements in the API documentation. Issues related to the ReadTheDocs
    documentation should be filed on the
-   `godot-docs ( https://github.com/godotengine/godot-docs )`_ repository.
+   `godot-docs ( https://github.com/godotengine/godot-docs )` repository.
 -  *Enhancement*: describes a proposed enhancement to an existing
    functionality.
 -  *Feature proposal*: describes a wish for a new feature to be
@@ -69,7 +69,7 @@ The following labels are currently defined in the Godot repository:
    feature requests. Please use
    `godot-proposals ( https://github.com/godotengine/godot-proposals )` instead.
 -  *For PR meeting*: the issue needs to be discussed in a pull request meeting.
-   These meetings are public and are held on the `Godot Contributors Chat ( https://chat.godotengine.org/ )`_.
+   These meetings are public and are held on the `Godot Contributors Chat ( https://chat.godotengine.org/ )`.
 -  *Good first issue*: the issue is *assumed* to be an easy one to fix, which makes
    it a great fit for new contributors who need to become familiar with
    the code base.
@@ -177,7 +177,7 @@ use the following labels:
 Milestones
 ~~~~~~~~~~
 
-`Milestones ( https://github.com/godotengine/godot/milestones )`_ correspond to
+`Milestones ( https://github.com/godotengine/godot/milestones )` correspond to
 planned future versions of Godot for which there is an existing roadmap. Issues
 that fit in the said roadmap should be filed under the corresponding milestone;
 if they don't correspond to any current roadmap, they should be left without

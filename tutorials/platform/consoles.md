@@ -64,16 +64,16 @@ your games to various consoles.
 
 Following is the list of providers:
 
-- `Lone Wolf Technology ( http://www.lonewolftechnology.com/ )`_ offers
+- `Lone Wolf Technology ( http://www.lonewolftechnology.com/ )` offers
   Switch and PS4 porting and publishing of Godot games.
-- `Pineapple Works ( https://pineapple.works/ )`_ offers
+- `Pineapple Works ( https://pineapple.works/ )` offers
   Switch, Xbox One & Xbox Series X/S (GDK) porting and publishing of Godot games (GDScript/C#).
-- `RAWRLAB games ( https://www.rawrlab.com/ )`_ offers
+- `RAWRLAB games ( https://www.rawrlab.com/ )` offers
   Switch porting of Godot games.
-- `mazette! games ( https://mazette.games/ )`_ offers
+- `mazette! games ( https://mazette.games/ )` offers
   Switch, Xbox One and Xbox Series X/S porting and publishing of Godot games.
 
 If your company offers porting, or porting *and* publishing services for Godot games,
 feel free to
-`open an issue or pull request ( https://github.com/godotengine/godot-docs )`_
+`open an issue or pull request ( https://github.com/godotengine/godot-docs )`
 to add your company to the list above.

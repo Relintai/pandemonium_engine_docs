@@ -73,7 +73,7 @@ Note:
         $Sprite.material.set_shader_param("ViewportTexture", $Viewport.get_texture())
 
 Copy the following code to your shader. The above code is a single pass edge detection filter, a
-`Sobel filter ( https://en.wikipedia.org/wiki/Sobel_operator )`_.
+`Sobel filter ( https://en.wikipedia.org/wiki/Sobel_operator )`.
 
 .. code-block:: glsl
 

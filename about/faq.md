@@ -9,7 +9,7 @@ Frequently asked questions
 What can I do with Godot? How much does it cost? What are the license terms?
 ----------------------------------------------------------------------------
 
-Godot is `Free and Open-Source Software ( https://en.wikipedia.org/wiki/Free_and_open-source_software )`_ available under the `OSI-approved ( https://opensource.org/licenses/MIT )`_ MIT license. This means it is free as in "free speech" as well as in "free beer."
+Godot is `Free and Open-Source Software ( https://en.wikipedia.org/wiki/Free_and_open-source_software )` available under the `OSI-approved ( https://opensource.org/licenses/MIT )` MIT license. This means it is free as in "free speech" as well as in "free beer."
 
 In short:
 
@@ -17,18 +17,18 @@ In short:
 * You are free to modify, distribute, redistribute, and remix Godot to your heart's content, for any reason, both non-commercially and commercially.
 
 All the contents of this accompanying documentation are published under
-the permissive Creative Commons Attribution 3.0 (`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`_) license, with attribution
+the permissive Creative Commons Attribution 3.0 (`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`) license, with attribution
 to "Juan Linietsky, Ariel Manzur and the Godot Engine community."
 
 Logos and icons are generally under the same Creative Commons license. Note
 that some third-party libraries included with Godot's source code may have
 different licenses.
 
-For full details, look at the `COPYRIGHT.txt ( https://github.com/godotengine/godot/blob/master/COPYRIGHT.txt )`_ as well
-as the `LICENSE.txt ( https://github.com/godotengine/godot/blob/master/LICENSE.txt )`_ and `LOGO_LICENSE.txt ( https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.md )`_ files
+For full details, look at the `COPYRIGHT.txt ( https://github.com/godotengine/godot/blob/master/COPYRIGHT.txt )` as well
+as the `LICENSE.txt ( https://github.com/godotengine/godot/blob/master/LICENSE.txt )` and `LOGO_LICENSE.txt ( https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.md )` files
 in the Godot repository.
 
-Also, see `the license page on the Godot website ( https://godotengine.org/license )`_.
+Also, see `the license page on the Godot website ( https://godotengine.org/license )`.
 
 Which platforms are supported by Godot?
 ---------------------------------------
@@ -81,13 +81,13 @@ Note that C# support is still relatively new, and as such, you may encounter som
 issues along the way. Our friendly and hard-working development community is always
 ready to tackle new problems as they arise, but since this is an open-source project,
 we recommend that you first do some due diligence yourself. Searching through
-discussions on `open issues ( https://github.com/godotengine/godot/issues )`_ is a
+discussions on `open issues ( https://github.com/godotengine/godot/issues )` is a
 great way to start your troubleshooting.
 
 As for new languages, support is possible via third parties using the GDNative /
 NativeScript / PluginScript facilities. (See the question about plugins below.)
 Work is currently underway, for example, on unofficial bindings for Godot
-to `Python ( https://github.com/touilleMan/godot-python )`_ and `Nim ( https://github.com/pragmagic/godot-nim )`_.
+to `Python ( https://github.com/touilleMan/godot-python )` and `Nim ( https://github.com/pragmagic/godot-nim )`.
 
 
 
@@ -157,8 +157,8 @@ GDScript was designed to curtail the issues above, and more.
 What type of 3D model formats does Godot support?
 -------------------------------------------------
 
-Godot supports Collada via the `OpenCollada ( https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools )`_ exporter (Maya, 3DSMax).
-If you are using Blender, take a look at our own `Better Collada Exporter ( https://godotengine.org/download )`_.
+Godot supports Collada via the `OpenCollada ( https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools )` exporter (Maya, 3DSMax).
+If you are using Blender, take a look at our own `Better Collada Exporter ( https://godotengine.org/download )`.
 
 As of Godot 3.0, glTF is supported.
 
@@ -364,11 +364,11 @@ and tool scripts.
 
 Also, see the official blog posts on these topics:
 
-* `A look at the GDNative architecture ( https://godotengine.org/article/look-gdnative-architecture )`_
-* `GDNative is here! ( https://godotengine.org/article/dlscript-here )`_
+* `A look at the GDNative architecture ( https://godotengine.org/article/look-gdnative-architecture )`
+* `GDNative is here! ( https://godotengine.org/article/dlscript-here )`
 
 You can also take a look at the GDScript implementation, the Godot modules,
-as well as the `unofficial Python support ( https://github.com/touilleMan/godot-python )`_ for Godot.
+as well as the `unofficial Python support ( https://github.com/touilleMan/godot-python )` for Godot.
 This would be a good starting point to see how another third-party library
 integrates with Godot.
 
@@ -384,8 +384,8 @@ I would like to contribute! How can I get started?
 Awesome! As an open-source project, Godot thrives off of the innovation and
 ambition of developers like you.
 
-The first place to get started is in the `issues ( https://github.com/godotengine/godot/issues )`_.
-Find an issue that resonates with you, then proceed to the `How to Contribute ( https://github.com/godotengine/godot/blob/master/CONTRIBUTING.md#contributing-pull-requests )`_
+The first place to get started is in the `issues ( https://github.com/godotengine/godot/issues )`.
+Find an issue that resonates with you, then proceed to the `How to Contribute ( https://github.com/godotengine/godot/blob/master/CONTRIBUTING.md#contributing-pull-requests )`
 guide to learn how to fork, modify, and submit a Pull Request (PR) with your changes.
 
 I have a great idea for Godot. How can I share it?
@@ -396,8 +396,8 @@ result in massive core changes, some sort of mimicry of what another
 game engine does, or alternative workflows that you'd like built into
 the editor. These are great, and we are thankful to have such motivated
 people want to contribute, but Godot's focus is and always will be the
-core functionality as outlined in the `Roadmap ( https://github.com/godotengine/godot-roadmap/blob/master/ROADMAP.md )`_,
-`squashing bugs and addressing issues ( https://github.com/godotengine/godot/issues )`_,
+core functionality as outlined in the `Roadmap ( https://github.com/godotengine/godot-roadmap/blob/master/ROADMAP.md )`,
+`squashing bugs and addressing issues ( https://github.com/godotengine/godot/issues )`,
 and conversations between Godot community members.
 
 Most developers in the Godot community will be more interested to learn
@@ -540,4 +540,4 @@ See `doc_ways_to_contribute`.
 Who is working on Godot? How can I contact you?
 -----------------------------------------------
 
-See the corresponding page on the `Godot website ( https://godotengine.org/contact )`_.
+See the corresponding page on the `Godot website ( https://godotengine.org/contact )`.

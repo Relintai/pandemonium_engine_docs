@@ -25,7 +25,7 @@ Step by step
 ------------
 
 1. Generate a 256-bit AES key in hexadecimal format. You can use the aes-256-cbc variant from
-   `this service ( https://asecuritysite.com/encryption/keygen )`_.
+   `this service ( https://asecuritysite.com/encryption/keygen )`.
 
    Alternatively, you can generate it yourself using
    `OpenSSL ( https://www.openssl.org/ )` command-line tools:

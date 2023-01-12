@@ -96,7 +96,7 @@ of limitations you should be aware of when porting a Godot game to the web.
 
 
 .. important:: Browser vendors are making more and more functionalities only
-               available in `secure contexts ( https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts )`_,
+               available in `secure contexts ( https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts )`,
                this means that such features are only be available if the web
                page is served via a secure HTTPS connection (localhost is
                usually exempt from such requirement).
@@ -122,8 +122,8 @@ Background processing
 ~~~~~~~~~~~~~~~~~~~~~
 
 The project will be paused by the browser when the tab is no longer the active
-tab in the user's browser. This means functions such as `_process()` and
-`_physics_process()` will no longer run until the tab is made active again by
+tab in the user's browser. This means functions such as `process()` and
+`physics_process()` will no longer run until the tab is made active again by
 the user (by switching back to the tab). This can cause networked games to
 disconnect if the user switches tabs for a long duration.
 
@@ -158,7 +158,7 @@ Full screen and mouse capture
 Browsers do not allow arbitrarily **entering full screen**. The same goes for
 **capturing the cursor**. Instead, these actions have to occur as a response to
 a JavaScript input event. In Godot, this means entering full screen from within
-a pressed input event callback such as `_input` or `_unhandled_input`.
+a pressed input event callback such as `input` or `unhandled_input`.
 Querying the `Input` singleton is not sufficient, the relevant
 input event must currently be active.
 

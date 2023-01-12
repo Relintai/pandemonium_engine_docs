@@ -20,7 +20,7 @@ own limitations:
    that require it, but frequently saving and loading data is cumbersome and
    may be slow.
 
-The `Singleton pattern ( https://en.wikipedia.org/wiki/Singleton_pattern )`_ is
+The `Singleton pattern ( https://en.wikipedia.org/wiki/Singleton_pattern )` is
 a useful tool for solving the common use case where you need to store
 persistent information between scenes. In our case, it's possible to reuse the
 same scene or class for multiple singletons as long as they have different
@@ -140,7 +140,7 @@ select the script by clicking the browse button or typing its path:
 Now whenever we run any scene in the project, this script will always be loaded.
 
 Returning to the script, it needs to fetch the current scene in the
-`_ready()` function. Both the current scene (the one with the button) and
+`ready()` function. Both the current scene (the one with the button) and
 `Global.gd` are children of root, but autoloaded nodes are always first. This
 means that the last child of root is always the loaded scene.
 

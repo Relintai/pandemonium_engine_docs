@@ -22,7 +22,7 @@ Initializing the plugin
 First create a new plugin from the Plugins menu. For this tutorial, we'll put
 it in a folder called `main_screen`, but you can use any name you'd like.
 
-The plugin script will come with `_enter_tree()` and `_exit_tree()`
+The plugin script will come with `enter_tree()` and `exit_tree()`
 methods, but for a main screen plugin we need to add a few extra methods.
 Add five extra methods such that the script looks like this:
 
@@ -140,14 +140,14 @@ Here is the full plugin script:
 A couple of specific lines were added. `MainPanel` is a constant that holds
 a reference to the scene, and we instance it into `main_panel_instance`.
 
-The `_enter_tree()` function is called before `_ready()`. This is where
+The `enter_tree()` function is called before `ready()`. This is where
 we instance the main panel scene, and add them as children of specific parts
 of the editor. We use `get_editor_interface().get_editor_viewport()` to
 obtain the viewport and add our main panel instance as a child to it.
 We call the `make_visible(false)` function to hide the main panel so
 it doesn't compete for space when first activating the plugin.
 
-The `_exit_tree()` function is called when the plugin is deactivated.
+The `exit_tree()` function is called when the plugin is deactivated.
 If the main screen still exists, we call `queue_free()` to free the
 instance and remove it from memory.
 

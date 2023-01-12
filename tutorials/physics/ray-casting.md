@@ -203,5 +203,5 @@ gdscript GDScript
 ```
 
 
-Remember that during `_input()`, the space may be locked, so in practice
-this query should be run in `_physics_process()`.
+Remember that during `input()`, the space may be locked, so in practice
+this query should be run in `physics_process()`.

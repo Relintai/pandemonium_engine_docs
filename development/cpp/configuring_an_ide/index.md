@@ -1,7 +1,7 @@
 Configuring an IDE
 ==================
 
-We assume that you have already `cloned ( https://github.com/godotengine/godot )`_
+We assume that you have already `cloned ( https://github.com/godotengine/godot )`
 and `compiled <toc-devel-compiling )` Godot.
 
 You can easily develop Godot with any text editor and by invoking `scons`

@@ -4,26 +4,26 @@ Godot notifications
 ===================
 
 Every Object in Godot implements a
-`_notification` method. Its purpose is to
+`notification` method. Its purpose is to
 allow the Object to respond to a variety of engine-level callbacks that may
 relate to it. For example, if the engine tells a
 `CanvasItem` to "draw", it will call
-`_notification(NOTIFICATION_DRAW)`.
+`notification(NOTIFICATION_DRAW)`.
 
 Some of these notifications, like draw, are useful to override in scripts. So
 much so that Godot exposes many of them with dedicated functions:
 
-- `_ready()` : NOTIFICATION_READY
+- `ready()` : NOTIFICATION_READY
 
-- `_enter_tree()` : NOTIFICATION_ENTER_TREE
+- `enter_tree()` : NOTIFICATION_ENTER_TREE
 
-- `_exit_tree()` : NOTIFICATION_EXIT_TREE
+- `exit_tree()` : NOTIFICATION_EXIT_TREE
 
-- `_process(delta)` : NOTIFICATION_PROCESS
+- `process(delta)` : NOTIFICATION_PROCESS
 
-- `_physics_process(delta)` : NOTIFICATION_PHYSICS_PROCESS
+- `physics_process(delta)` : NOTIFICATION_PHYSICS_PROCESS
 
-- `_draw()` : NOTIFICATION_DRAW
+- `draw()` : NOTIFICATION_DRAW
 
 What users might *not* realize is that notifications exist for types other
 than Node alone:
@@ -55,7 +55,7 @@ methods, but are still quite useful.
   *before* its appearance.
 
 One can access all these custom notifications from the universal
-`_notification` method.
+`notification` method.
 
 Note:
 
@@ -63,7 +63,7 @@ Note:
   overridden by scripts.
 
   A classic example is the
-  `_init` method in Object. While it has no
+  `init` method in Object. While it has no
   `NOTIFICATION_*` equivalent, the engine still calls the method. Most languages
   (except C#) rely on it as a constructor.
 
@@ -73,7 +73,7 @@ virtual functions?
 _process vs. _physics_process vs. \*_input
 ------------------------------------------
 
-Use `_process` when one needs a framerate-dependent deltatime between
+Use `process` when one needs a framerate-dependent deltatime between
 frames. If code that updates object data needs to update as often as
 possible, this is the right place. Recurring logic checks and data caching
 often execute here, but it comes down to the frequency at which one needs
@@ -92,14 +92,14 @@ gdscript GDScript
         yield($Timer, "timeout")
 ```
 
-Use `_physics_process` when one needs a framerate-independent deltatime
+Use `physics_process` when one needs a framerate-independent deltatime
 between frames. If code needs consistent updates over time, regardless
 of how fast or slow time advances, this is the right place.
 Recurring kinematic and object transform operations should execute here.
 
 While it is possible, to achieve the best performance, one should avoid
-making input checks during these callbacks. `_process` and
-`_physics_process` will trigger at every opportunity (they do not "rest" by
+making input checks during these callbacks. `process` and
+`physics_process` will trigger at every opportunity (they do not "rest" by
 default). In contrast, `*_input` callbacks will trigger only on frames in
 which the engine has actually detected the input.
 
@@ -129,8 +129,8 @@ _init vs. initialization vs. export
 
 If the script initializes its own node subtree, without a scene,
 that code should execute here. Other property or SceneTree-independent
-initializations should also run here. This triggers before `_ready` or
-`_enter_tree`, but after a script creates and initializes its properties.
+initializations should also run here. This triggers before `ready` or
+`enter_tree`, but after a script creates and initializes its properties.
 
 Scripts have three types of property assignments that can occur during
 instantiation:
@@ -174,16 +174,16 @@ _ready vs. _enter_tree vs. NOTIFICATION_PARENTED
 ------------------------------------------------
 
 When instantiating a scene connected to the first executed scene, Godot will
-instantiate nodes down the tree (making `_init` calls) and build the tree
-going downwards from the root. This causes `_enter_tree` calls to cascade
-down the tree. Once the tree is complete, leaf nodes call `_ready`. A node
+instantiate nodes down the tree (making `init` calls) and build the tree
+going downwards from the root. This causes `enter_tree` calls to cascade
+down the tree. Once the tree is complete, leaf nodes call `ready`. A node
 will call this method once all child nodes have finished calling theirs. This
 then causes a reverse cascade going up back to the tree's root.
 
 When instantiating a script or a standalone scene, nodes are not
-added to the SceneTree upon creation, so no `_enter_tree` callbacks
-trigger. Instead, only the `_init` call occurs. When the scene is added
-to the SceneTree, the `_enter_tree` and `_ready` calls occur.
+added to the SceneTree upon creation, so no `enter_tree` callbacks
+trigger. Instead, only the `init` call occurs. When the scene is added
+to the SceneTree, the `enter_tree` and `ready` calls occur.
 
 If one needs to trigger behavior that occurs as nodes parent to another,
 regardless of whether it occurs as part of the main/active scene or not, one

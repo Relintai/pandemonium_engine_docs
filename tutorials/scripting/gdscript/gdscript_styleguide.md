@@ -99,7 +99,7 @@ Encoding and special characters
 
 * Use line feed (**LF**) characters to break lines, not CRLF or CR. *(editor default)*
 * Use one line feed character at the end of each file. *(editor default)*
-* Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`_. *(editor default)*
+* Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`. *(editor default)*
 * Use **Tabs** instead of spaces for indentation. *(editor default)*
 
 Indentation
@@ -652,8 +652,8 @@ This code order follows four rules of thumb:
 1. Properties and signals come first, followed by methods.
 2. Public comes before private.
 3. Virtual callbacks come before the class's interface.
-4. The object's construction and initialization functions, `_init` and
-   `_ready`, come before functions that modify the object at runtime.
+4. The object's construction and initialization functions, `init` and
+   `ready`, come before functions that modify the object at runtime.
 
 
 Class declaration
@@ -714,7 +714,7 @@ variables, in that order.
 Note:
 
 
-   The GDScript compiler evaluates onready variables right before the `_ready`
+   The GDScript compiler evaluates onready variables right before the `ready`
    callback. You can use that to cache node dependencies, that is to say, to get
    child nodes in the scene that your class relies on. This is what the example
    above shows.
@@ -738,15 +738,15 @@ Methods and static functions
 
 After the class's properties come the methods.
 
-Start with the `_init()` callback method, that the engine will call upon
-creating the object in memory. Follow with the `_ready()` callback, that Godot
+Start with the `init()` callback method, that the engine will call upon
+creating the object in memory. Follow with the `ready()` callback, that Godot
 calls when it adds a node to the scene tree.
 
 These functions should come first because they show how the object is
 initialized.
 
-Other built-in virtual callbacks, like `_unhandled_input()` and
-`_physics_process`, should come next. These control the object's main loop and
+Other built-in virtual callbacks, like `unhandled_input()` and
+`physics_process`, should come next. These control the object's main loop and
 interactions with the game engine.
 
 The rest of the class's interface, public and private methods, come after that,

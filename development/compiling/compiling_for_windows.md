@@ -15,25 +15,25 @@ Requirements
 
 For compiling under Windows, the following is required:
 
-- `Visual Studio Community ( https://www.visualstudio.com/vs/community/ )`_,
+- `Visual Studio Community ( https://www.visualstudio.com/vs/community/ )`,
   version 2017 or later. VS 2019 is recommended.
   **Make sure to read "Installing Visual Studio caveats" below or you
   will have to run/download the installer again.**
 - `MinGW-w64 ( http://mingw-w64.org/ )` with GCC can be used as an alternative to
   Visual Studio. Be sure to install/configure it to use the `posix` thread model.
-- `Python 3.5+ ( https://www.python.org/downloads/windows/ )`_.
+- `Python 3.5+ ( https://www.python.org/downloads/windows/ )`.
   **Make sure to enable the option to add Python to the `PATH` in the installer.**
-- `SCons ( https://www.scons.org/ )`_ build system. Using the latest release is
+- `SCons ( https://www.scons.org/ )` build system. Using the latest release is
   recommended, especially for proper support of recent Visual Studio releases.
 
 Note:
- If you have `Scoop ( https://scoop.sh/ )`_ installed, you can easily
+ If you have `Scoop ( https://scoop.sh/ )` installed, you can easily
           install MinGW and other dependencies using the following command::
 
               scoop install gcc python scons make
 
 Note:
- If you have `MSYS2 ( https://www.msys2.org/ )`_ installed, you can easily
+ If you have `MSYS2 ( https://www.msys2.org/ )` installed, you can easily
           install MinGW and other dependencies using the following command::
 
               pacman -S mingw-w64-x86_64-python3-pip mingw-w64-x86_64-gcc \
@@ -173,7 +173,7 @@ Note:
  If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
           `doc_data_paths_self_contained_mode` by creating a file called
-          `._sc_` or `_sc_` in the `bin/` folder.
+          `._sc_` or `sc_` in the `bin/` folder.
 
 Development in Visual Studio
 ----------------------------
@@ -205,7 +205,7 @@ and 64-bit variants. The package names may differ based on your distribution,
 here are some known ones:
 
 +----------------+--------------------------------------------------------------+
-| **Arch Linux** | Install `mingw-w64-gcc from the AUR`_.                       |
+| **Arch Linux** | Install `mingw-w64-gcc from the AUR`.                       |
 +----------------+--------------------------------------------------------------+
 | **Debian** /   | ::                                                           |
 | **Ubuntu**     |                                                              |
@@ -252,7 +252,7 @@ Troubleshooting
 ~~~~~~~~~~~~~~~
 
 Cross-compiling from some Ubuntu versions may lead to
-`this bug ( https://github.com/godotengine/godot/issues/9258 )`_,
+`this bug ( https://github.com/godotengine/godot/issues/9258 )`,
 due to a default configuration lacking support for POSIX threading.
 
 You can change that configuration following those instructions,

@@ -29,7 +29,7 @@ At the end, the imported Godot scene will contain the animations in a `Animation
 As you rarely use imported scenes directly in Godot (they are either instantiated or inherited from), you can place the `AnimationTree` node in your
 new scene which contains the imported one. Afterwards, point the `AnimationTree` node to the `AnimationPlayer` that was created in the imported scene.
 
-This is how it's done in the `Third Person Shooter demo ( https://github.com/godotengine/tps-demo )`_, for reference:
+This is how it's done in the `Third Person Shooter demo ( https://github.com/godotengine/tps-demo )`, for reference:
 
 ![](img/animtree1.png)
 

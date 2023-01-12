@@ -226,9 +226,9 @@ common exporting features which can be implemented with a low-level API.
 
 Before reading further, you should get familiar with the way properties are
 handled and how they can be customized with
-`_set()`,
-`_get()`, and
-`_get_property_list()` methods as
+`set()`,
+`get()`, and
+`get_property_list()` methods as
 described in `doc_accessing_data_or_logic_from_object`.
 
 See also:
@@ -256,7 +256,7 @@ how to make properties with advanced exports.
         })
         return properties
 
-* The `_get_property_list()` function gets called by the inspector. You
+* The `get_property_list()` function gets called by the inspector. You
   can override it for more advanced exports. You must return an `Array`
   with the contents of the properties for the function to work.
 
@@ -273,8 +273,8 @@ Attaching variables to properties
 To attach variables to properties (allowing the value of the property to be used
 in scripts), you need to create a variable with the exact same name as the
 property or else you may need to override the 
-`_set()` and 
-`_get()` methods. Attaching
+`set()` and 
+`get()` methods. Attaching
 a variable to to a property also gives you the ability to give it a default state.
 ::
 

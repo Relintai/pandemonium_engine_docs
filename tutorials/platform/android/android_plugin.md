@@ -40,23 +40,23 @@ Since we previously did not version the Android plugin systems, the new one is n
 
 As a prerequisite, make sure you understand how to set up a `custom build environment( doc_android_custom_build )` for Android.
 
-At its core, a Godot Android plugin is a `Android archive library ( https://developer.android.com/studio/projects/android-library#aar-contents )`_ (*aar* archive file)
+At its core, a Godot Android plugin is a `Android archive library ( https://developer.android.com/studio/projects/android-library#aar-contents )` (*aar* archive file)
 with the following caveats:
 
-- The library must have a dependency on the Godot engine library (`godot-lib.<version>.<status>.aar`). A stable version is made available for each Godot release on the `Godot download page ( https://godotengine.org/download )`_.
+- The library must have a dependency on the Godot engine library (`godot-lib.<version>.<status>.aar`). A stable version is made available for each Godot release on the `Godot download page ( https://godotengine.org/download )`.
 - The library must include a specifically configured `<meta-data )` tag in its manifest file.
 
 Building an Android plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Prerequisite:** `Android Studio ( https://developer.android.com/studio )`_ is strongly recommended as the IDE to use to create Android plugins.
+**Prerequisite:** `Android Studio ( https://developer.android.com/studio )` is strongly recommended as the IDE to use to create Android plugins.
 The instructions below assumes that you're using Android Studio.
 
 1. Follow `these instructions ( https://developer.android.com/studio/projects/android-library )` to create an Android library module for your plugin.
 
 2. Add the Godot engine library as a dependency to your plugin module:
 
-  - Download the Godot engine library (`godot-lib.<version>.<status>.aar`) from the `Godot download page ( https://godotengine.org/download )`_ (e.g.: `godot-lib.3.4.2.stable.release.aar`). 
+  - Download the Godot engine library (`godot-lib.<version>.<status>.aar`) from the `Godot download page ( https://godotengine.org/download )` (e.g.: `godot-lib.3.4.2.stable.release.aar`). 
   - Follow `these instructions ( https://developer.android.com/studio/projects/android-library#AddDependency )` to add
     the Godot engine library as a dependency for your plugin.
   - In the plugin module's `build.gradle` file, replace `implementation` with `compileOnly` for the dependency line for the Godot engine library.
@@ -110,7 +110,7 @@ The instructions below assumes that you're using Android Studio.
         - The filepath can be relative (e.g.: `MyPlugin.aar`) in which case it's relative to the `res://android/plugins` directory.
         - The filepath can be absolute: `res://some_path/MyPlugin.aar`.
 
-      - If **binary_type** is `remote`, then this should be a declaration for a `remote gradle binary ( https://developer.android.com/studio/build/dependencies#dependency-types )`_ (e.g.: `org.godot.example:my-plugin:0.0.0`).
+      - If **binary_type** is `remote`, then this should be a declaration for a `remote gradle binary ( https://developer.android.com/studio/build/dependencies#dependency-types )` (e.g.: `org.godot.example:my-plugin:0.0.0`).
 
     The `dependencies` section and fields are optional and defined as follow:
 
@@ -153,9 +153,9 @@ At runtime, the plugin will provide these paths to Godot core which will use the
 Reference implementations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `Godot Oculus Mobile plugin ( https://github.com/GodotVR/godot_oculus_mobile )`_
-  - `Bundled gdnative resources ( https://github.com/GodotVR/godot_oculus_mobile/tree/master/plugin/src/main/assets/addons/godot_ovrmobile )`_
-- `Godot Google Play Billing plugin ( https://github.com/godotengine/godot-google-play-billing )`_
+- `Godot Oculus Mobile plugin ( https://github.com/GodotVR/godot_oculus_mobile )`
+  - `Bundled gdnative resources ( https://github.com/GodotVR/godot_oculus_mobile/tree/master/plugin/src/main/assets/addons/godot_ovrmobile )`
+- `Godot Google Play Billing plugin ( https://github.com/godotengine/godot-google-play-billing )`
 
 
 Troubleshooting

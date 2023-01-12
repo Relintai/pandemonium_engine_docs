@@ -203,7 +203,7 @@ powershell Windows (powershell)
 To test mappings on non-desktop platforms or to distribute your project with
 additional controller mappings, you can add them by calling
 `Input.add_joy_mapping()`
-as early as possible in a script's `_ready()` function.
+as early as possible in a script's `ready()` function.
 
 My controller works on a given platform, but not on another platform.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

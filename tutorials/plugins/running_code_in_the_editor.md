@@ -51,7 +51,7 @@ gdscript GDScript
 
 Pieces of code do not have either of the 2 conditions above will run both in-editor and in-game.
 
-Here is how a `_process()` function might look for you:
+Here is how a `process()` function might look for you:
 
 gdscript GDScript
 
@@ -91,7 +91,7 @@ Save the script and return to the editor. You should now see your object rotate.
 Note:
  If you don't see the changes, reload the scene (close it and open it again).
 
-Now let's choose which code runs when. Modify your `_process()` function to look like this:
+Now let's choose which code runs when. Modify your `process()` function to look like this:
 
 gdscript GDScript
 
@@ -108,7 +108,7 @@ Save the script. Now the object will spin clockwise in the editor, but if you ru
 Editing variables
 -----------------
 Add and export a variable speed to the script. The function set_speed after "setget" is executed with your input to change the variable.
-Modify  `_process()` to include the rotation speed.
+Modify  `process()` to include the rotation speed.
 
 gdscript GDScript
 

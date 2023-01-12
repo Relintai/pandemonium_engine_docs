@@ -10,7 +10,7 @@ Every beginner has been there: "How do I move my character?" Depending on the
 style of game you're making, you may have special requirements, but in general
 the movement in most 2D games is based on a small number of designs.
 
-We'll use :ref:`KinematicBody2D <class_KinematicBody2D>` for these examples,
+We'll use `KinematicBody2D <class_KinematicBody2D>` for these examples,
 but the principles will apply to other node types (Area2D, RigidBody2D) as well.
 
 .. _doc_2d_movement_setup:
@@ -23,7 +23,7 @@ children: ``Sprite`` and ``CollisionShape2D``. You can use the Godot icon ("icon
 for the Sprite's texture or use any other 2D image you have.
 
 Open ``Project -> Project Settings`` and select the "Input Map" tab. Add the following
-input actions (see :ref:`InputEvent <doc_inputevent>` for details):
+input actions (see `InputEvent <doc_inputevent>` for details):
 
 .. image:: img/movement_inputs.png
 
@@ -73,13 +73,13 @@ We can prevent that if we *normalize* the velocity, which means we set
 its *length* to ``1``, and multiply by the desired speed.
 
 .. tip:: If you've never used vector math before, or need a refresher,
-         you can see an explanation of vector usage in Godot at :ref:`doc_vector_math`.
+         you can see an explanation of vector usage in Godot at `doc_vector_math`.
 
 .. note::
 
     If the code above does nothing when you press the keys, double-check that
     you've set up input actions correctly as described in the
-    :ref:`doc_2d_movement_setup` part of this tutorial.
+    `doc_2d_movement_setup` part of this tutorial.
 
 Rotation + movement
 -------------------
@@ -159,7 +159,7 @@ gdscript GDScript
         velocity = move_and_slide(velocity)
 ```
 
-Here we're using the :ref:`Node2D <class_Node2D>` ``look_at()`` method to
+Here we're using the `Node2D <class_Node2D>` ``look_at()`` method to
 point the player towards a given position. Without this function, you
 could get the same effect by setting the angle like this:
 

@@ -10,10 +10,10 @@ Pathfinding in a 3D environment is crucial for many games, it's commonly
 how non directly controlled characters or entities find their way around
 an environment. Godot provides several nodes for this purpose:
 
--  :ref:`Navigation<class_Navigation>` (deprecated)
--  :ref:`NavigationMeshInstance<class_NavigationMeshInstance>`
--  :ref:`NavigationAgent<class_NavigationAgent>`
--  :ref:`NavigationObstacle<class_NavigationObstacle>`
+-  `Navigation<class_Navigation>` (deprecated)
+-  `NavigationMeshInstance<class_NavigationMeshInstance>`
+-  `NavigationAgent<class_NavigationAgent>`
+-  `NavigationObstacle<class_NavigationObstacle>`
 
 The map and navigation regions
 ------------------------------
@@ -23,12 +23,12 @@ the physics engine. It's comprised of navigation regions, these regions
 define parts of the world that can be navigated around by navigation
 agents.
 
-To create a navigation region add the :ref:`NavigationMeshInstance<class_NavigationMeshInstance>`
+To create a navigation region add the `NavigationMeshInstance<class_NavigationMeshInstance>`
 node to a 3D scene. Next in the inspector for that mesh create or add a
-:ref:`NavigationMesh<class_NavigationMesh>`. The navmesh contains options
+`NavigationMesh<class_NavigationMesh>`. The navmesh contains options
 for how it will be generated when it's baked. The geometry options control
 which nodes, and types of nodes, are used to bake the mesh. A full
-description of each setting and how it works can be found in the :ref:`NavigationMesh class reference<class_NavigationMesh>`.
+description of each setting and how it works can be found in the `NavigationMesh class reference<class_NavigationMesh>`.
 
 Once the settings have been properly configured press the "Bake NavMesh"
 button at the top of the inspector to generate it.
@@ -79,7 +79,7 @@ with `set_velocity`. Then a new velocity that takes into account other
 agents and obstacles is generated and emitted with the signal `velocity_computed`.
 
 However agents can only take into account a set number of other nearby
-agents, this is the :ref:`max neighbors<class_NavigationAgent_property_max_neighbors>`
+agents, this is the `max neighbors<class_NavigationAgent_property_max_neighbors>`
 property of an agent and can be adjusted. This is **not** a limit for
 how many agents can use a navigation region at the same time.
 
@@ -106,6 +106,6 @@ starting location, the next is a Vector3 of the end location. And the
 last argument is a boolean for whether or not agent properties of a
 navmesh are considered when generating a path.
 
-The method will return a :ref:`PoolVector3Array <class_PoolVector3Array>` consisting of
+The method will return a `PoolVector3Array <class_PoolVector3Array>` consisting of
 points that make a path. If there is no way to navigate to the end
-location the method will return a blank :ref:`PoolVector3Array <class_PoolVector3Array>`.
+location the method will return a blank `PoolVector3Array <class_PoolVector3Array>`.

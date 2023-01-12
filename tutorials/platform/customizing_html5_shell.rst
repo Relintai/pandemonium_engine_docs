@@ -80,7 +80,7 @@ To be able to start the game, you need to write a script that initializes the en
 code. This process consists of three steps, though as shown most of them can be skipped depending on
 how much customization is needed (or be left to a default behavior).
 
-See the :ref:`HTML5 shell class reference <doc_html5_shell_classref>`, for the full list of methods and options available.
+See the `HTML5 shell class reference <doc_html5_shell_classref>`, for the full list of methods and options available.
 
 First, the engine must be loaded, then it needs to be initialized, and after this the project
 can finally be started. You can perform every of these steps manually and with great control.
@@ -148,7 +148,7 @@ allows to test for a specific major version of WebGL.
 
 As the real executable file does not exist in the Web environment, the engine only stores a virtual
 filename formed from the base name of loaded engine files. This value affects the output of the
-:ref:`OS.get_executable_path() <class_OS_method_get_executable_path>` method and defines the name of
+`OS.get_executable_path() <class_OS_method_get_executable_path>` method and defines the name of
 the automatically started main pack. The :js:attr:`executable` override option can be
 used to override this value.
 

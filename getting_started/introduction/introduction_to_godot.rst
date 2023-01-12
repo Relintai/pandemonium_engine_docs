@@ -24,7 +24,7 @@ programming skills or a developer to port the game for you.
 .. note:: The Godot team can't provide an open-source console export due to the
           licensing terms imposed by console manufacturers. Regardless of the
           engine you use, though, releasing games on consoles is always a lot of
-          work. You can read more on that here: :ref:`doc_consoles`.
+          work. You can read more on that here: `doc_consoles`.
 
 What can the engine do?
 -----------------------
@@ -71,15 +71,15 @@ Programming languages
 
 Let's talk about the available programming languages.
 
-You can code your games using :ref:`GDScript <toc-learn-scripting-gdscript>`, a
+You can code your games using `GDScript <toc-learn-scripting-gdscript>`, a
 Godot-specific and tightly integrated language with a lightweight syntax, or
-:ref:`C# <toc-learn-scripting-C#>`, which is popular in the games industry.
+`C# <toc-learn-scripting-C#>`, which is popular in the games industry.
 These are the two main scripting languages we support.
 
 Godot also supports a node-based visual programming language named
-:ref:`VisualScript <toc-learn-scripting-visual_script>`.
+`VisualScript <toc-learn-scripting-visual_script>`.
 
-With the :ref:`GDNative <toc-tutorials-gdnative>` technology, you can also write
+With the `GDNative <toc-tutorials-gdnative>` technology, you can also write
 gameplay or high-performance algorithms in C or C++ without recompiling the
 engine. You can use this technology to integrate third-party libraries and other
 Software Development Kits (SDK) in the engine.
@@ -89,7 +89,7 @@ completely free and open-source.
 
 .. seealso:: These are the five officially supported programming languages. The
              community maintains support for many more. For more information,
-             see :ref:`GDNative third-party bindings
+             see `GDNative third-party bindings
              <doc_what_is_gdnative_third_party_bindings>`.
 
 What do I need to know to use Godot?
@@ -113,7 +113,7 @@ countless hours and hurdles learning any game engine afterward.
           skills you learn with one language transfer well to others.
 
 We will provide you with more Godot-specific learning resources in
-:ref:`doc_learning_new_features`.
+`doc_learning_new_features`.
 
 In the next part, you will get an overview of the engine's essential concepts.
 

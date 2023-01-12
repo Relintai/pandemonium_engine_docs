@@ -10,7 +10,7 @@ high level of flexibility.
 Unlike more abstract mathematical concepts, Bezier curves were created for
 industrial design. They are a popular tool in the graphics software industry.
 
-They rely on :ref:`interpolation<doc_interpolation>`, which we saw in the
+They rely on `interpolation<doc_interpolation>`, which we saw in the
 previous article, combining multiple steps to create smooth curves. To better
 understand how Bezier curves work, let's start from its simplest form: Quadratic
 Bezier.
@@ -147,9 +147,9 @@ work and look in Godot.
 Curve2D, Curve3D, Path and Path2D
 ---------------------------------
 
-There are two objects that contain curves: :ref:`Curve3D <class_Curve3D>` and :ref:`Curve2D <class_Curve2D>` (for 3D and 2D respectively).
+There are two objects that contain curves: `Curve3D <class_Curve3D>` and `Curve2D <class_Curve2D>` (for 3D and 2D respectively).
 
-They can contain several points, allowing for longer paths. It is also possible to set them to nodes: :ref:`Path <class_Path>` and :ref:`Path2D <class_Path2D>` (also for 3D and 2D respectively):
+They can contain several points, allowing for longer paths. It is also possible to set them to nodes: `Path <class_Path>` and `Path2D <class_Path2D>` (also for 3D and 2D respectively):
 
 .. image:: img/bezier_path_2d.png
 
@@ -190,15 +190,15 @@ Additionally, if both control points were ``0, 0`` (remember they are relative v
 Before drawing Bezier curves, *tessellation* is required. This is often done with a recursive or divide and conquer function that splits the curve until the curvature amount becomes less than a certain threshold.
 
 The *Curve* classes provide this via the
-:ref:`Curve2D.tessellate() <class_Curve2D_method_tessellate>` function (which receives optional ``stages`` of recursion and angle ``tolerance`` arguments). This way, drawing something based on a curve is easier.
+`Curve2D.tessellate() <class_Curve2D_method_tessellate>` function (which receives optional ``stages`` of recursion and angle ``tolerance`` arguments). This way, drawing something based on a curve is easier.
 
 Traversal
 ---------
 
 The last common use case for the curves is to traverse them. Because of what was mentioned before regarding constant speed, this is also difficult.
 
-To make this easier, the curves need to be *baked* into equidistant points. This way, they can be approximated with regular interpolation (which can be improved further with a cubic option). To do this, just use the :ref:`Curve.interpolate_baked()<class_Curve_method_interpolate_baked>` method together with
-:ref:`Curve2D.get_baked_length()<class_Curve2D_method_get_baked_length>`. The first call to either of them will bake the curve internally.
+To make this easier, the curves need to be *baked* into equidistant points. This way, they can be approximated with regular interpolation (which can be improved further with a cubic option). To do this, just use the `Curve.interpolate_baked()<class_Curve_method_interpolate_baked>` method together with
+`Curve2D.get_baked_length()<class_Curve2D_method_get_baked_length>`. The first call to either of them will bake the curve internally.
 
 Traversal at constant speed, then, can be done with the following pseudo-code:
 

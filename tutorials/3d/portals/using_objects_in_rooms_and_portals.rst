@@ -1,12 +1,12 @@
 Using objects in Rooms and Portals
 ==================================
 
-Normally, when you use Godot, all objects that you can see (:ref:`VisualInstance<class_VisualInstance>`\ s) are treated in the same way by the engine. The portal renderer is slightly different, in that it makes a distinction between the different roles objects will have in your game. It makes this distinction to define the :ref:`Room<class_Room>`\ s, and to render and process everything in the most efficient way.
+Normally, when you use Godot, all objects that you can see (`VisualInstance<class_VisualInstance>`\ s) are treated in the same way by the engine. The portal renderer is slightly different, in that it makes a distinction between the different roles objects will have in your game. It makes this distinction to define the `Room<class_Room>`\ s, and to render and process everything in the most efficient way.
 
 Portal mode
 ~~~~~~~~~~~
 
-If you look in the inspector, every VisualInstance in Godot is derived from a :ref:`CullInstance<class_CullInstance>`, where you can set a ``PortalMode``. This determines how objects will behave in the portal system.
+If you look in the inspector, every VisualInstance in Godot is derived from a `CullInstance<class_CullInstance>`, where you can set a ``PortalMode``. This determines how objects will behave in the portal system.
 
 .. image:: img/cull_instance.png
 
@@ -90,6 +90,6 @@ While sprawling works great for large moving objects, it also gives you a lot mo
 Lighting
 ~~~~~~~~
 
-In general lights are handled like any other visual instance. They can be placed in rooms, and they will sprawl to affect neighbouring rooms, following the dimensions and direction of the light. The exception to this is :ref:`DirectionalLight<class_DirectionalLight>`\ s. DirectionalLights have no source room as they affect *everywhere*. They should therefore not be placed in a room. As DirectionalLights can be expensive, it is a good idea to turn them off when inside, see the later :ref:`doc_rooms_and_portals_roomgroups` section for details on how to do this.
+In general lights are handled like any other visual instance. They can be placed in rooms, and they will sprawl to affect neighbouring rooms, following the dimensions and direction of the light. The exception to this is `DirectionalLight<class_DirectionalLight>`\ s. DirectionalLights have no source room as they affect *everywhere*. They should therefore not be placed in a room. As DirectionalLights can be expensive, it is a good idea to turn them off when inside, see the later `doc_rooms_and_portals_roomgroups` section for details on how to do this.
 
 Congratulations! You have now mastered the intermediate techniques required to use rooms and portals. You can use these to make games already, but there are many more features.

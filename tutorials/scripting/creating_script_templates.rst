@@ -36,7 +36,7 @@ Project-defined templates
 The default path to search for templates is the
 ``res://script_templates/`` directory. The path can be changed by configuring
 the ``editor/script_templates_search_path`` setting in the
-:ref:`ProjectSettings <class_ProjectSettings>`, both via code and the editor.
+`ProjectSettings <class_ProjectSettings>`, both via code and the editor.
 
 If no ``script_templates`` directory is found within a project, it is simply
 ignored.
@@ -107,7 +107,7 @@ Base placeholders
 | ``%TS%``    | Indentation placeholder. The exact type and number of          |
 |             | whitespace characters used for indentation is determined by    |
 |             | the ``text_editor/indent/type`` and ``text_editor/indent/size``|
-|             | settings in the :ref:`EditorSettings <class_EditorSettings>`   |
+|             | settings in the `EditorSettings <class_EditorSettings>`   |
 |             | respectively.                                                  |
 +-------------+----------------------------------------------------------------+
 
@@ -117,7 +117,7 @@ Type placeholders
 These are only relevant for GDScript with static typing. Whether these
 placeholders are actually replaced is determined by the
 ``text_editor/completion/add_type_hints`` setting in the
-:ref:`EditorSettings <class_EditorSettings>`.
+`EditorSettings <class_EditorSettings>`.
 
 +-------------------+--------------+
 | Placeholder       | Value        |

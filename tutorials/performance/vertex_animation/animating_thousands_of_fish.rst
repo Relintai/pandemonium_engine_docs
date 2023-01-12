@@ -7,8 +7,8 @@ This tutorial explores a technique used in the game `ABZU <https://www.gdcvault.
 for rendering and animating thousands of fish using vertex animation and
 static mesh instancing.
 
-In Godot, this can be accomplished with a custom :ref:`Shader <class_Shader>` and
-a :ref:`MultiMeshInstance <class_MultiMeshInstance>`. Using the following technique you
+In Godot, this can be accomplished with a custom `Shader <class_Shader>` and
+a `MultiMeshInstance <class_MultiMeshInstance>`. Using the following technique you
 can render thousands of animated objects, even on low end hardware.
 
 We will start by animating one fish. Then, we will see how to extend that animation to
@@ -17,8 +17,8 @@ thousands of fish.
 Animating one Fish
 ------------------
 
-We will start with a single fish. Load your fish model into a :ref:`MeshInstance <class_MeshInstance>`
-and add a new :ref:`ShaderMaterial <class_ShaderMaterial>`.
+We will start with a single fish. Load your fish model into a `MeshInstance <class_MeshInstance>`
+and add a new `ShaderMaterial <class_ShaderMaterial>`.
 
 Here is the fish we will be using for the example images, you can use any fish model you like.
 
@@ -28,7 +28,7 @@ Here is the fish we will be using for the example images, you can use any fish m
           shared with a creative commons license. CC0 1.0 Universal (CC0 1.0) Public Domain
           Dedication https://creativecommons.org/publicdomain/zero/1.0/
 
-Typically, you would use bones and a :ref:`Skeleton <class_Skeleton>` to animate objects. However,
+Typically, you would use bones and a `Skeleton <class_Skeleton>` to animate objects. However,
 bones are animated on the CPU and so you end having to calculate thousands of operations every
 frame and it becomes impossible to have thousands of objects. Using vertex animation in a vertex
 shader, you avoid using bones and can instead calculate the full animation in a few lines of code
@@ -187,12 +187,12 @@ A MultiMeshInstance node is created and used the same way you would make a MeshI
 For this tutorial, we will name the MultiMeshInstance node ``School``, because it will contain
 a school of fish.
 
-Once you have a MultiMeshInstance add a :ref:`MultiMesh <class_MultiMesh>`, and to that
-MultiMesh add your :ref:`Mesh <class_Mesh>` with the shader from above.
+Once you have a MultiMeshInstance add a `MultiMesh <class_MultiMesh>`, and to that
+MultiMesh add your `Mesh <class_Mesh>` with the shader from above.
 
 MultiMeshes draw your Mesh with three additional per-instance properties: Transform (rotation,
 translation, scale), Color, and Custom. Custom is used to pass in 4 multi-use variables using
-a :ref:`Color <class_Color>`.
+a `Color <class_Color>`.
 
 ``instance_count`` specifies how many instances of the mesh you want to draw. For now, leave
 ``instance_count`` at ``0`` because you cannot change any of the other parameters while
@@ -212,7 +212,7 @@ Now, set ``instance_count`` to the number of fish you want to have.
 Next we need to set the per-instance transforms.
 
 There are two ways to set per-instance transforms for MultiMeshes. The first is entirely in editor
-and is described in the :ref:`MultiMeshInstance tutorial <doc_using_multi_mesh_instance>`.
+and is described in the `MultiMeshInstance tutorial <doc_using_multi_mesh_instance>`.
 
 The second is to loop over all the instances and set their transforms in code. Below, we use GDScript
 to loop over all the instances and set their transform to a random position.
@@ -271,5 +271,5 @@ moving. You can move them by updating the per-instance transform for each fish e
 doing so will be faster than moving thousands of MeshInstances per frame, it'll still likely be
 slow.
 
-In the next tutorial we will cover how to use :ref:`Particles <class_Particles>` to take advantage
+In the next tutorial we will cover how to use `Particles <class_Particles>` to take advantage
 of the GPU and move each fish around individually while still receiving the benefits of instancing.

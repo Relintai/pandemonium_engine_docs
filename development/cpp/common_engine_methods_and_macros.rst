@@ -34,7 +34,7 @@ described below.
 Format a string
 ---------------
 
-The ``vformat()`` function returns a formatted :ref:`class_String`. It behaves
+The ``vformat()`` function returns a formatted `class_String`. It behaves
 in a way similar to C's ``sprintf()``:
 
 .. code-block:: cpp

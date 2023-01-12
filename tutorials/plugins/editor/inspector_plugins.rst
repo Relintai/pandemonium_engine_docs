@@ -9,8 +9,8 @@ resources, although you can use the feature to change the inspector widgets for
 built-in types. You can design custom controls for specific properties, entire
 objects, and even separate controls associated with particular datatypes.
 
-This guide explains how to use the :ref:`class_EditorInspectorPlugin` and
-:ref:`class_EditorProperty` classes to create a custom interface for integers,
+This guide explains how to use the `class_EditorInspectorPlugin` and
+`class_EditorProperty` classes to create a custom interface for integers,
 replacing the default behavior with a button that generates random values
 between 0 and 99.
 
@@ -25,13 +25,13 @@ Setting up your plugin
 
 Create a new empty plugin to get started.
 
-.. seealso:: See :ref:`doc_making_plugins` guide to set up your new plugin.
+.. seealso:: See `doc_making_plugins` guide to set up your new plugin.
 
 Let's assume you've called your plugin folder ``my_inspector_plugin``. If so,
 you should end up with a new ``addons/my_inspector_plugin`` folder that contains
 two files: ``plugin.cfg`` and ``plugin.gd``.
 
-As before, ``plugin.gd`` is a script extending :ref:`class_EditorPlugin` and you
+As before, ``plugin.gd`` is a script extending `class_EditorPlugin` and you
 need to introduce new code for its ``_enter_tree`` and ``_exit_tree`` methods.
 To set up your inspector plugin, you must load its script, then create and add
 the instance by calling ``add_inspector_plugin()``. If the plugin is disabled,
@@ -65,14 +65,14 @@ Interacting with the inspector
 ------------------------------
 
 To interact with the inspector dock, your ``MyInspectorPlugin.gd`` script must
-extend the :ref:`class_EditorInspectorPlugin` class. This class provides several
+extend the `class_EditorInspectorPlugin` class. This class provides several
 virtual methods that affect how the inspector handles properties.
 
 To have any effect at all, the script must implement the ``can_handle()``
-method. This function is called for each edited :ref:`class_Object` and must
+method. This function is called for each edited `class_Object` and must
 return ``true`` if this plugin should handle the object or its properties.
 
-.. note:: This includes any :ref:`class_Resource` attached to the object.
+.. note:: This includes any `class_Resource` attached to the object.
 
 You can implement four other methods to add controls to the inspector at
 specific positions. The ``parse_begin()`` and ``parse_end()`` methods are called
@@ -84,7 +84,7 @@ As the editor parses the object, it calls the ``parse_category()`` and
 ``parse_property()`` methods. There, in addition to ``add_custom_control()``,
 you can call both ``add_property_editor()`` and
 ``add_property_editor_for_multiple_properties()``. Use these last two methods to
-specifically add :ref:`class_EditorProperty`-based controls.
+specifically add `class_EditorProperty`-based controls.
 
 gdscript GDScript
 
@@ -117,12 +117,12 @@ gdscript GDScript
 Adding an interface to edit properties
 --------------------------------------
 
-The :ref:`class_EditorProperty` class is a special type of :ref:`class_Control`
+The `class_EditorProperty` class is a special type of `class_Control`
 that can interact with the inspector dock's edited objects. It doesn't display
 anything but can house any other control nodes, including complex scenes.
 
 There are three essential parts to the script extending
-:ref:`class_EditorProperty`:
+`class_EditorProperty`:
 
 1. You must define the ``_init()`` method to set up the control nodes'
    structure.
@@ -190,5 +190,5 @@ gdscript GDScript
 ```
 
 Using the example code above you should be able to make a custom widget that
-replaces the default :ref:`class_SpinBox` control for integers with a
-:ref:`class_Button` that generates random values.
+replaces the default `class_SpinBox` control for integers with a
+`class_Button` that generates random values.

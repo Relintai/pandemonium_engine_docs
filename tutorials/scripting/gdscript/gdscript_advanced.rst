@@ -166,9 +166,9 @@ too. Some Examples:
 In GDScript, only base types (int, float, String and PoolArray types)
 are passed by value to functions (value is copied). Everything else
 (instances, Arrays, Dictionaries, etc) is passed as reference. Classes
-that inherit :ref:`class_Reference` (the default if nothing is specified)
+that inherit `class_Reference` (the default if nothing is specified)
 will be freed when not used, but manual memory management is allowed too
-if inheriting manually from :ref:`class_Object`.
+if inheriting manually from `class_Object`.
 
 .. note::
 

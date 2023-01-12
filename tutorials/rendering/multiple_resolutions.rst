@@ -90,7 +90,7 @@ Resizing
 There are several types of devices, with several types of screens, which
 in turn have different pixel density and resolutions. Handling all of
 them can be a lot of work, so Godot tries to make the developer's life a
-little easier. The :ref:`Viewport <class_Viewport>`
+little easier. The `Viewport <class_Viewport>`
 node has several functions to handle resizing, and the root node of the
 scene tree is always a viewport (scenes loaded are instanced as a child
 of it, and it can always be accessed by calling
@@ -119,7 +119,7 @@ the resolution of the window or screen.
 The animations below use a "base size" of just 16×9 pixels to
 demonstrate the effect of different stretch modes. A single sprite, also
 16×9 pixels in size, covers the entire viewport, and a diagonal
-:ref:`Line2D <class_Line2D>` is added on top of it:
+`Line2D <class_Line2D>` is added on top of it:
 
 .. image:: img/stretch_demo_scene.png
 
@@ -143,7 +143,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
    .. image:: img/stretch_2d_expand.gif
 
 -  **Stretch Mode = Viewport**: Viewport scaling means that the size of
-   the root :ref:`Viewport <class_Viewport>` is set precisely to the
+   the root `Viewport <class_Viewport>` is set precisely to the
    base size specified in the Project Settings' **Display** section.
    The scene is rendered to this viewport first. Finally, this viewport
    is scaled to fit the screen (taking the **Stretch Aspect** setting into
@@ -191,7 +191,7 @@ to the region outside the blue frame you see in the 2D editor.
 
    This is usually the best option for creating GUIs or HUDs that scale,
    so some controls can be anchored to the bottom
-   (:ref:`doc_size_and_anchors`).
+   (`doc_size_and_anchors`).
 
    .. image:: img/stretch_viewport_keep_width.gif
 
@@ -250,7 +250,7 @@ From scripts
 
 To configure stretching at runtime from a script, use the
 ``get_tree().set_screen_stretch()`` method (see
-:ref:`SceneTree.set_screen_stretch() <class_SceneTree_method_set_screen_stretch>`).
+`SceneTree.set_screen_stretch() <class_SceneTree_method_set_screen_stretch>`).
 
 Common use case scenarios
 -------------------------
@@ -272,7 +272,7 @@ Desktop game
   visuals at the cost of higher memory usage and file sizes.
   Note that this will make non-mipmapped textures grainy on low resolution devices,
   so make sure to follow the instructions described in
-  :ref:`doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
+  `doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
 - Set the stretch mode to ``2d``.
 - Set the stretch aspect to ``expand``. This allows for supporting multiple aspect ratios
   and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
@@ -319,7 +319,7 @@ to change the display orientation project setting.
   barely visible given the small size of smartphone displays.
   Note that this will make non-mipmapped textures grainy on low resolution devices,
   so make sure to follow the instructions described in
-  :ref:`doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
+  `doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
 - Set the stretch mode to ``2d``.
 - Set the stretch aspect to ``expand``. This allows for supporting multiple aspect ratios
   and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
@@ -337,7 +337,7 @@ Mobile game in portrait mode
   barely visible given the small size of smartphone displays.
   Note that this will make non-mipmapped textures grainy on low resolution devices,
   so make sure to follow the instructions described in
-  :ref:`doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
+  `doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
 - Set **Display > Window > Handheld > Orientation** to ``portrait``.
 - Set the stretch mode to ``2d``.
 - Set the stretch aspect to ``expand``. This allows for supporting multiple aspect ratios
@@ -407,7 +407,7 @@ Handling aspect ratios
 
 Once scaling for different resolutions is accounted for, make sure that
 your *user interface* also scales for different aspect ratios. This can be
-done using :ref:`anchors <doc_size_and_anchors>` and/or :ref:`containers
+done using `anchors <doc_size_and_anchors>` and/or `containers
 <doc_gui_containers>`.
 
 Field of view scaling

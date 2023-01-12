@@ -7,7 +7,7 @@ Exporting for Windows
 
     This page describes how to export a Godot project to Windows.
     If you're looking to compile editor or export template binaries from source instead,
-    read :ref:`doc_compiling_for_windows`.
+    read `doc_compiling_for_windows`.
 
 The simplest way to distribute a game for PC is to copy the executable
 (``godot.exe``), compress the folder and send it to someone else. However, this

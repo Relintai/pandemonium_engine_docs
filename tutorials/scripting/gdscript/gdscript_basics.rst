@@ -19,7 +19,7 @@ History
 .. note::
 
     Documentation about GDScript's history has been moved to the
-    :ref:`Frequently Asked Questions <doc_faq_what_is_gdscript>`.
+    `Frequently Asked Questions <doc_faq_what_is_gdscript>`.
 
 Example of GDScript
 ~~~~~~~~~~~~~~~~~~~
@@ -109,7 +109,7 @@ here's a simple example of how GDScript looks.
 
 If you have previous experience with statically typed languages such as
 C, C++, or C# but never used a dynamically typed one before, it is advised you
-read this tutorial: :ref:`doc_gdscript_more_efficiently`.
+read this tutorial: `doc_gdscript_more_efficiently`.
 
 Language
 --------
@@ -200,17 +200,17 @@ in case you want to take a look under the hood.
 +------------+---------------------------------------------------------------------------------------------------------------+
 | assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`_.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| remote     | Networking RPC annotation. See :ref:`high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| remote     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| master     | Networking RPC annotation. See :ref:`high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| master     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| puppet     | Networking RPC annotation. See :ref:`high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| puppet     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| remotesync | Networking RPC annotation. See :ref:`high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| remotesync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| mastersync | Networking RPC annotation. See :ref:`high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| mastersync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| puppetsync | Networking RPC annotation. See :ref:`high-level multiplayer docs <doc_high_level_multiplayer>`.               |
+| puppetsync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer>`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
 | PI         | PI constant.                                                                                                  |
 +------------+---------------------------------------------------------------------------------------------------------------+
@@ -303,7 +303,7 @@ Literals
 +--------------------------+----------------------------------------+
 | ``"""Hello"""``          | Multiline string                       |
 +--------------------------+----------------------------------------+
-| ``@"Node/Label"``        | :ref:`class_NodePath` or StringName    |
+| ``@"Node/Label"``        | `class_NodePath` or StringName    |
 +--------------------------+----------------------------------------+
 | ``$NodePath``            | Shorthand for ``get_node("NodePath")`` |
 +--------------------------+----------------------------------------+
@@ -348,18 +348,18 @@ null
 ``null`` is an empty data type that contains no information and can not
 be assigned any other value.
 
-:ref:`bool <class_bool>`
+`bool <class_bool>`
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Short for "boolean", it can only contain ``true`` or ``false``.
 
-:ref:`int <class_int>`
+`int <class_int>`
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Short for "integer", it stores whole numbers (positive and negative).
 It is stored as a 64-bit value, equivalent to "int64_t" in C++.
 
-:ref:`float <class_float>`
+`float <class_float>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Stores real numbers, including decimals, using floating-point values.
@@ -367,7 +367,7 @@ It is stored as a 64-bit value, equivalent to "double" in C++.
 Note: Currently, data structures such as Vector2, Vector3, and
 PoolRealArray store 32-bit single-precision "float" values.
 
-:ref:`String <class_String>`
+`String <class_String>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A sequence of characters in `Unicode format <https://en.wikipedia.org/wiki/Unicode>`_.
@@ -400,61 +400,61 @@ Strings can contain the following escape sequences:
 |                     | (hexadecimal, case-insensitive) |
 +---------------------+---------------------------------+
 
-GDScript also supports :ref:`doc_gdscript_printf`.
+GDScript also supports `doc_gdscript_printf`.
 
 Vector built-in types
 ~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Vector2 <class_Vector2>`
+`Vector2 <class_Vector2>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2D vector type containing ``x`` and ``y`` fields. Can also be
 accessed as an array.
 
-:ref:`Rect2 <class_Rect2>`
+`Rect2 <class_Rect2>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2D Rectangle type containing two vectors fields: ``position`` and ``size``.
 Also contains an ``end`` field which is ``position + size``.
 
-:ref:`Vector3 <class_Vector3>`
+`Vector3 <class_Vector3>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3D vector type containing ``x``, ``y`` and ``z`` fields. This can also
 be accessed as an array.
 
-:ref:`Transform2D <class_Transform2D>`
+`Transform2D <class_Transform2D>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3×2 matrix used for 2D transforms.
 
-:ref:`Plane <class_Plane>`
+`Plane <class_Plane>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3D Plane type in normalized form that contains a ``normal`` vector field
 and a ``d`` scalar distance.
 
-:ref:`Quat <class_Quat>`
+`Quat <class_Quat>`
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Quaternion is a datatype used for representing a 3D rotation. It's
 useful for interpolating rotations.
 
-:ref:`AABB <class_AABB>`
+`AABB <class_AABB>`
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Axis-aligned bounding box (or 3D box) contains 2 vectors fields: ``position``
 and ``size``. Also contains an ``end`` field which is
 ``position + size``.
 
-:ref:`Basis <class_Basis>`
+`Basis <class_Basis>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3x3 matrix used for 3D rotation and scale. It contains 3 vector fields
 (``x``, ``y`` and ``z``) and can also be accessed as an array of 3D
 vectors.
 
-:ref:`Transform <class_Transform>`
+`Transform <class_Transform>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3D Transform contains a Basis field ``basis`` and a Vector3 field
@@ -463,24 +463,24 @@ vectors.
 Engine built-in types
 ~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Color <class_Color>`
+`Color <class_Color>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Color data type contains ``r``, ``g``, ``b``, and ``a`` fields. It can
 also be accessed as ``h``, ``s``, and ``v`` for hue/saturation/value.
 
-:ref:`NodePath <class_NodePath>`
+`NodePath <class_NodePath>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Compiled path to a node used mainly in the scene system. It can be
 easily assigned to, and from, a String.
 
-:ref:`RID <class_RID>`
+`RID <class_RID>`
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Resource ID (RID). Servers use generic RIDs to reference opaque data.
 
-:ref:`Object <class_Object>`
+`Object <class_Object>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Base class for anything that is not a built-in type.
@@ -488,7 +488,7 @@ Base class for anything that is not a built-in type.
 Container built-in types
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Array <class_Array>`
+`Array <class_Array>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generic sequence of arbitrary object types, including other arrays or dictionaries (see below).
@@ -512,15 +512,15 @@ arrays are available. These only accept a single data type. They avoid memory
 fragmentation and use less memory, but are atomic and tend to run slower than generic
 arrays. They are therefore only recommended to use for large data sets:
 
-- :ref:`PoolByteArray <class_PoolByteArray>`: An array of bytes (integers from 0 to 255).
-- :ref:`PoolIntArray <class_PoolIntArray>`: An array of integers.
-- :ref:`PoolRealArray <class_PoolRealArray>`: An array of floats.
-- :ref:`PoolStringArray <class_PoolStringArray>`: An array of strings.
-- :ref:`PoolVector2Array <class_PoolVector2Array>`: An array of :ref:`Vector2 <class_Vector2>` objects.
-- :ref:`PoolVector3Array <class_PoolVector3Array>`: An array of :ref:`Vector3 <class_Vector3>` objects.
-- :ref:`PoolColorArray <class_PoolColorArray>`: An array of :ref:`Color <class_Color>` objects.
+- `PoolByteArray <class_PoolByteArray>`: An array of bytes (integers from 0 to 255).
+- `PoolIntArray <class_PoolIntArray>`: An array of integers.
+- `PoolRealArray <class_PoolRealArray>`: An array of floats.
+- `PoolStringArray <class_PoolStringArray>`: An array of strings.
+- `PoolVector2Array <class_PoolVector2Array>`: An array of `Vector2 <class_Vector2>` objects.
+- `PoolVector3Array <class_PoolVector3Array>`: An array of `Vector3 <class_Vector3>` objects.
+- `PoolColorArray <class_PoolColorArray>`: An array of `Color <class_Color>` objects.
 
-:ref:`Dictionary <class_Dictionary>`
+`Dictionary <class_Dictionary>`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Associative container which contains values referenced by unique keys.
@@ -567,10 +567,10 @@ assign to it::
 .. note::
 
     The bracket syntax can be used to access properties of any
-    :ref:`class_Object`, not just Dictionaries. Keep in mind it will cause a
+    `class_Object`, not just Dictionaries. Keep in mind it will cause a
     script error when attempting to index a non-existing property. To avoid
-    this, use the :ref:`Object.get() <class_Object_method_get>` and
-    :ref:`Object.set() <class_Object_method_set>` methods instead.
+    this, use the `Object.get() <class_Object_method_get>` and
+    `Object.set() <class_Object_method_set>` methods instead.
 
 Data
 ----
@@ -1099,7 +1099,7 @@ class will then appear with its new icon in the editor::
 
     If the script is located in the ``res://addons/`` directory, ``class_name``
     will only cause the node to show up in the **Create New Node** dialog if
-    the script is part of an *enabled* editor plugin. See :ref:`doc_making_plugins`
+    the script is part of an *enabled* editor plugin. See `doc_making_plugins`
     for more information.
 
 Here's a class file example:
@@ -1270,7 +1270,7 @@ function.
 Classes as resources
 ^^^^^^^^^^^^^^^^^^^^
 
-Classes stored as files are treated as :ref:`resources <class_GDScript>`. They
+Classes stored as files are treated as `resources <class_GDScript>`. They
 must be loaded from disk to access them in other classes. This is done using
 either the ``load`` or ``preload`` functions (see below). Instancing of a loaded
 class resource is done by calling the ``new`` function on the class object::
@@ -1291,7 +1291,7 @@ Exports
 
 .. note::
 
-    Documentation about exports has been moved to :ref:`doc_gdscript_exports`.
+    Documentation about exports has been moved to `doc_gdscript_exports`.
 
 Setters/getters
 ~~~~~~~~~~~~~~~
@@ -1329,7 +1329,7 @@ Either of the *setter* or *getter* functions can be omitted::
     # Only a getter (note the comma).
     var my_var = 5 setget ,my_var_get
 
-Setters and getters are useful when :ref:`exporting variables <doc_gdscript_exports>`
+Setters and getters are useful when `exporting variables <doc_gdscript_exports>`
 to the editor in tool scripts or plugins, for validating input.
 
 As said, *local* access will *not* trigger the setter and getter. Here is an
@@ -1365,7 +1365,7 @@ placed at the top of the file::
         print("Hello")
 
 
-See :ref:`doc_running_code_in_the_editor` for more information.
+See `doc_running_code_in_the_editor` for more information.
 
 .. warning:: Be cautious when freeing nodes with ``queue_free()`` or ``free()``
              in a tool script (especially the script's owner itself). As tool
@@ -1377,12 +1377,12 @@ See :ref:`doc_running_code_in_the_editor` for more information.
 Memory management
 ~~~~~~~~~~~~~~~~~
 
-If a class inherits from :ref:`class_Reference`, then instances will be
+If a class inherits from `class_Reference`, then instances will be
 freed when no longer in use. No garbage collector exists, just
 reference counting. By default, all classes that don't define
 inheritance extend **Reference**. If this is not desired, then a class
-must inherit :ref:`class_Object` manually and must call ``instance.free()``. To
-avoid reference cycles that can't be freed, a :ref:`class_WeakRef` function is
+must inherit `class_Object` manually and must call ``instance.free()``. To
+avoid reference cycles that can't be freed, a `class_WeakRef` function is
 provided for creating weak references. Here is an example:
 
 ::
@@ -1429,7 +1429,7 @@ to. To create custom signals for a class, use the ``signal`` keyword.
    Game Programming Patterns ebook.
 
 You can connect these signals to methods the same way you connect built-in
-signals of nodes like :ref:`class_Button` or :ref:`class_RigidBody`.
+signals of nodes like `class_Button` or `class_RigidBody`.
 
 In the example below, we connect the ``health_depleted`` signal from a
 ``Character`` node to a ``Game`` node. When the ``Character`` node emits the
@@ -1452,9 +1452,9 @@ to react to health changes with an animation, but we want to keep the user
 interface separate from the player in our scene tree.
 
 In our ``Character.gd`` script, we define a ``health_changed`` signal and emit
-it with :ref:`Object.emit_signal() <class_Object_method_emit_signal>`, and from
+it with `Object.emit_signal() <class_Object_method_emit_signal>`, and from
 a ``Game`` node higher up our scene tree, we connect it to the ``Lifebar`` using
-the :ref:`Object.connect() <class_Object_method_connect>` method::
+the `Object.connect() <class_Object_method_connect>` method::
 
     # Character.gd
 
@@ -1563,7 +1563,7 @@ Coroutines with yield
 ~~~~~~~~~~~~~~~~~~~~~
 
 GDScript offers support for `coroutines <https://en.wikipedia.org/wiki/Coroutine>`_
-via the :ref:`yield<class_@GDScript_method_yield>` built-in function. Calling ``yield()`` will
+via the `yield<class_@GDScript_method_yield>` built-in function. Calling ``yield()`` will
 immediately return from the current function, with the current frozen
 state of the same function as the return value. Calling ``resume()`` on
 this resulting object will continue execution and return whatever the

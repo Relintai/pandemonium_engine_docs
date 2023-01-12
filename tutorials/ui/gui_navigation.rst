@@ -7,12 +7,12 @@ It is a common requirement for a user interface to have full keyboard
 and controller support for navigation and interaction. There are two main
 reasons why this is beneficial for projects: improved accessibility (not everyone
 can use mouse or touch controls for interactions), and getting your project
-ready for :ref:`consoles <doc_consoles>` (or just for people who prefer
+ready for `consoles <doc_consoles>` (or just for people who prefer
 to game with a controller on PC).
 
 Navigating between UI elements with keyboard or controller is done by
 changing which node is actively selected. This is also called changing UI focus.
-Every :ref:`Control <class_Control>` node in Godot is capable of having focus.
+Every `Control <class_Control>` node in Godot is capable of having focus.
 By default, some control nodes have the ability to automatically grab focus
 reacting to built-in UI actions such as ``ui_up``, ``ui_down``, ``ui_focus_next``, etc.
 These actions can be seen in the project settings in the input map and can be modified.
@@ -47,8 +47,8 @@ be focused by clicking on it with the mouse, or selecting it with a keyboard
 or controller. **Click** means it can only be focused on by clicking on it.
 Finally, **None** means it can't be focused at all. Different control nodes have
 different default settings for this based on how they are typically used, for
-example, :ref:`Label <class_Label>` nodes are set to "None" by default,
-while :ref:`buttons <class_Button>` are set to "All".
+example, `Label <class_Label>` nodes are set to "None" by default,
+while `buttons <class_Button>` are set to "All".
 
 Make sure to properly configure your scenes for focus and navigation. If a node has
 no focus neighbor configured, the engine will try to guess the next control automatically.

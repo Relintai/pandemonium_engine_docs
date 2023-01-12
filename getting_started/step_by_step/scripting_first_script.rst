@@ -19,16 +19,16 @@ Creating your first script
 ==========================
 
 In this lesson, you will code your first script to make the Godot icon turn in
-circles using GDScript. As we mentioned :ref:`in the introduction
+circles using GDScript. As we mentioned `in the introduction
 <toc-learn-introduction>`, we assume you have programming foundations.
 The equivalent C# code has been included in another tab for convenience.
 
 .. image:: img/scripting_first_script_rotating_godot.gif
 
 .. seealso:: To learn more about GDScript, its keywords, and its syntax, head to
-             the :ref:`GDScript reference<doc_gdscript>`.
+             the `GDScript reference<doc_gdscript>`.
 
-.. seealso:: To learn more about C#, head to the :ref:`C# basics <doc_c_sharp>` page.
+.. seealso:: To learn more about C#, head to the `C# basics <doc_c_sharp>` page.
 
 Project setup
 -------------
@@ -102,7 +102,7 @@ node, including classes it extends, like ``Node2D``, ``CanvasItem``, and
 ``Node``.
 
 .. note:: In GDScript, if you omit the line with the ``extends`` keyword, your
-          class will implicitly extend :ref:`Reference <class_Reference>`, which
+          class will implicitly extend `Reference <class_Reference>`, which
           Godot uses to manage your application's memory.
 
 Inherited properties include the ones you can see in the Inspector dock, like
@@ -253,7 +253,7 @@ is a vector pointing forward relative to our icon. Multiplied by our ``speed``
 property, it gives us a velocity we can use to move the node forward.
 
 We add ``velocity * delta`` to the node's ``position`` to move it. The position
-itself is of type :ref:`Vector2 <class_Vector2>`, a built-in type in Godot
+itself is of type `Vector2 <class_Vector2>`, a built-in type in Godot
 representing a 2D vector.
 
 Run the scene to see the Godot head run in circles.
@@ -261,11 +261,11 @@ Run the scene to see the Godot head run in circles.
 .. image:: img/scripting_first_script_rotating_godot.gif
 
 .. note:: Moving a node like that does not take into account colliding with
-          walls or the floor. In :ref:`doc_your_first_2d_game`, you will learn
+          walls or the floor. In `doc_your_first_2d_game`, you will learn
           another approach to moving objects while detecting collisions.
 
 Our node currently moves by itself. In the next part
-:ref:`doc_scripting_player_input`, we'll use player input to control it.
+`doc_scripting_player_input`, we'll use player input to control it.
 
 Complete script
 ---------------

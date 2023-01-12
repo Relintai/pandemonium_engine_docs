@@ -7,7 +7,7 @@ Exporting for the Web
 
     This page describes how to export a Godot project to HTML5.
     If you're looking to compile editor or export template binaries from source instead,
-    read :ref:`doc_compiling_for_web`.
+    read `doc_compiling_for_web`.
 
 HTML5 export allows publishing games made in Godot Engine to the browser.
 This requires support for `WebAssembly
@@ -21,7 +21,7 @@ in the user's browser.
 .. attention:: `There are significant bugs when running HTML5 projects on iOS
                <https://github.com/godotengine/godot/issues?q=is:issue+is:open+label:platform:html5+ios>`__
                (regardless of the browser). We recommend using
-               :ref:`iOS' native export functionality <doc_exporting_for_ios>`
+               `iOS' native export functionality <doc_exporting_for_ios>`
                instead, as it will also result in better performance.
 
 WebGL version
@@ -62,13 +62,13 @@ You can choose the **Export Type** to select which features will be available:
 - *GDNative*: enables GDNative support but makes the binary bigger and slower
   to load.
 
-If you plan to use :ref:`VRAM compression <doc_import_images>` make sure that
+If you plan to use `VRAM compression <doc_import_images>` make sure that
 **Vram Texture Compression** is enabled for the targeted platforms (enabling
 both **For Desktop** and **For Mobile** will result in a bigger, but more
 compatible export).
 
 If a path to a **Custom HTML shell** file is given, it will be used instead of
-the default HTML page. See :ref:`doc_customizing_html5_shell`.
+the default HTML page. See `doc_customizing_html5_shell`.
 
 **Head Include** is appended into the ``<head>`` element of the generated
 HTML page. This allows to, for example, load webfonts and third-party
@@ -132,18 +132,18 @@ user's side, this can be worked around by running the project in a separate
 Threads
 ~~~~~~~
 
-As mentioned :ref:`above <doc_javascript_export_options>` multi-threading is
+As mentioned `above <doc_javascript_export_options>` multi-threading is
 only available if the appropriate **Export Type** is set and support for it
 across browsers is still limited.
 
-.. warning:: Requires a :ref:`secure context <doc_javascript_secure_contexts>`.
+.. warning:: Requires a `secure context <doc_javascript_secure_contexts>`.
              Browsers also require that the web page is served with specific
              `cross-origin isolation headers <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy>`__.
 
 GDNative
 ~~~~~~~~
 
-As mentioned :ref:`above <doc_javascript_export_options>` GDNative is only
+As mentioned `above <doc_javascript_export_options>` GDNative is only
 available if the appropriate **Export Type** is set.
 
 The export will also copy the required GDNative ``.wasm`` files to the output
@@ -156,12 +156,12 @@ Browsers do not allow arbitrarily **entering full screen**. The same goes for
 **capturing the cursor**. Instead, these actions have to occur as a response to
 a JavaScript input event. In Godot, this means entering full screen from within
 a pressed input event callback such as ``_input`` or ``_unhandled_input``.
-Querying the :ref:`class_Input` singleton is not sufficient, the relevant
+Querying the `class_Input` singleton is not sufficient, the relevant
 input event must currently be active.
 
 For the same reason, the full screen project setting doesn't work unless the
 engine is started from within a valid input event handler. This requires
-:ref:`customization of the HTML page <doc_customizing_html5_shell>`.
+`customization of the HTML page <doc_customizing_html5_shell>`.
 
 Audio
 ~~~~~
@@ -173,16 +173,16 @@ player to click or tap or press a key to enable audio.
              policies <https://sites.google.com/a/chromium.org/dev/audio-video/autoplay>`__.
 
 .. warning:: Access to microphone requires a
-             :ref:`secure context <doc_javascript_secure_contexts>`.
+             `secure context <doc_javascript_secure_contexts>`.
 
 Networking
 ~~~~~~~~~~
 
 Low level networking is not implemented due to lacking support in browsers.
 
-Currently, only :ref:`HTTP client <doc_http_client_class>`,
-:ref:`HTTP requests <doc_http_request_class>`,
-:ref:`WebSocket (client) <doc_websocket>` and :ref:`WebRTC <doc_webrtc>` are
+Currently, only `HTTP client <doc_http_client_class>`,
+`HTTP requests <doc_http_request_class>`,
+`WebSocket (client) <doc_websocket>` and `WebRTC <doc_webrtc>` are
 supported.
 
 The HTTP classes also have several restrictions on the HTML5 platform:
@@ -202,7 +202,7 @@ browser supporting the `Clipboard API <https://developer.mozilla.org/en-US/docs/
 additionally, due to the API asynchronous nature might not be reliable when
 accessed from GDScript.
 
-.. warning:: Requires a :ref:`secure context <doc_javascript_secure_contexts>`.
+.. warning:: Requires a `secure context <doc_javascript_secure_contexts>`.
 
 Gamepads
 ~~~~~~~~
@@ -213,13 +213,13 @@ sadly the `Gamepad API <https://developer.mozilla.org/en-US/docs/Web/API/Gamepad
 does not provide a reliable way to detect the gamepad information necessary
 to remap them based on model/vendor/OS due to privacy considerations.
 
-.. warning:: Requires a :ref:`secure context <doc_javascript_secure_contexts>`.
+.. warning:: Requires a `secure context <doc_javascript_secure_contexts>`.
 
 Boot splash is not displayed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The default HTML page does not display the boot splash while loading. However,
-the image is exported as a PNG file, so :ref:`custom HTML pages <doc_customizing_html5_shell>`
+the image is exported as a PNG file, so `custom HTML pages <doc_customizing_html5_shell>`
 can display it.
 
 Shader language limitations
@@ -233,7 +233,7 @@ Serving the files
 
 Exporting for the web generates several files to be served from a web server,
 including a default HTML page for presentation. A custom HTML file can be
-used, see :ref:`doc_customizing_html5_shell`.
+used, see `doc_customizing_html5_shell`.
 
 The generated ``.html`` file can be used as ``DirectoryIndex`` in Apache
 servers and can be renamed to e.g. ``index.html`` at any time, its name is
@@ -249,7 +249,7 @@ the engine. The ``.pck`` file is the Godot main pack containing your game. The
 ``.js`` file contains start-up code and is used by the ``.html`` file to access
 the engine. The ``.png`` file contains the boot splash image. It is not used in
 the default HTML page, but is included for
-:ref:`custom HTML pages <doc_customizing_html5_shell>`.
+`custom HTML pages <doc_customizing_html5_shell>`.
 
 The ``.pck`` file is binary, usually delivered with the MIME-type
 :mimetype:`application/octet-stream`. The ``.wasm`` file is delivered as
@@ -288,11 +288,11 @@ languages integrated into Godot.
 The value of the last JavaScript statement is converted to a GDScript value and
 returned by ``eval()`` under certain circumstances:
 
- * JavaScript ``number`` is returned as GDScript :ref:`class_float`
- * JavaScript ``boolean`` is returned as GDScript :ref:`class_bool`
- * JavaScript ``string`` is returned as GDScript :ref:`class_String`
+ * JavaScript ``number`` is returned as GDScript `class_float`
+ * JavaScript ``boolean`` is returned as GDScript `class_bool`
+ * JavaScript ``string`` is returned as GDScript `class_String`
  * JavaScript ``ArrayBuffer``, ``TypedArray`` and ``DataView`` are returned as
-   GDScript :ref:`class_PoolByteArray`
+   GDScript `class_PoolByteArray`
 
 ::
 
@@ -302,11 +302,11 @@ returned by ``eval()`` under certain circumstances:
 
 Any other JavaScript value is returned as ``null``.
 
-HTML5 export templates may be :ref:`built <doc_compiling_for_web>` without
+HTML5 export templates may be `built <doc_compiling_for_web>` without
 support for the singleton to improve security. With such templates, and on
 platforms other than HTML5, calling ``JavaScript.eval`` will also return
 ``null``. The availability of the singleton can be checked with the
-``JavaScript`` :ref:`feature tag <doc_feature_tags>`::
+``JavaScript`` `feature tag <doc_feature_tags>`::
 
     func my_func3():
         if OS.has_feature('JavaScript'):

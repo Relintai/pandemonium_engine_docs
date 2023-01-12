@@ -101,7 +101,7 @@ Scene linear to display-referred nonlinear
 
 After all the rendering is done, the scene linear render requires transforming
 to a suitable output such as an sRGB display. To do this, enable sRGB conversion
-in the current :ref:`Environment <class_Environment>` (more on that below).
+in the current `Environment <class_Environment>` (more on that below).
 
 Keep in mind that the **sRGB -> Display Linear** and **Display Linear -> sRGB**
 conversions must always be **both** enabled. Failing to enable one of them will
@@ -111,8 +111,8 @@ indie games.
 Parameters of HDR
 -----------------
 
-HDR settings can be found in the :ref:`Environment <class_Environment>`
+HDR settings can be found in the `Environment <class_Environment>`
 resource. Most of the time, these are found inside a
-:ref:`WorldEnvironment <class_WorldEnvironment>`
+`WorldEnvironment <class_WorldEnvironment>`
 node or set in a Camera node. For more information, see
-:ref:`doc_environment_and_post_processing`.
+`doc_environment_and_post_processing`.

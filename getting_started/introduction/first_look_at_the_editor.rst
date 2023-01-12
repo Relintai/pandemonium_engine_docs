@@ -13,7 +13,7 @@ This page will give you a brief overview of Godot's interface. We're going to
 look at the different main screens and docks to help you situate yourself.
 
 .. seealso:: For a comprehensive breakdown of the editor's interface and how to
-             use it, see the :ref:`Editor manual <toc-learn-editor>`.
+             use it, see the `Editor manual <toc-learn-editor>`.
 
 The Project manager
 -------------------
@@ -109,7 +109,7 @@ options related to the 3D view.
 
 .. image:: img/editor_intro_3d_viewport_perspective.png
 
-.. note:: Read :ref:`doc_introduction_to_3d` for more detail about the **3D
+.. note:: Read `doc_introduction_to_3d` for more detail about the **3D
           main screen**.
 
 The **Script screen** is a complete code editor with a debugger, rich
@@ -123,7 +123,7 @@ and assets to use in your projects.
 .. image:: img/editor_intro_workspace_assetlib.png
 
 .. seealso:: You can learn more about the asset library in
-             :ref:`doc_what_is_assetlib`.
+             `doc_what_is_assetlib`.
 
 Integrated class reference
 --------------------------

@@ -15,23 +15,23 @@ Node setup
 
 Click Scene -> New Scene and add the following nodes:
 
-- :ref:`RigidBody2D <class_RigidBody2D>` (named ``Mob``)
+- `RigidBody2D <class_RigidBody2D>` (named ``Mob``)
 
-   - :ref:`AnimatedSprite <class_AnimatedSprite>`
-   - :ref:`CollisionShape2D <class_CollisionShape2D>`
-   - :ref:`VisibilityNotifier2D <class_VisibilityNotifier2D>`
+   - `AnimatedSprite <class_AnimatedSprite>`
+   - `CollisionShape2D <class_CollisionShape2D>`
+   - `VisibilityNotifier2D <class_VisibilityNotifier2D>`
 
 Don't forget to set the children so they can't be selected, like you did with
 the Player scene.
 
-In the :ref:`RigidBody2D <class_RigidBody2D>` properties, set ``Gravity Scale``
+In the `RigidBody2D <class_RigidBody2D>` properties, set ``Gravity Scale``
 to ``0``, so the mob will not fall downward. In addition, under the
-:ref:`CollisionObject2D <class_CollisionObject2D>` section, click the ``Mask`` property and uncheck the first
+`CollisionObject2D <class_CollisionObject2D>` section, click the ``Mask`` property and uncheck the first
 box. This will ensure the mobs do not collide with each other.
 
 .. image:: img/set_collision_mask.png
 
-Set up the :ref:`AnimatedSprite <class_AnimatedSprite>` like you did for the
+Set up the `AnimatedSprite <class_AnimatedSprite>` like you did for the
 player. This time, we have 3 animations: ``fly``, ``swim``, and ``walk``. There
 are two images for each animation in the art folder.
 

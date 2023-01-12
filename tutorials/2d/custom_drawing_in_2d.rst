@@ -10,7 +10,7 @@ Godot has nodes to draw sprites, polygons, particles, and all sorts of
 stuff. For most cases, this is enough; but not always. Before crying in fear,
 angst, and rage because a node to draw that specific *something* does not exist...
 it would be good to know that it is possible to easily make any 2D node (be it
-:ref:`Control <class_Control>` or :ref:`Node2D <class_Node2D>`
+`Control <class_Control>` or `Node2D <class_Node2D>`
 based) draw custom commands. It is *really* easy to do it, too.
 
 Custom drawing in a 2D node is *really* useful. Here are some use cases:
@@ -30,9 +30,9 @@ Custom drawing in a 2D node is *really* useful. Here are some use cases:
 Drawing
 -------
 
-Add a script to any :ref:`CanvasItem <class_CanvasItem>`
-derived node, like :ref:`Control <class_Control>` or
-:ref:`Node2D <class_Node2D>`. Then override the ``_draw()`` function.
+Add a script to any `CanvasItem <class_CanvasItem>`
+derived node, like `Control <class_Control>` or
+`Node2D <class_Node2D>`. Then override the ``_draw()`` function.
 
 gdscript GDScript
 
@@ -44,7 +44,7 @@ gdscript GDScript
         pass
 ```
 
-Draw commands are described in the :ref:`CanvasItem <class_CanvasItem>`
+Draw commands are described in the `CanvasItem <class_CanvasItem>`
 class reference. There are plenty of them.
 
 Updating
@@ -54,7 +54,7 @@ The ``_draw()`` function is only called once, and then the draw commands
 are cached and remembered, so further calls are unnecessary.
 
 If re-drawing is required because a state or something else changed,
-call :ref:`CanvasItem.update() <class_CanvasItem_method_update>`
+call `CanvasItem.update() <class_CanvasItem_method_update>`
 in that same node and a new ``_draw()`` call will happen.
 
 Here is a little more complex example, a texture variable that will be
@@ -308,11 +308,11 @@ Let's run again! This time, the rotation displays fine!
 Antialiased drawing
 ^^^^^^^^^^^^^^^^^^^
 
-Godot offers method parameters in :ref:`draw_line<class_CanvasItem_method_draw_line>`
+Godot offers method parameters in `draw_line<class_CanvasItem_method_draw_line>`
 to enable antialiasing, but it doesn't work reliably in all situations
 (for instance, on mobile/web platforms, or when HDR is enabled).
 There is also no ``antialiased`` parameter available in
-:ref:`draw_polygon<class_CanvasItem_method_draw_polygon>`.
+`draw_polygon<class_CanvasItem_method_draw_polygon>`.
 
 As a workaround, install and use the
 `Antialiased Line2D add-on <https://github.com/godot-extended-libraries/godot-antialiased-line2d>`__
@@ -324,4 +324,4 @@ Tools
 
 Drawing your own nodes might also be desired while running them in the
 editor. This can be used as a preview or visualization of some feature or
-behavior. See :ref:`doc_running_code_in_the_editor` for more information.
+behavior. See `doc_running_code_in_the_editor` for more information.

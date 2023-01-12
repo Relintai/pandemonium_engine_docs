@@ -10,7 +10,7 @@ built-in node types.
 .. seealso::
 
     To learn to submit your changes to the Godot project using the Git version
-    control system, see :ref:`doc_updating_the_class_reference`.
+    control system, see `doc_updating_the_class_reference`.
 
 The reference for each class is contained in an XML file like the one below:
 
@@ -79,7 +79,7 @@ their documentation by completing or improving the text in these tags:
 - `<signal>` (in its `<description>` tag; arguments don't take separate documentation strings)
 - `<constant>`
 
-Write in a clear and simple language. Always follow the :ref:`writing guidelines
+Write in a clear and simple language. Always follow the `writing guidelines
 <doc_docs_writing_guidelines>` to keep your descriptions short and easy to read.
 **Do not leave empty lines** in the descriptions: each line in the XML file will
 result in a new paragraph, even if it is empty.
@@ -107,7 +107,7 @@ This will convert the XML files to the online documentation's format and output
 errors if anything's wrong.
 
 Alternatively, you can build Godot and open the modified page in the built-in
-code reference. To learn how to compile the engine, read the :ref:`compilation
+code reference. To learn how to compile the engine, read the `compilation
 guide <toc-devel-compiling>`.
 
 We recommend using a code editor that supports XML files like Vim, Atom, Visual Studio Code,
@@ -125,19 +125,19 @@ the text. Here's the list of available tags:
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | Tag                        | Effect                               | Usage                             | Result                                            |
 +============================+======================================+===================================+===================================================+
-| [Class]                    | Link a class                         | Move the [Sprite].                | Move the :ref:`class_Sprite`.                     |
+| [Class]                    | Link a class                         | Move the [Sprite].                | Move the `class_Sprite`.                     |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [method methodname]        | Link to a method in this class       | Call [method hide].               | Call :ref:`hide <class_Spatial_method_hide>`.     |
+| [method methodname]        | Link to a method in this class       | Call [method hide].               | Call `hide <class_Spatial_method_hide>`.     |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [method Class.methodname]  | Link to another class's method       | Call [method Spatial.hide].       | Call :ref:`hide <class_Spatial_method_hide>`.     |
+| [method Class.methodname]  | Link to another class's method       | Call [method Spatial.hide].       | Call `hide <class_Spatial_method_hide>`.     |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [member membername]        | Link to a member in this class       | Get [member scale].               | Get :ref:`scale <class_Node2D_property_scale>`.   |
+| [member membername]        | Link to a member in this class       | Get [member scale].               | Get `scale <class_Node2D_property_scale>`.   |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [member Class.membername]  | Link to another class's member       | Get [member Node2D.scale].        | Get :ref:`scale <class_Node2D_property_scale>`.   |
+| [member Class.membername]  | Link to another class's member       | Get [member Node2D.scale].        | Get `scale <class_Node2D_property_scale>`.   |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [signal signalname]        | Link to a signal in this class       | Emit [signal renamed].            | Emit :ref:`renamed <class_Node_signal_renamed>`.  |
+| [signal signalname]        | Link to a signal in this class       | Emit [signal renamed].            | Emit `renamed <class_Node_signal_renamed>`.  |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [signal Class.signalname]  | Link to another class's signal       | Emit [signal Node.renamed].       | Emit :ref:`renamed <class_Node_signal_renamed>`.  |
+| [signal Class.signalname]  | Link to another class's signal       | Emit [signal Node.renamed].       | Emit `renamed <class_Node_signal_renamed>`.  |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [b] [/b]                   | Bold                                 | Some [b]bold[/b] text.            | Some **bold** text.                               |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+

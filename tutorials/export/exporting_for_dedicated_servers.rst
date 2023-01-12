@@ -11,8 +11,8 @@ Platform support
 
 - **Linux:** `Download an official Linux server binary <https://godotengine.org/download/server>`__.
   To compile a server binary from source, follow instructions in
-  :ref:`doc_compiling_for_x11`.
-- **macOS:** :ref:`Compile a server binary from source for macOS <doc_compiling_for_osx>`.
+  `doc_compiling_for_x11`.
+- **macOS:** `Compile a server binary from source for macOS <doc_compiling_for_osx>`.
 - **Windows:** There is no dedicated server build for Windows yet. As an alternative,
   you can use the ``--no-window`` command-line argument to prevent Godot from
   spawning a window. Note that even with the ``--no-window`` command-line argument,
@@ -51,7 +51,7 @@ the bottom of the Export dialog then choose a destination path.
 The **Export With Debug** checkbox in the file dialog has no bearing on the
 final PCK file, so you can leave it as-is.
 
-See :ref:`doc_exporting_projects` for more information.
+See `doc_exporting_projects` for more information.
 
 .. note::
 

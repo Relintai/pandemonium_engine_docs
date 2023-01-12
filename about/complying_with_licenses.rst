@@ -71,7 +71,7 @@ Some games have a special menu (often in the settings) to display licenses.
 Output log
 ^^^^^^^^^^
 
-Just printing the licensing text using the :ref:`print() <class_@GDScript_method_print>`
+Just printing the licensing text using the `print() <class_@GDScript_method_print>`
 function may be enough on platforms where a global output log is readable.
 This is the case on desktop platforms, Android and HTML5 (but not iOS and UWP).
 
@@ -163,5 +163,5 @@ as the latest version of OpenSSL currently uses (as of April 2022).
 .. note::
 
     If you exported your project using a
-    :ref:`custom build with specific modules disabled <doc_optimizing_for_size>`,
+    `custom build with specific modules disabled <doc_optimizing_for_size>`,
     you don't need to list the disabled modules' licenses in your exported project.

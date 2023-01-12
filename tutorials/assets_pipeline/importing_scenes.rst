@@ -99,7 +99,7 @@ separately. Godot uses PBR (physically based rendering) for its materials, so if
 textures, they can work in Godot. This includes the `Substance suite <https://www.substance3d.com/>`__,
 `ArmorPaint (open source) <https://armorpaint.org/>`__, and `Material Maker (open source) <https://github.com/RodZill4/material-maker>`__.
 
-.. note:: For more information on Godot's materials, see :ref:`doc_spatial_material`.
+.. note:: For more information on Godot's materials, see `doc_spatial_material`.
 
 Exporting considerations
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -287,7 +287,7 @@ Whether or not the mesh is used in baked lightmaps.
 - **Enable:** The mesh is used in baked lightmaps.
 - **Gen Lightmaps:** The mesh is used in baked lightmaps, and unwraps a second UV layer for lightmaps.
 
-.. note:: For more information on light baking see :ref:`doc_baked_lightmaps`.
+.. note:: For more information on light baking see `doc_baked_lightmaps`.
 
 External Files
 ~~~~~~~~~~~~~~
@@ -442,8 +442,8 @@ will create a triangle mesh collision shape, which is a slow, but accurate
 option for collision detection. This option is usually what you want for level
 geometry (but see also ``-colonly`` below).
 
-The option ``-convcol`` will create a :ref:`class_convexpolygonshape` instead of
-a :ref:`class_concavepolygonshape`. Unlike triangle meshes which can be concave,
+The option ``-convcol`` will create a `class_convexpolygonshape` instead of
+a `class_concavepolygonshape`. Unlike triangle meshes which can be concave,
 a convex shape can only accurately represent a shape that doesn't have any
 concave angles (a pyramid is convex, but a hollow box is concave). Due to this,
 convex collision shapes are generally not suited for level geometry. When
@@ -456,22 +456,22 @@ enough for collisions. This can create physics glitches and slow down the engine
 unnecessarily.
 
 To solve this, the ``-colonly`` modifier exists. It will remove the mesh upon
-importing and will create a :ref:`class_staticbody` collision instead.
+importing and will create a `class_staticbody` collision instead.
 This helps the visual mesh and actual collision to be separated.
 
-The option ``-convcolonly`` works in a similar way, but will create a :ref:`class_convexpolygonshape` instead.
+The option ``-convcolonly`` works in a similar way, but will create a `class_convexpolygonshape` instead.
 
 The option ``-colonly`` can also be used with Blender's empty objects.
-On import, it will create a :ref:`class_staticbody` with
+On import, it will create a `class_staticbody` with
 a collision node as a child. The collision node will have one of a number of predefined shapes,
 depending on Blender's empty draw type:
 
 .. image:: img/3dimp_BlenderEmptyDrawTypes.png
 
--  Single arrow will create a :ref:`class_rayshape`.
--  Cube will create a :ref:`class_boxshape`.
--  Image will create a :ref:`class_planeshape`.
--  Sphere (and the others not listed) will create a :ref:`class_sphereshape`.
+-  Single arrow will create a `class_rayshape`.
+-  Cube will create a `class_boxshape`.
+-  Image will create a `class_planeshape`.
+-  Sphere (and the others not listed) will create a `class_sphereshape`.
 
 When possible, **try to use a few primitive collision shapes** instead of triangle
 mesh or convex shapes. Primitive shapes often have the best performance and
@@ -485,7 +485,7 @@ reliability.
 
 .. seealso::
 
-    See :ref:`doc_collision_shapes_3d` for a comprehensive overview of collision
+    See `doc_collision_shapes_3d` for a comprehensive overview of collision
     shapes.
 
 Create navigation (-navmesh)
@@ -498,18 +498,18 @@ Create a VehicleBody (-vehicle)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A mesh node with the ``-vehicle`` suffix will be imported as a child to a
-:ref:`class_VehicleBody` node.
+`class_VehicleBody` node.
 
 Create a VehicleWheel (-wheel)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A mesh node with the ``-wheel`` suffix will be imported as a child to a
-:ref:`class_VehicleWheel` node.
+`class_VehicleWheel` node.
 
 Rigid Body (-rigid)
 ~~~~~~~~~~~~~~~~~~~
 
-A mesh node with the ``-rigid`` suffix will be imported as a :ref:`class_RigidBody`.
+A mesh node with the ``-rigid`` suffix will be imported as a `class_RigidBody`.
 
 Animation loop (-loop, -cycle)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

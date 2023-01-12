@@ -8,7 +8,7 @@ Getting the source
 Downloading the Godot source code
 ---------------------------------
 
-Before :ref:`getting into the SCons build system <doc_introduction_to_the_buildsystem>`
+Before `getting into the SCons build system <doc_introduction_to_the_buildsystem>`
 and compiling Godot, you need to actually download the Godot source code.
 
 The source code is available on `GitHub <https://github.com/godotengine/godot>`__
@@ -16,7 +16,7 @@ and while you can manually download it via the website, in general you want to
 do it via the ``git`` version control system.
 
 If you are compiling in order to make contributions or pull requests, you should
-follow the instructions from the :ref:`Pull Request workflow <doc_pr_workflow>`.
+follow the instructions from the `Pull Request workflow <doc_pr_workflow>`.
 
 If you don't know much about ``git`` yet, there are a great number of
 `tutorials <https://git-scm.com/book>`__ available on various websites.
@@ -51,4 +51,4 @@ after the ``--branch`` (or just ``-b``) argument::
 There are also generally branches besides ``master`` for each major version.
 
 After downloading the Godot source code,
-you can :ref:`continue to compiling Godot <doc_introduction_to_the_buildsystem>`.
+you can `continue to compiling Godot <doc_introduction_to_the_buildsystem>`.

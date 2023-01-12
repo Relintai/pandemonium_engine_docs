@@ -9,7 +9,7 @@ writing or reviewing pages.
 .. seealso::
 
    If you want to translate pages or the class reference from English to other
-   languages, read :ref:`doc_editor_and_docs_localization`.
+   languages, read `doc_editor_and_docs_localization`.
 
 Getting started
 ---------------
@@ -20,16 +20,16 @@ files in the `godot-docs GitHub repository
 request triggers a rebuild of the online documentation upon merging.
 
 .. seealso:: For details on Git usage and the pull request workflow, please
-             refer to the :ref:`doc_pr_workflow` page. Most of what it describes
+             refer to the `doc_pr_workflow` page. Most of what it describes
              regarding the main godotengine/godot repository is also valid for
              the docs repository.
 
 .. warning:: The class reference's source files are in the `Godot engine
              repository <https://github.com/godotengine/godot>`_. We generate
-             the :ref:`Godot API <toc-class-ref>` section of this documentation
+             the `Godot API <toc-class-ref>` section of this documentation
              from them. If you want to update the description of a class, its
              methods, or properties, read
-             :ref:`doc_updating_the_class_reference`.
+             `doc_updating_the_class_reference`.
 
 What is the Godot documentation
 -------------------------------
@@ -41,7 +41,7 @@ two game creation tutorials in the Getting Started section.
 We strive to write factual content in an accessible and well-written language. To
 contribute, you should also read:
 
-1. The :ref:`doc_docs_writing_guidelines`. There, you will find rules and
+1. The `doc_docs_writing_guidelines`. There, you will find rules and
    recommendations to write in a way that everyone understands.
 2. The content guidelines. They explain the principles we follow to write the
    documentation and the kind of content we accept.
@@ -65,10 +65,10 @@ favorite text editor. You can then commit the changes, push them to your fork,
 and make a pull request. **Note that the pages in** ``classes/`` **should not be
 edited here.** They are automatically generated from Godot’s `XML class
 reference <https://github.com/godotengine/godot/tree/master/doc/classes>`__.
-See :ref:`doc_updating_the_class_reference` for details.
+See `doc_updating_the_class_reference` for details.
 
 .. seealso:: To build the manual and test changes on your computer, see
-             :ref:`doc_building_the_manual`.
+             `doc_building_the_manual`.
 
 Editing pages online
 --------------------
@@ -107,7 +107,7 @@ Before adding a new page, please ensure that it fits in the documentation:
    <https://github.com/godotengine/godot-docs/issues>`_ or open a new one to see
    if the page is necessary.
 2. Ensure there isn't a page that already covers the topic.
-3. Read our :ref:`doc_content_guidelines`.
+3. Read our `doc_content_guidelines`.
 
 To add a new page, create a ``.rst`` file with a meaningful name in the section you
 want to add a file to, e.g. ``tutorials/3d/light_baking.rst``.
@@ -130,8 +130,8 @@ Always begin pages with their title and a Sphinx reference name:
 
 The reference ``_doc_insert_your_title_here`` and the title should match.
 
-The reference allows linking to this page using the ``:ref:`` format, e.g.
-``:ref:`doc_insert_your_title_here``` would link to the above example page (note
+The reference allows linking to this page using the ```` format, e.g.
+```doc_insert_your_title_here``` would link to the above example page (note
 the lack of leading underscore in the reference).
 
 Write your titles like plain sentences, without capitalizing each word:

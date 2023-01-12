@@ -34,7 +34,7 @@ Usage
 Getting started
 ***************
 
-If not already done, make sure you have enabled and successfully set up :ref:`Android Custom Builds <doc_android_custom_build>`.
+If not already done, make sure you have enabled and successfully set up `Android Custom Builds <doc_android_custom_build>`.
 Grab the``GodotGooglePlayBilling`` plugin binary and config from the `releases page <https://github.com/godotengine/godot-google-play-billing/releases>`__
 and put both into `res://android/plugins`.
 The plugin should now show up in the Android export settings, where you can enable it.
@@ -121,7 +121,7 @@ Check if the user purchased an item
 ***********************************
 
 To get all purchases, call ``queryPurchases``. Unlike most of the other functions, ``queryPurchases`` is
-a synchronous operation and returns a :ref:`Dictionary <class_Dictionary>` with a status code
+a synchronous operation and returns a `Dictionary <class_Dictionary>` with a status code
 and either an array of purchases or an error message. Only active subscriptions and non-consumed one-time purchases are returned.
 
 Full example:

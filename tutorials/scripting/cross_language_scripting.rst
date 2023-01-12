@@ -43,8 +43,8 @@ Instantiating C# nodes from GDScript
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Using C# from GDScript doesn't need much work. Once loaded
-(see :ref:`doc_gdscript_classes_as_resources`), the script can be instantiated
-with :ref:`new() <class_CSharpScript_method_new>`.
+(see `doc_gdscript_classes_as_resources`), the script can be instantiated
+with `new() <class_CSharpScript_method_new>`.
 
 ::
 
@@ -68,15 +68,15 @@ Instantiating GDScript nodes from C#
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 From the C# side, everything work the same way. Once loaded, the GDScript can
-be instantiated with :ref:`GDScript.New() <class_GDScript_method_new>`.
+be instantiated with `GDScript.New() <class_GDScript_method_new>`.
 
 .. code-block:: csharp
 
     GDScript MyGDScript = (GDScript) GD.Load("res://path_to_gd_file.gd");
     Object myGDScriptNode = (Godot.Object) MyGDScript.New(); // This is a Godot.Object
 
-Here we are using an :ref:`class_Object`, but you can use type conversion like
-explained in :ref:`doc_c_sharp_features_type_conversion_and_casting`.
+Here we are using an `class_Object`, but you can use type conversion like
+explained in `doc_c_sharp_features_type_conversion_and_casting`.
 
 Accessing fields
 ----------------
@@ -104,8 +104,8 @@ Accessing GDScript fields from C#
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As C# is statically typed, accessing GDScript from C# is a bit more
-convoluted, you will have to use :ref:`Object.Get() <class_Object_method_get>`
-and :ref:`Object.Set() <class_Object_method_set>`. The first argument is the name of the field you want to access.
+convoluted, you will have to use `Object.Get() <class_Object_method_get>`
+and `Object.Set() <class_Object_method_set>`. The first argument is the name of the field you want to access.
 
 .. code-block:: csharp
 
@@ -118,7 +118,7 @@ and :ref:`Object.Set() <class_Object_method_set>`. The first argument is the nam
 
 Keep in mind that when setting a field value you should only use types the
 GDScript side knows about.
-Essentially, you want to work with built-in types as described in :ref:`doc_gdscript` or classes extending :ref:`class_Object`.
+Essentially, you want to work with built-in types as described in `doc_gdscript` or classes extending `class_Object`.
 
 Calling methods
 ---------------
@@ -145,7 +145,7 @@ Calling GDScript methods from C#
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To call GDScript methods from C# you'll need to use
-:ref:`Object.Call() <class_Object_method_call>`. The first argument is the
+`Object.Call() <class_Object_method_call>`. The first argument is the
 name of the method you want to call. The following arguments will be passed
 to said method.
 

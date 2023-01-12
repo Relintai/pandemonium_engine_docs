@@ -67,7 +67,7 @@ by N and D. For example:
 
 .. image:: img/tutovec12.png
 
-For 3D math, Godot provides a :ref:`Plane <class_Plane>`
+For 3D math, Godot provides a `Plane <class_Plane>`
 built-in type that handles this.
 
 Basically, N and D can represent any plane in space, be it for 2D or 3D
@@ -114,7 +114,7 @@ gdscript GDScript
     D = -D
 ```
 
-Of course, Godot also implements this operator in :ref:`Plane <class_Plane>`,
+Of course, Godot also implements this operator in `Plane <class_Plane>`,
 so doing:
 
 gdscript GDScript
@@ -382,7 +382,7 @@ More information
 
 For more information on using vector math in Godot, see the following article:
 
-- :ref:`doc_matrices_and_transforms`
+- `doc_matrices_and_transforms`
 
 If you would like additional explanation, you should check out
 3Blue1Brown's excellent video series "Essence of Linear Algebra":

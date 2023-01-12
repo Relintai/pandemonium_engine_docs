@@ -7,7 +7,7 @@ Exporting for macOS
 
     This page describes how to export a Godot project to macOS.
     If you're looking to compile editor or export template binaries from source instead,
-    read :ref:`doc_compiling_for_osx`.
+    read `doc_compiling_for_osx`.
 
 macOS apps are exported as an ``.app`` bundle, a folder with a specific structure which stores the executable, libraries and all the project files.
 This bundle can be exported as is, packed in a ZIP archive or DMG disk image (only supported when exporting from a computer running macOS).
@@ -22,12 +22,12 @@ Requirements
 
 .. warning::
 
-    Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the :ref:`Running Godot apps on macOS <doc_running_on_macos>` page for more information.
+    Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the `Running Godot apps on macOS <doc_running_on_macos>` page for more information.
 
 Code signing and notarization
 -----------------------------
 
-By default, macOS will run only applications that are signed and notarized. If you use any other signing configuration, see :ref:`Running Godot apps on macOS <doc_running_on_macos>` for workarounds.
+By default, macOS will run only applications that are signed and notarized. If you use any other signing configuration, see `Running Godot apps on macOS <doc_running_on_macos>` for workarounds.
 
 To notarize an app, you **must** have a valid `Apple Developer ID Certificate <https://developer.apple.com/>`__.
 
@@ -50,7 +50,7 @@ If you do not have an Apple Developer ID Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Keep ``Code Signing`` enabled and leave the ``Identity`` option empty (when exporting from a computer running macOS, on other platforms this option is hidden).
-In this case Godot will use a ad-hoc signature, which will make running an exported app easier for the end users, see the :ref:`Running Godot apps on macOS <doc_running_on_macos>` page for more information.
+In this case Godot will use a ad-hoc signature, which will make running an exported app easier for the end users, see the `Running Godot apps on macOS <doc_running_on_macos>` page for more information.
 
 Signing Options
 ~~~~~~~~~~~~~~~

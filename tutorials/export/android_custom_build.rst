@@ -14,7 +14,7 @@ There are some reasons why you may want to do this:
 * Add external SDKs that build with your project.
 
 Configuring the custom build is a fairly straightforward process. But first
-you need to follow the steps in :ref:`exporting for android<doc_exporting_for_android>`
+you need to follow the steps in `exporting for android<doc_exporting_for_android>`
 up to **Setting it up in Godot**. After doing that, follow the steps below.
 
 Set up the custom build environment
@@ -28,7 +28,7 @@ Make sure export templates are downloaded. If not, this menu will help you
 download them.
 
 A Gradle-based Android project will be created under ``res://android/build``.
-Editing these files is not needed unless you want to :ref:`create
+Editing these files is not needed unless you want to `create
 your own add-ons<doc_android_plugin>`, or you really need to modify the project.
 
 

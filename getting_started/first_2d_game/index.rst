@@ -14,7 +14,7 @@ a 2D game.
 
 .. note:: This project is an introduction to the Godot engine. It assumes that
           you have some programming experience already. If you're new to
-          programming entirely, you should start here: :ref:`doc_scripting`.
+          programming entirely, you should start here: `doc_scripting`.
 
 The game is called "Dodge the Creeps!". Your character must move and avoid the
 enemies for as long as possible. 
@@ -45,7 +45,7 @@ Prerequisites
 -------------
 
 This step-by-step tutorial is intended for beginners who followed the complete
-:ref:`Getting Started <toc-learn-step_by_step>`.
+`Getting Started <toc-learn-step_by_step>`.
 
 If you're an experienced programmer, you can find the complete demo's source
 code here: `Godot demo projects

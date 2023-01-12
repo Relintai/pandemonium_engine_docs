@@ -89,11 +89,11 @@ A good place to start is by searching for issues tagged as
 on GitHub.
 
 .. seealso:: Technical details about the PR workflow are outlined in a
-             specific section, :ref:`doc_pr_workflow`.
+             specific section, `doc_pr_workflow`.
 
              Details about the code style guidelines and the ``clang-format``
              tool used to enforce them are outlined in
-             :ref:`doc_code_style_guidelines`.
+             `doc_code_style_guidelines`.
 
 All pull requests must go through a review process before being accepted.
 Depending on the scope of the changes, it may take some time for a maintainer
@@ -125,7 +125,7 @@ Testing development versions
 To help with the testing, you have several possibilities:
 
 -  Compile the engine from source yourself, following the instructions of the
-   :ref:`Compiling <toc-devel-compiling>` page for your platform.
+   `Compiling <toc-devel-compiling>` page for your platform.
 
 -  Test official pre-release binaries when they are announced (usually on the
    blog and other community platforms), such as alpha, beta and release candidate (RC) builds.
@@ -196,18 +196,18 @@ There are two separate resources referred to as "documentation" in Godot:
 
 - **The class reference.** This is the documentation for the complete Godot API
   as exposed to GDScript and the other scripting languages. It can be consulted
-  offline, directly in Godot's code editor, or online at :ref:`Godot API
+  offline, directly in Godot's code editor, or online at `Godot API
   <toc-class-ref>`. To contribute to the class reference, you have to edit the
   XML file corresponding to the class and make a pull request.
-  See :ref:`doc_updating_the_class_reference` and
-  :ref:`doc_class_reference_writing_guidelines` for more details.
+  See `doc_updating_the_class_reference` and
+  `doc_class_reference_writing_guidelines` for more details.
 
 - **The tutorials and engine documentation and its translations.**
   This is the part you are reading now, which is distributed in the HTML format.
   Its contents are generated from plain text files in the reStructured Text
   (rst) format, to which you can contribute via pull requests on the
   `godot-docs <https://github.com/godotengine/godot-docs>`_ GitHub repository.
-  See :ref:`doc_contributing_to_the_documentation` for more details.
+  See `doc_contributing_to_the_documentation` for more details.
 
 Contributing translations
 -------------------------
@@ -216,4 +216,4 @@ To make Godot accessible to everyone, including users who may prefer resources
 in their native language instead of English, our community helps translate both
 the Godot editor and its documentation in many languages.
 
-See :ref:`doc_editor_and_docs_localization` for more details.
+See `doc_editor_and_docs_localization` for more details.

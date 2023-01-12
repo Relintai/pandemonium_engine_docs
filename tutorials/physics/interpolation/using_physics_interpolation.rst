@@ -9,13 +9,13 @@ We have tried to make the system as easy to use as possible, and many existing g
 Turn on the physics interpolation setting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The first step is to turn on physics interpolation in :ref:`ProjectSettings.physics/common/physics_interpolation<class_ProjectSettings_property_physics/common/physics_interpolation>`. You can now run your game.
+The first step is to turn on physics interpolation in `ProjectSettings.physics/common/physics_interpolation<class_ProjectSettings_property_physics/common/physics_interpolation>`. You can now run your game.
 
 It is likely that nothing looks hugely different, particularly if you are running physics at 60 TPS or a multiple of it. However, quite a bit more is happening behind the scenes.
 
 .. tip::
 
-	To convert an existing game to use interpolation, it is highly recommended that you temporarily set :ref:`ProjectSettings.physics/common/physics_fps<class_ProjectSettings_property_physics/common/physics_fps>` to a low value such as 10, which will make interpolation problems more obvious.
+	To convert an existing game to use interpolation, it is highly recommended that you temporarily set `ProjectSettings.physics/common/physics_fps<class_ProjectSettings_property_physics/common/physics_fps>` to a low value such as 10, which will make interpolation problems more obvious.
 
 Move (almost) all game logic from _process to _physics_process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -34,7 +34,7 @@ Ensure that all indirect movement happens during physics ticks
 
 Consider that in Godot, Nodes can be moved not just directly in your own scripts, but also by automatic methods such as tweening, animation, and navigation. All these methods should also have their timing set to operate on the physics tick rather than each frame ("idle"), **if** you are using them to move objects (*these methods can also be used to control properties that are not interpolated*).
 
-.. note:: Also consider that nodes can be moved not just by moving themselves, but also by moving parent nodes in the :ref:`SceneTree<class_SceneTree>`. The movement of parents should therefore also only occur during physics ticks.
+.. note:: Also consider that nodes can be moved not just by moving themselves, but also by moving parent nodes in the `SceneTree<class_SceneTree>`. The movement of parents should therefore also only occur during physics ticks.
 
 Choose a physics tick rate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,7 +58,7 @@ Call reset_physics_interpolation() when teleporting objects
 
 Most of the time, interpolation is what you want between two physics ticks. However, there is one situation in which it may *not* be what you want. That is when you are initially placing objects, or moving them to a new location. Here, you don't want a smooth motion between the two - you want an instantaneous move.
 
-The solution to this is to call the :ref:`Node.reset_physics_interpolation<class_Node_method_reset_physics_interpolation>` function. You should call this function on a Node *after* setting the position/transform. The rest is done for you automatically.
+The solution to this is to call the `Node.reset_physics_interpolation<class_Node_method_reset_physics_interpolation>` function. You should call this function on a Node *after* setting the position/transform. The rest is done for you automatically.
 
 Even if you forget to call this, it is not usually a problem in most situations (especially at high tick rates). This is something you can easily leave to the polishing phase of your game. The worst that will happen is seeing a streaking motion for a frame or so when you move them - you will know when you need it!
 
@@ -69,6 +69,6 @@ Testing and debugging tips
 
 Even if you intend to run physics at 60 TPS, in order to thoroughly test your interpolation and get the smoothest gameplay, it is highly recommended to temporarily set the physics tick rate to a low value such as 10 TPS.
 
-The gameplay may not work perfectly, but it should enable you to more easily see cases where you should be calling :ref:`Node.reset_physics_interpolation<class_Node_method_reset_physics_interpolation>`, or where you should be using your own custom interpolation on e.g. a :ref:`Camera<class_Camera>`. Once you have these cases fixed, you can set the physics tick rate back to the desired setting.
+The gameplay may not work perfectly, but it should enable you to more easily see cases where you should be calling `Node.reset_physics_interpolation<class_Node_method_reset_physics_interpolation>`, or where you should be using your own custom interpolation on e.g. a `Camera<class_Camera>`. Once you have these cases fixed, you can set the physics tick rate back to the desired setting.
 
 The other great advantage to testing at a low tick rate is you can often notice other game systems that are synchronized to the physics tick and creating glitches which you may want to work around. Typical examples include setting animation blend values, which you may decide to set in ``_process()`` and interpolate manually.

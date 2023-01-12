@@ -52,7 +52,7 @@ To build an iOS plugin:
 
     - Download the Godot engine source from the `Godot GitHub page <https://github.com/godotengine/godot>`_.
 
-    - Run SCons to generate headers. You can learn the process by reading :ref:`doc_compiling_for_ios`. You don't have to wait for compilation to complete to move forward as headers are generated before the engine starts to compile.
+    - Run SCons to generate headers. You can learn the process by reading `doc_compiling_for_ios`. You don't have to wait for compilation to complete to move forward as headers are generated before the engine starts to compile.
 
     - You should use the same header files for iOS plugins and for the iOS export template.
 

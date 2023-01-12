@@ -21,22 +21,22 @@ in a pull request and getting it merged will trigger a rebuild of the online
 documentation.
 
 .. seealso:: For details on Git usage and the pull request workflow, please
-             refer to the :ref:`doc_pr_workflow` page. Most of what it
+             refer to the `doc_pr_workflow` page. Most of what it
              describes regarding the main godotengine/godot repository is
              also valid for the docs repository.
 
 .. warning:: The class reference's source files are in the `Godot engine repository
-             <https://github.com/godotengine/godot>`_. We generate the :ref:`Godot API
+             <https://github.com/godotengine/godot>`_. We generate the `Godot API
              <toc-class-ref>` section of this documentation from them. If you want to update the
              description of a class, its methods, or properties, read
-             :ref:`doc_updating_the_class_reference`.
+             `doc_updating_the_class_reference`.
 
 .. warning:: If you want to edit the **API reference**, please note that it
              should *not* be done in the godot-docs repository. Instead, you
              should edit the ``doc/classes/*`` XML files of Godot's
              main repository. These files are then later used to generate the
              in-editor documentation as well as the API reference of the
-             online docs. Read more here: :ref:`doc_updating_the_class_reference`.
+             online docs. Read more here: `doc_updating_the_class_reference`.
 
 The 'Edit on GitHub' link
 -------------------------
@@ -70,7 +70,7 @@ What makes good documentation?
 
 Documentation should be well written in plain English, using well-formed
 sentences and various levels of sections and subsections. It should be clear
-and objective. Also, have a look at the :ref:`doc_docs_writing_guidelines`.
+and objective. Also, have a look at the `doc_docs_writing_guidelines`.
 
 We differentiate tutorial pages from other documentation pages by these
 definitions:
@@ -98,8 +98,8 @@ Always begin pages with their title and a Sphinx reference name:
     Insert your title here
     ======================
 
-The reference allows linking to this page using the ``:ref:`` format, e.g.
-``:ref:`doc_insert_your_title_here``` would link to the above example page
+The reference allows linking to this page using the ```` format, e.g.
+```doc_insert_your_title_here``` would link to the above example page
 (note the lack of leading underscore in the reference).
 
 Also, avoid American CamelCase titles: title's first word should begin

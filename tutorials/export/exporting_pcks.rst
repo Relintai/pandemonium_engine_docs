@@ -60,7 +60,7 @@ an export template selected while doing so.
 
 .. image:: img/export_pck.png
 
-Another method would be to :ref:`export from the command line <doc_command_line_tutorial_exporting>`.
+Another method would be to `export from the command line <doc_command_line_tutorial_exporting>`.
 If the output file ends with a PCK or ZIP file extension, then the export
 process will build that type of file for the chosen platform.
 
@@ -82,7 +82,7 @@ process will build that type of file for the chosen platform.
        build of the engine or have access to one (distributed alongside or
        perhaps in the original game's files). The tool can then use the Godot
        executable to export a PCK file from the command line with
-       :ref:`OS.execute() <class_OS_method_execute>`. The game itself shouldn't
+       `OS.execute() <class_OS_method_execute>`. The game itself shouldn't
        use a tool-build of the engine (for security), so it's best to keep
        the modding tool and game separate.
 
@@ -114,7 +114,7 @@ gdscript GDScript
     PCK file of this kind can fix the content of a previously loaded PCK.
 
     To opt out of this behavior, pass ``false`` as the second argument to
-    :ref:`ProjectSettings.load_resource_pack() <class_ProjectSettings_method_load_resource_pack>`.
+    `ProjectSettings.load_resource_pack() <class_ProjectSettings_method_load_resource_pack>`.
 
 .. note::
     For a C# project, you need to build the DLL and place it in the project directory first.

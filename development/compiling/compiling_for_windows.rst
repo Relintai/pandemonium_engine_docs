@@ -8,7 +8,7 @@ Compiling for Windows
 .. seealso::
 
     This page describes how to compile Windows editor and export template binaries from source.
-    If you're looking to export your project to Windows instead, read :ref:`doc_exporting_for_windows`.
+    If you're looking to export your project to Windows instead, read `doc_exporting_for_windows`.
 
 Requirements
 ------------
@@ -41,10 +41,10 @@ For compiling under Windows, the following is required:
           `pip3 install scons` in its shell.
 
 .. seealso:: To get the Godot source code for compiling, see
-             :ref:`doc_getting_source`.
+             `doc_getting_source`.
 
              For a general overview of SCons usage for Godot, see
-             :ref:`doc_introduction_to_the_buildsystem`.
+             `doc_introduction_to_the_buildsystem`.
 
 Setting up SCons
 ----------------
@@ -91,7 +91,7 @@ a **Repair** option, which won't let you install C++ tools.
 Downloading Godot's source
 --------------------------
 
-Refer to :ref:`doc_getting_source` for detailed instructions.
+Refer to `doc_getting_source` for detailed instructions.
 
 The tutorial will assume from now on that you placed the source code in
 ``C:\godot``.
@@ -165,7 +165,7 @@ dependencies. Running it will bring up the Project Manager.
 
 .. note:: If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
-          :ref:`doc_data_paths_self_contained_mode` by creating a file called
+          `doc_data_paths_self_contained_mode` by creating a file called
           ``._sc_`` or ``_sc_`` in the ``bin/`` folder.
 
 Development in Visual Studio
@@ -186,7 +186,7 @@ the ``vsproj=yes`` parameter, like this::
 You will be able to open Godot's source in a Visual Studio solution now,
 and able to build Godot using Visual Studio's **Build** button.
 
-.. seealso:: See :ref:`doc_configuring_an_ide_vs` for further details.
+.. seealso:: See `doc_configuring_an_ide_vs` for further details.
 
 Cross-compiling for Windows from other operating systems
 --------------------------------------------------------

@@ -13,7 +13,7 @@ engine and other modules. In addition, the server claims ownership for
 its RID allocations.
 
 This guide assumes the reader knows how to create C++ modules and Godot
-data types. If not, refer to :ref:`doc_custom_modules_in_c++`.
+data types. If not, refer to `doc_custom_modules_in_c++`.
 
 References
 ~~~~~~~~~~~
@@ -315,7 +315,7 @@ object-oriented C code.
 References
 ~~~~~~~~~~~
 
-- :ref:`RID<class_rid>`
+- `RID<class_rid>`
 - `core/rid.h <https://github.com/godotengine/godot/blob/3.x/core/rid.h>`__
 
 Registering the class in GDScript

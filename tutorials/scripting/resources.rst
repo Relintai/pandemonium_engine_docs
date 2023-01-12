@@ -6,11 +6,11 @@ Resources
 Nodes and resources
 -------------------
 
-Up to this tutorial, we focused on the :ref:`Node <class_Node>`
+Up to this tutorial, we focused on the `Node <class_Node>`
 class in Godot as that's the one you use to code behavior and
 most of the engine's features rely on it. There is
 another datatype that is just as important:
-:ref:`Resource <class_Resource>`.
+`Resource <class_Resource>`.
 
 *Nodes* give you functionality: they draw sprites, 3D models, simulate physics,
 arrange user interfaces, etc. **Resources** are **data containers**. They don't
@@ -18,9 +18,9 @@ do anything on their own: instead, nodes use the data contained in resources.
 
 Anything Godot saves or loads from disk is a resource. Be it a scene (a ``.tscn``
 or an ``.scn`` file), an image, a script... Here are some ``Resource`` examples:
-:ref:`Texture <class_Texture>`, :ref:`Script <class_Script>`, :ref:`Mesh
-<class_Mesh>`, :ref:`Animation <class_Animation>`, :ref:`AudioStream
-<class_AudioStream>`, :ref:`Font <class_Font>`, :ref:`Translation
+`Texture <class_Texture>`, `Script <class_Script>`, `Mesh
+<class_Mesh>`, `Animation <class_Animation>`, `AudioStream
+<class_AudioStream>`, `Font <class_Font>`, `Translation
 <class_Translation>`.
 
 When the engine loads a resource from disk, **it only loads it once**. If a copy
@@ -43,8 +43,8 @@ There are two ways to save resources. They can be:
 1. **External** to a scene, saved on the disk as individual files.
 2. **Built-in**, saved inside the ``.tscn`` or the ``.scn`` file they're attached to.
 
-To be more specific, here's a :ref:`Texture <class_Texture>`
-in a :ref:`Sprite <class_Sprite>` node:
+To be more specific, here's a `Texture <class_Texture>`
+in a `Sprite <class_Sprite>` node:
 
 .. image:: img/spriteprop.png
 
@@ -95,11 +95,11 @@ Loading scenes
 --------------
 
 Scenes are also resources, but there is a catch. Scenes saved to disk are
-resources of type :ref:`PackedScene <class_PackedScene>`. The
+resources of type `PackedScene <class_PackedScene>`. The
 scene is packed inside a resource.
 
 To get an instance of the scene, you have to use the
-:ref:`PackedScene.instance() <class_PackedScene_method_instance>` method.
+`PackedScene.instance() <class_PackedScene_method_instance>` method.
 
 gdscript GDScript
 
@@ -113,7 +113,7 @@ This method creates the nodes in the scene's hierarchy, configures them, and
 returns the root node of the scene. You can then add it as a child of any other
 node.
 
-The approach has several advantages. As the :ref:`PackedScene.instance()
+The approach has several advantages. As the `PackedScene.instance()
 <class_PackedScene_method_instance>` function is fast, you can create new
 enemies, bullets, effects, etc. without having to load them again from disk each
 time. Remember that, as always, images, meshes, etc. are all shared between the
@@ -136,10 +136,10 @@ memory management from the Reference type.
 
 This comes with many distinct advantages over alternative data
 structures, such as JSON, CSV, or custom TXT files. Users can only import these
-assets as a :ref:`Dictionary <class_Dictionary>` (JSON) or as a
-:ref:`File <class_File>` to parse. What sets Resources apart is their
-inheritance of :ref:`Object <class_Object>`, :ref:`Reference <class_Reference>`,
-and :ref:`Resource <class_Resource>` features:
+assets as a `Dictionary <class_Dictionary>` (JSON) or as a
+`File <class_File>` to parse. What sets Resources apart is their
+inheritance of `Object <class_Object>`, `Reference <class_Reference>`,
+and `Resource <class_Resource>` features:
 
 - They can define constants, so constants from other data fields or objects are not needed.
 
@@ -169,7 +169,7 @@ those values and saves the resource, the Inspector serializes the custom propert
 too! To save a resource from the Inspector, click the Inspector's tools menu (top right),
 and select "Save" or "Save As...".
 
-If the script's language supports :ref:`script classes <doc_gdscript_basics_class_name>`,
+If the script's language supports `script classes <doc_gdscript_basics_class_name>`,
 then it streamlines the process. Defining a name for your script alone will add it to
 the Inspector's creation dialog. This will auto-add your script to the Resource
 object you create.
@@ -209,7 +209,7 @@ gdscript GDScript
     Resource scripts are similar to Unity's ScriptableObjects. The Inspector
     provides built-in support for custom resources. If desired though, users
     can even design their own Control-based tool scripts and combine them
-    with an :ref:`EditorPlugin <class_EditorPlugin>` to create custom
+    with an `EditorPlugin <class_EditorPlugin>` to create custom
     visualizations and editors for their data.
 
     Unreal Engine 4's DataTables and CurveTables are also easy to recreate with
@@ -257,7 +257,7 @@ gdscript GDScript
        to the Inspector when you open these types of Resources.
 
     CurveTables are the same thing, except mapped to an Array of float values
-    or a :ref:`Curve <class_Curve>`/:ref:`Curve2D <class_Curve2D>` resource object.
+    or a `Curve <class_Curve>`/`Curve2D <class_Curve2D>` resource object.
 
 .. warning::
 

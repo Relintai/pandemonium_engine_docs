@@ -5,11 +5,11 @@ Mobile rendering limitations
 
 .. seealso::
 
-    The general :ref:`doc_3d_rendering_limitations` also apply to mobile platforms.
+    The general `doc_3d_rendering_limitations` also apply to mobile platforms.
 
 To improve out-of-the-box performance on mobile devices, Godot automatically uses
 low-end-friendly settings by default on both Android and iOS. These are configured
-by project settings with a ``.mobile`` :ref:`feature tag <doc_feature_tags>` suffix.
+by project settings with a ``.mobile`` `feature tag <doc_feature_tags>` suffix.
 
 One of the most notable changes on mobile that will affect 3D projects is that
 lighting is done per-vertex instead of per-pixel. This improves performance a
@@ -55,7 +55,7 @@ The following project settings have mobile-specific overrides:
 | *GLES3 only:* ``rendering/quality/reflections/texture_array_reflections`` | ``true``        | ``false``          |
 +---------------------------------------------------------------------------+-----------------+--------------------+
 
-See the :ref:`ProjectSettings class documentation <class_ProjectSettings>`
+See the `ProjectSettings class documentation <class_ProjectSettings>`
 for more information on those setting overrides.
 
 If you're only targeting mobile platforms in your project, consider changing the

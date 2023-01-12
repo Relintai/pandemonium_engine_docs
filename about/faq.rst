@@ -38,7 +38,7 @@ Which platforms are supported by Godot?
 * Windows
 * macOS
 * X11 (Linux, \*BSD)
-* :ref:`Web <doc_using_the_web_editor>`
+* `Web <doc_using_the_web_editor>`
 * Android (experimental)
 
 **For exporting your games:**
@@ -60,15 +60,15 @@ Additionally, there is some unofficial third-party work being done on building
 for some consoles. However, none of this is included in the default build
 scripts or export templates at this time.
 
-For more on this, see the sections on :ref:`exporting <toc-learn-workflow-export>`
-and :ref:`compiling Godot yourself <toc-devel-compiling>`.
+For more on this, see the sections on `exporting <toc-learn-workflow-export>`
+and `compiling Godot yourself <toc-devel-compiling>`.
 
 Which programming languages are supported in Godot?
 ---------------------------------------------------
 
 The officially supported languages for Godot are GDScript, Visual Scripting,
 C#, and C++. See the subcategories for each language in the
-:ref:`scripting <toc-learn-scripting>` section.
+`scripting <toc-learn-scripting>` section.
 
 If you are just starting out with either Godot or game development in general,
 GDScript is the recommended language to learn and use since it is native to Godot.
@@ -99,7 +99,7 @@ up to maximize Godot's potential in the least amount of code, affording both nov
 and expert developers alike to capitalize on Godot's strengths as fast as possible.
 If you've ever written anything in a language like Python before then you'll feel
 right at home. For examples, history, and a complete overview of the power GDScript
-offers you, check out the :ref:`GDScript scripting guide <doc_gdscript>`.
+offers you, check out the `GDScript scripting guide <doc_gdscript>`.
 
 There are several reasons to use GDScript--especially when you are prototyping, in
 alpha/beta stages of your project, or are not creating the next AAA title--but the
@@ -123,7 +123,7 @@ once you see how powerful it is and rapid your development becomes, we think GDS
 will grow on you.
 
 More information about getting comfortable with GDScript or dynamically typed
-languages can be found in the :ref:`doc_gdscript_more_efficiently` tutorial.
+languages can be found in the `doc_gdscript_more_efficiently` tutorial.
 
 What were the motivations behind creating GDScript?
 ---------------------------------------------------
@@ -225,7 +225,7 @@ Linux
   This is typically ``/usr/local/bin/godot`` or ``/usr/bin/godot``.
   Doing this requires administrator privileges,
   but this also allows you to
-  :ref:`run the Godot editor from a terminal <doc_command_line_tutorial>` by entering ``godot``.
+  `run the Godot editor from a terminal <doc_command_line_tutorial>` by entering ``godot``.
 
   - If you cannot move the Godot editor binary to a protected location, you can
     keep the binary somewhere in your home directory, and modify the ``Path=``
@@ -247,10 +247,10 @@ administrator privileges.
 However, configuration files will be written to the user-wide configuration or
 data directory. This is usually a good approach, but this means configuration files
 will not carry across machines if you copy the folder containing the Godot executable.
-See :ref:`doc_data_paths` for more information.
+See `doc_data_paths` for more information.
 
 If *true* portable operation is desired (e.g. for use on an USB stick),
-follow the steps in :ref:`doc_data_paths_self_contained_mode`.
+follow the steps in `doc_data_paths_self_contained_mode`.
 
 Why does Godot use Vulkan or OpenGL instead of Direct3D?
 --------------------------------------------------------
@@ -309,7 +309,7 @@ functionality in Godot. This is why we are aiming to move some core
 functionality to officially supported add-ons in future versions of Godot. In
 terms of binary size, this also has the advantage of making you pay only for what
 you actually use in your project. (In the meantime, you can
-:ref:`compile custom export templates with unused features disabled <doc_optimizing_for_size>`
+`compile custom export templates with unused features disabled <doc_optimizing_for_size>`
 to optimize the distribution size of your project.)
 
 How should assets be created to handle multiple resolutions and aspect ratios?
@@ -336,15 +336,15 @@ This is mostly needed for 2D, as in 3D it's just a matter of Camera XFov or YFov
    and the longer the time it will take for loading.
 
 2. Use the stretch options in Godot; 2D stretching while keeping aspect
-   ratios works best. Check the :ref:`doc_multiple_resolutions` tutorial
+   ratios works best. Check the `doc_multiple_resolutions` tutorial
    on how to achieve this.
 
 3. Determine a minimum resolution and then decide if you want your game
    to stretch vertically or horizontally for different aspect ratios, or
    if there is one aspect ratio and you want black bars to appear
-   instead. This is also explained in :ref:`doc_multiple_resolutions`.
+   instead. This is also explained in `doc_multiple_resolutions`.
 
-4. For user interfaces, use the :ref:`anchoring <doc_size_and_anchors>`
+4. For user interfaces, use the `anchoring <doc_size_and_anchors>`
    to determine where controls should stay and move. If UIs are more
    complex, consider learning about Containers.
 
@@ -359,7 +359,7 @@ How can I extend Godot?
 -----------------------
 
 For extending Godot, like creating Godot Editor plugins or adding support
-for additional languages, take a look at :ref:`EditorPlugins <doc_making_plugins>`
+for additional languages, take a look at `EditorPlugins <doc_making_plugins>`
 and tool scripts.
 
 Also, see the official blog posts on these topics:
@@ -375,7 +375,7 @@ integrates with Godot.
 When is the next release of Godot out?
 --------------------------------------
 
-When it's ready! See :ref:`doc_release_policy_when_is_next_release_out` for more
+When it's ready! See `doc_release_policy_when_is_next_release_out` for more
 information.
 
 I would like to contribute! How can I get started?
@@ -433,7 +433,7 @@ Yes! Godot features an extensive built-in UI system, and its small distribution
 size can make it a suitable alternative to frameworks like Electron or Qt.
 
 When creating a non-game application, make sure to enable
-:ref:`low-processor mode <class_ProjectSettings_property_application/run/low_processor_mode>`
+`low-processor mode <class_ProjectSettings_property_application/run/low_processor_mode>`
 in the Project Settings to decrease CPU and GPU usage.
 
 That said, we wouldn't recommend using Godot to create a *mobile* application
@@ -474,9 +474,9 @@ have to deal with the LGPL licensing caveats that come with GTK or Qt. Lastly,
 this means Godot is "eating its own dog food" since the editor itself is one of
 the most complex users of Godot's UI system.
 
-This custom UI toolkit :ref:`can't be used as a library <doc_faq_use_godot_as_library>`,
+This custom UI toolkit `can't be used as a library <doc_faq_use_godot_as_library>`,
 but you can still
-:ref:`use Godot to create non-game applications by using the editor <doc_faq_non_game_applications>`.
+`use Godot to create non-game applications by using the editor <doc_faq_non_game_applications>`.
 
 .. _doc_faq_why_not_stl:
 
@@ -535,7 +535,7 @@ performance parts and GDScript (or C#) for the rest of the game.
 How can I support Godot development or contribute?
 --------------------------------------------------
 
-See :ref:`doc_ways_to_contribute`.
+See `doc_ways_to_contribute`.
 
 Who is working on Godot? How can I contact you?
 -----------------------------------------------

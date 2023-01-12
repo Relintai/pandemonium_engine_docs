@@ -10,13 +10,13 @@ Label nodes are great for displaying basic text, but they have limits. If you wa
 to change the color of the text, or its alignment, that change affects all of the
 text in the Label node. You can't have only one part of the text be one color, or
 only one part of the text be centered. To get around this limitation you would use
-a :ref:`class_RichTextLabel`.
+a `class_RichTextLabel`.
 
-:ref:`class_RichTextLabel` allows the display of complex text markup in a Control.
+`class_RichTextLabel` allows the display of complex text markup in a Control.
 It has a built-in API for generating the markup, but can also parse a BBCode.
 
 Note that the BBCode tags can also be used, to some extent, in the
-:ref:`XML source of the class reference <doc_updating_the_class_reference>`.
+`XML source of the class reference <doc_updating_the_class_reference>`.
 
 Using BBCode
 ------------
@@ -72,11 +72,11 @@ Reference
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
 | **url**               | ``[url]{url}[/url]``                                      | Show {url} as such, underline it and make it clickable.                  |
 |                       |                                                           | **Must be handled with the "meta_clicked" signal to have an effect.**    |
-|                       |                                                           | See :ref:`doc_bbcode_in_richtextlabel_handling_url_tag_clicks`.          |
+|                       |                                                           | See `doc_bbcode_in_richtextlabel_handling_url_tag_clicks`.          |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
 | **url (ref)**         | ``[url=<url>]{text}[/url]``                               | Makes {text} reference <url> (underlined and clickable).                 |
 |                       |                                                           | **Must be handled with the "meta_clicked" signal to have an effect.**    |
-|                       |                                                           | See :ref:`doc_bbcode_in_richtextlabel_handling_url_tag_clicks`.          |
+|                       |                                                           | See `doc_bbcode_in_richtextlabel_handling_url_tag_clicks`.          |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
 | **image**             | ``[img]{path}[/img]``                                     | Insert image at resource {path}.                                         |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
@@ -133,7 +133,7 @@ By default, ``[url]`` tags do nothing when clicked. This is to allow flexible us
 of ``[url]`` tags rather than limiting them to opening URLs in a web browser.
 
 To handle clicked ``[url]`` tags, connect the RichTextLabel node's
-:ref:`meta_clicked <class_RichTextLabel_signal_meta_clicked>` signal to a script function.
+`meta_clicked <class_RichTextLabel_signal_meta_clicked>` signal to a script function.
 
 For example, the following method can be connected to ``meta_clicked`` to open
 clicked URLs using the user's default web browser::
@@ -216,8 +216,8 @@ of the rainbow, ``val`` is the value of the rainbow.
 Custom BBCode tags and text effects
 -----------------------------------
 
-You can extend the :ref:`class_RichTextEffect` resource type to create your own custom
-BBCode tags. You begin by extending the :ref:`class_RichTextEffect` resource type. Add
+You can extend the `class_RichTextEffect` resource type to create your own custom
+BBCode tags. You begin by extending the `class_RichTextEffect` resource type. Add
 the ``tool`` prefix to your GDScript file if you wish to have these custom effects run
 within the editor itself. The RichTextLabel does not need to have a script attached,
 nor does it need to be running in ``tool`` mode. The new effect will be activable in
@@ -238,7 +238,7 @@ use the name of the file to determine what the BBCode tag should be.
 ~~~~~~~~~~~~~~~~~~~~~~
 
 This is where the logic of each effect takes place and is called once per character
-during the draw phase of text rendering. This passes in a :ref:`class_CharFXTransform`
+during the draw phase of text rendering. This passes in a `class_CharFXTransform`
 object, which holds a few variables to control how the associated character is rendered:
 
 - ``identity`` specifies which custom effect is being processed. You should use that for
@@ -252,8 +252,8 @@ object, which holds a few variables to control how the associated character is r
 - ``offset`` is an offset position relative to where the given character should render under
   normal circumstances.
 - ``color`` is the color of a given character.
-- Finally, ``env`` is a :ref:`class_Dictionary` of parameters assigned to a given custom
-  effect. You can use :ref:`get() <class_Dictionary_method_get>` with an optional default value
+- Finally, ``env`` is a `class_Dictionary` of parameters assigned to a given custom
+  effect. You can use `get() <class_Dictionary_method_get>` with an optional default value
   to retrieve each parameter, if specified by the user. For example ``[custom_fx spread=0.5
   color=#FFFF00]test[/custom_fx]`` would have a float ``spread`` and Color ``color``
   parameters in its ` `env`` Dictionary. See below for more usage examples.

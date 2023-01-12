@@ -4,10 +4,10 @@ Godot notifications
 ===================
 
 Every Object in Godot implements a
-:ref:`_notification <class_Object_method__notification>` method. Its purpose is to
+`_notification <class_Object_method__notification>` method. Its purpose is to
 allow the Object to respond to a variety of engine-level callbacks that may
 relate to it. For example, if the engine tells a
-:ref:`CanvasItem <class_CanvasItem>` to "draw", it will call
+`CanvasItem <class_CanvasItem>` to "draw", it will call
 ``_notification(NOTIFICATION_DRAW)``.
 
 Some of these notifications, like draw, are useful to override in scripts. So
@@ -28,28 +28,28 @@ much so that Godot exposes many of them with dedicated functions:
 What users might *not* realize is that notifications exist for types other
 than Node alone:
 
-- :ref:`Object::NOTIFICATION_POSTINITIALIZE <class_Object_constant_NOTIFICATION_POSTINITIALIZE>`:
+- `Object::NOTIFICATION_POSTINITIALIZE <class_Object_constant_NOTIFICATION_POSTINITIALIZE>`:
   a callback that triggers during object initialization. Not accessible to scripts.
 
-- :ref:`Object::NOTIFICATION_PREDELETE <class_Object_constant_NOTIFICATION_PREDELETE>`:
+- `Object::NOTIFICATION_PREDELETE <class_Object_constant_NOTIFICATION_PREDELETE>`:
   a callback that triggers before the engine deletes an Object, i.e. a
   'destructor'.
 
-- :ref:`MainLoop::NOTIFICATION_WM_MOUSE_ENTER <class_MainLoop_constant_NOTIFICATION_WM_MOUSE_ENTER>`:
+- `MainLoop::NOTIFICATION_WM_MOUSE_ENTER <class_MainLoop_constant_NOTIFICATION_WM_MOUSE_ENTER>`:
   a callback that triggers when the mouse enters the window in the operating
   system that displays the game content.
 
 And many of the callbacks that *do* exist in Nodes don't have any dedicated
 methods, but are still quite useful.
 
-- :ref:`Node::NOTIFICATION_PARENTED <class_Node_constant_NOTIFICATION_PARENTED>`:
+- `Node::NOTIFICATION_PARENTED <class_Node_constant_NOTIFICATION_PARENTED>`:
   a callback that triggers anytime one adds a child node to another node.
 
-- :ref:`Node::NOTIFICATION_UNPARENTED <class_Node_constant_NOTIFICATION_UNPARENTED>`:
+- `Node::NOTIFICATION_UNPARENTED <class_Node_constant_NOTIFICATION_UNPARENTED>`:
   a callback that triggers anytime one removes a child node from another
   node.
 
-- :ref:`Popup::NOTIFICATION_POST_POPUP <class_Popup_constant_NOTIFICATION_POST_POPUP>`:
+- `Popup::NOTIFICATION_POST_POPUP <class_Popup_constant_NOTIFICATION_POST_POPUP>`:
   a callback that triggers after a Popup node completes any ``popup*`` method.
   Note the difference from its ``about_to_show`` signal which triggers
   *before* its appearance.
@@ -62,7 +62,7 @@ One can access all these custom notifications from the universal
   overridden by scripts.
 
   A classic example is the
-  :ref:`_init <class_Object_method__init>` method in Object. While it has no
+  `_init <class_Object_method__init>` method in Object. While it has no
   ``NOTIFICATION_*`` equivalent, the engine still calls the method. Most languages
   (except C#) rely on it as a constructor.
 
@@ -186,7 +186,7 @@ to the SceneTree, the ``_enter_tree`` and ``_ready`` calls occur.
 
 If one needs to trigger behavior that occurs as nodes parent to another,
 regardless of whether it occurs as part of the main/active scene or not, one
-can use the :ref:`PARENTED <class_Node_constant_NOTIFICATION_PARENTED>` notification.
+can use the `PARENTED <class_Node_constant_NOTIFICATION_PARENTED>` notification.
 For example, here is a snippet that connects a node's method to
 a custom signal on the parent node without failing. Useful on data-centric
 nodes that one might create at runtime.

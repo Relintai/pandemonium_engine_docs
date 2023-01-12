@@ -32,7 +32,7 @@ binary, which is smaller in size, more optimized and does not include
 tools like the editor and debugger.
 
 Finally, Godot has a simple but efficient system for
-:ref:`creating DLCs as extra package files <doc_exporting_pcks>`.
+`creating DLCs as extra package files <doc_exporting_pcks>`.
 
 On mobile
 ~~~~~~~~~
@@ -179,7 +179,7 @@ the command:
 
 .. seealso::
 
-    See :ref:`doc_command_line_tutorial` for more information about using Godot
+    See `doc_command_line_tutorial` for more information about using Godot
     from the command line.
 
 PCK versus ZIP pack file formats
@@ -201,7 +201,7 @@ depending on your needs.
 
 - Compressed format. Smaller file size, but slower to read/write.
 - Readable and writable using tools normally present on the user's operating system.
-  This can be useful to make modding easier (see also :ref:`doc_exporting_pcks`).
+  This can be useful to make modding easier (see also `doc_exporting_pcks`).
 
 .. warning::
 

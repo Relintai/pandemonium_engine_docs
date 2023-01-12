@@ -3,7 +3,7 @@
 Introduction to Rooms and Portals
 =================================
 
-The rooms and portals system is an optional component of Godot that allows you to partition your 3D game levels into a series of :ref:`Room<class_Room>` s (*aka cells*), and :ref:`Portal<class_Portal>` s. Portals are openings between the rooms that the :ref:`Camera<class_Camera>` (and lights) can see through.
+The rooms and portals system is an optional component of Godot that allows you to partition your 3D game levels into a series of `Room<class_Room>` s (*aka cells*), and `Portal<class_Portal>` s. Portals are openings between the rooms that the `Camera<class_Camera>` (and lights) can see through.
  
 This allows several features:
 

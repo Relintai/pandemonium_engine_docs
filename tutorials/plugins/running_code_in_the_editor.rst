@@ -21,7 +21,7 @@ You can use it for doing many things, but it is mostly useful in level design fo
     with caveats, as the editor does not include protections for potential
     misuse of ``tool`` scripts.
     Be **extremely** cautious when manipulating the scene tree, especially via
-    :ref:`Node.queue_free<class_Node_method_queue_free>`, as it can cause
+    `Node.queue_free<class_Node_method_queue_free>`, as it can cause
     crashes if you free a node while the editor runs logic involving it.
 
 How to use it
@@ -136,10 +136,10 @@ Instancing scenes
 
 You can instantiate packed scenes normally and add them to the scene currently
 opened in the editor. By default, nodes or scenes added with
-:ref:`Node.add_child(node) <class_Node_method_add_child>` are **not** visible
+`Node.add_child(node) <class_Node_method_add_child>` are **not** visible
 in the Scene tree dock and are **not** persisted to disk. If you wish the node
 or scene to be visible in the scene tree dock and persisted to disk when saving
-the scene, you need to set the child node's :ref:`owner <class_Node_property_owner>`
+the scene, you need to set the child node's `owner <class_Node_property_owner>`
 property to the currently edited scene root.
 
 If you are using ``tool``:
@@ -156,7 +156,7 @@ gdscript GDScript
         node.set_owner(get_tree().edited_scene_root)
 ```
 
-If you are using :ref:`EditorScript<class_EditorScript>`:
+If you are using `EditorScript<class_EditorScript>`:
 
 gdscript GDScript
 

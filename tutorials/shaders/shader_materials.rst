@@ -7,8 +7,8 @@ Introduction
 ------------
 
 For the most common cases, Godot provides ready to use materials for
-most types of shaders, such as :ref:`SpatialMaterial <class_SpatialMaterial>`,
-:ref:`CanvasItemMaterial <class_CanvasItemMaterial>` and :ref:`ParticlesMaterial <class_ParticlesMaterial>`.
+most types of shaders, such as `SpatialMaterial <class_SpatialMaterial>`,
+`CanvasItemMaterial <class_CanvasItemMaterial>` and `ParticlesMaterial <class_ParticlesMaterial>`.
 They are flexible implementations that cover most use cases.
 
 Shader materials allow writing a custom shader directly, for maximum flexibility.
@@ -64,7 +64,7 @@ your visual shader to a text shader.
 
 .. note::
 
-   To learn more about visual shaders, read :ref:`doc_visual_shaders`.
+   To learn more about visual shaders, read `doc_visual_shaders`.
 
 Converting to ShaderMaterial
 ----------------------------

@@ -38,7 +38,7 @@ Since we previously did not version the Android plugin systems, the new one is n
 
 **Note:** In Godot 4.0, the previous system will be fully deprecated and removed.
 
-As a prerequisite, make sure you understand how to set up a :ref:`custom build environment<doc_android_custom_build>` for Android.
+As a prerequisite, make sure you understand how to set up a `custom build environment<doc_android_custom_build>` for Android.
 
 At its core, a Godot Android plugin is a `Android archive library <https://developer.android.com/studio/projects/android-library#aar-contents>`_ (*aar* archive file)
 with the following caveats:

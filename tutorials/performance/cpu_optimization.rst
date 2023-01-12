@@ -46,7 +46,7 @@ process taking a lot more time than others. This is your primary bottleneck, and
 you can usually increase speed by optimizing this area.
 
 For more info about using Godot's built-in profiler, see
-:ref:`doc_debugger_panel`.
+`doc_debugger_panel`.
 
 External profilers
 ~~~~~~~~~~~~~~~~~~
@@ -154,7 +154,7 @@ will be able to work as fast as possible.
 Godot usually takes care of such low-level details for you. For example, the
 Server APIs make sure data is optimized for caching already for things like
 rendering and physics. Still, you should be especially aware of caching when
-using :ref:`GDNative <toc-tutorials-gdnative>`.
+using `GDNative <toc-tutorials-gdnative>`.
 
 Languages
 =========
@@ -170,7 +170,7 @@ code, consider moving those calculations to a faster language.
 GDScript
 ~~~~~~~~
 
-:ref:`GDScript <toc-learn-scripting-gdscript>` is designed to be easy to use and iterate,
+`GDScript <toc-learn-scripting-gdscript>` is designed to be easy to use and iterate,
 and is ideal for making many types of games. However, in this language, ease of
 use is considered more important than performance. If you need to make heavy
 calculations, consider moving some of your project to one of the other
@@ -179,7 +179,7 @@ languages.
 C#
 ~~
 
-:ref:`C# <toc-learn-scripting-C#>` is popular and has first-class support in Godot.It
+`C# <toc-learn-scripting-C#>` is popular and has first-class support in Godot.It
 offers a good compromise between speed and ease of use. Beware of possible
 garbage collection pauses and leaks that can occur during gameplay, though. A
 common approach to workaround issues with garbage collection is to use *object
@@ -198,8 +198,8 @@ C++
 Godot is written in C++. Using C++ will usually result in the fastest code.
 However, on a practical level, it is the most difficult to deploy to end users'
 machines on different platforms. Options for using C++ include
-:ref:`GDNative <toc-tutorials-gdnative>` and
-:ref:`custom modules <doc_custom_modules_in_c++>`.
+`GDNative <toc-tutorials-gdnative>` and
+`custom modules <doc_custom_modules_in_c++>`.
 
 Threads
 =======
@@ -218,7 +218,7 @@ you understand the dangers and how to try and prevent these race conditions.
 Threads can also make debugging considerably more difficult. The GDScript
 debugger doesn't support setting up breakpoints in threads yet.
 
-For more information on threads, see :ref:`doc_using_multiple_threads`.
+For more information on threads, see `doc_using_multiple_threads`.
 
 SceneTree
 =========
@@ -231,16 +231,16 @@ performance when you have very large numbers of nodes (usually in the thousands)
 Each node is handled individually in the Godot renderer. Therefore, a smaller
 number of nodes with more in each can lead to better performance.
 
-One quirk of the :ref:`SceneTree <class_SceneTree>` is that you can sometimes
+One quirk of the `SceneTree <class_SceneTree>` is that you can sometimes
 get much better performance by removing nodes from the SceneTree, rather than by
 pausing or hiding them. You don't have to delete a detached node. You can for
 example, keep a reference to a node, detach it from the scene tree using
-:ref:`Node.remove_child(node) <class_Node_method_remove_child>`, then reattach
-it later using :ref:`Node.add_child(node) <class_Node_method_add_child>`.
+`Node.remove_child(node) <class_Node_method_remove_child>`, then reattach
+it later using `Node.add_child(node) <class_Node_method_add_child>`.
 This can be very useful for adding and removing areas from a game, for example.
 
 You can avoid the SceneTree altogether by using Server APIs. For more
-information, see :ref:`doc_using_servers`.
+information, see `doc_using_servers`.
 
 Physics
 =======

@@ -7,7 +7,7 @@ Exporting for iOS
 
     This page describes how to export a Godot project to iOS.
     If you're looking to compile export template binaries from source instead,
-    read :ref:`doc_compiling_for_ios`.
+    read `doc_compiling_for_ios`.
 
 These are the steps to load a Godot project in Xcode. This allows you to
 build and deploy to an iOS device, build a release for the App Store, and
@@ -97,7 +97,7 @@ Plugins for iOS
 ---------------
 
 Special iOS plugins can be used in Godot. Check out the
-:ref:`doc_plugins_for_ios` page.
+`doc_plugins_for_ios` page.
 
 Troubleshooting rendering issues
 --------------------------------
@@ -106,4 +106,4 @@ To improve out-of-the-box performance on mobile devices, Godot automatically
 uses low-end-friendly settings by default on both Android and iOS.
 
 This can cause rendering issues that do not occur when running the project on a
-desktop platform. See :ref:`doc_mobile_rendering_limitations` for more information.
+desktop platform. See `doc_mobile_rendering_limitations` for more information.

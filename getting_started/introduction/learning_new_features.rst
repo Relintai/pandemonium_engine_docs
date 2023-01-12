@@ -33,7 +33,7 @@ from within the Godot editor. To do so, go to Help -> Search or press
 
 .. image:: img/manual_class_reference_search.png
 
-To browse it online, head to the manual's :ref:`Class Reference <toc-class-ref>`
+To browse it online, head to the manual's `Class Reference <toc-class-ref>`
 section.
 
 A class reference's page tells you:
@@ -148,4 +148,4 @@ This manual aims to provide a comprehensive reference of Godot's features. Aside
 from the 2D and 3D getting started series, it does not contain tutorials to
 implement specific game genres. If you're looking for a tutorial about creating
 a role-playing game, a platformer, or other, please see
-:ref:`doc_community_tutorials`, which lists content made by the Godot community.
+`doc_community_tutorials`, which lists content made by the Godot community.

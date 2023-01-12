@@ -51,7 +51,7 @@ via a single draw call, rather than making a separate draw call for each item.
 In addition, this means state changes, material and texture changes can be kept
 to a minimum.
 
-For more information on 2D batching, see :ref:`doc_batching`.
+For more information on 2D batching, see `doc_batching`.
 
 3D batching
 ~~~~~~~~~~~
@@ -73,13 +73,13 @@ joining static objects often outweigh other considerations, especially for large
 numbers of distant or low-poly objects.
 
 For more information on 3D specific optimizations, see
-:ref:`doc_optimizing_3d_performance`.
+`doc_optimizing_3d_performance`.
 
 Reuse Shaders and Materials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Godot renderer is a little different to what is out there. It's designed to
-minimize GPU state changes as much as possible. :ref:`SpatialMaterial
+minimize GPU state changes as much as possible. `SpatialMaterial
 <class_SpatialMaterial>` does a good job at reusing materials that need similar
 shaders. If custom shaders are used, make sure to reuse them as much as
 possible. Godot's priorities are:
@@ -175,7 +175,7 @@ elsewhere.
 
 You can increase performance in a fill rate-limited project by reducing the
 amount of work the GPU has to do. You can do this by simplifying the shader
-(perhaps turn off expensive options if you are using a :ref:`SpatialMaterial
+(perhaps turn off expensive options if you are using a `SpatialMaterial
 <class_SpatialMaterial>`), or reducing the number and size of textures used.
 
 **When targeting mobile devices, consider using the simplest possible shaders

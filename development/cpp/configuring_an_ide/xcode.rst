@@ -21,7 +21,7 @@ Importing the project
   +------------+------------------------------------------------------------------------------+
   | Build Tool | A full path to the **scons** executable, e.g. **/usr/local/bin/scons**       |
   +------------+------------------------------------------------------------------------------+
-  | Arguments  | See :ref:`doc_introduction_to_the_buildsystem` for a full list of arguments. |
+  | Arguments  | See `doc_introduction_to_the_buildsystem` for a full list of arguments. |
   +------------+------------------------------------------------------------------------------+
   | Directory  | A full path to the Godot root folder                                         |
   +------------+------------------------------------------------------------------------------+

@@ -21,13 +21,13 @@ Global scope versus RandomNumberGenerator class
 -----------------------------------------------
 
 Godot exposes two ways to generate random numbers: via *global scope* methods or
-using the :ref:`class_RandomNumberGenerator` class.
+using the `class_RandomNumberGenerator` class.
 
 Global scope methods are easier to set up, but they don't offer as much control.
 
 RandomNumberGenerator requires more code to use, but exposes many methods not
-found in global scope such as :ref:`randi_range()
-<class_RandomNumberGenerator_method_randi_range>` and :ref:`randfn()
+found in global scope such as `randi_range()
+<class_RandomNumberGenerator_method_randi_range>` and `randfn()
 <class_RandomNumberGenerator_method_randfn>`. On top of that, it allows creating
 multiple instances each with their own seed.
 
@@ -37,7 +37,7 @@ the RandomNumberGenerator class.
 The randomize() method
 ----------------------
 
-In global scope, you can find a :ref:`randomize()
+In global scope, you can find a `randomize()
 <class_@GDScript_method_randomize>` method. **This method should be called only
 once when your project starts to initialize the random seed.** Calling it
 multiple times is unnecessary and may impact performance negatively.
@@ -51,7 +51,7 @@ gdscript GDScript
         randomize()
 ```
 
-You can also set a fixed random seed instead using :ref:`seed()
+You can also set a fixed random seed instead using `seed()
 <class_@GDScript_method_seed>`. Doing so will give you *deterministic* results
 across runs:
 
@@ -81,7 +81,7 @@ Getting a random number
 Let's look at some of the most commonly used functions and methods to generate
 random numbers in Godot.
 
-The function :ref:`randi() <class_@GDScript_method_randi>` returns a random
+The function `randi() <class_@GDScript_method_randi>` returns a random
 number between 0 and 2^32-1. Since the maximum value is huge, you most likely
 want to use the modulo operator (``%``) to bound the result between 0 and the
 denominator:
@@ -97,12 +97,12 @@ gdscript GDScript
 ```
 
 
-:ref:`randf() <class_@GDScript_method_randf>` returns a random floating-point
+`randf() <class_@GDScript_method_randf>` returns a random floating-point
 number between 0 and 1. This is useful to implement a
-:ref:`doc_random_number_generation_weighted_random_probability` system, among
+`doc_random_number_generation_weighted_random_probability` system, among
 other things.
 
-:ref:`randfn() <class_RandomNumberGenerator_method_randfn>` returns a random
+`randfn() <class_RandomNumberGenerator_method_randfn>` returns a random
 floating-point number following a `normal distribution
 <https://en.wikipedia.org/wiki/Normal_distribution>`__. This means the returned
 value is more likely to be around the mean (0.0 by default),
@@ -117,7 +117,7 @@ gdscript GDScript
     print(random.randfn())
 ```
 
-:ref:`rand_range() <class_@GDScript_method_rand_range>` takes two arguments
+`rand_range() <class_@GDScript_method_rand_range>` takes two arguments
 ``from`` and ``to``, and returns a random floating-point number between ``from``
 and ``to``:
 
@@ -128,7 +128,7 @@ gdscript GDScript
     print(rand_range(-4, 6.5))
 ```
 
-:ref:`RandomNumberGenerator.randi_range()
+`RandomNumberGenerator.randi_range()
 <class_RandomNumberGenerator_method_randi_range>` takes two arguments ``from``
 and ``to``, and returns a random integer between ``from`` and ``to``:
 
@@ -202,7 +202,7 @@ gdscript GDScript
 
 This approach can be useful to make random number generation feel less
 repetitive. Still, it doesn't prevent results from "ping-ponging" between a
-limited set of values. To prevent this, use the :ref:`shuffle bag
+limited set of values. To prevent this, use the `shuffle bag
 <doc_random_number_generation_shuffle_bags>` pattern instead.
 
 Get a random dictionary value
@@ -239,7 +239,7 @@ gdscript GDScript
 Weighted random probability
 ---------------------------
 
-The :ref:`randf() <class_@GDScript_method_randf>` method returns a
+The `randf() <class_@GDScript_method_randf>` method returns a
 floating-point number between 0.0 and 1.0. We can use this to create a
 "weighted" probability where different outcomes have different likelihoods:
 
@@ -321,7 +321,7 @@ time, or anything else.
 
 To achieve this, you can use random *noise* functions. Noise functions are
 especially popular in procedural generation to generate realistic-looking
-terrain. Godot provides :ref:`class_opensimplexnoise` for this, which supports
+terrain. Godot provides `class_opensimplexnoise` for this, which supports
 1D, 2D, 3D, and 4D noise. Here's an example with 1D noise:
 
 gdscript GDScript

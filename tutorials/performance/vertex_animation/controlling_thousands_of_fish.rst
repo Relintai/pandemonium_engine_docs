@@ -3,20 +3,20 @@
 Controlling thousands of fish with Particles
 ============================================
 
-The problem with :ref:`MeshInstances <class_MeshInstance>` is that it is expensive to
+The problem with `MeshInstances <class_MeshInstance>` is that it is expensive to
 update their transform array. It is great for placing many static objects around the
 scene. But it is still difficult to move the objects around the scene.
 
 To make each instance move in an interesting way, we will use a
-:ref:`Particles <class_Particles>` node. Particles take advantage of GPU acceleration
-by computing and setting the per-instance information in a :ref:`Shader <class_Shader>`.
+`Particles <class_Particles>` node. Particles take advantage of GPU acceleration
+by computing and setting the per-instance information in a `Shader <class_Shader>`.
 
-.. note:: Particles are not available in GLES2, instead use :ref:`CPUParticles <class_CPUParticles>`,
+.. note:: Particles are not available in GLES2, instead use `CPUParticles <class_CPUParticles>`,
           which do the same thing as Particles, but do not benefit from GPU acceleration.
 
 First create a Particles node. Then, under "Draw Passes" set the Particle's "Draw Pass 1" to your
-:ref:`Mesh <class_Mesh>`. Then under "Process Material" create a new
-:ref:`ShaderMaterial <class_ShaderMaterial>`.
+`Mesh <class_Mesh>`. Then under "Process Material" create a new
+`ShaderMaterial <class_ShaderMaterial>`.
 
 Set the ``shader_type`` to ``particles``.
 
@@ -48,7 +48,7 @@ Then add the following two functions:
     return x;
   }
 
-These functions come from the default :ref:`ParticlesMaterial <class_ParticlesMaterial>`.
+These functions come from the default `ParticlesMaterial <class_ParticlesMaterial>`.
 They are used to generate a random number from each particle's ``RANDOM_SEED``.
 
 A unique thing about particle shaders is that some built-in variables are saved across frames.
@@ -140,5 +140,5 @@ This code gives you the following behavior:
 
 Using a ParticlesMaterial you can make the fish behavior as simple or complex as you like. In this
 tutorial we only set Velocity, but in your own Shaders you can also set ``COLOR``, rotation, scale
-(through ``TRANSFORM``). Please refer to the :ref:`Particles Shader Reference <doc_particle_shader>`
+(through ``TRANSFORM``). Please refer to the `Particles Shader Reference <doc_particle_shader>`
 for more information on particle shaders.

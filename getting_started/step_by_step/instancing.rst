@@ -13,10 +13,10 @@ You can create as many scenes as you'd like and save them as files with the
 the previous lesson was an example. We call those files "Packed Scenes" as they
 pack information about your scene's content.
 
-Here's an example of a ball. It's composed of a :ref:`RigidBody2D
+Here's an example of a ball. It's composed of a `RigidBody2D
 <class_RigidBody2D>` node as its root named Ball, which allows the ball to fall
-and bounce on walls, a :ref:`Sprite <class_Sprite>` node, and a
-:ref:`CollisionShape2D <class_CollisionShape2D>`.
+and bounce on walls, a `Sprite <class_Sprite>` node, and a
+`CollisionShape2D <class_CollisionShape2D>`.
 
 .. image:: img/instancing_ball_scene.png
 

@@ -5,7 +5,7 @@
 Nodes and Scenes
 ================
 
-In :ref:`doc_key_concepts_overview`, we saw that a Godot game is a tree of
+In `doc_key_concepts_overview`, we saw that a Godot game is a tree of
 scenes and that each scene is a tree of nodes. In this lesson, we explain a bit
 more about them. You will also create your first scene.
 
@@ -147,7 +147,7 @@ button to save it as "Label.tscn".
           allows you to save files inside the project. The ``res://`` path at
           the top of the window represents the project's root directory and
           stands for "resource path". For more information about file paths in
-          Godot, see :ref:`doc_filesystem`.
+          Godot, see `doc_filesystem`.
 
 The application should open in a new window and display the text "Hello World".
 

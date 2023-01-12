@@ -12,9 +12,9 @@ This guide explains:
 Godot provides many kinds of collision shapes, with different performance and
 accuracy tradeoffs.
 
-You can define the shape of a :ref:`class_PhysicsBody` by adding one or more
-:ref:`CollisionShapes <class_CollisionShape>` as child nodes. Note that you must
-add a :ref:`class_Shape` *resource* to collision shape nodes in the Inspector
+You can define the shape of a `class_PhysicsBody` by adding one or more
+`CollisionShapes <class_CollisionShape>` as child nodes. Note that you must
+add a `class_Shape` *resource* to collision shape nodes in the Inspector
 dock.
 
 .. note::
@@ -27,10 +27,10 @@ Primitive collision shapes
 
 Godot provides the following primitive collision shape types:
 
-- :ref:`class_BoxShape`
-- :ref:`class_SphereShape`
-- :ref:`class_CapsuleShape`
-- :ref:`class_CylinderShape`
+- `class_BoxShape`
+- `class_SphereShape`
+- `class_CapsuleShape`
+- `class_CylinderShape`
 
 You can represent the collision of most smaller objects using one or more
 primitive shapes. However, for more complex objects, such as a large ship or a
@@ -43,7 +43,7 @@ better performance as well.
 Convex collision shapes
 -----------------------
 
-:ref:`Convex collision shapes <class_ConvexPolygonShape>` are a compromise
+`Convex collision shapes <class_ConvexPolygonShape>` are a compromise
 between primitive collision shapes and concave collision shapes. They can
 represent shapes of any complexity, but with an important caveat. As their name
 implies, an individual shape can only represent a *convex* shape. For instance,
@@ -75,7 +75,7 @@ viewport. The editor exposes two generation modes:
 Concave or trimesh collision shapes
 -----------------------------------
 
-:ref:`Concave collision shapes <class_ConcavePolygonShape>`, also called trimesh
+`Concave collision shapes <class_ConcavePolygonShape>`, also called trimesh
 collision shapes, can take any form, from a few triangles to thousands of
 triangles. Concave shapes are the slowest option but are also the most accurate
 in Godot. **You can only use concave shapes within StaticBodies.** They will not
@@ -121,7 +121,7 @@ editor exposes two options:
 .. seealso::
 
     Godot can generate collision shapes for your imported 3D scenes
-    automatically. See :ref:`doc_importing_scenes_import_hints` in the
+    automatically. See `doc_importing_scenes_import_hints` in the
     documentation for more information.
 
 Performance caveats

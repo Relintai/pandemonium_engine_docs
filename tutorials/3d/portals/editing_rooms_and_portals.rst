@@ -8,9 +8,9 @@ Putting all the ideas together, here is an example scene tree:
 
 .. image:: img/example_scenetree.png
 
-- We have used a :ref:`RoomGroup<class_RoomGroup>` to denote an outside area.
-- The :ref:`MeshInstance<class_MeshInstance>`\ s inside the :ref:`Room<class_Room>`\ s are either ``STATIC`` or ``DYNAMIC``.
-- We have created a :ref:`Spatial<class_Spatial>` (I decided to call it 'Freeform', but you could use any name) under which to place ``STATIC`` and ``DYNAMIC`` objects that will be autoplaced in rooms
+- We have used a `RoomGroup<class_RoomGroup>` to denote an outside area.
+- The `MeshInstance<class_MeshInstance>`\ s inside the `Room<class_Room>`\ s are either ``STATIC`` or ``DYNAMIC``.
+- We have created a `Spatial<class_Spatial>` (I decided to call it 'Freeform', but you could use any name) under which to place ``STATIC`` and ``DYNAMIC`` objects that will be autoplaced in rooms
   (Freeform is inside the ``roomlist``, but *not* inside a room.)
 - The player and the monsters are on branches *OUTSIDE* the ``roomlist``.
 - The player and monster meshes have portal mode ``ROAMING`` so they can be in any room.
@@ -26,9 +26,9 @@ Although you can create your room system entirely within the editor, you can als
 Postfix convention
 ^^^^^^^^^^^^^^^^^^
 
-- ``-room`` becomes a :ref:`Room<class_Room>`.
-- ``-roomgroup`` becomes a :ref:`RoomGroup<class_RoomGroup>`.
-- ``-portal`` becomes a :ref:`Portal<class_Portal>`.
+- ``-room`` becomes a `Room<class_Room>`.
+- ``-roomgroup`` becomes a `RoomGroup<class_RoomGroup>`.
+- ``-portal`` becomes a `Portal<class_Portal>`.
 - ``-bound`` becomes a manual bound.
 
 Rooms and RoomGroups should be created as Empties within Blender. Any mesh children of the ``-room`` Empty will thus be placed in the Room during conversion in Godot.
@@ -44,7 +44,7 @@ Portals
 
 Portals are different from Rooms. In Portals, we need to specify the geometry of the Portal in our modelling tool, in addition to just the name. To do this your "portal-to-be" should be created as a Mesh.
 
-Portal meshes have some restrictions to work properly. They must be convex, and the polygon points should be in the same plane. The accuracy to the plane does not have to be exact, as Godot will automatically average the direction of the portal plane. Once converted to a :ref:`Portal<class_Portal>` node, the snapping to the portal plane is enforced, and the vertices are specified (and editable) as 2D coordinates in the inspector, rather than 3D points.
+Portal meshes have some restrictions to work properly. They must be convex, and the polygon points should be in the same plane. The accuracy to the plane does not have to be exact, as Godot will automatically average the direction of the portal plane. Once converted to a `Portal<class_Portal>` node, the snapping to the portal plane is enforced, and the vertices are specified (and editable) as 2D coordinates in the inspector, rather than 3D points.
 
 The portal's naming is quite important. You can either name the portal ``-portal`` which will attempt to autolink the Portal in Godot, or you can use the name of the Room you wish to link the Portal to as a prefix.
 

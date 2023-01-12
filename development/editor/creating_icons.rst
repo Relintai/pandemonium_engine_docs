@@ -86,7 +86,7 @@ make a separate pull request for your icons to be available within the editor
 as they can be self-contained.
 
 For specific instructions on how to create module icons, refer to
-:ref:`Creating custom module icons<doc_custom_module_icons>`.
+`Creating custom module icons<doc_custom_module_icons>`.
 
 Troubleshooting
 ~~~~~~~~~~~~~~~

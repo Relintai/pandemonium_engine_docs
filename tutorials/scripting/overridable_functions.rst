@@ -10,7 +10,7 @@ This document presents the ones you'll use most often.
 
 .. seealso:: Under the hood, these functions rely on Godot's low-level
              notifications system. To learn more about it, see
-             :ref:`doc_godot_notifications`.
+             `doc_godot_notifications`.
 
 Two functions allow you to initialize and get nodes, besides the class's
 constructor: ``_enter_tree()`` and ``_ready()``.
@@ -25,10 +25,10 @@ once in a node's lifetime, after ``_enter_tree()``. ``_ready()`` ensures that al
 have entered the scene tree first, so you can safely call ``get_node()`` on it.
 
 .. seealso:: To learn more about getting node references, read
-             :ref:`doc_nodes_and_scene_instances`.
+             `doc_nodes_and_scene_instances`.
 
 Another related callback is ``_exit_tree()``, which the engine calls every time
-a node exits the scene tree. This can be when you call :ref:`Node.remove_child()
+a node exits the scene tree. This can be when you call `Node.remove_child()
 <class_Node_method_remove_child>` or when you free a node.
 
 gdscript GDScript
@@ -51,7 +51,7 @@ gdscript GDScript
 The two virtual methods ``_process()`` and ``_physics_process()`` allow you to
 update the node, every frame and every physics frame respectively. For more
 information, read the dedicated documentation:
-:ref:`doc_idle_and_physics_processing`.
+`doc_idle_and_physics_processing`.
 
 gdscript GDScript
 
@@ -66,15 +66,15 @@ gdscript GDScript
 ```
 
 Two more essential built-in node callback functions are
-:ref:`Node._unhandled_input() <class_Node_method__unhandled_input>` and
-:ref:`Node._input() <class_Node_method__input>`, which you use to both receive
+`Node._unhandled_input() <class_Node_method__unhandled_input>` and
+`Node._input() <class_Node_method__input>`, which you use to both receive
 and process individual input events. The ``_unhandled_input()`` method receives
 every key press, mouse click, etc. that have not been handled already in an
 ``_input()`` callback or in a user interface component. You want to use it for
 gameplay input in general. The ``_input()`` callback allows you to intercept and
 process input events before ``_unhandled_input()`` gets them.
 
-To learn more about inputs in Godot, see the :ref:`Input section <toc-learn-features-inputs>`.
+To learn more about inputs in Godot, see the `Input section <toc-learn-features-inputs>`.
 
 gdscript GDScript
 
@@ -90,8 +90,8 @@ gdscript GDScript
 ```
 
 There are some more overridable functions like
-:ref:`Node._get_configuration_warning()
+`Node._get_configuration_warning()
 <class_Node_method__get_configuration_warning>`. Specialized node types provide
-more callbacks like :ref:`CanvasItem._draw() <class_CanvasItem_method__draw>` to
-draw programmatically or :ref:`Control._gui_input()
+more callbacks like `CanvasItem._draw() <class_CanvasItem_method__draw>` to
+draw programmatically or `Control._gui_input()
 <class_Control_method__gui_input>` to handle clicks and input on UI elements.

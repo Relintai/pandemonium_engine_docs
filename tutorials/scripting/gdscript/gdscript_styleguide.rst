@@ -615,7 +615,7 @@ Code order
 ----------
 
 This first section focuses on code order. For formatting, see
-:ref:`formatting`. For naming conventions, see :ref:`naming_conventions`.
+`formatting`. For naming conventions, see `naming_conventions`.
 
 We suggest to organize GDScript code this way:
 
@@ -661,7 +661,7 @@ first line of the script.
 
 Follow with the `class_name` if necessary. You can turn a GDScript file into a
 global type in your project using this feature. For more information, see
-:ref:`doc_gdscript`.
+`doc_gdscript`.
 
 Then, add the `extends` keyword if the class extends a built-in type.
 
@@ -784,7 +784,7 @@ in that order.
 Static typing
 -------------
 
-Since Godot 3.1, GDScript supports :ref:`optional static typing<doc_gdscript_static_typing>`.
+Since Godot 3.1, GDScript supports `optional static typing<doc_gdscript_static_typing>`.
 
 Declared types
 ~~~~~~~~~~~~~~
@@ -831,7 +831,7 @@ that type will be used to infer the type of the var.
    onready var health_bar := get_node("UI/LifeBar") as ProgressBar
    # health_bar will be typed as ProgressBar
 
-This option is also considered more :ref:`type-safe<doc_gdscript_static_typing_safe_lines>` than the first.
+This option is also considered more `type-safe<doc_gdscript_static_typing_safe_lines>` than the first.
 
 **Bad**:
 

@@ -9,12 +9,12 @@ On this page, you will learn:
 - How to work efficiently on the Godot editor's C++ code.
 
 This guide is aimed at current or future engine contributors.
-To create editor plugins in GDScript, see :ref:`doc_making_plugins` instead.
+To create editor plugins in GDScript, see `doc_making_plugins` instead.
 
 .. seealso::
 
     If you are new to Godot, we recommended you to read
-    :ref:`doc_godot_design_philosophy` before continuing. Since the Godot editor
+    `doc_godot_design_philosophy` before continuing. Since the Godot editor
     is a Godot project written in C++, much of the engine's philosophy applies
     to the editor.
 
@@ -22,7 +22,7 @@ Technical choices
 -----------------
 
 The Godot editor is drawn using Godot's renderer and
-:ref:`UI system <toc-gui-basics>`. It does *not* rely on a toolkit
+`UI system <toc-gui-basics>`. It does *not* rely on a toolkit
 such as GTK or Qt. This is similar in spirit to software like Blender.
 While using toolkits makes it easier to achieve a "native" appearance, they are
 also quite heavy and their licensing is not compatible with Godot's.
@@ -37,7 +37,7 @@ The editor's code is fully self-contained in the
 of the Godot source repository.
 
 Some editor functionality is also implemented via
-:ref:`modules <doc_custom_modules_in_c++>`. Some of these are only enabled in
+`modules <doc_custom_modules_in_c++>`. Some of these are only enabled in
 editor builds to decrease the binary size of export templates. See the
 `modules/ <https://github.com/godotengine/godot/tree/master/modules>`__ folder
 in the Godot source repository.
@@ -83,6 +83,6 @@ Development tips
 ----------------
 
 To iterate quickly on the editor, we recommend to set up a test project and
-:ref:`open it from the command line <doc_command_line_tutorial>` after compiling
+`open it from the command line <doc_command_line_tutorial>` after compiling
 the editor. This way, you don't have to go through the project manager every
 time you start Godot.

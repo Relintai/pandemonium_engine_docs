@@ -5,7 +5,7 @@ Contributing to the class reference
 
 .. highlight:: shell
 
-The class reference is available online in the :ref:`classes <toc-class-ref>`
+The class reference is available online in the `classes <toc-class-ref>`
 section of the documentation and in the Godot editor, from the help menu.
 
 In the class reference, some methods, variables, and signals lack descriptions.
@@ -20,13 +20,13 @@ taking care of a given class.
 
 .. seealso::
 
-    You can find the writing guidelines for the class reference :ref:`here <doc_class_reference_writing_guidelines>`.
+    You can find the writing guidelines for the class reference `here <doc_class_reference_writing_guidelines>`.
 
     For details on Git usage and the pull request workflow, please
-    refer to the :ref:`doc_pr_workflow` page.
+    refer to the `doc_pr_workflow` page.
 
     If you want to translate the class reference from English to another
-    language, see :ref:`doc_editor_and_docs_localization`.
+    language, see `doc_editor_and_docs_localization`.
 
     This guide is also available as a `video tutorial on YouTube
     <https://www.youtube.com/watch?v=5jeHXxeX-JY>`_.
@@ -44,7 +44,7 @@ repository: `doc/classes/
           files in the ``modules/<module_name>/doc_classes/`` directory instead.
 
 .. warning:: Always edit the API reference through these source XML files. Do
-             not edit the generated ``.rst`` files :ref:`in the online documentation
+             not edit the generated ``.rst`` files `in the online documentation
              <toc-class-ref>`, hosted in the `godot-docs
              <https://github.com/godotengine/godot-docs>`_ repository.
 
@@ -56,7 +56,7 @@ repository: `doc/classes/
 
     Also, it doesn't allow you to test your changes in the engine or with validation
     scripts as described in
-    :ref:`doc_class_reference_writing_guidelines_editing_xml`.
+    `doc_class_reference_writing_guidelines_editing_xml`.
 
 Updating the documentation template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,7 +64,7 @@ Updating the documentation template
 When you create a new class or modify the engine's API, you need to re-generate the XML files in ``doc/classes/``.
 
 To do so, you first need to compile Godot. See the
-:ref:`doc_introduction_to_the_buildsystem` page to learn how. Then, execute the
+`doc_introduction_to_the_buildsystem` page to learn how. Then, execute the
 compiled Godot binary from the Godot root directory with the ``--doctool`` option.
 For example, if you're on 64-bit Linux, the command is::
 

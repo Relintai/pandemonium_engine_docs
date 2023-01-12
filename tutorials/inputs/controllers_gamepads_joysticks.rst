@@ -30,7 +30,7 @@ Instead of hardcoding keys or controller buttons in your scripts, you should
 create *input actions* in the Project Settings which will then refer to
 specified key and controller inputs.
 
-Input actions are explained in detail on the :ref:`doc_inputevent` page.
+Input actions are explained in detail on the `doc_inputevent` page.
 
 .. note::
 
@@ -143,10 +143,10 @@ known as "echo" events). This is because the operating system never sends "echo"
 events for controller input in the first place.
 
 If you want controller buttons to send echo events, you will have to generate
-:ref:`class_InputEvent` objects by code and parse them using
-:ref:`Input.parse_input_event() <class_Input_method_parse_input_event>`
+`class_InputEvent` objects by code and parse them using
+`Input.parse_input_event() <class_Input_method_parse_input_event>`
 at regular intervals. This can be accomplished
-with the help of a :ref:`class_Timer` node.
+with the help of a `class_Timer` node.
 
 Troubleshooting
 ---------------
@@ -200,7 +200,7 @@ powershell Windows (powershell)
 
 To test mappings on non-desktop platforms or to distribute your project with
 additional controller mappings, you can add them by calling
-:ref:`Input.add_joy_mapping() <class_Input_method_add_joy_mapping>`
+`Input.add_joy_mapping() <class_Input_method_add_joy_mapping>`
 as early as possible in a script's ``_ready()`` function.
 
 My controller works on a given platform, but not on another platform.

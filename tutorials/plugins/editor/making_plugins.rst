@@ -81,7 +81,7 @@ The script file
 Upon creation of the plugin, the dialog will automatically open the
 EditorPlugin script for you. The script has two requirements that you cannot
 change: it must be a ``tool`` script, or else it will not load properly in the
-editor, and it must inherit from :ref:`class_EditorPlugin`.
+editor, and it must inherit from `class_EditorPlugin`.
 
 .. warning::
 
@@ -91,8 +91,8 @@ editor, and it must inherit from :ref:`class_EditorPlugin`.
 
 It's important to deal with initialization and clean-up of resources.
 A good practice is to use the virtual function
-:ref:`_enter_tree() <class_Node_method__enter_tree>` to initialize your plugin and
-:ref:`_exit_tree() <class_Node_method__exit_tree>` to clean it up. Thankfully,
+`_enter_tree() <class_Node_method__enter_tree>` to initialize your plugin and
+`_exit_tree() <class_Node_method__exit_tree>` to clean it up. Thankfully,
 the dialog generates these callbacks for you. Your script should look something
 like this:
 
@@ -130,20 +130,20 @@ custom behavior.
 
   Nodes added via an EditorPlugin are "CustomType" nodes. While they work
   with any scripting language, they have fewer features than
-  :ref:`the Script Class system <doc_gdscript_basics_class_name>`. If you
+  `the Script Class system <doc_gdscript_basics_class_name>`. If you
   are writing GDScript or NativeScript, we recommend using Script Classes instead.
 
 To create a new node type, you can use the function
-:ref:`add_custom_type() <class_EditorPlugin_method_add_custom_type>` from the
-:ref:`class_EditorPlugin` class. This function can add new types to the editor
+`add_custom_type() <class_EditorPlugin_method_add_custom_type>` from the
+`class_EditorPlugin` class. This function can add new types to the editor
 (nodes or resources). However, before you can create the type, you need a script
 that will act as the logic for the type. While that script doesn't have to use
 the ``tool`` keyword, it can be added so the script runs in the editor.
 
 For this tutorial, we'll create a simple button that prints a message when
 clicked. For that, we'll need a simple script that extends from
-:ref:`class_Button`. It could also extend
-:ref:`class_BaseButton` if you prefer:
+`class_Button`. It could also extend
+`class_BaseButton` if you prefer:
 
 gdscript GDScript
 
@@ -227,14 +227,14 @@ gdscript GDScript
 ```
 
 Then create the script ``custom_dock.gd`` in the same folder. Fill it with the
-:ref:`template we've seen before <doc_making_plugins_template_code>` to get a
+`template we've seen before <doc_making_plugins_template_code>` to get a
 good start.
 
 Since we're trying to add a new custom dock, we need to create the contents of
 the dock. This is nothing more than a standard Godot scene: just create
 a new scene in the editor then edit it.
 
-For an editor dock, the root node **must** be a :ref:`Control <class_Control>`
+For an editor dock, the root node **must** be a `Control <class_Control>`
 or one of its child classes. For this tutorial, you can create a single button.
 The name of the root node will also be the name that appears on the dock tab,
 so be sure to give it a short and descriptive name.
@@ -244,8 +244,8 @@ Also, don't forget to add some text to your button.
 
 Save this scene as ``my_dock.tscn``. Now, we need to grab the scene we created
 then add it as a dock in the editor. For this, you can rely on the function
-:ref:`add_control_to_dock() <class_EditorPlugin_method_add_control_to_dock>` from the
-:ref:`EditorPlugin <class_EditorPlugin>` class.
+`add_control_to_dock() <class_EditorPlugin_method_add_control_to_dock>` from the
+`EditorPlugin <class_EditorPlugin>` class.
 
 You need to select a dock position and define the control to add
 (which is the scene you just created). Don't forget to
@@ -318,7 +318,7 @@ Registering autoloads/singletons in plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is possible for editor plugins to automatically register
-:ref:`autoloads <doc_singletons_autoload>` when the plugin is enabled.
+`autoloads <doc_singletons_autoload>` when the plugin is enabled.
 This also includes unregistering the autoload when the plugin is disabled.
 
 This makes setting up plugins faster for users, as they no longer have to manually

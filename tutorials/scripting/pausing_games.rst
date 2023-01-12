@@ -16,7 +16,7 @@ How pausing works
 -----------------
 
 To pause the game the pause state must be set. This is done by assigning
-``true`` to the :ref:`SceneTree.paused <class_SceneTree_property_paused>` property:
+``true`` to the `SceneTree.paused <class_SceneTree_property_paused>` property:
 
 gdscript GDScript
 
@@ -35,7 +35,7 @@ Process Modes
 -------------
 
 Each node in Godot has a "Pause Mode" that defines when it processes. It can
-be found and changed under a node's :ref:`Node <class_Node>` properties in the inspector.
+be found and changed under a node's `Node <class_Node>` properties in the inspector.
 
 .. image:: img/pausemode.png
 

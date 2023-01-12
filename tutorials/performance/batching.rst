@@ -93,14 +93,14 @@ In Godot, this back-to-front order is determined by:
 - The order of objects in the scene tree.
 - The Z index of objects.
 - The canvas layer.
-- :ref:`class_YSort` nodes.
+- `class_YSort` nodes.
 
 .. note::
 
     You can group similar objects together for easier batching. While doing so
     is not a requirement on your part, think of it as an optional approach that
     can improve performance in some cases. See the
-    :ref:`doc_batching_diagnostics` section to help you make this decision.
+    `doc_batching_diagnostics` section to help you make this decision.
 
 A trick
 ^^^^^^^
@@ -230,7 +230,7 @@ any pixels. We can greatly optimize fill rate by identifying the intersection
 area between a light and a primitive, and limit rendering the light to
 *that area only*.
 
-Light scissoring is controlled with the :ref:`scissor_area_threshold
+Light scissoring is controlled with the `scissor_area_threshold
 <class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
 project setting. This value is between 1.0 and 0.0, with 1.0 being off (no
 scissoring), and 0.0 being scissoring in every circumstance. The reason for the
@@ -248,7 +248,7 @@ to be useful.
 
 The exact relationship is probably not necessary for users to worry about, but
 is included in the appendix out of interest:
-:ref:`doc_batching_light_scissoring_threshold_calculation`
+`doc_batching_light_scissoring_threshold_calculation`
 
 .. figure:: img/scissoring.png
    :alt: Light scissoring example diagram
@@ -307,16 +307,16 @@ information.
 rendering/batching/options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`use_batching
+- `use_batching
   <class_ProjectSettings_property_rendering/batching/options/use_batching>` -
   Turns batching on or off.
 
-- :ref:`use_batching_in_editor
+- `use_batching_in_editor
   <class_ProjectSettings_property_rendering/batching/options/use_batching_in_editor>`
   Turns batching on or off in the Godot editor.
   This setting doesn't affect the running project in any way.
 
-- :ref:`single_rect_fallback
+- `single_rect_fallback
   <class_ProjectSettings_property_rendering/batching/options/single_rect_fallback>` -
   This is a faster way of drawing unbatchable rectangles. However, it may lead
   to flicker on some hardware so it's not recommended.
@@ -324,7 +324,7 @@ rendering/batching/options
 rendering/batching/parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`max_join_item_commands <class_ProjectSettings_property_rendering/batching/parameters/max_join_item_commands>` -
+- `max_join_item_commands <class_ProjectSettings_property_rendering/batching/parameters/max_join_item_commands>` -
   One of the most important ways of achieving batching is to join suitable
   adjacent items (nodes) together, however they can only be joined if the
   commands they contain are compatible. The system must therefore do a lookahead
@@ -332,7 +332,7 @@ rendering/batching/parameters
   has a small cost per command, and items with a large number of commands are
   not worth joining, so the best value may be project dependent.
 
-- :ref:`colored_vertex_format_threshold
+- `colored_vertex_format_threshold
   <class_ProjectSettings_property_rendering/batching/parameters/colored_vertex_format_threshold>` -
   Baking colors into vertices results in a larger vertex format. This is not
   necessarily worth doing unless there are a lot of color changes going on
@@ -340,12 +340,12 @@ rendering/batching/parameters
   containing color changes / the total commands, above which it switches to
   baked colors.
 
-- :ref:`batch_buffer_size
+- `batch_buffer_size
   <class_ProjectSettings_property_rendering/batching/parameters/batch_buffer_size>` -
   This determines the maximum size of a batch, it doesn't have a huge effect
   on performance but can be worth decreasing for mobile if RAM is at a premium.
 
-- :ref:`item_reordering_lookahead
+- `item_reordering_lookahead
   <class_ProjectSettings_property_rendering/batching/parameters/item_reordering_lookahead>` -
   Item reordering can help especially with interleaved sprites using different
   textures. The lookahead for the overlap test has a small cost, so the best
@@ -354,11 +354,11 @@ rendering/batching/parameters
 rendering/batching/lights
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`scissor_area_threshold
+- `scissor_area_threshold
   <class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>` -
   See light scissoring.
 
-- :ref:`max_join_items
+- `max_join_items
   <class_ProjectSettings_property_rendering/batching/lights/max_join_items>` -
   Joining items before lighting can significantly increase
   performance. This requires an overlap test, which has a small cost, so the
@@ -368,14 +368,14 @@ rendering/batching/lights
 rendering/batching/debug
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`flash_batching
+- `flash_batching
   <class_ProjectSettings_property_rendering/batching/debug/flash_batching>` -
   This is purely a debugging feature to identify regressions between the
   batching and legacy renderer. When it is switched on, the batching and legacy
   renderer are used alternately on each frame. This will decrease performance,
   and should not be used for your final export, only for testing.
 
-- :ref:`diagnose_frame
+- `diagnose_frame
   <class_ProjectSettings_property_rendering/batching/debug/diagnose_frame>` -
   This will periodically print a diagnostic batching log to
   the Godot IDE / console.
@@ -383,7 +383,7 @@ rendering/batching/debug
 rendering/batching/precision
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- :ref:`uv_contract
+- `uv_contract
   <class_ProjectSettings_property_rendering/batching/precision/uv_contract>` -
   On some hardware (notably some Android devices) there have been reports of
   tilemap tiles drawing slightly outside their UV range, leading to edge
@@ -391,7 +391,7 @@ rendering/batching/precision
   contract. This makes a small contraction in the UV coordinates to compensate
   for precision errors on devices.
 
-- :ref:`uv_contract_amount
+- `uv_contract_amount
   <class_ProjectSettings_property_rendering/batching/precision/uv_contract_amount>` -
   Hopefully, the default amount should cure artifacts on most devices,
   but this value remains adjustable just in case.
@@ -485,7 +485,7 @@ I get a decrease in performance with batching.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Try the steps described above to increase the number of batching opportunities.
-- Try enabling :ref:`single_rect_fallback
+- Try enabling `single_rect_fallback
   <class_ProjectSettings_property_rendering/batching/options/single_rect_fallback>`.
 - The single rect fallback method is the default used without batching, and it
   is approximately twice as fast. However, it can result in flickering on some
@@ -501,7 +501,7 @@ I use custom shaders and the items are not batching.
 I am seeing line artifacts appear on certain hardware.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- See the :ref:`uv_contract
+- See the `uv_contract
   <class_ProjectSettings_property_rendering/batching/precision/uv_contract>`
   project setting which can be used to solve this problem.
 
@@ -528,7 +528,7 @@ primitive types are currently available:
 
 With non-batched primitives, you may be able to get better performance by
 drawing them manually with polys in a ``_draw()`` function.
-See :ref:`doc_custom_drawing_in_2d` for more information.
+See `doc_custom_drawing_in_2d` for more information.
 
 .. _doc_batching_light_scissoring_threshold_calculation:
 
@@ -536,7 +536,7 @@ Light scissoring threshold calculation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The actual proportion of screen pixel area used as the threshold is the
-:ref:`scissor_area_threshold
+`scissor_area_threshold
 <class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
 value to the power of 4.
 
@@ -547,11 +547,11 @@ At a threshold of 1,000 pixels, the proportion would be::
     1000 / 2073600 = 0.00048225
     0.00048225 ^ (1/4) = 0.14819
 
-So a :ref:`scissor_area_threshold
+So a `scissor_area_threshold
 <class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
 of ``0.15`` would be a reasonable value to try.
 
-Going the other way, for instance with a :ref:`scissor_area_threshold
+Going the other way, for instance with a `scissor_area_threshold
 <class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
 of ``0.5``::
 

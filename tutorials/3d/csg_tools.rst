@@ -29,13 +29,13 @@ Introduction to CSG nodes
 Like other features of Godot, CSG is supported in the form of nodes. These are
 the CSG nodes:
 
-- :ref:`CSGBox <class_CSGBox>`
-- :ref:`CSGCylinder <class_CSGCylinder>` (also supports cone)
-- :ref:`CSGSphere <class_CSGSphere>`
-- :ref:`CSGTorus <class_CSGTorus>`
-- :ref:`CSGPolygon <class_CSGPolygon>`
-- :ref:`CSGMesh <class_CSGMesh>`
-- :ref:`CSGCombiner <class_CSGcombiner>`
+- `CSGBox <class_CSGBox>`
+- `CSGCylinder <class_CSGCylinder>` (also supports cone)
+- `CSGSphere <class_CSGSphere>`
+- `CSGTorus <class_CSGTorus>`
+- `CSGPolygon <class_CSGPolygon>`
+- `CSGMesh <class_CSGMesh>`
+- `CSGCombiner <class_CSGcombiner>`
 
 .. image:: img/csg_nodes.png
 
@@ -59,7 +59,7 @@ Every CSG node supports 3 kinds of boolean operations:
 CSGPolygon
 ~~~~~~~~~~
 
-The :ref:`CSGPolygon <class_CSGPolygon>` node extrude along a Polygon drawn in
+The `CSGPolygon <class_CSGPolygon>` node extrude along a Polygon drawn in
 2D (in X, Y coordinates) in the following ways:
 
 - **Depth:** Extruded back a given amount.
@@ -71,7 +71,7 @@ The :ref:`CSGPolygon <class_CSGPolygon>` node extrude along a Polygon drawn in
 
 .. image:: img/csg_poly.png
 
-.. note:: The **Path** mode must be provided with a :ref:`Path <class_Path>`
+.. note:: The **Path** mode must be provided with a `Path <class_Path>`
           node to work. In the Path node, draw the path and the polygon in
           CSGPolygon will extrude along the given path.
 
@@ -79,7 +79,7 @@ The :ref:`CSGPolygon <class_CSGPolygon>` node extrude along a Polygon drawn in
 Custom meshes
 ~~~~~~~~~~~~~
 
-Any mesh can be used for :ref:`CSGMesh <class_CSGMesh>`; the mesh can be
+Any mesh can be used for `CSGMesh <class_CSGMesh>`; the mesh can be
 modelled in other software and imported into Godot. Multiple materials are
 supported. There are some restrictions for geometry:
 
@@ -93,7 +93,7 @@ supported. There are some restrictions for geometry:
 CSGCombiner
 ~~~~~~~~~~~
 
-The :ref:`CSGCombiner <class_CSGCombiner>` node is an empty shape used for
+The `CSGCombiner <class_CSGCombiner>` node is an empty shape used for
 organization. It will only combine children nodes.
 
 Processing order
@@ -249,7 +249,7 @@ or a city; explore its limitations when designing your game.
 Using prototype textures
 ------------------------
 
-Godot's :ref:`doc_spatial_material` supports *triplanar mapping*, which can be
+Godot's `doc_spatial_material` supports *triplanar mapping*, which can be
 used to automatically apply a texture to arbitrary objects without distortion.
 This is handy when using CSG as Godot doesn't support editing UV maps on CSG
 nodes yet. Triplanar mapping is relatively slow, which usually restricts its

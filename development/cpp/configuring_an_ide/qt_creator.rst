@@ -58,7 +58,7 @@ Importing the project
   +-----------+------------------------------------------------------------------------------+
   | Command   | **scons**                                                                    |
   +-----------+------------------------------------------------------------------------------+
-  | Arguments | See :ref:`doc_introduction_to_the_buildsystem` for a full list of arguments. |
+  | Arguments | See `doc_introduction_to_the_buildsystem` for a full list of arguments. |
   +-----------+------------------------------------------------------------------------------+
 
 .. figure:: img/qtcreator-set-scons-command.png
@@ -85,12 +85,12 @@ Debugging the project
    :align: center
 
 To learn more about command line arguments, refer to the
-:ref:`command line tutorial <doc_command_line_tutorial>`.
+`command line tutorial <doc_command_line_tutorial>`.
 
 Code style configuration
 ------------------------
 
-Developers must follow the project's :ref:`code style <doc_code_style_guidelines>`
+Developers must follow the project's `code style <doc_code_style_guidelines>`
 and the IDE should help them follow it. By default, Qt Creator uses spaces
 for indentation which doesn't match the Godot code style guidelines. You can
 change this behavior by changing the **Code Style** in **Tools > Options > C++**.

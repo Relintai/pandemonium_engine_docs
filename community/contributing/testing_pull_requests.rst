@@ -23,7 +23,7 @@ depending on whether you have a GitHub account or not.
     Due to a GitHub Actions limitation, builds are only available for 90 days
     after the pull request was last updated. If you still wish to try a
     pull request locally, you can
-    :ref:`compile the pull request branch from source <doc_testing_pull_requests_compile>`
+    `compile the pull request branch from source <doc_testing_pull_requests_compile>`
     instead.
 
 If you have a GitHub account
@@ -100,5 +100,5 @@ by Godot's GitHub Actions setup.
 
 .. image:: img/testing_pull_requests_fork_zip.png
 
-- Extract the ZIP archive and follow the :ref:`compiling <toc-devel-compiling>` instructions
+- Extract the ZIP archive and follow the `compiling <toc-devel-compiling>` instructions
   for your operating system.

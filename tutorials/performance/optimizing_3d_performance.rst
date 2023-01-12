@@ -49,7 +49,7 @@ Portal Rendering
 
 However, there is a much easier way to take advantage of occlusion. Godot features
 an advanced portal rendering system, which can perform occlusion culling from cameras and
-lights. See :ref:`doc_rooms_and_portals`.
+lights. See `doc_rooms_and_portals`.
 
 This is not a fully automatic system and it requires some manual setup. However, it potentially
 offers significant performance increases.
@@ -71,7 +71,7 @@ through add-ons or may be available in core Godot in the future.
 Transparent objects
 ~~~~~~~~~~~~~~~~~~~
 
-Godot sorts objects by :ref:`Material <class_Material>` and :ref:`Shader
+Godot sorts objects by `Material <class_Material>` and `Shader
 <class_Shader>` to improve performance. This, however, can not be done with
 transparent objects. Transparent objects are rendered from back to front to make
 blending with what is behind work. As a result,
@@ -79,7 +79,7 @@ blending with what is behind work. As a result,
 small section with transparency, try to make that section a separate surface
 with its own material.
 
-For more information, see the :ref:`GPU optimizations <doc_gpu_optimization>`
+For more information, see the `GPU optimizations <doc_gpu_optimization>`
 doc.
 
 Level of detail (LOD)
@@ -99,7 +99,7 @@ The simplest version of using transparency to deal with LOD is billboards. For
 example, you can use a single transparent quad to represent a tree at distance.
 This can be very cheap to render, unless of course, there are many trees in
 front of each other. In which case transparency may start eating into fill rate
-(for more information on fill rate, see :ref:`doc_gpu_optimization`).
+(for more information on fill rate, see `doc_gpu_optimization`).
 
 An alternative is to render not just one tree, but a number of trees together as
 a group. This can be especially effective if you can see an area but cannot
@@ -116,12 +116,12 @@ Use instancing (MultiMesh)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If several identical objects have to be drawn in the same place or nearby, try
-using :ref:`MultiMesh <class_MultiMesh>` instead. MultiMesh allows the drawing
+using `MultiMesh <class_MultiMesh>` instead. MultiMesh allows the drawing
 of many thousands of objects at very little performance cost, making it ideal
 for flocks, grass, particles, and anything else where you have thousands of
 identical objects.
 
-Also see the :ref:`Using MultiMesh <doc_using_multimesh>` doc.
+Also see the `Using MultiMesh <doc_using_multimesh>` doc.
 
 Bake lighting
 =============
@@ -135,7 +135,7 @@ but has the downside that it will not be dynamic. Sometimes, this is a trade-off
 worth making.
 
 In general, if several lights need to affect a scene, it's best to use
-:ref:`doc_baked_lightmaps`. Baking can also improve the scene quality by adding
+`doc_baked_lightmaps`. Baking can also improve the scene quality by adding
 indirect light bounces.
 
 Animation and skinning

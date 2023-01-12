@@ -6,7 +6,7 @@ Introduction
 Physics ticks and rendered frames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One key concept to understand in Godot is the distinction between physics ticks (sometimes referred to as iterations or physics frames), and rendered frames. The physics proceeds at a fixed tick rate (set in :ref:`ProjectSettings.physics/common/physics_fps<class_ProjectSettings_property_physics/common/physics_fps>`), which defaults to 60 ticks per second.
+One key concept to understand in Godot is the distinction between physics ticks (sometimes referred to as iterations or physics frames), and rendered frames. The physics proceeds at a fixed tick rate (set in `ProjectSettings.physics/common/physics_fps<class_ProjectSettings_property_physics/common/physics_fps>`), which defaults to 60 ticks per second.
 
 However, the engine does not necessarily **render** at the same rate. Although many monitors refresh at 60 Hz (cycles per second), many refresh at completely different frequencies (e.g. 75 Hz, 144 Hz, 240 Hz or more). Even though a monitor may be able to show a new frame e.g. 60 times a second, there is no guarantee that the CPU and GPU will be able to *supply* frames at this rate. For instance, when running with V-Sync, the computer may be too slow for 60 and only reach the deadlines for 30 FPS, in which case the frames you see will change at 30 FPS (resulting in stuttering).
 
@@ -73,7 +73,7 @@ First of all, we have to calculate how far through the physics tick we want the 
 	fraction = 0.02 / 0.10
 	fraction = 0.2
 
-This is called the **physics interpolation fraction**, and is handily calculated for you by Godot. It can be retrieved on any frame by calling :ref:`Engine.get_physics_interpolation_fraction<class_Engine_method_get_physics_interpolation_fraction>`.
+This is called the **physics interpolation fraction**, and is handily calculated for you by Godot. It can be retrieved on any frame by calling `Engine.get_physics_interpolation_fraction<class_Engine_method_get_physics_interpolation_fraction>`.
 
 Calculating the interpolated position
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

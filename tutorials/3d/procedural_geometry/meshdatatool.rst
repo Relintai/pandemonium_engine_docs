@@ -3,7 +3,7 @@
 Using the MeshDataTool
 ======================
 
-The :ref:`MeshDataTool <class_meshdatatool>` is not used to generate geometry. But it is helpful for dynamically altering geometry, for example
+The `MeshDataTool <class_meshdatatool>` is not used to generate geometry. But it is helpful for dynamically altering geometry, for example
 if you want to write a script to tessellate, simplify, or deform meshes.
 
 The MeshDataTool is not as fast as altering arrays directly using ArrayMesh. However, it provides more information
@@ -16,7 +16,7 @@ for certain mesh algorithms. If you do not need this extra information then it m
 We initialize the MeshDataTool from an ArrayMesh by calling ``create_from_surface()``. If there is already data initialized in the MeshDataTool,
 calling ``create_from_surface()`` will clear it for you. Alternatively, you can call ``clear()`` yourself before re-using the MeshDataTool.
 
-In the examples below, assume an ArrayMesh called ``mesh`` has already been created. See :ref:`ArrayMesh tutorial <doc_arraymesh>` for an example of mesh generation.
+In the examples below, assume an ArrayMesh called ``mesh`` has already been created. See `ArrayMesh tutorial <doc_arraymesh>` for an example of mesh generation.
 
 gdscript GDScript
 
@@ -61,7 +61,7 @@ gdscript GDScript
 ```
 
 These modifications are not done in place on the ArrayMesh. If you are dynamically updating an existing ArrayMesh,
-first delete the existing surface before adding a new one using :ref:`commit_to_surface() <class_meshdatatool_method_commit_to_surface>`:
+first delete the existing surface before adding a new one using `commit_to_surface() <class_meshdatatool_method_commit_to_surface>`:
 
 gdscript GDScript
 
@@ -71,7 +71,7 @@ gdscript GDScript
 ```
 
 Below is a complete example that turns a spherical mesh called ``mesh`` into a randomly deformed blob complete with updated normals and vertex colors.
-See :ref:`ArrayMesh tutorial <doc_arraymesh>` for how to generate the base mesh.
+See `ArrayMesh tutorial <doc_arraymesh>` for how to generate the base mesh.
 
 gdscript GDScript
 

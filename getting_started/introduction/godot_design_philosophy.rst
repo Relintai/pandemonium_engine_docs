@@ -116,7 +116,7 @@ manage states and transitions visually.*
     Future Godot 4.x releases may have VisualScript reimplemented as an extension.
 
     While Godot 3.x will keep VisualScript supported, we recommend
-    :ref:`trying out GDScript <toc-learn-scripting-gdscript>` instead,
+    `trying out GDScript <toc-learn-scripting-gdscript>` instead,
     especially if you intend to migrate your project to Godot 4.
 
 Open source

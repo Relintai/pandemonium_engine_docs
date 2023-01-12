@@ -25,9 +25,9 @@ by an array of positions called "vertices". In Godot, geometry is represented by
 What is a Mesh?
 ---------------
 
-Many things in Godot have mesh in their name: the :ref:`Mesh <class_Mesh>`, the :ref:`ArrayMesh <class_ArrayMesh>`,
-the :ref:`MeshInstance <class_MeshInstance>`, the :ref:`MultiMesh <class_MultiMesh>`, and
-the :ref:`MultiMeshInstance <class_MultiMeshInstance>`. While they are all related, they have slightly different uses.
+Many things in Godot have mesh in their name: the `Mesh <class_Mesh>`, the `ArrayMesh <class_ArrayMesh>`,
+the `MeshInstance <class_MeshInstance>`, the `MultiMesh <class_MultiMesh>`, and
+the `MultiMeshInstance <class_MultiMeshInstance>`. While they are all related, they have slightly different uses.
 
 Meshes and ArrayMeshes are resources that are drawn using a MeshInstance node. Resources like
 Meshes and ArrayMeshes cannot be added to the scene directly. A MeshInstance represents one
@@ -47,22 +47,22 @@ What a Mesh is
 
 A Mesh is composed of one or more surfaces. A surface is an array composed of multiple sub-arrays
 containing vertices, normals, UVs, etc. Normally the process of constructing surfaces and meshes is
-hidden from the user in the :ref:`VisualServer <class_VisualServer>`, but with ArrayMeshes, the user can construct a Mesh
+hidden from the user in the `VisualServer <class_VisualServer>`, but with ArrayMeshes, the user can construct a Mesh
 manually by passing in an array containing the surface information.
 
 Surfaces
 ^^^^^^^^
 
 Each surface has its own material. Alternatively, you can override the material for all surfaces
-in the Mesh when you use a MeshInstance using the :ref:`material_override <class_GeometryInstance_property_material_override>` property.
+in the Mesh when you use a MeshInstance using the `material_override <class_GeometryInstance_property_material_override>` property.
 
 Surface array
 ^^^^^^^^^^^^^
 
 The surface array is an array of length ``ArrayMesh.ARRAY_MAX``. Each position in the array is
 filled with a sub-array containing per-vertex information. For example, the array located at
-``ArrayMesh.ARRAY_NORMAL`` is a :ref:`PoolVector3Array <class_PoolVector3Array>` of vertex normals.
-See :ref:`Mesh.ArrayType <enum_Mesh_ArrayType>` for more information.
+``ArrayMesh.ARRAY_NORMAL`` is a `PoolVector3Array <class_PoolVector3Array>` of vertex normals.
+See `Mesh.ArrayType <enum_Mesh_ArrayType>` for more information.
 
 The surface array can be indexed or non-indexed. Creating a non-indexed array is as easy as not assigning
 an array at the index ``ArrayMesh.ARRAY_INDEX``. A non-indexed array stores unique vertex information for
@@ -84,7 +84,7 @@ ArrayMesh
 The ArrayMesh resource extends Mesh to add a few different quality of life functions and, most
 importantly, the ability to construct a Mesh surface through scripting.
 
-For more information about the ArrayMesh, please see the :ref:`ArrayMesh tutorial <doc_arraymesh>`.
+For more information about the ArrayMesh, please see the `ArrayMesh tutorial <doc_arraymesh>`.
 
 MeshDataTool
 ^^^^^^^^^^^^
@@ -92,14 +92,14 @@ MeshDataTool
 The MeshDataTool is a resource that converts Mesh data into arrays of vertices, faces, and edges that can
 be modified at runtime.
 
-For more information about the MeshDataTool, please see the :ref:`MeshDataTool tutorial <doc_meshdatatool>`.
+For more information about the MeshDataTool, please see the `MeshDataTool tutorial <doc_meshdatatool>`.
 
 SurfaceTool
 ^^^^^^^^^^^
 
 The SurfaceTool allows the creation of Meshes using an OpenGL 1.x immediate mode style interface.
 
-For more information about the SurfaceTool, please see the :ref:`SurfaceTool tutorial <doc_surfacetool>`.
+For more information about the SurfaceTool, please see the `SurfaceTool tutorial <doc_surfacetool>`.
 
 ImmediateGeometry
 ^^^^^^^^^^^^^^^^^
@@ -113,7 +113,7 @@ ImmediateGeometry is useful for prototyping because of its straightforward API, 
 is rebuilt every frame. It is most useful for adding simple geometry for visual debugging (e.g. by drawing lines to
 visualize physics raycasts etc.).
 
-For more information about ImmediateGeometry, please see the :ref:`ImmediateGeometry tutorial <doc_immediategeometry>`.
+For more information about ImmediateGeometry, please see the `ImmediateGeometry tutorial <doc_immediategeometry>`.
 
 Which one should I use?
 -----------------------

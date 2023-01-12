@@ -22,7 +22,7 @@ Importing the project
 
 - Navigate to ``<Godot root directory>/platform/android/java`` and select the ``settings.gradle`` file.
 - Android Studio will import and index the project.
-- To build the project, follow the :ref:`compiling instructions <toc-devel-compiling>`.
+- To build the project, follow the `compiling instructions <toc-devel-compiling>`.
 
 If you run into any issues, ask for help in one of
 `Godot's community channels <https://godotengine.org/community>`__.

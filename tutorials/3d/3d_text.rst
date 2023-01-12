@@ -30,7 +30,7 @@ up and shaded by light sources if the shaded flag is enabled, but it
 will not cast a shadow, even with cast shadow turned on under the nodes
 GeometryInstance3D settings. This is because the node is a quad mesh
 (one glyph per quad) with transparent textures and has the same limitations
-as Sprite3D. See :ref:`this page <doc_3d_rendering_limitations_transparency_sorting>`
+as Sprite3D. See `this page <doc_3d_rendering_limitations_transparency_sorting>`
 for more information.
 
 Text mesh

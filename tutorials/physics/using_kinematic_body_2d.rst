@@ -10,11 +10,11 @@ Godot offers several collision objects to provide both collision detection
 and response. Trying to decide which one to use for your project can be confusing.
 You can avoid problems and simplify development if you understand how each of them
 works and what their pros and cons are. In this tutorial, we'll look at the
-:ref:`KinematicBody2D <class_KinematicBody2D>` node and show some examples
+`KinematicBody2D <class_KinematicBody2D>` node and show some examples
 of how to use it.
 
 .. note:: This document assumes you're familiar with Godot's various physics
-          bodies. Please read :ref:`doc_physics_introduction` first.
+          bodies. Please read `doc_physics_introduction` first.
 
 What is a kinematic body?
 -------------------------
@@ -46,11 +46,11 @@ see examples of how they work.
 ``move_and_collide``
 ~~~~~~~~~~~~~~~~~~~~
 
-This method takes one parameter: a :ref:`Vector2 <class_Vector2>` indicating the body's
+This method takes one parameter: a `Vector2 <class_Vector2>` indicating the body's
 relative movement. Typically, this is your velocity vector multiplied by the
 frame timestep (``delta``). If the engine detects a collision anywhere along
 this vector, the body will immediately stop moving. If this happens, the
-method will return a :ref:`KinematicCollision2D <class_KinematicCollision2D>` object.
+method will return a `KinematicCollision2D <class_KinematicCollision2D>` object.
 
 ``KinematicCollision2D`` is an object containing data about the collision
 and the colliding object. Using this data, you can calculate your collision
@@ -92,7 +92,7 @@ other parameters allowing you to customize the slide behavior:
 
 - ``infinite_inertia`` - *default value:* ``true``
 
-When this parameter is ``true``, the body can push :ref:`RigidBody2D <class_RigidBody2D>`
+When this parameter is ``true``, the body can push `RigidBody2D <class_RigidBody2D>`
 nodes, ignoring their mass, but won't detect collisions with them. If it's ``false``
 the body will collide with rigid bodies and stop.
 
@@ -133,7 +133,7 @@ gdscript GDScript
 
 .. note:: `get_slide_count()` only counts times the body has collided and changed direction.      
 
-See :ref:`KinematicCollision2D <class_KinematicCollision2D>` for details on what
+See `KinematicCollision2D <class_KinematicCollision2D>` for details on what
 collision data is returned.
 
 Which movement method to use?
@@ -196,7 +196,7 @@ from the Filesystem dock to the *Texture* property of the ``Sprite``). In the
 ``CollisionShape2D``'s *Shape* property, select "New RectangleShape2D" and
 size the rectangle to fit over the sprite image.
 
-.. note:: See :ref:`doc_2d_movement` for examples of implementing 2D movement schemes.
+.. note:: See `doc_2d_movement` for examples of implementing 2D movement schemes.
 
 Attach a script to the KinematicBody2D and add the following code:
 
@@ -229,7 +229,7 @@ gdscript GDScript
 
 Run this scene and you'll see that ``move_and_collide()`` works as expected, moving
 the body along the velocity vector. Now let's see what happens when you add
-some obstacles. Add a :ref:`StaticBody2D <class_StaticBody2D>` with a
+some obstacles. Add a `StaticBody2D <class_StaticBody2D>` with a
 rectangular collision shape. For visibility, you can use a sprite, a
 Polygon2D, or turn on "Visible Collision Shapes" from the "Debug" menu.
 
@@ -344,7 +344,7 @@ If you've downloaded the sample project, you can find this in "Platformer.tscn".
 
 For this example, we'll assume you have a level made of ``StaticBody2D`` objects.
 They can be any shape and size. In the sample project, we're using
-:ref:`Polygon2D <class_Polygon2D>` to create the platform shapes.
+`Polygon2D <class_Polygon2D>` to create the platform shapes.
 
 Here's the code for the player body:
 

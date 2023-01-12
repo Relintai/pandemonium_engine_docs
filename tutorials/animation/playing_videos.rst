@@ -3,7 +3,7 @@
 Playing videos
 ==============
 
-Godot supports video playback with the :ref:`class_VideoPlayer` node.
+Godot supports video playback with the `class_VideoPlayer` node.
 
 Supported playback formats
 --------------------------
@@ -38,7 +38,7 @@ Setting up VideoPlayer
    and load an ``.ogv`` file in the Stream property.
 
    - If you don't have your video in Ogg Theora format yet, jump to
-     :ref:`doc_playing_videos_recommended_theora_encoding_settings`.
+     `doc_playing_videos_recommended_theora_encoding_settings`.
 
 3. If you want the video to play as soon as the scene is loaded, check
    **Autoplay** in the inspector. If not, leave **Autoplay** disabled and call
@@ -49,7 +49,7 @@ Handling resizing and different aspect ratios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default in Godot 4.0, the VideoPlayer will automatically be resized to match
-the video's resolution. You can make it follow usual :ref:`class_Control` sizing
+the video's resolution. You can make it follow usual `class_Control` sizing
 by enabling **Expand** on the VideoPlayer node.
 
 To adjust how the VideoPlayer node resizes depending on window size,
@@ -57,7 +57,7 @@ adjust the anchors using the **Layout** menu at the top of the 2D editor
 viewport. However, this setup may not be powerful enough to handle all use
 cases, such as playing fullscreen videos without distorting the video (but with
 empty space on the edges instead). For more control, you can use an
-:ref:`class_AspectRatioContainer` node, which is designed to handle this kind of
+`class_AspectRatioContainer` node, which is designed to handle this kind of
 use case:
 
 Add an AspectRatioContainer node. Make sure it is not a child of any other
@@ -81,20 +81,20 @@ to fit the whole screen while avoiding distortion.
 
 .. seealso::
 
-    See :ref:`doc_multiple_resolutions` for more tips on supporting multiple
+    See `doc_multiple_resolutions` for more tips on supporting multiple
     aspect ratios in your project.
 
 Displaying a video on a 3D surface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Using a VideoPlayer node as a child of a :ref:`class_Viewport` node,
+Using a VideoPlayer node as a child of a `class_Viewport` node,
 it's possible to display any 2D node on a 3D surface. For example, this can be
 used to display animated billboards when frame-by-frame animation would require
 too much memory.
 
 This can be done with the following steps:
 
-1. Create a :ref:`class_Viewport` node. Set its size to match your video's size
+1. Create a `class_Viewport` node. Set its size to match your video's size
    in pixels.
 2. Create a VideoPlayer node *as a child of the Viewport node* and specify
    a video path in it. Make sure **Expand** is disabled, and enable **Autoplay** if needed.
@@ -112,7 +112,7 @@ This can be done with the following steps:
 8. If the billboard is supposed to emit its own light, enable
    **Flags > Unshaded** to improve rendering performance.
 
-See :ref:`doc_viewports` and the
+See `doc_viewports` and the
 `GUI in 3D demo <https://github.com/godotengine/godot-demo-projects/tree/master/viewport/gui_in_3d>`__
 for more information on setting this up.
 
@@ -142,9 +142,9 @@ There are several limitations with the current implementation of video playback 
 
 - Seeking a video to a certain point is not supported.
 - Changing playback speed is not supported. VideoPlayer also won't follow
-  :ref:`Engine.time_scale<class_Engine_property_time_scale>`.
+  `Engine.time_scale<class_Engine_property_time_scale>`.
 - Looping is not supported, but you can connect a VideoPlayer's
-  :ref:`finished <class_VideoPlayer_signal_finished>` signal to a function
+  `finished <class_VideoPlayer_signal_finished>` signal to a function
   that plays the video again. However, this will cause a black frame to be
   visible when the video restarts. This can be worked around by adding a fade to
   black in the video file before the video ends, or by hiding the video for one

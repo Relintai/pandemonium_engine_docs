@@ -12,7 +12,7 @@ Background
 ~~~~~~~~~~
 
 The default gray background is not very appealing, so let's change its color.
-One way to do this is to use a :ref:`ColorRect <class_ColorRect>` node. Make it
+One way to do this is to use a `ColorRect <class_ColorRect>` node. Make it
 the first node under ``Main`` so that it will be drawn behind the other nodes.
 ``ColorRect`` only has one property: ``Color``. Choose a color you like and
 select "Layout" -> "Full Rect" so that it covers the screen.
@@ -28,7 +28,7 @@ experience. In your game assets folder, you have two sound files: "House In a
 Forest Loop.ogg" for background music, and "gameover.wav" for when the player
 loses.
 
-Add two :ref:`AudioStreamPlayer <class_AudioStreamPlayer>` nodes as children of
+Add two `AudioStreamPlayer <class_AudioStreamPlayer>` nodes as children of
 ``Main``. Name one of them ``Music`` and the other ``DeathSound``. On each one,
 click on the ``Stream`` property, select "Load", and choose the corresponding
 audio file.
@@ -75,5 +75,5 @@ interface, sounds, and more. Congratulations!
 There's still much to learn, but you can take a moment to appreciate what you
 achieved.
 
-And when you're ready, you can move on to :ref:`doc_your_first_3d_game` to learn
+And when you're ready, you can move on to `doc_your_first_3d_game` to learn
 to create a complete 3D game from scratch, in Godot.

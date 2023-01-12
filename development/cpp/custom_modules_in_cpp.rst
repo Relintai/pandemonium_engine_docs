@@ -34,7 +34,7 @@ instead. Adding C++ modules can be useful in the following scenarios:
 Creating a new module
 ---------------------
 
-Before creating a module, make sure to :ref:`download the source code of Godot
+Before creating a module, make sure to `download the source code of Godot
 and compile it <toc-devel-compiling>`.
 
 To create a new module, the first step is creating a directory inside
@@ -243,7 +243,7 @@ The output will be ``60``.
 
 .. seealso:: The previous Summator example is great for small, custom modules,
   but what if you want to use a larger, external library? Refer to
-  :ref:`doc_binding_to_external_libraries` for details about binding to
+  `doc_binding_to_external_libraries` for details about binding to
   external libraries.
 
 .. warning:: If your module is meant to be accessed from the running project
@@ -251,7 +251,7 @@ The output will be ``60``.
              template you plan to use, then specify the path to the custom
              template in each export preset. Otherwise, you'll get errors when
              running the project as the module isn't compiled in the export
-             template. See the :ref:`Compiling <toc-devel-compiling>` pages
+             template. See the `Compiling <toc-devel-compiling>` pages
              for more information.
 
 Compiling a module externally
@@ -303,7 +303,7 @@ and compile them accordingly, including our "summator" module.
 
 .. seealso::
 
-    :ref:`Introduction to the buildsystem - Custom modules build option <doc_buildsystem_custom_modules>`.
+    `Introduction to the buildsystem - Custom modules build option <doc_buildsystem_custom_modules>`.
 
 Improving the build system for development
 ------------------------------------------
@@ -312,7 +312,7 @@ Improving the build system for development
 
     This shared library support is not designed to support distributing a module
     to other users without recompiling the engine. For that purpose, use
-    :ref:`GDNative <doc_what_is_gdnative>` instead.
+    `GDNative <doc_what_is_gdnative>` instead.
 
 So far, we defined a clean SCsub that allows us to add the sources
 of our new module as part of the Godot binary.
@@ -494,7 +494,7 @@ Now if you go to the ``godot/modules/summator/doc_classes`` folder, you will see
 that it contains a ``Summator.xml`` file, or any other classes, that you referenced
 in your ``get_doc_classes`` function.
 
-Edit the file(s) following :ref:`doc_updating_the_class_reference` and recompile the engine.
+Edit the file(s) following `doc_updating_the_class_reference` and recompile the engine.
 
 Once the compilation process is finished, the docs will become accessible within
 the engine's built-in documentation system.
@@ -525,7 +525,7 @@ Similarly to how you can write self-contained documentation within a module,
 you can also create your own custom icons for classes to appear in the editor.
 
 For the actual process of creating editor icons to be integrated within the engine,
-please refer to :ref:`doc_editor_icons` first.
+please refer to `doc_editor_icons` first.
 
 Once you've created your icon(s), proceed with the following steps:
 
@@ -557,10 +557,10 @@ Remember to:
 But this is not all, depending what you do, you will be greeted with
 some (hopefully positive) surprises.
 
--  If you inherit from :ref:`class_Node` (or any derived node type, such as
+-  If you inherit from `class_Node` (or any derived node type, such as
    Sprite), your new class will appear in the editor, in the inheritance
    tree in the "Add Node" dialog.
--  If you inherit from :ref:`class_Resource`, it will appear in the resource
+-  If you inherit from `class_Resource`, it will appear in the resource
    list, and all the exposed properties can be serialized when
    saved/loaded.
 -  By this same logic, you can extend the Editor and almost any area of

@@ -56,7 +56,7 @@ Importing the project
   +-----------------+------------------------------------------------------------------------------+
   | Executable      | **scons**                                                                    |
   +-----------------+------------------------------------------------------------------------------+
-  | Arguments       | See :ref:`doc_introduction_to_the_buildsystem` for a full list of arguments. |
+  | Arguments       | See `doc_introduction_to_the_buildsystem` for a full list of arguments. |
   +-----------------+------------------------------------------------------------------------------+
 
 .. figure:: img/kdevelop_buildconfig.png

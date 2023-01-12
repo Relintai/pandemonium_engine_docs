@@ -12,12 +12,12 @@ path again, the previous loaded Resource will be referenced. Naturally,
 loaded resources must be stateless.
 
 This guide assumes the reader knows how to create C++ modules and Godot
-data types. If not, refer to this guide :ref:`doc_custom_modules_in_c++`.
+data types. If not, refer to this guide `doc_custom_modules_in_c++`.
 
 References
 ~~~~~~~~~~
 
-- :ref:`ResourceLoader<class_resourceloader>`
+- `ResourceLoader<class_resourceloader>`
 - `core/io/resource_loader.cpp <https://github.com/godotengine/godot/blob/master/core/io/resource_loader.cpp>`_
 
 What for?
@@ -157,7 +157,7 @@ If you'd like to be able to edit and save a resource, you can implement a
 Creating custom data types
 --------------------------
 
-Godot may not have a proper substitute within its :ref:`doc_core_types`
+Godot may not have a proper substitute within its `doc_core_types`
 or managed resources. Godot needs a new registered data type to
 understand additional binary formats such as machine learning models.
 

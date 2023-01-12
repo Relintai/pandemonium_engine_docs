@@ -3,8 +3,8 @@
 Theme type variations
 =====================
 
-When designing a user interface there may be times when a :ref:`Control <class_Control>` node
-needs to have a different look than what is normally defined by a :ref:`Theme <class_Theme>`.
+When designing a user interface there may be times when a `Control <class_Control>` node
+needs to have a different look than what is normally defined by a `Theme <class_Theme>`.
 Every control node has theme property overrides, which allow you to redefine the styling for
 each individual UI element.
 
@@ -12,11 +12,11 @@ each individual UI element.
    :align: center
 
 This approach quickly becomes hard to manage, if you need to share the same custom look
-between several controls. Imagine that you use gray, blue, and red variants of :ref:`Button <class_Button>`
+between several controls. Imagine that you use gray, blue, and red variants of `Button <class_Button>`
 throughout your project. Setting it up every time you add a new button element to your interface
 is a tedious task.
 
-To help with the organization and to better utilize the :ref:`power of themes <doc_gui_skinning>`
+To help with the organization and to better utilize the `power of themes <doc_gui_skinning>`
 you can use theme type variations. These work like normal theme types, but instead
 of being self-sufficient and standalone they extend another, base type.
 
@@ -33,7 +33,7 @@ a combination of both types giving priority to the type variation.
 
 .. note::
    The way controls resolve what theme items they use from each type and each
-   theme is better described in the :ref:`Customizing a project <doc_gui_theme_in_project>`
+   theme is better described in the `Customizing a project <doc_gui_theme_in_project>`
    section of the "Introduction to GUI skinning" article.
 
 Creating a type variation

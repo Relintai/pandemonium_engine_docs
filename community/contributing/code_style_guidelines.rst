@@ -50,7 +50,7 @@ setup clang-format locally to check and automatically fix all your commits.
 
 .. seealso::
 
-    These guidelines only cover code formatting. See :ref:`doc_cpp_usage_guidelines`
+    These guidelines only cover code formatting. See `doc_cpp_usage_guidelines`
     for a list of language features that are permitted in pull requests.
 
 Using clang-format locally
@@ -345,7 +345,7 @@ Don't repeat what the code says in a comment. Explain the *why* rather than *how
 You can use Javadoc-style comments above function or macro definitions. It's
 recommended to use Javadoc-style comments *only* for methods which are not
 exposed to scripting. This is because exposed methods should be documented in
-the :ref:`class reference XML <doc_updating_the_class_reference>`
+the `class reference XML <doc_updating_the_class_reference>`
 instead.
 
 **Example:**

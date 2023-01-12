@@ -20,7 +20,7 @@ few tools that make this process easy.
 SCREEN_TEXTURE built-in texture
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Godot :ref:`doc_shading_language` has a special texture, ``SCREEN_TEXTURE`` (and ``DEPTH_TEXTURE`` for depth, in the case of 3D).
+Godot `doc_shading_language` has a special texture, ``SCREEN_TEXTURE`` (and ``DEPTH_TEXTURE`` for depth, in the case of 3D).
 It takes as argument the UV of the screen and returns a vec3 RGB with the color. A
 special built-in varying: SCREEN_UV can be used to obtain the UV for
 the current fragment. As a result, this simple canvas_item fragment shader:
@@ -91,7 +91,7 @@ In the above image, the second sphere (top right) is using the same
 source for ``SCREEN_TEXTURE`` as the first one below, so the first one
 "disappears", or is not visible.
 
-In 2D, this can be corrected via the :ref:`BackBufferCopy <class_BackBufferCopy>`
+In 2D, this can be corrected via the `BackBufferCopy <class_BackBufferCopy>`
 node, which can be instantiated between both spheres. BackBufferCopy can work by
 either specifying a screen region or the whole screen:
 
@@ -113,9 +113,9 @@ In 3D, there is less flexibility to solve this particular issue because the
 ``SCREEN_TEXTURE`` in 3D as it won't capture transparent objects and may capture
 some opaque objects that are in front of the object.
 
-You can reproduce the back-buffer logic in 3D by creating a :ref:`Viewport <class_Viewport>`
+You can reproduce the back-buffer logic in 3D by creating a `Viewport <class_Viewport>`
 with a camera in the same position as your object, and then use the
-:ref:`Viewport's <class_Viewport>` texture instead of ``SCREEN_TEXTURE``.
+`Viewport's <class_Viewport>` texture instead of ``SCREEN_TEXTURE``.
 
 Back-buffer logic
 ~~~~~~~~~~~~~~~~~

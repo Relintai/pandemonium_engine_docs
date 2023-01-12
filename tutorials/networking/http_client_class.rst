@@ -3,9 +3,9 @@
 HTTP client class
 =================
 
-:ref:`HTTPClient <class_HTTPClient>` provides low-level access to HTTP communication.
-For a higher-level interface, you may want to take a look at :ref:`HTTPRequest <class_HTTPRequest>` first,
-which has a tutorial available :ref:`here <doc_http_request_class>`.
+`HTTPClient <class_HTTPClient>` provides low-level access to HTTP communication.
+For a higher-level interface, you may want to take a look at `HTTPRequest <class_HTTPRequest>` first,
+which has a tutorial available `here <doc_http_request_class>`.
 
 .. warning::
 
@@ -14,7 +14,7 @@ which has a tutorial available :ref:`here <doc_http_request_class>`.
     using one-click deploy. Otherwise, network communication of any kind will be
     blocked by Android.
 
-Here's an example of using the :ref:`HTTPClient <class_HTTPClient>`
+Here's an example of using the `HTTPClient <class_HTTPClient>`
 class. It's just a script, so it can be run by executing:
 
 console GDScript

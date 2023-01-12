@@ -9,7 +9,7 @@ instantiate scenes from code.
 Getting nodes
 -------------
 
-You can get a reference to a node by calling the :ref:`Node.get_node()
+You can get a reference to a node by calling the `Node.get_node()
 <class_Node_method_get_node>` method. For this to work, the child node must be
 present in the scene tree. Getting it in the parent node's ``_ready()`` function
 guarantees that.
@@ -146,7 +146,7 @@ like. This operation is called instancing, and doing it from code happens in two
 steps:
 
 1. Loading the scene from the hard drive.
-2. Creating an instance of the loaded :ref:`PackedScene <class_PackedScene>`
+2. Creating an instance of the loaded `PackedScene <class_PackedScene>`
    resource.
 
 gdscript GDScript
@@ -166,7 +166,7 @@ gdscript GDScript
     ```
 
 At that point, ``scene`` is a packed scene resource, not a node. To create the
-actual node, you need to call :ref:`PackedScene.instance()
+actual node, you need to call `PackedScene.instance()
 <class_PackedScene_method_instance>`. It returns a tree of nodes that you can
 as a child of your current node.
 

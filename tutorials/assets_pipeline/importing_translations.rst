@@ -31,7 +31,7 @@ or a string with a number (it's just a unique string anyway).
 
 .. note:: If you need a more powerful file format, Godot also supports
           loading translations written in the gettext ``.po`` format. See
-          :ref:`doc_localization_using_gettext` for details.
+          `doc_localization_using_gettext` for details.
 
 Translation format
 ------------------
@@ -63,7 +63,7 @@ CSV files must be formatted as follows:
 | KEYN   | string   | string   | string   |
 +--------+----------+----------+----------+
 
-The "lang" tags must represent a language, which must be one of the :ref:`valid
+The "lang" tags must represent a language, which must be one of the `valid
 locales <doc_locales>` supported by the engine. The "KEY" tags must be
 unique and represent a string universally (they are usually in
 uppercase, to differentiate from other strings). These keys will be replaced at

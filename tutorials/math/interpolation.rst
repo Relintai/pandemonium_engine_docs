@@ -23,15 +23,15 @@ And often simplified to:
 
 The name of this type of interpolation, which transforms a value into another at *constant speed* is *"linear"*. So, when you hear about *Linear Interpolation*, you know they are referring to this simple formula.
 
-There are other types of interpolations, which will not be covered here. A recommended read afterwards is the :ref:`Bezier <doc_beziers_and_curves>` page.
+There are other types of interpolations, which will not be covered here. A recommended read afterwards is the `Bezier <doc_beziers_and_curves>` page.
 
 Vector interpolation
 --------------------
 
-Vector types (:ref:`Vector2 <class_Vector2>` and :ref:`Vector3 <class_Vector3>`) can also be interpolated, they come with handy functions to do it
-:ref:`Vector2.linear_interpolate() <class_Vector2_method_linear_interpolate>` and :ref:`Vector3.linear_interpolate() <class_Vector3_method_linear_interpolate>`.
+Vector types (`Vector2 <class_Vector2>` and `Vector3 <class_Vector3>`) can also be interpolated, they come with handy functions to do it
+`Vector2.linear_interpolate() <class_Vector2_method_linear_interpolate>` and `Vector3.linear_interpolate() <class_Vector3_method_linear_interpolate>`.
 
-For cubic interpolation, there are also :ref:`Vector2.cubic_interpolate() <class_Vector2_method_cubic_interpolate>` and :ref:`Vector3.cubic_interpolate() <class_Vector3_method_cubic_interpolate>`, which do a :ref:`Bezier <doc_beziers_and_curves>` style interpolation.
+For cubic interpolation, there are also `Vector2.cubic_interpolate() <class_Vector2_method_cubic_interpolate>` and `Vector3.cubic_interpolate() <class_Vector3_method_cubic_interpolate>`, which do a `Bezier <doc_beziers_and_curves>` style interpolation.
 
 Here is simple pseudo-code for going from point A to B using interpolation:
 
@@ -54,7 +54,7 @@ Transform interpolation
 -----------------------
 
 It is also possible to interpolate whole transforms (make sure they have either uniform scale or, at least, the same non-uniform scale).
-For this, the function :ref:`Transform.interpolate_with() <class_Transform_method_interpolate_with>` can be used.
+For this, the function `Transform.interpolate_with() <class_Transform_method_interpolate_with>` can be used.
 
 Here is an example of transforming a monkey from Position1 to Position2:
 

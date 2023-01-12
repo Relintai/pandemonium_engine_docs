@@ -15,7 +15,7 @@ Node structure
 
 To begin, we need to choose a root node for the player object. As a general
 rule, a scene's root node should reflect the object's desired functionality -
-what the object *is*. Click the "Other Node" button and add an :ref:`Area2D
+what the object *is*. Click the "Other Node" button and add an `Area2D
 <class_Area2D>` node to the scene.
 
 .. image:: img/add_node.png
@@ -42,21 +42,21 @@ or :kbd:`Cmd + S` on macOS.
 
           - **GDScript**: Classes (nodes) use PascalCase, variables and
             functions use snake_case, and constants use ALL_CAPS (See
-            :ref:`doc_gdscript_styleguide`).
+            `doc_gdscript_styleguide`).
 
           - **C#**: Classes, export variables and methods use PascalCase,
             private fields use _camelCase, local variables and parameters use
-            camelCase (See :ref:`doc_c_sharp_styleguide`). Be careful to type
+            camelCase (See `doc_c_sharp_styleguide`). Be careful to type
             the method names precisely when connecting signals.
 
 
 Sprite animation
 ~~~~~~~~~~~~~~~~
 
-Click on the ``Player`` node and add an :ref:`AnimatedSprite
+Click on the ``Player`` node and add an `AnimatedSprite
 <class_AnimatedSprite>` node as a child. The ``AnimatedSprite`` will handle the
 appearance and animations for our player. Notice that there is a warning symbol
-next to the node. An ``AnimatedSprite`` requires a :ref:`SpriteFrames
+next to the node. An ``AnimatedSprite`` requires a `SpriteFrames
 <class_SpriteFrames>` resource, which is a list of the animations it can
 display. To create one, find the ``Frames`` property in the Inspector and click
 "[empty]" -> "New SpriteFrames". Click again to open the "SpriteFrames" panel:
@@ -80,7 +80,7 @@ heading.
 
 .. image:: img/player_scale.png
 
-Finally, add a :ref:`CollisionShape2D <class_CollisionShape2D>` as a child of
+Finally, add a `CollisionShape2D <class_CollisionShape2D>` as a child of
 ``Player``. This will determine the player's "hitbox", or the bounds of its
 collision area. For this character, a ``CapsuleShape2D`` node gives the best
 fit, so next to "Shape" in the Inspector, click "[empty]"" -> "New

@@ -10,16 +10,16 @@ Godot offers a number of collision objects to provide both collision detection
 and response. Trying to decide which one to use for your project can be confusing.
 You can avoid problems and simplify development if you understand how each of them
 works and what their pros and cons are. In this tutorial, we'll look at the
-:ref:`Area2D <class_Area2D>` node and show some examples of how it can be used.
+`Area2D <class_Area2D>` node and show some examples of how it can be used.
 
 .. note:: This document assumes you're familiar with Godot's various physics
-          bodies. Please read :ref:`doc_physics_introduction` first.
+          bodies. Please read `doc_physics_introduction` first.
 
 What is an area?
 ----------------
 
 An Area2D defines a region of 2D space. In this space you can detect other
-:ref:`CollisionObject2D <class_CollisionObject2D>` nodes overlapping, entering,
+`CollisionObject2D <class_CollisionObject2D>` nodes overlapping, entering,
 and exiting. Areas also allow for overriding local physics properties. We'll
 explore each of these functions below.
 
@@ -41,7 +41,7 @@ and mask(s).
 The "Audio Bus" section allows you to override audio in the area, for example to
 apply an audio effect when the player moves through.
 
-Note that Area2D extends :ref:`CollisionObject2D <class_CollisionObject2D>`, so it
+Note that Area2D extends `CollisionObject2D <class_CollisionObject2D>`, so it
 also provides properties inherited from that class, such as ``input_pickable``.
 
 Overlap detection
@@ -65,7 +65,7 @@ use ``area_entered``. However, let's assume our player is a ``KinematicBody2D``
 (and therefore a ``CollisionObject2D`` type), so we'll connect the
 ``body_entered`` signal.
 
-.. note:: If you're not familiar with using signals, see :ref:`doc_signals` for
+.. note:: If you're not familiar with using signals, see `doc_signals` for
           an introduction.
 
 gdscript GDScript
@@ -85,7 +85,7 @@ Some other usage examples:
 - Use a large circular area around an enemy to define its "detect" radius. When the player is outside the area, the enemy can't "see" it.
 - "Security cameras" - In a large level with multiple cameras, attach areas to each camera and activate them when the player enters.
 
-See the :ref:`doc_your_first_2d_game` for an example of using Area2D in a game.
+See the `doc_your_first_2d_game` for an example of using Area2D in a game.
 
 Area influence
 --------------

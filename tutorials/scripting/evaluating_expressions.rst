@@ -3,7 +3,7 @@
 Evaluating expressions
 ======================
 
-Godot provides an :ref:`class_Expression` class you can use to evaluate expressions.
+Godot provides an `class_Expression` class you can use to evaluate expressions.
 
 An expression can be:
 
@@ -11,7 +11,7 @@ An expression can be:
 - A built-in method call like ``deg2rad(90)``.
 - A method call on an user-provided script like ``update_health()``,
   if ``base_instance`` is set to a value other than ``null`` when calling
-  :ref:`Expression.execute() <class_Expression_method_execute>`.
+  `Expression.execute() <class_Expression_method_execute>`.
 
 .. note::
 
@@ -95,7 +95,7 @@ Setting a base instance for the expression
 By default, an expression has a base instance of ``null``. This means the
 expression has no base instance associated to it.
 
-When calling :ref:`Expression.execute() <class_Expression_method_execute>`,
+When calling `Expression.execute() <class_Expression_method_execute>`,
 you can set the value of the ``base_instance`` parameter to a specific object
 instance such as ``self``, another script instance or even a singleton::
 
@@ -198,7 +198,7 @@ The output from the script will be::
 Built-in functions
 ------------------
 
-Most methods available in the :ref:`class_@GDScript` scope are available in the
+Most methods available in the `class_@GDScript` scope are available in the
 Expression class, even if no base instance is bound to the expression.
 The same parameters and return types are available.
 

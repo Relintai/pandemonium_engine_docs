@@ -28,7 +28,7 @@ Writing style
 
 .. seealso::
 
-    Try to follow the :ref:`doc_docs_writing_guidelines` in addition to the
+    Try to follow the `doc_docs_writing_guidelines` in addition to the
     guidelines outlined above.
 
 Button and menu texts
@@ -52,7 +52,7 @@ contain few items make it difficult to navigate the inspector, while missing the
 benefits of using sections such as folding.
 
 There are some valid exceptions for this, such as material features in
-:ref:`class_SpatialMaterial`.
+`class_SpatialMaterial`.
 
 This advice also applies to the Project Settings and Editor Settings.
 

@@ -7,7 +7,7 @@ Introduction to exports
 -----------------------
 
 In Godot, class members can be exported. This means their value gets saved along
-with the resource (such as the :ref:`scene <class_PackedScene>`) they're
+with the resource (such as the `scene <class_PackedScene>`) they're
 attached to. They will also be available for editing in the property editor.
 Exporting is done by using the ``export`` keyword::
 
@@ -138,7 +138,7 @@ Examples
 
 It must be noted that even if the script is not being run while in the
 editor, the exported properties are still editable. This can be used
-in conjunction with a :ref:`script in "tool" mode <doc_gdscript_tool_mode>`.
+in conjunction with a `script in "tool" mode <doc_gdscript_tool_mode>`.
 
 Exporting bit flags
 -------------------
@@ -211,9 +211,9 @@ Setting exported variables from a tool script
 ---------------------------------------------
 
 When changing an exported variable's value from a script in
-:ref:`doc_gdscript_tool_mode`, the value in the inspector won't be updated
+`doc_gdscript_tool_mode`, the value in the inspector won't be updated
 automatically. To update it, call
-:ref:`property_list_changed_notify() <class_Object_method_property_list_changed_notify>`
+`property_list_changed_notify() <class_Object_method_property_list_changed_notify>`
 after setting the exported variable's value.
 
 Advanced exports
@@ -225,13 +225,13 @@ common exporting features which can be implemented with a low-level API.
 
 Before reading further, you should get familiar with the way properties are
 handled and how they can be customized with
-:ref:`_set() <class_Object_method__get_property_list>`,
-:ref:`_get() <class_Object_method__get_property_list>`, and
-:ref:`_get_property_list() <class_Object_method__get_property_list>` methods as
-described in :ref:`doc_accessing_data_or_logic_from_object`.
+`_set() <class_Object_method__get_property_list>`,
+`_get() <class_Object_method__get_property_list>`, and
+`_get_property_list() <class_Object_method__get_property_list>` methods as
+described in `doc_accessing_data_or_logic_from_object`.
 
 .. seealso:: For binding properties using the above methods in C++, see
-             :ref:`doc_binding_properties_using_set_get_property_list`.
+             `doc_binding_properties_using_set_get_property_list`.
 
 .. warning:: The script must operate in the ``tool`` mode so the above methods
              can work from within the editor.
@@ -269,8 +269,8 @@ Attaching variables to properties
 To attach variables to properties (allowing the value of the property to be used
 in scripts), you need to create a variable with the exact same name as the
 property or else you may need to override the 
-:ref:`_set() <class_Object_method__get_property_list>` and 
-:ref:`_get() <class_Object_method__get_property_list>` methods. Attaching
+`_set() <class_Object_method__get_property_list>` and 
+`_get() <class_Object_method__get_property_list>` methods. Attaching
 a variable to to a property also gives you the ability to give it a default state.
 ::
 

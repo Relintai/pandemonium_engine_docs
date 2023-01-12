@@ -3,7 +3,7 @@
 Localization using gettext
 ==========================
 
-In addition to :ref:`doc_importing_translations` in CSV format, Godot
+In addition to `doc_importing_translations` in CSV format, Godot
 also supports loading translation files written in the GNU gettext
 format (text-based ``.po`` and compiled ``.mo`` since Godot 3.5).
 
@@ -117,7 +117,7 @@ You can then run pybabel like so:
     pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr -o godot-l10n.pot .
 
 Use the ``-k`` option to specify what needs to be extracted. In this case,
-arguments to :ref:`tr() <class_Object_method_tr>` will be translated, as well
+arguments to `tr() <class_Object_method_tr>` will be translated, as well
 as properties named "text" (commonly used by Control nodes) and LineEdit's
 "placeholder_text" property.
 
@@ -147,7 +147,7 @@ In **Translations**, click **Add…** then choose the ``.po`` or ``.mo`` file
 in the file dialog. The locale will be inferred from the
 ``"Language: <code>\n"`` property in the messages file.
 
-.. note:: See :ref:`doc_internationalizing_games` for more information on
+.. note:: See `doc_internationalizing_games` for more information on
           importing and testing translations in Godot.
 
 Updating message files to follow the PO template

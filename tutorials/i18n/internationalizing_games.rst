@@ -18,7 +18,7 @@ Localization is usually done by specific studios hired for the job and,
 despite the huge amount of software and file formats available for this,
 the most common way to do localization to this day is still with
 spreadsheets. The process of creating the spreadsheets and importing
-them is already covered in the :ref:`doc_importing_translations` tutorial,
+them is already covered in the `doc_importing_translations` tutorial,
 so this one could be seen more like a follow-up to that one.
 
 
@@ -51,7 +51,7 @@ locale.
 Converting keys to text
 -----------------------
 
-Some controls, such as :ref:`Button <class_Button>` and :ref:`Label <class_Label>`,
+Some controls, such as `Button <class_Button>` and `Label <class_Label>`,
 will automatically fetch a translation if their text matches a translation key.
 For example, if a label's text is "MAIN_SCREEN_GREETING1" and that key exists
 in the current translation, then the text will automatically be translated.
@@ -60,8 +60,8 @@ This automatic translation behavior may be undesirable in certain cases. For
 instance, when using a Label to display a player's name, you most likely don't
 want the player's name to be translated if it matches a translation key. To
 disable automatic translation on a specific node, use
-:ref:`Object.set_message_translation<class_Object_method_set_message_translation>`
-and send a :ref:`Object.notification<class_Object_method_notification>` to update the
+`Object.set_message_translation<class_Object_method_set_message_translation>`
+and send a `Object.notification<class_Object_method_notification>` to update the
 translation::
 
     func _ready():
@@ -80,7 +80,7 @@ For more complex UI nodes such as OptionButtons, you may have to use this instea
         option_button.get_popup().set_message_translation(false)
         option_button.get_popup().notification(NOTIFICATION_TRANSLATION_CHANGED)
 
-In code, the :ref:`Object.tr() <class_Object_method_tr>`
+In code, the `Object.tr() <class_Object_method_tr>`
 function can be used. This will just look up the text in the
 translations and convert it if found:
 
@@ -93,16 +93,16 @@ Making controls resizable
 --------------------------
 
 The same text in different languages can vary greatly in length. For
-this, make sure to read the tutorial on :ref:`doc_size_and_anchors`, as
+this, make sure to read the tutorial on `doc_size_and_anchors`, as
 dynamically adjusting control sizes may help.
-:ref:`Container <class_Container>` can be useful, as well as the text wrapping
-options available in :ref:`Label <class_Label>`.
+`Container <class_Container>` can be useful, as well as the text wrapping
+options available in `Label <class_Label>`.
 
 TranslationServer
 -----------------
 
 Godot has a server handling low-level translation management
-called the :ref:`TranslationServer <class_TranslationServer>`.
+called the `TranslationServer <class_TranslationServer>`.
 Translations can be added or removed during run-time;
 the current language can also be changed at run-time.
 
@@ -143,4 +143,4 @@ For instance, for Spanish, this would be ``application/name_es``:
 .. image:: img/localized_name.png
 
 If you are unsure about the language code to use, refer to the
-:ref:`list of locale codes <doc_locales>`.
+`list of locale codes <doc_locales>`.

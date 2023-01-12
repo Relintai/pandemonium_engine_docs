@@ -11,10 +11,10 @@ characters with the AnimatedSprite class and the AnimationPlayer. Typically, whe
 will come in one of two ways: as individual images or as a single sprite sheet
 containing all the animation's frames. Both can be animated in Godot with the AnimatedSprite class.
 
-First, we'll use :ref:`AnimatedSprite <class_AnimatedSprite>` to
+First, we'll use `AnimatedSprite <class_AnimatedSprite>` to
 animate a collection of individual images. Then we will animate a sprite sheet using this class. Finally, we will learn another way to animate a sprite sheet
-with :ref:`AnimationPlayer <class_AnimationPlayer>` and the *Animation*
-property of :ref:`Sprite <class_Sprite>`.
+with `AnimationPlayer <class_AnimationPlayer>` and the *Animation*
+property of `Sprite <class_Sprite>`.
 
 .. note:: Art for the following examples by https://opengameart.org/users/ansimuz and by
                                            https://opengameart.org/users/tgfcoder
@@ -36,11 +36,11 @@ with the following nodes:
 
 .. image:: img/2d_animation_tree1.png
 
-.. note:: The root node could also be :ref:`Area2D <class_Area2D>` or
-          :ref:`RigidBody2D <class_RigidBody2D>`. The animation will still be
+.. note:: The root node could also be `Area2D <class_Area2D>` or
+          `RigidBody2D <class_RigidBody2D>`. The animation will still be
           made in the same way. Once the animation is completed, you can
           assign a shape to the CollisionShape2D. See
-          :ref:`Physics Introduction <doc_physics_introduction>` for more
+          `Physics Introduction <doc_physics_introduction>` for more
           information.
 
 Now select the ``AnimatedSprite`` and in its *SpriteFrames* property, select
@@ -128,8 +128,8 @@ Sprite sheet with AnimationPlayer
 ---------------------------------
 
 Another way that you can animate when using a sprite sheet is to use a standard
-:ref:`Sprite <class_Sprite>` node to display the texture, and then animating the
-change from texture to texture with :ref:`AnimationPlayer <class_AnimationPlayer>`.
+`Sprite <class_Sprite>` node to display the texture, and then animating the
+change from texture to texture with `AnimationPlayer <class_AnimationPlayer>`.
 
 Consider this sprite sheet, which contains 6 frames of animation:
 
@@ -143,11 +143,11 @@ setting up your scene tree:
 
 .. image:: img/2d_animation_tree2.png
 
-.. note:: The root node could also be :ref:`Area2D <class_Area2D>` or
-          :ref:`RigidBody2D <class_RigidBody2D>`. The animation will still be
+.. note:: The root node could also be `Area2D <class_Area2D>` or
+          `RigidBody2D <class_RigidBody2D>`. The animation will still be
           made in the same way. Once the animation is completed, you can
           assign a shape to the CollisionShape2D. See
-          :ref:`Physics Introduction <doc_physics_introduction>` for more
+          `Physics Introduction <doc_physics_introduction>` for more
           information.
 
 Drag the spritesheet into the Sprite's *Texture* property, and you'll see the
@@ -208,7 +208,7 @@ gdscript GDScript
           (for example, a platformer may update the sprite's ``h_flip``/``v_flip``
           properties when a character turns while starting a 'turning' animation),
           it's important to keep in mind that ``play()`` isn't applied instantly.
-          Instead, it's applied the next time the :ref:`AnimationPlayer <class_AnimationPlayer>` is processed.
+          Instead, it's applied the next time the `AnimationPlayer <class_AnimationPlayer>` is processed.
           This may end up being on the next frame, causing a 'glitch' frame,
           where the property change was applied but the animation was not.
           If this turns out to be a problem, after calling ``play()``, you can call ``advance(0)``

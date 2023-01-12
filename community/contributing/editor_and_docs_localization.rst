@@ -172,14 +172,14 @@ translating.
   same source string location while comparing with the online version of that
   page in English. An example of source string location could be
   ``getting_started/step_by_step/nodes_and_scenes.rst`` for the
-  page :ref:`doc_nodes_and_scenes`.
+  page `doc_nodes_and_scenes`.
 - The class reference's translation template is generated from the source XML
   files in **alphabetical order**, which is also the same as the order of the
   table of contents for the online version. You can therefore locate the source
   string corresponding to the brief description of a given class to find the
   first string to translate and all other descriptions from that class should be
   in the subsequent strings on Weblate. For example, the descriptions for the
-  :ref:`class_Node2D` class would have the source string location
+  `class_Node2D` class would have the source string location
   ``doc/classes/Node2D.xml``.
 
 A handy tool to locate specific pages/classes is to use Weblate's advanced
@@ -272,16 +272,16 @@ external links, etc. Here are some examples::
     |supported| Backwards-compatible new features (backported from the ``master``
     branch) as well as bug, security, and platform support fixes.
 
-    # The :ref: Sphinx "role" is used for internal references to other pages of
+    # The  Sphinx "role" is used for internal references to other pages of
     # the documentation.
     # It can be used with only the reference name of a page (which should not be
     # changed), in which case the title of that page will be displayed:
 
-    See :ref:`doc_ways_to_contribute`.
+    See `doc_ways_to_contribute`.
 
     # Or it can be used with an optional custom title, which should thus be translated:
 
-    See :ref:`how to contribute <doc_ways_to_contribute>`.
+    See `how to contribute <doc_ways_to_contribute>`.
 
     # You may encounter other Sphinx roles, such as :kbd: used for shortcut keys.
     # You can translate the content between backticks to match the usual key names,
@@ -327,7 +327,7 @@ breaks if they are not part of the original translation.
 
 .. seealso::
 
-    See our documentation for class reference writers for the :ref:`list of
+    See our documentation for class reference writers for the `list of
     BBCode-like tags <doc_class_reference_writing_guidelines_bbcode>` which are used
     throughout the class reference.
 
@@ -357,7 +357,7 @@ upload mode.
     version.
 
 If you want to test changes locally (especially for the editor translation), you
-can use the downloaded PO file and :ref:`compile Godot from source <toc-devel-compiling>`.
+can use the downloaded PO file and `compile Godot from source <toc-devel-compiling>`.
 
 Rename the editor translation PO file to ``<lang>.po`` (e.g. ``eo.po`` for
 Esperanto) and place it in the ``editor/translations/`` folder
@@ -386,7 +386,7 @@ documentation translations are synced from Weblate.
 
 To translate an image, you should first locate it in the original English
 documentation. To do so, browse the relevant page in the docs, e.g.
-:ref:`doc_intro_to_the_editor_interface`. Click the "Edit on GitHub" link in the
+`doc_intro_to_the_editor_interface`. Click the "Edit on GitHub" link in the
 top right corner:
 
 .. image:: img/l10n_08_edit_on_github.png
@@ -413,4 +413,4 @@ original image in the ``images`` subfolder
 and place your translated image there. In our example, the end result should be
 ``images/getting_started/step_by_step/img/project_manager_first_open.fr.png``.
 
-Repeat this for other images and :ref:`make a Pull Request <doc_pr_workflow>`.
+Repeat this for other images and `make a Pull Request <doc_pr_workflow>`.

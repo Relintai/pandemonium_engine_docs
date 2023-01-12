@@ -118,7 +118,7 @@ the following files in the ``bin`` directory:
   for the editor and for export templates. This directory is important for
   proper functioning and must be distributed together with Godot.
   More details about this directory in
-  :ref:`Data directory<compiling_with_mono_data_directory>`.
+  `Data directory<compiling_with_mono_data_directory>`.
 
 Examples
 --------
@@ -249,7 +249,7 @@ to the Gradle project.
 
 Once you've built Mono, you can proceed to build Godot with the instructions
 described in this page and the
-:ref:`Compiling for Android<doc_compiling_for_android>` page.
+`Compiling for Android<doc_compiling_for_android>` page.
 Make sure to let SCons know about the location of the Mono runtime you've just built, e.g.:
 ``scons [...] mono_prefix="$HOME/mono-installs/android-armeabi-v7a-release"``
 (This path may be different on your system).
@@ -259,7 +259,7 @@ Targeting iOS
 
 Once you've built Mono, you can proceed to build Godot with the instructions
 described in this page and the
-:ref:`Compiling for iOS<doc_compiling_for_ios>` page.
+`Compiling for iOS<doc_compiling_for_ios>` page.
 Make sure to let SCons know about the location of the Mono runtime you've just built, e.g.:
 ``scons [...] mono_prefix="$HOME/mono-installs/ios-arm64-release"``
 (This path may be different on your system).
@@ -308,7 +308,7 @@ Building for WebAssembly currently involves the same process regardless of wheth
 
 Once you've built Mono, you can proceed to build Godot with the instructions
 described in this page and the
-:ref:`Compiling for the Web<doc_compiling_for_web>` page.
+`Compiling for the Web<doc_compiling_for_web>` page.
 Make sure to let SCons know about the location of the Mono runtime you've just built, e.g.:
 ``scons [...] mono_prefix="$HOME/mono-installs/wasm-runtime-release"``
 (This path may be different on your system).

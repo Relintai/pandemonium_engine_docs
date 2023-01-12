@@ -60,7 +60,7 @@ reproduce the bug.
 
     Before bisecting a regression, you need to set up a build environment to
     compile Godot from source. To do so, read the
-    :ref:`Compiling <toc-devel-compiling>` page for your target platform.
+    `Compiling <toc-devel-compiling>` page for your target platform.
     (Compiling Godot from source doesn't require C++ programming knowledge.)
 
     Note that compiling Godot can take a while on slow hardware (up an hour for
@@ -89,7 +89,7 @@ following commit hashes depending on the version:
 To refer to the latest state of the master branch, you can use ``master``
 instead of a commit hash.
 
-:ref:`Get Godot's source code using Git <doc_getting_source>`. Once this
+`Get Godot's source code using Git <doc_getting_source>`. Once this
 is done, in the terminal window, use ``cd`` to reach the Godot repository
 folder and enter the following command:
 

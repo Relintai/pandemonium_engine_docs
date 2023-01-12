@@ -16,13 +16,13 @@ Step 1
 .. image:: tutorial_simple/img/tutorial_simple_1.png
 
 - Create a new project.
-- Add a :ref:`Spatial<class_Spatial>` as the scene root (on the screenshot, it's called "Root").
-- Next add a :ref:`RoomManager<class_RoomManager>` node. We will need this later to process the room system.
+- Add a `Spatial<class_Spatial>` as the scene root (on the screenshot, it's called "Root").
+- Next add a `RoomManager<class_RoomManager>` node. We will need this later to process the room system.
 - Next we need to start defining our rooms. We create all our rooms under another Spatial we have called 'RoomList'.
-- Add a new :ref:`Room<class_Room>` node as a child of the roomlist.
+- Add a new `Room<class_Room>` node as a child of the roomlist.
 - We have named the room ``Kitchen``.
 - We will now create the geometry of our room. The names you give to the geometry is up to you.
-- Create a :ref:`MeshInstance<class_MeshInstance>` for the floor. Create a box by adding a CubeMesh resource to the MeshInstance. Scale and position it to form a floor.
+- Create a `MeshInstance<class_MeshInstance>` for the floor. Create a box by adding a CubeMesh resource to the MeshInstance. Scale and position it to form a floor.
 - Create MeshInstances for the walls. Create more box meshes for this, then scale and position them. Be sure to leave an opening on one side. You will need to create two wall segments to do this on that side.
 
 Step 2
@@ -41,7 +41,7 @@ Step 3
 .. image:: tutorial_simple/img/tutorial_simple_3.png
 
 - Next, we will add a portal between the two rooms.
-- Create a new :ref:`Portal<class_Portal>` in the kitchen.
+- Create a new `Portal<class_Portal>` in the kitchen.
 - Scale and position the portal using the node ``Transform`` in the inspector, so it fits within the opening between the two rooms.
 - The portal plane should face *outward* from the source room, i.e. towards the lounge. This direction is indicated by the arrow in the editor gizmo, and portal gizmo's color.
 
@@ -54,7 +54,7 @@ Step 4
 - Placing these boxes as children or grandchildren of the room nodes explicitly tells the system which room the objects should be in. However, we can also create these objects *outside* the rooms. Provided they are in the RoomList branch, the system will attempt to automatically place them in the correct room at runtime.
 - On the screenshot, the boxes were places as children of a Spatial I have called ``Freeform`` to keep things tidy.
 - Boxes also have a green SpatialMaterial assigned to them to make them stand out more from the rest of the room.
-- Let's also create an :ref:`OmniLight<class_OmniLight>` so it will be autoplaced in one of the rooms.
+- Let's also create an `OmniLight<class_OmniLight>` so it will be autoplaced in one of the rooms.
 
 Step 5
 ~~~~~~

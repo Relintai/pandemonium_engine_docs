@@ -8,7 +8,7 @@ Compiling for Android
 .. seealso::
 
     This page describes how to compile Android export template binaries from source.
-    If you're looking to export your project to Android instead, read :ref:`doc_exporting_for_android`.
+    If you're looking to export your project to Android instead, read `doc_exporting_for_android`.
 
 Note
 ----
@@ -18,7 +18,7 @@ enough. Compiling the Android APK manually is mostly useful for custom
 builds or custom packages for the deployer.
 
 Also, you still need to follow the steps mentioned in the
-:ref:`doc_exporting_for_android` tutorial before attempting to build
+`doc_exporting_for_android` tutorial before attempting to build
 a custom export template.
 
 Requirements
@@ -41,10 +41,10 @@ For compiling under Windows, Linux or macOS, the following is required:
    -  You can download a build from `ojdkbuild <https://github.com/ojdkbuild/ojdkbuild>`_.
 
 .. seealso:: To get the Godot source code for compiling, see
-             :ref:`doc_getting_source`.
+             `doc_getting_source`.
 
              For a general overview of SCons usage for Godot, see
-             :ref:`doc_introduction_to_the_buildsystem`.
+             `doc_introduction_to_the_buildsystem`.
 
 .. _doc_android_setting_up_the_buildsystem:
 
@@ -209,7 +209,7 @@ Platform doesn't appear in SCons
 Double-check that you've set the ``ANDROID_SDK_ROOT``
 environment variable. This is required for the platform to appear in SCons'
 list of detected platforms.
-See :ref:`Setting up the buildsystem <doc_android_setting_up_the_buildsystem>`
+See `Setting up the buildsystem <doc_android_setting_up_the_buildsystem>`
 for more information.
 
 Application not installed

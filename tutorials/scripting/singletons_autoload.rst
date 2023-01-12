@@ -43,18 +43,18 @@ Autoloading nodes and scripts can give us these characteristics.
 .. tip::
 
     If you're creating an autoload as part of an editor plugin, consider
-    :ref:`registering it automatically in the Project Settings <doc_making_plugins_autoload>`
+    `registering it automatically in the Project Settings <doc_making_plugins_autoload>`
     when the plugin is enabled.
 
 AutoLoad
 --------
 
 You can create an AutoLoad to load a scene or a script that inherits from
-:ref:`class_Node`.
+`class_Node`.
 
 .. note::
 
-    When autoloading a script, a :ref:`class_Node` will be created and the script will be
+    When autoloading a script, a `class_Node` will be created and the script will be
     attached to it. This node will be added to the root viewport before any
     other scenes are loaded.
 
@@ -107,8 +107,8 @@ Custom scene switcher
 
 This tutorial will demonstrate building a scene switcher using autoloads.
 For basic scene switching, you can use the
-:ref:`SceneTree.change_scene() <class_SceneTree_method_change_scene>`
-method (see :ref:`doc_scene_tree` for details). However, if you need more
+`SceneTree.change_scene() <class_SceneTree_method_change_scene>`
+method (see `doc_scene_tree` for details). However, if you need more
 complex behavior when changing scenes, this method provides more functionality.
 
 To begin, download the template from here:
@@ -189,7 +189,7 @@ gdscript GDScript
         get_tree().current_scene = current_scene
 ```
 
-Using :ref:`Object.call_deferred() <class_Object_method_call_deferred>`,
+Using `Object.call_deferred() <class_Object_method_call_deferred>`,
 the second function will only run once all code from the current scene has
 completed. Thus, the current scene will not be removed while it is
 still being used (i.e. its code is still running).
@@ -223,7 +223,7 @@ the button.
 
     When scenes are small, the transition is instantaneous. However, if your
     scenes are more complex, they may take a noticeable amount of time to appear.
-    To learn how to handle this, see the next tutorial: :ref:`doc_background_loading`.
+    To learn how to handle this, see the next tutorial: `doc_background_loading`.
 
     Alternatively, if the loading time is relatively short (less than 3 seconds or so),
     you can display a "loading plaque" by showing some kind of 2D element just before

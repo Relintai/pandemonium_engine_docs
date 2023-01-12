@@ -308,23 +308,23 @@ rendering/batching/options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `use_batching
-  <class_ProjectSettings_property_rendering/batching/options/use_batching>` -
+ ` -
   Turns batching on or off.
 
 - `use_batching_in_editor
-  <class_ProjectSettings_property_rendering/batching/options/use_batching_in_editor>`
+ `
   Turns batching on or off in the Godot editor.
   This setting doesn't affect the running project in any way.
 
 - `single_rect_fallback
-  <class_ProjectSettings_property_rendering/batching/options/single_rect_fallback>` -
+ ` -
   This is a faster way of drawing unbatchable rectangles. However, it may lead
   to flicker on some hardware so it's not recommended.
 
 rendering/batching/parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `max_join_item_commands <class_ProjectSettings_property_rendering/batching/parameters/max_join_item_commands>` -
+- `max_join_item_commands` -
   One of the most important ways of achieving batching is to join suitable
   adjacent items (nodes) together, however they can only be joined if the
   commands they contain are compatible. The system must therefore do a lookahead
@@ -333,7 +333,7 @@ rendering/batching/parameters
   not worth joining, so the best value may be project dependent.
 
 - `colored_vertex_format_threshold
-  <class_ProjectSettings_property_rendering/batching/parameters/colored_vertex_format_threshold>` -
+ ` -
   Baking colors into vertices results in a larger vertex format. This is not
   necessarily worth doing unless there are a lot of color changes going on
   within a joined item. This parameter represents the proportion of commands
@@ -341,12 +341,12 @@ rendering/batching/parameters
   baked colors.
 
 - `batch_buffer_size
-  <class_ProjectSettings_property_rendering/batching/parameters/batch_buffer_size>` -
+ ` -
   This determines the maximum size of a batch, it doesn't have a huge effect
   on performance but can be worth decreasing for mobile if RAM is at a premium.
 
 - `item_reordering_lookahead
-  <class_ProjectSettings_property_rendering/batching/parameters/item_reordering_lookahead>` -
+ ` -
   Item reordering can help especially with interleaved sprites using different
   textures. The lookahead for the overlap test has a small cost, so the best
   value may change per project.
@@ -355,11 +355,11 @@ rendering/batching/lights
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `scissor_area_threshold
-  <class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>` -
+ ` -
   See light scissoring.
 
 - `max_join_items
-  <class_ProjectSettings_property_rendering/batching/lights/max_join_items>` -
+ ` -
   Joining items before lighting can significantly increase
   performance. This requires an overlap test, which has a small cost, so the
   costs and benefits may be project dependent, and hence the best value to use
@@ -369,14 +369,14 @@ rendering/batching/debug
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `flash_batching
-  <class_ProjectSettings_property_rendering/batching/debug/flash_batching>` -
+ ` -
   This is purely a debugging feature to identify regressions between the
   batching and legacy renderer. When it is switched on, the batching and legacy
   renderer are used alternately on each frame. This will decrease performance,
   and should not be used for your final export, only for testing.
 
 - `diagnose_frame
-  <class_ProjectSettings_property_rendering/batching/debug/diagnose_frame>` -
+ ` -
   This will periodically print a diagnostic batching log to
   the Godot IDE / console.
 
@@ -384,7 +384,7 @@ rendering/batching/precision
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `uv_contract
-  <class_ProjectSettings_property_rendering/batching/precision/uv_contract>` -
+ ` -
   On some hardware (notably some Android devices) there have been reports of
   tilemap tiles drawing slightly outside their UV range, leading to edge
   artifacts such as lines around tiles. If you see this problem, try enabling uv
@@ -392,7 +392,7 @@ rendering/batching/precision
   for precision errors on devices.
 
 - `uv_contract_amount
-  <class_ProjectSettings_property_rendering/batching/precision/uv_contract_amount>` -
+ ` -
   Hopefully, the default amount should cure artifacts on most devices,
   but this value remains adjustable just in case.
 
@@ -486,7 +486,7 @@ I get a decrease in performance with batching.
 
 - Try the steps described above to increase the number of batching opportunities.
 - Try enabling `single_rect_fallback
-  <class_ProjectSettings_property_rendering/batching/options/single_rect_fallback>`.
+ `.
 - The single rect fallback method is the default used without batching, and it
   is approximately twice as fast. However, it can result in flickering on some
   hardware, so its use is discouraged.
@@ -502,7 +502,7 @@ I am seeing line artifacts appear on certain hardware.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - See the `uv_contract
-  <class_ProjectSettings_property_rendering/batching/precision/uv_contract>`
+ `
   project setting which can be used to solve this problem.
 
 I use a large number of textures, so few items are being batched.

@@ -6,7 +6,7 @@ Using GridMaps
 Introduction
 ------------
 
-`Gridmaps <class_GridMap>` are a tool for creating 3D
+`Gridmaps` are a tool for creating 3D
 game levels, similar to the way `TileMap <doc_using_tilemaps>`
 works in 2D. You start with a predefined collection of 3D meshes (a
 `class_MeshLibrary`) that can be placed on a grid,

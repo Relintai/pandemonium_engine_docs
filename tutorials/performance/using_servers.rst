@@ -33,10 +33,10 @@ At the core, Godot uses the concept of Servers. They are very low-level APIs to 
 rendering, physics, sound, etc. The scene system is built on top of them and uses them directly.
 The most common servers are:
 
-* `VisualServer <class_VisualServer>`: handles everything related to graphics.
-* `PhysicsServer <class_PhysicsServer>`: handles everything related to 3D physics.
-* `Physics2DServer <class_Physics2DServer>`: handles everything related to 2D physics.
-* `AudioServer <class_AudioServer>`: handles everything related to audio.
+* `VisualServer`: handles everything related to graphics.
+* `PhysicsServer`: handles everything related to 3D physics.
+* `Physics2DServer`: handles everything related to 2D physics.
+* `AudioServer`: handles everything related to audio.
 
 Explore their APIs and you will realize that all the functions provided are low-level
 implementations of everything Godot allows you to do.
@@ -44,38 +44,38 @@ implementations of everything Godot allows you to do.
 RIDs
 ----
 
-The key to using servers is understanding Resource ID (`RID <class_RID>`) objects. These are opaque
+The key to using servers is understanding Resource ID (`RID`) objects. These are opaque
 handles to the server implementation. They are allocated and freed manually. Almost every
 function in the servers requires RIDs to access the actual resource.
 
 Most Godot nodes and resources contain these RIDs from the servers internally, and they can
-be obtained with different functions. In fact, anything that inherits `Resource <class_Resource>`
+be obtained with different functions. In fact, anything that inherits `Resource`
 can be directly casted to an RID. Not all resources contain an RID, though: in such cases, the RID will be empty. The resource can then be passed to server APIs as an RID.
 
-.. Warning::  Resources are reference-counted (see `Reference <class_Reference>`), and
+.. Warning::  Resources are reference-counted (see `Reference`), and
               references to a resource's RID are *not* counted when determining whether
               the resource is still in use. Make sure to keep a reference to the resource
               outside the server, or else both it and its RID will be erased.
 
 For nodes, there are many functions available:
 
-* For CanvasItem, the `CanvasItem.get_canvas_item() <class_CanvasItem_method_get_canvas_item>`
+* For CanvasItem, the `CanvasItem.get_canvas_item()`
   method will return the canvas item RID in the server.
-* For CanvasLayer, the `CanvasLayer.get_canvas() <class_CanvasLayer_method_get_canvas>`
+* For CanvasLayer, the `CanvasLayer.get_canvas()`
   method will return the canvas RID in the server.
-* For Viewport, the `Viewport.get_viewport_rid() <class_Viewport_method_get_viewport_rid>`
+* For Viewport, the `Viewport.get_viewport_rid()`
   method will return the viewport RID in the server.
-* For 3D, the `World <class_World>` resource (obtainable in the `Viewport <class_Viewport>`
-  and `Spatial <class_Spatial>` nodes)
+* For 3D, the `World`
+  and `Spatial` nodes)
   contains functions to get the *VisualServer Scenario*, and the *PhysicsServer Space*. This
   allows creating 3D objects directly with the server API and using them.
-* For 2D, the `World2D <class_World2D>` resource (obtainable in the `Viewport <class_Viewport>`
-  and `CanvasItem <class_CanvasItem>` nodes)
+* For 2D, the `World2D`
+  and `CanvasItem` nodes)
   contains functions to get the *VisualServer Canvas*, and the *Physics2DServer Space*. This
   allows creating 2D objects directly with the server API and using them.
 * The `VisualInstance<class_VisualInstance>` class, allows getting the scenario *instance* and
-  *instance base* via the `VisualInstance.get_instance() <class_VisualInstance_method_get_instance>`
-  and `VisualInstance.get_base() <class_VisualInstance_method_get_base>` respectively.
+  *instance base* via the `VisualInstance.get_instance()`
+  and `VisualInstance.get_base()` respectively.
 
 Try exploring the nodes and resources you are familiar with and find the functions to obtain the server *RIDs*.
 
@@ -86,7 +86,7 @@ Creating a sprite
 -----------------
 
 This is a simple example of how to create a sprite from code and move it using the low-level
-`CanvasItem <class_CanvasItem>` API.
+`CanvasItem` API.
 
 gdscript GDScript
 
@@ -160,8 +160,8 @@ gdscript GDScript
 Creating a 2D RigidBody and moving a sprite with it
 ---------------------------------------------------
 
-This creates a `RigidBody2D <class_RigidBody2D>` using the `Physics2DServer <class_Physics2DServer>` API,
-and moves a `CanvasItem <class_CanvasItem>` when the body moves.
+This creates a `RigidBody2D` API,
+and moves a `CanvasItem` when the body moves.
 
 gdscript GDScript
 
@@ -197,7 +197,7 @@ gdscript GDScript
 ```
 
 The 3D version should be very similar, as 2D and 3D physics servers are identical (using
-`RigidBody <class_RigidBody>` and `PhysicsServer <class_PhysicsServer>` respectively).
+`RigidBody` respectively).
 
 Getting data from the servers
 -----------------------------

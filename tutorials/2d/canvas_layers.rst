@@ -6,20 +6,20 @@ Canvas layers
 Viewport and Canvas items
 -------------------------
 
-`CanvasItem <class_CanvasItem>` is the base for all 2D nodes, be it regular
-2D nodes, such as `Node2D <class_Node2D>`, or `Control <class_Control>`.
-Both inherit from `CanvasItem <class_CanvasItem>`.
+`CanvasItem` is the base for all 2D nodes, be it regular
+2D nodes, such as `Node2D`.
+Both inherit from `CanvasItem`.
 You can arrange canvas items in trees. Each item will inherit its parent's
 transform: when the parent moves, its children move too.
 
 CanvasItem nodes, and nodes inheriting from them, are direct or indirect children of a
-`Viewport <class_Viewport>`, that display them.
+`Viewport`, that display them.
 
 A Viewport has the property
-`Viewport.canvas_transform <class_Viewport_property_canvas_transform>`,
-allows to apply a custom `Transform2D <class_Transform2D>`
+`Viewport.canvas_transform`,
+allows to apply a custom `Transform2D`
 transform to the CanvasItem hierarchy it contains. Nodes such as
-`Camera2D <class_Camera2D>` work by changing that transform.
+`Camera2D` work by changing that transform.
 
 To achieve effects like scrolling, manipulating the canvas transform property is
 more efficient than moving the root canvas item and the entire scene with it.
@@ -37,7 +37,7 @@ How can these problems be solved in a single scene tree?
 CanvasLayers
 ------------
 
-The answer is `CanvasLayer <class_CanvasLayer>`,
+The answer is `CanvasLayer`,
 which is a node that adds a separate 2D rendering layer for all its
 children and grand-children. Viewport children will draw by default at
 layer "0", while a CanvasLayer will draw at any numeric layer. Layers
@@ -61,4 +61,4 @@ their layer number, so they can be instantiated when needed.
             The standard way to ensuring that a node is  correctly drawn 'in front' or 'behind' others is to manipulate the
             order of the nodes in the scene panel. Perhaps counterintuitively, the topmost nodes in the scene panel are drawn
             on *behind* lower ones in the viewport. 2d nodes also have a property for controlling their drawing order
-            (see `Node2D.z_index <class_Node2D_property_z_index>`).
+            (see `Node2D.z_index`).

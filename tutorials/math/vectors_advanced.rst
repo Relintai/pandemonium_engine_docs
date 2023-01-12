@@ -67,7 +67,7 @@ by N and D. For example:
 
 .. image:: img/tutovec12.png
 
-For 3D math, Godot provides a `Plane <class_Plane>`
+For 3D math, Godot provides a `Plane`
 built-in type that handles this.
 
 Basically, N and D can represent any plane in space, be it for 2D or 3D
@@ -114,7 +114,7 @@ gdscript GDScript
     D = -D
 ```
 
-Of course, Godot also implements this operator in `Plane <class_Plane>`,
+Of course, Godot also implements this operator in `Plane`,
 so doing:
 
 gdscript GDScript

@@ -433,7 +433,7 @@ Yes! Godot features an extensive built-in UI system, and its small distribution
 size can make it a suitable alternative to frameworks like Electron or Qt.
 
 When creating a non-game application, make sure to enable
-`low-processor mode <class_ProjectSettings_property_application/run/low_processor_mode>`
+`low-processor mode`
 in the Project Settings to decrease CPU and GPU usage.
 
 That said, we wouldn't recommend using Godot to create a *mobile* application

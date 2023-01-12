@@ -10,7 +10,7 @@ Every beginner has been there: "How do I move my character?" Depending on the
 style of game you're making, you may have special requirements, but in general
 the movement in most 2D games is based on a small number of designs.
 
-We'll use `KinematicBody2D <class_KinematicBody2D>` for these examples,
+We'll use `KinematicBody2D` for these examples,
 but the principles will apply to other node types (Area2D, RigidBody2D) as well.
 
 .. _doc_2d_movement_setup:
@@ -159,7 +159,7 @@ gdscript GDScript
         velocity = move_and_slide(velocity)
 ```
 
-Here we're using the `Node2D <class_Node2D>` ``look_at()`` method to
+Here we're using the `Node2D` ``look_at()`` method to
 point the player towards a given position. Without this function, you
 could get the same effect by setting the angle like this:
 

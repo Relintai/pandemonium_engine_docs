@@ -7,9 +7,9 @@ Introduction
 ------------
 
 A tilemap is a grid of tiles used to create a game's layout. There are several
-benefits to using `TileMap <class_TileMap>` nodes to design your levels.
+benefits to using `TileMap` nodes to design your levels.
 First, they make it possible to draw the layout by "painting" the tiles onto a
-grid, which is much faster than placing individual `Sprite <class_Sprite>`
+grid, which is much faster than placing individual `Sprite`
 nodes one by one. Second, they allow for much larger levels because they are
 optimized for drawing large numbers of tiles. Finally, you can add collision,
 occlusion, and navigation shapes to tiles, adding additional functionality to
@@ -36,7 +36,7 @@ off ``Filter`` and click "Reimport". See `doc_import_images` for details.
 TileMap node
 ------------
 
-Add a new `TileMap <class_TileMap>` node to the scene. By default, a TileMap
+Add a new `TileMap` node to the scene. By default, a TileMap
 uses a square grid of tiles. You can also use a perspective-based "Isometric" mode
 or define your own custom tile shape.
 
@@ -71,8 +71,8 @@ Creating a TileSet
 ------------------
 
 Once you've configured your tilemap, it's time to add a
-`TileSet <class_TileSet>`. A TileSet is a
-`Resource <class_Resource>` that contains the data about your
+`TileSet`. A TileSet is a
+`Resource` that contains the data about your
 tiles - their   textures, collision shapes, and other properties. When the game
 runs, the TileMap combines the individual tiles into a single object.
 
@@ -340,7 +340,7 @@ to take effect.
 Tips and tricks
 ---------------
 
-- If you're using a `Camera2D <class_Camera2D>` to scroll your level, you
+- If you're using a `Camera2D` to scroll your level, you
   may notice lines appearing between your tiles. To fix this, open Project
   Settings and enable **Use Gpu Pixel Snap** in the **Rendering > 2d > Snapping** section.
 

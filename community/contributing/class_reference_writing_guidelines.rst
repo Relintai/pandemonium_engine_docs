@@ -127,17 +127,17 @@ the text. Here's the list of available tags:
 +============================+======================================+===================================+===================================================+
 | [Class]                    | Link a class                         | Move the [Sprite].                | Move the `class_Sprite`.                     |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [method methodname]        | Link to a method in this class       | Call [method hide].               | Call `hide <class_Spatial_method_hide>`.     |
+| [method methodname]        | Link to a method in this class       | Call [method hide].               | Call `hide`.     |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [method Class.methodname]  | Link to another class's method       | Call [method Spatial.hide].       | Call `hide <class_Spatial_method_hide>`.     |
+| [method Class.methodname]  | Link to another class's method       | Call [method Spatial.hide].       | Call `hide`.     |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [member membername]        | Link to a member in this class       | Get [member scale].               | Get `scale <class_Node2D_property_scale>`.   |
+| [member membername]        | Link to a member in this class       | Get [member scale].               | Get `scale`.   |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [member Class.membername]  | Link to another class's member       | Get [member Node2D.scale].        | Get `scale <class_Node2D_property_scale>`.   |
+| [member Class.membername]  | Link to another class's member       | Get [member Node2D.scale].        | Get `scale`.   |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [signal signalname]        | Link to a signal in this class       | Emit [signal renamed].            | Emit `renamed <class_Node_signal_renamed>`.  |
+| [signal signalname]        | Link to a signal in this class       | Emit [signal renamed].            | Emit `renamed`.  |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [signal Class.signalname]  | Link to another class's signal       | Emit [signal Node.renamed].       | Emit `renamed <class_Node_signal_renamed>`.  |
+| [signal Class.signalname]  | Link to another class's signal       | Emit [signal Node.renamed].       | Emit `renamed`.  |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [b] [/b]                   | Bold                                 | Some [b]bold[/b] text.            | Some **bold** text.                               |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+

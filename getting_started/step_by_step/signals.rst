@@ -198,7 +198,7 @@ Connecting a signal via code
 You can connect signals via code instead of using the editor. This is necessary
 when you create nodes or instantiate scenes inside of a script.
 
-Let's use a different node here. Godot has a `Timer <class_Timer>` node
+Let's use a different node here. Godot has a `Timer` node
 that's useful to implement skill cooldown times, weapon reloading, and more.
 
 Head back to the 2D workspace. You can either click the "2D" text at the top of
@@ -229,11 +229,11 @@ We need to do two operations to connect the nodes via code:
           listen to the Timer's "timeout" signal.
 
 We want to connect the signal when the scene is instantiated, and we can do that
-using the `Node._ready() <class_Node_method__ready>` built-in function,
+using the `Node._ready()` built-in function,
 which is called automatically by the engine when a node is fully instantiated.
 
 To get a reference to a node relative to the current one, we use the method
-`Node.get_node() <class_Node_method_get_node>`. We can store the reference
+`Node.get_node()`. We can store the reference
 in a variable.
 
 gdscript GDScript
@@ -393,7 +393,7 @@ Signals have many uses. With them, you can react to a node entering or exiting
 the game world, to a collision, to a character entering or leaving an area, to
 an element of the interface changing size, and much more.
 
-For example, an `Area2D <class_Area2D>` representing a coin emits a
+For example, an `Area2D` representing a coin emits a
 ``body_entered`` signal whenever the player's physics body enters its collision
 shape, allowing you to know when the player collected it.
 

@@ -75,7 +75,7 @@ gdscript GDScript
        call(method_name) # Call parent-defined method (which child must own).
 ```
 
-3. Initialize a `FuncRef <class_FuncRef>` property. Safer than a method
+3. Initialize a `FuncRef` property. Safer than a method
    as ownership of the method is unnecessary. Used to start behavior.
 
 gdscript GDScript
@@ -157,12 +157,12 @@ gdscript GDScript
 
   To avoid creating and maintaining such documentation, one converts the
   dependent node ("child" above) into a tool script that implements
-  `_get_configuration_warning() <class_Node_method__get_configuration_warning>`.
+  `_get_configuration_warning()`.
   Returning a non-empty string from it will make the Scene dock generate a
   warning icon with the string as a tooltip by the node. This is the same icon
   that appears for nodes such as the
-  `Area2D <class_Area2D>` node when it has no child
-  `CollisionShape2D <class_CollisionShape2D>` nodes defined. The editor
+  `Area2D` node when it has no child
+  `CollisionShape2D` nodes defined. The editor
   then self-documents the scene through the script code. No content duplication
   via documentation is necessary.
 
@@ -234,7 +234,7 @@ If one has a system that...
 
   For smaller games, a simpler alternative with less control would be to have
   a "Game" singleton that simply calls the
-  `SceneTree.change_scene() <class_SceneTree_method_change_scene>` method
+  `SceneTree.change_scene()` method
   to swap out the main scene's content. This structure more or less keeps
   the "World" as the main game node.
 
@@ -259,11 +259,11 @@ own place in the hierarchy as a sibling or some other relation.
 
   In some cases, one needs these separated nodes to *also* position themselves
   relative to each other. One can use the
-  `RemoteTransform <class_RemoteTransform>` /
-  `RemoteTransform2D <class_RemoteTransform2D>` nodes for this purpose.
+  `RemoteTransform` /
+  `RemoteTransform2D` nodes for this purpose.
   They will allow a target node to conditionally inherit selected transform
   elements from the Remote\* node. To assign the ``target``
-  `NodePath <class_NodePath>`, use one of the following:
+  `NodePath`, use one of the following:
 
   1. A reliable third party, likely a parent node, to mediate the assignment.
   2. A group, to easily pull a reference to the desired node (assuming there
@@ -307,12 +307,12 @@ own place in the hierarchy as a sibling or some other relation.
   In contrast, if one ever needs to have a child node that does *not* inherit
   the transform of their parent, one has the following options:
 
-  1. The **declarative** solution: place a `Node <class_Node>` in between
+  1. The **declarative** solution: place a `Node` in between
      them. As nodes with no transform, Nodes will not pass along such
      information to their children.
   2. The **imperative** solution: Use the ``set_as_toplevel`` setter for the
-     `CanvasItem <class_CanvasItem_method_set_as_toplevel>` or
-     `Spatial <class_Spatial_method_set_as_toplevel>` node. This will make
+     `CanvasItem` or
+     `Spatial` node. This will make
      the node ignore its inherited transform.
 
 .. note::

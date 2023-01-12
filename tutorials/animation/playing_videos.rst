@@ -144,7 +144,7 @@ There are several limitations with the current implementation of video playback 
 - Changing playback speed is not supported. VideoPlayer also won't follow
   `Engine.time_scale<class_Engine_property_time_scale>`.
 - Looping is not supported, but you can connect a VideoPlayer's
-  `finished <class_VideoPlayer_signal_finished>` signal to a function
+  `finished` signal to a function
   that plays the video again. However, this will cause a black frame to be
   visible when the video restarts. This can be worked around by adding a fade to
   black in the video file before the video ends, or by hiding the video for one

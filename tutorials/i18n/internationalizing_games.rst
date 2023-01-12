@@ -51,7 +51,7 @@ locale.
 Converting keys to text
 -----------------------
 
-Some controls, such as `Button <class_Button>` and `Label <class_Label>`,
+Some controls, such as `Button`,
 will automatically fetch a translation if their text matches a translation key.
 For example, if a label's text is "MAIN_SCREEN_GREETING1" and that key exists
 in the current translation, then the text will automatically be translated.
@@ -80,7 +80,7 @@ For more complex UI nodes such as OptionButtons, you may have to use this instea
         option_button.get_popup().set_message_translation(false)
         option_button.get_popup().notification(NOTIFICATION_TRANSLATION_CHANGED)
 
-In code, the `Object.tr() <class_Object_method_tr>`
+In code, the `Object.tr()`
 function can be used. This will just look up the text in the
 translations and convert it if found:
 
@@ -95,14 +95,14 @@ Making controls resizable
 The same text in different languages can vary greatly in length. For
 this, make sure to read the tutorial on `doc_size_and_anchors`, as
 dynamically adjusting control sizes may help.
-`Container <class_Container>` can be useful, as well as the text wrapping
-options available in `Label <class_Label>`.
+`Container` can be useful, as well as the text wrapping
+options available in `Label`.
 
 TranslationServer
 -----------------
 
 Godot has a server handling low-level translation management
-called the `TranslationServer <class_TranslationServer>`.
+called the `TranslationServer`.
 Translations can be added or removed during run-time;
 the current language can also be changed at run-time.
 

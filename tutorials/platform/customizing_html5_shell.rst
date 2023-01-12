@@ -148,7 +148,7 @@ allows to test for a specific major version of WebGL.
 
 As the real executable file does not exist in the Web environment, the engine only stores a virtual
 filename formed from the base name of loaded engine files. This value affects the output of the
-`OS.get_executable_path() <class_OS_method_get_executable_path>` method and defines the name of
+`OS.get_executable_path()` method and defines the name of
 the automatically started main pack. The :js:attr:`executable` override option can be
 used to override this value.
 

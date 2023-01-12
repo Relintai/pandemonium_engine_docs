@@ -20,11 +20,11 @@ and keep the imported resources hidden in a ``res://.import`` folder.
 This means that when trying to access imported assets through code you
 need to use the `Resource Loader<class_ResourceLoader>` as it will
 automatically take into account where the internal files are saved. If you
-try and access an imported asset using the `File <class_File>` class
+try and access an imported asset using the `File` class
 it will work in the editor, but break in the exported project.
 
 However, the `Resource Loader<class_ResourceLoader>` cannot access
-non imported files, only the `File <class_File>` class can.
+non imported files, only the `File` class can.
 
 Changing import parameters
 --------------------------

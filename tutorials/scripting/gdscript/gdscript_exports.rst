@@ -7,7 +7,7 @@ Introduction to exports
 -----------------------
 
 In Godot, class members can be exported. This means their value gets saved along
-with the resource (such as the `scene <class_PackedScene>`) they're
+with the resource (such as the `scene`) they're
 attached to. They will also be available for editing in the property editor.
 Exporting is done by using the ``export`` keyword::
 
@@ -213,7 +213,7 @@ Setting exported variables from a tool script
 When changing an exported variable's value from a script in
 `doc_gdscript_tool_mode`, the value in the inspector won't be updated
 automatically. To update it, call
-`property_list_changed_notify() <class_Object_method_property_list_changed_notify>`
+`property_list_changed_notify()`
 after setting the exported variable's value.
 
 Advanced exports
@@ -225,9 +225,9 @@ common exporting features which can be implemented with a low-level API.
 
 Before reading further, you should get familiar with the way properties are
 handled and how they can be customized with
-`_set() <class_Object_method__get_property_list>`,
-`_get() <class_Object_method__get_property_list>`, and
-`_get_property_list() <class_Object_method__get_property_list>` methods as
+`_set()`,
+`_get()`, and
+`_get_property_list()` methods as
 described in `doc_accessing_data_or_logic_from_object`.
 
 .. seealso:: For binding properties using the above methods in C++, see
@@ -269,8 +269,8 @@ Attaching variables to properties
 To attach variables to properties (allowing the value of the property to be used
 in scripts), you need to create a variable with the exact same name as the
 property or else you may need to override the 
-`_set() <class_Object_method__get_property_list>` and 
-`_get() <class_Object_method__get_property_list>` methods. Attaching
+`_set()` and 
+`_get()` methods. Attaching
 a variable to to a property also gives you the ability to give it a default state.
 ::
 

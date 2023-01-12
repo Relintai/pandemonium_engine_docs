@@ -348,18 +348,18 @@ null
 ``null`` is an empty data type that contains no information and can not
 be assigned any other value.
 
-`bool <class_bool>`
+`bool`
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Short for "boolean", it can only contain ``true`` or ``false``.
 
-`int <class_int>`
+`int`
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Short for "integer", it stores whole numbers (positive and negative).
 It is stored as a 64-bit value, equivalent to "int64_t" in C++.
 
-`float <class_float>`
+`float`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Stores real numbers, including decimals, using floating-point values.
@@ -367,7 +367,7 @@ It is stored as a 64-bit value, equivalent to "double" in C++.
 Note: Currently, data structures such as Vector2, Vector3, and
 PoolRealArray store 32-bit single-precision "float" values.
 
-`String <class_String>`
+`String`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A sequence of characters in `Unicode format <https://en.wikipedia.org/wiki/Unicode>`_.
@@ -405,56 +405,56 @@ GDScript also supports `doc_gdscript_printf`.
 Vector built-in types
 ~~~~~~~~~~~~~~~~~~~~~
 
-`Vector2 <class_Vector2>`
+`Vector2`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2D vector type containing ``x`` and ``y`` fields. Can also be
 accessed as an array.
 
-`Rect2 <class_Rect2>`
+`Rect2`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2D Rectangle type containing two vectors fields: ``position`` and ``size``.
 Also contains an ``end`` field which is ``position + size``.
 
-`Vector3 <class_Vector3>`
+`Vector3`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3D vector type containing ``x``, ``y`` and ``z`` fields. This can also
 be accessed as an array.
 
-`Transform2D <class_Transform2D>`
+`Transform2D`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3×2 matrix used for 2D transforms.
 
-`Plane <class_Plane>`
+`Plane`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3D Plane type in normalized form that contains a ``normal`` vector field
 and a ``d`` scalar distance.
 
-`Quat <class_Quat>`
+`Quat`
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Quaternion is a datatype used for representing a 3D rotation. It's
 useful for interpolating rotations.
 
-`AABB <class_AABB>`
+`AABB`
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Axis-aligned bounding box (or 3D box) contains 2 vectors fields: ``position``
 and ``size``. Also contains an ``end`` field which is
 ``position + size``.
 
-`Basis <class_Basis>`
+`Basis`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3x3 matrix used for 3D rotation and scale. It contains 3 vector fields
 (``x``, ``y`` and ``z``) and can also be accessed as an array of 3D
 vectors.
 
-`Transform <class_Transform>`
+`Transform`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 3D Transform contains a Basis field ``basis`` and a Vector3 field
@@ -463,24 +463,24 @@ vectors.
 Engine built-in types
 ~~~~~~~~~~~~~~~~~~~~~
 
-`Color <class_Color>`
+`Color`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Color data type contains ``r``, ``g``, ``b``, and ``a`` fields. It can
 also be accessed as ``h``, ``s``, and ``v`` for hue/saturation/value.
 
-`NodePath <class_NodePath>`
+`NodePath`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Compiled path to a node used mainly in the scene system. It can be
 easily assigned to, and from, a String.
 
-`RID <class_RID>`
+`RID`
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Resource ID (RID). Servers use generic RIDs to reference opaque data.
 
-`Object <class_Object>`
+`Object`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Base class for anything that is not a built-in type.
@@ -488,7 +488,7 @@ Base class for anything that is not a built-in type.
 Container built-in types
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Array <class_Array>`
+`Array`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generic sequence of arbitrary object types, including other arrays or dictionaries (see below).
@@ -512,15 +512,15 @@ arrays are available. These only accept a single data type. They avoid memory
 fragmentation and use less memory, but are atomic and tend to run slower than generic
 arrays. They are therefore only recommended to use for large data sets:
 
-- `PoolByteArray <class_PoolByteArray>`: An array of bytes (integers from 0 to 255).
-- `PoolIntArray <class_PoolIntArray>`: An array of integers.
-- `PoolRealArray <class_PoolRealArray>`: An array of floats.
-- `PoolStringArray <class_PoolStringArray>`: An array of strings.
-- `PoolVector2Array <class_PoolVector2Array>`: An array of `Vector2 <class_Vector2>` objects.
-- `PoolVector3Array <class_PoolVector3Array>`: An array of `Vector3 <class_Vector3>` objects.
-- `PoolColorArray <class_PoolColorArray>`: An array of `Color <class_Color>` objects.
+- `PoolByteArray`: An array of bytes (integers from 0 to 255).
+- `PoolIntArray`: An array of integers.
+- `PoolRealArray`: An array of floats.
+- `PoolStringArray`: An array of strings.
+- `PoolVector2Array` objects.
+- `PoolVector3Array` objects.
+- `PoolColorArray` objects.
 
-`Dictionary <class_Dictionary>`
+`Dictionary`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Associative container which contains values referenced by unique keys.
@@ -569,8 +569,8 @@ assign to it::
     The bracket syntax can be used to access properties of any
     `class_Object`, not just Dictionaries. Keep in mind it will cause a
     script error when attempting to index a non-existing property. To avoid
-    this, use the `Object.get() <class_Object_method_get>` and
-    `Object.set() <class_Object_method_set>` methods instead.
+    this, use the `Object.get()` and
+    `Object.set()` methods instead.
 
 Data
 ----
@@ -1270,7 +1270,7 @@ function.
 Classes as resources
 ^^^^^^^^^^^^^^^^^^^^
 
-Classes stored as files are treated as `resources <class_GDScript>`. They
+Classes stored as files are treated as `resources`. They
 must be loaded from disk to access them in other classes. This is done using
 either the ``load`` or ``preload`` functions (see below). Instancing of a loaded
 class resource is done by calling the ``new`` function on the class object::
@@ -1452,9 +1452,9 @@ to react to health changes with an animation, but we want to keep the user
 interface separate from the player in our scene tree.
 
 In our ``Character.gd`` script, we define a ``health_changed`` signal and emit
-it with `Object.emit_signal() <class_Object_method_emit_signal>`, and from
+it with `Object.emit_signal()`, and from
 a ``Game`` node higher up our scene tree, we connect it to the ``Lifebar`` using
-the `Object.connect() <class_Object_method_connect>` method::
+the `Object.connect()` method::
 
     # Character.gd
 

@@ -7,8 +7,8 @@ Introduction
 ------------
 
 For the most common cases, Godot provides ready to use materials for
-most types of shaders, such as `SpatialMaterial <class_SpatialMaterial>`,
-`CanvasItemMaterial <class_CanvasItemMaterial>` and `ParticlesMaterial <class_ParticlesMaterial>`.
+most types of shaders, such as `SpatialMaterial`,
+`CanvasItemMaterial`.
 They are flexible implementations that cover most use cases.
 
 Shader materials allow writing a custom shader directly, for maximum flexibility.

@@ -3,9 +3,9 @@
 Using the ArrayMesh
 ===================
 
-This tutorial will present the basics of using an `ArrayMesh <class_arraymesh>`.
+This tutorial will present the basics of using an `ArrayMesh`.
 
-To do so, we will use the function `add_surface_from_arrays() <class_ArrayMesh_method_add_surface_from_arrays>`,
+To do so, we will use the function `add_surface_from_arrays()`,
 which takes up to four parameters. The first two are required, while the second two are optional.
 
 The first parameter is the ``PrimitiveType``, an OpenGL concept that instructs the GPU
@@ -32,40 +32,40 @@ See also `Mesh.ArrayType <enum_Mesh_ArrayType>`.
 
     * - 0
       - ``ARRAY_VERTEX``
-      - `PoolVector3Array <class_PoolVector3Array>` or `PoolVector2Array <class_PoolVector2Array>`
+      - `PoolVector3Array`
 
     * - 1
       - ``ARRAY_NORMAL``
-      - `PoolVector3Array <class_PoolVector3Array>`
+      - `PoolVector3Array`
 
     * - 2
       - ``ARRAY_TANGENT``
-      - `PoolRealArray <class_PoolRealArray>` of groups of 4 floats. First 3 floats determine the tangent, and
+      - `PoolRealArray` of groups of 4 floats. First 3 floats determine the tangent, and
         the last the binormal direction as -1 or 1.
 
     * - 3
       - ``ARRAY_COLOR``
-      - `PoolColorArray <class_PoolColorArray>`
+      - `PoolColorArray`
 
     * - 4
       - ``ARRAY_TEX_UV``
-      - `PoolVector2Array <class_PoolVector2Array>` or `PoolVector3Array <class_PoolVector3Array>`
+      - `PoolVector2Array`
 
     * - 5
       - ``ARRAY_TEX_UV2``
-      - `PoolVector2Array <class_PoolVector2Array>` or `PoolVector3Array <class_PoolVector3Array>`
+      - `PoolVector2Array`
 
     * - 6
       - ``ARRAY_BONES``
-      - `PoolRealArray <class_PoolRealArray>` of groups of 4 floats or `PoolIntArray <class_PoolIntArray>` of groups of 4 ints. Each group lists indexes of 4 bones that affects a given vertex.
+      - `PoolRealArray` of groups of 4 ints. Each group lists indexes of 4 bones that affects a given vertex.
 
     * - 7
       - ``ARRAY_WEIGHTS``
-      - `PoolRealArray <class_PoolRealArray>` of groups of 4 floats. Each float lists the amount of weight an determined bone on ``ARRAY_BONES`` has on a given vertex.
+      - `PoolRealArray` of groups of 4 floats. Each float lists the amount of weight an determined bone on ``ARRAY_BONES`` has on a given vertex.
 
     * - 8
       - ``ARRAY_INDEX``
-      - `PoolIntArray <class_PoolIntArray>`
+      - `PoolIntArray`
 
 The array of vertices (at index 0) is always required. The index array is optional and will only be used if included. We won't use it in this tutorial.
 
@@ -73,12 +73,12 @@ All the other arrays carry information about the vertices. They are also optiona
 use one entry per vertex to provide extra information about vertices. They must have the same size as the vertex array. Other arrays (e.g. ``ARRAY_TANGENT``) use
 four entries to describe a single vertex. These must be exactly four times larger than the vertex array.
 
-For normal usage, the last two parameters in `add_surface_from_arrays() <class_arraymesh_method_add_surface_from_arrays>` are typically left empty.
+For normal usage, the last two parameters in `add_surface_from_arrays()` are typically left empty.
 
 ArrayMesh
 ---------
 
-In the editor, create a `MeshInstance <class_meshinstance>` and add an `ArrayMesh <class_arraymesh>` to it in the Inspector.
+In the editor, create a `MeshInstance` to it in the Inspector.
 Normally, adding an ArrayMesh in the editor is not useful, but in this case it allows us to access the ArrayMesh
 from code without creating one.
 
@@ -239,7 +239,7 @@ gdscript GDScript
 Saving
 ------
 
-Finally, we can use the `ResourceSaver <class_resourcesaver>` class to save the ArrayMesh.
+Finally, we can use the `ResourceSaver` class to save the ArrayMesh.
 This is useful when you want to generate a mesh and then use it later without having to re-generate it.
 
 gdscript GDScript

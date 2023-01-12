@@ -91,8 +91,8 @@ editor, and it must inherit from `class_EditorPlugin`.
 
 It's important to deal with initialization and clean-up of resources.
 A good practice is to use the virtual function
-`_enter_tree() <class_Node_method__enter_tree>` to initialize your plugin and
-`_exit_tree() <class_Node_method__exit_tree>` to clean it up. Thankfully,
+`_enter_tree()` to initialize your plugin and
+`_exit_tree()` to clean it up. Thankfully,
 the dialog generates these callbacks for you. Your script should look something
 like this:
 
@@ -134,7 +134,7 @@ custom behavior.
   are writing GDScript or NativeScript, we recommend using Script Classes instead.
 
 To create a new node type, you can use the function
-`add_custom_type() <class_EditorPlugin_method_add_custom_type>` from the
+`add_custom_type()` from the
 `class_EditorPlugin` class. This function can add new types to the editor
 (nodes or resources). However, before you can create the type, you need a script
 that will act as the logic for the type. While that script doesn't have to use
@@ -234,7 +234,7 @@ Since we're trying to add a new custom dock, we need to create the contents of
 the dock. This is nothing more than a standard Godot scene: just create
 a new scene in the editor then edit it.
 
-For an editor dock, the root node **must** be a `Control <class_Control>`
+For an editor dock, the root node **must** be a `Control`
 or one of its child classes. For this tutorial, you can create a single button.
 The name of the root node will also be the name that appears on the dock tab,
 so be sure to give it a short and descriptive name.
@@ -244,8 +244,8 @@ Also, don't forget to add some text to your button.
 
 Save this scene as ``my_dock.tscn``. Now, we need to grab the scene we created
 then add it as a dock in the editor. For this, you can rely on the function
-`add_control_to_dock() <class_EditorPlugin_method_add_control_to_dock>` from the
-`EditorPlugin <class_EditorPlugin>` class.
+`add_control_to_dock()` from the
+`EditorPlugin` class.
 
 You need to select a dock position and define the control to add
 (which is the scene you just created). Don't forget to

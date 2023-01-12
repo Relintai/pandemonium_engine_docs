@@ -80,7 +80,7 @@ heading.
 
 .. image:: img/player_scale.png
 
-Finally, add a `CollisionShape2D <class_CollisionShape2D>` as a child of
+Finally, add a `CollisionShape2D` as a child of
 ``Player``. This will determine the player's "hitbox", or the bounds of its
 collision area. For this character, a ``CapsuleShape2D`` node gives the best
 fit, so next to "Shape" in the Inspector, click "[empty]"" -> "New

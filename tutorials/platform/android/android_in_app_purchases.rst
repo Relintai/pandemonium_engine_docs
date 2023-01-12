@@ -121,7 +121,7 @@ Check if the user purchased an item
 ***********************************
 
 To get all purchases, call ``queryPurchases``. Unlike most of the other functions, ``queryPurchases`` is
-a synchronous operation and returns a `Dictionary <class_Dictionary>` with a status code
+a synchronous operation and returns a `Dictionary` with a status code
 and either an array of purchases or an error message. Only active subscriptions and non-consumed one-time purchases are returned.
 
 Full example:

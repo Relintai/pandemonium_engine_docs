@@ -10,7 +10,7 @@ Godot has nodes to draw sprites, polygons, particles, and all sorts of
 stuff. For most cases, this is enough; but not always. Before crying in fear,
 angst, and rage because a node to draw that specific *something* does not exist...
 it would be good to know that it is possible to easily make any 2D node (be it
-`Control <class_Control>` or `Node2D <class_Node2D>`
+`Control`
 based) draw custom commands. It is *really* easy to do it, too.
 
 Custom drawing in a 2D node is *really* useful. Here are some use cases:
@@ -30,9 +30,9 @@ Custom drawing in a 2D node is *really* useful. Here are some use cases:
 Drawing
 -------
 
-Add a script to any `CanvasItem <class_CanvasItem>`
-derived node, like `Control <class_Control>` or
-`Node2D <class_Node2D>`. Then override the ``_draw()`` function.
+Add a script to any `CanvasItem`
+derived node, like `Control` or
+`Node2D`. Then override the ``_draw()`` function.
 
 gdscript GDScript
 
@@ -44,7 +44,7 @@ gdscript GDScript
         pass
 ```
 
-Draw commands are described in the `CanvasItem <class_CanvasItem>`
+Draw commands are described in the `CanvasItem`
 class reference. There are plenty of them.
 
 Updating
@@ -54,7 +54,7 @@ The ``_draw()`` function is only called once, and then the draw commands
 are cached and remembered, so further calls are unnecessary.
 
 If re-drawing is required because a state or something else changed,
-call `CanvasItem.update() <class_CanvasItem_method_update>`
+call `CanvasItem.update()`
 in that same node and a new ``_draw()`` call will happen.
 
 Here is a little more complex example, a texture variable that will be

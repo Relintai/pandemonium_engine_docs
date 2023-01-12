@@ -3,8 +3,8 @@
 Theme type variations
 =====================
 
-When designing a user interface there may be times when a `Control <class_Control>` node
-needs to have a different look than what is normally defined by a `Theme <class_Theme>`.
+When designing a user interface there may be times when a `Control` node
+needs to have a different look than what is normally defined by a `Theme`.
 Every control node has theme property overrides, which allow you to redefine the styling for
 each individual UI element.
 
@@ -12,7 +12,7 @@ each individual UI element.
    :align: center
 
 This approach quickly becomes hard to manage, if you need to share the same custom look
-between several controls. Imagine that you use gray, blue, and red variants of `Button <class_Button>`
+between several controls. Imagine that you use gray, blue, and red variants of `Button`
 throughout your project. Setting it up every time you add a new button element to your interface
 is a tedious task.
 

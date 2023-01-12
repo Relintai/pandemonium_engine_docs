@@ -231,12 +231,12 @@ performance when you have very large numbers of nodes (usually in the thousands)
 Each node is handled individually in the Godot renderer. Therefore, a smaller
 number of nodes with more in each can lead to better performance.
 
-One quirk of the `SceneTree <class_SceneTree>` is that you can sometimes
+One quirk of the `SceneTree` is that you can sometimes
 get much better performance by removing nodes from the SceneTree, rather than by
 pausing or hiding them. You don't have to delete a detached node. You can for
 example, keep a reference to a node, detach it from the scene tree using
-`Node.remove_child(node) <class_Node_method_remove_child>`, then reattach
-it later using `Node.add_child(node) <class_Node_method_add_child>`.
+`Node.remove_child(node)`, then reattach
+it later using `Node.add_child(node)`.
 This can be very useful for adding and removing areas from a game, for example.
 
 You can avoid the SceneTree altogether by using Server APIs. For more

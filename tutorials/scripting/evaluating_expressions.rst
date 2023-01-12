@@ -11,7 +11,7 @@ An expression can be:
 - A built-in method call like ``deg2rad(90)``.
 - A method call on an user-provided script like ``update_health()``,
   if ``base_instance`` is set to a value other than ``null`` when calling
-  `Expression.execute() <class_Expression_method_execute>`.
+  `Expression.execute()`.
 
 .. note::
 
@@ -95,7 +95,7 @@ Setting a base instance for the expression
 By default, an expression has a base instance of ``null``. This means the
 expression has no base instance associated to it.
 
-When calling `Expression.execute() <class_Expression_method_execute>`,
+When calling `Expression.execute()`,
 you can set the value of the ``base_instance`` parameter to a specific object
 instance such as ``self``, another script instance or even a singleton::
 

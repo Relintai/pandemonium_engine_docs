@@ -136,10 +136,10 @@ Instancing scenes
 
 You can instantiate packed scenes normally and add them to the scene currently
 opened in the editor. By default, nodes or scenes added with
-`Node.add_child(node) <class_Node_method_add_child>` are **not** visible
+`Node.add_child(node)` are **not** visible
 in the Scene tree dock and are **not** persisted to disk. If you wish the node
 or scene to be visible in the scene tree dock and persisted to disk when saving
-the scene, you need to set the child node's `owner <class_Node_property_owner>`
+the scene, you need to set the child node's `owner`
 property to the currently edited scene root.
 
 If you are using ``tool``:

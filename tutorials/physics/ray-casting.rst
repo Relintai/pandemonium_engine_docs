@@ -14,7 +14,7 @@ do this in 2D and 3D.
 Godot stores all the low level game information in servers, while the
 scene is just a frontend. As such, ray casting is generally a
 lower-level task. For simple raycasts, node such as
-`RayCast <class_RayCast>` and `RayCast2D <class_RayCast2D>`
+`RayCast`
 will work, as they will return every frame what the result of a raycast
 is.
 
@@ -27,12 +27,12 @@ Space
 In the physics world, Godot stores all the low level collision and
 physics information in a *space*. The current 2d space (for 2D Physics)
 can be obtained by accessing
-`CanvasItem.get_world_2d().space <class_CanvasItem_method_get_world_2d>`.
-For 3D, it's `Spatial.get_world().space <class_Spatial_method_get_world>`.
+`CanvasItem.get_world_2d().space`.
+For 3D, it's `Spatial.get_world().space`.
 
-The resulting space `RID <class_RID>` can be used in
-`PhysicsServer <class_PhysicsServer>` and
-`Physics2DServer <class_Physics2DServer>` respectively for 3D and 2D.
+The resulting space `RID` can be used in
+`PhysicsServer` and
+`Physics2DServer` respectively for 3D and 2D.
 
 Accessing space
 ---------------
@@ -40,13 +40,13 @@ Accessing space
 Godot physics runs by default in the same thread as game logic, but may
 be set to run on a separate thread to work more efficiently. Due to
 this, the only time accessing space is safe is during the
-`Node._physics_process() <class_Node_method__physics_process>`
+`Node._physics_process()`
 callback. Accessing it from outside this function may result in an error
 due to space being *locked*.
 
 To perform queries into physics space, the
-`Physics2DDirectSpaceState <class_Physics2DDirectSpaceState>`
-and `PhysicsDirectSpaceState <class_PhysicsDirectSpaceState>`
+`Physics2DDirectSpaceState`
+and `PhysicsDirectSpaceState`
 must be used.
 
 Use the following code in 2D:
@@ -81,7 +81,7 @@ Raycast query
 -------------
 
 For performing a 2D raycast query, the method
-`Physics2DDirectSpaceState.intersect_ray() <class_Physics2DDirectSpaceState_method_intersect_ray>`
+`Physics2DDirectSpaceState.intersect_ray()`
 may be used. For example:
 
 gdscript GDScript
@@ -176,11 +176,11 @@ See `doc_physics_introduction_collision_layer_code_example` for details on how t
 
 Casting a ray from screen to 3D physics space is useful for object
 picking. There is not much need to do this because
-`CollisionObject <class_CollisionObject>`
+`CollisionObject`
 has an "input_event" signal that will let you know when it was clicked,
 but in case there is any desire to do it manually, here's how.
 
-To cast a ray from the screen, you need a `Camera <class_Camera>`
+To cast a ray from the screen, you need a `Camera`
 node. A ``Camera`` can be in two projection modes: perspective and
 orthogonal. Because of this, both the ray origin and direction must be
 obtained. This is because ``origin`` changes in orthogonal mode, while

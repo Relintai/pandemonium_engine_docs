@@ -6,11 +6,11 @@ Resources
 Nodes and resources
 -------------------
 
-Up to this tutorial, we focused on the `Node <class_Node>`
+Up to this tutorial, we focused on the `Node`
 class in Godot as that's the one you use to code behavior and
 most of the engine's features rely on it. There is
 another datatype that is just as important:
-`Resource <class_Resource>`.
+`Resource`.
 
 *Nodes* give you functionality: they draw sprites, 3D models, simulate physics,
 arrange user interfaces, etc. **Resources** are **data containers**. They don't
@@ -18,9 +18,9 @@ do anything on their own: instead, nodes use the data contained in resources.
 
 Anything Godot saves or loads from disk is a resource. Be it a scene (a ``.tscn``
 or an ``.scn`` file), an image, a script... Here are some ``Resource`` examples:
-`Texture <class_Texture>`, `Script <class_Script>`, `Mesh
-<class_Mesh>`, `Animation <class_Animation>`, `AudioStream
-<class_AudioStream>`, `Font <class_Font>`, `Translation
+`Texture`, `Mesh
+<class_Mesh>`, `Animation`, `AudioStream
+<class_AudioStream>`, `Font`, `Translation
 <class_Translation>`.
 
 When the engine loads a resource from disk, **it only loads it once**. If a copy
@@ -43,8 +43,8 @@ There are two ways to save resources. They can be:
 1. **External** to a scene, saved on the disk as individual files.
 2. **Built-in**, saved inside the ``.tscn`` or the ``.scn`` file they're attached to.
 
-To be more specific, here's a `Texture <class_Texture>`
-in a `Sprite <class_Sprite>` node:
+To be more specific, here's a `Texture`
+in a `Sprite` node:
 
 .. image:: img/spriteprop.png
 
@@ -95,11 +95,11 @@ Loading scenes
 --------------
 
 Scenes are also resources, but there is a catch. Scenes saved to disk are
-resources of type `PackedScene <class_PackedScene>`. The
+resources of type `PackedScene`. The
 scene is packed inside a resource.
 
 To get an instance of the scene, you have to use the
-`PackedScene.instance() <class_PackedScene_method_instance>` method.
+`PackedScene.instance()` method.
 
 gdscript GDScript
 
@@ -136,10 +136,10 @@ memory management from the Reference type.
 
 This comes with many distinct advantages over alternative data
 structures, such as JSON, CSV, or custom TXT files. Users can only import these
-assets as a `Dictionary <class_Dictionary>` (JSON) or as a
-`File <class_File>` to parse. What sets Resources apart is their
-inheritance of `Object <class_Object>`, `Reference <class_Reference>`,
-and `Resource <class_Resource>` features:
+assets as a `Dictionary` (JSON) or as a
+`File` to parse. What sets Resources apart is their
+inheritance of `Object`,
+and `Resource` features:
 
 - They can define constants, so constants from other data fields or objects are not needed.
 
@@ -209,7 +209,7 @@ gdscript GDScript
     Resource scripts are similar to Unity's ScriptableObjects. The Inspector
     provides built-in support for custom resources. If desired though, users
     can even design their own Control-based tool scripts and combine them
-    with an `EditorPlugin <class_EditorPlugin>` to create custom
+    with an `EditorPlugin` to create custom
     visualizations and editors for their data.
 
     Unreal Engine 4's DataTables and CurveTables are also easy to recreate with
@@ -257,7 +257,7 @@ gdscript GDScript
        to the Inspector when you open these types of Resources.
 
     CurveTables are the same thing, except mapped to an Array of float values
-    or a `Curve <class_Curve>`/`Curve2D <class_Curve2D>` resource object.
+    or a `Curve` resource object.
 
 .. warning::
 

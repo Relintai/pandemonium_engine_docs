@@ -81,7 +81,7 @@ Getting a random number
 Let's look at some of the most commonly used functions and methods to generate
 random numbers in Godot.
 
-The function `randi() <class_@GDScript_method_randi>` returns a random
+The function `randi()` returns a random
 number between 0 and 2^32-1. Since the maximum value is huge, you most likely
 want to use the modulo operator (``%``) to bound the result between 0 and the
 denominator:
@@ -97,12 +97,12 @@ gdscript GDScript
 ```
 
 
-`randf() <class_@GDScript_method_randf>` returns a random floating-point
+`randf()` returns a random floating-point
 number between 0 and 1. This is useful to implement a
 `doc_random_number_generation_weighted_random_probability` system, among
 other things.
 
-`randfn() <class_RandomNumberGenerator_method_randfn>` returns a random
+`randfn()` returns a random
 floating-point number following a `normal distribution
 <https://en.wikipedia.org/wiki/Normal_distribution>`__. This means the returned
 value is more likely to be around the mean (0.0 by default),
@@ -117,7 +117,7 @@ gdscript GDScript
     print(random.randfn())
 ```
 
-`rand_range() <class_@GDScript_method_rand_range>` takes two arguments
+`rand_range()` takes two arguments
 ``from`` and ``to``, and returns a random floating-point number between ``from``
 and ``to``:
 
@@ -239,7 +239,7 @@ gdscript GDScript
 Weighted random probability
 ---------------------------
 
-The `randf() <class_@GDScript_method_randf>` method returns a
+The `randf()` method returns a
 floating-point number between 0.0 and 1.0. We can use this to create a
 "weighted" probability where different outcomes have different likelihoods:
 

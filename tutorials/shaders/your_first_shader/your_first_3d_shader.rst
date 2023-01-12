@@ -5,7 +5,7 @@ Your first 3D shader
 
 You have decided to start writing your own custom Spatial shader. Maybe you saw
 a cool trick online that was done with shaders, or you have found that the
-`SpatialMaterial <class_SpatialMaterial>` isn't quite meeting your
+`SpatialMaterial` isn't quite meeting your
 needs. Either way, you have decided to write your own and now you need to figure
 out where to start.
 
@@ -33,7 +33,7 @@ custom materials in a fragment shader by writing an ocean water shader.
 Where to assign my material
 ---------------------------
 
-In 3D, objects are drawn using `Meshes <class_Mesh>`. Meshes are a resource
+In 3D, objects are drawn using `Meshes`. Meshes are a resource
 type that store geometry (the shape of your object) and materials (the color and
 how the object reacts to light) in units called "surfaces". A Mesh can have
 multiple surfaces, or just one. Typically, you would import a mesh from another
@@ -42,9 +42,9 @@ program (e.g. Blender). But Godot also has a few `PrimitiveMeshes
 importing Meshes.
 
 There are multiple node types that you can use to draw a mesh. The main one is
-`MeshInstance <class_meshinstance>`, but you can also use `Particles
-<class_particles>`, `MultiMeshes <class_MultiMesh>` (with a
-`MultiMeshInstance <class_multimeshinstance>`), or others.
+`MeshInstance`, but you can also use `Particles
+<class_particles>`, `MultiMeshes` (with a
+`MultiMeshInstance`), or others.
 
 Typically, a material is associated with a given surface in a mesh, but some
 nodes, like MeshInstance, allow you to override the material for a specific
@@ -61,12 +61,12 @@ advantage of the MeshInstance's ability to override materials.
 Setting up
 ----------
 
-Add a new `MeshInstance <class_meshinstance>` node to your scene.
+Add a new `MeshInstance` node to your scene.
 
 In the inspector tab beside "Mesh" click "[empty]" and select "New PlaneMesh".
 Then click on the image of a plane that appears.
 
-This adds a `PlaneMesh <class_planemesh>` to our scene.
+This adds a `PlaneMesh` to our scene.
 
 Then, in the viewport, click in the upper left corner on the button that says
 "Perspective". A menu will appear. In the middle of the menu are options for how
@@ -86,7 +86,7 @@ and thus allow us to add more detail.
 
 .. image:: img/plane-sub.png
 
-`PrimitiveMeshes <class_primitivemesh>`, like PlaneMesh, only have one
+`PrimitiveMeshes`, like PlaneMesh, only have one
      surface, so instead of an array of materials there is only one. Click
      beside "Material" where it says "[empty]" and select "New ShaderMaterial".
      Then click the sphere that appears.
@@ -163,7 +163,7 @@ Noise is a very popular tool for faking the look of terrain. Think of it as
 similar to the cosine function where you have repeating hills except, with
 noise, each hill has a different height.
 
-Godot provides the `NoiseTexture <class_noisetexture>` resource for
+Godot provides the `NoiseTexture` resource for
 generating a noise texture that can be accessed from a shader.
 
 To access a texture in a shader add the following code near the top of your
@@ -181,7 +181,7 @@ Click beside it where it says "[empty]" and select "New NoiseTexture". Then in
 your NoiseTexture click beside where it says "Noise" and select "New
 OpenSimplexNoise".
 
-`OpenSimplexNoise <class_opensimplexnoise>` is used by the NoiseTexture to
+`OpenSimplexNoise` is used by the NoiseTexture to
      generate a heightmap.
 
 Once you set it up and should look like this.
@@ -264,7 +264,7 @@ Now it looks  much better.
 .. image:: img/noise-low.png
 
 Using uniforms, we can even change the value every frame to animate the height
-of the terrain. Combined with `Tweens <class_Tween>`, this can be
+of the terrain. Combined with `Tweens`, this can be
 especially useful for simple animations.
 
 Interacting with light
@@ -284,7 +284,7 @@ First, we will add an `OmniLight<class_OmniLight>` to the scene.
 
 You can see the light affecting the terrain, but it looks odd. The problem is
 the light is affecting the terrain as if it were a flat plane. This is because
-the light shader uses the normals from the `Mesh <class_mesh>` to calculate
+the light shader uses the normals from the `Mesh` to calculate
 light.
 
 The normals are stored in the Mesh, but we are changing the shape of the Mesh in

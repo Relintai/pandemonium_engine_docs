@@ -3,7 +3,7 @@
 Using the MeshDataTool
 ======================
 
-The `MeshDataTool <class_meshdatatool>` is not used to generate geometry. But it is helpful for dynamically altering geometry, for example
+The `MeshDataTool` is not used to generate geometry. But it is helpful for dynamically altering geometry, for example
 if you want to write a script to tessellate, simplify, or deform meshes.
 
 The MeshDataTool is not as fast as altering arrays directly using ArrayMesh. However, it provides more information
@@ -61,7 +61,7 @@ gdscript GDScript
 ```
 
 These modifications are not done in place on the ArrayMesh. If you are dynamically updating an existing ArrayMesh,
-first delete the existing surface before adding a new one using `commit_to_surface() <class_meshdatatool_method_commit_to_surface>`:
+first delete the existing surface before adding a new one using `commit_to_surface()`:
 
 gdscript GDScript
 

@@ -3,8 +3,8 @@
 Using the SurfaceTool
 =====================
 
-The `SurfaceTool <class_surfacetool>` provides a useful interface for constructing geometry.
-The interface is similar to the `ImmediateGeometry <class_immediategeometry>` node. You
+The `SurfaceTool` provides a useful interface for constructing geometry.
+The interface is similar to the `ImmediateGeometry` node. You
 set each per-vertex attribute (e.g. normal, uv, color) and then when you add a vertex it
 captures the attributes.
 
@@ -22,8 +22,8 @@ gdscript GDScript
     st.add_normal() # Normal never added to a vertex.
 ```
 
-When finished generating your geometry with the `SurfaceTool <class_surfacetool>`
-call ``commit()`` to finish generating the mesh. If an `ArrayMesh <class_ArrayMesh>` is passed
+When finished generating your geometry with the `SurfaceTool`
+call ``commit()`` to finish generating the mesh. If an `ArrayMesh` is passed
 to ``commit()`` then it appends a new surface to the end of the ArrayMesh. While if nothing is passed
 in, ``commit()`` returns an ArrayMesh.
 

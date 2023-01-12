@@ -13,7 +13,7 @@ Godot provides many kinds of collision shapes, with different performance and
 accuracy tradeoffs.
 
 You can define the shape of a `class_PhysicsBody` by adding one or more
-`CollisionShapes <class_CollisionShape>` as child nodes. Note that you must
+`CollisionShapes` as child nodes. Note that you must
 add a `class_Shape` *resource* to collision shape nodes in the Inspector
 dock.
 
@@ -43,7 +43,7 @@ better performance as well.
 Convex collision shapes
 -----------------------
 
-`Convex collision shapes <class_ConvexPolygonShape>` are a compromise
+`Convex collision shapes` are a compromise
 between primitive collision shapes and concave collision shapes. They can
 represent shapes of any complexity, but with an important caveat. As their name
 implies, an individual shape can only represent a *convex* shape. For instance,
@@ -75,7 +75,7 @@ viewport. The editor exposes two generation modes:
 Concave or trimesh collision shapes
 -----------------------------------
 
-`Concave collision shapes <class_ConcavePolygonShape>`, also called trimesh
+`Concave collision shapes`, also called trimesh
 collision shapes, can take any form, from a few triangles to thousands of
 triangles. Concave shapes are the slowest option but are also the most accurate
 in Godot. **You can only use concave shapes within StaticBodies.** They will not

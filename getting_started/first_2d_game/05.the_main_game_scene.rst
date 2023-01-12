@@ -5,7 +5,7 @@ The main game scene
 
 Now it's time to bring everything we did together into a playable game scene.
 
-Create a new scene and add a `Node <class_Node>` named ``Main``.
+Create a new scene and add a `Node` named ``Main``.
 (The reason we are using Node instead of Node2D is because this node will
 be a container for handling game logic. It does not require 2D functionality itself.)
 
@@ -17,13 +17,13 @@ Click the **Instance** button (represented by a chain link icon) and select your
 Now, add the following nodes as children of ``Main``, and name them as shown
 (values are in seconds):
 
-- `Timer <class_Timer>` (named ``MobTimer``) - to control how often mobs
+- `Timer` (named ``MobTimer``) - to control how often mobs
   spawn
-- `Timer <class_Timer>` (named ``ScoreTimer``) - to increment the score
+- `Timer` (named ``ScoreTimer``) - to increment the score
   every second
-- `Timer <class_Timer>` (named ``StartTimer``) - to give a delay before
+- `Timer` (named ``StartTimer``) - to give a delay before
   starting
-- `Position2D <class_Position2D>` (named ``StartPosition``) - to indicate
+- `Position2D` (named ``StartPosition``) - to indicate
   the player's start position
 
 Set the ``Wait Time`` property of each of the ``Timer`` nodes as follows:
@@ -39,7 +39,7 @@ Spawning mobs
 ~~~~~~~~~~~~~
 
 The Main node will be spawning new mobs, and we want them to appear at a random
-location on the edge of the screen. Add a `Path2D <class_Path2D>` node
+location on the edge of the screen. Add a `Path2D` node
 named ``MobPath`` as a child of ``Main``. When you select ``Path2D``, you will
 see some new buttons at the top of the editor:
 
@@ -61,7 +61,7 @@ intersecting lines, respectively.
 After placing point ``4`` in the image, click the "Close Curve" button and your
 curve will be complete.
 
-Now that the path is defined, add a `PathFollow2D <class_PathFollow2D>`
+Now that the path is defined, add a `PathFollow2D`
 node as a child of ``MobPath`` and name it ``MobSpawnLocation``. This node will
 automatically rotate and follow the path as it moves, so we can use it to select
 a random position and direction along the path.

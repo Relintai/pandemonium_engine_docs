@@ -88,7 +88,7 @@ There are two systems for registering types...
 
    - Works for all scripting languages because it deals with Script resources in abstract.
 
-   - Set up using `EditorPlugin.add_custom_type <class_EditorPlugin_method_add_custom_type>`.
+   - Set up using `EditorPlugin.add_custom_type`.
 
 - `Script Classes <doc_gdscript_basics_class_name>`
 

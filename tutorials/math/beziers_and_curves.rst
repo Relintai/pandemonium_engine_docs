@@ -147,9 +147,9 @@ work and look in Godot.
 Curve2D, Curve3D, Path and Path2D
 ---------------------------------
 
-There are two objects that contain curves: `Curve3D <class_Curve3D>` and `Curve2D <class_Curve2D>` (for 3D and 2D respectively).
+There are two objects that contain curves: `Curve3D` (for 3D and 2D respectively).
 
-They can contain several points, allowing for longer paths. It is also possible to set them to nodes: `Path <class_Path>` and `Path2D <class_Path2D>` (also for 3D and 2D respectively):
+They can contain several points, allowing for longer paths. It is also possible to set them to nodes: `Path` (also for 3D and 2D respectively):
 
 .. image:: img/bezier_path_2d.png
 
@@ -190,7 +190,7 @@ Additionally, if both control points were ``0, 0`` (remember they are relative v
 Before drawing Bezier curves, *tessellation* is required. This is often done with a recursive or divide and conquer function that splits the curve until the curvature amount becomes less than a certain threshold.
 
 The *Curve* classes provide this via the
-`Curve2D.tessellate() <class_Curve2D_method_tessellate>` function (which receives optional ``stages`` of recursion and angle ``tolerance`` arguments). This way, drawing something based on a curve is easier.
+`Curve2D.tessellate()` function (which receives optional ``stages`` of recursion and angle ``tolerance`` arguments). This way, drawing something based on a curve is easier.
 
 Traversal
 ---------

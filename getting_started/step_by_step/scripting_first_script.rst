@@ -102,7 +102,7 @@ node, including classes it extends, like ``Node2D``, ``CanvasItem``, and
 ``Node``.
 
 .. note:: In GDScript, if you omit the line with the ``extends`` keyword, your
-          class will implicitly extend `Reference <class_Reference>`, which
+          class will implicitly extend `Reference`, which
           Godot uses to manage your application's memory.
 
 Inherited properties include the ones you can see in the Inspector dock, like
@@ -253,7 +253,7 @@ is a vector pointing forward relative to our icon. Multiplied by our ``speed``
 property, it gives us a velocity we can use to move the node forward.
 
 We add ``velocity * delta`` to the node's ``position`` to move it. The position
-itself is of type `Vector2 <class_Vector2>`, a built-in type in Godot
+itself is of type `Vector2`, a built-in type in Godot
 representing a 2D vector.
 
 Run the scene to see the Godot head run in circles.

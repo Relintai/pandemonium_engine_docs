@@ -6,13 +6,13 @@ Using AnimationTree
 Introduction
 ------------
 
-With `AnimationPlayer <class_AnimationPlayer>`, Godot has one of the most flexible animation systems that you can find in any game engine.
+With `AnimationPlayer`, Godot has one of the most flexible animation systems that you can find in any game engine.
 The ability to animate almost any property in any node or resource, as well as having dedicated transform, bezier,
 function calling, audio and sub-animation tracks, is pretty much unique.
 
 However, the support for blending those animations via ``AnimationPlayer`` is relatively limited, as only a fixed cross-fade transition time can be set.
 
-`AnimationTree <class_AnimationTree>` is a new node introduced in Godot 3.1 to deal with advanced transitions.
+`AnimationTree` is a new node introduced in Godot 3.1 to deal with advanced transitions.
 It supersedes the ancient ``AnimationTreePlayer``, while adding a huge amount of features and flexibility.
 
 Creating an AnimationTree
@@ -193,7 +193,7 @@ transformation visually (the animation will stay in place).
 
 .. image:: img/animtree14.png
 
-Afterwards, the actual motion can be retrieved via the `AnimationTree <class_AnimationTree>` API as a transform:
+Afterwards, the actual motion can be retrieved via the `AnimationTree` API as a transform:
 
 gdscript GDScript
 
@@ -201,7 +201,7 @@ gdscript GDScript
     anim_tree.get_root_motion_transform()
 ```
 
-This can be fed to functions such as `KinematicBody.move_and_slide <class_KinematicBody_method_move_and_slide>` to control the character movement.
+This can be fed to functions such as `KinematicBody.move_and_slide` to control the character movement.
 
 There is also a tool node, ``RootMotionView``, that can be placed in a scene and will act as a custom floor for your
 character and animations (this node is disabled by default during the game).
@@ -250,7 +250,7 @@ current state to another one, while visiting all the intermediate ones. This is 
 In the absence of any viable set of transitions starting at the current state and finishing at the destination state, the graph teleports
 to the destination state.
 
-To use the travel ability, you should first retrieve the `AnimationNodeStateMachinePlayback <class_AnimationNodeStateMachinePlayback>`
+To use the travel ability, you should first retrieve the `AnimationNodeStateMachinePlayback`
 object from the ``AnimationTree`` node (it is exported as a property).
 
 

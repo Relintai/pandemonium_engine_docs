@@ -3,20 +3,20 @@
 Controlling thousands of fish with Particles
 ============================================
 
-The problem with `MeshInstances <class_MeshInstance>` is that it is expensive to
+The problem with `MeshInstances` is that it is expensive to
 update their transform array. It is great for placing many static objects around the
 scene. But it is still difficult to move the objects around the scene.
 
 To make each instance move in an interesting way, we will use a
-`Particles <class_Particles>` node. Particles take advantage of GPU acceleration
-by computing and setting the per-instance information in a `Shader <class_Shader>`.
+`Particles` node. Particles take advantage of GPU acceleration
+by computing and setting the per-instance information in a `Shader`.
 
-.. note:: Particles are not available in GLES2, instead use `CPUParticles <class_CPUParticles>`,
+.. note:: Particles are not available in GLES2, instead use `CPUParticles`,
           which do the same thing as Particles, but do not benefit from GPU acceleration.
 
 First create a Particles node. Then, under "Draw Passes" set the Particle's "Draw Pass 1" to your
-`Mesh <class_Mesh>`. Then under "Process Material" create a new
-`ShaderMaterial <class_ShaderMaterial>`.
+`Mesh`. Then under "Process Material" create a new
+`ShaderMaterial`.
 
 Set the ``shader_type`` to ``particles``.
 
@@ -48,7 +48,7 @@ Then add the following two functions:
     return x;
   }
 
-These functions come from the default `ParticlesMaterial <class_ParticlesMaterial>`.
+These functions come from the default `ParticlesMaterial`.
 They are used to generate a random number from each particle's ``RANDOM_SEED``.
 
 A unique thing about particle shaders is that some built-in variables are saved across frames.

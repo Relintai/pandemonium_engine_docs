@@ -14,12 +14,12 @@ MainLoop
 --------
 
 The way Godot works internally is as follows. There is the
-`OS <class_OS>` class,
+`OS` class,
 which is the only instance that runs at the beginning. Afterwards, all
 drivers, servers, scripting languages, scene system, etc are loaded.
 
-When initialization is complete, `OS <class_OS>` needs to be
-supplied a `MainLoop <class_MainLoop>`
+When initialization is complete, `OS` needs to be
+supplied a `MainLoop`
 to run. Up to this point, all this is internals working (you can check
 main/main.cpp file in the source code if you are ever interested to
 see how this works internally).
@@ -35,18 +35,18 @@ SceneTree
 One of the ways to explain how Godot works is that it's a high level
 game engine over a low level middleware.
 
-The scene system is the game engine, while the `OS <class_OS>`
+The scene system is the game engine, while the `OS`
 and servers are the low level API.
 
 The scene system provides its own main loop to OS,
-`SceneTree <class_SceneTree>`.
+`SceneTree`.
 This is automatically instanced and set when running a scene, no need
 to do any extra work.
 
 It's important to know that this class exists because it has a few
 important uses:
 
--  It contains the root `Viewport <class_Viewport>`, to which a
+-  It contains the root `Viewport`, to which a
    scene is added as a child when it's first opened to become
    part of the *Scene Tree* (more on that next).
 -  It contains information about the groups and has the means to call all
@@ -55,14 +55,14 @@ important uses:
    mode or quitting the process.
 
 When a node is part of the Scene Tree, the
-`SceneTree <class_SceneTree>`
+`SceneTree`
 singleton can be obtained by calling
-`Node.get_tree() <class_Node_method_get_tree>`.
+`Node.get_tree()`.
 
 Root viewport
 -------------
 
-The root `Viewport <class_Viewport>`
+The root `Viewport`
 is always at the top of the scene. From a node, it can be obtained in
 two different ways:
 
@@ -74,7 +74,7 @@ gdscript GDScript
 ```
 
 This node contains the main viewport. Anything that is a child of a
-`Viewport <class_Viewport>`
+`Viewport`
 is drawn inside of it by default, so it makes sense that the top of all
 nodes is always a node of this type otherwise nothing would be seen.
 
@@ -130,7 +130,7 @@ Changing current scene
 
 After a scene is loaded, it is often desired to change this scene for
 another one. The simple way to do this is to use the
-`SceneTree.change_scene() <class_SceneTree_method_change_scene>`
+`SceneTree.change_scene()`
 function:
 
 gdscript GDScript
@@ -141,9 +141,9 @@ gdscript GDScript
 ```
 
 Rather than using file paths, one can also use ready-made
-`PackedScene <class_PackedScene>` resources using the equivalent
+`PackedScene` resources using the equivalent
 function
-`SceneTree.change_scene_to(PackedScene scene) <class_SceneTree_method_change_scene_to>`:
+`SceneTree.change_scene_to(PackedScene scene)`:
 
 gdscript GDScript
 

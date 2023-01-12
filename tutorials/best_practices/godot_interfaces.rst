@@ -15,7 +15,7 @@ The rest of this tutorial outlines the various ways of doing all this.
 Acquiring object references
 ---------------------------
 
-For all `Object <class_Object>`\s, the most basic way of referencing them
+For all `Object`\s, the most basic way of referencing them
 is to get a reference to an existing object from another acquired instance.
 
 gdscript GDScript
@@ -25,9 +25,9 @@ gdscript GDScript
     var obj = node.get_object() # Method access.
 ```
 
-The same principle applies for `Reference <class_Reference>` objects.
-While users often access `Node <class_Node>` and
-`Resource <class_Resource>` this way, alternative measures are available.
+The same principle applies for `Reference` objects.
+While users often access `Node` and
+`Resource` this way, alternative measures are available.
 
 Instead of property or method access, one can get Resources by load
 access.
@@ -72,7 +72,7 @@ Note the following:
 
 3. Keep in mind that loading a resource fetches the cached resource
    instance maintained by the engine. To get a new object, one must
-   `duplicate <class_Resource_method_duplicate>` an existing reference
+   `duplicate` an existing reference
    or instantiate one from scratch with ``new()``.
 
 Nodes likewise have an alternative access point: the SceneTree.
@@ -140,10 +140,10 @@ Godot's scripting API is duck-typed. This means that if a script executes an
 operation, Godot doesn't validate that it supports the operation by **type**.
 It instead checks that the object **implements** the individual method.
 
-For example, the `CanvasItem <class_CanvasItem>` class has a ``visible``
+For example, the `CanvasItem` class has a ``visible``
 property. All properties exposed to the scripting API are in fact a setter and
 getter pair bound to a name. If one tried to access
-`CanvasItem.visible <class_CanvasItem_property_visible>`, then Godot would do the
+`CanvasItem.visible`, then Godot would do the
 following checks, in order:
 
 - If the object has a script attached, it will attempt to set the property
@@ -166,9 +166,9 @@ following checks, in order:
   is also the case with the ``_get_property_list`` method.
 
   - Note that this happens even for non-legal symbol names such as in the
-    case of `TileSet <class_TileSet>`'s "1/tile_name" property. This
+    case of `TileSet`'s "1/tile_name" property. This
     refers to the name of the tile with ID 1, i.e.
-    `TileSet.tile_get_name(1) <class_TileSet_method_tile_get_name>`.
+    `TileSet.tile_get_name(1)`.
 
 As a result, this duck-typed system can locate a property either in the script,
 the object's class, or any class that object inherits, but only for things
@@ -199,7 +199,7 @@ gdscript GDScript
 ```
 
 - A method check. In the case of
-  `CanvasItem.visible <class_CanvasItem_property_visible>`, one can
+  `CanvasItem.visible`, one can
   access the methods, ``set_visible`` and ``is_visible`` like any other method.
 
 gdscript GDScript
@@ -262,7 +262,7 @@ gdscript GDScript
       # group can fill in for it.
 ```
 
-- Outsource the access to a `FuncRef <class_FuncRef>`. These may be useful
+- Outsource the access to a `FuncRef`. These may be useful
   in cases where one needs the max level of freedom from dependencies. In
   this case, one relies on an external context to setup the method.
 

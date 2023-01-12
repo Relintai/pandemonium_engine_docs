@@ -20,7 +20,7 @@ The EditorSpatialGizmoPlugin
 ----------------------------
 
 Regardless of the approach we choose, we will need to create a new
-`EditorSpatialGizmoPlugin <class_EditorSpatialGizmoPlugin>`. This will allow
+`EditorSpatialGizmoPlugin`. This will allow
 us to set a name for the new gizmo type and define other behaviors such as whether
 the gizmo can be hidden or not.
 
@@ -56,7 +56,7 @@ This would be a basic setup:
         remove_spatial_gizmo_plugin(gizmo_plugin)
 
 
-For simple gizmos, just inheriting `EditorSpatialGizmoPlugin <class_EditorSpatialGizmoPlugin>`
+For simple gizmos, just inheriting `EditorSpatialGizmoPlugin`
 is enough. If you want to store some per-gizmo data or you are porting a Godot 3.0 gizmo
 to 3.1+, you should go with the second approach.
 
@@ -159,7 +159,7 @@ So the final plugin would look somewhat like this:
     # (get_handle_name(), get_handle_value(), commit_handle()...).
 
 Note that we just added some handles in the redraw method, but we still need to implement
-the rest of handle-related callbacks in `EditorSpatialGizmoPlugin <class_EditorSpatialGizmoPlugin>`
+the rest of handle-related callbacks in `EditorSpatialGizmoPlugin`
 to get properly working handles.
 
 Alternative approach

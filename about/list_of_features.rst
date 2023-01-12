@@ -563,11 +563,11 @@ The editor UI can easily be extended in many ways using add-ons.
 - Anchors to keep GUI elements in a specific corner, edge or centered.
 - Containers to place GUI elements automatically following certain rules.
 
-   - `Stack <class_BoxContainer>` layouts.
-   - `Grid <class_GridContainer>` layouts.
-   - `Margin <class_MarginContainer>` and `centered <class_CenterContainer>`
+   - `Stack` layouts.
+   - `Grid` layouts.
+   - `Margin`
      layouts.
-   - `Draggable splitter <class_SplitContainer>` layouts.
+   - `Draggable splitter` layouts.
 
 - Scale to multiple resolutions using the ``2d`` or ``viewport`` stretch modes.
 - Support any aspect ratio using anchors and the ``expand`` stretch aspect.
@@ -591,7 +591,7 @@ Animation
 ^^^^^^^^^
 
 - Direct kinematics and inverse kinematics.
-- `Tween <class_Tween>` node to easily perform procedural animations by code.
+- `Tween` node to easily perform procedural animations by code.
 - Support for animating any property with customizable interpolation.
 - Support for calling methods in animation tracks.
 - Support for playing sounds in animation tracks.

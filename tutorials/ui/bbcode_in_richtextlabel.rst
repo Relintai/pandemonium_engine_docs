@@ -133,7 +133,7 @@ By default, ``[url]`` tags do nothing when clicked. This is to allow flexible us
 of ``[url]`` tags rather than limiting them to opening URLs in a web browser.
 
 To handle clicked ``[url]`` tags, connect the RichTextLabel node's
-`meta_clicked <class_RichTextLabel_signal_meta_clicked>` signal to a script function.
+`meta_clicked` signal to a script function.
 
 For example, the following method can be connected to ``meta_clicked`` to open
 clicked URLs using the user's default web browser::
@@ -253,7 +253,7 @@ object, which holds a few variables to control how the associated character is r
   normal circumstances.
 - ``color`` is the color of a given character.
 - Finally, ``env`` is a `class_Dictionary` of parameters assigned to a given custom
-  effect. You can use `get() <class_Dictionary_method_get>` with an optional default value
+  effect. You can use `get()` with an optional default value
   to retrieve each parameter, if specified by the user. For example ``[custom_fx spread=0.5
   color=#FFFF00]test[/custom_fx]`` would have a float ``spread`` and Color ``color``
   parameters in its ` `env`` Dictionary. See below for more usage examples.

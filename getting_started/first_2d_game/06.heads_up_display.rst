@@ -6,11 +6,11 @@ Heads up display
 The final piece our game needs is a User Interface (UI) to display things like
 score, a "game over" message, and a restart button.
 
-Create a new scene, and add a `CanvasLayer <class_CanvasLayer>` node named
+Create a new scene, and add a `CanvasLayer` node named
 ``HUD``. "HUD" stands for "heads-up display", an informational display that
 appears as an overlay on top of the game view.
 
-The `CanvasLayer <class_CanvasLayer>` node lets us draw our UI elements on
+The `CanvasLayer` node lets us draw our UI elements on
 a layer above the rest of the game, so that the information it displays isn't
 covered up by any game elements like the player or mobs.
 
@@ -20,16 +20,16 @@ The HUD needs to display the following information:
 - A message, such as "Game Over" or "Get Ready!"
 - A "Start" button to begin the game.
 
-The basic node for UI elements is `Control <class_Control>`. To create our
-UI, we'll use two types of `Control <class_Control>` nodes: `Label
-<class_Label>` and `Button <class_Button>`.
+The basic node for UI elements is `Control`. To create our
+UI, we'll use two types of `Control` nodes: `Label
+<class_Label>` and `Button`.
 
 Create the following as children of the ``HUD`` node:
 
-- `Label <class_Label>` named ``ScoreLabel``.
-- `Label <class_Label>` named ``Message``.
-- `Button <class_Button>` named ``StartButton``.
-- `Timer <class_Timer>` named ``MessageTimer``.
+- `Label` named ``ScoreLabel``.
+- `Label` named ``Message``.
+- `Button` named ``StartButton``.
+- `Timer` named ``MessageTimer``.
 
 Click on the ``ScoreLabel`` and type a number into the ``Text`` field in the
 Inspector. The default font for ``Control`` nodes is small and doesn't scale

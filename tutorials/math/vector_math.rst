@@ -69,8 +69,8 @@ gdscript GDScript
     $Node2D.position = Vector2(400, 300)
 ```
 
-Godot supports both `Vector2 <class_Vector2>` and
-`Vector3 <class_Vector3>` for 2D and 3D usage, respectively. The same
+Godot supports both `Vector2` and
+`Vector3` for 2D and 3D usage, respectively. The same
 mathematical rules discussed in this article apply to both types.
 
 Member access
@@ -199,9 +199,9 @@ wall or other object:
 The surface normal has a value of ``(0, -1)`` because this is a horizontal
 surface. When the ball collides, we take its remaining motion (the amount
 left over when it hits the surface) and reflect it using the normal. In
-Godot, the `Vector2 <class_Vector2>` class has a ``bounce()`` method
+Godot, the `Vector2` class has a ``bounce()`` method
 to handle this. Here is a GDScript example of the diagram above using a
-`KinematicBody2D <class_KinematicBody2D>`:
+`KinematicBody2D`:
 
 
 gdscript GDScript

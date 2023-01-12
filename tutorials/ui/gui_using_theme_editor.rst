@@ -8,7 +8,7 @@ editor and its theme editor tool. We recommend getting familiar with the
 basics behind GUI skinning/theming by reading `doc_gui_skinning` before starting.
 
 The theme editor is a bottom panel tool that activates automatically, when
-a `Theme <class_Theme>` resource is selected for editing. It contains
+a `Theme` resource is selected for editing. It contains
 the necessary UI for adding, removing, and adjusting theme types and theme
 items. It features a preview section for testing your changes live, as well
 as a window dialog for doing bulk operations of the theme items.
@@ -34,7 +34,7 @@ menu to save the new theme to a file instead.
 
 While the theme editor provides the tools to manage theme types and items, themes also
 include the default, fallback font that you can edit only using the Inspector dock.
-Same applies to the contents of complex resource types, such as `StyleBoxes <class_StyleBox>`
+Same applies to the contents of complex resource types, such as `StyleBoxes`
 and icons — they open for editing in the Inspector.
 
 .. figure:: img/default_font.png

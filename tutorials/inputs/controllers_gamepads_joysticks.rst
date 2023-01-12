@@ -144,7 +144,7 @@ events for controller input in the first place.
 
 If you want controller buttons to send echo events, you will have to generate
 `class_InputEvent` objects by code and parse them using
-`Input.parse_input_event() <class_Input_method_parse_input_event>`
+`Input.parse_input_event()`
 at regular intervals. This can be accomplished
 with the help of a `class_Timer` node.
 
@@ -200,7 +200,7 @@ powershell Windows (powershell)
 
 To test mappings on non-desktop platforms or to distribute your project with
 additional controller mappings, you can add them by calling
-`Input.add_joy_mapping() <class_Input_method_add_joy_mapping>`
+`Input.add_joy_mapping()`
 as early as possible in a script's ``_ready()`` function.
 
 My controller works on a given platform, but not on another platform.

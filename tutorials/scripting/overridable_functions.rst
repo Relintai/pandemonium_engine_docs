@@ -66,8 +66,8 @@ gdscript GDScript
 ```
 
 Two more essential built-in node callback functions are
-`Node._unhandled_input() <class_Node_method__unhandled_input>` and
-`Node._input() <class_Node_method__input>`, which you use to both receive
+`Node._unhandled_input()` and
+`Node._input()`, which you use to both receive
 and process individual input events. The ``_unhandled_input()`` method receives
 every key press, mouse click, etc. that have not been handled already in an
 ``_input()`` callback or in a user interface component. You want to use it for
@@ -92,6 +92,6 @@ gdscript GDScript
 There are some more overridable functions like
 `Node._get_configuration_warning()
 <class_Node_method__get_configuration_warning>`. Specialized node types provide
-more callbacks like `CanvasItem._draw() <class_CanvasItem_method__draw>` to
+more callbacks like `CanvasItem._draw()` to
 draw programmatically or `Control._gui_input()
 <class_Control_method__gui_input>` to handle clicks and input on UI elements.

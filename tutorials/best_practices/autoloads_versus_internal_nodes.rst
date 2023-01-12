@@ -6,7 +6,7 @@ Autoloads versus regular nodes
 Godot offers a feature to automatically load nodes at the root of your project,
 allowing you to access them globally, that can fulfill the role of a Singleton:
 `doc_singletons_autoload`. These auto-loaded nodes are not freed when you
-change the scene from code with `SceneTree.change_scene <class_SceneTree_method_change_scene>`.
+change the scene from code with `SceneTree.change_scene`.
 
 In this guide, you will learn when to use the Autoload feature, and techniques
 you can use to avoid it.
@@ -72,7 +72,7 @@ that feature for an individual scene using the `class_name
 
 When it comes to data, you can either:
 
-1. Create a new type of `Resource <class_Resource>` to share the data.
+1. Create a new type of `Resource` to share the data.
 
 2. Store the data in an object to which each node has access, for example using
    the ``owner`` property to access the scene's root node.

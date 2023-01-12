@@ -26,28 +26,28 @@ In this guide, you will learn:
 Collision objects
 -----------------
 
-Godot offers four kinds of physics bodies, extending `CollisionObject2D <class_CollisionObject2D>`:
+Godot offers four kinds of physics bodies, extending `CollisionObject2D`:
 
-- `Area2D <class_Area2D>`
+- `Area2D`
     ``Area2D`` nodes provide **detection** and **influence**. They can detect when
     objects overlap and can emit signals when bodies enter or exit. An ``Area2D``
     can also be used to override physics properties, such as gravity or damping,
     in a defined area.
 
-The other three bodies extend `PhysicsBody2D <class_PhysicsBody2D>`:
+The other three bodies extend `PhysicsBody2D`:
 
-- `StaticBody2D <class_StaticBody2D>`
+- `StaticBody2D`
     A static body is one that is not moved by the physics engine. It participates
     in collision detection, but does not move in response to the collision. They
     are most often used for objects that are part of the environment or that do
     not need to have any dynamic behavior.
 
-- `RigidBody2D <class_RigidBody2D>`
+- `RigidBody2D`
     This is the node that implements simulated 2D physics. You do not control a
     ``RigidBody2D`` directly, but instead you apply forces to it (gravity, impulses,
     etc.) and the physics engine calculates the resulting movement. `Read more about using rigid bodies. <doc_rigid_body>`
 
-- `KinematicBody2D <class_KinematicBody2D>`
+- `KinematicBody2D`
     A body that provides collision detection, but no physics. All movement and
     collision response must be implemented in code.
 
@@ -61,15 +61,15 @@ and set if it's absorbent and/or rough.
 Collision shapes
 ~~~~~~~~~~~~~~~~
 
-A physics body can hold any number of `Shape2D <class_Shape2D>` objects
+A physics body can hold any number of `Shape2D` objects
 as children. These shapes are used to define the object's collision bounds
 and to detect contact with other objects.
 
 .. note:: In order to detect collisions, at least one ``Shape2D`` must be
           assigned to the object.
 
-The most common way to assign a shape is by adding a `CollisionShape2D <class_CollisionShape2D>`
-or `CollisionPolygon2D <class_CollisionPolygon2D>` as a child of the object.
+The most common way to assign a shape is by adding a `CollisionShape2D`
+or `CollisionPolygon2D` as a child of the object.
 These nodes allow you to draw the shape directly in the editor workspace.
 
 .. important:: Be careful to never scale your collision shapes in the editor.
@@ -89,7 +89,7 @@ of a body's state variables such as ``position`` or ``linear velocity``
 may not be accurate for the current frame.
 
 In order to avoid this inaccuracy, any code that needs to access a body's properties should
-be run in the `Node._physics_process() <class_Node_method__physics_process>`
+be run in the `Node._physics_process()`
 callback, which is called before each physics step at a constant frame rate
 (60 times per second by default). This method will be passed a ``delta``
 parameter, which is a floating-point number equal to the time passed in
@@ -185,7 +185,7 @@ objects overlap and emit signals when bodies enter or exit. Areas can also
 be used to override physics properties, such as gravity or damping, in a
 defined area.
 
-There are three main uses for `Area2D <class_Area2D>`:
+There are three main uses for `Area2D`:
 
 - Overriding physics parameters (such as gravity) in a given region.
 
@@ -216,7 +216,7 @@ RigidBody2D
 -----------
 
 This is the node that implements simulated 2D physics. You do not control a
-`RigidBody2D <class_RigidBody2D>` directly. Instead, you apply forces
+`RigidBody2D` directly. Instead, you apply forces
 to it and the physics engine calculates the resulting movement, including
 collisions with other bodies, and collision responses, such as bouncing,
 rotating, etc.
@@ -225,7 +225,7 @@ You can modify a rigid body's behavior via properties such as "Mass",
 "Friction", or "Bounce", which can be set in the Inspector.
 
 The body's behavior is also affected by the world's properties, as set in
-`Project Settings -> Physics`, or by entering an `Area2D <class_Area2D>`
+`Project Settings -> Physics`, or by entering an `Area2D`
 that is overriding the global physics properties.
 
 When a rigid body is at rest and hasn't moved for a while, it goes to sleep.
@@ -239,9 +239,9 @@ Rigid body modes
 A rigid body can be set to one of four modes:
 
 -   **Rigid** - The body behaves as a physical object. It collides with other bodies and responds to forces applied to it. This is the default mode.
--   **Static** - The body behaves like a `StaticBody2D <class_StaticBody2D>` and does not move.
+-   **Static** - The body behaves like a `StaticBody2D` and does not move.
 -   **Character** - Similar to "Rigid" mode, but the body cannot rotate.
--   **Kinematic** - The body behaves like a `KinematicBody2D <class_KinematicBody2D>` and must be moved by code.
+-   **Kinematic** - The body behaves like a `KinematicBody2D` and must be moved by code.
 
 Using RigidBody2D
 ~~~~~~~~~~~~~~~~~
@@ -255,9 +255,9 @@ automatically be calculated by the physics engine.
 However, if you do wish to have some control over the body, you should take
 care - altering the ``position``, ``linear_velocity``, or other physics properties
 of a rigid body can result in unexpected behavior. If you need to alter any
-of the physics-related properties, you should use the `_integrate_forces() <class_RigidBody2D_method__integrate_forces>`
+of the physics-related properties, you should use the `_integrate_forces()`
 callback instead of ``_physics_process()``. In this callback, you have access
-to the body's `Physics2DDirectBodyState <class_Physics2DDirectBodyState>`,
+to the body's `Physics2DDirectBodyState`,
 which allows for safely changing properties and synchronizing them with
 the physics engine.
 
@@ -291,7 +291,7 @@ the body and letting the physics engine calculate the resulting movement.
 .. note:: When a rigid body goes to sleep, the ``_integrate_forces()``
           function will not be called. To override this behavior, you will
           need to keep the body awake by creating a collision, applying a
-          force to it, or by disabling the `can_sleep <class_RigidBody2D_property_can_sleep>`
+          force to it, or by disabling the `can_sleep`
           property. Be aware that this can have a negative effect on performance.
 
 Contact reporting
@@ -299,19 +299,19 @@ Contact reporting
 
 By default, rigid bodies do not keep track of contacts, because this can
 require a huge amount of memory if many bodies are in the scene. To enable
-contact reporting, set the `contacts_reported <class_RigidBody2D_property_contacts_reported>`
+contact reporting, set the `contacts_reported`
 property to a non-zero value. The contacts can then be obtained via
-`Physics2DDirectBodyState.get_contact_count() <class_Physics2DDirectBodyState_method_get_contact_count>`
+`Physics2DDirectBodyState.get_contact_count()`
 and related functions.
 
-Contact monitoring via signals can be enabled via the `contact_monitor <class_RigidBody2D_property_contact_monitor>`
-property. See `RigidBody2D <class_RigidBody2D>` for the list of available
+Contact monitoring via signals can be enabled via the `contact_monitor`
+property. See `RigidBody2D` for the list of available
 signals.
 
 KinematicBody2D
 ---------------
 
-`KinematicBody2D <class_KinematicBody2D>` bodies detect collisions with
+`KinematicBody2D` bodies detect collisions with
 other bodies, but are not affected by physics properties like gravity or friction.
 Instead, they must be controlled by the user via code. The physics engine will
 not move a kinematic body.
@@ -329,11 +329,11 @@ After a collision, you may want the body to bounce, to slide along a wall,
 or to alter the properties of the object it hit. The way you handle collision
 response depends on which method you used to move the KinematicBody2D.
 
-`move_and_collide <class_KinematicBody2D_method_move_and_collide>`
+`move_and_collide`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When using ``move_and_collide()``, the function returns a
-`KinematicCollision2D <class_KinematicCollision2D>` object, which contains
+`KinematicCollision2D` object, which contains
 information about the collision and the colliding body. You can use this
 information to determine the response.
 
@@ -368,7 +368,7 @@ gdscript GDScript
             velocity = velocity.bounce(collision_info.normal)
 ```
 
-`move_and_slide <class_KinematicBody2D_method_move_and_slide>`
+`move_and_slide`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sliding is a common collision response; imagine a player moving along walls

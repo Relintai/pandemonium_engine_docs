@@ -31,9 +31,9 @@ In order to use a shader it must be attached inside a `Material
 `Resource <doc_resources>`. To draw multiple objects with the same
 material, the material must be attached to each object.
 
-All objects derived from a `CanvasItem <class_canvasitem>` have a material
-property. This includes all `GUI elements <class_Control>`, `Sprites
-<class_sprite>`, `TileMaps <class_tilemap>`, `MeshInstance2Ds
+All objects derived from a `CanvasItem` have a material
+property. This includes all `GUI elements`, `Sprites
+<class_sprite>`, `TileMaps`, `MeshInstance2Ds
 <class_meshinstance2d>` etc. They also have an option to inherit their parent's
 material. This can be useful if you have a large number of nodes that you want
 to use the same material.

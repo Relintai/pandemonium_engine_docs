@@ -71,7 +71,7 @@ through add-ons or may be available in core Godot in the future.
 Transparent objects
 ~~~~~~~~~~~~~~~~~~~
 
-Godot sorts objects by `Material <class_Material>` and `Shader
+Godot sorts objects by `Material` and `Shader
 <class_Shader>` to improve performance. This, however, can not be done with
 transparent objects. Transparent objects are rendered from back to front to make
 blending with what is behind work. As a result,
@@ -116,7 +116,7 @@ Use instancing (MultiMesh)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If several identical objects have to be drawn in the same place or nearby, try
-using `MultiMesh <class_MultiMesh>` instead. MultiMesh allows the drawing
+using `MultiMesh` instead. MultiMesh allows the drawing
 of many thousands of objects at very little performance cost, making it ideal
 for flocks, grass, particles, and anything else where you have thousands of
 identical objects.

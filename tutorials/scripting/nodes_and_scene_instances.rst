@@ -146,7 +146,7 @@ like. This operation is called instancing, and doing it from code happens in two
 steps:
 
 1. Loading the scene from the hard drive.
-2. Creating an instance of the loaded `PackedScene <class_PackedScene>`
+2. Creating an instance of the loaded `PackedScene`
    resource.
 
 gdscript GDScript

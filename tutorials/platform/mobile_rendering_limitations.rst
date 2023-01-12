@@ -55,7 +55,7 @@ The following project settings have mobile-specific overrides:
 | *GLES3 only:* ``rendering/quality/reflections/texture_array_reflections`` | ``true``        | ``false``          |
 +---------------------------------------------------------------------------+-----------------+--------------------+
 
-See the `ProjectSettings class documentation <class_ProjectSettings>`
+See the `ProjectSettings class documentation`
 for more information on those setting overrides.
 
 If you're only targeting mobile platforms in your project, consider changing the

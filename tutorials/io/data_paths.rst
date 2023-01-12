@@ -55,14 +55,14 @@ Project Settings:
   `editor data path <doc_data_paths_editor_data_paths>` in the
   ``app_userdata/[project_name]`` folder. This is the default so that prototypes
   and test projects stay self-contained within Godot's data folder.
-- If `application/config/use_custom_user_dir <class_ProjectSettings_property_application/config/use_custom_user_dir>`
+- If `application/config/use_custom_user_dir`
   is enabled in the Project Settings, the ``user://`` folder is created **next
   to** Godot's editor data path, i.e. in the standard location for applications
   data.
 
   * By default, the folder name will be inferred from the project name, but it
     can be further customized with
-    `application/config/custom_user_dir_name <class_ProjectSettings_property_application/config/custom_user_dir_name>`.
+    `application/config/custom_user_dir_name`.
     This path can contain path separators, so you can use it e.g. to group
     projects of a given studio with a ``Studio Name/Game Name`` structure.
 
@@ -92,20 +92,20 @@ by other applications for security reasons.
 
 On HTML5 exports, ``user://`` will refer to a virtual filesystem stored on the
 device via IndexedDB. (Interaction with the main filesystem can still be performed
-through the `JavaScript <class_JavaScript>` singleton.)
+through the `JavaScript` singleton.)
 
 Converting paths to absolute paths or "local" paths
 ---------------------------------------------------
 
-You can use `ProjectSettings.globalize_path() <class_ProjectSettings_method_globalize_path>`
+You can use `ProjectSettings.globalize_path()`
 to convert a "local" path like ``res://path/to/file.txt`` to an absolute OS path.
-For example, `ProjectSettings.globalize_path() <class_ProjectSettings_method_globalize_path>`
+For example, `ProjectSettings.globalize_path()`
 can be used to open "local" paths in the OS file manager
-using `OS.shell_open() <class_OS_method_shell_open>` since it only accepts
+using `OS.shell_open()` since it only accepts
 native OS paths.
 
 To convert an absolute OS path to a "local" path starting with ``res://``
-or ``user://``, use `ProjectSettings.localize_path() <class_ProjectSettings_method_localize_path>`.
+or ``user://``, use `ProjectSettings.localize_path()`.
 This only works for absolute paths that point to files or folders in your
 project's root or ``user://`` folders.
 
@@ -169,7 +169,7 @@ self-contained mode by default.
 
     Self-contained mode is not supported in exported projects yet.
     To read and write files relative to the executable path, use
-    `OS.get_executable_path() <class_OS_method_get_executable_path>`.
+    `OS.get_executable_path()`.
     Note that writing files in the executable path only works if the executable
     is placed in a writable location (i.e. **not** Program Files or another
     directory that is read-only for regular users).

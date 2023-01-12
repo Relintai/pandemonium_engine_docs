@@ -107,7 +107,7 @@ Custom scene switcher
 
 This tutorial will demonstrate building a scene switcher using autoloads.
 For basic scene switching, you can use the
-`SceneTree.change_scene() <class_SceneTree_method_change_scene>`
+`SceneTree.change_scene()`
 method (see `doc_scene_tree` for details). However, if you need more
 complex behavior when changing scenes, this method provides more functionality.
 
@@ -189,7 +189,7 @@ gdscript GDScript
         get_tree().current_scene = current_scene
 ```
 
-Using `Object.call_deferred() <class_Object_method_call_deferred>`,
+Using `Object.call_deferred()`,
 the second function will only run once all code from the current scene has
 completed. Thus, the current scene will not be removed while it is
 still being used (i.e. its code is still running).

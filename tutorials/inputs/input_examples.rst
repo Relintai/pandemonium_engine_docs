@@ -6,7 +6,7 @@ Input examples
 Introduction
 ------------
 
-In this tutorial, you'll learn how to use Godot's `InputEvent <class_InputEvent>`
+In this tutorial, you'll learn how to use Godot's `InputEvent`
 system to capture player input. There are many different types of input your
 game may use - keyboard, gamepad, mouse, etc. - and many different ways to
 turn those inputs into actions in your game. This document will show you some
@@ -23,7 +23,7 @@ Sometimes you want your game to respond to a certain input event - pressing
 the "jump" button, for example. For other situations, you might want something
 to happen as long as a key is pressed, such as movement. In the first case,
 you can use the ``_input()`` function, which will be called whenever an input
-event occurs. In the second case, Godot provides the `Input <class_Input>`
+event occurs. In the second case, Godot provides the `Input`
 singleton, which you can use to query the state of an input.
 
 Examples:
@@ -51,7 +51,7 @@ events in ``_input()``.
 Input events
 ------------
 
-Input events are objects that inherit from `InputEvent <class_InputEvent>`.
+Input events are objects that inherit from `InputEvent`.
 Depending on the event type, the object will contain specific properties
 related to that event. To see what events actually look like, add a Node and
 attach the following script:
@@ -82,13 +82,13 @@ event scroll by in the output window. Here's an example of the output:
 
 As you can see, the results are very different for the different types of
 input. Key events are even printed as their key symbols. For example, let's
-consider `InputEventMouseButton <class_InputEventMouseButton>`.
+consider `InputEventMouseButton`.
 It inherits from the following classes:
 
-- `InputEvent <class_InputEvent>` - the base class for all input events
-- `InputEventWithModifiers <class_InputEventWithModifiers>` - adds the ability to check if modifiers are pressed, such as :kbd:`Shift` or :kbd:`Alt`.
-- `InputEventMouse <class_InputEventMouse>` - adds mouse event properties, such as ``position``
-- `InputEventMouseButton <class_InputEventMouseButton>` - contains the index of the button that was pressed, whether it was a double-click, etc.
+- `InputEvent` - the base class for all input events
+- `InputEventWithModifiers` - adds the ability to check if modifiers are pressed, such as :kbd:`Shift` or :kbd:`Alt`.
+- `InputEventMouse` - adds mouse event properties, such as ``position``
+- `InputEventMouseButton` - contains the index of the button that was pressed, whether it was a double-click, etc.
 
 .. tip:: It's a good idea to keep the class reference open while you're working
         with events so you can check the event type's available properties and
@@ -109,7 +109,7 @@ gdscript GDScript
 InputMap
 --------
 
-The `InputMap <class_InputMap>` is the most flexible way to handle a
+The `InputMap` is the most flexible way to handle a
 variety of inputs. You use this by creating named input *actions*, to which
 you can assign any number of input events, such as keypresses or mouse clicks.
 A new Godot project includes a number of default actions already defined. To
@@ -136,7 +136,7 @@ gdscript GDScript
 Keyboard events
 ---------------
 
-Keyboard events are captured in `InputEventKey <class_InputEventKey>`.
+Keyboard events are captured in `InputEventKey`.
 While it's recommended to use input actions instead, there may be cases where
 you want to specifically look at key events. For this example, let's check for
 the :kbd:`T`:
@@ -170,7 +170,7 @@ Keyboard modifiers
 ~~~~~~~~~~~~~~~~~~
 
 Modifier properties are inherited from
-`InputEventWithModifiers <class_InputEventWithModifiers>`. This allows
+`InputEventWithModifiers`. This allows
 you to check for modifier combinations using boolean properties. Let's imagine
 you want one thing to happen when the :kbd:`T` is pressed, but something
 different when it's :kbd:`Shift + T`:
@@ -193,9 +193,9 @@ gdscript GDScript
 Mouse events
 ------------
 
-Mouse events stem from the `InputEventMouse <class_InputEventMouse>` class, and
-are separated into two types: `InputEventMouseButton <class_InputEventMouseButton>`
-and `InputEventMouseMotion <class_InputEventMouseMotion>`. Note that this
+Mouse events stem from the `InputEventMouse` class, and
+are separated into two types: `InputEventMouseButton`
+and `InputEventMouseMotion`. Note that this
 means that all mouse events will contain a ``position`` property.
 
 Mouse buttons
@@ -221,11 +221,11 @@ gdscript GDScript
 Mouse motion
 ~~~~~~~~~~~~
 
-`InputEventMouseMotion <class_InputEventMouseMotion>` events occur whenever
+`InputEventMouseMotion` events occur whenever
 the mouse moves. You can find the move's distance with the ``relative``
 property.
 
-Here's an example using mouse events to drag-and-drop a `Sprite <class_Sprite>`
+Here's an example using mouse events to drag-and-drop a `Sprite`
 node:
 
 gdscript GDScript
@@ -257,8 +257,8 @@ Touch events
 ------------
 
 If you are using a touchscreen device, you can generate touch events.
-`InputEventScreenTouch <class_InputEventScreenTouch>` is equivalent to
-a mouse click event, and `InputEventScreenDrag <class_InputEventScreenDrag>`
+`InputEventScreenTouch` is equivalent to
+a mouse click event, and `InputEventScreenDrag`
 works much the same as mouse motion.
 
 .. tip:: To test your touch events on a non-touchscreen device, open Project

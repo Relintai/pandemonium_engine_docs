@@ -106,6 +106,6 @@ starting location, the next is a Vector3 of the end location. And the
 last argument is a boolean for whether or not agent properties of a
 navmesh are considered when generating a path.
 
-The method will return a `PoolVector3Array <class_PoolVector3Array>` consisting of
+The method will return a `PoolVector3Array` consisting of
 points that make a path. If there is no way to navigate to the end
-location the method will return a blank `PoolVector3Array <class_PoolVector3Array>`.
+location the method will return a blank `PoolVector3Array`.

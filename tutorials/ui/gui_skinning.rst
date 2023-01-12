@@ -4,7 +4,7 @@ Introduction to GUI skinning
 ============================
 
 It is essential for a game to provide clear, informative, and yet visually
-pleasing user interface to its players. While `Control <class_Control>`
+pleasing user interface to its players. While `Control`
 nodes come with a decently functional look out of the box, there is always
 room for uniqueness and case-specific tuning. For this purpose Godot engine
 includes a system for GUI skinning (or theming), which allows you to customize
@@ -30,7 +30,7 @@ flavors to the sides in your team-based project.
 Basics of themes
 ----------------
 
-The skinning system is driven by the `Theme <class_Theme>` resource. Every
+The skinning system is driven by the `Theme` resource. Every
 Godot project has an inherent default theme that contains the settings used by
 the built-in control nodes. This is what gives the controls their distinct look
 out of the box. A theme only describes the configuration, however, and it is still
@@ -52,33 +52,33 @@ a unique name and must be one of the following data types:
 
 -  **Color**
 
-   A `color <class_Color>` value, which is often used for fonts
+   A `color` value, which is often used for fonts
    and backgrounds. Colors can also be used for modulation of controls
    and icons.
 
 -  **Constant**
 
    An integer value, which can be used either for numeric properties of
-   controls (such as the item separation in a `BoxContainer <class_BoxContainer>`),
-   or for boolean flags (such as the drawing of relationship lines in a `Tree <class_Tree>`).
+   controls (such as the item separation in a `BoxContainer`),
+   or for boolean flags (such as the drawing of relationship lines in a `Tree`).
 
 -  **Font**
 
-   A `font <class_Font>` resource, which is used by controls that
+   A `font` resource, which is used by controls that
    display text. Fonts contain most text rendering settings, except for
    its size and color. On top of that, alignment and text direction are
    controlled by individual controls.
 
 -  **Icon**
 
-   A `texture <class_Texture>` resource, which is normally used
-   to display an icon (on a `Button <class_Button>`, for example).
+   A `texture` resource, which is normally used
+   to display an icon (on a `Button`, for example).
 
 -  **StyleBox**
 
-   A `StyleBox <class_StyleBox>` resource, a collection of configuration
+   A `StyleBox` resource, a collection of configuration
    options which define the way a UI panel should be displayed. This is
-   not limited to the `Panel <class_Panel>` control, as styleboxes
+   not limited to the `Panel` control, as styleboxes
    are used by many controls for their backgrounds and overlays.
 
 Theme types
@@ -156,9 +156,9 @@ including this control's children.
 
 Local overrides are less useful for the visual flair of your user interface,
 especially if you aim for consistency. However, for layout nodes these are
-essential. Nodes such as `BoxContainer <class_BoxContainer>` and
-`GridContainer <class_GridContainer>` use theme constants for defining
-separation between their children, and `MarginContainer <class_MarginContainer>`
+essential. Nodes such as `BoxContainer` and
+`GridContainer` use theme constants for defining
+separation between their children, and `MarginContainer`
 stores its customizable margins in its theme items.
 
 Whenever a control has a local theme item override, this is the value that
@@ -183,7 +183,7 @@ the item the default theme is checked.
 
 This allows you to configure the default look of every Godot control with a single
 theme resource, but you can go more granular than that. Every control node also has
-a `theme <class_Control_property_theme>` property, which allows you to set a
+a `theme` property, which allows you to set a
 custom theme for the branch of nodes starting with that control. This means that the
 control and all of its children, and their children in turn, would first check that
 custom theme resource before falling back on the project and the default themes.

@@ -130,7 +130,7 @@ After overriding, a new field is added for this specific configuration:
 .. note::
 
     When using the
-    `project settings "override.cfg" functionality <class_ProjectSettings>`
+    `project settings "override.cfg" functionality`
     (which is unrelated to feature tags), remember that feature tags still apply.
     Therefore, make sure to *also* override the setting with the desired feature
     tag(s) if you want them to override base project settings on all platforms

@@ -44,7 +44,7 @@ Instantiating C# nodes from GDScript
 
 Using C# from GDScript doesn't need much work. Once loaded
 (see `doc_gdscript_classes_as_resources`), the script can be instantiated
-with `new() <class_CSharpScript_method_new>`.
+with `new()`.
 
 ::
 
@@ -68,7 +68,7 @@ Instantiating GDScript nodes from C#
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 From the C# side, everything work the same way. Once loaded, the GDScript can
-be instantiated with `GDScript.New() <class_GDScript_method_new>`.
+be instantiated with `GDScript.New()`.
 
 .. code-block:: csharp
 
@@ -104,8 +104,8 @@ Accessing GDScript fields from C#
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As C# is statically typed, accessing GDScript from C# is a bit more
-convoluted, you will have to use `Object.Get() <class_Object_method_get>`
-and `Object.Set() <class_Object_method_set>`. The first argument is the name of the field you want to access.
+convoluted, you will have to use `Object.Get()`
+and `Object.Set()`. The first argument is the name of the field you want to access.
 
 .. code-block:: csharp
 
@@ -145,7 +145,7 @@ Calling GDScript methods from C#
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To call GDScript methods from C# you'll need to use
-`Object.Call() <class_Object_method_call>`. The first argument is the
+`Object.Call()`. The first argument is the
 name of the method you want to call. The following arguments will be passed
 to said method.
 

@@ -14,7 +14,7 @@ to go back otherwise).
 Handling the notification
 -------------------------
 
-On desktop platforms, the `MainLoop <class_MainLoop>`
+On desktop platforms, the `MainLoop`
 has a special ``MainLoop.NOTIFICATION_WM_QUIT_REQUEST`` notification that is
 sent to all nodes when quitting is requested.
 
@@ -53,10 +53,10 @@ gdscript GDScript
 Sending your own quit notification
 ----------------------------------
 
-While forcing the application to close can be done by calling `SceneTree.quit <class_SceneTree_method_quit>`,
+While forcing the application to close can be done by calling `SceneTree.quit`,
 doing so will not send the quit *notification*. This means the function
 described above won't be called. Quitting by calling
-`SceneTree.quit <class_SceneTree_method_quit>` will not allow custom actions
+`SceneTree.quit` will not allow custom actions
 to complete (such as saving, confirming the quit, or debugging), even if you try
 to delay the line that forces the quit. 
 

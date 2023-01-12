@@ -130,7 +130,7 @@ custom behavior.
 
   Nodes added via an EditorPlugin are "CustomType" nodes. While they work
   with any scripting language, they have fewer features than
-  `the Script Class system <doc_gdscript_basics_class_name )`. If you
+  `the Script Class system ( doc_gdscript_basics_class_name )`. If you
   are writing GDScript or NativeScript, we recommend using Script Classes instead.
 
 To create a new node type, you can use the function
@@ -227,7 +227,7 @@ gdscript GDScript
 ```
 
 Then create the script `custom_dock.gd` in the same folder. Fill it with the
-`template we've seen before <doc_making_plugins_template_code )` to get a
+`template we've seen before ( doc_making_plugins_template_code )` to get a
 good start.
 
 Since we're trying to add a new custom dock, we need to create the contents of
@@ -318,7 +318,7 @@ Registering autoloads/singletons in plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is possible for editor plugins to automatically register
-`autoloads <doc_singletons_autoload )` when the plugin is enabled.
+`autoloads ( doc_singletons_autoload )` when the plugin is enabled.
 This also includes unregistering the autoload when the plugin is disabled.
 
 This makes setting up plugins faster for users, as they no longer have to manually

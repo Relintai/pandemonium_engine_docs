@@ -105,7 +105,7 @@ This will print:
 Local signaling example
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-This example expands on the previous one, separating the peers in two different scenes, and using a `singleton <doc_singletons_autoload )` as a signaling server.
+This example expands on the previous one, separating the peers in two different scenes, and using a `singleton ( doc_singletons_autoload )` as a signaling server.
 
 ::
 
@@ -147,7 +147,7 @@ This example expands on the previous one, separating the peers in two different 
 
 And now for the local signaling server:
 
-.. note:: This local signaling server is supposed to be used as a `singleton <doc_singletons_autoload )` to connect two peers in the same scene.
+.. note:: This local signaling server is supposed to be used as a `singleton ( doc_singletons_autoload )` to connect two peers in the same scene.
 
 ::
 

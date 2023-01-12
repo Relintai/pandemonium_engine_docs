@@ -149,7 +149,7 @@ ones, the following rules should be followed:
   separation.
 - Finally, third-party headers (either from `thirdparty` or from the system's
   include paths) come next and should be included with the < and > symbols, e.g.
-  `#include <png.h )`. The block of third-party headers should also be followed
+  `#include <png.h>`. The block of third-party headers should also be followed
   by an empty line for separation.
 - Godot and third-party headers should be included in the file that requires
   them, i.e. in the `.h` header if used in the declarative code or in the `.cpp`
@@ -344,7 +344,7 @@ Don't repeat what the code says in a comment. Explain the *why* rather than *how
 You can use Javadoc-style comments above function or macro definitions. It's
 recommended to use Javadoc-style comments *only* for methods which are not
 exposed to scripting. This is because exposed methods should be documented in
-the `class reference XML <doc_updating_the_class_reference )`
+the `class reference XML ( doc_updating_the_class_reference )`
 instead.
 
 **Example:**

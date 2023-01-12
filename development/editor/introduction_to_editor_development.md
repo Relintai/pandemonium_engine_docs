@@ -37,7 +37,7 @@ The editor's code is fully self-contained in the
 of the Godot source repository.
 
 Some editor functionality is also implemented via
-`modules <doc_custom_modules_in_c++ )`. Some of these are only enabled in
+`modules ( doc_custom_modules_in_c++ )`. Some of these are only enabled in
 editor builds to decrease the binary size of export templates. See the
 `modules/ ( https://github.com/godotengine/godot/tree/master/modules )` folder
 in the Godot source repository.
@@ -83,6 +83,6 @@ Development tips
 ----------------
 
 To iterate quickly on the editor, we recommend to set up a test project and
-`open it from the command line <doc_command_line_tutorial )` after compiling
+`open it from the command line ( doc_command_line_tutorial )` after compiling
 the editor. This way, you don't have to go through the project manager every
 time you start Godot.

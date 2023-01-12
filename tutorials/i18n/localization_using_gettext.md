@@ -145,7 +145,7 @@ To register a messages file as a translation in a project, open the
 **Project Settings**, then go to the **Localization** tab.
 In **Translations**, click **Add…** then choose the `.po` or `.mo` file
 in the file dialog. The locale will be inferred from the
-`"Language: <code>\n"` property in the messages file.
+`"Language: ( code>\n"` property in the messages file.
 
 .. note:: See `doc_internationalizing_games` for more information on
           importing and testing translations in Godot.

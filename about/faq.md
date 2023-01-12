@@ -38,7 +38,7 @@ Which platforms are supported by Godot?
 * Windows
 * macOS
 * X11 (Linux, \*BSD)
-* `Web <doc_using_the_web_editor )`
+* `Web ( doc_using_the_web_editor )`
 * Android (experimental)
 
 **For exporting your games:**
@@ -60,15 +60,15 @@ Additionally, there is some unofficial third-party work being done on building
 for some consoles. However, none of this is included in the default build
 scripts or export templates at this time.
 
-For more on this, see the sections on `exporting <toc-learn-workflow-export )`
-and `compiling Godot yourself <toc-devel-compiling )`.
+For more on this, see the sections on `exporting ( toc-learn-workflow-export )`
+and `compiling Godot yourself ( toc-devel-compiling )`.
 
 Which programming languages are supported in Godot?
 ---------------------------------------------------
 
 The officially supported languages for Godot are GDScript, Visual Scripting,
 C#, and C++. See the subcategories for each language in the
-`scripting <toc-learn-scripting )` section.
+`scripting ( toc-learn-scripting )` section.
 
 If you are just starting out with either Godot or game development in general,
 GDScript is the recommended language to learn and use since it is native to Godot.
@@ -99,7 +99,7 @@ up to maximize Godot's potential in the least amount of code, affording both nov
 and expert developers alike to capitalize on Godot's strengths as fast as possible.
 If you've ever written anything in a language like Python before then you'll feel
 right at home. For examples, history, and a complete overview of the power GDScript
-offers you, check out the `GDScript scripting guide <doc_gdscript )`.
+offers you, check out the `GDScript scripting guide ( doc_gdscript )`.
 
 There are several reasons to use GDScript--especially when you are prototyping, in
 alpha/beta stages of your project, or are not creating the next AAA title--but the
@@ -225,7 +225,7 @@ Linux
   This is typically `/usr/local/bin/godot` or `/usr/bin/godot`.
   Doing this requires administrator privileges,
   but this also allows you to
-  `run the Godot editor from a terminal <doc_command_line_tutorial )` by entering `godot`.
+  `run the Godot editor from a terminal ( doc_command_line_tutorial )` by entering `godot`.
 
   - If you cannot move the Godot editor binary to a protected location, you can
     keep the binary somewhere in your home directory, and modify the `Path=`
@@ -309,7 +309,7 @@ functionality in Godot. This is why we are aiming to move some core
 functionality to officially supported add-ons in future versions of Godot. In
 terms of binary size, this also has the advantage of making you pay only for what
 you actually use in your project. (In the meantime, you can
-`compile custom export templates with unused features disabled <doc_optimizing_for_size )`
+`compile custom export templates with unused features disabled ( doc_optimizing_for_size )`
 to optimize the distribution size of your project.)
 
 How should assets be created to handle multiple resolutions and aspect ratios?
@@ -344,7 +344,7 @@ This is mostly needed for 2D, as in 3D it's just a matter of Camera XFov or YFov
    if there is one aspect ratio and you want black bars to appear
    instead. This is also explained in `doc_multiple_resolutions`.
 
-4. For user interfaces, use the `anchoring <doc_size_and_anchors )`
+4. For user interfaces, use the `anchoring ( doc_size_and_anchors )`
    to determine where controls should stay and move. If UIs are more
    complex, consider learning about Containers.
 
@@ -359,7 +359,7 @@ How can I extend Godot?
 -----------------------
 
 For extending Godot, like creating Godot Editor plugins or adding support
-for additional languages, take a look at `EditorPlugins <doc_making_plugins )`
+for additional languages, take a look at `EditorPlugins ( doc_making_plugins )`
 and tool scripts.
 
 Also, see the official blog posts on these topics:
@@ -474,9 +474,9 @@ have to deal with the LGPL licensing caveats that come with GTK or Qt. Lastly,
 this means Godot is "eating its own dog food" since the editor itself is one of
 the most complex users of Godot's UI system.
 
-This custom UI toolkit `can't be used as a library <doc_faq_use_godot_as_library )`,
+This custom UI toolkit `can't be used as a library ( doc_faq_use_godot_as_library )`,
 but you can still
-`use Godot to create non-game applications by using the editor <doc_faq_non_game_applications )`.
+`use Godot to create non-game applications by using the editor ( doc_faq_non_game_applications )`.
 
 .. _doc_faq_why_not_stl:
 

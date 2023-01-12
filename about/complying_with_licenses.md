@@ -112,11 +112,11 @@ Godot uses `FreeType ( https://www.freetype.org/ )`_ to render fonts. Its licens
 requires attribution, so the following text must be included together with the
 Godot license:
 
-    Portions of this software are copyright © <year> The FreeType Project (www.freetype.org).  All rights reserved.
+    Portions of this software are copyright © ( year> The FreeType Project (www.freetype.org).  All rights reserved.
 
 .. note::
 
-    <year> should correspond to the value from the FreeType version used
+    ( year> should correspond to the value from the FreeType version used
     in your build. This information can be found in the editor by opening
     the **Help > About** dialog and going to the **Third-party Licenses**
     tab.
@@ -163,5 +163,5 @@ as the latest version of OpenSSL currently uses (as of April 2022).
 .. note::
 
     If you exported your project using a
-    `custom build with specific modules disabled <doc_optimizing_for_size )`,
+    `custom build with specific modules disabled ( doc_optimizing_for_size )`,
     you don't need to list the disabled modules' licenses in your exported project.

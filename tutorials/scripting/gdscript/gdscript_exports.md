@@ -138,7 +138,7 @@ Examples
 
 It must be noted that even if the script is not being run while in the
 editor, the exported properties are still editable. This can be used
-in conjunction with a `script in "tool" mode <doc_gdscript_tool_mode )`.
+in conjunction with a `script in "tool" mode ( doc_gdscript_tool_mode )`.
 
 Exporting bit flags
 -------------------

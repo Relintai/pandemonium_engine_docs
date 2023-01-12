@@ -273,7 +273,7 @@ with the following flags::
     C:\godot> scons platform=windows tools=no target=release bits=64
 
 If you plan on replacing the standard export templates, copy these to the
-following location, replacing `<version )` with the version identifier
+following location, replacing `( version )` with the version identifier
 (such as `3.1.1.stable` or `3.2.dev`)::
 
     %USERPROFILE%\AppData\Roaming\Godot\templates\<version>\

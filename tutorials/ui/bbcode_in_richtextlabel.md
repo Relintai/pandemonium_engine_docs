@@ -16,7 +16,7 @@ a `RichTextLabel`.
 It has a built-in API for generating the markup, but can also parse a BBCode.
 
 Note that the BBCode tags can also be used, to some extent, in the
-`XML source of the class reference <doc_updating_the_class_reference )`.
+`XML source of the class reference ( doc_updating_the_class_reference )`.
 
 Using BBCode
 ------------

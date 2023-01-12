@@ -49,7 +49,7 @@ for music, speech, and long sound effects.
 Best practices
 --------------
 
-Godot has an `extensive bus system <doc_audio_buses )` with built-in effects.
+Godot has an `extensive bus system ( doc_audio_buses )` with built-in effects.
 This saves SFX artists the need to add reverb to the sound effects,
 reducing their size greatly and ensuring correct trimming. Say no to SFX
 with baked reverb!

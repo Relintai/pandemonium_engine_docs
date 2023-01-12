@@ -26,7 +26,7 @@ request triggers a rebuild of the online documentation upon merging.
 
 .. warning:: The class reference's source files are in the `Godot engine
              repository ( https://github.com/godotengine/godot )`_. We generate
-             the `Godot API <toc-class-ref )` section of this documentation
+             the `Godot API ( toc-class-ref )` section of this documentation
              from them. If you want to update the description of a class, its
              methods, or properties, read
              `doc_updating_the_class_reference`.
@@ -173,7 +173,7 @@ using this inline markup:
 
 .. code:: rst
 
-   :download:`myfilename.zip <files/myfilename.zip )`
+   :download:`myfilename.zip ( files/myfilename.zip )`
 
 
 License

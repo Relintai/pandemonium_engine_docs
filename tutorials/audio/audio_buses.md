@@ -151,7 +151,7 @@ The compressor has many uses. For example:
 
     If your goal is to prevent a signal from exceeding a given amplitude
     altogether, rather than to reduce the dynamic range of the signal,
-    a `limiter <doc_audio_buses_limiter )` is likely a better choice
+    a `limiter ( doc_audio_buses_limiter )` is likely a better choice
     than a compressor.
 
 
@@ -259,7 +259,7 @@ Reverb
 Reverb simulates rooms of different sizes. It has adjustable parameters that can
 be tweaked to obtain the sound of a specific room. Reverb is commonly outputted
 from `Areas`
-(see `Reverb buses <doc_audio_streams_reverb_buses )`), or to apply
+(see `Reverb buses ( doc_audio_streams_reverb_buses )`), or to apply
 a "chamber" feel to all sounds.
 
 SpectrumAnalyzer

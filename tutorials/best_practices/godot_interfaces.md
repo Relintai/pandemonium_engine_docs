@@ -155,7 +155,7 @@ following checks, in order:
   the ClassDB for the "visible" property against the CanvasItem class and all
   of its inherited types. If found, it will call the bound setter or getter.
   For more information about HashMaps, see the
-  `data preferences <doc_data_preferences )` docs.
+  `data preferences ( doc_data_preferences )` docs.
 
 - If not found, it does an explicit check to see if the user wants to access
   the "script" or "meta" properties.

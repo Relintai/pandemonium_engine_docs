@@ -53,7 +53,7 @@ project manager opens a project, the initial process is terminated and the debug
    :align: center
 
 To learn more about command line arguments, refer to the
-`command line tutorial <doc_command_line_tutorial )`.
+`command line tutorial ( doc_command_line_tutorial )`.
 
 Even if you start the project without a debugger attached it can still be connected to the running
 process using **Debug > Attach to Process...** menu.

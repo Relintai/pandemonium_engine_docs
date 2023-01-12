@@ -22,12 +22,12 @@ Requirements
 
 .. warning::
 
-    Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the `Running Godot apps on macOS <doc_running_on_macos )` page for more information.
+    Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the `Running Godot apps on macOS ( doc_running_on_macos )` page for more information.
 
 Code signing and notarization
 -----------------------------
 
-By default, macOS will run only applications that are signed and notarized. If you use any other signing configuration, see `Running Godot apps on macOS <doc_running_on_macos )` for workarounds.
+By default, macOS will run only applications that are signed and notarized. If you use any other signing configuration, see `Running Godot apps on macOS ( doc_running_on_macos )` for workarounds.
 
 To notarize an app, you **must** have a valid `Apple Developer ID Certificate ( https://developer.apple.com/ )`.
 
@@ -50,7 +50,7 @@ If you do not have an Apple Developer ID Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Keep `Code Signing` enabled and leave the `Identity` option empty (when exporting from a computer running macOS, on other platforms this option is hidden).
-In this case Godot will use a ad-hoc signature, which will make running an exported app easier for the end users, see the `Running Godot apps on macOS <doc_running_on_macos )` page for more information.
+In this case Godot will use a ad-hoc signature, which will make running an exported app easier for the end users, see the `Running Godot apps on macOS ( doc_running_on_macos )` page for more information.
 
 Signing Options
 ~~~~~~~~~~~~~~~

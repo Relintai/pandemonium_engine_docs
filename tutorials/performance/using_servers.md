@@ -4,7 +4,7 @@ Optimization using Servers
 ==========================
 
 Engines like Godot provide increased ease of use thanks to their high level constructs and features.
-Most of them are accessed and used via the `Scene System<doc_scene_tree )`. Using nodes and
+Most of them are accessed and used via the `Scene System( doc_scene_tree )`. Using nodes and
 resources simplifies project organization and asset management in complex games.
 
 There are, of course, always drawbacks:
@@ -73,7 +73,7 @@ For nodes, there are many functions available:
   and `CanvasItem` nodes)
   contains functions to get the *VisualServer Canvas*, and the *Physics2DServer Space*. This
   allows creating 2D objects directly with the server API and using them.
-* The `VisualInstance<class_VisualInstance )` class, allows getting the scenario *instance* and
+* The `VisualInstance( VisualInstance )` class, allows getting the scenario *instance* and
   *instance base* via the `VisualInstance.get_instance()`
   and `VisualInstance.get_base()` respectively.
 

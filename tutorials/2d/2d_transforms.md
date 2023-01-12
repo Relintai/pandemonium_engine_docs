@@ -21,7 +21,7 @@ can be accessed as a `Transform2D`.
 
 Also covered in the previous tutorial, nodes are drawn by default in Layer 0,
 in the built-in canvas. To put nodes in a different layer, a `CanvasLayer
-<class_CanvasLayer )` node can be used.
+( CanvasLayer )` node can be used.
 
 Global canvas transform
 -----------------------

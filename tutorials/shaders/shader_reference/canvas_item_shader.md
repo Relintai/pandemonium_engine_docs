@@ -53,7 +53,7 @@ Global built-ins are available everywhere, including custom functions.
 +===================+=============================================================================+
 | in float **TIME** | Global time since the engine has started, in seconds (always positive).     |
 |                   | It's subject to the rollover setting (which is 3,600 seconds by default).   |
-|                   | It's not affected by `time_scale<class_Engine_property_time_scale )`    |
+|                   | It's not affected by `time_scale( Engine_property_time_scale )`    |
 |                   | or pausing, but you can override the `TIME` variable's time scale by      |
 |                   | calling `VisualServer.set_shader_time_scale()` with the desired           |
 |                   | time scale factor as parameter (`1.0` being the default).                 |

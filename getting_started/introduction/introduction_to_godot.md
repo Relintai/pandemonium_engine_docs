@@ -90,7 +90,7 @@ completely free and open-source.
 .. seealso:: These are the five officially supported programming languages. The
              community maintains support for many more. For more information,
              see `GDNative third-party bindings
-             <doc_what_is_gdnative_third_party_bindings )`.
+             ( doc_what_is_gdnative_third_party_bindings )`.
 
 What do I need to know to use Godot?
 ------------------------------------

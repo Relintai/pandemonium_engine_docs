@@ -236,11 +236,11 @@ You will then be back to the original state of your branch before calling
 If you have already created a merge commit without using `rebase`, or
 have made any other changes that have resulted in undesired history, the best option
 is to use an *interactive rebase* on the upstream branch. See the `dedicated
-section <doc_pr_workflow_rebase )` for instructions.
+section ( doc_pr_workflow_rebase )` for instructions.
 
 .. tip:: If at any time you want to *reset* a local branch to a given commit or branch,
-         you can do so with `git reset --hard <commit ID )` or
-         `git reset --hard <remote>/<branch )` (e.g. `git reset --hard upstream/master`).
+         you can do so with `git reset --hard ( commit ID )` or
+         `git reset --hard ( remote>/( branch )` (e.g. `git reset --hard upstream/master`).
 
          Be warned that this will remove any changes that you might have committed in
          this branch. If you ever lose commits by mistake, use the `git reflog` command
@@ -266,12 +266,12 @@ before staging it, while it is staged, and after it has been committed.
 
 - `git diff` will show you the current unstaged changes, i.e. the
   differences between your working directory and the staging area.
-- `git checkout -- <files )` will undo the unstaged changes to the given
+- `git checkout -- ( files )` will undo the unstaged changes to the given
   files.
-- `git add <files )` will *stage* the changes on the listed files.
+- `git add ( files )` will *stage* the changes on the listed files.
 - `git diff --staged` will show the current staged changes, i.e. the
   differences between the staging area and the last commit.
-- `git reset HEAD <files )` will *unstage* changes to the listed files.
+- `git reset HEAD ( files )` will *unstage* changes to the listed files.
 - `git status` will show you what are the currently staged and unstaged
   modifications.
 - `git commit` will commit the staged files. It will open a text editor
@@ -336,7 +336,7 @@ remote branch to share them with the world. The syntax for this is:
 
 ::
 
-    $ git push <remote> <local branch>[:<remote branch>]
+    $ git push ( remote> ( local branch>[:( remote branch>]
 
 The part about the remote branch can be omitted if you want it to have the
 same name as the local branch, which is our case in this example, so we will

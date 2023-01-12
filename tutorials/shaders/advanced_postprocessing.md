@@ -9,7 +9,7 @@ Introduction
 This tutorial describes an advanced method for post-processing in Godot.
 In particular, it will explain how to write a post-processing shader that
 uses the depth buffer. You should already be familiar with post-processing
-generally and, in particular, with the methods outlined in the `custom post-processing tutorial <doc_custom_postprocessing )`.
+generally and, in particular, with the methods outlined in the `custom post-processing tutorial ( doc_custom_postprocessing )`.
 
 In the previous post-processing tutorial, we rendered the scene to a `Viewport`
 and then rendered the Viewport in a `ViewportContainer`
@@ -20,7 +20,7 @@ Viewports do not maintain depth information.
 Full screen quad
 ----------------
 
-In the `custom post-processing tutorial <doc_custom_postprocessing )`, we
+In the `custom post-processing tutorial ( doc_custom_postprocessing )`, we
 covered how to use a Viewport to make custom post-processing effects. There are
 two main drawbacks of using a Viewport:
 

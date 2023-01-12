@@ -4,7 +4,7 @@ Contributing to the class reference
 ===================================
 
 
-The class reference is available online in the `classes <toc-class-ref )`
+The class reference is available online in the `classes ( toc-class-ref )`
 section of the documentation and in the Godot editor, from the help menu.
 
 In the class reference, some methods, variables, and signals lack descriptions.
@@ -19,7 +19,7 @@ taking care of a given class.
 
 .. seealso::
 
-    You can find the writing guidelines for the class reference `here <doc_class_reference_writing_guidelines )`.
+    You can find the writing guidelines for the class reference `here ( doc_class_reference_writing_guidelines )`.
 
     For details on Git usage and the pull request workflow, please
     refer to the `doc_pr_workflow` page.
@@ -40,11 +40,11 @@ repository: `doc/classes/
 ( https://github.com/godotengine/godot/tree/master/doc/classes )`_.
 
 .. note:: For some modules in the engine's source code, you'll find the XML
-          files in the `modules/<module_name>/doc_classes/` directory instead.
+          files in the `modules/( module_name>/doc_classes/` directory instead.
 
 .. warning:: Always edit the API reference through these source XML files. Do
              not edit the generated `.rst` files `in the online documentation
-             <toc-class-ref )`, hosted in the `godot-docs
+             ( toc-class-ref )`, hosted in the `godot-docs
              ( https://github.com/godotengine/godot-docs )`_ repository.
 
 .. warning::

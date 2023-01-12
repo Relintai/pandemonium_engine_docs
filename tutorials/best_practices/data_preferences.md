@@ -334,4 +334,4 @@ for blending, i.e. enabling smooth transitions between these animations. There
 may also be a hierarchical structure between animations that one plans out for
 their object. These are the cases where the `AnimationTree`
 shines. One can find an in-depth guide on using the AnimationTree
-`here <doc_animation_tree )`.
+`here ( doc_animation_tree )`.

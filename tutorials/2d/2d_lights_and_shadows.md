@@ -51,7 +51,7 @@ The demo uses four different nodes:
   * `Light2D`
   * `LightOccluder2D`
 
-`CanvasModulate<class_CanvasModulate )` is used to darken the scene.
+`CanvasModulate( CanvasModulate )` is used to darken the scene.
 
 `Sprites` are used to display the textures for the light blobs, the
 background, and for the shadow casters.

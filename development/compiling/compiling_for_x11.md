@@ -150,7 +150,7 @@ projects in an automated manner, use::
     scons -j8 platform=server tools=yes target=release_debug
 
 To compile a debug *server* build which can be used with
-`remote debugging tools <doc_command_line_tutorial )`, use::
+`remote debugging tools ( doc_command_line_tutorial )`, use::
 
     scons -j8 platform=server tools=no target=release_debug
 
@@ -254,7 +254,7 @@ to get even faster builds.
 
     ln -s ~/.local/opt/pyston/bin/scons ~/.local/bin/pyston-scons
 
-- Instead of running `scons <build arguments )`, run `pyston-scons <build arguments )`
+- Instead of running `scons ( build arguments )`, run `pyston-scons ( build arguments )`
   to compile Godot.
 
 If you can't run `pyston-scons` after creating the symbolic link,

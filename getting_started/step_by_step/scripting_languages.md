@@ -25,7 +25,7 @@ Available scripting languages
 
 Godot offers **five gameplay programming languages**: GDScript, C#,
 VisualScript, and, via its GDNative technology, C and C++. There are more
-`community-supported languages <doc_what_is_gdnative_third_party_bindings )`,
+`community-supported languages ( doc_what_is_gdnative_third_party_bindings )`,
 but these are the official ones.
 
 You can use multiple languages in a single project. For instance, in a team, you
@@ -68,7 +68,7 @@ Let's look at each language's features, as well as its pros and cons.
 GDScript
 ~~~~~~~~
 
-`GDScript<doc_gdscript )` is an
+`GDScript( doc_gdscript )` is an
 `object-oriented ( https://en.wikipedia.org/wiki/Object-oriented_programming )`_ and
 `imperative ( https://en.wikipedia.org/wiki/Imperative_programming )`_
 programming language built for Godot. It's made by and for game developers
@@ -149,7 +149,7 @@ VisualScript
     `trying out GDScript <toc-learn-scripting-gdscript )` instead,
     especially if you intend to migrate your project to Godot 4.
 
-`Visual Scripting<doc_what_is_visual_script )` is a graph-based visual
+`Visual Scripting( doc_what_is_visual_script )` is a graph-based visual
 programming language where you connect blocks. It can be a great tool for
 non-programmers like game designers and artists.
 
@@ -166,7 +166,7 @@ is slow compared to using other programming languages.
 .. seealso::
 
     For more information, see
-    `Getting started with VisualScript <doc_getting_started_visual_script )`.
+    `Getting started with VisualScript ( doc_getting_started_visual_script )`.
 
 C and C++ via GDNative
 ~~~~~~~~~~~~~~~~~~~~~~

@@ -17,7 +17,7 @@ data types. If not, refer to this guide `doc_custom_modules_in_c++`.
 References
 ~~~~~~~~~~
 
-- `ResourceLoader<class_resourceloader )`
+- `ResourceLoader( resourceloader )`
 - `core/io/resource_loader.cpp ( https://github.com/godotengine/godot/blob/master/core/io/resource_loader.cpp )`_
 
 What for?

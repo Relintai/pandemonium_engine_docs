@@ -45,9 +45,9 @@ Command line reference
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Command                                  | Description                                                                                                                                                  |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `-e`, `--editor`                     | Start the editor instead of running the scene (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                    |
+| `-e`, `--editor`                     | Start the editor instead of running the scene (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                    |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `-p`, `--project-manager`            | Start the project manager, even if a project is auto-detected (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                    |
+| `-p`, `--project-manager`            | Start the project manager, even if a project is auto-detected (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                    |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `-q`, `--quit`                       | Quit after the first iteration.                                                                                                                              |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -135,22 +135,22 @@ Command line reference
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `--check-only`                       | Only parse for errors and quit (use with `--script`).                                                                                                                            |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--export <target )`                  | Export the project using the given export target. Export only main pack if path ends with .pck or .zip (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled). |
+| `--export <target )`                  | Export the project using the given export target. Export only main pack if path ends with .pck or .zip (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled). |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--export-debug <target )`            | Like `--export`, but use debug template (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                              |
+| `--export-debug <target )`            | Like `--export`, but use debug template (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                              |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--doctool <path )`                   | Dump the engine API reference to the given <path> in XML format, merging if existing files are found (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).   |
+| `--doctool <path )`                   | Dump the engine API reference to the given <path> in XML format, merging if existing files are found (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).   |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--no-docbase`                       | Disallow dumping the base types (used with `--doctool`, `tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                               |
+| `--no-docbase`                       | Disallow dumping the base types (used with `--doctool`, `tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                               |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--build-solutions`                  | Build the scripting solutions (e.g. for C# projects, `tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                    |
+| `--build-solutions`                  | Build the scripting solutions (e.g. for C# projects, `tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                    |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--gdnative-generate-json-api`       | Generate JSON dump of the Godot API for GDNative bindings (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                              |
+| `--gdnative-generate-json-api`       | Generate JSON dump of the Godot API for GDNative bindings (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                              |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--test <test )`                      | Run a unit test. Use `--help` first to display the list of tests. (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                    |
+| `--test <test )`                      | Run a unit test. Use `--help` first to display the list of tests. (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                    |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `--export-pack <preset> <path )`      | Like `--export`, but only export the game pack for the given preset. The <path> extension determines whether it will be in PCK or ZIP format.                                    |
-|                                        | (`tools <doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                                                                        |
+|                                        | (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                                                                        |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Path

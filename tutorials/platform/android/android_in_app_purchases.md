@@ -34,7 +34,7 @@ Usage
 Getting started
 ***************
 
-If not already done, make sure you have enabled and successfully set up `Android Custom Builds <doc_android_custom_build )`.
+If not already done, make sure you have enabled and successfully set up `Android Custom Builds ( doc_android_custom_build )`.
 Grab the`GodotGooglePlayBilling` plugin binary and config from the `releases page ( https://github.com/godotengine/godot-google-play-billing/releases )`
 and put both into `res://android/plugins`.
 The plugin should now show up in the Android export settings, where you can enable it.

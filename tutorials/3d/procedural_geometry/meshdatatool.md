@@ -16,7 +16,7 @@ for certain mesh algorithms. If you do not need this extra information then it m
 We initialize the MeshDataTool from an ArrayMesh by calling `create_from_surface()`. If there is already data initialized in the MeshDataTool,
 calling `create_from_surface()` will clear it for you. Alternatively, you can call `clear()` yourself before re-using the MeshDataTool.
 
-In the examples below, assume an ArrayMesh called `mesh` has already been created. See `ArrayMesh tutorial <doc_arraymesh )` for an example of mesh generation.
+In the examples below, assume an ArrayMesh called `mesh` has already been created. See `ArrayMesh tutorial ( doc_arraymesh )` for an example of mesh generation.
 
 gdscript GDScript
 
@@ -71,7 +71,7 @@ gdscript GDScript
 ```
 
 Below is a complete example that turns a spherical mesh called `mesh` into a randomly deformed blob complete with updated normals and vertex colors.
-See `ArrayMesh tutorial <doc_arraymesh )` for how to generate the base mesh.
+See `ArrayMesh tutorial ( doc_arraymesh )` for how to generate the base mesh.
 
 gdscript GDScript
 

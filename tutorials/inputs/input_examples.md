@@ -150,7 +150,7 @@ gdscript GDScript
                 print("T was pressed")
 ```
 
-.. tip:: See `@GlobalScope_KeyList <enum_@GlobalScope_KeyList )` for a list of scancode
+.. tip:: See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
         constants.
 
 .. warning::
@@ -187,7 +187,7 @@ gdscript GDScript
                     print("T was pressed")
 ```
 
-.. tip:: See `@GlobalScope_KeyList <enum_@GlobalScope_KeyList )` for a list of scancode
+.. tip:: See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
         constants.
 
 Mouse events
@@ -201,7 +201,7 @@ means that all mouse events will contain a `position` property.
 Mouse buttons
 ~~~~~~~~~~~~~
 
-Capturing mouse buttons is very similar to handling key events. `@GlobalScope_ButtonList <enum_@GlobalScope_ButtonList )`
+Capturing mouse buttons is very similar to handling key events. `@GlobalScope_ButtonList ( enum_@GlobalScope_ButtonList )`
 contains a list of `BUTTON_*` constants for each possible button, which will
 be reported in the event's `button_index` property. Note that the scrollwheel
 also counts as a button - two buttons, to be precise, with both
@@ -240,7 +240,7 @@ gdscript GDScript
 
     func _input(event):
         if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-            if (event.position - $Sprite.position).length() < click_radius:
+            if (event.position - $Sprite.position).length() (  click_radius:
                 # Start dragging if the click is on the sprite.
                 if not dragging and event.pressed:
                     dragging = true

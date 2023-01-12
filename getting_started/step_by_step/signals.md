@@ -142,7 +142,7 @@ node's motion.
 
 Our Sprite moves thanks to code in the `_process()` function. Godot provides a
 method to toggle processing on and off: `Node.set_process()
-<class_Node_method_set_process )`. Another method of the Node class,
+( Node_method_set_process )`. Another method of the Node class,
 `is_processing()`, returns `true` if idle processing is active. We can use
 the `not` keyword to invert the value.
 

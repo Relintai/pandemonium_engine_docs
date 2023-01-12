@@ -19,7 +19,7 @@ History
 .. note::
 
     Documentation about GDScript's history has been moved to the
-    `Frequently Asked Questions <doc_faq_what_is_gdscript )`.
+    `Frequently Asked Questions ( doc_faq_what_is_gdscript )`.
 
 Example of GDScript
 ~~~~~~~~~~~~~~~~~~~
@@ -200,17 +200,17 @@ in case you want to take a look under the hood.
 +------------+---------------------------------------------------------------------------------------------------------------+
 | assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`_.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| remote     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
+| remote     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| master     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
+| master     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| puppet     | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
+| puppet     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| remotesync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
+| remotesync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| mastersync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
+| mastersync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
-| puppetsync | Networking RPC annotation. See `high-level multiplayer docs <doc_high_level_multiplayer )`.               |
+| puppetsync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
 +------------+---------------------------------------------------------------------------------------------------------------+
 | PI         | PI constant.                                                                                                  |
 +------------+---------------------------------------------------------------------------------------------------------------+
@@ -1329,7 +1329,7 @@ Either of the *setter* or *getter* functions can be omitted::
     # Only a getter (note the comma).
     var my_var = 5 setget ,my_var_get
 
-Setters and getters are useful when `exporting variables <doc_gdscript_exports )`
+Setters and getters are useful when `exporting variables ( doc_gdscript_exports )`
 to the editor in tool scripts or plugins, for validating input.
 
 As said, *local* access will *not* trigger the setter and getter. Here is an
@@ -1563,7 +1563,7 @@ Coroutines with yield
 ~~~~~~~~~~~~~~~~~~~~~
 
 GDScript offers support for `coroutines ( https://en.wikipedia.org/wiki/Coroutine )`_
-via the `yield<class_@GDScript_method_yield )` built-in function. Calling `yield()` will
+via the `yield( @GDScript_method_yield )` built-in function. Calling `yield()` will
 immediately return from the current function, with the current frozen
 state of the same function as the return value. Calling `resume()` on
 this resulting object will continue execution and return whatever the

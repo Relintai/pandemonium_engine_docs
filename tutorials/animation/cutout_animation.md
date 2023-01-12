@@ -368,4 +368,4 @@ To apply the same easing curve to multiple keyframes at once:
 Skeletal deform can be used to augment a cutout rig, allowing single pieces to
 deform organically (e.g. antennae that wobble as an insect character walks).
 
-This process is described in a `separate tutorial <doc_2d_skeletons )`.
+This process is described in a `separate tutorial ( doc_2d_skeletons )`.

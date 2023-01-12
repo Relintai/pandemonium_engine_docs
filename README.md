@@ -54,7 +54,7 @@ To add images, please put them in an `img/` folder next to the .rst file with a 
 
 Similarly, you can include attachments (like assets as support material for a tutorial) by placing them into a `files/` folder next to the .rst file, and using this inline markup:
 ```rst
-:download:`myfilename.zip <files/myfilename.zip )`
+:download:`myfilename.zip ( files/myfilename.zip )`
 ```
 
 ## Building with Sphinx

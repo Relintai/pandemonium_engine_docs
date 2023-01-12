@@ -31,7 +31,7 @@ Godot Docs – *3.5* branch
 Welcome to the official documentation of `Godot Engine ( https://godotengine.org )`,
 the free and open source community-driven 2D and 3D game engine! If you are new
 to this documentation, we recommend that you read the
-`introduction page <doc_about_intro )` to get an overview of what this
+`introduction page ( doc_about_intro )` to get an overview of what this
 documentation has to offer.
 
 The table of contents below and in the sidebar should let you easily access the

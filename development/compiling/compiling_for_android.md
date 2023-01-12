@@ -61,13 +61,13 @@ Setting up the buildsystem
 
     ::
 
-        tools/bin/sdkmanager --sdk_root=<android_sdk_path> --licenses
+        tools/bin/sdkmanager --sdk_root=( android_sdk_path> --licenses
 
     -  Complete setup by running the following command where `android_sdk_path` is the path to the Android SDK.
 
     ::
 
-        tools/bin/sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-29" "cmdline-tools;latest" "cmake;3.10.2.4988404"
+        tools/bin/sdkmanager --sdk_root=( android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-29" "cmdline-tools;latest" "cmake;3.10.2.4988404"
 
 .. seealso::   To set the environment variable on Windows, press :kbd:`Windows + R`, type 
             "control system", then click on **Advanced system settings** in the left
@@ -177,11 +177,11 @@ The newly-compiled templates (`android_debug.apk`
 and `android_release.apk`) must be copied to Godot's templates folder
 with their respective names. The templates folder can be located in:
 
--  Windows: `%APPDATA%\Godot\templates\<version>\`
--  Linux: `$HOME/.local/share/godot/templates/<version>/`
--  macOS: `$HOME/Library/Application Support/Godot/templates/<version>/`
+-  Windows: `%APPDATA%\Godot\templates\( version>\`
+-  Linux: `$HOME/.local/share/godot/templates/( version>/`
+-  macOS: `$HOME/Library/Application Support/Godot/templates/( version>/`
 
-`<version )` is of the form `major.minor[.patch].status` using values from
+`( version )` is of the form `major.minor[.patch].status` using values from
 `version.py` in your Godot source repository (e.g. `3.0.5.stable` or `3.1.dev`).
 You also need to write this same version string to a `version.txt` file located
 next to your export templates.
@@ -208,7 +208,7 @@ Platform doesn't appear in SCons
 Double-check that you've set the `ANDROID_SDK_ROOT`
 environment variable. This is required for the platform to appear in SCons'
 list of detected platforms.
-See `Setting up the buildsystem <doc_android_setting_up_the_buildsystem )`
+See `Setting up the buildsystem ( doc_android_setting_up_the_buildsystem )`
 for more information.
 
 Application not installed
@@ -238,8 +238,8 @@ one of the following reasons:
 
 -  Make sure to use export templates that match your editor version; if
    you use a new Godot version, you *have* to update the templates too.
--  `libgodot_android.so` is not in `libs/<android_arch>/`
-   where `<android_arch )` is the device's architecture.
+-  `libgodot_android.so` is not in `libs/( android_arch>/`
+   where `( android_arch )` is the device's architecture.
 -  The device's architecture does not match the exported one(s).
    Make sure your templates were built for that device's architecture,
    and that the export settings included support for that architecture.

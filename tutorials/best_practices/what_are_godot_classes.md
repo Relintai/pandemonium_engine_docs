@@ -23,7 +23,7 @@ These scripts are not technically classes. Instead, they are resources that tell
 sequence of initializations to perform on one of the engine's built-in classes.
 
 Godot's internal classes have methods that register a class's data with a `ClassDB
-<class_ClassDB )`. This database provides runtime access to class information. `ClassDB` contains
+( ClassDB )`. This database provides runtime access to class information. `ClassDB` contains
 information about classes like:
 
 - Properties.

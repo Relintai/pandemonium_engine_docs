@@ -64,7 +64,7 @@ CSV files must be formatted as follows:
 +--------+----------+----------+----------+
 
 The "lang" tags must represent a language, which must be one of the `valid
-locales <doc_locales )` supported by the engine. The "KEY" tags must be
+locales ( doc_locales )` supported by the engine. The "KEY" tags must be
 unique and represent a string universally (they are usually in
 uppercase, to differentiate from other strings). These keys will be replaced at
 runtime by the matching translated string. Note that the case is important,

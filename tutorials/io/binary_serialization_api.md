@@ -95,7 +95,7 @@ precision.
 0: null
 ~~~~~~~
 
-1: `bool<class_bool )`
+1: `bool( bool )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+-----------+---------------------------+
@@ -104,7 +104,7 @@ precision.
 | 4        | 4     | Integer   | 0 for False, 1 for True   |
 +----------+-------+-----------+---------------------------+
 
-2: `int<class_int )`
+2: `int( int )`
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 If no flags are set (flags == 0), the integer is sent as a 32 bit integer:
@@ -124,7 +124,7 @@ a 64-bit integer:
 | 4        | 8     | Integer   | 64-bit signed integer    |
 +----------+-------+-----------+--------------------------+
 
-3: `float<class_float )`
+3: `float( float )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If no flags are set (flags == 0), the float is sent as a 32 bit single precision:
@@ -144,7 +144,7 @@ a 64-bit double precision number:
 | 4        | 8     | Float   | IEEE 754 double-precision float   |
 +----------+-------+---------+-----------------------------------+
 
-4: `String<class_string )`
+4: `String( string )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+-----------+----------------------------+
@@ -157,7 +157,7 @@ a 64-bit double precision number:
 
 This field is padded to 4 bytes.
 
-5: `Vector2<class_vector2 )`
+5: `Vector2( vector2 )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+----------------+
@@ -168,7 +168,7 @@ This field is padded to 4 bytes.
 | 8        | 4     | Float   | Y coordinate   |
 +----------+-------+---------+----------------+
 
-6: `Rect2<class_rect2 )`
+6: `Rect2( rect2 )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+----------------+
@@ -183,7 +183,7 @@ This field is padded to 4 bytes.
 | 16       | 4     | Float   | Y size         |
 +----------+-------+---------+----------------+
 
-7: `Vector3<class_vector3 )`
+7: `Vector3( vector3 )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+----------------+
@@ -196,7 +196,7 @@ This field is padded to 4 bytes.
 | 12       | 4     | Float   | Z coordinate   |
 +----------+-------+---------+----------------+
 
-8: `Transform2D<class_transform2d )`
+8: `Transform2D( transform2d )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+---------------------------------------------------------------+
@@ -215,7 +215,7 @@ This field is padded to 4 bytes.
 | 24       | 4     | Float   | The Y component of the origin vector, accessed via [2][1]     |
 +----------+-------+---------+---------------------------------------------------------------+
 
-9: `Plane<class_plane )`
+9: `Plane( plane )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+---------------+
@@ -230,7 +230,7 @@ This field is padded to 4 bytes.
 | 16       | 4     | Float   | Distance      |
 +----------+-------+---------+---------------+
 
-10: `Quat<class_quat )`
+10: `Quat( quat )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+---------------+
@@ -245,7 +245,7 @@ This field is padded to 4 bytes.
 | 16       | 4     | Float   | Real W        |
 +----------+-------+---------+---------------+
 
-11: `AABB<class_aabb )`
+11: `AABB( aabb )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+----------------+
@@ -264,7 +264,7 @@ This field is padded to 4 bytes.
 | 24       | 4     | Float   | Z size         |
 +----------+-------+---------+----------------+
 
-12: `Basis<class_basis )`
+12: `Basis( basis )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+---------------------------------------------------------------+
@@ -289,7 +289,7 @@ This field is padded to 4 bytes.
 | 36       | 4     | Float   | The Z component of the Z column vector, accessed via [2][2]   |
 +----------+-------+---------+---------------------------------------------------------------+
 
-13: `Transform<class_transform )`
+13: `Transform( transform )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+---------------------------------------------------------------+
@@ -320,7 +320,7 @@ This field is padded to 4 bytes.
 | 48       | 4     | Float   | The Z component of the origin vector, accessed via [3][2]     |
 +----------+-------+---------+---------------------------------------------------------------+
 
-14: `Color<class_color )`
+14: `Color( color )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+---------+--------------------------------------------------------------+
@@ -335,7 +335,7 @@ This field is padded to 4 bytes.
 | 16       | 4     | Float   | Alpha (0..1)                                                 |
 +----------+-------+---------+--------------------------------------------------------------+
 
-15: `NodePath<class_nodepath )`
+15: `NodePath( nodepath )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+-----------+-----------------------------------------------------------------------------------------+
@@ -378,13 +378,13 @@ For each Name and Sub-Name
 
 Every name string is padded to 4 bytes.
 
-16: `RID<class_rid )` (unsupported)
+16: `RID( rid )` (unsupported)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-17: `Object<class_object )` (unsupported)
+17: `Object( object )` (unsupported)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-18: `Dictionary<class_dictionary )`
+18: `Dictionary( dictionary )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+-----------+---------------------------------------------------------------------+
@@ -396,7 +396,7 @@ Every name string is padded to 4 bytes.
 Then what follows is, for amount of "elements", pairs of key and value,
 one after the other, using this same format.
 
-19: `Array<class_array )`
+19: `Array( array )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+-----------+---------------------------------------------------------------------+
@@ -408,7 +408,7 @@ one after the other, using this same format.
 Then what follows is, for amount of "elements", values one after the
 other, using this same format.
 
-20: `PoolByteArray<class_poolbytearray )`
+20: `PoolByteArray( poolbytearray )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +---------------+-------+-----------+------------------------+
@@ -421,7 +421,7 @@ other, using this same format.
 
 The array data is padded to 4 bytes.
 
-21: `PoolIntArray<class_poolintarray )`
+21: `PoolIntArray( poolintarray )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +------------------+-------+-----------+---------------------------+
@@ -432,7 +432,7 @@ The array data is padded to 4 bytes.
 | 8..8+length\*4   | 4     | Integer   | 32-bit signed integer     |
 +------------------+-------+-----------+---------------------------+
 
-22: `PoolRealArray<class_poolrealarray )`
+22: `PoolRealArray( poolrealarray )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +------------------+-------+-----------+---------------------------+
@@ -443,7 +443,7 @@ The array data is padded to 4 bytes.
 | 8..8+length\*4   | 4     | Integer   | 32-bits IEEE 754 float    |
 +------------------+-------+-----------+---------------------------+
 
-23: `PoolStringArray<class_poolstringarray )`
+23: `PoolStringArray( poolstringarray )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------+-------+-----------+--------------------------+
@@ -464,7 +464,7 @@ For each String:
 
 Every string is padded to 4 bytes.
 
-24: `PoolVector2Array<class_poolvector2array )`
+24: `PoolVector2Array( poolvector2array )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-------------------+-------+-----------+----------------+
@@ -477,7 +477,7 @@ Every string is padded to 4 bytes.
 | 8..12+length\*8   | 4     | Float     | Y coordinate   |
 +-------------------+-------+-----------+----------------+
 
-25: `PoolVector3Array<class_poolvector3array )`
+25: `PoolVector3Array( poolvector3array )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------------+-------+-----------+----------------+
@@ -492,7 +492,7 @@ Every string is padded to 4 bytes.
 | 8..16+length\*12   | 4     | Float     | Z coordinate   |
 +--------------------+-------+-----------+----------------+
 
-26: `PoolColorArray<class_poolcolorarray )`
+26: `PoolColorArray( poolcolorarray )`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +--------------------+-------+-----------+--------------------------------------------------------------+

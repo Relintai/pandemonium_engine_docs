@@ -333,7 +333,7 @@ Capture
 - **Quality:** The lightmap probe generation quality. Higher values result in
   more accurate lighting, but take longer to bake. This setting does not affect
   the *density* of the lightmap probes, only their quality.
-- **Propagation:** Similar to `GIProbe <doc_gi_probes )`'s Propagation property.
+- **Propagation:** Similar to `GIProbe ( doc_gi_probes )`'s Propagation property.
   Higher values result in brighter and more diffuse indirect lighting for
   dynamic objects. Adjust this value depending on your scene to make dynamic
   objects better fit with static baked lighting.

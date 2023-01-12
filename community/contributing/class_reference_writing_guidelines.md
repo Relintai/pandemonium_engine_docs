@@ -80,7 +80,7 @@ their documentation by completing or improving the text in these tags:
 - `<constant )`
 
 Write in a clear and simple language. Always follow the `writing guidelines
-<doc_docs_writing_guidelines )` to keep your descriptions short and easy to read.
+( doc_docs_writing_guidelines )` to keep your descriptions short and easy to read.
 **Do not leave empty lines** in the descriptions: each line in the XML file will
 result in a new paragraph, even if it is empty.
 

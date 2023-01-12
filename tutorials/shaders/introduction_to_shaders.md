@@ -84,9 +84,9 @@ In Godot, all shaders need to specify their type in the first line, like so:
 
 Here are the available types:
 
-* `spatial <doc_spatial_shader )` for 3D rendering.
-* `canvas_item <doc_canvas_item_shader )` for 2D rendering.
-* `particles <doc_particle_shader )` for particle systems.
+* `spatial ( doc_spatial_shader )` for 3D rendering.
+* `canvas_item ( doc_canvas_item_shader )` for 2D rendering.
+* `particles ( doc_particle_shader )` for particle systems.
 
 Render modes
 ------------
@@ -126,7 +126,7 @@ can also use it to send extra data to the fragment function using varyings.
 
 By default, Godot transforms your vertex information for you, which is necessary
 to project geometry onto the screen. You can use render modes to transform the
-data yourself; see the `Spatial shader doc <doc_spatial_shader )` for an
+data yourself; see the `Spatial shader doc ( doc_spatial_shader )` for an
 example.
 
 Fragment processor
@@ -158,5 +158,5 @@ operates on the material properties setup inside the `fragment()` function.
 
 The `light()` processor works differently in 2D than it does in 3D; for a
 description of how it works in each, see their documentation, `CanvasItem
-shaders <doc_canvas_item_shader )` and `Spatial shaders
-<doc_spatial_shader )`, respectively.
+shaders ( doc_canvas_item_shader )` and `Spatial shaders
+( doc_spatial_shader )`, respectively.

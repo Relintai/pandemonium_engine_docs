@@ -407,8 +407,8 @@ Handling aspect ratios
 
 Once scaling for different resolutions is accounted for, make sure that
 your *user interface* also scales for different aspect ratios. This can be
-done using `anchors <doc_size_and_anchors )` and/or `containers
-<doc_gui_containers )`.
+done using `anchors ( doc_size_and_anchors )` and/or `containers
+( doc_gui_containers )`.
 
 Field of view scaling
 ---------------------

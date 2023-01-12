@@ -140,5 +140,5 @@ As such, the best options would be...
    into a plugin.
 
 For an example of the various ways one can swap scenes around at runtime,
-please see the `"Change scenes manually" <doc_change_scenes_manually )`
+please see the `"Change scenes manually" ( doc_change_scenes_manually )`
 documentation.

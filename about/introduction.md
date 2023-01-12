@@ -20,12 +20,12 @@ where to look if you need info on a specific feature.
 Before you start
 ----------------
 
-The `Tutorials and resources <doc_community_tutorials )` page lists
+The `Tutorials and resources ( doc_community_tutorials )` page lists
 video tutorials contributed by the community. If you prefer video to text,
 those may be worth a look.
 
 In case you have trouble with one of the tutorials or your project,
-you can find help on the various `Community channels <doc_community_channels )`,
+you can find help on the various `Community channels ( doc_community_channels )`,
 especially the Godot Discord community, Q&A, and IRC.
 
 About Godot Engine
@@ -51,7 +51,7 @@ if you need a quick writeup about Godot Engine.
 
 For a more in-depth view of the engine, you are encouraged to read this
 documentation further, especially the `Step by step
-<toc-learn-step_by_step )` tutorial.
+( toc-learn-step_by_step )` tutorial.
 
 About the documentation
 -----------------------
@@ -86,7 +86,7 @@ relatively intuitive:
 - The `sec-learn` section is the *raison d'être* of this
   documentation, as it contains all the necessary information on using the
   engine to make games. It starts with the `Step by step
-  <toc-learn-step_by_step )` tutorial which should be the entry point for all
+  ( toc-learn-step_by_step )` tutorial which should be the entry point for all
   new users.
 - The `sec-tutorials` section can be read as needed,
   in any order. It contains feature-specific tutorials and documentation.

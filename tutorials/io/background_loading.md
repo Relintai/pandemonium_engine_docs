@@ -30,7 +30,7 @@ Obtaining a ResourceInteractiveLoader
 
 .. code-block:: cpp
 
-    Ref<ResourceInteractiveLoader> ResourceLoader::load_interactive(String p_path);
+    Ref( ResourceInteractiveLoader> ResourceLoader::load_interactive(String p_path);
 
 This method will give you a ResourceInteractiveLoader that you will use
 to manage the load operation.
@@ -78,7 +78,7 @@ Obtaining the resource
 
 .. code-block:: cpp
 
-    Ref<Resource> ResourceInteractiveLoader::get_resource();
+    Ref( Resource> ResourceInteractiveLoader::get_resource();
 
 If everything goes well, use this method to retrieve your loaded
 resource.
@@ -153,7 +153,7 @@ precise control over the timings.
 
         var t = OS.get_ticks_msec()
         # Use "time_max" to control for how long we block this thread.
-        while OS.get_ticks_msec() < t + time_max:
+        while OS.get_ticks_msec() (  t + time_max:
             # Poll your loader.
             var err = loader.poll()
 
@@ -222,7 +222,7 @@ Example class
 -------------
 
 You can find an example class for loading resources in threads here:
-:download:`resource_queue.gd <files/resource_queue.gd )`. Usage is as follows:
+:download:`resource_queue.gd ( files/resource_queue.gd )`. Usage is as follows:
 
 ::
 

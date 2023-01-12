@@ -104,10 +104,10 @@ type:
 
 Currently you can use three types of… types:
 
-1. `Built-in <doc_gdscript_builtin_types )`
+1. `Built-in ( doc_gdscript_builtin_types )`
 2. Core classes and nodes (`Object`, `Node`, `Area2D`,
    `Camera2D`, etc.)
-3. Your own custom classes. Look at the new `name <doc_gdscript_basics_class_name )`
+3. Your own custom classes. Look at the new `name ( doc_gdscript_basics_class_name )`
    feature to register types in the editor.
 
 .. note::

@@ -49,8 +49,8 @@ The next step is to serialize the data. This makes it much easier to
 read from and store to disk. In this case, we're assuming each member of
 group Persist is an instanced node and thus has a path. GDScript
 has helper functions for this, such as `to_json()
-<class_@GDScript_method_to_json )` and `parse_json()
-<class_@GDScript_method_parse_json )`, so we will use a dictionary. Our node needs to
+( @GDScript_method_to_json )` and `parse_json()
+( @GDScript_method_parse_json )`, so we will use a dictionary. Our node needs to
 contain a save function that returns this data. The save function will look
 like this:
 
@@ -92,7 +92,7 @@ Saving and reading data
 As covered in the `doc_filesystem` tutorial, we'll need to open a file
 so we can write to it or read from it. Now that we have a way to
 call our groups and get their relevant data, let's use `to_json()
-<class_@GDScript_method_to_json )` to
+( @GDScript_method_to_json )` to
 convert it into an easily stored string and store them in a file. Doing
 it this way ensures that each line is its own object, so we have an easy
 way to pull the data out of the file as well.
@@ -189,7 +189,7 @@ Additionally, our implementation assumes no Persist objects are children of othe
 Persist objects. Otherwise, invalid paths would be created. To
 accommodate nested Persist objects, consider saving objects in stages.
 Load parent objects first so they are available for the `add_child()
-<class_node_method_add_child )`
+( node_method_add_child )`
 call when child objects are loaded. You will also need a way to link
 children to parents as the `NodePath
-<class_nodepath )` will likely be invalid.
+( nodepath )` will likely be invalid.

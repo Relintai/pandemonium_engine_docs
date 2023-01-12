@@ -17,7 +17,7 @@ This works because if a monster is in an area that is completely out of view for
 How does a monster know whether it is within the gameplay area?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This problem is solved because the portal system contains a subsystem called the **Gameplay Monitor** that can be turned on and off from the `RoomManager<class_RoomManager )`. When switched on, any roaming objects that move inside or outside the gameplay area (whether by moving themselves, or the camera moving) will receive callbacks to let them know of this change.
+This problem is solved because the portal system contains a subsystem called the **Gameplay Monitor** that can be turned on and off from the `RoomManager( RoomManager )`. When switched on, any roaming objects that move inside or outside the gameplay area (whether by moving themselves, or the camera moving) will receive callbacks to let them know of this change.
 
 You can choose to either receive these callbacks as `signals`, or as `notifications`.
 
@@ -41,7 +41,7 @@ VisbilityNotifiers / VisibilityEnablers
 
 Gameplay callbacks have one more useful function. By default in Godot, animation and physics are still processed regardless of whether an object is within view. This can sap performance, especially when using software skinning.
 
-The engine's solution to this problem is the `VisibilityNotifier<class_VisibilityNotifier )` node, and its slightly easier to use variation, the `VisibilityEnabler<class_VisibilityEnabler )` node. VisibilityEnabler can be used to switch off animation and sleep physics when an object is outside the view frustum. You do this by simply placing a VisibilityEnabler node in your subscene (for e.g. a monster). It will do the rest. Consult the `VisibilityEnabler<class_VisibilityEnabler )` documentation for full details.
+The engine's solution to this problem is the `VisibilityNotifier( VisibilityNotifier )` node, and its slightly easier to use variation, the `VisibilityEnabler( VisibilityEnabler )` node. VisibilityEnabler can be used to switch off animation and sleep physics when an object is outside the view frustum. You do this by simply placing a VisibilityEnabler node in your subscene (for e.g. a monster). It will do the rest. Consult the `VisibilityEnabler( VisibilityEnabler )` documentation for full details.
 
 ![](img/visibility_enabler.png)
 
@@ -52,11 +52,11 @@ What if the VisibilityEnabler could turn off objects when they were occlusion cu
 RoomGroups
 ~~~~~~~~~~
 
-A `RoomGroup<class_RoomGroup )` is a special node which allows you to deal with a group of rooms at once, instead of having write code for them individually. This is especially useful in conjunction with gameplay callbacks. The most important use for RoomGroups is to delineate between "inside" and "outside" areas.
+A `RoomGroup( RoomGroup )` is a special node which allows you to deal with a group of rooms at once, instead of having write code for them individually. This is especially useful in conjunction with gameplay callbacks. The most important use for RoomGroups is to delineate between "inside" and "outside" areas.
 
 ![](img/roomgroups.png)
 
-For instance, when outside you may wish to use a `DirectionalLight<class_DirectionalLight )` to represent the sun. When the outside RoomGroup receives an `enter gameplay` callback, you can turn the light on, and you can turn it off when the RoomGroup exits gameplay. With the light off, performance will increase as there is no need to render it indoors.
+For instance, when outside you may wish to use a `DirectionalLight( DirectionalLight )` to represent the sun. When the outside RoomGroup receives an `enter gameplay` callback, you can turn the light on, and you can turn it off when the RoomGroup exits gameplay. With the light off, performance will increase as there is no need to render it indoors.
 
 This is an example of a simple RoomGroup script to turn on and off a DirectionalLight. Note that you can also use signals for callbacks (the choice is up to you):
 

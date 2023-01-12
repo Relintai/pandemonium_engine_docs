@@ -45,13 +45,13 @@ the input.
 
 ![](img/input.png)
 
-For more information on how Godot handles input, please read the `Input Event Tutorial<doc_inputevent )`.
+For more information on how Godot handles input, please read the `Input Event Tutorial( doc_inputevent )`.
 
 Listener
 --------
 
 Godot supports 3D sound (in both 2D and 3D nodes); more on this can be
-found in the `Audio Streams Tutorial<doc_audio_streams )`. For this type of sound to be
+found in the `Audio Streams Tutorial( doc_audio_streams )`. For this type of sound to be
 audible, the `Viewport` needs to be enabled as a listener (for 2D or 3D).
 If you are using a custom `Viewport`, don't forget
 to enable this!
@@ -101,7 +101,7 @@ different from the one specified in size, by calling:
     viewport.set_size_override_stretch(true) # Enable stretch for custom size.
 
 The root `Viewport` uses this for the stretch options in the project
-settings. For more information on scaling and stretching visit the `Multiple Resolutions Tutorial <doc_multiple_resolutions )`
+settings. For more information on scaling and stretching visit the `Multiple Resolutions Tutorial ( doc_multiple_resolutions )`
 
 Worlds
 ------
@@ -167,7 +167,7 @@ If the `Viewport`, it will become active and display anything it has inside. The
 ![](img/container.png)
 
 The `Viewport` completely
-if `Stretch<class_viewportcontainer_property_stretch )` is set to `true` in `ViewportContainer`.
+if `Stretch( viewportcontainer_property_stretch )` is set to `true` in `ViewportContainer`.
 Note: The size of the `ViewportContainer`.
 
 Rendering
@@ -237,7 +237,7 @@ and then selecting the `Viewport` you want to use.
 ![](img/texturepath.png)
 
 Every frame, the `Viewport`'s texture is cleared away with the default clear color (or a transparent
-color if `Transparent Bg<class_Viewport_property_transparent_bg )` is set to `true`). This can be changed by setting `Clear Mode<class_Viewport_property_render_target_clear_mode )` to Never or Next Frame.
+color if `Transparent Bg( Viewport_property_transparent_bg )` is set to `true`). This can be changed by setting `Clear Mode( Viewport_property_render_target_clear_mode )` to Never or Next Frame.
 As the name implies, Never means the texture will never be cleared, while next frame will
 clear the texture on the next frame and then set itself to Never.
 

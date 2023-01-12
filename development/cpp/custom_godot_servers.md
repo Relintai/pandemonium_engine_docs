@@ -315,7 +315,7 @@ object-oriented C code.
 References
 ~~~~~~~~~~~
 
-- `RID<class_rid )`
+- `RID( rid )`
 - `core/rid.h ( https://github.com/godotengine/godot/blob/3.x/core/rid.h )`
 
 Registering the class in GDScript

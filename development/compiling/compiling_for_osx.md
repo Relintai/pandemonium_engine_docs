@@ -85,7 +85,7 @@ projects in an automated manner, use::
     scons platform=server tools=yes target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
 
 To compile a debug *server* build which can be used with
-`remote debugging tools <doc_command_line_tutorial )`, use::
+`remote debugging tools ( doc_command_line_tutorial )`, use::
 
     scons platform=server tools=no target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
 

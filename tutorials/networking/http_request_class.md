@@ -61,7 +61,7 @@ gdscript GDScript
         $HTTPRequest.request("http://www.mocky.io/v2/5185415ba171ea3a00704eed", ["user-agent: YourCustomUserAgent"])
 ```
 
-Please note that, for SSL/TLS encryption and thus HTTPS URLs to work, you may need to take some steps as described `here <doc_ssl_certificates )`.
+Please note that, for SSL/TLS encryption and thus HTTPS URLs to work, you may need to take some steps as described `here ( doc_ssl_certificates )`.
 
 Also, when calling APIs using authorization, be aware that someone might analyse and decompile your released application and thus may gain access to any embedded authorization information like tokens, usernames or passwords.
 That means it is usually not a good idea to embed things such as database access credentials inside your game. Avoid providing information useful to an attacker whenever possible.

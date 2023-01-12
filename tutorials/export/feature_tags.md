@@ -36,7 +36,7 @@ Here is a list of most feature tags in Godot. Keep in mind they are **case-sensi
 +-----------------+--------------------------------------------------------+
 | **HTML5**       | Running on HTML5                                       |
 +-----------------+--------------------------------------------------------+
-| **JavaScript**  | `JavaScript singleton <doc_javascript_eval )` is   |
+| **JavaScript**  | `JavaScript singleton ( doc_javascript_eval )` is   |
 |                 | available                                              |
 +-----------------+--------------------------------------------------------+
 | **OSX**         | Running on macOS                                       |
@@ -94,7 +94,7 @@ Here is a list of most feature tags in Godot. Keep in mind they are **case-sensi
     `false` when running a project exported to HTML5 on a mobile device.
 
     To check whether a project exported to HTML5 is running on a mobile device,
-    `call JavaScript code <doc_javascript_eval )` that reads the browser's
+    `call JavaScript code ( doc_javascript_eval )` that reads the browser's
     user agent.
 
 Custom features

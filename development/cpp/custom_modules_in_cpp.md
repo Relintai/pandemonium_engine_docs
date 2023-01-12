@@ -303,7 +303,7 @@ and compile them accordingly, including our "summator" module.
 
 .. seealso::
 
-    `Introduction to the buildsystem - Custom modules build option <doc_buildsystem_custom_modules )`.
+    `Introduction to the buildsystem - Custom modules build option ( doc_buildsystem_custom_modules )`.
 
 Improving the build system for development
 ------------------------------------------
@@ -312,7 +312,7 @@ Improving the build system for development
 
     This shared library support is not designed to support distributing a module
     to other users without recompiling the engine. For that purpose, use
-    `GDNative <doc_what_is_gdnative )` instead.
+    `GDNative ( doc_what_is_gdnative )` instead.
 
 So far, we defined a clean SCsub that allows us to add the sources
 of our new module as part of the Godot binary.

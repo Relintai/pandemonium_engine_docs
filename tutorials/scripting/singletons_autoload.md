@@ -43,7 +43,7 @@ Autoloading nodes and scripts can give us these characteristics.
 .. tip::
 
     If you're creating an autoload as part of an editor plugin, consider
-    `registering it automatically in the Project Settings <doc_making_plugins_autoload )`
+    `registering it automatically in the Project Settings ( doc_making_plugins_autoload )`
     when the plugin is enabled.
 
 AutoLoad

@@ -15,7 +15,7 @@ inside a `ViewportTexture` and show it on the screen.
 
 The easiest way to implement a custom post-processing shader is to use Godot's built-in ability to read from
 the screen texture. If you're not familiar with this, you should read the `Screen Reading Shaders
-Tutorial <doc_screen-reading_shaders )` first.
+Tutorial ( doc_screen-reading_shaders )` first.
 
 .. note::
 
@@ -28,7 +28,7 @@ Single pass post-processing
 
 You will need a `Viewport` to render your scene to, and a scene to render your
 `Viewport` on the screen. You can use a `ViewportContainer
-<class_ViewportContainer )` to display your `Viewport` on the entire screen or inside
+( ViewportContainer )` to display your `Viewport` on the entire screen or inside
 another `Control` node.
 
 .. note::
@@ -169,4 +169,4 @@ Using the above code, you should end up with a full screen blur effect like belo
 
 ![](img/post_blur.png)
 
-For more information on how `Viewport` nodes work, see the `Viewports Tutorial <doc_viewports )`.
+For more information on how `Viewport` nodes work, see the `Viewports Tutorial ( doc_viewports )`.

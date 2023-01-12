@@ -258,7 +258,7 @@ external links, etc. Here are some examples::
     # "Have a look here" is a link pointing to https://docs.godotengine.org/en/latest.
     # You should translate "Have a look here", but not the URL, unless there is
     # a matching URL for the same content in your language.
-    # Note: The `, <, >, and _ characters all have a meaning in the hyperlink
+    # Note: The `, ( , >, and _ characters all have a meaning in the hyperlink
     # syntax and should be preserved.
 
     Looking for the documentation of the current **development** branch?
@@ -281,7 +281,7 @@ external links, etc. Here are some examples::
 
     # Or it can be used with an optional custom title, which should thus be translated:
 
-    See `how to contribute <doc_ways_to_contribute )`.
+    See `how to contribute ( doc_ways_to_contribute )`.
 
     # You may encounter other Sphinx roles, such as :kbd: used for shortcut keys.
     # You can translate the content between backticks to match the usual key names,
@@ -328,7 +328,7 @@ breaks if they are not part of the original translation.
 .. seealso::
 
     See our documentation for class reference writers for the `list of
-    BBCode-like tags <doc_class_reference_writing_guidelines_bbcode )` which are used
+    BBCode-like tags ( doc_class_reference_writing_guidelines_bbcode )` which are used
     throughout the class reference.
 
 Offline translation and testing
@@ -357,9 +357,9 @@ upload mode.
     version.
 
 If you want to test changes locally (especially for the editor translation), you
-can use the downloaded PO file and `compile Godot from source <toc-devel-compiling )`.
+can use the downloaded PO file and `compile Godot from source ( toc-devel-compiling )`.
 
-Rename the editor translation PO file to `<lang>.po` (e.g. `eo.po` for
+Rename the editor translation PO file to `( lang>.po` (e.g. `eo.po` for
 Esperanto) and place it in the `editor/translations/` folder
 (`GitHub ( https://github.com/godotengine/godot/tree/master/editor/translations )`).
 
@@ -413,4 +413,4 @@ original image in the `images` subfolder
 and place your translated image there. In our example, the end result should be
 `images/getting_started/step_by_step/img/project_manager_first_open.fr.png)`.
 
-Repeat this for other images and `make a Pull Request <doc_pr_workflow )`.
+Repeat this for other images and `make a Pull Request ( doc_pr_workflow )`.

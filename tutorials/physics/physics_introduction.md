@@ -45,7 +45,7 @@ The other three bodies extend `PhysicsBody2D`:
 - `RigidBody2D`
     This is the node that implements simulated 2D physics. You do not control a
     `RigidBody2D` directly, but instead you apply forces to it (gravity, impulses,
-    etc.) and the physics engine calculates the resulting movement. `Read more about using rigid bodies. <doc_rigid_body )`
+    etc.) and the physics engine calculates the resulting movement. `Read more about using rigid bodies. ( doc_rigid_body )`
 
 - `KinematicBody2D`
     A body that provides collision detection, but no physics. All movement and
@@ -55,7 +55,7 @@ Physics material
 ~~~~~~~~~~~~~~~~
 
 Static bodies and rigid bodies can be configured to use a `physics material
-<class_PhysicsMaterial )`. This allows adjusting the friction and bounce of an object,
+( PhysicsMaterial )`. This allows adjusting the friction and bounce of an object,
 and set if it's absorbent and/or rough.
 
 Collision shapes

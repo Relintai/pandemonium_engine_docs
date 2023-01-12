@@ -142,7 +142,7 @@ There are several limitations with the current implementation of video playback 
 
 - Seeking a video to a certain point is not supported.
 - Changing playback speed is not supported. VideoPlayer also won't follow
-  `Engine.time_scale<class_Engine_property_time_scale )`.
+  `Engine.time_scale( Engine_property_time_scale )`.
 - Looping is not supported, but you can connect a VideoPlayer's
   `finished` signal to a function
   that plays the video again. However, this will cause a black frame to be

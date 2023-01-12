@@ -784,7 +784,7 @@ in that order.
 Static typing
 -------------
 
-Since Godot 3.1, GDScript supports `optional static typing<doc_gdscript_static_typing )`.
+Since Godot 3.1, GDScript supports `optional static typing( doc_gdscript_static_typing )`.
 
 Declared types
 ~~~~~~~~~~~~~~
@@ -831,7 +831,7 @@ that type will be used to infer the type of the var.
    onready var health_bar := get_node("UI/LifeBar") as ProgressBar
    # health_bar will be typed as ProgressBar
 
-This option is also considered more `type-safe<doc_gdscript_static_typing_safe_lines )` than the first.
+This option is also considered more `type-safe( doc_gdscript_static_typing_safe_lines )` than the first.
 
 **Bad**:
 

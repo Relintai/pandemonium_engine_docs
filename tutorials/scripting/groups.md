@@ -99,7 +99,7 @@ group `guards`.
 
 To get the full list of nodes in the `guards` group as an array, you can call
 `SceneTree.get_nodes_in_group()
-<class_SceneTree_method_get_nodes_in_group )`:
+( SceneTree_method_get_nodes_in_group )`:
 
 gdscript GDScript
 

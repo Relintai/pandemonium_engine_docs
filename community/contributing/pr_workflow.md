@@ -3,7 +3,6 @@
 Pull request workflow
 =====================
 
-.. highlight:: shell
 
 The so-called "PR workflow" used by Godot is common to many projects using
 Git, and should be familiar to veteran free software contributors. The idea

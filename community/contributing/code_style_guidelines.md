@@ -3,7 +3,6 @@
 Code style guidelines
 =====================
 
-.. highlight:: shell
 
 When contributing to Godot's source code, you will be expected to follow the
 style guidelines outlined below. Some of them are checked via the Continuous

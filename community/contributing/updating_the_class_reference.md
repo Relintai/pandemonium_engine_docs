@@ -3,7 +3,6 @@
 Contributing to the class reference
 ===================================
 
-.. highlight:: shell
 
 The class reference is available online in the `classes <toc-class-ref>`
 section of the documentation and in the Godot editor, from the help menu.

@@ -3,7 +3,6 @@
 Compiling with script encryption key
 ====================================
 
-.. highlight:: shell
 
 The export dialog gives you the option to encrypt your scripts with a 256-bit
 AES key when releasing your project. This will make sure your scripts are not

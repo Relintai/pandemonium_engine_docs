@@ -3,7 +3,6 @@
 Compiling for X11 (Linux, \*BSD)
 ================================
 
-.. highlight:: shell
 
 .. seealso::
 

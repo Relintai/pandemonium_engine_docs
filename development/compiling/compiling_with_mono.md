@@ -3,7 +3,6 @@
 Compiling with Mono
 ===================
 
-.. highlight:: shell
 
 Requirements
 ------------

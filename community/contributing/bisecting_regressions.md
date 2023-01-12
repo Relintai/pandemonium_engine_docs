@@ -3,7 +3,6 @@
 Bisecting regressions
 =====================
 
-.. highlight:: shell
 
 Bisecting is a way to find regressions in software. After reporting a bug on the
 `Godot repository on GitHub <https://github.com/godotengine/godot>`__, you may

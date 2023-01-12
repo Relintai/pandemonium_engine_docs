@@ -3,7 +3,6 @@
 Compiling for Android
 =====================
 
-.. highlight:: shell
 
 .. seealso::
 

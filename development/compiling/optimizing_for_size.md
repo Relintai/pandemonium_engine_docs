@@ -3,7 +3,6 @@
 Optimizing a build for size
 ===========================
 
-.. highlight:: shell
 
 Rationale
 ---------

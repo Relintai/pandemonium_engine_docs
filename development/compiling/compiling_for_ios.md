@@ -3,7 +3,6 @@
 Compiling for iOS
 =================
 
-.. highlight:: shell
 
 .. seealso::
 

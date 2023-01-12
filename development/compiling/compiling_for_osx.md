@@ -3,7 +3,6 @@
 Compiling for macOS
 ===================
 
-.. highlight:: shell
 
 .. note::
 

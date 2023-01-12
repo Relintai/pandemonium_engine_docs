@@ -3,7 +3,6 @@
 Compiling for Windows
 =====================
 
-.. highlight:: shell
 
 .. seealso::
 

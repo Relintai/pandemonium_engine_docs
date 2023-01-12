@@ -3,7 +3,6 @@
 Compiling for Universal Windows Platform
 ========================================
 
-.. highlight:: shell
 
 .. seealso::
 

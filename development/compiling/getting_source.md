@@ -3,7 +3,6 @@
 Getting the source
 ==================
 
-.. highlight:: shell
 
 Downloading the Godot source code
 ---------------------------------

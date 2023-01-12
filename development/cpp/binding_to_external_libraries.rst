@@ -77,7 +77,7 @@ need to be created:
 
 .. important::
     These files must be in the top-level folder of your module (next to your
-    ``SCsub`` and ``config.py`` files) for the module to be registered properly.
+    `SCsub` and `config.py` files) for the module to be registered properly.
 
 These files should contain the following:
 
@@ -106,7 +106,7 @@ These files should contain the following:
         // Nothing to do here in this example.
     }
 
-Next, you need to create a ``SCsub`` file so the build system compiles
+Next, you need to create a `SCsub` file so the build system compiles
 this module:
 
 .. code-block:: python
@@ -225,4 +225,4 @@ You can now use your newly created module from any script:
     var is_spoken = t.say_text(script)
     print('is_spoken: ', is_spoken)
 
-And the output will be ``is_spoken: True`` if the text is spoken.
+And the output will be `is_spoken: True` if the text is spoken.

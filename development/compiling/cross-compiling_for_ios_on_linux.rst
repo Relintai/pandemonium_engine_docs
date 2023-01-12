@@ -29,8 +29,8 @@ Requirements
 -  `XCode with the iOS SDK <https://developer.apple.com/xcode/download>`__
    (a dmg image)
 -  `Clang >= 3.5 <http://clang.llvm.org>`__ for your development
-   machine installed and in the ``PATH``. It has to be version >= 3.5
-   to target ``arm64`` architecture.
+   machine installed and in the `PATH`. It has to be version >= 3.5
+   to target `arm64` architecture.
 -  `Fuse <https://github.com/libfuse/libfuse>`__ for mounting and umounting
    the dmg image.
 -  `darling-dmg <https://github.com/darlinghq/darling-dmg>`__, which
@@ -109,7 +109,7 @@ Build cctools:
     $ ./build.sh /path/iPhoneOS9.1.sdk.tar.xz arm64
 
 Copy the tools to a nicer place. Note that the SCons scripts for
-building will look under ``usr/bin`` inside the directory you provide
+building will look under `usr/bin` inside the directory you provide
 for the toolchain binaries, so you must copy to such subdirectory, akin
 to the following commands:
 
@@ -119,7 +119,7 @@ to the following commands:
     $ cp -r target/bin /home/user/iostoolchain/usr/
 
 Now you should have the iOS toolchain binaries in
-``/home/user/iostoolchain/usr/bin``.
+`/home/user/iostoolchain/usr/bin`.
 
 Compiling Godot for iPhone
 --------------------------
@@ -129,7 +129,7 @@ environment: the built toolchain and the iPhoneOS SDK directory. Those
 can stay anywhere you want since you have to provide their paths to the
 SCons build command.
 
-For the iPhone platform to be detected, you need the ``OSXCROSS_IOS``
+For the iPhone platform to be detected, you need the `OSXCROSS_IOS`
 environment variable defined to anything.
 
 ::
@@ -147,9 +147,9 @@ way, with some additional arguments to provide the correct paths:
 Producing fat binaries
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Apple requires a fat binary with both architectures (``armv7`` and
-``arm64``) in a single file. To do this, use the
-``arm-apple-darwin11-lipo`` executable. The following example assumes
+Apple requires a fat binary with both architectures (`armv7` and
+`arm64`) in a single file. To do this, use the
+`arm-apple-darwin11-lipo` executable. The following example assumes
 you are in the root Godot source directory:
 
 ::
@@ -159,4 +159,4 @@ you are in the root Godot source directory:
     $ /path/to/iostoolchain/usr/bin/arm-apple-darwin11-lipo -create bin/libgodot_arkit_module.iphone.opt.debug.arm.a bin/libgodot_arkit_module.iphone.opt.debug.arm64.a -output bin/libgodot_arkit_module.iphone.debug.fat.a
 
 
-Then you will have iOS fat binaries in ``bin`` directory.
+Then you will have iOS fat binaries in `bin` directory.

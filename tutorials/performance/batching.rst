@@ -106,8 +106,8 @@ A trick
 ^^^^^^^
 
 And now, a sleight of hand. Even though the idea of painter's order is that
-objects are rendered from back to front, consider 3 objects ``A``, ``B`` and
-``C``, that contain 2 different textures: grass and wood.
+objects are rendered from back to front, consider 3 objects `A`, `B` and
+`C`, that contain 2 different textures: grass and wood.
 
 .. image:: img/overlap1.png
 
@@ -153,7 +153,7 @@ Lights
 Although the batching system's job is normally quite straightforward, it becomes
 considerably more complex when 2D lights are used. This is because lights are
 drawn using additional passes, one for each light affecting the primitive.
-Consider 2 sprites ``A`` and ``B``, with identical texture and material. Without
+Consider 2 sprites `A` and `B`, with identical texture and material. Without
 lights, they would be batched together and drawn in one draw call. But with 3
 lights, they would be drawn as follows, each line being a draw call:
 
@@ -178,7 +178,7 @@ slow down 2D rendering.
 However, if you remember our magician's trick from item reordering, it turns out
 we can use the same trick to get around painter's order for lights!
 
-If ``A`` and ``B`` are not overlapping, we can render them together in a batch,
+If `A` and `B` are not overlapping, we can render them together in a batch,
 so the drawing process is as follows:
 
 .. image:: img/lights_separate.png
@@ -225,7 +225,7 @@ colored. It is another potential bottleneck unrelated to draw calls.
 
 In order to counter this problem (and speed up lighting in general), batching
 introduces light scissoring. This enables the use of the OpenGL command
-``glScissor()``, which identifies an area outside of which the GPU won't render
+`glScissor()`, which identifies an area outside of which the GPU won't render
 any pixels. We can greatly optimize fill rate by identifying the intersection
 area between a light and a primitive, and limit rendering the light to
 *that area only*.
@@ -266,7 +266,7 @@ The GPU shader receives instructions on what to draw in 2 main ways:
 
 However, within a single draw call (batch), we cannot change uniforms. This
 means that naively, we would not be able to batch together items or commands
-that change ``final_modulate`` or an item's transform. Unfortunately, that
+that change `final_modulate` or an item's transform. Unfortunately, that
 happens in an awful lot of cases. For instance, sprites are typically
 individual nodes with their own item transform, and they may have their own
 color modulate as well.
@@ -291,8 +291,8 @@ shaders will prevent vertex baking and therefore decrease the potential for
 batching. While we are working to decrease these cases, the following caveats
 currently apply:
 
-- Reading or writing ``COLOR`` or ``MODULATE`` disables vertex color baking.
-- Reading ``VERTEX``  disables vertex position baking.
+- Reading or writing `COLOR` or `MODULATE` disables vertex color baking.
+- Reading `VERTEX`  disables vertex position baking.
 
 Project Settings
 ~~~~~~~~~~~~~~~~
@@ -444,8 +444,8 @@ This is a typical diagnostic.
 - **batch R:** A batch containing rectangles. The second number is the number of
   rects. The second number in square brackets is the Godot texture ID, and the
   numbers in curly braces is the color. If the batch contains more than one rect,
-  ``MULTI`` is added to the line to make it easy to identify.
-  Seeing ``MULTI`` is good as it indicates successful batching.
+  `MULTI` is added to the line to make it easy to identify.
+  Seeing `MULTI` is good as it indicates successful batching.
 - **batch D:** A default batch, containing everything else that is not currently
   batched.
 
@@ -527,7 +527,7 @@ primitive types are currently available:
 - LINE
 
 With non-batched primitives, you may be able to get better performance by
-drawing them manually with polys in a ``_draw()`` function.
+drawing them manually with polys in a `_draw()` function.
 See `doc_custom_drawing_in_2d` for more information.
 
 .. _doc_batching_light_scissoring_threshold_calculation:
@@ -549,11 +549,11 @@ At a threshold of 1,000 pixels, the proportion would be::
 
 So a `scissor_area_threshold
 <class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
-of ``0.15`` would be a reasonable value to try.
+of `0.15` would be a reasonable value to try.
 
 Going the other way, for instance with a `scissor_area_threshold
 <class_ProjectSettings_property_rendering/batching/lights/scissor_area_threshold>`
-of ``0.5``::
+of `0.5`::
 
     0.5 ^ 4 = 0.0625
     0.0625 * 2073600 = 129600 pixels

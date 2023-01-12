@@ -9,14 +9,14 @@ Introduction to exports
 In Godot, class members can be exported. This means their value gets saved along
 with the resource (such as the `scene`) they're
 attached to. They will also be available for editing in the property editor.
-Exporting is done by using the ``export`` keyword::
+Exporting is done by using the `export` keyword::
 
     extends Button
 
     export var number = 5 # Value will be saved and visible in the property editor.
 
 An exported variable must be initialized to a constant expression or have an
-export hint in the form of an argument to the ``export`` keyword (see the
+export hint in the form of an argument to the `export` keyword (see the
 *Examples* section below).
 
 One of the fundamental benefits of exporting member variables is to have
@@ -143,17 +143,17 @@ in conjunction with a `script in "tool" mode <doc_gdscript_tool_mode>`.
 Exporting bit flags
 -------------------
 
-Integers used as bit flags can store multiple ``true``/``false`` (boolean)
-values in one property. By using the export hint ``int, FLAGS, ...``, they
+Integers used as bit flags can store multiple `true`/`false` (boolean)
+values in one property. By using the export hint `int, FLAGS, ...`, they
 can be set from the editor::
 
     # Set any of the given flags from the editor.
     export(int, FLAGS, "Fire", "Water", "Earth", "Wind") var spell_elements = 0
 
-You must provide a string description for each flag. In this example, ``Fire``
-has value 1, ``Water`` has value 2, ``Earth`` has value 4 and ``Wind``
+You must provide a string description for each flag. In this example, `Fire`
+has value 1, `Water` has value 2, `Earth` has value 4 and `Wind`
 corresponds to value 8. Usually, constants should be defined accordingly (e.g.
-``const ELEMENT_WIND = 8`` and so on).
+`const ELEMENT_WIND = 8` and so on).
 
 Export hints are also provided for the physics and render layers defined in the project settings::
 
@@ -233,7 +233,7 @@ described in `doc_accessing_data_or_logic_from_object`.
 .. seealso:: For binding properties using the above methods in C++, see
              `doc_binding_properties_using_set_get_property_list`.
 
-.. warning:: The script must operate in the ``tool`` mode so the above methods
+.. warning:: The script must operate in the `tool` mode so the above methods
              can work from within the editor.
 
 Properties
@@ -253,15 +253,15 @@ how to make properties with advanced exports.
         })
         return properties
 
-* The ``_get_property_list()`` function gets called by the inspector. You
-  can override it for more advanced exports. You must return an ``Array``
+* The `_get_property_list()` function gets called by the inspector. You
+  can override it for more advanced exports. You must return an `Array`
   with the contents of the properties for the function to work.
 
-* ``name`` is the name of the property
+* `name` is the name of the property
 
-* ``type`` is the type of the property from ``Variant.Type``.
+* `type` is the type of the property from `Variant.Type`.
 
-.. note:: The ``float`` type is called a real (``TYPE_REAL``) in the ``Variant.Type`` enum.
+.. note:: The `float` type is called a real (`TYPE_REAL`) in the `Variant.Type` enum.
 
 Attaching variables to properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -291,11 +291,11 @@ a variable to to a property also gives you the ability to give it a default stat
 Adding default values for properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To define default values for advanced exports, you need to override the ``property_can_revert()`` and ``property_get_revert()`` methods.
+To define default values for advanced exports, you need to override the `property_can_revert()` and `property_get_revert()` methods.
 
-* The ``property_can_revert()`` method takes the name of a property and must return ``true`` if the property can be reverted. This will enable the Revert button next to the property in the inspector.
+* The `property_can_revert()` method takes the name of a property and must return `true` if the property can be reverted. This will enable the Revert button next to the property in the inspector.
 
-* The ``property_get_revert()`` method takes the name of a property and must return the default value for that property.
+* The `property_get_revert()` method takes the name of a property and must return the default value for that property.
 
 ::
 
@@ -320,7 +320,7 @@ Adding script categories
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 For better visual distinguishing of properties, a special script category can be
-embedded into the inspector to act as a separator. ``Script Variables`` is one
+embedded into the inspector to act as a separator. `Script Variables` is one
 example of a built-in category.
 ::
     
@@ -339,13 +339,13 @@ example of a built-in category.
         })
         return properties
 
-* ``name`` is the name of a category to be added to the inspector;
+* `name` is the name of a category to be added to the inspector;
 
 * Every following property added after the category definition will be a part
   of the category. 
 
-* ``PROPERTY_USAGE_CATEGORY`` indicates that the property should be treated as a
-  script category specifically, so the type ``TYPE_NIL`` can be ignored as it
+* `PROPERTY_USAGE_CATEGORY` indicates that the property should be treated as a
+  script category specifically, so the type `TYPE_NIL` can be ignored as it
   won't be actually used for the scripting logic, yet it must be defined anyway.
 
 Grouping properties
@@ -377,15 +377,15 @@ A list of properties with similar names can be grouped.
         })
         return properties
 
-* ``name`` is the name of a group which is going to be displayed as collapsible
+* `name` is the name of a group which is going to be displayed as collapsible
   list of properties;
 
 * Every following property added after the group property with the prefix
-  (which determined by ``hint_string``) will be shortened. For instance, 
-  ``rotate_speed`` is going to be shortened to ``speed`` in this case.
-  However, ``movement_speed`` won't be a part of the group and will not
+  (which determined by `hint_string`) will be shortened. For instance, 
+  `rotate_speed` is going to be shortened to `speed` in this case.
+  However, `movement_speed` won't be a part of the group and will not
   be shortened.
 
-* ``PROPERTY_USAGE_GROUP`` indicates that the property should be treated as a
-  script group specifically, so the type ``TYPE_NIL`` can be ignored as it
+* `PROPERTY_USAGE_GROUP` indicates that the property should be treated as a
+  script group specifically, so the type `TYPE_NIL` can be ignored as it
   won't be actually used for the scripting logic, yet it must be defined anyway.

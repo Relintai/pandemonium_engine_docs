@@ -9,7 +9,7 @@ Anytime you want to use the portal system, you need to include a special node in
 Room Conversion
 ^^^^^^^^^^^^^^^
 
-This conversion must take place every time you want to activate the system. It does not store the *room graph* in your project (for flexibility and to save memory). You can either trigger it by pressing the **Convert Rooms** button in the editor toolbar (which also has a keyboard shortcut) or by calling the ``rooms_convert()`` method in the RoomManager. The latter method will be what you use in-game. Note that for safety, best practice is to call ``rooms_clear()`` before unloading or changing levels.
+This conversion must take place every time you want to activate the system. It does not store the *room graph* in your project (for flexibility and to save memory). You can either trigger it by pressing the **Convert Rooms** button in the editor toolbar (which also has a keyboard shortcut) or by calling the `rooms_convert()` method in the RoomManager. The latter method will be what you use in-game. Note that for safety, best practice is to call `rooms_clear()` before unloading or changing levels.
 
 .. image:: img/convert_rooms_button.png
 
@@ -22,7 +22,7 @@ If you convert the level while the editor is running, the portal culling system 
 The RoomList
 ^^^^^^^^^^^^
 
-Before we create any rooms, we must first create a node to be the parent of all the static objects, rooms, roomgroups, and so on in our level. This node is referred to as the the ``RoomList``.
+Before we create any rooms, we must first create a node to be the parent of all the static objects, rooms, roomgroups, and so on in our level. This node is referred to as the the `RoomList`.
 
 .. image:: img/roomlist_node.png
 
@@ -78,7 +78,7 @@ Because defining the room bound is the most important aspect of the system, ther
 
 1. Use the geometry of the objects contained within the room to automatically create an approximate bound.
 2. Manually edit the points that define the convex hull in the room inspector or drag the points around using the editor gizmo (see `doc_room_point_editing`).
-3. Provide a manual bound. This is a MeshInstance in the room that has geometry in the shape of the desired bound, with a name with the postfix ``-bound``. This is something you might choose to do if you create your levels in Blender or similar (see `doc_rooms_and_portals_blender`).
+3. Provide a manual bound. This is a MeshInstance in the room that has geometry in the shape of the desired bound, with a name with the postfix `-bound`. This is something you might choose to do if you create your levels in Blender or similar (see `doc_rooms_and_portals_blender`).
 
 While the first option can be all that is required, particularly with simple rooms or for pre-production, using manual bounds gives you ultimate control at the expense of a small amount of editing. You can also combine the two approaches, perhaps using automatic bounds for most rooms but manually editing problem areas.
 
@@ -93,7 +93,7 @@ Portals
 
 If you create some rooms, place objects within them, then convert the level in the editor, you will see the objects in the rooms appearing and showing as you move between rooms. There is one problem, however! Although you can see the objects within the room that the camera is in, you can't see to any neighbouring rooms! For that we need portals.
 
-`Portal<class_Portal>`\ s are special convex polygons that you position over the openings between rooms in order to allow the system to see between them. You can create a portal node directly in the editor. The default portal has 4 points and behaves much like a ``plane`` `MeshInstance<class_MeshInstance>`. You can add or remove points using the inspector. A portal requires at least 3 points to work - this is because it needs to form a polygon rather than a point or line.
+`Portal<class_Portal>`\ s are special convex polygons that you position over the openings between rooms in order to allow the system to see between them. You can create a portal node directly in the editor. The default portal has 4 points and behaves much like a `plane` `MeshInstance<class_MeshInstance>`. You can add or remove points using the inspector. A portal requires at least 3 points to work - this is because it needs to form a polygon rather than a point or line.
 
 To save editing effort, **only one Portal is required between each pair of Rooms**. You *do not need* to (and indeed should not) create two Portals that overlap in opposite directions. Portals default to being two-way, but you can make them one-way in the Portal inspector.
 

@@ -44,7 +44,7 @@ The following labels are currently defined in the Godot repository:
    compatibility with existing projects.
 -  *Bug*: describes something that is not working properly.
 -  *Cherrypick*: describes something that can be backported to a stable branch
-   after being merged in the ``master`` branch.
+   after being merged in the `master` branch.
 -  *Crash:* describes a bug that causes the engine to crash.
    This label is only used for "hard" crashes, not freezes.
 -  *Confirmed*: has been confirmed by at least one other contributor

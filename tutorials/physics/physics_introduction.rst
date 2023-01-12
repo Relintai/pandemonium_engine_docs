@@ -29,8 +29,8 @@ Collision objects
 Godot offers four kinds of physics bodies, extending `CollisionObject2D`:
 
 - `Area2D`
-    ``Area2D`` nodes provide **detection** and **influence**. They can detect when
-    objects overlap and can emit signals when bodies enter or exit. An ``Area2D``
+    `Area2D` nodes provide **detection** and **influence**. They can detect when
+    objects overlap and can emit signals when bodies enter or exit. An `Area2D`
     can also be used to override physics properties, such as gravity or damping,
     in a defined area.
 
@@ -44,7 +44,7 @@ The other three bodies extend `PhysicsBody2D`:
 
 - `RigidBody2D`
     This is the node that implements simulated 2D physics. You do not control a
-    ``RigidBody2D`` directly, but instead you apply forces to it (gravity, impulses,
+    `RigidBody2D` directly, but instead you apply forces to it (gravity, impulses,
     etc.) and the physics engine calculates the resulting movement. `Read more about using rigid bodies. <doc_rigid_body>`
 
 - `KinematicBody2D`
@@ -65,7 +65,7 @@ A physics body can hold any number of `Shape2D` objects
 as children. These shapes are used to define the object's collision bounds
 and to detect contact with other objects.
 
-.. note:: In order to detect collisions, at least one ``Shape2D`` must be
+.. note:: In order to detect collisions, at least one `Shape2D` must be
           assigned to the object.
 
 The most common way to assign a shape is by adding a `CollisionShape2D`
@@ -73,9 +73,9 @@ or `CollisionPolygon2D` as a child of the object.
 These nodes allow you to draw the shape directly in the editor workspace.
 
 .. important:: Be careful to never scale your collision shapes in the editor.
-                The "Scale" property in the Inspector should remain ``(1, 1)``. When changing
+                The "Scale" property in the Inspector should remain `(1, 1)`. When changing
                 the size of the collision shape, you should always use the size handles, **not**
-                the ``Node2D`` scale handles. Scaling a shape can result in unexpected
+                the `Node2D` scale handles. Scaling a shape can result in unexpected
                 collision behavior.
 
 .. image:: img/player_coll_shape.png
@@ -85,20 +85,20 @@ Physics process callback
 
 The physics engine may spawn multiple threads to improve performance, so
 it can use up to a full frame to process physics. Because of this, the value
-of a body's state variables such as ``position`` or ``linear velocity``
+of a body's state variables such as `position` or `linear velocity`
 may not be accurate for the current frame.
 
 In order to avoid this inaccuracy, any code that needs to access a body's properties should
 be run in the `Node._physics_process()`
 callback, which is called before each physics step at a constant frame rate
-(60 times per second by default). This method will be passed a ``delta``
+(60 times per second by default). This method will be passed a `delta`
 parameter, which is a floating-point number equal to the time passed in
 *seconds* since the last step. When using the default 60 Hz physics update rate,
-it will typically be equal to ``0.01666...`` (but not always, see below).
+it will typically be equal to `0.01666...` (but not always, see below).
 
 .. note::
 
-    It's recommended to always use the ``delta`` parameter when relevant in your
+    It's recommended to always use the `delta` parameter when relevant in your
     physics calculations, so that the game behaves correctly if you change the
     physics update rate or if the player's device can't keep up.
 
@@ -110,19 +110,19 @@ Collision layers and masks
 One of the most powerful, but frequently misunderstood, collision features
 is the collision layer system. This system allows you to build up complex
 interactions between a variety of objects. The key concepts are **layers**
-and **masks**. Each ``CollisionObject2D`` has 20 different physics layers
+and **masks**. Each `CollisionObject2D` has 20 different physics layers
 it can interact with.
 
 Let's look at each of the properties in turn:
 
 - collision_layer
     This describes the layers that the object appears **in**. By default, all
-    bodies are on layer ``1``.
+    bodies are on layer `1`.
 
 - collision_mask
     This describes what layers the body will **scan** for collisions. If an
     object isn't in one of the mask layers, the body will ignore it. By default,
-    all bodies scan layer ``1``.
+    all bodies scan layer `1`.
 
 These properties can be configured via code, or by editing them in the Inspector.
 
@@ -154,7 +154,7 @@ Code example
 ^^^^^^^^^^^^
 
 In function calls, layers are specified as a bitmask. Where a function enables
-all layers by default, the layer mask will be given as ``0x7fffffff``. Your code
+all layers by default, the layer mask will be given as `0x7fffffff`. Your code
 can use binary, hexadecimal, or decimal notation for layer masks, depending
 on your preference.
 
@@ -201,12 +201,12 @@ StaticBody2D
 A static body is one that is not moved by the physics engine. It participates
 in collision detection, but does not move in response to the collision. However,
 it can impart motion or rotation to a colliding body **as if** it were moving,
-using its ``constant_linear_velocity`` and ``constant_angular_velocity`` properties.
+using its `constant_linear_velocity` and `constant_angular_velocity` properties.
 
-``StaticBody2D`` nodes are most often used for objects that are part of the environment
+`StaticBody2D` nodes are most often used for objects that are part of the environment
 or that do not need to have any dynamic behavior.
 
-Example uses for ``StaticBody2D``:
+Example uses for `StaticBody2D`:
 
 -   Platforms (including moving platforms)
 -   Conveyor belts
@@ -253,10 +253,10 @@ RigidBody2Ds and adjust their properties. Stacking, falling, and bouncing would
 automatically be calculated by the physics engine.
 
 However, if you do wish to have some control over the body, you should take
-care - altering the ``position``, ``linear_velocity``, or other physics properties
+care - altering the `position`, `linear_velocity`, or other physics properties
 of a rigid body can result in unexpected behavior. If you need to alter any
 of the physics-related properties, you should use the `_integrate_forces()`
-callback instead of ``_physics_process()``. In this callback, you have access
+callback instead of `_physics_process()`. In this callback, you have access
 to the body's `Physics2DDirectBodyState`,
 which allows for safely changing properties and synchronizing them with
 the physics engine.
@@ -284,11 +284,11 @@ gdscript GDScript
         applied_torque = rotation_dir * torque
 ```
 
-Note that we are not setting the ``linear_velocity`` or ``angular_velocity``
-properties directly, but rather applying forces (``thrust`` and ``torque``) to
+Note that we are not setting the `linear_velocity` or `angular_velocity`
+properties directly, but rather applying forces (`thrust` and `torque`) to
 the body and letting the physics engine calculate the resulting movement.
 
-.. note:: When a rigid body goes to sleep, the ``_integrate_forces()``
+.. note:: When a rigid body goes to sleep, the `_integrate_forces()`
           function will not be called. To override this behavior, you will
           need to keep the body awake by creating a collision, applying a
           force to it, or by disabling the `can_sleep`
@@ -316,8 +316,8 @@ other bodies, but are not affected by physics properties like gravity or frictio
 Instead, they must be controlled by the user via code. The physics engine will
 not move a kinematic body.
 
-When moving a kinematic body, you should not set its ``position`` directly.
-Instead, you use the ``move_and_collide()`` or ``move_and_slide()`` methods.
+When moving a kinematic body, you should not set its `position` directly.
+Instead, you use the `move_and_collide()` or `move_and_slide()` methods.
 These methods move the body along a given vector, and it will instantly stop
 if a collision is detected with another body. After the body has collided,
 any collision response must be coded manually.
@@ -332,7 +332,7 @@ response depends on which method you used to move the KinematicBody2D.
 `move_and_collide`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When using ``move_and_collide()``, the function returns a
+When using `move_and_collide()`, the function returns a
 `KinematicCollision2D` object, which contains
 information about the collision and the colliding body. You can use this
 information to determine the response.
@@ -373,13 +373,13 @@ gdscript GDScript
 
 Sliding is a common collision response; imagine a player moving along walls
 in a top-down game or running up and down slopes in a platformer. While it's
-possible to code this response yourself after using ``move_and_collide()``,
-``move_and_slide()`` provides a convenient way to implement sliding movement
+possible to code this response yourself after using `move_and_collide()`,
+`move_and_slide()` provides a convenient way to implement sliding movement
 without writing much code.
 
-.. warning:: ``move_and_slide()`` automatically includes the timestep in its
+.. warning:: `move_and_slide()` automatically includes the timestep in its
              calculation, so you should **not** multiply the velocity vector
-             by ``delta``.
+             by `delta`.
 
 For example, use the following code to make a character that can walk along
 the ground (including slopes) and jump when standing on the ground:
@@ -415,5 +415,5 @@ gdscript GDScript
 ```
 
 
-See `doc_kinematic_character_2d` for more details on using ``move_and_slide()``,
+See `doc_kinematic_character_2d` for more details on using `move_and_slide()`,
 including a demo project with detailed code.

@@ -39,7 +39,7 @@ the scene. Your scene tree would look like this:
 .. note:: For simplicity's sake, this tutorial uses built-in primitives.
 
 Now you have everything ready. Select the MultiMeshInstance node and look at the
-toolbar, you should see an extra button called ``MultiMesh`` next to ``View``.
+toolbar, you should see an extra button called `MultiMesh` next to `View`.
 Click it and select *Populate surface* in the dropdown menu. A new window titled
 *Populate MultiMesh* will pop up.
 
@@ -95,7 +95,7 @@ The amount of mesh instances placed over the target surface.
 
 Select the target surface. In the tree case, this should be the landscape node.
 The source mesh should be the tree node. Adjust the other parameters
-according to your preference. Press ``Populate`` and multiple copies of the
+according to your preference. Press `Populate` and multiple copies of the
 source mesh will be placed over the target mesh. If you are satisfied with the
 result, you can delete the mesh instance used as the source mesh.
 

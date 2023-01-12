@@ -8,7 +8,7 @@ Instancing with signals
 
 Signals provide a way to decouple game objects, allowing you to avoid forcing a
 fixed arrangement of nodes. One sign that a signal might be called for is when
-you find yourself using ``get_parent()``. Referring directly to a node's parent
+you find yourself using `get_parent()`. Referring directly to a node's parent
 means that you can't easily move that node to another location in the scene tree.
 This can be especially problematic when you are instancing objects at runtime
 and may want to place them in an arbitrary location in the running scene tree.
@@ -22,7 +22,7 @@ Consider a player character that can rotate and shoot towards the mouse. Every
 time the mouse button is clicked, we create an instance of the bullet at the
 player's location. See `doc_instancing` for details.
 
-We'll use an ``Area2D`` for the bullet, which moves in a straight line at a
+We'll use an `Area2D` for the bullet, which moves in a straight line at a
 given velocity:
 
 gdscript GDScript

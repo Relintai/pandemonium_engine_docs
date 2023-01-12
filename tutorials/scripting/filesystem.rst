@@ -38,31 +38,31 @@ Example of file system contents:
 project.godot
 -------------
 
-The ``project.godot`` file is the project description file, and it is always found 
+The `project.godot` file is the project description file, and it is always found 
 at the root of the project. In fact, its location defines where the root is. This
 is the first file that Godot looks for when opening a project.
 
 This file contains the project configuration in plain text, using the win.ini
-format. Even an empty ``project.godot`` can function as a basic definition of 
+format. Even an empty `project.godot` can function as a basic definition of 
 a blank project.
 
 Path delimiter
 --------------
 
-Godot only supports ``/`` as a path delimiter. This is done for
+Godot only supports `/` as a path delimiter. This is done for
 portability reasons. All operating systems support this, even Windows,
-so a path such as ``C:\project\project.godot`` needs to be typed as
-``C:/project/project.godot``.
+so a path such as `C:\project\project.godot` needs to be typed as
+`C:/project/project.godot`.
 
 Resource path
 -------------
 
 When accessing resources, using the host OS file system layout can be
 cumbersome and non-portable. To solve this problem, the special path
-``res://`` was created.
+`res://` was created.
 
-The path ``res://`` will always point at the project root (where
-``project.godot`` is located, so ``res://project.godot`` is always
+The path `res://` will always point at the project root (where
+`project.godot` is located, so `res://project.godot` is always
 valid).
 
 This file system is read-write only when running the project locally from
@@ -75,7 +75,7 @@ User path
 
 Writing to disk is still needed for tasks such as saving game state or 
 downloading content packs. To this end, the engine ensures that there is a
-special path ``user://`` that is always writable. This path resolves 
+special path `user://` that is always writable. This path resolves 
 differently depending on the OS the project is running on. Local path 
 resolution is further explained in `doc_data_paths`.
 
@@ -101,8 +101,8 @@ to be fixed manually (Godot detects this and helps you fix them anyway, but why
 go the hard route?).
 
 The second is that, under Windows and macOS, file and path names are case insensitive.
-If a developer working in a case insensitive host file system saves an asset as ``myfile.PNG``,
-but then references it as ``myfile.png``, it will work fine on their platform, but not
+If a developer working in a case insensitive host file system saves an asset as `myfile.PNG`,
+but then references it as `myfile.png`, it will work fine on their platform, but not
 on other platforms, such as Linux, Android, etc. This may also apply to exported binaries,
 which use a compressed package to store all files.
 

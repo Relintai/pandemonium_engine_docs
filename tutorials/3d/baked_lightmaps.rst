@@ -17,7 +17,7 @@ can't be modified at all. They also don't provide the scene with reflections, so
 using `doc_reflection_probes` together with it on interiors (or using a Sky
 on exteriors) is a requirement to get good quality.
 
-As they are baked, they have fewer problems than ``GIProbe`` regarding light
+As they are baked, they have fewer problems than `GIProbe` regarding light
 bleeding, and indirect light will often look better. The downside is that baking
 lightmaps takes much longer than baking a GIProbe. While baking a GIProbe can be
 done in a matter of seconds, baking lightmaps will take several minutes if not
@@ -81,7 +81,7 @@ their UV2 maps properly generated.
     result in inefficient lightmaps. Don't reuse a source mesh at significantly
     different scales if you are planning to use lightmapping.
 
-    Also, the ``*.unwrap_cache`` files should *not* be ignored in version control
+    Also, the `*.unwrap_cache` files should *not* be ignored in version control
     as these files guarantee that UV2 reimports are consistent across platforms
     and engine versions.
 
@@ -145,7 +145,7 @@ Configure bounds
 
 Lightmap needs an approximate volume of the area affected because it uses it to
 transfer light to dynamic objects inside it (more on that later). Just
-cover the scene with the volume as you do with ``GIProbe``:
+cover the scene with the volume as you do with `GIProbe`:
 
 .. image:: img/baked_light_bounds.png
 
@@ -256,11 +256,11 @@ bake before exporting your project.
 
     To do so, open **Editor > Editor Settings** and adjust
     **Editors > 3d > Lightmap Baking Number Of Cpu Threads**.
-    The default value (``0``) uses all of the system's logical CPU cores.
+    The default value (`0`) uses all of the system's logical CPU cores.
     Positive values will specify a number of threads to use, while negative
     values will subtract from the total number of logical CPU cores in the system.
     For example, on a system with 8 logical CPU cores, adjusting the setting to
-    ``-1`` will use 7 CPU threads for lightmap baking.
+    `-1` will use 7 CPU threads for lightmap baking.
 
 Configuring bake
 ~~~~~~~~~~~~~~~~
@@ -343,8 +343,8 @@ Data
 
 - **Light Data**: Contains the light baked data after baking. Textures are saved
   to disk, but this also contains the capture data for dynamic objects, which can
-  be heavy. If you are using a scene in ``.tscn`` format, you should save this
-  resource to an external binary ``.lmbake`` file to avoid bloating the ``.tscn``
+  be heavy. If you are using a scene in `.tscn` format, you should save this
+  resource to an external binary `.lmbake` file to avoid bloating the `.tscn`
   scene with binary data encoded in Base64.
 
 The Light Data resource can be edited to adjust two additional properties:

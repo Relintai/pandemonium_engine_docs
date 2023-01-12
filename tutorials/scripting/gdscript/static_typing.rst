@@ -26,10 +26,10 @@ With typed GDScript, Godot can detect even more errors as you write
 code! It gives you and your teammates more information as you're
 working, as the arguments' types show up when you call a method.
 
-Imagine you're programming an inventory system. You code an ``Item``
-node, then an ``Inventory``. To add items to the inventory, the people
-who work with your code should always pass an ``Item`` to the
-``Inventory.add`` method. With types, you can enforce this:
+Imagine you're programming an inventory system. You code an `Item`
+node, then an `Inventory`. To add items to the inventory, the people
+who work with your code should always pass an `Item` to the
+`Inventory.add` method. With types, you can enforce this:
 
 ::
 
@@ -54,7 +54,7 @@ leave the code as it is. More on that in a moment.
 
 Static types also give you better code completion options. Below, you
 can see the difference between a dynamic and a static typed completion
-options for a class called ``PlayerController``.
+options for a class called `PlayerController`.
 
 You've probably stored a node in a variable before, and typed a dot to
 be left with no autocomplete suggestions:
@@ -85,7 +85,7 @@ How to use static typing
 ------------------------
 
 To define the type of a variable or a constant, write a colon after the
-variable's name, followed by its type. E.g. ``var health: int``. This
+variable's name, followed by its type. E.g. `var health: int`. This
 forces the variable's type to always stay the same:
 
 ::
@@ -105,8 +105,8 @@ type:
 Currently you can use three types of… types:
 
 1. `Built-in <doc_gdscript_builtin_types>`
-2. Core classes and nodes (``Object``, ``Node``, ``Area2D``,
-   ``Camera2D``, etc.)
+2. Core classes and nodes (`Object`, `Node`, `Area2D`,
+   `Camera2D`, etc.)
 3. Your own custom classes. Look at the new `name <doc_gdscript_basics_class_name>`
    feature to register types in the editor.
 
@@ -126,7 +126,7 @@ script you want to use as a type in a constant:
     const Rifle = preload("res://player/weapons/Rifle.gd")
     var my_rifle: Rifle
 
-The second method is to use the ``name`` keyword when you create.
+The second method is to use the `name` keyword when you create.
 For the example above, your Rifle.gd would look like this:
 
 ::
@@ -134,7 +134,7 @@ For the example above, your Rifle.gd would look like this:
     extends Node2D
     class_name Rifle
 
-If you use ``name``, Godot registers the Rifle type globally in
+If you use `name`, Godot registers the Rifle type globally in
 the editor, and you can use it anywhere, without having to preload it
 into a constant:
 
@@ -148,17 +148,17 @@ Variable casting
 Type casting is a key concept in typed languages.
 Casting is the conversion of a value from one type to another.
 
-Imagine an Enemy in your game, that ``extends Area2D``. You want it to
-collide with the Player, a ``KinematicBody2D`` with a script called
-``PlayerController`` attached to it. You use the ``on_body_entered``
+Imagine an Enemy in your game, that `extends Area2D`. You want it to
+collide with the Player, a `KinematicBody2D` with a script called
+`PlayerController` attached to it. You use the `on_body_entered`
 signal to detect the collision. With typed code, the body you detect is
-going to be a generic ``PhysicsBody2D``, and not your
-``PlayerController`` on the ``_on_body_entered`` callback.
+going to be a generic `PhysicsBody2D`, and not your
+`PlayerController` on the `_on_body_entered` callback.
 
-You can check if this ``PhysicsBody2D`` is your Player with the ``as``
-casting keyword, and using the colon ``:`` again to force the variable
+You can check if this `PhysicsBody2D` is your Player with the `as`
+casting keyword, and using the colon `:` again to force the variable
 to use this type. This forces the variable to stick to the
-``PlayerController`` type:
+`PlayerController` type:
 
 ::
 
@@ -169,8 +169,8 @@ to use this type. This forces the variable to stick to the
 
         player.damage()
 
-As we're dealing with a custom type, if the ``body`` doesn't extend
-``PlayerController``, the ``player``\ variable will be set to ``null``.
+As we're dealing with a custom type, if the `body` doesn't extend
+`PlayerController`, the `player`\ variable will be set to `null`.
 We can use this to check if the body is the player or not. We will also
 get full autocompletion on the player variable thanks to that cast.
 
@@ -190,15 +190,15 @@ Godot doesn't have enough information to know if an instruction will trigger
 an error or not at runtime.
 
 This happens when you get a child node. Let's take a timer for example:
-with dynamic code, you can get the node with ``$Timer``. GDScript
+with dynamic code, you can get the node with `$Timer`. GDScript
 supports `duck-typing <https://stackoverflow.com/a/4205163/8125343>`__,
-so even if your timer is of type ``Timer``, it is also a ``Node`` and an
-``Object``, two classes it extends. With dynamic GDScript, you also
+so even if your timer is of type `Timer`, it is also a `Node` and an
+`Object`, two classes it extends. With dynamic GDScript, you also
 don't care about the node's type as long as it has the methods you need
 to call.
 
 You can use casting to tell Godot the type you expect when you get a
-node: ``($Timer as Timer)``, ``($Player as KinematicBody2D)``, etc.
+node: `($Timer as Timer)`, `($Player as KinematicBody2D)`, etc.
 Godot will ensure the type works and if so, the line number will turn
 green at the left of the script editor.
 
@@ -215,14 +215,14 @@ Define the return type of a function with the arrow ->
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To define the return type of a function, write a dash and a right angle
-bracket ``->`` after its declaration, followed by the return type:
+bracket `->` after its declaration, followed by the return type:
 
 ::
 
     func _process(delta: float) -> void:
         pass
 
-The type ``void`` means the function does not return anything. You can
+The type `void` means the function does not return anything. You can
 use any type, as with variables:
 
 ::
@@ -287,7 +287,7 @@ And with static typing:
 
 As you can see, you can also use types with the engine's virtual
 methods. Signal callbacks, like any methods, can also use types. Here's
-a ``body_entered`` signal in a dynamic style:
+a `body_entered` signal in a dynamic style:
 
 ::
 
@@ -301,7 +301,7 @@ And the same callback, with type hints:
     func _on_area_entered(area: CollisionObject2D) -> void:
         pass
 
-You're free to replace, e.g. the ``CollisionObject2D``, with your own type,
+You're free to replace, e.g. the `CollisionObject2D`, with your own type,
 to cast parameters automatically:
 
 ::
@@ -312,10 +312,10 @@ to cast parameters automatically:
 
         take_damage(bullet.damage)
 
-The ``bullet`` variable could hold any ``CollisionObject2D`` here, but
-we make sure it is our ``Bullet``, a node we created for our project. If
-it's anything else, like an ``Area2D``, or any node that doesn't extend
-``Bullet``, the ``bullet`` variable will be ``null``.
+The `bullet` variable could hold any `CollisionObject2D` here, but
+we make sure it is our `Bullet`, a node we created for our project. If
+it's anything else, like an `Area2D`, or any node that doesn't extend
+`Bullet`, the `bullet` variable will be `null`.
 
 Warning system
 --------------
@@ -345,8 +345,8 @@ give you an error:
 
     var enemies: Array = [$Goblin: Enemy, $Zombie: Enemy]
 
-You can't force the assignment of types in a ``for`` loop, as each
-element the ``for`` keyword loops over already has a different type. So you
+You can't force the assignment of types in a `for` loop, as each
+element the `for` keyword loops over already has a different type. So you
 **cannot** write:
 
 ::

@@ -22,7 +22,7 @@ Writing style
 - **Use contractions.** For example, use "isn't" instead of "is not". An exception
   to this rule can be made when you specifically want to emphasize one of the
   contraction's words.
-- **Use double quotes in messages** (``""``) instead of single quotes (``''``).
+- **Use double quotes in messages** (`""`) instead of single quotes (`''`).
   Double quotes should be used to quote user input, file paths and possibly
   other things depending on the context.
 
@@ -39,7 +39,7 @@ Capitalize text in buttons and menu actions:
 - **Good:** *Open Editor Data Folder*
 - **Bad:** *Open editor data folder*
 
-If a menu action opens a modal dialog, suffix it with an ellipsis (``...``).
+If a menu action opens a modal dialog, suffix it with an ellipsis (`...`).
 
 - **Good:** *Editor Settings...*
 - **Bad:** *Editor Settings*
@@ -87,9 +87,9 @@ Consider adding tooltips whenever the action performed by a button or menu
 action isn't obvious. You can also provide additional context or highlight
 caveats in the tooltip.
 
-You can do this by calling ``set_tooltip(TTR("Text here."))`` on the
+You can do this by calling `set_tooltip(TTR("Text here."))` on the
 Control-based node in question. If the tooltip is particularly long (more than
-~80 characters), wrap it over several lines by adding line breaks using ``\n``.
+~80 characters), wrap it over several lines by adding line breaks using `\n`.
 
 Tooltips should follow the writing style described above. In addition to this,
 use indicative mood instead of imperative mood:

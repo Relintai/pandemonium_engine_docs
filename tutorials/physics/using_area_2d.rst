@@ -42,7 +42,7 @@ The "Audio Bus" section allows you to override audio in the area, for example to
 apply an audio effect when the player moves through.
 
 Note that Area2D extends `CollisionObject2D`, so it
-also provides properties inherited from that class, such as ``input_pickable``.
+also provides properties inherited from that class, such as `input_pickable`.
 
 Overlap detection
 -----------------
@@ -61,9 +61,9 @@ Here's the node setup for the coin:
 
 To detect the overlap, we'll connect the appropriate signal on the Area2d. Which
 signal to use depends on the player's node type. If the player is another area,
-use ``area_entered``. However, let's assume our player is a ``KinematicBody2D``
-(and therefore a ``CollisionObject2D`` type), so we'll connect the
-``body_entered`` signal.
+use `area_entered`. However, let's assume our player is a `KinematicBody2D`
+(and therefore a `CollisionObject2D` type), so we'll connect the
+`body_entered` signal.
 
 .. note:: If you're not familiar with using signals, see `doc_signals` for
           an introduction.
@@ -115,7 +115,7 @@ Point gravity
 
 The *Gravity Point* property allows you to create an "attractor". Gravity in the
 area will be calculated towards a point, given by the *Gravity Vec* property.
-Values are relative to the Area2D, so for example using ``(0, 0)`` will attract
+Values are relative to the Area2D, so for example using `(0, 0)` will attract
 objects to the center of the area.
 
 Examples

@@ -33,7 +33,7 @@ documentation.
 
 .. warning:: If you want to edit the **API reference**, please note that it
              should *not* be done in the godot-docs repository. Instead, you
-             should edit the ``doc/classes/*`` XML files of Godot's
+             should edit the `doc/classes/*` XML files of Godot's
              main repository. These files are then later used to generate the
              in-editor documentation as well as the API reference of the
              online docs. Read more here: `doc_updating_the_class_reference`.
@@ -98,7 +98,7 @@ Always begin pages with their title and a Sphinx reference name:
     Insert your title here
     ======================
 
-The reference allows linking to this page using the ```` format, e.g.
+The reference allows linking to this page using the ``` format, e.g.
 ```doc_insert_your_title_here``` would link to the above example page
 (note the lack of leading underscore in the reference).
 

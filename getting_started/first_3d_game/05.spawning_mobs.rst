@@ -8,10 +8,10 @@ you will have monsters roaming the game board.
 
 |image0|
 
-Double-click on ``Main.tscn`` in the *FileSystem* dock to open the *Main* scene.
+Double-click on `Main.tscn` in the *FileSystem* dock to open the *Main* scene.
 
 Before drawing the path, we're going to change the game resolution. Our game has
-a default window size of ``1024x600``. We're going to set it to ``720x540``, a
+a default window size of `1024x600`. We're going to set it to `720x540`, a
 nice little box.
 
 Go to *Project -> Project Settings*.
@@ -19,7 +19,7 @@ Go to *Project -> Project Settings*.
 |image1|
 
 In the left menu, navigate down to *Display -> Window*. On the right, set the
-*Width* to ``720`` and the *Height* to ``540``.
+*Width* to `720` and the *Height* to `540`.
 
 |image2|
 
@@ -151,7 +151,7 @@ Spawning monsters randomly
 
 Right-click on the *Main* node and attach a new script to it.
 
-We first export a variable to the *Inspector* so that we can assign ``Mob.tscn``
+We first export a variable to the *Inspector* so that we can assign `Mob.tscn`
 or any other monster to it.
 
 Then, as we're going to spawn the monsters procedurally, we want to randomize
@@ -172,9 +172,9 @@ gdscript GDScript
 
 We want to spawn mobs at regular time intervals. To do this, we need to go back
 to the scene and add a timer. Before that, though, we need to assign the
-``Mob.tscn`` file to the ``mob_scene`` property.
+`Mob.tscn` file to the `mob_scene` property.
 
-Head back to the 3D screen and select the *Main* node. Drag ``Mob.tscn`` from
+Head back to the 3D screen and select the *Main* node. Drag `Mob.tscn` from
 the *FileSystem* dock to the *Mob Scene* slot in the *Inspector*.
 
 |image20|
@@ -183,18 +183,18 @@ Add a new *Timer* node as a child of *Main*. Name it *MobTimer*.
 
 |image21|
 
-In the *Inspector*, set its *Wait Time* to ``0.5`` seconds and turn on
+In the *Inspector*, set its *Wait Time* to `0.5` seconds and turn on
 *Autostart* so it automatically starts when we run the game.
 
 |image22|
 
-Timers emit a ``timeout`` signal every time they reach the end of their *Wait
+Timers emit a `timeout` signal every time they reach the end of their *Wait
 Time*. By default, they restart automatically, emitting the signal in a cycle.
 We can connect to this signal from the *Main* node to spawn monsters every
-``0.5`` seconds.
+`0.5` seconds.
 
 With the *MobTimer* still selected, head to the *Node* dock on the right and
-double-click the ``timeout`` signal.
+double-click the `timeout` signal.
 
 |image23|
 
@@ -203,14 +203,14 @@ Connect it to the *Main* node.
 |image24|
 
 This will take you back to the script, with a new empty
-``_on_MobTimer_timeout()`` function.
+`_on_MobTimer_timeout()` function.
 
 Let's code the mob spawning logic. We're going to:
 
 1. Instantiate the mob scene.
 2. Sample a random position on the spawn path.
 3. Get the player's position.
-4. Call the mob's ``initialize()`` method, passing it the random position and
+4. Call the mob's `initialize()` method, passing it the random position and
    the player's position.
 5. Add the mob as a child of the *Main* node.
 
@@ -232,10 +232,10 @@ gdscript GDScript
        add_child(mob)
 ```
 
-Above, ``randf()`` produces a random value between ``0`` and ``1``, which is
-what the *PathFollow* node's ``unit_offset`` expects.
+Above, `randf()` produces a random value between `0` and `1`, which is
+what the *PathFollow* node's `unit_offset` expects.
 
-Here is the complete ``Main.gd`` script so far, for reference.
+Here is the complete `Main.gd` script so far, for reference.
 
 gdscript GDScript
 

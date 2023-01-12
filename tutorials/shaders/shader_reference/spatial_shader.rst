@@ -99,7 +99,7 @@ Global built-ins are available everywhere, including custom functions.
 Vertex built-ins
 ^^^^^^^^^^^^^^^^
 
-Vertex data (``VERTEX``, ``NORMAL``, ``TANGENT``, ``BITANGENT``) are presented in local
+Vertex data (`VERTEX`, `NORMAL`, `TANGENT`, `BITANGENT`) are presented in local
 model space. If not written to, these values will not be modified and be passed through
 as they came.
 
@@ -121,9 +121,9 @@ it manually with the following code:
 
 Other built-ins, such as UV, UV2 and COLOR, are also passed through to the fragment function if not modified.
 
-Users can override the modelview and projection transforms using the ``POSITION`` built-in. When ``POSITION`` is used,
-the value from ``VERTEX`` is ignored and projection does not happen. However, the value passed to the fragment shader
-still comes from ``VERTEX``.
+Users can override the modelview and projection transforms using the `POSITION` built-in. When `POSITION` is used,
+the value from `VERTEX` is ignored and projection does not happen. However, the value passed to the fragment shader
+still comes from `VERTEX`.
 
 For instancing, the INSTANCE_CUSTOM variable contains the instance custom data. When using particles, this information
 is usually:
@@ -176,8 +176,8 @@ shader, this value can be used as desired.
 +--------------------------------------+--------------------------------------------------------+
 | inout vec2 **UV2**                   | UV secondary channel.                                  |
 +--------------------------------------+--------------------------------------------------------+
-| in bool **OUTPUT_IS_SRGB**           | ``true`` when calculations happen in sRGB color space  |
-|                                      | (``true`` in GLES2, ``false`` in GLES3).               |
+| in bool **OUTPUT_IS_SRGB**           | `true` when calculations happen in sRGB color space  |
+|                                      | (`true` in GLES2, `false` in GLES3).               |
 +--------------------------------------+--------------------------------------------------------+
 | inout vec4 **COLOR**                 | Color from vertices.                                   |
 +--------------------------------------+--------------------------------------------------------+
@@ -190,7 +190,7 @@ shader, this value can be used as desired.
 
 .. note::
 
-    ``MODELVIEW_MATRIX`` combines both the ``WORLD_MATRIX`` and ``INV_CAMERA_MATRIX`` and is better suited when floating point issues may arise. For example, if the object is very far away from the world origin, you may run into floating point issues when using the seperated ``WORLD_MATRIX`` and ``INV_CAMERA_MATRIX``.
+    `MODELVIEW_MATRIX` combines both the `WORLD_MATRIX` and `INV_CAMERA_MATRIX` and is better suited when floating point issues may arise. For example, if the object is very far away from the world origin, you may run into floating point issues when using the seperated `WORLD_MATRIX` and `INV_CAMERA_MATRIX`.
 
 Fragment built-ins
 ^^^^^^^^^^^^^^^^^^
@@ -204,8 +204,8 @@ these properties, and if you don't write to them, Godot will optimize away the c
 +===================================+==================================================================================================+
 | in vec2 **VIEWPORT_SIZE**         | Size of viewport (in pixels).                                                                    |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
-| in vec4 **FRAGCOORD**             | Coordinate of pixel center in screen space. ``xy`` specifies  position in window, ``z``          |
-|                                   | specifies fragment depth if ``DEPTH`` is not used. Origin is lower-left.                         |
+| in vec4 **FRAGCOORD**             | Coordinate of pixel center in screen space. `xy` specifies  position in window, `z`          |
+|                                   | specifies fragment depth if `DEPTH` is not used. Origin is lower-left.                         |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | in mat4 **WORLD_MATRIX**          | Model space to world space transform.                                                            |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
@@ -229,7 +229,7 @@ these properties, and if you don't write to them, Godot will optimize away the c
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | in vec3 **VIEW**                  | Vector from camera to fragment position (in view space).                                         |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
-| in bool **FRONT_FACING**          | ``true`` if current face is front face.                                                          |
+| in bool **FRONT_FACING**          | `true` if current face is front face.                                                          |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | inout vec3 **NORMAL**             | Normal that comes from vertex function (default, in view space).                                 |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
@@ -245,7 +245,7 @@ these properties, and if you don't write to them, Godot will optimize away the c
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | in vec2 **UV2**                   | UV2 that comes from vertex function.                                                             |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
-| in bool **OUTPUT_IS_SRGB**        | ``true`` when calculations happen in sRGB color space (``true`` in GLES2, ``false`` in GLES3).   |
+| in bool **OUTPUT_IS_SRGB**        | `true` when calculations happen in sRGB color space (`true` in GLES2, `false` in GLES3).   |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | in vec4 **COLOR**                 | COLOR that comes from vertex function.                                                           |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
@@ -296,7 +296,7 @@ these properties, and if you don't write to them, Godot will optimize away the c
 
 .. note::
 
-    Shaders going through the transparent pipeline when ``ALPHA`` is written to
+    Shaders going through the transparent pipeline when `ALPHA` is written to
     may exhibit transparency sorting issues. Read the
     `transparency sorting section in the 3D rendering limitations page <doc_3d_rendering_limitations_transparency_sorting>`
     for more information and ways to avoid issues.
@@ -305,11 +305,11 @@ Light built-ins
 ^^^^^^^^^^^^^^^
 
 Writing light processor functions is completely optional. You can skip the light function by setting
-render_mode to ``unshaded``. If no light function is written, Godot will use the material
+render_mode to `unshaded`. If no light function is written, Godot will use the material
 properties written to in the fragment function to calculate the lighting for you (subject to
 the render_mode).
 
-To write a light function, assign something to ``DIFFUSE_LIGHT`` or ``SPECULAR_LIGHT``. Assigning nothing
+To write a light function, assign something to `DIFFUSE_LIGHT` or `SPECULAR_LIGHT`. Assigning nothing
 means no light is processed.
 
 The light function is called for every light in every pixel. It is called within a loop for
@@ -323,15 +323,15 @@ Below is an example of a custom light function using a Lambertian lighting model
         DIFFUSE_LIGHT += clamp(dot(NORMAL, LIGHT), 0.0, 1.0) * ATTENUATION * ALBEDO;
     }
 
-If you want the lights to add together, add the light contribution to ``DIFFUSE_LIGHT`` using ``+=``, rather than overwriting it.
+If you want the lights to add together, add the light contribution to `DIFFUSE_LIGHT` using `+=`, rather than overwriting it.
 
 .. warning::
 
-    In GLES2, lights will always be added together even if you override ``DIFFUSE_LIGHT`` using ``=``. This is due to lighting being computed in multiple passes (one for each light), unlike GLES3.
+    In GLES2, lights will always be added together even if you override `DIFFUSE_LIGHT` using `=`. This is due to lighting being computed in multiple passes (one for each light), unlike GLES3.
 
 .. warning::
 
-    The ``light()`` function won't be run if the ``vertex_lighting`` render mode
+    The `light()` function won't be run if the `vertex_lighting` render mode
     is enabled, or if
     **Rendering > Quality > Shading > Force Vertex Shading** is enabled in the
     Project Settings. (It's enabled by default on mobile platforms.)
@@ -344,8 +344,8 @@ If you want the lights to add together, add the light contribution to ``DIFFUSE_
 | in vec2 **VIEWPORT_SIZE**         | Size of viewport (in pixels).                       |
 +-----------------------------------+-----------------------------------------------------+
 | in vec4 **FRAGCOORD**             | Coordinate of pixel center in screen space.         |
-|                                   | ``xy`` specifies position in window, ``z``          |
-|                                   | specifies fragment depth if ``DEPTH`` is not used.  |
+|                                   | `xy` specifies position in window, `z`          |
+|                                   | specifies fragment depth if `DEPTH` is not used.  |
 |                                   | Origin is lower-left.                               |
 +-----------------------------------+-----------------------------------------------------+
 | in mat4 **WORLD_MATRIX**          | Model space to world space transform.               |
@@ -370,8 +370,8 @@ If you want the lights to add together, add the light contribution to ``DIFFUSE_
 +-----------------------------------+-----------------------------------------------------+
 | in vec3 **ATTENUATION**           | Attenuation based on distance or shadow.            |
 +-----------------------------------+-----------------------------------------------------+
-| in bool **OUTPUT_IS_SRGB**        | ``true`` when calculations happen in sRGB color     |
-|                                   | space (``true`` in GLES2, ``false`` in GLES3).      |
+| in bool **OUTPUT_IS_SRGB**        | `true` when calculations happen in sRGB color     |
+|                                   | space (`true` in GLES2, `false` in GLES3).      |
 +-----------------------------------+-----------------------------------------------------+
 | in vec3 **ALBEDO**                | Base albedo.                                        |
 +-----------------------------------+-----------------------------------------------------+
@@ -391,7 +391,7 @@ If you want the lights to add together, add the light contribution to ``DIFFUSE_
 
 .. note::
 
-    Shaders going through the transparent pipeline when ``ALPHA`` is written to
+    Shaders going through the transparent pipeline when `ALPHA` is written to
     may exhibit transparency sorting issues. Read the
     `transparency sorting section in the 3D rendering limitations page <doc_3d_rendering_limitations_transparency_sorting>`
     for more information and ways to avoid issues.

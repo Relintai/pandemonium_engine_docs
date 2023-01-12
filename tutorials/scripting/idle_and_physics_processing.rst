@@ -18,7 +18,7 @@ There are two types of processing available to you:
    running smoothly. You should use it for anything that involves the physics
    engine, like moving a body that collides with the environment.
 
-You can activate idle processing by defining the ``_process()`` method in a
+You can activate idle processing by defining the `_process()` method in a
 script. You can turn it off and back on by calling `Node.set_process()
 <class_Node_method_set_process>`.
 
@@ -32,18 +32,18 @@ gdscript GDScript
         pass
 ```
 
-Keep in mind that the frequency at which the engine calls ``_process()`` depends
+Keep in mind that the frequency at which the engine calls `_process()` depends
 on your application's framerate, which varies over time and across devices.
 
-The function's ``delta`` parameter is the time elapsed in seconds since the
-previous call to ``_process()``. Use this parameter to make calculations
+The function's `delta` parameter is the time elapsed in seconds since the
+previous call to `_process()`. Use this parameter to make calculations
 independent of the framerate. For example, you should always multiply a speed
-value by ``delta`` to animate a moving object.
+value by `delta` to animate a moving object.
 
 Physics processing works with a similar virtual function:
-``_physics_process()``. Use it for calculations that must happen before each
+`_physics_process()`. Use it for calculations that must happen before each
 physics step, like moving a character that collides with the game world. As
-mentioned above, ``_physics_process()`` runs at fixed time intervals as much as
+mentioned above, `_physics_process()` runs at fixed time intervals as much as
 possible to keep the physics interactions stable. You can change the interval
 between physics steps in the Project Settings, under Physics -> Common ->
 Physics Fps. By default, it's set to run 60 times per second.
@@ -58,11 +58,11 @@ gdscript GDScript
         pass
 ```
 
-The function ``_process()`` is not synchronized with physics. Its rate depends on
+The function `_process()` is not synchronized with physics. Its rate depends on
 hardware and game optimization. It also runs after the physics step in
 single-threaded games.
 
-You can see the ``_process()`` function at work by creating a scene with a
+You can see the `_process()` function at work by creating a scene with a
 single Label node, with the following script attached to it:
 
 gdscript GDScript

@@ -101,7 +101,7 @@ add a navigation mesh instance as it's child and set up a navigation
 mesh. 
 
 To get a path between two areas on a map you use the navigation node
-method ``get_simple_path()``. The first argument is a Vector3 of the
+method `get_simple_path()`. The first argument is a Vector3 of the
 starting location, the next is a Vector3 of the end location. And the
 last argument is a boolean for whether or not agent properties of a
 navmesh are considered when generating a path.

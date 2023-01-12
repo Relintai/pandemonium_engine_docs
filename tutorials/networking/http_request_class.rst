@@ -10,7 +10,7 @@ For the sake of this example, we will create a simple UI with a button, that whe
 
 .. warning::
 
-    When exporting to Android, make sure to enable the ``INTERNET``
+    When exporting to Android, make sure to enable the `INTERNET`
     permission in the Android export preset before exporting the project or
     using one-click deploy. Otherwise, network communication of any kind will be
     blocked by Android.
@@ -46,14 +46,14 @@ gdscript GDScript
             print(json.result)
 ```
 
-With this, you should see ``(hello:world)`` printed on the console; hello being a key, and world being a value, both of them strings.
+With this, you should see `(hello:world)` printed on the console; hello being a key, and world being a value, both of them strings.
 
 For more information on parsing JSON, see the class references for `JSON`.
 
-Note that you may want to check whether the ``result`` equals ``RESULT_SUCCESS`` and whether a JSON parsing error occurred, see the JSON class reference and `HTTPRequest` for more.
+Note that you may want to check whether the `result` equals `RESULT_SUCCESS` and whether a JSON parsing error occurred, see the JSON class reference and `HTTPRequest` for more.
 
-Of course, you can also set custom HTTP headers. These are given as a string array, with each string containing a header in the format ``"header: value"``.
-For example, to set a custom user agent (the HTTP ``user-agent`` header) you could use the following:
+Of course, you can also set custom HTTP headers. These are given as a string array, with each string containing a header in the format `"header: value"`.
+For example, to set a custom user agent (the HTTP `user-agent` header) you could use the following:
 
 gdscript GDScript
 

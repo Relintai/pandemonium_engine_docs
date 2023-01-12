@@ -38,7 +38,7 @@ Scene setup
 -----------
 
 To add a button to our game, we will create a new "main" scene which will
-include both a button and the ``Sprite.tscn`` scene that we scripted in previous
+include both a button and the `Sprite.tscn` scene that we scripted in previous
 lessons.
 
 Create a new scene by going to the menu Scene -> New Scene.
@@ -50,7 +50,7 @@ root.
 
 .. image:: img/signals_02_2d_scene.png
 
-In the FileSystem dock, click and drag the ``Sprite.tscn`` file you saved
+In the FileSystem dock, click and drag the `Sprite.tscn` file you saved
 previously onto the Node2D to instantiate it.
 
 .. image:: img/signals_03_dragging_scene.png
@@ -137,14 +137,14 @@ connection. This feature is only available when connecting nodes in the editor.
 
 .. image:: img/signals_14_signals_connection_info.png
 
-Let's replace the line with the ``pass`` keyword with code that'll toggle the
+Let's replace the line with the `pass` keyword with code that'll toggle the
 node's motion.
 
-Our Sprite moves thanks to code in the ``_process()`` function. Godot provides a
+Our Sprite moves thanks to code in the `_process()` function. Godot provides a
 method to toggle processing on and off: `Node.set_process()
 <class_Node_method_set_process>`. Another method of the Node class,
-``is_processing()``, returns ``true`` if idle processing is active. We can use
-the ``not`` keyword to invert the value.
+`is_processing()`, returns `true` if idle processing is active. We can use
+the `not` keyword to invert the value.
 
 gdscript GDScript
 
@@ -156,7 +156,7 @@ gdscript GDScript
 This function will toggle processing and, in turn, the icon's motion on and off
 upon pressing the button.
 
-Before trying the game, we need to simplify our ``_process()`` function to move
+Before trying the game, we need to simplify our `_process()` function to move
 the node automatically and not wait for user input. Replace it with the
 following code, which we saw two lessons ago:
 
@@ -169,7 +169,7 @@ gdscript GDScript
         position += velocity * delta
 ```
 
-Your complete ``Sprite.gd`` code should look like the following.
+Your complete `Sprite.gd` code should look like the following.
 
 gdscript GDScript
 
@@ -222,9 +222,9 @@ Click the script icon next to Sprite to jump back to the scripting workspace.
 We need to do two operations to connect the nodes via code:
 
 1. Get a reference to the Timer from the Sprite.
-2. Call the Timer's ``connect()`` method.
+2. Call the Timer's `connect()` method.
 
-.. note:: To connect to a signal via code, you need to call the ``connect()``
+.. note:: To connect to a signal via code, you need to call the `connect()`
           method of the node you want to listen to. In this case, we want to
           listen to the Timer's "timeout" signal.
 
@@ -243,13 +243,13 @@ gdscript GDScript
         var timer = get_node("Timer")
 ```
 
-The function ``get_node()`` looks at the Sprite's children and gets nodes by
+The function `get_node()` looks at the Sprite's children and gets nodes by
 their name. For example, if you renamed the Timer node to "BlinkingTimer" in the
-editor, you would have to change the call to ``get_node("BlinkingTimer")``.
+editor, you would have to change the call to `get_node("BlinkingTimer")`.
 
 .. add seealso to a page that explains node features.
 
-We can now connect the Timer to the Sprite in the ``_ready()`` function.
+We can now connect the Timer to the Sprite in the `_ready()` function.
 
 gdscript GDScript
 
@@ -260,7 +260,7 @@ gdscript GDScript
 ```
 
 The line reads like so: we connect the Timer's "timeout" signal to the node to
-which the script is attached (``self``). When the Timer emits "timeout", we want
+which the script is attached (`self`). When the Timer emits "timeout", we want
 to call the function "_on_Timer_timeout", that we need to define. Let's add it
 at the bottom of our script and use it to toggle our sprite's visibility.
 
@@ -271,9 +271,9 @@ gdscript GDScript
         visible = not visible
 ```
 
-The ``visible`` property is a boolean that controls the visibility of our node.
-The line ``visible = not visible`` toggles the value. If ``visible`` is
-``true``, it becomes ``false``, and vice-versa.
+The `visible` property is a boolean that controls the visibility of our node.
+The line `visible = not visible` toggles the value. If `visible` is
+`true`, it becomes `false`, and vice-versa.
 
 If you run the scene now, you will see that the sprite blinks on and off, at one
 second intervals.
@@ -282,7 +282,7 @@ Complete script
 ---------------
 
 That's it for our little moving and blinking Godot icon demo!
-Here is the complete ``Sprite.gd`` file for reference.
+Here is the complete `Sprite.gd` file for reference.
 
 gdscript GDScript
 
@@ -341,7 +341,7 @@ you can connect to them like any other.
 
 .. image:: img/signals_17_custom_signal.png
 
-To emit a signal in your scripts, call ``emit_signal()``.
+To emit a signal in your scripts, call `emit_signal()`.
 
 gdscript GDScript
 
@@ -371,7 +371,7 @@ gdscript GDScript
     correct values.
 
 To emit values along with the signal, add them as extra arguments to the
-``emit_signal()`` function:
+`emit_signal()` function:
 
 gdscript GDScript
 
@@ -394,7 +394,7 @@ the game world, to a collision, to a character entering or leaving an area, to
 an element of the interface changing size, and much more.
 
 For example, an `Area2D` representing a coin emits a
-``body_entered`` signal whenever the player's physics body enters its collision
+`body_entered` signal whenever the player's physics body enters its collision
 shape, allowing you to know when the player collected it.
 
 In the next section, `doc_your_first_2d_game`, you'll create a complete 2D

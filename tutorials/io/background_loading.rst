@@ -6,16 +6,16 @@ Background loading
 When switching the main scene of your game (e.g. going to a new
 level), you might want to show a loading screen with some indication
 that progress is being made. The main load method
-(``ResourceLoader::load`` or just ``load`` from GDScript) blocks your
+(`ResourceLoader::load` or just `load` from GDScript) blocks your
 thread, making your game appear frozen and unresponsive while the resource is being loaded. This
-document discusses the alternative of using the ``ResourceInteractiveLoader`` class for smoother
+document discusses the alternative of using the `ResourceInteractiveLoader` class for smoother
 load screens.
 
 ResourceInteractiveLoader
 -------------------------
 
-The ``ResourceInteractiveLoader`` class allows you to load a resource in
-stages. Every time the method ``poll`` is called, a new stage is loaded,
+The `ResourceInteractiveLoader` class allows you to load a resource in
+stages. Every time the method `poll` is called, a new stage is loaded,
 and control is returned to the caller. Each stage is generally a
 sub-resource that is loaded by the main resource. For example, if you're
 loading a scene that loads 10 images, each image will be one stage.
@@ -43,11 +43,11 @@ Polling
     Error ResourceInteractiveLoader::poll();
 
 Use this method to advance the progress of the load. Each call to
-``poll`` will load the next stage of your resource. Keep in mind that
+`poll` will load the next stage of your resource. Keep in mind that
 each stage is one entire "atomic" resource, such as an image, or a mesh,
 so it will take several frames to load.
 
-Returns ``OK`` on no errors, ``ERR_FILE_EOF`` when loading is finished.
+Returns `OK` on no errors, `ERR_FILE_EOF` when loading is finished.
 Any other return value means there was an error and loading has stopped.
 
 Load progress (optional)
@@ -60,8 +60,8 @@ To query the progress of the load, use the following methods:
     int ResourceInteractiveLoader::get_stage_count() const;
     int ResourceInteractiveLoader::get_stage() const;
 
-``get_stage_count`` returns the total number of stages to load.
-``get_stage`` returns the current stage being loaded.
+`get_stage_count` returns the total number of stages to load.
+`get_stage` returns the current stage being loaded.
 
 Forcing completion (optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,7 +89,7 @@ Example
 This example demonstrates how to load a new scene. Consider it in the
 context of the `doc_singletons_autoload` example.
 
-First, we set up some variables and initialize the ``current_scene``
+First, we set up some variables and initialize the `current_scene`
 with the main scene of the game:
 
 ::
@@ -104,9 +104,9 @@ with the main scene of the game:
         var root = get_tree().get_root()
         current_scene = root.get_child(root.get_child_count() -1)
 
-The function ``goto_scene`` is called from the game when the scene
+The function `goto_scene` is called from the game when the scene
 needs to be switched. It requests an interactive loader, and calls
-``set_process(true)`` to start polling the loader in the ``_process``
+`set_process(true)` to start polling the loader in the `_process`
 callback. It also starts a "loading" animation, which could show a
 progress bar or loading screen.
 
@@ -126,16 +126,16 @@ progress bar or loading screen.
 
         wait_frames = 1
 
-``_process`` is where the loader is polled. ``poll`` is called, and then
-we deal with the return value from that call. ``OK`` means keep polling,
-``ERR_FILE_EOF`` means loading is done, anything else means there was an
-error. Also note we skip one frame (via ``wait_frames``, set on the
-``goto_scene`` function) to allow the loading screen to show up.
+`_process` is where the loader is polled. `poll` is called, and then
+we deal with the return value from that call. `OK` means keep polling,
+`ERR_FILE_EOF` means loading is done, anything else means there was an
+error. Also note we skip one frame (via `wait_frames`, set on the
+`goto_scene` function) to allow the loading screen to show up.
 
-Note how we use ``OS.get_ticks_msec`` to control how long we block the
+Note how we use `OS.get_ticks_msec` to control how long we block the
 thread. Some stages might load fast, which means we might be able
-to cram more than one call to ``poll`` in one frame; some might take way
-more than your value for ``time_max``, so keep in mind we won't have
+to cram more than one call to `poll` in one frame; some might take way
+more than your value for `time_max`, so keep in mind we won't have
 precise control over the timings.
 
 ::
@@ -169,11 +169,11 @@ precise control over the timings.
                 loader = null
                 break
 
-Some extra helper functions. ``update_progress`` updates a progress bar,
+Some extra helper functions. `update_progress` updates a progress bar,
 or can also update a paused animation (the animation represents the
-entire load process from beginning to end). ``set_new_scene`` puts the
+entire load process from beginning to end). `set_new_scene` puts the
 newly loaded scene on the tree. Because it's a scene being loaded,
-``instance()`` needs to be called on the resource obtained from the
+`instance()` needs to be called on the resource obtained from the
 loader.
 
 ::
@@ -205,13 +205,13 @@ Use a semaphore
 ~~~~~~~~~~~~~~~
 
 While your thread waits for the main thread to request a new resource,
-use a ``Semaphore`` to sleep (instead of a busy loop or anything similar).
+use a `Semaphore` to sleep (instead of a busy loop or anything similar).
 
 Not blocking main thread during the polling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you have a mutex to allow calls from the main thread to your loader
-class, don't lock the main thread while you call ``poll`` on your loader class. When a
+class, don't lock the main thread while you call `poll` on your loader class. When a
 resource is done loading, it might require some resources from the
 low-level APIs (VisualServer, etc), which might need to lock the main
 thread to acquire them. This might cause a deadlock if the main thread
@@ -247,7 +247,7 @@ Remove a resource from the queue, discarding any loading done.
 
     func is_ready(path)
 
-Returns ``true`` if a resource is fully loaded and ready to be retrieved.
+Returns `true` if a resource is fully loaded and ready to be retrieved.
 
 ::
 
@@ -256,17 +256,17 @@ Returns ``true`` if a resource is fully loaded and ready to be retrieved.
 Get the progress of a resource. Returns -1 if there was an error (for example if the
 resource is not in the queue), or a number between 0.0 and 1.0 with the
 progress of the load. Use mostly for cosmetic purposes (updating
-progress bars, etc), use ``is_ready`` to find out if a resource is
+progress bars, etc), use `is_ready` to find out if a resource is
 actually ready.
 
 ::
 
     func get_resource(path)
 
-Returns the fully loaded resource, or ``null`` on error. If the resource is
-not fully loaded (``is_ready`` returns ``false``), it will block your thread
+Returns the fully loaded resource, or `null` on error. If the resource is
+not fully loaded (`is_ready` returns `false`), it will block your thread
 and finish the load. If the resource is not on the queue, it will call
-``ResourceLoader::load`` to load it normally and return it.
+`ResourceLoader::load` to load it normally and return it.
 
 Example:
 ~~~~~~~~

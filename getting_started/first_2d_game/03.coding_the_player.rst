@@ -7,7 +7,7 @@ In this lesson, we'll add player movement, animation, and set it up to detect
 collisions.
 
 To do so, we need to add some functionality that we can't get from a built-in
-node, so we'll add a script. Click the ``Player`` node and click the "Attach
+node, so we'll add a script. Click the `Player` node and click the "Attach
 Script" button:
 
 .. image:: img/add_script_button.png
@@ -34,16 +34,16 @@ gdscript GDScript
     var screen_size # Size of the game window.
 ```
 
-Using the ``export`` keyword on the first variable ``speed`` allows us to set
+Using the `export` keyword on the first variable `speed` allows us to set
 its value in the Inspector. This can be handy for values that you want to be
-able to adjust just like a node's built-in properties. Click on the ``Player``
+able to adjust just like a node's built-in properties. Click on the `Player`
 node and you'll see the property now appears in the "Script Variables" section
 of the Inspector. Remember, if you change the value here, it will override the
 value written in the script.
 
 .. image:: img/export_variable.png
 
-The ``_ready()`` function is called when a node enters the scene tree, which is
+The `_ready()` function is called when a node enters the scene tree, which is
 a good time to find the size of the game window:
 
 ```
@@ -51,8 +51,8 @@ a good time to find the size of the game window:
         screen_size = get_viewport_rect().size
 ```
 
-Now we can use the ``_process()`` function to define what the player will do.
-``_process()`` is called every frame, so we'll use it to update elements of our
+Now we can use the `_process()` function to define what the player will do.
+`_process()` is called every frame, so we'll use it to update elements of our
 game, which we expect will change often. For the player, we need to do the
 following:
 
@@ -68,7 +68,7 @@ map the arrow keys to the four directions.
 
 Click on *Project -> Project Settings* to open the project settings window and
 click on the *Input Map* tab at the top. Type "move_right" in the top bar and
-click the "Add" button to add the ``move_right`` action.
+click the "Add" button to add the `move_right` action.
 
 .. image:: img/input-mapping-add-action.png
 
@@ -80,9 +80,9 @@ desired key. Press the right arrow on your keyboard and click "Ok".
 
 Repeat these steps to add three more mappings:
 
-1. ``move_left`` mapped to the left arrow key.
-2. ``move_up`` mapped to the up arrow key.
-3. And ``move_down`` mapped to the down arrow key.
+1. `move_left` mapped to the left arrow key.
+2. `move_up` mapped to the up arrow key.
+3. And `move_down` mapped to the down arrow key.
 
 Your input map tab should look like this:
 
@@ -95,8 +95,8 @@ Click the "Close" button to close the project settings.
    We only mapped one key to each input action, but you can map multiple keys,
    joystick buttons, or mouse buttons to the same input action.
 
-You can detect whether a key is pressed using ``Input.is_action_pressed()``,
-which returns ``true`` if it's pressed or ``false`` if it isn't.
+You can detect whether a key is pressed using `Input.is_action_pressed()`,
+which returns `true` if it's pressed or `false` if it isn't.
 
 gdscript GDScript
 ```
@@ -118,37 +118,37 @@ gdscript GDScript
             $AnimatedSprite.stop()
 ```
 
-We start by setting the ``velocity`` to ``(0, 0)`` - by default, the player
+We start by setting the `velocity` to `(0, 0)` - by default, the player
 should not be moving. Then we check each input and add/subtract from the
-``velocity`` to obtain a total direction. For example, if you hold ``right`` and
-``down`` at the same time, the resulting ``velocity`` vector will be ``(1, 1)``.
+`velocity` to obtain a total direction. For example, if you hold `right` and
+`down` at the same time, the resulting `velocity` vector will be `(1, 1)`.
 In this case, since we're adding a horizontal and a vertical movement, the
 player would move *faster* diagonally than if it just moved horizontally.
 
 We can prevent that if we *normalize* the velocity, which means we set its
-*length* to ``1``, then multiply by the desired speed. This means no more fast
+*length* to `1`, then multiply by the desired speed. This means no more fast
 diagonal movement.
 
 .. tip:: If you've never used vector math before, or need a refresher, you can
          see an explanation of vector usage in Godot at `doc_vector_math`.
          It's good to know but won't be necessary for the rest of this tutorial.
 
-We also check whether the player is moving so we can call ``play()`` or
-``stop()`` on the AnimatedSprite.
+We also check whether the player is moving so we can call `play()` or
+`stop()` on the AnimatedSprite.
 
-.. tip:: ``$`` is shorthand for ``get_node()``. So in the code above,
-         ``$AnimatedSprite.play()`` is the same as
-         ``get_node("AnimatedSprite").play()``.
+.. tip:: `$` is shorthand for `get_node()`. So in the code above,
+         `$AnimatedSprite.play()` is the same as
+         `get_node("AnimatedSprite").play()`.
 
-         In GDScript, ``$`` returns the node at the relative path from the
-         current node, or returns ``null`` if the node is not found. Since
+         In GDScript, `$` returns the node at the relative path from the
+         current node, or returns `null` if the node is not found. Since
          AnimatedSprite is a child of the current node, we can use
-         ``$AnimatedSprite``.
+         `$AnimatedSprite`.
 
 Now that we have a movement direction, we can update the player's position. We
-can also use ``clamp()`` to prevent it from leaving the screen. *Clamping* a
+can also use `clamp()` to prevent it from leaving the screen. *Clamping* a
 value means restricting it to a given range. Add the following to the bottom of
-the ``_process`` function (make sure it's not indented under the `else`):
+the `_process` function (make sure it's not indented under the `else`):
 
 gdscript GDScript
 
@@ -168,11 +168,11 @@ the player around the screen in all directions.
 
 .. warning:: If you get an error in the "Debugger" panel that says
 
-            ``Attempt to call function 'play' in base 'null instance' on a null
-            instance``
+            `Attempt to call function 'play' in base 'null instance' on a null
+            instance`
 
             this likely means you spelled the name of the AnimatedSprite node
-            wrong. Node names are case-sensitive and ``$NodeName`` must match
+            wrong. Node names are case-sensitive and `$NodeName` must match
             the name you see in the scene tree.
 
 Choosing animations
@@ -181,9 +181,9 @@ Choosing animations
 Now that the player can move, we need to change which animation the
 AnimatedSprite is playing based on its direction. We have the "walk" animation,
 which shows the player walking to the right. This animation should be flipped
-horizontally using the ``flip_h`` property for left movement. We also have the
-"up" animation, which should be flipped vertically with ``flip_v`` for downward
-movement. Let's place this code at the end of the ``_process()`` function:
+horizontally using the `flip_h` property for left movement. We also have the
+"up" animation, which should be flipped vertically with `flip_v` for downward
+movement. Let's place this code at the end of the `_process()` function:
 
 gdscript GDScript
 
@@ -217,11 +217,11 @@ directions.
 
 .. tip:: A common mistake here is to type the names of the animations wrong. The
         animation names in the SpriteFrames panel must match what you type in
-        the code. If you named the animation ``"Walk"``, you must also use a
+        the code. If you named the animation `"Walk"`, you must also use a
         capital "W" in the code.
 
 When you're sure the movement is working correctly, add this line to
-``_ready()``, so the player will be hidden when the game starts:
+`_ready()`, so the player will be hidden when the game starts:
 
 gdscript GDScript
 
@@ -232,11 +232,11 @@ gdscript GDScript
 Preparing for collisions
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-We want ``Player`` to detect when it's hit by an enemy, but we haven't made any
+We want `Player` to detect when it's hit by an enemy, but we haven't made any
 enemies yet! That's OK, because we're going to use Godot's *signal*
 functionality to make it work.
 
-Add the following at the top of the script, after ``extends Area2D``:
+Add the following at the top of the script, after `extends Area2D`:
 
 gdscript GDScript
 
@@ -245,14 +245,14 @@ gdscript GDScript
 ```
 
 This defines a custom signal called "hit" that we will have our player emit
-(send out) when it collides with an enemy. We will use ``Area2D`` to detect the
-collision. Select the ``Player`` node and click the "Node" tab next to the
+(send out) when it collides with an enemy. We will use `Area2D` to detect the
+collision. Select the `Player` node and click the "Node" tab next to the
 Inspector tab to see the list of signals the player can emit:
 
 .. image:: img/player_signals.png
 
 Notice our custom "hit" signal is there as well! Since our enemies are going to
-be ``RigidBody2D`` nodes, we want the ``body_entered(body: Node)`` signal. This
+be `RigidBody2D` nodes, we want the `body_entered(body: Node)` signal. This
 signal will be emitted when a body contacts the player. Click "Connect.." and
 the "Connect a Signal" window appears. We don't need to change any of these
 settings so click "Connect" again. Godot will automatically create a function in
@@ -274,12 +274,12 @@ gdscript GDScript
 ```
 
 Each time an enemy hits the player, the signal is going to be emitted. We need
-to disable the player's collision so that we don't trigger the ``hit`` signal
+to disable the player's collision so that we don't trigger the `hit` signal
 more than once.
 
 .. Note:: Disabling the area's collision shape can cause an error if it happens
           in the middle of the engine's collision processing. Using
-          ``set_deferred()`` tells Godot to wait to disable the shape until it's
+          `set_deferred()` tells Godot to wait to disable the shape until it's
           safe to do so.
 
 The last piece is to add a function we can call to reset the player when

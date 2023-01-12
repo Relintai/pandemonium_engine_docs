@@ -18,11 +18,11 @@ but the principles will apply to other node types (Area2D, RigidBody2D) as well.
 Setup
 -----
 
-Each example below uses the same scene setup. Start with a ``KinematicBody2D`` with two
-children: ``Sprite`` and ``CollisionShape2D``. You can use the Godot icon ("icon.png")
+Each example below uses the same scene setup. Start with a `KinematicBody2D` with two
+children: `Sprite` and `CollisionShape2D`. You can use the Godot icon ("icon.png")
 for the Sprite's texture or use any other 2D image you have.
 
-Open ``Project -> Project Settings`` and select the "Input Map" tab. Add the following
+Open `Project -> Project Settings` and select the "Input Map" tab. Add the following
 input actions (see `InputEvent <doc_inputevent>` for details):
 
 .. image:: img/movement_inputs.png
@@ -64,13 +64,13 @@ gdscript GDScript
         velocity = move_and_slide(velocity)
 ```
 
-In the ``get_input()`` function, we check for the four key events and sum them
+In the `get_input()` function, we check for the four key events and sum them
 up to get the velocity vector. This has the benefit of making two opposite keys
 cancel each other out, but will also result in diagonal movement being faster
 due to the two directions being added together.
 
 We can prevent that if we *normalize* the velocity, which means we set
-its *length* to ``1``, and multiply by the desired speed.
+its *length* to `1`, and multiply by the desired speed.
 
 .. tip:: If you've never used vector math before, or need a refresher,
          you can see an explanation of vector usage in Godot at `doc_vector_math`.
@@ -121,10 +121,10 @@ gdscript GDScript
 
 Here we've added two new variables to track our rotation direction and speed.
 Again, pressing both keys at once will cancel out and result in no rotation.
-The rotation is applied directly to the body's ``rotation`` property.
+The rotation is applied directly to the body's `rotation` property.
 
-To set the velocity, we use the ``Vector2.rotated()`` method, so that it points
-in the same direction as the body. ``rotated()`` is a useful vector function
+To set the velocity, we use the `Vector2.rotated()` method, so that it points
+in the same direction as the body. `rotated()` is a useful vector function
 that you can use in many circumstances where you would otherwise need to apply
 trigonometric functions.
 
@@ -159,7 +159,7 @@ gdscript GDScript
         velocity = move_and_slide(velocity)
 ```
 
-Here we're using the `Node2D` ``look_at()`` method to
+Here we're using the `Node2D` `look_at()` method to
 point the player towards a given position. Without this function, you
 could get the same effect by setting the angle like this:
 
@@ -200,16 +200,16 @@ gdscript GDScript
 ```
 
 
-Note the ``distance_to()`` check we make prior to movement. Without this test,
+Note the `distance_to()` check we make prior to movement. Without this test,
 the body would "jitter" upon reaching the target position, as it moves
 slightly past the position and tries to move back, only to move too far and
 repeat.
 
-Uncommenting the ``look_at()`` line will also turn the body to point in its
+Uncommenting the `look_at()` line will also turn the body to point in its
 direction of motion if you prefer.
 
 .. tip:: This technique can also be used as the basis of a "following" character.
-         The ``target`` position can be that of any object you want to move to.
+         The `target` position can be that of any object you want to move to.
 
 Summary
 -------

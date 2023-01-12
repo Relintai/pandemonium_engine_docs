@@ -22,7 +22,7 @@ Events versus polling
 Sometimes you want your game to respond to a certain input event - pressing
 the "jump" button, for example. For other situations, you might want something
 to happen as long as a key is pressed, such as movement. In the first case,
-you can use the ``_input()`` function, which will be called whenever an input
+you can use the `_input()` function, which will be called whenever an input
 event occurs. In the second case, Godot provides the `Input`
 singleton, which you can use to query the state of an input.
 
@@ -46,7 +46,7 @@ This gives you the flexibility to mix-and-match the type of input processing
 you do.
 
 For the remainder of this tutorial, we'll focus on capturing individual
-events in ``_input()``.
+events in `_input()`.
 
 Input events
 ------------
@@ -87,7 +87,7 @@ It inherits from the following classes:
 
 - `InputEvent` - the base class for all input events
 - `InputEventWithModifiers` - adds the ability to check if modifiers are pressed, such as :kbd:`Shift` or :kbd:`Alt`.
-- `InputEventMouse` - adds mouse event properties, such as ``position``
+- `InputEventMouse` - adds mouse event properties, such as `position`
 - `InputEventMouseButton` - contains the index of the button that was pressed, whether it was a double-click, etc.
 
 .. tip:: It's a good idea to keep the class reference open while you're working
@@ -95,7 +95,7 @@ It inherits from the following classes:
         methods.
 
 You can encounter errors if you try to access a property on an input type that
-doesn't contain it - calling ``position`` on ``InputEventKey`` for example. To
+doesn't contain it - calling `position` on `InputEventKey` for example. To
 avoid this, make sure to test the event type first:
 
 gdscript GDScript
@@ -122,7 +122,7 @@ Capturing actions
 ~~~~~~~~~~~~~~~~~
 
 Once you've defined your actions, you can process them in your scripts using
-``is_action_pressed()`` and ``is_action_released()`` by passing the name of
+`is_action_pressed()` and `is_action_released()` by passing the name of
 the action you're looking for:
 
 gdscript GDScript
@@ -196,16 +196,16 @@ Mouse events
 Mouse events stem from the `InputEventMouse` class, and
 are separated into two types: `InputEventMouseButton`
 and `InputEventMouseMotion`. Note that this
-means that all mouse events will contain a ``position`` property.
+means that all mouse events will contain a `position` property.
 
 Mouse buttons
 ~~~~~~~~~~~~~
 
 Capturing mouse buttons is very similar to handling key events. `@GlobalScope_ButtonList <enum_@GlobalScope_ButtonList>`
-contains a list of ``BUTTON_*`` constants for each possible button, which will
-be reported in the event's ``button_index`` property. Note that the scrollwheel
+contains a list of `BUTTON_*` constants for each possible button, which will
+be reported in the event's `button_index` property. Note that the scrollwheel
 also counts as a button - two buttons, to be precise, with both
-``BUTTON_WHEEL_UP`` and ``BUTTON_WHEEL_DOWN`` being separate events.
+`BUTTON_WHEEL_UP` and `BUTTON_WHEEL_DOWN` being separate events.
 
 gdscript GDScript
 
@@ -222,7 +222,7 @@ Mouse motion
 ~~~~~~~~~~~~
 
 `InputEventMouseMotion` events occur whenever
-the mouse moves. You can find the move's distance with the ``relative``
+the mouse moves. You can find the move's distance with the `relative`
 property.
 
 Here's an example using mouse events to drag-and-drop a `Sprite`

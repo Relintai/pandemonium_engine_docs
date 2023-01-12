@@ -41,9 +41,9 @@ is because the node needs a ParticlesMaterial to function.
 ParticlesMaterial
 ~~~~~~~~~~~~~~~~~
 
-To add a process material to your particles node, go to ``Process Material`` in
-your inspector panel. Click on the box next to ``Material``, and from the dropdown
-menu select ``New ParticlesMaterial``.
+To add a process material to your particles node, go to `Process Material` in
+your inspector panel. Click on the box next to `Material`, and from the dropdown
+menu select `New ParticlesMaterial`.
 
 .. image:: img/particles_material.png
 
@@ -96,14 +96,14 @@ actually drawn the first time.
 Speed Scale
 ~~~~~~~~~~~
 
-The speed scale has a default value of ``1`` and is used to adjust the
+The speed scale has a default value of `1` and is used to adjust the
 speed of a particle system. Lowering the value will make the particles
 slower while increasing the value will make the particles much faster.
 
 Explosiveness
 ~~~~~~~~~~~~~
 
-If lifetime is ``1`` and there are 10 particles, it means a particle
+If lifetime is `1` and there are 10 particles, it means a particle
 will be emitted every 0.1 seconds. The explosiveness parameter changes
 this, and forces particles to be emitted all together. Ranges are:
 
@@ -118,8 +118,8 @@ creating explosions or sudden bursts of particles:
 Randomness
 ~~~~~~~~~~
 
-All physics parameters can be randomized. Random values range from ``0`` to
-``1``. The formula to randomize a parameter is:
+All physics parameters can be randomized. Random values range from `0` to
+`1`. The formula to randomize a parameter is:
 
 ::
 
@@ -129,7 +129,7 @@ Fixed FPS
 ~~~~~~~~~
 
 This setting can be used to set the particle system to render at a fixed
-FPS. For instance, changing the value to ``2`` will make the particles render
+FPS. For instance, changing the value to `2` will make the particles render
 at 2 frames per second. Note this does not slow down the particle system itself.
 
 Fract Delta
@@ -146,13 +146,13 @@ Visibility Rect
 
 The visibility rectangle controls the visibility of the particles on screen. If this rectangle is outside of the viewport, the engine will not render the particles on screen.
 
-The rectangle's ``W`` and ``H`` properties respectively control its Width and its Height.
-The ``X`` and ``Y`` properties control the position of the upper-left
+The rectangle's `W` and `H` properties respectively control its Width and its Height.
+The `X` and `Y` properties control the position of the upper-left
 corner of the rectangle, relative to the particle emitter.
 
-You can have Godot generate a Visibility Rect automatically using the toolbar above the 2d view. To do so, select the Particles2D node and Click ``Particles > Generate Visibility Rect``. Godot will simulate the Particles2D node emitting particles for a few seconds and set the rectangle to fit the surface the particles take.
+You can have Godot generate a Visibility Rect automatically using the toolbar above the 2d view. To do so, select the Particles2D node and Click `Particles > Generate Visibility Rect`. Godot will simulate the Particles2D node emitting particles for a few seconds and set the rectangle to fit the surface the particles take.
 
-You can control the emit duration with the ``Generation Time (sec)`` option. The maximum value is 25 seconds. If you need more time for your particles to move around, you can temporarily change the ``preprocess`` duration on the Particles2D node.
+You can control the emit duration with the `Generation Time (sec)` option. The maximum value is 25 seconds. If you need more time for your particles to move around, you can temporarily change the `preprocess` duration on the Particles2D node.
 
 Local Coords
 ~~~~~~~~~~~~
@@ -171,9 +171,9 @@ node is moved, already emitted particles are not affected:
 Draw Order
 ~~~~~~~~~~
 
-This controls the order in which individual particles are drawn. ``Index``
+This controls the order in which individual particles are drawn. `Index`
 means particles are drawn according to their emission order (default).
-``Lifetime`` means they are drawn in order of remaining lifetime.
+`Lifetime` means they are drawn in order of remaining lifetime.
 
 ParticlesMaterial settings
 --------------------------
@@ -182,7 +182,7 @@ Direction
 ~~~~~~~~~
 
 This is the base direction at which particles emit. The default is
-``Vector3(1, 0, 0)`` which makes particles emit to the right. However,
+`Vector3(1, 0, 0)` which makes particles emit to the right. However,
 with the default gravity settings, particles will go straight down.
 
 .. image:: img/direction1.png
@@ -197,7 +197,7 @@ Spread
 ~~~~~~
 
 This parameter is the angle in degrees which will be randomly added in
-either direction to the base ``Direction``. A spread of ``180`` will emit
+either direction to the base `Direction`. A spread of `180` will emit
 in all directions (+/- 180). For spread to do anything the "Initial Velocity"
 parameter must be greater than 0.
 
@@ -297,8 +297,8 @@ Used to change the color of the particles being emitted.
 Hue variation
 ~~~~~~~~~~~~~
 
-The ``Variation`` value sets the initial hue variation applied to each
-particle. The ``Variation Random`` value controls the hue variation
+The `Variation` value sets the initial hue variation applied to each
+particle. The `Variation Random` value controls the hue variation
 randomness ratio.
 
 Emission Shapes
@@ -339,7 +339,7 @@ Three types of emission masks can be generated from a texture:
 
 -  Directed Border Pixels: Similar to Border Pixels, but adds extra
    information to the mask to give particles the ability to emit away
-   from the borders. Note that an ``Initial Velocity`` will need to
+   from the borders. Note that an `Initial Velocity` will need to
    be set in order to utilize this.
 
 .. image:: img/emission_mask_directed_border.gif
@@ -347,14 +347,14 @@ Three types of emission masks can be generated from a texture:
 Emission Colors
 ~~~~~~~~~~~~~~~
 
-``Capture from Pixel`` will cause the particles to inherit the color of the mask at their spawn points.
+`Capture from Pixel` will cause the particles to inherit the color of the mask at their spawn points.
 
-Once you click "OK", the mask will be generated and set to the ParticlesMaterial, under the ``Emission Shape`` section:
+Once you click "OK", the mask will be generated and set to the ParticlesMaterial, under the `Emission Shape` section:
 
 .. image:: img/emission_shapes4.png
 
 All of the values within this section have been automatically generated by the
 "Load Emission Mask" menu, so they should generally be left alone.
 
-.. note:: An image should not be added to ``Point Texture`` or ``Color Texture`` directly.
+.. note:: An image should not be added to `Point Texture` or `Color Texture` directly.
           The "Load Emission Mask" menu should always be used instead.

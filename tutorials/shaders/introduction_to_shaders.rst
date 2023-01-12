@@ -23,7 +23,7 @@ working with shaders, you need to code and think differently from other
 programming languages.
 
 Suppose you want to update all the pixels in a texture to a given color. In
-GDScript, your code would use ``for`` loops::
+GDScript, your code would use `for` loops::
 
   for x in range(width):
     for y in range(height):
@@ -40,7 +40,7 @@ look like this.
 
 .. note::
 
-   The graphics card calls the ``fragment()`` function once or more for each pixel it has to draw. More on that below.
+   The graphics card calls the `fragment()` function once or more for each pixel it has to draw. More on that below.
 
 Shaders in Godot
 ----------------
@@ -49,22 +49,22 @@ Godot provides a shading language based on the popular OpenGL Shading Language
 (GLSL) but simplified. The engine handles some of the lower-level initialization
 work for you, making it easier to write complex shaders.
 
-In Godot, shaders are made up of three main functions: ``vertex()``,
-``fragment()``, and ``light()``.
+In Godot, shaders are made up of three main functions: `vertex()`,
+`fragment()`, and `light()`.
 
-1. The ``vertex()`` function runs over all the vertices in the mesh and sets
+1. The `vertex()` function runs over all the vertices in the mesh and sets
    their positions and some other per-vertex variables.
 
-2. The ``fragment()`` function runs for every pixel covered by the mesh. It uses
-   values output by the ``vertex()`` function, interpolated between the
+2. The `fragment()` function runs for every pixel covered by the mesh. It uses
+   values output by the `vertex()` function, interpolated between the
    vertices.
 
-3. The ``light()`` function runs for every pixel and for every light. It takes
-   variables from the ``fragment()`` function and from its previous runs.
+3. The `light()` function runs for every pixel and for every light. It takes
+   variables from the `fragment()` function and from its previous runs.
 
 .. warning::
 
-    The ``light()`` function won't run if the ``vertex_lighting`` render mode is
+    The `light()` function won't run if the `vertex_lighting` render mode is
     enabled, or if **Rendering > Quality > Shading > Force Vertex Shading** is
     enabled in the Project Settings. It's enabled by default on mobile
     platforms.
@@ -100,7 +100,7 @@ shader type, like so:
     render_mode unshaded, cull_disabled;
 
 Render modes alter the way Godot applies the shader. For example, the
-``unshaded`` mode makes the engine skip the built-in light processor function.
+`unshaded` mode makes the engine skip the built-in light processor function.
 
 Each shader type has different render modes. See the reference for each shader
 type for a complete list of render modes.
@@ -109,15 +109,15 @@ Processor functions
 -------------------
 
 Depending on the shader type, you can override different processor functions.
-For ``spatial`` and ``canvas_item``, you have access to ``vertex()``,
-``fragment()``, and ``light()``. For ``particles``, you only have access to
-``vertex()``.
+For `spatial` and `canvas_item`, you have access to `vertex()`,
+`fragment()`, and `light()`. For `particles`, you only have access to
+`vertex()`.
 
 Vertex processor
 ^^^^^^^^^^^^^^^^
 
-The ``vertex()`` processing function is called once for every vertex in
-``spatial`` and ``canvas_item`` shaders. For ``particles`` shaders, it is called
+The `vertex()` processing function is called once for every vertex in
+`spatial` and `canvas_item` shaders. For `particles` shaders, it is called
 once for every particle.
 
 Each vertex in your world's geometry has properties like a position and color.
@@ -132,31 +132,31 @@ example.
 Fragment processor
 ^^^^^^^^^^^^^^^^^^
 
-The ``fragment()`` processing function is used to set up the Godot material
+The `fragment()` processing function is used to set up the Godot material
 parameters per pixel. This code runs on every visible pixel the object or
-primitive draws. It is only available in ``spatial`` and ``canvas_item`` shaders.
+primitive draws. It is only available in `spatial` and `canvas_item` shaders.
 
 The standard use of the fragment function is to set up material properties used
-to calculate lighting. For example, you would set values for ``ROUGHNESS``,
-``RIM``, or ``TRANSMISSION``, which would tell the light function how the lights
+to calculate lighting. For example, you would set values for `ROUGHNESS`,
+`RIM`, or `TRANSMISSION`, which would tell the light function how the lights
 respond to that fragment. This makes it possible to control a complex shading
 pipeline without the user having to write much code. If you don't need this
 built-in functionality, you can ignore it and write your own light processing
 function, and Godot will optimize it away. For example, if you do not write a
-value to ``RIM``, Godot will not calculate rim lighting. During compilation,
-Godot checks to see if ``RIM`` is used; if not, it cuts all the corresponding
+value to `RIM`, Godot will not calculate rim lighting. During compilation,
+Godot checks to see if `RIM` is used; if not, it cuts all the corresponding
 code out. Therefore, you will not waste calculations on the effects that you do
 not use.
 
 Light processor
 ^^^^^^^^^^^^^^^
 
-The ``light()`` processor runs per pixel too, and it runs once for every light
+The `light()` processor runs per pixel too, and it runs once for every light
 that affects the object. It does not run if no lights affect the object. It
-exists as a function called inside the ``fragment()`` processor and typically
-operates on the material properties setup inside the ``fragment()`` function.
+exists as a function called inside the `fragment()` processor and typically
+operates on the material properties setup inside the `fragment()` function.
 
-The ``light()`` processor works differently in 2D than it does in 3D; for a
+The `light()` processor works differently in 2D than it does in 3D; for a
 description of how it works in each, see their documentation, `CanvasItem
 shaders <doc_canvas_item_shader>` and `Spatial shaders
 <doc_spatial_shader>`, respectively.

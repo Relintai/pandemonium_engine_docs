@@ -21,27 +21,27 @@ will be used, lights can be added, changed or removed, and this will be updated
 in real-time. Dynamic objects that move within one of these
 probes will also receive indirect lighting from the scene automatically.
 
-Just like with ``ReflectionProbe``, ``GIProbe`` can be blended (in a bit more limited
+Just like with `ReflectionProbe`, `GIProbe` can be blended (in a bit more limited
 way), so it is possible to provide full real-time lighting
 for a stage without having to resort to lightmaps.
 
-The main downsides of ``GIProbe`` are:
+The main downsides of `GIProbe` are:
 
 - A small amount of light leaking can occur if the level is not carefully designed. This must be artist-tweaked.
 - Performance requirements are higher than for lightmaps, so it may not run properly in low-end integrated GPUs (may need to reduce resolution).
-- Reflections are voxelized, so they don't look as sharp as with ``ReflectionProbe``. However, in exchange they are volumetric, so any room size or shape works for them. Mixing them with Screen Space Reflection also works well.
+- Reflections are voxelized, so they don't look as sharp as with `ReflectionProbe`. However, in exchange they are volumetric, so any room size or shape works for them. Mixing them with Screen Space Reflection also works well.
 - They consume considerably more video memory than Reflection Probes, so they must be used with care in the right subdivision sizes.
 
 Setting up
 ----------
 
-Just like a ``ReflectionProbe``, simply set up the ``GIProbe`` by wrapping it around
+Just like a `ReflectionProbe`, simply set up the `GIProbe` by wrapping it around
 the geometry that will be affected.
 
 .. image:: img/giprobe_wrap.png
 
 Afterwards, make sure to enable the **Use In Baked Light** property on the geometry instances
-in the inspector. This is required for ``GIProbe`` to recognize objects,
+in the inspector. This is required for `GIProbe` to recognize objects,
 otherwise they will be ignored:
 
 .. image:: img/giprobe_bake_property.png
@@ -60,7 +60,7 @@ toolbar to begin the pre-baking process:
 Adding lights
 -------------
 
-Unless there are materials with emission, ``GIProbe`` does nothing by default.
+Unless there are materials with emission, `GIProbe` does nothing by default.
 Lights need to be added to the scene to have an effect.
 
 The effect of indirect light can be viewed quickly (it is recommended you turn
@@ -73,7 +73,7 @@ indirect multiplier to tweak this:
 
 .. image:: img/giprobe_light_indirect.png
 
-And, as ``GIProbe`` lighting updates in real-time, this effect is immediate:
+And, as `GIProbe` lighting updates in real-time, this effect is immediate:
 
 .. image:: img/giprobe_indirect_energy_result.png
 
@@ -86,7 +86,7 @@ Probes or Screen Space Reflections, but fully reflect volumetrically.
 
 .. image:: img/giprobe_voxel_reflections.png
 
-``GIProbe``\ s can be easily mixed with Reflection Probes and Screen Space Reflections,
+`GIProbe`\ s can be easily mixed with Reflection Probes and Screen Space Reflections,
 as a full 3-stage fallback-chain. This allows to have precise reflections where needed:
 
 .. image:: img/giprobe_ref_blending.png
@@ -128,7 +128,7 @@ GI Probes support a few parameters for tweaking:
 Quality
 -------
 
-``GIProbe``\ s are quite demanding. It is possible to use lower quality voxel cone
+`GIProbe`\ s are quite demanding. It is possible to use lower quality voxel cone
 tracing in exchange for more performance.
 
 .. image:: img/giprobe_quality.png

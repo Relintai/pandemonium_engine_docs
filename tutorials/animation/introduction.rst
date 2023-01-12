@@ -233,9 +233,9 @@ values. This can be:
 -  **Discrete:** Only update the property on keyframes.
 -  **Trigger:** Only update the property on keyframes or triggers.
    Triggers are a type of keyframe used by the
-   ``current_animation`` property of a `AnimationPlayer`,
+   `current_animation` property of a `AnimationPlayer`,
    and Animation Playback tracks.
--  **Capture:** If the first keyframe's time is greater than ``0.0``, the
+-  **Capture:** If the first keyframe's time is greater than `0.0`, the
    current value of the property will be remembered and
    will be blended with the first animation key. For example, you
    could use the Capture mode to move a node that's located anywhere
@@ -393,9 +393,9 @@ then add tracks for each property that you want to reset.
 The only keyframe should be at time 0, and give it the desired default value
 for each track.
 
-If AnimationPlayer's **Reset On Save** property is set to ``true``,
+If AnimationPlayer's **Reset On Save** property is set to `true`,
 the scene will be saved with the effects of the reset animation applied
-(as if it had been seeked to time ``0.0``).
+(as if it had been seeked to time `0.0`).
 This only affects the saved file – the property tracks in the editor stay
 where they were.
 

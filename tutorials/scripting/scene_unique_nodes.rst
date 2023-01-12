@@ -28,8 +28,8 @@ to its name in the scene tree:
 
 .. image:: img/percent.png
 
-To use a unique node in a script, use the ``%`` symbol and the node's
-name in the path for ``get_node()``. For example:
+To use a unique node in a script, use the `%` symbol and the node's
+name in the path for `get_node()`. For example:
 
 gdscript GDScript
 

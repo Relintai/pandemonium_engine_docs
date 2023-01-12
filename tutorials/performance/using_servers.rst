@@ -202,7 +202,7 @@ The 3D version should be very similar, as 2D and 3D physics servers are identica
 Getting data from the servers
 -----------------------------
 
-Try to **never** request any information from ``VisualServer``, ``PhysicsServer`` or ``Physics2DServer``
+Try to **never** request any information from `VisualServer`, `PhysicsServer` or `Physics2DServer`
 by calling functions unless you know what you are doing. These servers will often run asynchronously
 for performance and calling any function that returns a value will stall them and force them to process
 anything pending until the function is actually called. This will severely decrease performance if you

@@ -15,17 +15,17 @@ Handling the notification
 -------------------------
 
 On desktop platforms, the `MainLoop`
-has a special ``MainLoop.NOTIFICATION_WM_QUIT_REQUEST`` notification that is
+has a special `MainLoop.NOTIFICATION_WM_QUIT_REQUEST` notification that is
 sent to all nodes when quitting is requested.
 
-On Android, ``MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST`` is sent instead.
+On Android, `MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST` is sent instead.
 Pressing the Back button will exit the application if
 **Application > Config > Quit On Go Back** is checked in the Project Settings
 (which is the default).
 
 .. note::
 
-    ``MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST`` isn't supported on iOS, as
+    `MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST` isn't supported on iOS, as
     iOS devices don't have a physical Back button.
 
 Handling the notification is done as follows (on any node):

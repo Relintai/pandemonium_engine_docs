@@ -13,7 +13,7 @@ Importing the project
   the `official documentation <https://code.visualstudio.com/docs/languages/cpp>`_.
   Alternatively, `clangd <https://open-vsx.org/extension/llvm-vs-code-extensions/vscode-clangd>`_
   can be used instead.
-- When using the clangd extension, run ``scons compiledb=yes``.
+- When using the clangd extension, run `scons compiledb=yes`.
 - From the Visual Studio Code's main screen open the Godot root folder with
   **File > Open Folder...**.
 - Press :kbd:`Ctrl + Shift + P` to open the command prompt window and enter *Configure Task*.
@@ -31,7 +31,7 @@ Importing the project
 .. figure:: img/vscode_create_tasksjson_others.png
    :align: center
 
-- Within the ``tasks.json`` file find the ``"tasks"`` array and add a new section to it:
+- Within the `tasks.json` file find the `"tasks"` array and add a new section to it:
 
 js Linux/X11
 
@@ -70,7 +70,7 @@ js Windows
    :figclass: figure-w480
    :align: center
 
-   An example of a filled out ``tasks.json``.
+   An example of a filled out `tasks.json`.
 
 Arguments can be different based on your own setup and needs. See
 `doc_introduction_to_the_buildsystem` for a full list of arguments.
@@ -78,17 +78,17 @@ Arguments can be different based on your own setup and needs. See
 Debugging the project
 ---------------------
 
-To run and debug the project you need to create a new configuration in the ``launch.json`` file.
+To run and debug the project you need to create a new configuration in the `launch.json` file.
 
 - Press :kbd:`Ctrl + Shift + D` to open the Run panel.
-- If ``launch.json`` file is missing you will be prompted to create a new one.
+- If `launch.json` file is missing you will be prompted to create a new one.
 
 .. figure:: img/vscode_1_create_launch.json.png
    :align: center
 
 - Select **C++ (GDB/LLDB)**. There may be another platform specific option here. If selected,
   adjust the configuration example provided accordingly.
-- Within the ``launch.json`` file find the ``"configurations"`` array and add a new section to it:
+- Within the `launch.json` file find the `"configurations"` array and add a new section to it:
 
 js X11
 
@@ -163,7 +163,7 @@ js Windows
    :figclass: figure-w480
    :align: center
 
-   An example of a filled out ``launch.json``.
+   An example of a filled out `launch.json`.
 
 
 .. note::
@@ -176,8 +176,8 @@ js Windows
 
     Do note that lldb may work better with llvm-based builds. See `doc_compiling_for_x11` for further information.
 
-The name under ``program`` depends on your build configuration,
-e.g. ``godot.x11.tools.64`` for 64-bit X11 platform with ``tools`` enabled.
+The name under `program` depends on your build configuration,
+e.g. `godot.x11.tools.64` for 64-bit X11 platform with `tools` enabled.
 
 If you run into any issues, ask for help in one of
 `Godot's community channels <https://godotengine.org/community>`__.

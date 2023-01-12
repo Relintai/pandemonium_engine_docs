@@ -91,7 +91,7 @@ on GitHub.
 .. seealso:: Technical details about the PR workflow are outlined in a
              specific section, `doc_pr_workflow`.
 
-             Details about the code style guidelines and the ``clang-format``
+             Details about the code style guidelines and the `clang-format`
              tool used to enforce them are outlined in
              `doc_code_style_guidelines`.
 

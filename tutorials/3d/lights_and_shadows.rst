@@ -38,7 +38,7 @@ Each one has a specific function:
 -  **Bake Mode**: Sets the bake mode for the light. For more information see `doc_baked_lightmaps`
 -  **Cull Mask**: Objects that are in the selected layers below will be affected by this light.
    Note that objects disabled via this cull mask will still cast shadows.
-   If you don't want disabled objects to cast shadows, adjust the ``cast_shadow`` property on the
+   If you don't want disabled objects to cast shadows, adjust the `cast_shadow` property on the
    GeometryInstance to the desired value.
 
 Shadow mapping
@@ -76,11 +76,11 @@ although that may lead to decreased performance.
       The other downside is that materials that have their cull mode set to
       **Disabled** or MeshInstances with Cast Shadow set to **Double-Sided**
       may exhibit shadow acne.
-    - Set **Bias** to ``-0.01``. The bias should be a negative value when
+    - Set **Bias** to `-0.01`. The bias should be a negative value when
       **Reverse Cull Face** is enabled, but it should be a positive value when it's disabled.
-    - For DirectionalLight, set the directional shadow **Normal Bias** to ``0.0``
-      and **Bias Split Scale** to ``0.0``. Depending on your scene, you may also
-      want to further decrease **Bias** to a value between ``-0.05`` and ``-0.1``.
+    - For DirectionalLight, set the directional shadow **Normal Bias** to `0.0`
+      and **Bias Split Scale** to `0.0`. Depending on your scene, you may also
+      want to further decrease **Bias** to a value between `-0.05` and `-0.1`.
 
     Following the above tips should make it possible to avoid gaps in shadows without
     resorting to contact shadows (which have many issues of their own).

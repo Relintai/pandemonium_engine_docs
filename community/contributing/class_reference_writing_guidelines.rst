@@ -89,20 +89,20 @@ result in a new paragraph, even if it is empty.
 How to edit class XML
 ---------------------
 
-Edit the file for your chosen class in ``doc/classes/`` to update the class
+Edit the file for your chosen class in `doc/classes/` to update the class
 reference. The folder contains an XML file for each class. The XML lists the
 constants and methods you will find in the class reference. Godot generates and
 updates the XML automatically.
 
 .. note:: For some modules in the engine's source code, you'll find the XML
-          files in the ``modules/<module_name>/doc_classes/`` directory instead.
+          files in the `modules/<module_name>/doc_classes/` directory instead.
 
 Edit it using your favorite text editor. If you use a code editor, make sure
 that it doesn't change the indent style: you should use tabs for the XML and
 four spaces inside BBCode-style blocks. More on that below.
 
 To check that the modifications you've made are correct in the generated
-documentation, navigate to the ``doc/`` folder and run the command ``make rst``.
+documentation, navigate to the `doc/` folder and run the command `make rst`.
 This will convert the XML files to the online documentation's format and output
 errors if anything's wrong.
 
@@ -143,7 +143,7 @@ the text. Here's the list of available tags:
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [i] [/i]                   | Italic                               | Some [i]italic[/i] text.          | Some *italic* text.                               |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [code] [/code]             | Monospace                            | Some [code]monospace[/code] text. | Some ``monospace`` text.                          |
+| [code] [/code]             | Monospace                            | Some [code]monospace[/code] text. | Some `monospace` text.                          |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [kbd] [/kbd]               | Keyboard/mouse shortcut              | Some [kbd]Ctrl + C[/kbd] key.     | Some :kbd:`Ctrl + C` key.                         |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
@@ -156,7 +156,7 @@ the text. Here's the list of available tags:
 | [csharp] [/csharp]         | C# codeblock tab in codeblocks       | *See below.*                      | *See below.*                                      |
 +----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 
-Use ``[codeblock]`` for pre-formatted code blocks. Inside ``[codeblock]``,
+Use `[codeblock]` for pre-formatted code blocks. Inside `[codeblock]`,
 always use **four spaces** for indentation. The parser will delete tabs. For
 example:
 
@@ -177,8 +177,8 @@ Will display as:
         print(sprite.get_pos())
 
 If you need to have different code version in GDScript and C#, use
-``[codeblocks]`` instead. If you use ``[codeblocks]``, you also need to have at
-least one of the language-specific tags, ``[gdscript]`` and ``[csharp]``.
+`[codeblocks]` instead. If you use `[codeblocks]`, you also need to have at
+least one of the language-specific tags, `[gdscript]` and `[csharp]`.
 
 Always write GDScript code examples first! You can use this `experimental code
 translation tool <https://github.com/HaSa1002/codetranslator>`_ to speed up your

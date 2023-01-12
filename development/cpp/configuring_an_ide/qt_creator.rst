@@ -22,8 +22,8 @@ Importing the project
 
 - Next, you can choose which folders and files will be visible to the project.
   While C/C++ files are added automatically, other extensions can be potentially useful:
-  ``*.glsl`` for shader files, ``*.py`` for buildsystem files,
-  ``*.java`` for Android platform development, ``*.mm`` for macOS platform development.
+  `*.glsl` for shader files, `*.py` for buildsystem files,
+  `*.java` for Android platform development, `*.mm` for macOS platform development.
 
 .. figure:: img/qtcreator-apply-import-filter.png
    :figclass: figure-w480
@@ -38,7 +38,7 @@ Importing the project
 
 
 - Finish the import.
-- Open the ``project_name.includes`` file and add a line containing ``.`` to it
+- Open the `project_name.includes` file and add a line containing `.` to it
   to correctly enable the code completion.
 
 .. figure:: img/qtcreator-project-name-includes.png
@@ -46,7 +46,7 @@ Importing the project
    :align: center
 
 - From the left-side menu select **Projects** and open the **Build** tab.
-- Delete the predefined ``make`` build step.
+- Delete the predefined `make` build step.
 
 .. figure:: img/qtcreator-projects-build.png
    :figclass: figure-w480
@@ -65,8 +65,8 @@ Importing the project
    :figclass: figure-w480
    :align: center
 
-.. note:: If the build fails with ``Could not start process "scons"``, it can mean that ``scons`` 
-          is not in your ``PATH`` environment variable. In this case, you'll have to specify the
+.. note:: If the build fails with `Could not start process "scons"`, it can mean that `scons` 
+          is not in your `PATH` environment variable. In this case, you'll have to specify the
           full path to the SCons binary.
 
 Debugging the project
@@ -74,11 +74,11 @@ Debugging the project
 
 - From the left-side menu select **Projects** and open the **Run** tab.
 - Under **Executable** specify the path to your executable located in 
-  the ``<Godot root directory>/bin`` folder. The name depends on your build configuration,
-  e.g. ``godot.x11.tools.64`` for 64-bit X11 platform with ``tools`` enabled.
-  You can use ``%{buildDir}`` to reference the project root, e.g: ``%{buildDir}/bin/godot.x11.opt.tools.64``.
+  the `<Godot root directory>/bin` folder. The name depends on your build configuration,
+  e.g. `godot.x11.tools.64` for 64-bit X11 platform with `tools` enabled.
+  You can use `%{buildDir}` to reference the project root, e.g: `%{buildDir}/bin/godot.x11.opt.tools.64`.
 - If you want to run a specific project, specify its root folder under **Working directory**.
-- If you want to run the editor, add ``-e`` to the **Command line arguments** field.
+- If you want to run the editor, add `-e` to the **Command line arguments** field.
 
 .. figure:: img/qtcreator-run-command.png
    :figclass: figure-w480

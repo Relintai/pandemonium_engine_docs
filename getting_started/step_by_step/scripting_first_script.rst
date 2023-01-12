@@ -55,7 +55,7 @@ Your Scene tab should now only have a Sprite node.
 
 A Sprite node needs a texture to display. In the Inspector on the right, you can
 see that the Texture property says "[empty]". To display the Godot icon, click
-and drag the file ``icon.png`` from the FileSystem dock onto the Texture slot.
+and drag the file `icon.png` from the FileSystem dock onto the Texture slot.
 
 .. image:: img/scripting_first_script_setting_texture.png
 
@@ -86,7 +86,7 @@ other options by default and click the Create button to create the script.
 
 .. image:: img/scripting_first_script_attach_node_script.png
 
-The Script workspace should appear with your new ``Sprite.gd`` file open and the
+The Script workspace should appear with your new `Sprite.gd` file open and the
 following line of code:
 
 gdscript GDScript
@@ -95,18 +95,18 @@ gdscript GDScript
     extends Sprite
 ```
 
-Every GDScript file is implicitly a class. The ``extends`` keyword defines the
-class this script inherits or extends. In this case, it's ``Sprite``, meaning
+Every GDScript file is implicitly a class. The `extends` keyword defines the
+class this script inherits or extends. In this case, it's `Sprite`, meaning
 our script will get access to all the properties and functions of the Sprite
-node, including classes it extends, like ``Node2D``, ``CanvasItem``, and
-``Node``.
+node, including classes it extends, like `Node2D`, `CanvasItem`, and
+`Node`.
 
-.. note:: In GDScript, if you omit the line with the ``extends`` keyword, your
+.. note:: In GDScript, if you omit the line with the `extends` keyword, your
           class will implicitly extend `Reference`, which
           Godot uses to manage your application's memory.
 
 Inherited properties include the ones you can see in the Inspector dock, like
-our node's ``texture``.
+our node's `texture`.
 
 .. note::
 
@@ -133,13 +133,13 @@ gdscript GDScript
 ```
 
 
-Let's break it down. The ``func`` keyword defines a new function named
-``_init``. This is a special name for our class's constructor. The engine calls
-``_init()`` on every object or node upon creating it in memory, if you define
+Let's break it down. The `func` keyword defines a new function named
+`_init`. This is a special name for our class's constructor. The engine calls
+`_init()` on every object or node upon creating it in memory, if you define
 this function.
 
 .. note:: GDScript is an indent-based language. The tab at the start of the line
-          that says ``print()`` is necessary for the code to work. If you omit
+          that says `print()` is necessary for the code to work. If you omit
           it or don't indent a line correctly, the editor will highlight it in
           red and display the following error message: "Indented block expected".
 
@@ -149,8 +149,8 @@ It should display "Hello, world!".
 
 .. image:: img/scripting_first_script_print_hello_world.png
 
-Delete the ``_init()`` function, so you're only left with the line ``extends
-Sprite``.
+Delete the `_init()` function, so you're only left with the line `extends
+Sprite`.
 
 Turning around
 --------------
@@ -168,17 +168,17 @@ gdscript GDScript
 
 Member variables sit near the top of the script, after any "extends" lines,
 but before functions. Every node
-instance with this script attached to it will have its own copy of the ``speed``
-and ``angular_speed`` properties.
+instance with this script attached to it will have its own copy of the `speed`
+and `angular_speed` properties.
 
 .. note:: Angles in Godot work in radians by default,
           but you have built-in functions and properties available if you prefer
           to calculate angles in degrees instead.
 
 To move our icon, we need to update its position and rotation every frame in the
-game loop. We can use the ``_process()`` virtual function of the ``Node`` class.
+game loop. We can use the `_process()` virtual function of the `Node` class.
 If you define it in any class that extends the Node class, like Sprite, Godot
-will call the function every frame and pass it an argument named ``delta``, the
+will call the function every frame and pass it an argument named `delta`, the
 time elapsed since the last frame.
 
 .. note::
@@ -203,23 +203,23 @@ gdscript GDScript
         rotation += angular_speed * delta
 ```
 
-The ``func`` keyword defines a new function. After it, we have to write the
+The `func` keyword defines a new function. After it, we have to write the
 function's name and arguments it takes in parentheses. A colon ends the
 definition, and the indented blocks that follow are the function's content or
 instructions.
 
-.. note:: Notice how ``_process()``, like ``_init()``, starts with a leading
+.. note:: Notice how `_process()`, like `_init()`, starts with a leading
           underscore. By convention, Godot's virtual functions, that is to say,
           built-in functions you can override to communicate with the engine,
           start with an underscore.
 
-The line inside the function, ``rotation += angular_speed * delta``, increments
-our sprite's rotation every frame. Here, ``rotation`` is a property inherited
-from the class ``Node2D``, which ``Sprite`` extends. It controls the rotation of
+The line inside the function, `rotation += angular_speed * delta`, increments
+our sprite's rotation every frame. Here, `rotation` is a property inherited
+from the class `Node2D`, which `Sprite` extends. It controls the rotation of
 our node and works with radians.
 
 .. tip:: In the code editor, you can ctrl-click on any built-in property or
-         function like ``position``, ``rotation``, or ``_process`` to open the
+         function like `position`, `rotation`, or `_process` to open the
          corresponding documentation in a new tab.
 
 Run the scene to see the Godot icon turn in-place.
@@ -229,7 +229,7 @@ Run the scene to see the Godot icon turn in-place.
 Moving forward
 ~~~~~~~~~~~~~~
 
-Let's now make the node move. Add the following two lines to the ``_process()``
+Let's now make the node move. Add the following two lines to the `_process()`
 function, ensuring the new lines are indented the same way as the one before
 them.
 
@@ -241,18 +241,18 @@ gdscript GDScript
     position += velocity * delta
 ```
 
-As we already saw, the ``var`` keyword defines a new variable. If you put it at
+As we already saw, the `var` keyword defines a new variable. If you put it at
 the top of the script, it defines a property of the class. Inside a function, it
 defines a local variable: it only exists within the function's scope.
 
-We define a local variable named ``velocity``, a 2D vector representing both a
+We define a local variable named `velocity`, a 2D vector representing both a
 direction and a speed. To make the node move forward, we start from the Vector2
 class's constant Vector2.UP, a vector pointing up, and rotate it by calling the
-``Vector2.rotated()`` method. This expression, ``Vector2.UP.rotated(rotation)``,
-is a vector pointing forward relative to our icon. Multiplied by our ``speed``
+`Vector2.rotated()` method. This expression, `Vector2.UP.rotated(rotation)`,
+is a vector pointing forward relative to our icon. Multiplied by our `speed`
 property, it gives us a velocity we can use to move the node forward.
 
-We add ``velocity * delta`` to the node's ``position`` to move it. The position
+We add `velocity * delta` to the node's `position` to move it. The position
 itself is of type `Vector2`, a built-in type in Godot
 representing a 2D vector.
 
@@ -270,7 +270,7 @@ Our node currently moves by itself. In the next part
 Complete script
 ---------------
 
-Here is the complete ``Sprite.gd`` file for reference.
+Here is the complete `Sprite.gd` file for reference.
 
 gdscript GDScript
 

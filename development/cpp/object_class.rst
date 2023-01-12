@@ -60,13 +60,13 @@ Registering as virtual is the same but it can't be instanced.
     ClassDB::register_virtual_class<MyCustomClass>()
 
 Object-derived classes can override the static function
-``static void _bind_methods()``. When one class is registered, this
+`static void _bind_methods()`. When one class is registered, this
 static function is called to register all the object methods,
 properties, constants, etc. It's only called once. If an Object derived
 class is instanced but has not been registered, it will be registered as
 virtual automatically.
 
-Inside ``_bind_methods``, there are a couple of things that can be done.
+Inside `_bind_methods`, there are a couple of things that can be done.
 Registering functions is one:
 
 .. code-block:: cpp
@@ -79,15 +79,15 @@ Default values for arguments can be passed in reverse order:
 
     ClassDB::bind_method(D_METHOD("methodname", "arg1name", "arg2name"), &MyCustomType::method, DEFVAL(-1)); // default value for arg2name
 
-``D_METHOD`` is a macro that converts "methodname" to a StringName for more
+`D_METHOD` is a macro that converts "methodname" to a StringName for more
 efficiency. Argument names are used for introspection, but when
 compiling on release, the macro ignores them, so the strings are unused
 and optimized away.
 
-Check ``_bind_methods`` of Control or Object for more examples.
+Check `_bind_methods` of Control or Object for more examples.
 
 If just adding modules and functionality that is not expected to be
-documented as thoroughly, the ``D_METHOD()`` macro can safely be ignored and a
+documented as thoroughly, the `D_METHOD()` macro can safely be ignored and a
 string passing the name can be passed for brevity.
 
 References:
@@ -114,7 +114,7 @@ convertible to int, for this a macro is provided:
 
     VARIANT_ENUM_CAST(MyClass::SomeMode); // now functions that take SomeMode can be bound.
 
-The constants can also be bound inside ``_bind_methods``, by using:
+The constants can also be bound inside `_bind_methods`, by using:
 
 .. code-block:: cpp
 
@@ -165,7 +165,7 @@ functions is preferred for legibility. Many properties are also bound
 with categories, such as "animation/frame" which also make indexing
 impossible unless using operator [].
 
-From ``_bind_methods()``, properties can be created and bound as long as
+From `_bind_methods()`, properties can be created and bound as long as
 set/get functions exist. Example:
 
 .. code-block:: cpp
@@ -176,7 +176,7 @@ This creates the property using the setter and the getter.
 
 .. _doc_binding_properties_using_set_get_property_list:
 
-Binding properties using ``_set``/``_get``/``_get_property_list``
+Binding properties using `_set`/`_get`/`_get_property_list`
 -----------------------------------------------------------------
 
 An additional method of creating properties exists when more flexibility
@@ -194,7 +194,7 @@ call).
          bool _get(const StringName &p_property, Variant &r_value) const; // return true if property was found
          bool _set(const StringName &p_property, const Variant &p_value); // return true if property was found
 
-This is also a little less efficient since ``p_property`` must be
+This is also a little less efficient since `p_property` must be
 compared against the desired names in serial order.
 
 Dynamic casting
@@ -227,11 +227,11 @@ languages). Connecting to them is rather easy:
     // for example:
     obj->connect("enter_tree", this, "_node_entered_tree")
 
-The method ``_node_entered_tree`` must be registered to the class using
-``ClassDB::bind_method`` (explained before).
+The method `_node_entered_tree` must be registered to the class using
+`ClassDB::bind_method` (explained before).
 
-Adding signals to a class is done in ``_bind_methods``, using the
-``ADD_SIGNAL`` macro, for example:
+Adding signals to a class is done in `_bind_methods`, using the
+`ADD_SIGNAL` macro, for example:
 
 .. code-block:: cpp
 
@@ -259,7 +259,7 @@ Declaring them must be done using Ref<> template. For example:
 
     Ref<MyReference> myref(memnew(MyReference));
 
-``myref`` is reference counted. It will be freed when no more Ref<>
+`myref` is reference counted. It will be freed when no more Ref<>
 templates point to it.
 
 References:
@@ -272,7 +272,7 @@ Resources:
 
 `Resource` inherits from Reference, so all resources
 are reference counted. Resources can optionally contain a path, which
-reference a file on disk. This can be set with ``resource.set_path(path)``.
+reference a file on disk. This can be set with `resource.set_path(path)`.
 This is normally done by the resource loader though. No two different
 resources can have the same path, attempt to do so will result in an error.
 
@@ -316,7 +316,7 @@ Saving a resource can be done with the resource saver API:
 Instance will be saved. Sub resources that have a path to a file will be
 saved as a reference to that resource. Sub resources without a path will
 be bundled with the saved resource and assigned sub-IDs, like
-``res://someresource.res::1``. This also helps to cache them when loaded.
+`res://someresource.res::1`. This also helps to cache them when loaded.
 
 References:
 ~~~~~~~~~~~

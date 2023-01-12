@@ -39,9 +39,9 @@ Sharing a profile
 -----------------
 
 To share profiles between editors click on the **Export** button. Save the custom
-profile somewhere as a ``.profile`` file. To use this in another editor open that
+profile somewhere as a `.profile` file. To use this in another editor open that
 editor's **Manage Editor Feature Profiles** window and click import, then select the
-``.profile`` file.
+`.profile` file.
 
 This process is potentially cumbersome however if a large amount of computers need
 custom profiles. As an alternative, you can enable self-contained mode for Godot,

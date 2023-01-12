@@ -11,12 +11,12 @@ and tools to work with meshes than the ArrayMesh does. When the MeshDataTool
 is used, it calculates mesh data that is not available in ArrayMeshes such as faces and edges, which are necessary
 for certain mesh algorithms. If you do not need this extra information then it may be better to use an ArrayMesh.
 
-.. note:: MeshDataTool can only be used on Meshes that use the PrimitiveType ``Mesh.PRIMITIVE_TRIANGLES``.
+.. note:: MeshDataTool can only be used on Meshes that use the PrimitiveType `Mesh.PRIMITIVE_TRIANGLES`.
 
-We initialize the MeshDataTool from an ArrayMesh by calling ``create_from_surface()``. If there is already data initialized in the MeshDataTool,
-calling ``create_from_surface()`` will clear it for you. Alternatively, you can call ``clear()`` yourself before re-using the MeshDataTool.
+We initialize the MeshDataTool from an ArrayMesh by calling `create_from_surface()`. If there is already data initialized in the MeshDataTool,
+calling `create_from_surface()` will clear it for you. Alternatively, you can call `clear()` yourself before re-using the MeshDataTool.
 
-In the examples below, assume an ArrayMesh called ``mesh`` has already been created. See `ArrayMesh tutorial <doc_arraymesh>` for an example of mesh generation.
+In the examples below, assume an ArrayMesh called `mesh` has already been created. See `ArrayMesh tutorial <doc_arraymesh>` for an example of mesh generation.
 
 gdscript GDScript
 
@@ -25,7 +25,7 @@ gdscript GDScript
     mdt.create_from_surface(mesh, 0)
 ```
 
-``create_from_surface()`` uses the vertex arrays from the ArrayMesh to calculate two additional arrays,
+`create_from_surface()` uses the vertex arrays from the ArrayMesh to calculate two additional arrays,
 one for edges and one for faces, for a total of three arrays.
 
 An edge is a connection between any two vertices. Each edge in the edge array contains a reference to
@@ -37,7 +37,7 @@ a reference to the three vertices and three edges it is composed of.
 The vertex array contains edge, face, normal, color, tangent, uv, uv2, bone, and weight information connected
 with each vertex.
 
-To access information from these arrays you use a function of the form ``get_****()``:
+To access information from these arrays you use a function of the form `get_****()`:
 
 gdscript GDScript
 
@@ -70,7 +70,7 @@ gdscript GDScript
     mdt.commit_to_surface(mesh)
 ```
 
-Below is a complete example that turns a spherical mesh called ``mesh`` into a randomly deformed blob complete with updated normals and vertex colors.
+Below is a complete example that turns a spherical mesh called `mesh` into a randomly deformed blob complete with updated normals and vertex colors.
 See `ArrayMesh tutorial <doc_arraymesh>` for how to generate the base mesh.
 
 gdscript GDScript

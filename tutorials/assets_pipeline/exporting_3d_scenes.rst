@@ -7,8 +7,8 @@ Overview
 --------
 
 In Godot it is possible to export 3D scenes as a glTF 2.0 file. You can
-export as a glTF binary (``.glb`` file) or glTF embedded with textures
-(``gltf`` + ``.bin`` + textures). This allows you to create scenes in Godot,
+export as a glTF binary (`.glb` file) or glTF embedded with textures
+(`gltf` + `.bin` + textures). This allows you to create scenes in Godot,
 such as a CSG mesh blockout for a level, export it to clean it up in a
 program such as Blender, and then bring it back into Godot.
 
@@ -28,4 +28,4 @@ There are several limitations with glTF export.
 * No support for exporting particles since their implementation varies across engines.
 * ShaderMaterials cannot be exported.
 * No support for exporting 2D scenes.
-* Only supported in editor builds (``tools=yes``).
+* Only supported in editor builds (`tools=yes`).

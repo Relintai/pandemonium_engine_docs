@@ -54,7 +54,7 @@ nodes.
 
 |image6|
 
-Set the animation duration to ``1.2`` seconds in the top-right of the dock.
+Set the animation duration to `1.2` seconds in the top-right of the dock.
 
 |image7|
 
@@ -90,17 +90,17 @@ Two tracks appear in the editor with a diamond icon representing each keyframe.
 |image11|
 
 You can click and drag on the diamonds to move them in time. Move the
-translation key to ``0.2`` seconds and the rotation key to ``0.1`` seconds.
+translation key to `0.2` seconds and the rotation key to `0.1` seconds.
 
 |image12|
 
-Move the time cursor to ``0.5`` seconds by clicking and dragging on the gray
+Move the time cursor to `0.5` seconds by clicking and dragging on the gray
 timeline. In the *Inspector*, set the *Translation*'s *Y* axis to about
-``0.65`` meters and the *Rotation Degrees*' *X* axis to ``8``.
+`0.65` meters and the *Rotation Degrees*' *X* axis to `8`.
 
 |image13|
 
-Create a keyframe for both properties and shift the translation key to ``0.7``
+Create a keyframe for both properties and shift the translation key to `0.7`
 seconds by dragging it on the timeline.
 
 |image14|
@@ -113,8 +113,8 @@ seconds by dragging it on the timeline.
     principles. You want to offset and contrast in your character's motion to
     make them feel alive.
 
-Move the time cursor to the end of the animation, at ``1.2`` seconds. Set the Y
-translation to about ``0.35`` and the X rotation to ``-9`` degrees. Once again,
+Move the time cursor to the end of the animation, at `1.2` seconds. Set the Y
+translation to about `0.35` and the X rotation to `-9` degrees. Once again,
 create a key for both properties.
 
 You can preview the result by clicking the play button or pressing :kbd:`Shift + D`.
@@ -183,7 +183,7 @@ Open the *Player*'s script by clicking the script icon next to it.
 
 |image22|
 
-In ``_physics_process()``, after the line where we check the ``direction``
+In `_physics_process()`, after the line where we check the `direction`
 vector, add the following code.
 
 gdscript GDScript
@@ -199,11 +199,11 @@ gdscript GDScript
 ```
 
 This code makes it so when the player moves, we multiply the playback speed by
-``4``. When they stop, we reset it to normal.
+`4`. When they stop, we reset it to normal.
 
 We mentioned that the pivot could layer transforms on top of the animation. We
 can make the character arc when jumping using the following line of code. Add it
-at the end of ``_physics_process()``.
+at the end of `_physics_process()`.
 
 gdscript GDScript
 
@@ -223,12 +223,12 @@ For example, both the *Mob* and the *Player* scenes have a *Pivot* and a
 *Character* node, so we can reuse animations between them.
 
 Open the *Player* scene, select the animation player node and open the "float" animation.
-Next, click on **Animation > Copy**. Then open ``Mob.tscn`` and open its animation
+Next, click on **Animation > Copy**. Then open `Mob.tscn` and open its animation
 player. Click **Animation > Paste**. That's it; all monsters will now play the float
 animation.
 
-We can change the playback speed based on the creature's ``random_speed``. Open
-the *Mob*'s script and at the end of the ``initialize()`` function, add the
+We can change the playback speed based on the creature's `random_speed`. Open
+the *Mob*'s script and at the end of the `initialize()` function, add the
 following line.
 
 gdscript GDScript
@@ -244,8 +244,8 @@ And with that, you finished coding your first complete 3D game.
 **Congratulations**!
 
 In the next part, we'll quickly recap what you learned and give you some links
-to keep learning more. But for now, here are the complete ``Player.gd`` and
-``Mob.gd`` so you can check your code against them.
+to keep learning more. But for now, here are the complete `Player.gd` and
+`Mob.gd` so you can check your code against them.
 
 Here's the *Player* script.
 

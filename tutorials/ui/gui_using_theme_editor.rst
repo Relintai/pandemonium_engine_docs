@@ -22,7 +22,7 @@ and clicking **Create**. This is especially useful for creating project-wide
 themes.
 
 Themes also can be created from any control node. Select a control node in the scene
-hierarchy, then in the inspector go to the ``theme`` property. From there you can
+hierarchy, then in the inspector go to the `theme` property. From there you can
 select **New Theme**.
 
 .. figure:: img/new_theme.png

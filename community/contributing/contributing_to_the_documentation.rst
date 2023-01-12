@@ -14,7 +14,7 @@ writing or reviewing pages.
 Getting started
 ---------------
 
-To modify or create pages in the reference manual, you need to edit ``.rst``
+To modify or create pages in the reference manual, you need to edit `.rst`
 files in the `godot-docs GitHub repository
 <https://github.com/godotengine/godot-docs>`_. Modifying those pages in a pull
 request triggers a rebuild of the online documentation upon merging.
@@ -49,8 +49,8 @@ contribute, you should also read:
 Contributing changes
 --------------------
 
-**Pull Requests should use the** ``master`` **branch by default.** Only make Pull
-Requests against other branches (e.g. ``2.1`` or ``3.0``) if your changes only
+**Pull Requests should use the** `master` **branch by default.** Only make Pull
+Requests against other branches (e.g. `2.1` or `3.0`) if your changes only
 apply to that specific version of Godot.
 
 Though less convenient to edit than a wiki, this Git repository is where we
@@ -60,9 +60,9 @@ control system is a plus to ensure our documentation quality.
 Editing existing pages
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To edit an existing page, locate its ``.rst`` source file and open it in your
+To edit an existing page, locate its `.rst` source file and open it in your
 favorite text editor. You can then commit the changes, push them to your fork,
-and make a pull request. **Note that the pages in** ``classes/`` **should not be
+and make a pull request. **Note that the pages in** `classes/` **should not be
 edited here.** They are automatically generated from Godot’s `XML class
 reference <https://github.com/godotengine/godot/tree/master/doc/classes>`__.
 See `doc_updating_the_class_reference` for details.
@@ -109,12 +109,12 @@ Before adding a new page, please ensure that it fits in the documentation:
 2. Ensure there isn't a page that already covers the topic.
 3. Read our `doc_content_guidelines`.
 
-To add a new page, create a ``.rst`` file with a meaningful name in the section you
-want to add a file to, e.g. ``tutorials/3d/light_baking.rst``.
+To add a new page, create a `.rst` file with a meaningful name in the section you
+want to add a file to, e.g. `tutorials/3d/light_baking.rst`.
 
 You should then add your page to the relevant "toctree" (table of contents,
-e.g. ``tutorials/3d/index.rst``). Add your new filename to the list on a new
-line, using a relative path and no extension, e.g. here ``light_baking``.
+e.g. `tutorials/3d/index.rst`). Add your new filename to the list on a new
+line, using a relative path and no extension, e.g. here `light_baking`.
 
 Titles
 ~~~~~~
@@ -128,9 +128,9 @@ Always begin pages with their title and a Sphinx reference name:
     Insert your title here
     ======================
 
-The reference ``_doc_insert_your_title_here`` and the title should match.
+The reference `_doc_insert_your_title_here` and the title should match.
 
-The reference allows linking to this page using the ```` format, e.g.
+The reference allows linking to this page using the ``` format, e.g.
 ```doc_insert_your_title_here``` would link to the above example page (note
 the lack of leading underscore in the reference).
 
@@ -150,17 +150,17 @@ and the `official reference <http://docutils.sourceforge.net/rst.html>`__ for
 details on the syntax.
 
 Sphinx uses specific reST comments to do specific operations, like defining the
-table of contents (``.. toctree::``) or cross-referencing pages. Check the
+table of contents (`.. toctree::`) or cross-referencing pages. Check the
 `official Sphinx documentation
 <https://www.sphinx-doc.org/en/stable/index.html>`__ for more details. To learn
-how to use Sphinx directives like ``.. note::`` or ``.. seealso::``, check out
+how to use Sphinx directives like `.. note::` or `.. seealso::`, check out
 the `Sphinx directives documentation
 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html>`__.
 
 Adding images and attachments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To add images, please put them in an ``img/`` folder next to the ``.rst`` file with
+To add images, please put them in an `img/` folder next to the `.rst` file with
 a meaningful name and include them in your page with:
 
 .. code:: rst
@@ -168,7 +168,7 @@ a meaningful name and include them in your page with:
    .. image:: img/image_name.png
 
 Similarly, you can include attachments, like assets as support material for a
-tutorial, by placing them into a ``files/`` folder next to the ``.rst`` file, and
+tutorial, by placing them into a `files/` folder next to the `.rst` file, and
 using this inline markup:
 
 .. code:: rst

@@ -144,7 +144,7 @@ button to save it as "Label.tscn".
 .. image:: img/nodes_and_scenes_11_save_scene_as.png
 
 .. note:: The Save Scene As dialog, like other file dialogs in the editor, only
-          allows you to save files inside the project. The ``res://`` path at
+          allows you to save files inside the project. The `res://` path at
           the top of the window represents the project's root directory and
           stands for "resource path". For more information about file paths in
           Godot, see `doc_filesystem`.

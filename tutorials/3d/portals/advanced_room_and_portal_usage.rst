@@ -19,7 +19,7 @@ How does a monster know whether it is within the gameplay area?
 
 This problem is solved because the portal system contains a subsystem called the **Gameplay Monitor** that can be turned on and off from the `RoomManager<class_RoomManager>`. When switched on, any roaming objects that move inside or outside the gameplay area (whether by moving themselves, or the camera moving) will receive callbacks to let them know of this change.
 
-You can choose to either receive these callbacks as ``signals``, or as ``notifications``.
+You can choose to either receive these callbacks as `signals`, or as `notifications`.
 
 Notifications can be handled in GDScript or other scripting languages:
 
@@ -32,9 +32,9 @@ Notifications can be handled in GDScript or other scripting languages:
 			NOTIFICATION_EXIT_GAMEPLAY:
 				print("notification exit gameplay")
 
-Signals are sent just as any other signal. They can be attached to functions using the editor inspector. The signals are called ``gameplay_entered`` and ``gameplay_exited``.
+Signals are sent just as any other signal. They can be attached to functions using the editor inspector. The signals are called `gameplay_entered` and `gameplay_exited`.
 
-In fact, you don't just receive these callbacks for ``ROAMING`` objects. In addition Rooms and RoomGroups (which can be used to form groups of rooms) can also receive callbacks. For example, you can use this to trigger AI behaviour when the player reaches certain points in a level.
+In fact, you don't just receive these callbacks for `ROAMING` objects. In addition Rooms and RoomGroups (which can be used to form groups of rooms) can also receive callbacks. For example, you can use this to trigger AI behaviour when the player reaches certain points in a level.
 
 VisbilityNotifiers / VisibilityEnablers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,7 +56,7 @@ A `RoomGroup<class_RoomGroup>` is a special node which allows you to deal with a
 
 .. image:: img/roomgroups.png
 
-For instance, when outside you may wish to use a `DirectionalLight<class_DirectionalLight>` to represent the sun. When the outside RoomGroup receives an ``enter gameplay`` callback, you can turn the light on, and you can turn it off when the RoomGroup exits gameplay. With the light off, performance will increase as there is no need to render it indoors.
+For instance, when outside you may wish to use a `DirectionalLight<class_DirectionalLight>` to represent the sun. When the outside RoomGroup receives an `enter gameplay` callback, you can turn the light on, and you can turn it off when the RoomGroup exits gameplay. With the light off, performance will increase as there is no need to render it indoors.
 
 This is an example of a simple RoomGroup script to turn on and off a DirectionalLight. Note that you can also use signals for callbacks (the choice is up to you):
 
@@ -78,7 +78,7 @@ With the functionality described so far you *can* do it - you would need to plac
 
 It turns out there is a simpler way of handling this scenario. Godot supports *rooms **within** rooms* (we will call them **"internal rooms"**). That is, you can place a house within a terrain room, or even a building, or set of buildings, and even have exit portals in different terrain rooms!
 
-To create internal rooms, you don't need to place a room within another room in the scene tree - in fact you will get a warning if you try this. Instead, create them as regular rooms. The internal rooms should be grouped together with a RoomGroup as parent. If you look in the inspector for the RoomGroup, there is a **Room Group Priority** which defaults to ``0``.
+To create internal rooms, you don't need to place a room within another room in the scene tree - in fact you will get a warning if you try this. Instead, create them as regular rooms. The internal rooms should be grouped together with a RoomGroup as parent. If you look in the inspector for the RoomGroup, there is a **Room Group Priority** which defaults to `0`.
 
 If you want a room or set of rooms to be internal, set the priority to a higher value than the outer (enclosing) room, using the RoomGroup.
 
@@ -88,7 +88,7 @@ The only differences:
 
 - Portals between internal rooms and outer rooms should always *be placed in the inner (internal) room*.
 - Portals of internal rooms are not considered as part of the bound of outer rooms.
-- ``STATIC`` and ``DYNAMIC`` objects from outer rooms will not sprawl into internal rooms. If you want objects to cross these portals, place them in the internal room. This is to prevent large objects like terrain sections sprawling into entire buildings, and rendering when not necessary.
+- `STATIC` and `DYNAMIC` objects from outer rooms will not sprawl into internal rooms. If you want objects to cross these portals, place them in the internal room. This is to prevent large objects like terrain sections sprawling into entire buildings, and rendering when not necessary.
 
 Internal room example
 ^^^^^^^^^^^^^^^^^^^^^
@@ -116,15 +116,15 @@ We have created a Room node (which will become the internal room) into which we 
 
 However there is a problem. The naive autoplace algorithm will look at the center of the exterior mesh, and attempt to place it *within* the internal room. We want to avoid this somehow, as the idea of the exterior mesh is to have something rendered from the outside, so it must be in the outer room for everything to work.
 
-To get around this problem, there is a special setting to enable you to express a preference for autoplacing in an outer room. Each object has an **Autoplace Priority** setting. When set to ``0``, there is no preference (the object will be placed in the highest priority room).
+To get around this problem, there is a special setting to enable you to express a preference for autoplacing in an outer room. Each object has an **Autoplace Priority** setting. When set to `0`, there is no preference (the object will be placed in the highest priority room).
 
-However, if we set this autoplace priority to ``-1`` for example, the autoplace will always choose a ``-1`` priority room (if one is present at that location). So if we set the outer room priority to ``-1``, it will always place our exterior into our "outside" room.
+However, if we set this autoplace priority to `-1` for example, the autoplace will always choose a `-1` priority room (if one is present at that location). So if we set the outer room priority to `-1`, it will always place our exterior into our "outside" room.
 
 .. image:: img/autoplace_priority.png
 
 This gives us a helpful extra bit of control for these kinds of situations, and makes the entire system much more flexible.
 
-.. note:: As the default autoplace priority is ``0``, you can't effectively force objects into RoomGroups with priority ``0``. However there are plenty of priority values available so this should not be a problem in practice.
+.. note:: As the default autoplace priority is `0`, you can't effectively force objects into RoomGroups with priority `0`. However there are plenty of priority values available so this should not be a problem in practice.
 
 The final scene looks something like this, with houses instanced wherever you want them on a giant outer room.
 

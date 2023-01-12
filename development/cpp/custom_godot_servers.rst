@@ -273,8 +273,8 @@ an initialization state and a cleanup procedure.
 Custom managed resource data
 ----------------------------
 
-Godot servers implement a mediator pattern. All data types inherit ``RID_Data``.
-``RID_Owner<MyRID_Data>`` owns the object when ``make_rid`` is called. During debug mode only,
+Godot servers implement a mediator pattern. All data types inherit `RID_Data`.
+`RID_Owner<MyRID_Data>` owns the object when `make_rid` is called. During debug mode only,
 RID_Owner maintains a list of RIDs. In practice, RIDs are similar to writing
 object-oriented C code.
 
@@ -321,15 +321,15 @@ References
 Registering the class in GDScript
 ---------------------------------
 
-Servers are allocated in ``register_types.cpp``. The constructor sets the static
-instance and ``init()`` creates the managed thread; ``unregister_types.cpp``
+Servers are allocated in `register_types.cpp`. The constructor sets the static
+instance and `init()` creates the managed thread; `unregister_types.cpp`
 cleans up the server.
 
 Since a Godot server class creates an instance and binds it to a static singleton,
 binding the class might not reference the correct instance. Therefore, a dummy
 class must be created to reference the proper Godot server.
 
-In ``register_server_types()``, ``Engine::get_singleton()->add_singleton``
+In `register_server_types()`, `Engine::get_singleton()->add_singleton`
 is used to register the dummy class in GDScript.
 
 .. code-block:: cpp
@@ -467,9 +467,9 @@ MessageQueue
 
 In order to send commands into SceneTree, MessageQueue is a thread-safe buffer
 to queue set and call methods for other threads. To queue a command, obtain
-the target object RID and use either ``push_call``, ``push_set``, or ``push_notification``
+the target object RID and use either `push_call`, `push_set`, or `push_notification`
 to execute the desired behavior. The queue will be flushed whenever either
-``SceneTree::idle`` or ``SceneTree::iteration`` is executed.
+`SceneTree::idle` or `SceneTree::iteration` is executed.
 
 References:
 ~~~~~~~~~~~

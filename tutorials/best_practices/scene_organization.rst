@@ -206,7 +206,7 @@ be the "main" function. In this case, it would be a Main node.
 
     - Node "Main" (main.gd)
 
-The ``main.gd`` script would then serve as the primary controller of one's
+The `main.gd` script would then serve as the primary controller of one's
 game.
 
 Then one has their actual in-game "World" (a 2D or 3D one). This can be a child
@@ -262,7 +262,7 @@ own place in the hierarchy as a sibling or some other relation.
   `RemoteTransform` /
   `RemoteTransform2D` nodes for this purpose.
   They will allow a target node to conditionally inherit selected transform
-  elements from the Remote\* node. To assign the ``target``
+  elements from the Remote\* node. To assign the `target`
   `NodePath`, use one of the following:
 
   1. A reliable third party, likely a parent node, to mediate the assignment.
@@ -310,7 +310,7 @@ own place in the hierarchy as a sibling or some other relation.
   1. The **declarative** solution: place a `Node` in between
      them. As nodes with no transform, Nodes will not pass along such
      information to their children.
-  2. The **imperative** solution: Use the ``set_as_toplevel`` setter for the
+  2. The **imperative** solution: Use the `set_as_toplevel` setter for the
      `CanvasItem` or
      `Spatial` node. This will make
      the node ignore its inherited transform.

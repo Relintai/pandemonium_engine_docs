@@ -41,11 +41,11 @@ setup clang-format locally to check and automatically fix all your commits.
              thereof), and don't want to introduce differences that would make
              syncing with upstream repositories harder.
 
-             Third-party code is usually included in the ``thirdparty/`` folder
+             Third-party code is usually included in the `thirdparty/` folder
              and can thus easily be excluded from formatting scripts. For the
              rare cases where a third-party code snippet needs to be included
              directly within a Godot file, you can use
-             ``/* clang-format off */`` and ``/* clang-format on */`` to tell
+             `/* clang-format off */` and `/* clang-format on */` to tell
              clang-format to ignore a chunk of code.
 
 .. seealso::
@@ -73,8 +73,8 @@ Here's how to install clang-format:
   a Debian derivative, use the `upstream repos <http://apt.llvm.org/>`__.
 - macOS and Windows: You can download precompiled binaries from the
   `LLVM website <http://releases.llvm.org/download.html>`__. You may need to add
-  the path to the binary's folder to your system's ``PATH`` environment
-  variable to be able to call ``clang-format`` out of the box.
+  the path to the binary's folder to your system's `PATH` environment
+  variable to be able to call `clang-format` out of the box.
 
 You then have different possibilities to apply clang-format to your changes:
 
@@ -88,12 +88,12 @@ command:
 
     clang-format -i <path/to/file(s)>
 
-- ``-i`` means that the changes should be written directly to the file (by
+- `-i` means that the changes should be written directly to the file (by
   default clang-format would only output the fixed version to the terminal).
 - The path can point to several files, either one after the other or using
   wildcards like in a typical Unix shell. Be careful when globbing so that
   you don't run clang-format on compiled objects (.o and .a files) that are
-  in Godot's tree. So better use ``core/*.{cpp,h}`` than ``core/*``.
+  in Godot's tree. So better use `core/*.{cpp,h}` than `core/*`.
 
 Pre-commit hook
 ^^^^^^^^^^^^^^^
@@ -102,11 +102,11 @@ For ease of use, we provide a pre-commit hook for Git that will run
 clang-format automatically on all your commits to check them, and let you apply
 its changes in the final commit.
 
-This "hook" is a script which can be found in ``misc/hooks``, refer to that
+This "hook" is a script which can be found in `misc/hooks`, refer to that
 folder's README.md for installation instructions.
 
-If your clang-format is not in the ``PATH``, you may have to edit the
-``pre-commit-clang-format`` to point to the correct binary for it to work.
+If your clang-format is not in the `PATH`, you may have to edit the
+`pre-commit-clang-format` to point to the correct binary for it to work.
 The hook was tested on Linux and macOS, but should also work in the Git Shell
 on Windows.
 
@@ -122,7 +122,7 @@ Here is a non-exhaustive list of beautifier plugins for some IDEs:
 - Visual Studio Code: `Clang-Format <https://marketplace.visualstudio.com/items?itemName=xaver.clang-format>`__
 - Visual Studio: `ClangFormat <https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.ClangFormat>`__
 - vim: `vim-clang-format <https://github.com/rhysd/vim-clang-format>`__
-- CLion: Starting from version ``2019.1``, no plugin is required. Instead, enable
+- CLion: Starting from version `2019.1`, no plugin is required. Instead, enable
   `ClangFormat <https://www.jetbrains.com/help/clion/clangformat-as-alternative-formatter.html#clion-support>`__
 
 (Pull requests welcome to extend this list with tested plugins.)
@@ -137,20 +137,20 @@ ones, the following rules should be followed:
 
 - The first lines in the file should be Godot's copyright header and MIT
   license, copy-pasted from another file. Make sure to adjust the filename.
-- In a ``.h`` header, include guards should be used with the form
-  ``FILENAME_H``.
+- In a `.h` header, include guards should be used with the form
+  `FILENAME_H`.
 
-- In a ``.cpp`` file (e.g. ``filename.cpp``), the first include should be the
-  one where the class is declared (e.g. ``#include "filename.h"``), followed by
+- In a `.cpp` file (e.g. `filename.cpp`), the first include should be the
+  one where the class is declared (e.g. `#include "filename.h"`), followed by
   an empty line for separation.
 - Then come headers from Godot's own code base, included in alphabetical order
-  (enforced by ``clang-format``) with paths relative to the root folder. Those
-  includes should be done with quotes, e.g. ``#include "core/object.h"``. The
+  (enforced by `clang-format`) with paths relative to the root folder. Those
+  includes should be done with quotes, e.g. `#include "core/object.h"`. The
   block of Godot header includes should then be followed by an empty line for
   separation.
-- Finally, third-party headers (either from ``thirdparty`` or from the system's
+- Finally, third-party headers (either from `thirdparty` or from the system's
   include paths) come next and should be included with the < and > symbols, e.g.
-  ``#include <png.h>``. The block of third-party headers should also be followed
+  `#include <png.h>`. The block of third-party headers should also be followed
   by an empty line for separation.
 - Godot and third-party headers should be included in the file that requires
   them, i.e. in the `.h` header if used in the declarative code or in the `.cpp`
@@ -246,10 +246,10 @@ Example:
 Java
 ----
 
-Godot's Java code (mostly in ``platform/android``) is also enforced via
-``clang-format``, so see the instructions above to set it up. Keep in mind that
+Godot's Java code (mostly in `platform/android`) is also enforced via
+`clang-format`, so see the instructions above to set it up. Keep in mind that
 this style guide only applies to code written and maintained by Godot, not
-third-party code such as the ``java/src/com/google`` subfolder.
+third-party code such as the `java/src/com/google` subfolder.
 
 Python
 ------
@@ -281,14 +281,14 @@ You then have different possibilities to apply black to your changes:
 Manual usage
 ^^^^^^^^^^^^
 
-You can apply ``black`` manually to one or more files with the following
+You can apply `black` manually to one or more files with the following
 command:
 
 ::
 
     black -l 120 <path/to/file(s)>
 
-- ``-l 120`` means that the allowed number of characters per line is 120.
+- `-l 120` means that the allowed number of characters per line is 120.
   This number was agreed upon by the developers.
 - The path can point to several files, either one after the other or using
   wildcards like in a typical Unix shell.
@@ -300,8 +300,8 @@ For ease of use, we provide a pre-commit hook for Git that will run
 black automatically on all your commits to check them, and let you apply
 its changes in the final commit.
 
-This "hook" is a script which can be found in ``misc/hooks``. Refer to that
-folder's ``README.md`` for installation instructions.
+This "hook" is a script which can be found in `misc/hooks`. Refer to that
+folder's `README.md` for installation instructions.
 
 
 Editor integration
@@ -322,7 +322,7 @@ Godot's codebase.
   always end them with a period.
 - Reference variable/function names and values using backticks.
 - Wrap comments to ~100 characters.
-- You can use ``TODO:``, ``FIXME:``, ``NOTE:``, or ``HACK:`` as adominitions
+- You can use `TODO:`, `FIXME:`, `NOTE:`, or `HACK:` as adominitions
   when needed.
 
 **Example:**

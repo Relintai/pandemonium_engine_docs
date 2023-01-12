@@ -21,14 +21,14 @@ you can use theme type variations. These work like normal theme types, but inste
 of being self-sufficient and standalone they extend another, base type.
 
 Following the previous example, your theme can have some styles, colors, and fonts
-defined for the ``Button`` type, customizing the looks of every button element in your UI.
-To then have a gray, red, or blue button you would create a new type, e.g. ``GrayButton``, and
-mark it as a variation of the base ``Button`` type.
+defined for the `Button` type, customizing the looks of every button element in your UI.
+To then have a gray, red, or blue button you would create a new type, e.g. `GrayButton`, and
+mark it as a variation of the base `Button` type.
 
 Type variations can replace some aspects of the base type, but keep others.
 They can also define properties that the base style hasn't defined. For example,
-your ``GrayButton`` can override the ``normal`` style from the base ``Button``
-and add ``font_color`` that ``Button`` has never defined. The control will use
+your `GrayButton` can override the `normal` style from the base `Button`
+and add `font_color` that `Button` has never defined. The control will use
 a combination of both types giving priority to the type variation.
 
 .. note::
@@ -50,10 +50,10 @@ and screwdriver icon.
    :align: center
 
 Click on the plus icon next to the **Base Type** field. You can select the base type
-there, which would typically be the name of a control node class (e.g., ``Button``, ``Label``, etc).
+there, which would typically be the name of a control node class (e.g., `Button`, `Label`, etc).
 Type variations can also chain and extend other type variations. This works in the
-same way control nodes inherit styling of their base class. For example, ``CheckButton``
-inherits styles from ``Button`` because corresponding node types extend each other.
+same way control nodes inherit styling of their base class. For example, `CheckButton`
+inherits styles from `Button` because corresponding node types extend each other.
 
 After you select the base type, you should now be able to see its properties on the other
 tabs in the theme editor. You can edit them as usual.

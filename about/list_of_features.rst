@@ -495,7 +495,7 @@ Internationalization
 - Store localization strings using `CSV <doc_internationalizing_games>`
   or `gettext <doc_localization_using_gettext>`.
 - Use localized strings in your project automatically in GUI elements or by
-  using the ``tr()`` function.
+  using the `tr()` function.
 - Support for right-to-left typesetting and text shaping planned in Godot 4.0.
 
 Windowing and OS integration
@@ -518,7 +518,7 @@ Windowing and OS integration
 - Parse custom command line arguments.
 - `Headless/server binaries <doc_exporting_for_dedicated_servers>` can be
   downloaded for Linux and `compiled for macOS <doc_compiling_for_osx>`.
-  Any binary can be used without a window using the ``--no-window``
+  Any binary can be used without a window using the `--no-window`
   `command line argument <doc_command_line_tutorial>`.
 
 Mobile
@@ -569,8 +569,8 @@ The editor UI can easily be extended in many ways using add-ons.
      layouts.
    - `Draggable splitter` layouts.
 
-- Scale to multiple resolutions using the ``2d`` or ``viewport`` stretch modes.
-- Support any aspect ratio using anchors and the ``expand`` stretch aspect.
+- Scale to multiple resolutions using the `2d` or `viewport` stretch modes.
+- Support any aspect ratio using anchors and the `expand` stretch aspect.
 
 **Theming:**
 

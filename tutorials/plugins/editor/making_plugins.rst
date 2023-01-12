@@ -25,14 +25,14 @@ Before starting, create a new empty project wherever you want. This will serve
 as a base to develop and test the plugins.
 
 The first thing you need for the editor to identify a new plugin is to
-create two files: a ``plugin.cfg`` for configuration and a tool script with the
-functionality. Plugins have a standard path like ``addons/plugin_name`` inside
+create two files: a `plugin.cfg` for configuration and a tool script with the
+functionality. Plugins have a standard path like `addons/plugin_name` inside
 the project folder. Godot provides a dialog for generating those files and
 placing them where they need to be.
 
-In the main toolbar, click the ``Project`` dropdown. Then click
-``Project Settings...``. Go to the ``Plugins`` tab and then click
-on the ``Create`` button in the top-right.
+In the main toolbar, click the `Project` dropdown. Then click
+`Project Settings...`. Go to the `Plugins` tab and then click
+on the `Create` button in the top-right.
 
 You will see the dialog appear, like so:
 
@@ -58,16 +58,16 @@ ini GDScript
 
 .. warning::
 
-    Unchecking the ``Activate now?`` option in C# is always required because,
+    Unchecking the `Activate now?` option in C# is always required because,
     like every other C# script, the EditorPlugin script needs to be compiled which
     requires building the project. After building the project the plugin can be
-    enabled in the ``Plugins`` tab of ``Project Settings``.
+    enabled in the `Plugins` tab of `Project Settings`.
 
 You should end up with a directory structure like this:
 
 .. image:: img/making_plugins-my_custom_mode_folder.png
 
-``plugin.cfg`` is a simple INI file with metadata about your plugin.
+`plugin.cfg` is a simple INI file with metadata about your plugin.
 The name and description help people understand what it does.
 Your name helps you get properly credited for your work.
 The version number helps others know if they have an outdated version;
@@ -80,13 +80,13 @@ The script file
 
 Upon creation of the plugin, the dialog will automatically open the
 EditorPlugin script for you. The script has two requirements that you cannot
-change: it must be a ``tool`` script, or else it will not load properly in the
+change: it must be a `tool` script, or else it will not load properly in the
 editor, and it must inherit from `EditorPlugin`.
 
 .. warning::
 
     In addition to the EditorPlugin script, any other GDScript that your plugin uses
-    must *also* be a tool. Any GDScript without ``tool`` imported into the editor
+    must *also* be a tool. Any GDScript without `tool` imported into the editor
     will act like an empty file!
 
 It's important to deal with initialization and clean-up of resources.
@@ -138,7 +138,7 @@ To create a new node type, you can use the function
 `EditorPlugin` class. This function can add new types to the editor
 (nodes or resources). However, before you can create the type, you need a script
 that will act as the logic for the type. While that script doesn't have to use
-the ``tool`` keyword, it can be added so the script runs in the editor.
+the `tool` keyword, it can be added so the script runs in the editor.
 
 For this tutorial, we'll create a simple button that prints a message when
 clicked. For that, we'll need a simple script that extends from
@@ -160,7 +160,7 @@ gdscript GDScript
         print("You clicked me!")
 ```
 
-That's it for our basic button. You can save this as ``my_button.gd`` inside the
+That's it for our basic button. You can save this as `my_button.gd` inside the
 plugin folder. You'll also need a 16×16 icon to show in the scene tree. If you
 don't have one, you can grab the default one from the engine and save it in your
 `addons/my_custom_node` folder as `icon.png`, or use the default Godot logo
@@ -169,7 +169,7 @@ don't have one, you can grab the default one from the engine and save it in your
 .. image:: img/making_plugins-custom_node_icon.png
 
 Now, we need to add it as a custom type so it shows on the **Create New Node**
-dialog. For that, change the ``custom_node.gd`` script to the following:
+dialog. For that, change the `custom_node.gd` script to the following:
 
 gdscript GDScript
 
@@ -211,7 +211,7 @@ An easy way to do it is to add a new dock with a plugin. Docks are just scenes
 based on Control, so they are created in a way similar to usual GUI scenes.
 
 Creating a custom dock is done just like a custom node. Create a new
-``plugin.cfg`` file in the ``addons/my_custom_dock`` folder, then
+`plugin.cfg` file in the `addons/my_custom_dock` folder, then
 add the following content to it:
 
 gdscript GDScript
@@ -226,7 +226,7 @@ gdscript GDScript
     script="custom_dock.gd"
 ```
 
-Then create the script ``custom_dock.gd`` in the same folder. Fill it with the
+Then create the script `custom_dock.gd` in the same folder. Fill it with the
 `template we've seen before <doc_making_plugins_template_code>` to get a
 good start.
 
@@ -242,7 +242,7 @@ Also, don't forget to add some text to your button.
 
 .. image:: img/making_plugins-my_custom_dock_scene.png
 
-Save this scene as ``my_dock.tscn``. Now, we need to grab the scene we created
+Save this scene as `my_dock.tscn`. Now, we need to grab the scene we created
 then add it as a dock in the editor. For this, you can rely on the function
 `add_control_to_dock()` from the
 `EditorPlugin` class.

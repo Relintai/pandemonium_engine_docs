@@ -9,7 +9,7 @@ into any number of scenes. This feature helps you break down and organize your
 game's different components.
 
 You can create as many scenes as you'd like and save them as files with the
-``.tscn`` extension, which stands for "text scene". The ``Label.tscn`` file from
+`.tscn` extension, which stands for "text scene". The `Label.tscn` file from
 the previous lesson was an example. We call those files "Packed Scenes" as they
 pack information about your scene's content.
 
@@ -31,7 +31,7 @@ editor hides their content by default. When you instance the Ball, you only see
 the Ball node. Notice also how each duplicate has a unique name.
 
 Every instance of the Ball scene starts with the same structure and properties
-as ``Ball.tscn``. However, you can modify each independently, such as changing
+as `Ball.tscn`. However, you can modify each independently, such as changing
 how they bounce, how heavy they are, or any property exposed by the source
 scene.
 
@@ -52,7 +52,7 @@ you extracted.
 
 .. image:: img/instancing_import_browse.png
 
-Double-click the ``project.godot`` file to open it.
+Double-click the `project.godot` file to open it.
 
 .. image:: img/instancing_import_project_file.png
 
@@ -60,8 +60,8 @@ Finally, click the Import & Edit button.
 
 .. image:: img/instancing_import_and_edit_button.png
 
-The project contains two packed scenes: ``Main.tscn``, containing walls against
-which the ball collides, and ``Ball.tscn``. The Main scene should open
+The project contains two packed scenes: `Main.tscn`, containing walls against
+which the ball collides, and `Ball.tscn`. The Main scene should open
 automatically.
 
 .. image:: img/instancing_main_scene.png
@@ -107,19 +107,19 @@ There is more to instances. With this feature, you can:
 
 1. Change the properties of one ball without affecting the others using the
    Inspector.
-2. Change the default properties of every Ball by opening the ``Ball.tscn`` scene
+2. Change the default properties of every Ball by opening the `Ball.tscn` scene
    and making a change to the Ball node there. Upon saving, all instances of the
    Ball in the project will see their values update.
 
 .. note:: Changing a property on an instance always overrides values from the
           corresponding packed scene.
 
-Let's try this. Open ``Ball.tscn`` and select the Ball node. In the Inspector on
+Let's try this. Open `Ball.tscn` and select the Ball node. In the Inspector on
 the right, click on the PhysicsMaterial property to expand it.
 
 .. image:: img/instancing_physics_material_expand.png
 
-Set its Bounce property to ``2`` by clicking on the number field, typing ``2``,
+Set its Bounce property to `2` by clicking on the number field, typing `2`,
 and pressing :kbd:`Enter`.
 
 .. image:: img/instancing_property_bounce_updated.png
@@ -134,7 +134,7 @@ on the corresponding tab above the viewport.
 .. image:: img/instancing_scene_tabs.png
 
 Select one of the instanced Ball nodes and, in the Inspector, set its Gravity
-Scale value to ``10``.
+Scale value to `10`.
 
 .. image:: img/instancing_property_gravity_scale.png
 
@@ -149,8 +149,8 @@ property to the value in the saved scene.
 
 Rerun the game and notice how this ball now falls much faster than the others.
 
-.. note:: If you change a value on the ``PhysicsMaterial`` of one instance, it
-          will affect all the others. This is because ``PhysicsMaterial`` is a
+.. note:: If you change a value on the `PhysicsMaterial` of one instance, it
+          will affect all the others. This is because `PhysicsMaterial` is a
           resource, and resources are shared between instances. To make a
           resource unique for one instance, right-click on it in the Inspector
           and click Make Unique in the contextual menu.

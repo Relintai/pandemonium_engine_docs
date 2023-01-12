@@ -32,17 +32,17 @@ symbols, since these would make the download size significantly larger.
 To get profiling data that best matches the production environment, you should
 compile binaries with the following SCons options:
 
-- For editor binaries: ``target=release_debug use_lto=yes``
-- For debug export templates: ``target=release_debug use_lto=yes``
-- For release export templates: ``tools=no target=release debug_symbols=yes``
-  - ``debug_symbols=yes`` is required as export templates are stripped from debugging symbols by default.
+- For editor binaries: `target=release_debug use_lto=yes`
+- For debug export templates: `target=release_debug use_lto=yes`
+- For release export templates: `tools=no target=release debug_symbols=yes`
+  - `debug_symbols=yes` is required as export templates are stripped from debugging symbols by default.
 
-It is possible to run a profiler on less optimized builds (e.g. ``target=debug`` without LTO),
+It is possible to run a profiler on less optimized builds (e.g. `target=debug` without LTO),
 but results will naturally be less representative of real world conditions.
 
 .. warning::
 
-    Do *not* strip debugging symbols on the binaries using the ``strip`` command
+    Do *not* strip debugging symbols on the binaries using the `strip` command
     after compiling the binaries. Otherwise, you will no longer get useful
     profiling information when running a profiler.
 
@@ -50,10 +50,10 @@ Benchmarking startup/shutdown times
 -----------------------------------
 
 If you're looking into optimizing Godot's startup/shutdown performance,
-you can tell the profiler to use the ``--quit`` command line option on the Godot binary.
+you can tell the profiler to use the `--quit` command line option on the Godot binary.
 This will exit Godot just after it finished starting.
-The ``--quit`` option works with ``--editor``, ``--project-manager`` or
-``--path <path to project directory>`` (which runs a project directly).
+The `--quit` option works with `--editor`, `--project-manager` or
+`--path <path to project directory>` (which runs a project directly).
 
 .. seealso::
 
@@ -95,7 +95,7 @@ HotSpot
 - In the next window, specify the path to the Godot binary that includes debug symbols.
 - Specify command line arguments to run a specific project, with or without the editor.
 - The path to the working directory can be anything if an absolute path is used
-  for the ``--path`` command line argument. Otherwise, it must be set to that
+  for the `--path` command line argument. Otherwise, it must be set to that
   the relative path to the project is valid.
 - Make sure **Elevate Privileges** is checked if you have administrative privileges.
   While not essential for profiling Godot, this will ensure all events can be captured.

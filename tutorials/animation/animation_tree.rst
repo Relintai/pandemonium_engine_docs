@@ -10,65 +10,65 @@ With `AnimationPlayer`, Godot has one of the most flexible animation systems tha
 The ability to animate almost any property in any node or resource, as well as having dedicated transform, bezier,
 function calling, audio and sub-animation tracks, is pretty much unique.
 
-However, the support for blending those animations via ``AnimationPlayer`` is relatively limited, as only a fixed cross-fade transition time can be set.
+However, the support for blending those animations via `AnimationPlayer` is relatively limited, as only a fixed cross-fade transition time can be set.
 
 `AnimationTree` is a new node introduced in Godot 3.1 to deal with advanced transitions.
-It supersedes the ancient ``AnimationTreePlayer``, while adding a huge amount of features and flexibility.
+It supersedes the ancient `AnimationTreePlayer`, while adding a huge amount of features and flexibility.
 
 Creating an AnimationTree
 -------------------------
 
-Before starting, it must be made clear that an ``AnimationTree`` node does not contain its own animations.
-Instead, it uses animations contained in an ``AnimationPlayer`` node. This way, you can edit your animations (or import them from a 3D scene)
+Before starting, it must be made clear that an `AnimationTree` node does not contain its own animations.
+Instead, it uses animations contained in an `AnimationPlayer` node. This way, you can edit your animations (or import them from a 3D scene)
 as usual and then use this extra node to control the playback.
 
-The most common way to use ``AnimationTree`` is in a 3D scene. When importing your scenes from a 3D exchange format, they will usually come
+The most common way to use `AnimationTree` is in a 3D scene. When importing your scenes from a 3D exchange format, they will usually come
 with animations built-in (either multiple ones or split from a large one on import).
-At the end, the imported Godot scene will contain the animations in a ``AnimationPlayer`` node.
+At the end, the imported Godot scene will contain the animations in a `AnimationPlayer` node.
 
-As you rarely use imported scenes directly in Godot (they are either instantiated or inherited from), you can place the ``AnimationTree`` node in your
-new scene which contains the imported one. Afterwards, point the ``AnimationTree`` node to the ``AnimationPlayer`` that was created in the imported scene.
+As you rarely use imported scenes directly in Godot (they are either instantiated or inherited from), you can place the `AnimationTree` node in your
+new scene which contains the imported one. Afterwards, point the `AnimationTree` node to the `AnimationPlayer` that was created in the imported scene.
 
 This is how it's done in the `Third Person Shooter demo <https://github.com/godotengine/tps-demo>`_, for reference:
 
 .. image:: img/animtree1.png
 
-A new scene was created for the player with a ``KinematicBody`` as root. Inside this scene, the original ``.dae`` (Collada) file was instantiated
-and an ``AnimationTree`` node was created.
+A new scene was created for the player with a `KinematicBody` as root. Inside this scene, the original `.dae` (Collada) file was instantiated
+and an `AnimationTree` node was created.
 
 Creating a tree
 ---------------
 
-There are three main types of nodes that can be used in ``AnimationTree``:
+There are three main types of nodes that can be used in `AnimationTree`:
 
-1. Animation nodes, which reference an animation from the linked ``AnimationTree``.
+1. Animation nodes, which reference an animation from the linked `AnimationTree`.
 2. Animation Root nodes, which are used to blend sub-nodes.
-3. Animation Blend nodes, which are used within ``AnimationNodeBlendTree`` as single-graph blending via multiple input ports.
+3. Animation Blend nodes, which are used within `AnimationNodeBlendTree` as single-graph blending via multiple input ports.
 
-To set a root node in ``AnimationTree``, a few types are available:
+To set a root node in `AnimationTree`, a few types are available:
 
 .. image:: img/animtree2.png
 
-* ``AnimationNodeAnimation``: Selects an animation from the list and plays it. This is the simplest root node, and generally not used directly as root.
-* ``AnimationNodeBlendTree``: Contains many *blend* type nodes, such as mix, blend2, blend3, one shot, etc. This is one of the most commonly used roots.
-* ``AnimationNodeStateMachine``: Contains multiple root nodes as children in a graph. Each node is used as a *state*, and provides multiple functions to alternate between states.
-* ``AnimationNodeBlendSpace2D``: Allows placing root nodes in a 2D blend space. Control the blend position in 2D to mix between multiple animations.
-* ``AnimationNodeBlendSpace1D``: Simplified version of the above (1D).
+* `AnimationNodeAnimation`: Selects an animation from the list and plays it. This is the simplest root node, and generally not used directly as root.
+* `AnimationNodeBlendTree`: Contains many *blend* type nodes, such as mix, blend2, blend3, one shot, etc. This is one of the most commonly used roots.
+* `AnimationNodeStateMachine`: Contains multiple root nodes as children in a graph. Each node is used as a *state*, and provides multiple functions to alternate between states.
+* `AnimationNodeBlendSpace2D`: Allows placing root nodes in a 2D blend space. Control the blend position in 2D to mix between multiple animations.
+* `AnimationNodeBlendSpace1D`: Simplified version of the above (1D).
 
 Blend tree
 ----------
 
-An ``AnimationNodeBlendTree`` can contain both root and regular nodes used for blending. Nodes are added to the graph from a menu:
+An `AnimationNodeBlendTree` can contain both root and regular nodes used for blending. Nodes are added to the graph from a menu:
 
 .. image:: img/animtree3.png
 
-All blend trees contain an ``Output`` node by default, and something has to be connected to it in order for animations to play.
+All blend trees contain an `Output` node by default, and something has to be connected to it in order for animations to play.
 
-The easiest way to test this functionality is to connect an ``Animation`` node to it directly:
+The easiest way to test this functionality is to connect an `Animation` node to it directly:
 
 .. image:: img/animtree4.png
 
-This will simply play back the animation. Make sure that the ``AnimationTree`` is active for something to actually happen.
+This will simply play back the animation. Make sure that the `AnimationTree` is active for something to actually happen.
 
 Following is a short description of available nodes:
 
@@ -96,9 +96,9 @@ This node will execute a sub-animation and return once it finishes. Blend times 
 Seek
 ^^^^
 
-This node can be used to cause a seek command to happen to any sub-children of the animation graph. Use this node type to play an ``Animation`` from the start or a certain playback position inside the ``AnimationNodeBlendTree``.
+This node can be used to cause a seek command to happen to any sub-children of the animation graph. Use this node type to play an `Animation` from the start or a certain playback position inside the `AnimationNodeBlendTree`.
 
-After setting the time and changing the animation playback, the seek node automatically goes into sleep mode on the next process frame by setting its ``seek_position`` value to ``-1.0``.
+After setting the time and changing the animation playback, the seek node automatically goes into sleep mode on the next process frame by setting its `seek_position` value to `-1.0`.
 
 gdscript GDScript
 
@@ -122,12 +122,12 @@ Allows scaling the speed of the animation (or reverse it) in any children nodes.
 Transition
 ^^^^^^^^^^
 
-Very simple state machine (when you don't want to cope with a ``StateMachine`` node). Animations can be connected to the outputs and transition times can be specified.
+Very simple state machine (when you don't want to cope with a `StateMachine` node). Animations can be connected to the outputs and transition times can be specified.
 
 BlendSpace2D
 ^^^^^^^^^^^^
 
-``BlendSpace2D`` is a node to do advanced blending in two dimensions. Points are added to a two-dimensional space and then a position
+`BlendSpace2D` is a node to do advanced blending in two dimensions. Points are added to a two-dimensional space and then a position
 can be controlled to determine blending:
 
 .. image:: img/animtree7.gif
@@ -178,7 +178,7 @@ Transitions also have a few properties. Click any transition and it will be disp
 * *Advance Condition* will turn on auto advance when this condition is set. This is a custom text field that can be filled with a variable name.
   The variable can be modified from code (more on this later).
 * *Xfade Time* is the time to cross-fade between this state and the next.
-* *Priority* is used together with the ``travel()`` function from code (more on this later). Lower priority transitions are preferred when travelling through the tree.
+* *Priority* is used together with the `travel()` function from code (more on this later). Lower priority transitions are preferred when travelling through the tree.
 * *Disabled* toggles disabling this transition (when disabled, it will not be used during travel or auto advance).
 
 
@@ -203,7 +203,7 @@ gdscript GDScript
 
 This can be fed to functions such as `KinematicBody.move_and_slide` to control the character movement.
 
-There is also a tool node, ``RootMotionView``, that can be placed in a scene and will act as a custom floor for your
+There is also a tool node, `RootMotionView`, that can be placed in a scene and will act as a custom floor for your
 character and animations (this node is disabled by default during the game).
 
 .. image:: img/animtree15.gif
@@ -215,16 +215,16 @@ Controlling from code
 After building the tree and previewing it, the only question remaining is "How is all this controlled from code?".
 
 Keep in mind that the animation nodes are just resources and, as such, they are shared between all instances using them.
-Setting values in the nodes directly will affect all instances of the scene that uses this ``AnimationTree``.
+Setting values in the nodes directly will affect all instances of the scene that uses this `AnimationTree`.
 This is generally undesirable, but does have some cool use cases, e.g. you can copy and paste parts of your animation tree,
 or reuse nodes with a complex layout (such as a state machine or blend space) in different animation trees.
 
-The actual animation data is contained in the ``AnimationTree`` node and is accessed via properties.
-Check the "Parameters" section of the ``AnimationTree`` node to see all the parameters that can be modified in real-time:
+The actual animation data is contained in the `AnimationTree` node and is accessed via properties.
+Check the "Parameters" section of the `AnimationTree` node to see all the parameters that can be modified in real-time:
 
 .. image:: img/animtree16.png
 
-This is handy because it makes it possible to animate them from an ``AnimationPlayer``, or even the ``AnimationTree`` itself,
+This is handy because it makes it possible to animate them from an `AnimationPlayer`, or even the `AnimationTree` itself,
 allowing the realization of very complex animation logic.
 
 To modify these values from code, the property path must be obtained. This is done easily by hovering the mouse over any of the parameters:
@@ -245,13 +245,13 @@ gdscript GDScript
 State machine travel
 --------------------
 
-One of the nice features in Godot's ``StateMachine`` implementation is the ability to travel. The graph can be instructed to go from the
+One of the nice features in Godot's `StateMachine` implementation is the ability to travel. The graph can be instructed to go from the
 current state to another one, while visiting all the intermediate ones. This is done via the A\* algorithm.
 In the absence of any viable set of transitions starting at the current state and finishing at the destination state, the graph teleports
 to the destination state.
 
 To use the travel ability, you should first retrieve the `AnimationNodeStateMachinePlayback`
-object from the ``AnimationTree`` node (it is exported as a property).
+object from the `AnimationTree` node (it is exported as a property).
 
 
 gdscript GDScript
@@ -268,6 +268,6 @@ gdscript GDScript
     state_machine.travel("SomeState")
 ```
 
-The state machine must be running before you can travel. Make sure to either call ``start()`` or choose a node to **Autoplay on Load**.
+The state machine must be running before you can travel. Make sure to either call `start()` or choose a node to **Autoplay on Load**.
 
 .. image:: img/animtree18.png

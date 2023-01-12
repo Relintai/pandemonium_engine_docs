@@ -54,15 +54,15 @@ with `new()`.
 
 .. warning::
 
-    When creating ``.cs`` scripts, you should always keep in mind that the class
-    Godot will use is the one named like the ``.cs`` file itself. If that class
+    When creating `.cs` scripts, you should always keep in mind that the class
+    Godot will use is the one named like the `.cs` file itself. If that class
     does not exist in the file, you'll see the following error:
-    ``Invalid call. Nonexistent function `new` in base``.
+    `Invalid call. Nonexistent function `new` in base`.
 
     For example, MyCoolNode.cs should contain a class named MyCoolNode.
 
-    You also need to check your ``.cs`` file is referenced in the project's
-    ``.csproj`` file. Otherwise, the same error will occur.
+    You also need to check your `.cs` file is referenced in the project's
+    `.csproj` file. Otherwise, the same error will occur.
 
 Instantiating GDScript nodes from C#
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,7 +129,7 @@ Calling C# methods from GDScript
 Again, calling C# methods from GDScript should be straightforward. The
 marshalling process will do its best to cast the arguments to match
 function signatures.
-If that's impossible, you'll see the following error: ``Invalid call. Nonexistent function `FunctionName```.
+If that's impossible, you'll see the following error: `Invalid call. Nonexistent function `FunctionName```.
 
 ::
 
@@ -167,7 +167,7 @@ to said method.
 .. warning::
 
     As you can see, if the first argument of the called method is an array,
-    you'll need to cast it as ``object``.
+    you'll need to cast it as `object`.
     Otherwise, each element of your array will be treated as a single argument
     and the function signature won't match.
 

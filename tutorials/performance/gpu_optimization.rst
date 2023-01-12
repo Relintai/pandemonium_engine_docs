@@ -94,9 +94,9 @@ possible. Godot's priorities are:
    that are enabled or disabled with a check box) even if they have different
    parameters.
 
-If a scene has, for example, ``20,000`` objects with ``20,000`` different
-materials each, rendering will be slow. If the same scene has ``20,000``
-objects, but only uses ``100`` materials, rendering will be much faster.
+If a scene has, for example, `20,000` objects with `20,000` different
+materials each, rendering will be slow. If the same scene has `20,000`
+objects, but only uses `100` materials, rendering will be much faster.
 
 Pixel cost versus vertex cost
 =============================

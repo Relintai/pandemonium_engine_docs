@@ -51,10 +51,10 @@ Creating the polygons
 ---------------------
 
 Create a new scene for your model (if it's going to be an animated character,
-you may want to use a ``KinematicBody2D``). For ease of use, an empty 2D node is
+you may want to use a `KinematicBody2D`). For ease of use, an empty 2D node is
 created as a root for the polygons.
 
-Begin with a ``Polygon2D`` node. There is no need to place it anywhere in the
+Begin with a `Polygon2D` node. There is no need to place it anywhere in the
 scene for now, so simply create it like this:
 
 .. image:: img/skel2d1.png
@@ -110,12 +110,12 @@ And there you go! It was definitely much easier than in the cutout tutorial.
 Creating the skeleton
 ---------------------
 
-Create a ``Skeleton2D`` node as a child of the root node. This will be the base
+Create a `Skeleton2D` node as a child of the root node. This will be the base
 of our skeleton:
 
 .. image:: img/skel2d9.png
 
-Create a ``Bone2D`` node as a child of the skeleton. Put it on the hip (usually
+Create a `Bone2D` node as a child of the skeleton. Put it on the hip (usually
 skeletons start here). The bone will be pointing to the right, but you can
 ignore this for now.
 
@@ -154,7 +154,7 @@ Deforming the polygons
 ----------------------
 
 Select the previously created polygons and assign the skeleton node to their
-``Skeleton`` property. This will ensure that they can eventually be deformed by
+`Skeleton` property. This will ensure that they can eventually be deformed by
 it.
 
 .. image:: img/skel2d15.png

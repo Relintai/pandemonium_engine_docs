@@ -27,7 +27,7 @@ Go to the Project menu, and install the *Custom Build* template:
 Make sure export templates are downloaded. If not, this menu will help you
 download them.
 
-A Gradle-based Android project will be created under ``res://android/build``.
+A Gradle-based Android project will be created under `res://android/build`.
 Editing these files is not needed unless you want to `create
 your own add-ons<doc_android_plugin>`, or you really need to modify the project.
 

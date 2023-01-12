@@ -16,7 +16,7 @@ How pausing works
 -----------------
 
 To pause the game the pause state must be set. This is done by assigning
-``true`` to the `SceneTree.paused` property:
+`true` to the `SceneTree.paused` property:
 
 gdscript GDScript
 
@@ -29,7 +29,7 @@ for all nodes. Second, the behavior of certain nodes will stop or start
 depending on their process mode.
 
 .. note:: The physics servers can be made active while the game is
-          paused by using their ``set_active`` methods.
+          paused by using their `set_active` methods.
 
 Process Modes
 -------------
@@ -63,7 +63,7 @@ on. If a state can't be found in any of the grandparents, the pause state
 in SceneTree is used. This means that, by default, when the game is paused
 every node will be paused. Several things happen when a node stops processing.
 
-The ``_process``, ``_physics_process``, ``_input``, and ``_input_event`` functions
+The `_process`, `_physics_process`, `_input`, and `_input_event` functions
 will not be called. However signals still work and cause their connected function to
 run, even if that function's script is attached to a node that has its pause
 mode set to "Stop".
@@ -75,7 +75,7 @@ automatically when the game is no longer paused.
 It is important to note that even if a node is processing while the game is
 paused physics will **NOT** work for it by default. As stated earlier this is
 because the physics servers are turned off. The physics servers can be made
-active while the game is paused by using their ``set_active`` methods.
+active while the game is paused by using their `set_active` methods.
 
 Pause Menu Example
 ------------------

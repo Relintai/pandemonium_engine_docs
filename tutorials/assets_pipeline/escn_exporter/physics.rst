@@ -30,8 +30,8 @@ are supported:
 .. image:: img/collision_shapes.jpg
 
 There are the following caveats:
- - Not all of the collision shapes are supported. Only ``Mesh``, ``Convex
-   Hull``, ``Capsule``, ``Sphere`` and ``Box`` are supported in both Blender and
+ - Not all of the collision shapes are supported. Only `Mesh`, `Convex
+   Hull`, `Capsule`, `Sphere` and `Box` are supported in both Blender and
    Godot
  - In Godot, you can have different collision groups and collision masks. In
    Blender you only have collision groups. As a result, the exported object's

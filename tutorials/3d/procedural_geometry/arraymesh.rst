@@ -8,15 +8,15 @@ This tutorial will present the basics of using an `ArrayMesh`.
 To do so, we will use the function `add_surface_from_arrays()`,
 which takes up to four parameters. The first two are required, while the second two are optional.
 
-The first parameter is the ``PrimitiveType``, an OpenGL concept that instructs the GPU
+The first parameter is the `PrimitiveType`, an OpenGL concept that instructs the GPU
 how to arrange the primitive based on the vertices given, i.e. whether they represent triangles,
 lines, points, etc. See `Mesh.PrimitiveType <enum_Mesh_PrimitiveType>` for the options available.
 
-The second parameter, ``arrays``, is the actual Array that stores the mesh information. The array is a
-normal Godot array that is constructed with empty brackets ``[]``. It stores a ``Pool**Array``
+The second parameter, `arrays`, is the actual Array that stores the mesh information. The array is a
+normal Godot array that is constructed with empty brackets `[]`. It stores a `Pool**Array`
 (e.g. PoolVector3Array, PoolIntArray, etc.) for each type of information that will be used to build the surface.
 
-The possible elements of ``arrays`` are listed below, together with the position they must have within ``arrays``.
+The possible elements of `arrays` are listed below, together with the position they must have within `arrays`.
 See also `Mesh.ArrayType <enum_Mesh_ArrayType>`.
 
 
@@ -31,46 +31,46 @@ See also `Mesh.ArrayType <enum_Mesh_ArrayType>`.
       - Array type
 
     * - 0
-      - ``ARRAY_VERTEX``
+      - `ARRAY_VERTEX`
       - `PoolVector3Array`
 
     * - 1
-      - ``ARRAY_NORMAL``
+      - `ARRAY_NORMAL`
       - `PoolVector3Array`
 
     * - 2
-      - ``ARRAY_TANGENT``
+      - `ARRAY_TANGENT`
       - `PoolRealArray` of groups of 4 floats. First 3 floats determine the tangent, and
         the last the binormal direction as -1 or 1.
 
     * - 3
-      - ``ARRAY_COLOR``
+      - `ARRAY_COLOR`
       - `PoolColorArray`
 
     * - 4
-      - ``ARRAY_TEX_UV``
+      - `ARRAY_TEX_UV`
       - `PoolVector2Array`
 
     * - 5
-      - ``ARRAY_TEX_UV2``
+      - `ARRAY_TEX_UV2`
       - `PoolVector2Array`
 
     * - 6
-      - ``ARRAY_BONES``
+      - `ARRAY_BONES`
       - `PoolRealArray` of groups of 4 ints. Each group lists indexes of 4 bones that affects a given vertex.
 
     * - 7
-      - ``ARRAY_WEIGHTS``
-      - `PoolRealArray` of groups of 4 floats. Each float lists the amount of weight an determined bone on ``ARRAY_BONES`` has on a given vertex.
+      - `ARRAY_WEIGHTS`
+      - `PoolRealArray` of groups of 4 floats. Each float lists the amount of weight an determined bone on `ARRAY_BONES` has on a given vertex.
 
     * - 8
-      - ``ARRAY_INDEX``
+      - `ARRAY_INDEX`
       - `PoolIntArray`
 
 The array of vertices (at index 0) is always required. The index array is optional and will only be used if included. We won't use it in this tutorial.
 
-All the other arrays carry information about the vertices. They are also optional and will only be used if included. Some of these arrays (e.g. ``ARRAY_COLOR``)
-use one entry per vertex to provide extra information about vertices. They must have the same size as the vertex array. Other arrays (e.g. ``ARRAY_TANGENT``) use
+All the other arrays carry information about the vertices. They are also optional and will only be used if included. Some of these arrays (e.g. `ARRAY_COLOR`)
+use one entry per vertex to provide extra information about vertices. They must have the same size as the vertex array. Other arrays (e.g. `ARRAY_TANGENT`) use
 four entries to describe a single vertex. These must be exactly four times larger than the vertex array.
 
 For normal usage, the last two parameters in `add_surface_from_arrays()` are typically left empty.
@@ -84,7 +84,7 @@ from code without creating one.
 
 Next, add a script to the MeshInstance.
 
-Under ``_ready()``, create a new Array.
+Under `_ready()`, create a new Array.
 
 gdscript GDScript
 
@@ -94,7 +94,7 @@ gdscript GDScript
 
 This will be the array that we keep our surface information in - it will hold
 all the arrays of data that the surface needs. Godot will expect it to be of
-size ``Mesh.ARRAY_MAX``, so resize it accordingly.
+size `Mesh.ARRAY_MAX`, so resize it accordingly.
 
 gdscript GDScript
 
@@ -115,7 +115,7 @@ gdscript GDScript
 ```
 
 Once you have filled your data arrays with your geometry you can create a mesh
-by adding each array to ``surface_array`` and then committing to the mesh.
+by adding each array to `surface_array` and then committing to the mesh.
 
 gdscript GDScript
 
@@ -128,7 +128,7 @@ gdscript GDScript
     mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
 ```
 
-.. note:: In this example, we used ``Mesh.PRIMITIVE_TRIANGLES``, but you can use any primitive type
+.. note:: In this example, we used `Mesh.PRIMITIVE_TRIANGLES`, but you can use any primitive type
           available from mesh.
 
 Put together, the full code looks like:

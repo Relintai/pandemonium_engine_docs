@@ -12,10 +12,10 @@ Godot versioning
 ----------------
 
 Godot loosely follows `Semantic Versioning <https://semver.org/>`__ with a
-``major.minor.patch`` versioning system, albeit with an interpretation of each
+`major.minor.patch` versioning system, albeit with an interpretation of each
 term adapted to the complexity of a game engine:
 
-- The ``major`` version is incremented when major compatibility breakages happen
+- The `major` version is incremented when major compatibility breakages happen
   which imply significant porting work to move projects from one major version
   to another.
 
@@ -23,7 +23,7 @@ term adapted to the complexity of a game engine:
   running the project through a conversion tool, and then performing a number
   of further adjustments manually for what the tool could not do automatically.
 
-- The ``minor`` version is incremented for feature releases which do not break
+- The `minor` version is incremented for feature releases which do not break
   compatibility in a major way. Minor compatibility breakage in very specific
   areas *may* happen in minor versions, but the vast majority of projects
   should not be affected or require significant porting work.
@@ -40,7 +40,7 @@ term adapted to the complexity of a game engine:
     but some testing is necessary to ensure that your project still behaves as
     expected in a new minor version.
 
-- The ``patch`` version is incremented for maintenance releases which focus on
+- The `patch` version is incremented for maintenance releases which focus on
   fixing bugs and security issues, implementing new requirements for platform
   support, and backporting safe usability enhancements. Patch releases are
   backwards compatible.
@@ -53,18 +53,18 @@ term adapted to the complexity of a game engine:
     Updating to new patch versions is therefore considered safe and strongly
     recommended to all users of a given stable branch.
 
-We call ``major.minor`` combinations *stable branches*. Each stable branch
-starts with a ``major.minor`` release (without the ``0`` for ``patch``) and is
+We call `major.minor` combinations *stable branches*. Each stable branch
+starts with a `major.minor` release (without the `0` for `patch`) and is
 further developed for maintenance releases in a Git branch of the same name
 (for example patch updates for the 3.3 stable branch are developed in the
-``3.3`` Git branch).
+`3.3` Git branch).
 
 .. note::
 
     As mentioned in the introduction, Godot's release policy is evolving, and
     earlier Godot releases may not have followed the above rules to the letter.
     In particular, the 3.2 stable branch received a number of new features in
-    3.2.2 which would have warranted a ``minor`` version increment.
+    3.2.2 which would have warranted a `minor` version increment.
 
 Release support timeline
 ------------------------

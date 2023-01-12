@@ -14,7 +14,7 @@ Creating icons
 To create new icons, you first need a vector graphics editor installed.
 For instance, you can use the open source `Inkscape <https://inkscape.org/>`_ editor.
 
-Clone the ``godot`` repository containing all the editor icons:
+Clone the `godot` repository containing all the editor icons:
 
 .. code-block:: bash
 
@@ -29,9 +29,9 @@ two main requirements to follow:
   You can create a 16×16 grid in Inkscape to make this easier.
 
 Once you're satisfied with the icon's design, save the icon in the cloned
-repository's ``editor/icons`` folder. The icon name should match the intended
+repository's `editor/icons` folder. The icon name should match the intended
 name in a case-sensitive manner. For example, to create an icon for
-CPUParticles2D, name the file ``CPUParticles2D.svg``.
+CPUParticles2D, name the file `CPUParticles2D.svg`.
 
 Color conversion for light editor themes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,17 +53,17 @@ optimized before being added to the engine, to do so:
 1. Install `svgcleaner <https://github.com/RazrFalcon/svgcleaner>`__
    by downloading a binary from its
    `Releases tab <https://github.com/RazrFalcon/svgcleaner/releases/latest>`__
-   and placing it into a location in your ``PATH`` environment variable.
+   and placing it into a location in your `PATH` environment variable.
 
-2. Run the command below, replacing ``svg_source.svg`` with the path to your
+2. Run the command below, replacing `svg_source.svg` with the path to your
    SVG file (which can be a relative or absolute path):
 
    .. code-block:: bash
 
        svgcleaner --multipass svg_source.svg svg_optimized.svg
 
-The ``--multipass`` switch improves compression, so make sure to include it.
-The optimized icon will be saved to ``svg_optimized.svg``. You can also change
+The `--multipass` switch improves compression, so make sure to include it.
+The optimized icon will be saved to `svg_optimized.svg`. You can also change
 the destination parameter to any relative or absolute path you'd like.
 
 .. note::
@@ -77,7 +77,7 @@ Integrating and sharing the icons
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you're contributing to the engine itself, you should make a pull request to
-add optimized icons to ``editor/icons`` in the main repository. Recompile the
+add optimized icons to `editor/icons` in the main repository. Recompile the
 engine to make it pick up new icons for classes.
 
 It's also possible to create custom icons within a module. If you're creating
@@ -95,7 +95,7 @@ If icons don't appear in the editor, make sure that:
 
 1. Each icon's filename matches the naming requirement as described previously.
 
-2. ``modules/svg`` is enabled (it should be enabled by default). Without it,
+2. `modules/svg` is enabled (it should be enabled by default). Without it,
    icons won't appear in the editor at all.
 
 References

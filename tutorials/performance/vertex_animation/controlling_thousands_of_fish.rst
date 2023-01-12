@@ -18,7 +18,7 @@ First create a Particles node. Then, under "Draw Passes" set the Particle's "Dra
 `Mesh`. Then under "Process Material" create a new
 `ShaderMaterial`.
 
-Set the ``shader_type`` to ``particles``.
+Set the `shader_type` to `particles`.
 
 .. code-block:: glsl
 
@@ -49,19 +49,19 @@ Then add the following two functions:
   }
 
 These functions come from the default `ParticlesMaterial`.
-They are used to generate a random number from each particle's ``RANDOM_SEED``.
+They are used to generate a random number from each particle's `RANDOM_SEED`.
 
 A unique thing about particle shaders is that some built-in variables are saved across frames.
-``TRANSFORM``, ``COLOR``, and ``CUSTOM`` can all be accessed in the Spatial shader of the mesh, and
+`TRANSFORM`, `COLOR`, and `CUSTOM` can all be accessed in the Spatial shader of the mesh, and
 also in the particle shader the next time it is run.
 
-Next, setup your ``vertex`` function. Particles shaders only contain a vertex function
+Next, setup your `vertex` function. Particles shaders only contain a vertex function
 and no others.
 
 First we will distinguish between code that needs to be run only when the particle system starts
 and code that should always run. We want to give each fish a random position and a random animation
-offset when the system is first run. To do so, we wrap that code in an ``if`` statement that checks the
-built-in variable ``RESTART`` which becomes ``true`` for one frame when the particle system is restarted.
+offset when the system is first run. To do so, we wrap that code in an `if` statement that checks the
+built-in variable `RESTART` which becomes `true` for one frame when the particle system is restarted.
 
 From a high level, this looks like:
 
@@ -78,7 +78,7 @@ From a high level, this looks like:
 Next, we need to generate 4 random numbers: 3 to create a random position and one for the random
 offset of the swim cycle.
 
-First, generate 4 seeds inside the ``RESTART`` block using the ``hash`` function provided above:
+First, generate 4 seeds inside the `RESTART` block using the `hash` function provided above:
 
 .. code-block:: glsl
 
@@ -87,7 +87,7 @@ First, generate 4 seeds inside the ``RESTART`` block using the ``hash`` function
   uint alt_seed3 = hash(NUMBER + uint(43) + RANDOM_SEED);
   uint alt_seed4 = hash(NUMBER + uint(111) + RANDOM_SEED);
 
-Then, use those seeds to generate random numbers using ``rand_from_seed``:
+Then, use those seeds to generate random numbers using `rand_from_seed`:
 
 .. code-block:: glsl
 
@@ -96,39 +96,39 @@ Then, use those seeds to generate random numbers using ``rand_from_seed``:
                        rand_from_seed(alt_seed3) * 2.0 - 1.0,
                        rand_from_seed(alt_seed4) * 2.0 - 1.0);
 
-Finally, assign ``position`` to ``TRANSFORM[3].xyz``, which is the part of the transform that holds
+Finally, assign `position` to `TRANSFORM[3].xyz`, which is the part of the transform that holds
 the position information.
 
 .. code-block:: glsl
 
   TRANSFORM[3].xyz = position * 20.0;
 
-Remember, all this code so far goes inside the ``RESTART`` block.
+Remember, all this code so far goes inside the `RESTART` block.
 
 The vertex shader for your mesh can stay the exact same as it was in the previous tutorial.
 
-Now you can move each fish individually each frame, either by adding to the ``TRANSFORM`` directly
-or by writing to ``VELOCITY``.
+Now you can move each fish individually each frame, either by adding to the `TRANSFORM` directly
+or by writing to `VELOCITY`.
 
-Let's transform the fish by setting their ``VELOCITY``.
+Let's transform the fish by setting their `VELOCITY`.
 
 .. code-block:: glsl
 
   VELOCITY.z = 10.0;
 
-This is the most basic way to set ``VELOCITY`` every particle (or fish) will have the same velocity.
+This is the most basic way to set `VELOCITY` every particle (or fish) will have the same velocity.
 
-Just by setting ``VELOCITY`` you can make the fish swim however you want. For example, try the code
+Just by setting `VELOCITY` you can make the fish swim however you want. For example, try the code
 below.
 
 .. code-block:: glsl
 
   VELOCITY.z = cos(TIME + CUSTOM.x * 6.28) * 4.0 + 6.0;
 
-This will give each fish a unique speed between ``2`` and ``10``.
+This will give each fish a unique speed between `2` and `10`.
 
-If you used ``CUSTOM.y`` in the last tutorial, you can also set the speed of the swim animation based
-on the ``VELOCITY``. Just use ``CUSTOM.y``.
+If you used `CUSTOM.y` in the last tutorial, you can also set the speed of the swim animation based
+on the `VELOCITY`. Just use `CUSTOM.y`.
 
 .. code-block:: glsl
 
@@ -139,6 +139,6 @@ This code gives you the following behavior:
 .. image:: img/scene.gif
 
 Using a ParticlesMaterial you can make the fish behavior as simple or complex as you like. In this
-tutorial we only set Velocity, but in your own Shaders you can also set ``COLOR``, rotation, scale
-(through ``TRANSFORM``). Please refer to the `Particles Shader Reference <doc_particle_shader>`
+tutorial we only set Velocity, but in your own Shaders you can also set `COLOR`, rotation, scale
+(through `TRANSFORM`). Please refer to the `Particles Shader Reference <doc_particle_shader>`
 for more information on particle shaders.

@@ -60,7 +60,7 @@ is much more streamlined. Rather than having to...
 
    2. (Property method)
 
-      1. Scroll down to the bottom of the Inspector to find the ``script`` property and select it.
+      1. Scroll down to the bottom of the Inspector to find the `script` property and select it.
 
       2. Select "Load" from the dropdown.
 
@@ -134,9 +134,9 @@ As the size of objects increases, the scripts' necessary size to create and
 initialize them grows much larger. Creating node hierarchies demonstrates this.
 Each Node's logic could be several hundred lines of code in length.
 
-The code example below creates a new ``Node``, changes its name, assigns a
+The code example below creates a new `Node`, changes its name, assigns a
 script to it, sets its future parent as its owner so it gets saved to disk along
-with it, and finally adds it as a child of the ``Main`` node:
+with it, and finally adds it as a child of the `Main` node:
 
 gdscript GDScript
 

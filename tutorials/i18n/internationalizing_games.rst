@@ -136,9 +136,9 @@ Translating the project name
 
 The project name becomes the app name when exporting to different
 operating systems and platforms. To specify the project name in more
-than one language, create a new setting ``application/name`` in the **Project
+than one language, create a new setting `application/name` in the **Project
 Settings** and append the locale identifier to it.
-For instance, for Spanish, this would be ``application/name_es``:
+For instance, for Spanish, this would be `application/name_es`:
 
 .. image:: img/localized_name.png
 

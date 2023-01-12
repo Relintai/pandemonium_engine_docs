@@ -6,13 +6,13 @@ Spatial Material
 Introduction
 ------------
 
-``SpatialMaterial`` is a default 3D material that aims to provide most of the features
+`SpatialMaterial` is a default 3D material that aims to provide most of the features
 artists look for in a material, without the need for writing shader code. However,
 it can be converted to shader code if additional functionality is needed.
 
-This tutorial explains most parameters present in ``SpatialMaterial``.
+This tutorial explains most parameters present in `SpatialMaterial`.
 
-There are 4 ways to add a ``SpatialMaterial`` to an object. It can be added in
+There are 4 ways to add a `SpatialMaterial` to an object. It can be added in
 the *Material* property of the mesh. It can be added in the *Material* property of
 the node using the mesh (such as a MeshInstance node), the *Material Override* property
 of the node using the mesh, and the *Material Overlay*.
@@ -163,7 +163,7 @@ option on will help them look correct.
 Parameters
 -----------
 
-``SpatialMaterial`` also has several configurable parameters to tweak
+`SpatialMaterial` also has several configurable parameters to tweak
 many aspects of the rendering:
 
 .. image:: img/spatial_material5.png
@@ -299,7 +299,7 @@ make it black and unshaded, reverse culling (Cull Front), and add some grow:
 Use Alpha Scissor
 ~~~~~~~~~~~~~~~~~
 
-When transparency other than ``0`` or ``1`` is not needed, it's possible to
+When transparency other than `0` or `1` is not needed, it's possible to
 set a threshold to prevent the object from rendering semi-transparent pixels.
 
 .. image:: img/spatial_material12.png
@@ -338,10 +338,10 @@ less diffuse/ambient light affects the material and the more light is reflected.
 This model is called "energy-conserving".
 
 The *Specular* parameter is a general amount for the reflectivity (unlike
-*Metallic*, this is not energy-conserving, so leave it at ``0.5`` and don't touch
+*Metallic*, this is not energy-conserving, so leave it at `0.5` and don't touch
 it unless you need to).
 
-The minimum internal reflectivity is ``0.04``, so it's impossible to make a
+The minimum internal reflectivity is `0.04`, so it's impossible to make a
 material completely unreflective, just like in real life.
 
 .. image:: img/spatial_material13.png
@@ -349,8 +349,8 @@ material completely unreflective, just like in real life.
 Roughness
 ~~~~~~~~~
 
-*Roughness* affects the way reflection happens. A value of ``0`` makes it a
-perfect mirror while a value of ``1`` completely blurs the reflection (simulating
+*Roughness* affects the way reflection happens. A value of `0` makes it a
+perfect mirror while a value of `1` completely blurs the reflection (simulating
 natural microsurfacing). Most common types of materials can be achieved with
 the right combination of *Metallic* and *Roughness*.
 
@@ -398,8 +398,8 @@ which just use the emission channel, this one actually takes light into account
 .. image:: img/spatial_material17.png
 
 Rim size depends on roughness, and there is a special parameter to specify how
-it must be colored. If *Tint* is ``0``, the color of the light is used for the
-rim. If *Tint* is ``1``, then the albedo of the material is used. Using
+it must be colored. If *Tint* is `0`, the color of the light is used for the
+rim. If *Tint* is `1`, then the albedo of the material is used. Using
 intermediate values generally works best.
 
 Clearcoat

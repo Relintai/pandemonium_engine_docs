@@ -20,9 +20,9 @@ For compiling under Windows, the following is required:
   **Make sure to read "Installing Visual Studio caveats" below or you
   will have to run/download the installer again.**
 - `MinGW-w64 <http://mingw-w64.org/>`__ with GCC can be used as an alternative to
-  Visual Studio. Be sure to install/configure it to use the ``posix`` thread model.
+  Visual Studio. Be sure to install/configure it to use the `posix` thread model.
 - `Python 3.5+ <https://www.python.org/downloads/windows/>`_.
-  **Make sure to enable the option to add Python to the ``PATH`` in the installer.**
+  **Make sure to enable the option to add Python to the `PATH` in the installer.**
 - `SCons <https://www.scons.org/>`_ build system. Using the latest release is
   recommended, especially for proper support of recent Visual Studio releases.
 
@@ -54,23 +54,23 @@ To install SCons, open the command prompt and run the following command::
     python -m pip install scons
 
 If you are prompted with the message
-``Defaulting to user installation because normal site-packages is not
-writeable``, you may have to run that command again using elevated
+`Defaulting to user installation because normal site-packages is not
+writeable`, you may have to run that command again using elevated
 permissions. Open a new command prompt as an Administrator then run the command
-again to ensure that SCons is available from the ``PATH``.
+again to ensure that SCons is available from the `PATH`.
 
 To check whether you have installed Python and SCons correctly, you can
-type ``python --version`` and ``scons --version`` into a command prompt
-(``cmd.exe``).
+type `python --version` and `scons --version` into a command prompt
+(`cmd.exe`).
 
-If the commands above don't work, make sure to add Python to your ``PATH``
+If the commands above don't work, make sure to add Python to your `PATH`
 environment variable after installing it, then check again.
 You can do so by running the Python installer again and enabling the option
-to add Python to the ``PATH``.
+to add Python to the `PATH`.
 
 If SCons cannot detect your Visual Studio installation, it might be that your
 SCons version is too old. Update it to the latest version with
-``python -m pip install --upgrade scons``.
+`python -m pip install --upgrade scons`.
 
 .. _doc_compiling_for_windows_install_vs:
 
@@ -94,7 +94,7 @@ Downloading Godot's source
 Refer to `doc_getting_source` for detailed instructions.
 
 The tutorial will assume from now on that you placed the source code in
-``C:\godot``.
+`C:\godot`.
 
 .. warning::
 
@@ -117,9 +117,9 @@ Selecting a compiler
 SCons will automatically find and use an existing Visual Studio installation.
 If you do not have Visual Studio installed, it will attempt to use
 MinGW instead. If you already have Visual Studio installed and want to
-use MinGW, pass ``use_mingw=yes`` to the SCons command line. Note that MSVC
+use MinGW, pass `use_mingw=yes` to the SCons command line. Note that MSVC
 builds cannot be performed from the MSYS2 or MinGW shells. Use either
-``cmd.exe`` or PowerShell instead.
+`cmd.exe` or PowerShell instead.
 
 During development, using the Visual Studio compiler is usually a better idea,
 as it links the Godot binary much faster than MinGW. However, MinGW can
@@ -130,7 +130,7 @@ Running SCons
 ~~~~~~~~~~~~~
 
 After opening a command prompt, change to the root directory of
-the engine source code (using ``cd``) and type::
+the engine source code (using `cd`) and type::
 
     C:\godot> scons platform=windows
 
@@ -139,34 +139,34 @@ You can specify a number of CPU threads to use to speed up the build::
     C:\godot> scons -j6 platform=windows
 
 In general, it is OK to have at least as many threads compiling Godot as you
-have cores in your CPU, if not one or two more. Feel free to add the ``-j``
+have cores in your CPU, if not one or two more. Feel free to add the `-j`
 option to any SCons command you see below.
 
 .. note:: When compiling with multiple CPU threads, SCons may warn about
           pywin32 being missing. You can safely ignore this warning.
 
 If all goes well, the resulting binary executable will be placed in
-``C:\godot\bin\`` with the name ``godot.windows.tools.32.exe`` or
-``godot.windows.tools.64.exe``. By default, SCons will build a binary matching
-your CPU architecture, but this can be overridden using ``bits=64`` or
-``bits=32``.
+`C:\godot\bin\` with the name `godot.windows.tools.32.exe` or
+`godot.windows.tools.64.exe`. By default, SCons will build a binary matching
+your CPU architecture, but this can be overridden using `bits=64` or
+`bits=32`.
 
 This executable file contains the whole engine and runs without any
 dependencies. Running it will bring up the Project Manager.
 
 .. note:: If you are compiling Godot for production use, then you can
           make the final executable smaller and faster by adding the
-          SCons option ``target=release_debug``.
+          SCons option `target=release_debug`.
 
           If you are compiling Godot with MinGW, you can make the binary
-          even smaller and faster by adding the SCons option ``use_lto=yes``.
+          even smaller and faster by adding the SCons option `use_lto=yes`.
           As link-time optimization is a memory-intensive process,
           this will require about 7 GB of available RAM while compiling.
 
 .. note:: If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
           `doc_data_paths_self_contained_mode` by creating a file called
-          ``._sc_`` or ``_sc_`` in the ``bin/`` folder.
+          `._sc_` or `_sc_` in the `bin/` folder.
 
 Development in Visual Studio
 ----------------------------
@@ -179,7 +179,7 @@ Folder-based editors don't require any particular setup to start working with Go
 codebase. To edit projects with Visual Studio they need to be set up as a solution.
 
 You can create a Visual Studio solution via SCons by running SCons with
-the ``vsproj=yes`` parameter, like this::
+the `vsproj=yes` parameter, like this::
 
    scons p=windows vsproj=yes
 
@@ -221,12 +221,12 @@ here are some known ones:
 .. _mingw-w64-gcc from the AUR: https://aur.archlinux.org/packages/mingw-w64-gcc/
 
 Before attempting the compilation, SCons will check for
-the following binaries in your ``PATH`` environment variable::
+the following binaries in your `PATH` environment variable::
 
     i686-w64-mingw32-gcc
     x86_64-w64-mingw32-gcc
 
-If the binaries are not located in the ``PATH`` (e.g. ``/usr/bin``),
+If the binaries are not located in the `PATH` (e.g. `/usr/bin`),
 you can define the following environment variables to give a hint to
 the build system::
 
@@ -274,8 +274,8 @@ with the following flags::
     C:\godot> scons platform=windows tools=no target=release bits=64
 
 If you plan on replacing the standard export templates, copy these to the
-following location, replacing ``<version>`` with the version identifier
-(such as ``3.1.1.stable`` or ``3.2.dev``)::
+following location, replacing `<version>` with the version identifier
+(such as `3.1.1.stable` or `3.2.dev`)::
 
     %USERPROFILE%\AppData\Roaming\Godot\templates\<version>\
 
@@ -293,5 +293,5 @@ here:
 .. image:: img/wintemplates.png
 
 You don't need to copy them in this case, just reference the resulting
-files in the ``bin\`` directory of your Godot source folder, so the next
+files in the `bin\` directory of your Godot source folder, so the next
 time you build, you will automatically have the custom templates referenced.

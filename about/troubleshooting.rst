@@ -69,7 +69,7 @@ This is caused by the NVIDIA graphics driver injecting an overlay to display inf
 To disable this overlay on Windows, restore your graphics driver settings to the
 default values in the NVIDIA Control Panel.
 
-To disable this overlay on Linux, open ``nvidia-settings``, go to **X Screen 0 >
+To disable this overlay on Linux, open `nvidia-settings`, go to **X Screen 0 >
 OpenGL Settings** then uncheck **Enable Graphics API Visual Indicator**.
 
 The project window appears blurry, unlike the editor.
@@ -97,8 +97,8 @@ The project works when run from the editor, but fails to load some files when ru
 This is usually caused by forgetting to specify a filter for non-resource files
 in the Export dialog. By default, Godot will only include actual *resources*
 into the PCK file. Some files commonly used, such as JSON files, are not
-considered resources. For example, if you load ``test.json`` in the exported
-project, you need to specify ``*.json`` in the non-resource export filter. See
+considered resources. For example, if you load `test.json` in the exported
+project, you need to specify `*.json` in the non-resource export filter. See
 `doc_exporting_projects_export_mode` for more information.
 
 On Windows, this can also be due to `case sensitivity

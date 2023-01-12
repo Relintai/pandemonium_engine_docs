@@ -135,14 +135,14 @@ Create a scene with a Spatial node as root node.
 
 .. image:: img/csg_overdraw.png
 
-Create a CSGBox and name it ``room``, enable **Invert Faces** and change the
+Create a CSGBox and name it `room`, enable **Invert Faces** and change the
 dimensions of your room.
 
 .. image:: img/csg_room.png
 
 .. image:: img/csg_room_invert.png
 
-Next, create a CSGCombiner and name it ``desk``.
+Next, create a CSGCombiner and name it `desk`.
 
 A desk has one surface and 4 legs:
 
@@ -159,7 +159,7 @@ Adjust their placement to resemble a desk.
           within the combiner. Therefore, CSGCombiners are used to organize
           CSG nodes.
 
-Create a CSGCombiner and name it ``bed``.
+Create a CSGCombiner and name it `bed`.
 
 Our bed consists of 3 parts: the bed, the mattress and a pillow. Create a CSGBox
 and adjust its dimension for the bed. Create another CSGBox and adjust its
@@ -167,7 +167,7 @@ dimension for the mattress.
 
 .. image:: img/csg_bed_mat.png
 
-We will create another CSGCombiner named ``pillow`` as the child of  ``bed``.
+We will create another CSGCombiner named `pillow` as the child of  `bed`.
 The scene tree should look like this:
 
 .. image:: img/csg_bed_tree.png
@@ -177,12 +177,12 @@ Y axis of the spheres and enable **Smooth Faces**.
 
 .. image:: img/csg_pillow_smooth.png
 
-Select the ``pillow`` node and switch the mode to **Subtraction**; the combined
+Select the `pillow` node and switch the mode to **Subtraction**; the combined
 spheres will cut a hole into the mattress.
 
 .. image:: img/csg_pillow_hole.png
 
-Try to re-parent the ``pillow`` node to the root ``Spatial`` node; the hole will
+Try to re-parent the `pillow` node to the root `Spatial` node; the hole will
 disappear.
 
 .. note:: This is to illustrate the effect of CSG processing order.
@@ -195,7 +195,7 @@ like this:
 
 .. image:: img/csg_bed.png
 
-Create a CSGCombiner and name it ``lamp``.
+Create a CSGCombiner and name it `lamp`.
 
 A lamp consists of 3 parts: the stand, the pole and the lampshade.
 Create a CSGCylinder, enable the **Cone** option and make it the stand. Create
@@ -218,7 +218,7 @@ Adjust the placement of the 3 parts to make it look like a lamp.
 
 .. image:: img/csg_lamp.png
 
-Create a CSGCombiner and name it ``bookshelf``.
+Create a CSGCombiner and name it `bookshelf`.
 
 We will use 3 CSGBox nodes for the bookshelf. Create a CSGBox and adjust its
 dimensions; this will be the size of the bookshelf.

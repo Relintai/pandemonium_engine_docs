@@ -11,7 +11,7 @@ created and then enabled/disabled. This allows for adding new engine
 functionality at every level without modifying the core, which can be
 split for use and reuse in different modules.
 
-Modules are located in the ``modules/`` subdirectory of the build system.
+Modules are located in the `modules/` subdirectory of the build system.
 By default, dozens of modules are enabled, such as GDScript (which, yes,
 is not part of the base engine), the Mono runtime, a regular expressions
 module, and others. As many new modules as desired can be
@@ -38,10 +38,10 @@ Before creating a module, make sure to `download the source code of Godot
 and compile it <toc-devel-compiling>`.
 
 To create a new module, the first step is creating a directory inside
-``modules/``. If you want to maintain the module separately, you can checkout
+`modules/`. If you want to maintain the module separately, you can checkout
 a different VCS into modules and use it.
 
-The example module will be called "summator" (``godot/modules/summator``).
+The example module will be called "summator" (`godot/modules/summator`).
 Inside we will create a simple summator class:
 
 .. code-block:: cpp
@@ -111,7 +111,7 @@ need to be created:
 
 .. important::
     These files must be in the top-level folder of your module (next to your
-    ``SCsub`` and ``config.py`` files) for the module to be registered properly.
+    `SCsub` and `config.py` files) for the module to be registered properly.
 
 These files should contain the following:
 
@@ -140,7 +140,7 @@ These files should contain the following:
        // Nothing to do here in this example.
     }
 
-Next, we need to create a ``SCsub`` file so the build system compiles
+Next, we need to create a `SCsub` file so the build system compiles
 this module:
 
 .. code-block:: python
@@ -172,8 +172,8 @@ environment's paths:
     env.Append(CPPPATH=["#myotherlib/include"]) # this is an 'absolute' path
 
 If you want to add custom compiler flags when building your module, you need to clone
-``env`` first, so it won't add those flags to whole Godot build (which can cause errors).
-Example ``SCsub`` with custom flags:
+`env` first, so it won't add those flags to whole Godot build (which can cause errors).
+Example `SCsub` with custom flags:
 
 .. code-block:: python
 
@@ -190,7 +190,7 @@ Example ``SCsub`` with custom flags:
     # - Append CXXFLAGS for C++ code only.
 
 And finally, the configuration file for the module, this is a simple
-python script that must be named ``config.py``:
+python script that must be named `config.py`:
 
 .. code-block:: python
 
@@ -203,7 +203,7 @@ python script that must be named ``config.py``:
         pass
 
 The module is asked if it's OK to build for the specific platform (in
-this case, ``True`` means it will build for every platform).
+this case, `True` means it will build for every platform).
 
 And that's it. Hope it was not too complex! Your module should look like
 this:
@@ -223,7 +223,7 @@ your module will be included.
 
 .. note:: There is a parameter limit of 5 in C++ modules for things such
           as subclasses. This can be raised to 13 by including the header
-          file ``core/method_bind_ext.gen.inc``.
+          file `core/method_bind_ext.gen.inc`.
 
 Using the module
 ----------------
@@ -239,7 +239,7 @@ You can now use your newly created module from any script:
     s.reset()
 ```
 
-The output will be ``60``.
+The output will be `60`.
 
 .. seealso:: The previous Summator example is great for small, custom modules,
   but what if you want to use a larger, external library? Refer to
@@ -258,20 +258,20 @@ Compiling a module externally
 -----------------------------
 
 Compiling a module involves moving the module's sources directly under the
-engine's ``modules/`` directory. While this is the most straightforward way to
+engine's `modules/` directory. While this is the most straightforward way to
 compile a module, there are a couple of reasons as to why this might not be a
 practical thing to do:
 
 1. Having to manually copy modules sources every time you want to compile the
    engine with or without the module, or taking additional steps needed to
    manually disable a module during compilation with a build option similar to
-   ``module_summator_enabled=no``. Creating symbolic links may also be a solution,
+   `module_summator_enabled=no`. Creating symbolic links may also be a solution,
    but you may additionally need to overcome OS restrictions like needing the
    symbolic link privilege if doing this via script.
 
 2. Depending on whether you have to work with the engine's source code, the
-   module files added directly to ``modules/`` changes the working tree to the
-   point where using a VCS (like ``git``) proves to be cumbersome as you need to
+   module files added directly to `modules/` changes the working tree to the
+   point where using a VCS (like `git`) proves to be cumbersome as you need to
    make sure that only the engine-related code is committed by filtering
    changes.
 
@@ -283,7 +283,7 @@ take our "summator" module and move it to the engine's parent directory:
     mkdir ../modules
     mv modules/summator ../modules
 
-Compile the engine with our module by providing ``custom_modules`` build option
+Compile the engine with our module by providing `custom_modules` build option
 which accepts a comma-separated list of directory paths containing custom C++
 modules, similar to the following:
 
@@ -291,12 +291,12 @@ modules, similar to the following:
 
     scons custom_modules=../modules
 
-The build system shall detect all modules under the ``../modules`` directory
+The build system shall detect all modules under the `../modules` directory
 and compile them accordingly, including our "summator" module.
 
 .. warning::
 
-    Any path passed to ``custom_modules`` will be converted to an absolute path
+    Any path passed to `custom_modules` will be converted to an absolute path
     internally as a way to distinguish between custom and built-in modules. It
     means that things like generating module documentation may rely on a
     specific path structure on your machine.
@@ -365,10 +365,10 @@ library that will be dynamically loaded when starting our game's binary.
     shared_lib_shim = shared_lib[0].name.rsplit('.', 1)[0]
     env.Append(LIBS=[shared_lib_shim])
 
-Once compiled, we should end up with a ``bin`` directory containing both the
-``godot*`` binary and our ``libsummator*.so``. However given the .so is not in
-a standard directory (like ``/usr/lib``), we have to help our binary find it
-during runtime with the ``LD_LIBRARY_PATH`` environment variable:
+Once compiled, we should end up with a `bin` directory containing both the
+`godot*` binary and our `libsummator*.so`. However given the .so is not in
+a standard directory (like `/usr/lib`), we have to help our binary find it
+during runtime with the `LD_LIBRARY_PATH` environment variable:
 
 .. code-block:: shell
 
@@ -376,13 +376,13 @@ during runtime with the ``LD_LIBRARY_PATH`` environment variable:
     ./bin/godot*
 
 .. note::
-  You have to ``export`` the environment variable. Otherwise,
+  You have to `export` the environment variable. Otherwise,
   you won't be able to run your project from the editor.
 
 On top of that, it would be nice to be able to select whether to compile our
 module as shared library (for development) or as a part of the Godot binary
 (for release). To do that we can define a custom flag to be passed to SCons
-using the ``ARGUMENT`` command:
+using the `ARGUMENT` command:
 
 .. code-block:: python
 
@@ -410,8 +410,8 @@ using the ``ARGUMENT`` command:
         # Static compilation
         module_env.add_source_files(env.modules_sources, sources)
 
-Now by default ``scons`` command will build our module as part of Godot's binary
-and as a shared library when passing ``summator_shared=yes``.
+Now by default `scons` command will build our module as part of Godot's binary
+and as a shared library when passing `summator_shared=yes`.
 
 Finally, you can even speed up the build further by explicitly specifying your
 shared module as target in the SCons command:
@@ -432,9 +432,9 @@ kind to your future self!
 There are several steps in order to setup custom docs for the module:
 
 1. Make a new directory in the root of the module. The directory name can be
-   anything, but we'll be using the ``doc_classes`` name throughout this section.
+   anything, but we'll be using the `doc_classes` name throughout this section.
 
-2. Now, we need to edit ``config.py``, add the following snippet:
+2. Now, we need to edit `config.py`, add the following snippet:
 
    .. code-block:: python
 
@@ -446,21 +446,21 @@ There are several steps in order to setup custom docs for the module:
                 "Summator",
             ]
 
-The ``get_doc_path()`` function is used by the build system to determine
+The `get_doc_path()` function is used by the build system to determine
 the location of the docs. In this case, they will be located in the
-``modules/summator/doc_classes`` directory. If you don't define this,
-the doc path for your module will fall back to the main ``doc/classes``
+`modules/summator/doc_classes` directory. If you don't define this,
+the doc path for your module will fall back to the main `doc/classes`
 directory.
 
-The ``get_doc_classes()`` method is necessary for the build system to
+The `get_doc_classes()` method is necessary for the build system to
 know which registered classes belong to the module. You need to list all of your
 classes here. The classes that you don't list will end up in the
-main ``doc/classes`` directory.
+main `doc/classes` directory.
 
 .. tip::
 
     You can use Git to check if you have missed some of your classes by checking the
-    untracked files with ``git status``. For example::
+    untracked files with `git status`. For example::
 
         user@host:~/godot$ git status
 
@@ -478,8 +478,8 @@ main ``doc/classes`` directory.
 
 3. Now we can generate the documentation:
 
-We can do this via running Godot's doctool i.e. ``godot --doctool <path>``,
-which will dump the engine API reference to the given ``<path>`` in XML format.
+We can do this via running Godot's doctool i.e. `godot --doctool <path>`,
+which will dump the engine API reference to the given `<path>` in XML format.
 
 In our case we'll point it to the root of the cloned repository. You can point it
 to an another folder, and just copy over the files that you need.
@@ -490,9 +490,9 @@ Run command:
 
       user@host:~/godot/bin$ ./bin/<godot_binary> --doctool .
 
-Now if you go to the ``godot/modules/summator/doc_classes`` folder, you will see
-that it contains a ``Summator.xml`` file, or any other classes, that you referenced
-in your ``get_doc_classes`` function.
+Now if you go to the `godot/modules/summator/doc_classes` folder, you will see
+that it contains a `Summator.xml` file, or any other classes, that you referenced
+in your `get_doc_classes` function.
 
 Edit the file(s) following `doc_updating_the_class_reference` and recompile the engine.
 
@@ -507,7 +507,7 @@ the things that you previously added. Of course if you point it to your godot
 folder, make sure you don't lose work by extracting older docs from an older engine build
 on top of the newer ones.
 
-Note that if you don't have write access rights to your supplied ``<path>``,
+Note that if you don't have write access rights to your supplied `<path>`,
 you might encounter an error similar to the following:
 
 .. code-block:: console
@@ -529,16 +529,16 @@ please refer to `doc_editor_icons` first.
 
 Once you've created your icon(s), proceed with the following steps:
 
-1. Make a new directory in the root of the module named ``icons``. This is the
+1. Make a new directory in the root of the module named `icons`. This is the
    default path for the engine to look for module's editor icons.
 
-2. Move your newly created ``svg`` icons (optimized or not) into that folder.
+2. Move your newly created `svg` icons (optimized or not) into that folder.
 
 3. Recompile the engine and run the editor. Now the icon(s) will appear in
    editor's interface where appropriate.
 
 If you'd like to store your icons somewhere else within your module,
-add the following code snippet to ``config.py`` to override the default path:
+add the following code snippet to `config.py` to override the default path:
 
    .. code-block:: python
 
@@ -550,8 +550,8 @@ Summing up
 
 Remember to:
 
--  use ``GDCLASS`` macro for inheritance, so Godot can wrap it
--  use ``_bind_methods`` to bind your functions to scripting, and to
+-  use `GDCLASS` macro for inheritance, so Godot can wrap it
+-  use `_bind_methods` to bind your functions to scripting, and to
    allow them to work as callbacks for signals.
 
 But this is not all, depending what you do, you will be greeted with

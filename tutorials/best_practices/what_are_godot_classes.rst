@@ -23,7 +23,7 @@ These scripts are not technically classes. Instead, they are resources that tell
 sequence of initializations to perform on one of the engine's built-in classes.
 
 Godot's internal classes have methods that register a class's data with a `ClassDB
-<class_ClassDB>`. This database provides runtime access to class information. ``ClassDB`` contains
+<class_ClassDB>`. This database provides runtime access to class information. `ClassDB` contains
 information about classes like:
 
 - Properties.
@@ -31,18 +31,18 @@ information about classes like:
 - Constants.
 - Signals.
 
-This ``ClassDB`` is what objects check against when performing an operation like accessing a
+This `ClassDB` is what objects check against when performing an operation like accessing a
 property or calling a method. It checks the database's records and the object's base types' records
 to see if the object supports the operation.
 
 Attaching a `Script` to your object extends the methods, properties, and signals
-available from the ``ClassDB``.
+available from the `ClassDB`.
 
 .. note::
 
-    Even scripts that don't use the ``extends`` keyword implicitly inherit from the engine's base
+    Even scripts that don't use the `extends` keyword implicitly inherit from the engine's base
     `Reference` class. As a result, you can instantiate scripts without the
-    ``extends`` keyword from code. Since they extend ``Reference`` though, you cannot attach them to
+    `extends` keyword from code. Since they extend `Reference` though, you cannot attach them to
     a `Node`.
 
 Scenes
@@ -50,7 +50,7 @@ Scenes
 
 The behavior of scenes has many similarities to classes, so it can make sense to think of a scene as
 a class. Scenes are reusable, instantiable, and inheritable groups of nodes. Creating a scene is
-similar to having a script that creates nodes and adds them as children using ``add_child()``.
+similar to having a script that creates nodes and adds them as children using `add_child()`.
 
 We often pair a scene with a scripted root node that makes use of the scene's nodes. As such, the
 scene is often an extension of the script's declarative code.

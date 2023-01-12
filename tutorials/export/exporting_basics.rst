@@ -40,14 +40,14 @@ In **Project > Project Settings**, under **Input Devices > Pointing**, enable
 
 We also want to ensure that the game scales consistently on different-sized screens,
 so in the project settings go to **Display**, then click on **Window**. In the **Stretch**
-options, set **Mode** to ``2d`` and **Aspect** to ``keep``.
+options, set **Mode** to `2d` and **Aspect** to `keep`.
 
 Since we are already in the **Window** settings, we should also set under **Handheld**
-the **Orientation** to ``portrait``.
+the **Orientation** to `portrait`.
 
 .. image:: img/export_handheld_stretchsettings.png
 
-Next, we need to modify the ``Player.gd`` script to change the input method.
+Next, we need to modify the `Player.gd` script to change the input method.
 We'll remove the key inputs and make the player move towards a "target" that's
 set by the touch (or click) event.
 
@@ -132,7 +132,7 @@ Setting a main scene
 The main scene is the one that your game will start in. For this
 *Dodge the Creeps* example, in
 **Project -> Project Settings -> Application -> Run**, set **Main Scene**
-to ``Main.tscn`` by clicking the folder icon and selecting it.
+to `Main.tscn` by clicking the folder icon and selecting it.
 
 Export templates
 ----------------
@@ -176,7 +176,7 @@ a packed version of your project's data. This doesn't include an executable
 so the project can't be run on its own.
 
 The second button, **Export Project**, creates a complete executable version
-of your game, such as an ``.apk`` for Android or an ``.exe`` for Windows.
+of your game, such as an `.apk` for Android or an `.exe` for Windows.
 
 In the **Resources** and **Features** tabs, you can customize how the game is
 exported for each platform. We can leave those settings alone for now.
@@ -200,8 +200,8 @@ Click **Save** and the engine will build the export files.
 .. note::
 
     When exporting for macOS, if you export from a macOS computer, you'll end up
-    with a ``.dmg`` file, while using Linux or Windows produces a ``.zip``. In
-    either case, the compressed file contains a macOS ``.app`` that you can
+    with a `.dmg` file, while using Linux or Windows produces a `.zip`. In
+    either case, the compressed file contains a macOS `.app` that you can
     double-click and run.
 
 .. note::
@@ -227,7 +227,7 @@ software:
 * Open JDK (**version 8 is required**, more recent versions won't work): https://adoptopenjdk.net/index.html
 
 When you run Android Studio for the first time, click on **Configure -> SDK Manager**
-and install **Android SDK Platform Tools**. This installs the ``adb``
+and install **Android SDK Platform Tools**. This installs the `adb`
 command-line tool that Godot uses to communicate with your device.
 
 Next, create a debug keystore by running the following command on your
@@ -305,7 +305,7 @@ files:
 
 .. image:: img/export_web_files.png
 
-Viewing the ``.html`` file in your browser lets you play the game. However, you
+Viewing the `.html` file in your browser lets you play the game. However, you
 can't open the file directly. Instead, it needs to be served by a web server. If
 you don't have one set up on your computer, you can search online to find
 suggestions for your specific OS.

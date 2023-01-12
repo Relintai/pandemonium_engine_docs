@@ -11,13 +11,13 @@ The ESCN (exported scene) file format is identical to the TSCN file format, but
 is used to indicate to Godot that the file has been exported from another
 program and should not be edited by the user from within Godot.
 Unlike SCN and TSCN files, during import, ESCN files are compiled to binary
-SCN files stored inside the ``.import/`` folder.
+SCN files stored inside the `.import/` folder.
 This reduces the data size and speeds up loading, as binary formats are faster
 to load compared to text-based formats.
 
 For those looking for a complete description, the parsing is handled in the file
 `resource_format_text.cpp <https://github.com/godotengine/godot/blob/master/scene/resources/resource_format_text.cpp>`_
-in the ``ResourceFormatLoaderText`` class.
+in the `ResourceFormatLoaderText` class.
 
 File structure
 --------------
@@ -30,34 +30,34 @@ There are five main sections inside the TSCN file:
 3. Nodes
 4. Connections
 
-The file descriptor looks like ``[gd_scene load_steps=3 format=2]`` and should
-be the first entry in the file. The ``load_steps`` parameter is equal to the
+The file descriptor looks like `[gd_scene load_steps=3 format=2]` and should
+be the first entry in the file. The `load_steps` parameter is equal to the
 total amount of resources (internal and external) plus one (for the file itself).
-If the file has no resources, ``load_steps`` is omitted. The engine will
-still load the file correctly if ``load_steps`` is incorrect, but this will affect
+If the file has no resources, `load_steps` is omitted. The engine will
+still load the file correctly if `load_steps` is incorrect, but this will affect
 loading bars and any other piece of code relying on that value.
 
 These sections should appear in order, but it can be hard to distinguish them.
 The only difference between them is the first element in the heading for all of
 the items in the section. For example, the heading of all external resources
-should start with ``[ext_resource .....]``.
+should start with `[ext_resource .....]`.
 
-A TSCN file may contain single-line comments starting with a semicolon (``;``).
+A TSCN file may contain single-line comments starting with a semicolon (`;`).
 However, comments will be discarded when saving the file using the Godot editor.
 
 Entries inside the file
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 A heading looks like
-``[<resource_type> key=value key=value key=value ...]``
+`[<resource_type> key=value key=value key=value ...]`
 where resource_type is one of:
 
-- ``ext_resource``
-- ``sub_resource``
-- ``node``
-- ``connection``
+- `ext_resource`
+- `sub_resource`
+- `node`
+- `connection`
 
-Below every heading comes zero or more ``key = value`` pairs. The
+Below every heading comes zero or more `key = value` pairs. The
 values can be complex datatypes such as Arrays, Transforms, Colors, and
 so on. For example, a spatial node looks like:
 
@@ -72,22 +72,22 @@ The scene tree
 
 The scene tree is made up of… nodes! The heading of each node consists of
 its name, parent and (most of the time) a type. For example
-``[node type="Camera" name="PlayerCamera" parent="Player/Head"]``
+`[node type="Camera" name="PlayerCamera" parent="Player/Head"]`
 
 Other valid keywords include:
 
- - ``instance``
- - ``instance_placeholder``
- - ``owner``
- - ``index`` (sets the order of appearance in the tree. If absent, inherited nodes will take precedence over plain ones)
- - ``groups``
+ - `instance`
+ - `instance_placeholder`
+ - `owner`
+ - `index` (sets the order of appearance in the tree. If absent, inherited nodes will take precedence over plain ones)
+ - `groups`
 
 The first node in the file, which is also the scene root, must not have a
-``parent=Path/To/Node`` entry in its heading. All scene files should have
+`parent=Path/To/Node` entry in its heading. All scene files should have
 exactly *one* scene root. If it doesn't, Godot will fail to import the file.
 The parent path of other nodes should be absolute, but shouldn't contain
 the scene root's name. If the node is a direct child of the scene root,
-the path should be ``"."``. Here is an example scene tree
+the path should be `"."`. Here is an example scene tree
 (but without any node content):
 
 ::
@@ -140,10 +140,10 @@ NodePath
 ~~~~~~~~
 
 A tree structure is not enough to represent the whole scene. Godot uses a
-``NodePath(Path/To/Node)`` structure to refer to another node or attribute of
+`NodePath(Path/To/Node)` structure to refer to another node or attribute of
 the node anywhere in the scene tree. For instance, MeshInstance uses
-``NodePath()`` to point to its skeleton. Likewise, Animation tracks use
-``NodePath()`` to point to node properties to animate.
+`NodePath()` to point to its skeleton. Likewise, Animation tracks use
+`NodePath()` to point to node properties to animate.
 
 ::
 
@@ -167,22 +167,22 @@ Skeleton
 ~~~~~~~~
 
 The Skeleton node inherits the Spatial node, but also may have a list of bones
-described in key-value pairs in the format ``bones/Id/Attribute=Value``. The
+described in key-value pairs in the format `bones/Id/Attribute=Value`. The
 bone attributes consist of:
 
-- ``name``
-- ``parent``
-- ``rest``
-- ``pose``
-- ``enabled``
-- ``bound_children``
+- `name`
+- `parent`
+- `rest`
+- `pose`
+- `enabled`
+- `bound_children`
 
-1. ``name`` must be the first attribute of each bone.
-2. ``parent`` is the index of parent bone in the bone list, with parent index,
+1. `name` must be the first attribute of each bone.
+2. `parent` is the index of parent bone in the bone list, with parent index,
    the bone list is built to a bone tree.
-3. ``rest`` is the transform matrix of bone in its "resting" position.
-4. ``pose`` is the pose matrix; use ``rest`` as the basis.
-5. ``bound_children`` is a list of ``NodePath()`` which point to
+3. `rest` is the transform matrix of bone in its "resting" position.
+4. `pose` is the pose matrix; use `rest` as the basis.
+5. `bound_children` is a list of `NodePath()` which point to
    BoneAttachments belonging to this bone.
 
 Here's an example of a skeleton node with two bones:
@@ -210,8 +210,8 @@ BoneAttachment
 
 BoneAttachment node is an intermediate node to describe some node being parented
 to a single bone in a Skeleton node. The BoneAttachment has a
-``bone_name=NameOfBone`` attribute, and the corresponding bone being the parent has the
-BoneAttachment node in its ``bound_children`` list.
+`bone_name=NameOfBone` attribute, and the corresponding bone being the parent has the
+BoneAttachment node in its `bound_children` list.
 
 An example of one MeshInstance parented to a bone in Skeleton:
 
@@ -241,10 +241,10 @@ AnimationPlayer
 ~~~~~~~~~~~~~~~
 
 AnimationPlayer works as an animation library. It stores animations listed in
-the format ``anim/Name=SubResource(ResourceId)``; each line refers to an
+the format `anim/Name=SubResource(ResourceId)`; each line refers to an
 Animation resource. All the animation resources use the root node of
 AnimationPlayer. The root node is stored as
-``root_node=NodePath(Path/To/Node)``.
+`root_node=NodePath(Path/To/Node)`.
 
 ::
 
@@ -266,14 +266,14 @@ Resources are components that make up the nodes. For example, a MeshInstance
 node will have an accompanying ArrayMesh resource. The ArrayMesh resource
 may be either internal or external to the TSCN file.
 
-References to the resources are handled by ``id`` numbers in the resource's
+References to the resources are handled by `id` numbers in the resource's
 heading. External resources and internal resources are referred to with
-``ExtResource(id)`` and ``SubResource(id)``, respectively. Because there
+`ExtResource(id)` and `SubResource(id)`, respectively. Because there
 have different methods to refer to internal and external resources, you can have
 the same ID for both an internal and external resource.
 
-For example, to refer to the resource ``[ext_resource id=3 type="PackedScene"
-path=....]``, you would use ``ExtResource(3)``.
+For example, to refer to the resource `[ext_resource id=3 type="PackedScene"
+path=....]`, you would use `ExtResource(3)`.
 
 External resources
 ~~~~~~~~~~~~~~~~~~
@@ -282,7 +282,7 @@ External resources are links to resources not contained within the TSCN file
 itself. An external resource consists of a path, a type and an ID.
 
 Godot always generates absolute paths relative to the resource directory and
-thus prefixed with ``res://``, but paths relative to the TSCN file's location
+thus prefixed with `res://`, but paths relative to the TSCN file's location
 are also valid.
 
 Some example external resources are:
@@ -294,7 +294,7 @@ Some example external resources are:
 
 
 Like TSCN files, a TRES file may contain single-line comments starting with a
-semicolon (``;``). However, comments will be discarded when saving the resource
+semicolon (`;`). However, comments will be discarded when saving the resource
 using the Godot editor.
 
 Internal resources
@@ -303,7 +303,7 @@ Internal resources
 A TSCN file can contain meshes, materials and other data. These are contained in
 the *internal resources* section of the file. The heading for an internal
 resource looks similar to those of external resources, except that it doesn't
-have a path. Internal resources also have ``key=value`` pairs under each
+have a path. Internal resources also have `key=value` pairs under each
 heading. For example, a capsule collision shape looks like:
 
 ::
@@ -326,21 +326,21 @@ others can only be found by looking through Godot's source.
 ArrayMesh
 ~~~~~~~~~
 
-ArrayMesh consists of several surfaces, each in the format ``surface\Index={}``.
+ArrayMesh consists of several surfaces, each in the format `surface\Index={}`.
 Each surface is a set of vertices and a material.
 
 TSCN files support two surface formats:
 
 1. For the old format, each surface has three essential keys:
 
-- ``primitive``
-- ``arrays``
-- ``morph_arrays``
+- `primitive`
+- `arrays`
+- `morph_arrays`
 
-    i. ``primitive`` is an enumerate variable, ``primitive=4`` which is
-       ``PRIMITIVE_TRIANGLES`` is frequently used.
+    i. `primitive` is an enumerate variable, `primitive=4` which is
+       `PRIMITIVE_TRIANGLES` is frequently used.
 
-    ii. ``arrays`` is a two-dimensional array, it contains:
+    ii. `arrays` is a two-dimensional array, it contains:
 
         1. Vertex positions array
         2. Normals array
@@ -352,8 +352,8 @@ TSCN files support two surface formats:
         8. Bone weights array
         9. Vertex indexes array
 
-    iii. ``morph_arrays`` is an array of morphs. Each morph is exactly an
-         ``arrays`` without the vertex indexes array.
+    iii. `morph_arrays` is an array of morphs. Each morph is exactly an
+         `arrays` without the vertex indexes array.
 
 An example of ArrayMesh:
 
@@ -381,44 +381,44 @@ An example of ArrayMesh:
 Animation
 ~~~~~~~~~
 
-An animation resource consists of tracks. Besides, it has ``length``, ``loop``
-and ``step`` applied to all the tracks.
+An animation resource consists of tracks. Besides, it has `length`, `loop`
+and `step` applied to all the tracks.
 
-1. ``length`` and ``step`` are both durations in seconds.
+1. `length` and `step` are both durations in seconds.
 
 Each track is described by a list of key-value pairs in the format
-``tracks/Id/Attribute``. Each track includes:
+`tracks/Id/Attribute`. Each track includes:
 
-- ``type``
-- ``path``
-- ``interp``
-- ``keys``
-- ``loop_wrap``
-- ``imported``
-- ``enabled``
+- `type`
+- `path`
+- `interp`
+- `keys`
+- `loop_wrap`
+- `imported`
+- `enabled`
 
-1. The ``type`` must be the first attribute of each track.
-   The value of ``type`` can be:
+1. The `type` must be the first attribute of each track.
+   The value of `type` can be:
 
-    - ``transform``
-    - ``value``
-    - ``method``
+    - `transform`
+    - `value`
+    - `method`
 
-2. The ``path`` has the format ``NodePath(Path/To/Node:attribute)``.
+2. The `path` has the format `NodePath(Path/To/Node:attribute)`.
    It's the path to the animated node or attribute, relative to the root node
    defined in the AnimationPlayer.
 
-3. The ``interp`` is the method to interpolate frames from the keyframes.
+3. The `interp` is the method to interpolate frames from the keyframes.
    It is an enum variable with one of the following values:
 
-    - ``0`` (constant)
-    - ``1`` (linear)
-    - ``2`` (cubic)
+    - `0` (constant)
+    - `1` (linear)
+    - `2` (cubic)
 
-4. The ``keys`` correspond to the keyframes. It appears as a ``PoolRealArray()``,
+4. The `keys` correspond to the keyframes. It appears as a `PoolRealArray()`,
    but may have a different structure for tracks with different types.
 
-    - A Transform track uses every 12 real numbers in the ``keys`` to describe
+    - A Transform track uses every 12 real numbers in the `keys` to describe
       a keyframe. The first number is the timestamp. The second number is the
       transition followed by a 3-number translation vector, followed by a
       4-number rotation quaternion (X, Y, Z, W) and finally a 3-number

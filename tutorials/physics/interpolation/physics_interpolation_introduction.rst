@@ -33,7 +33,7 @@ Adapt the tick rate?
 
 Instead of designing the game at a fixed physics tick rate, we could allow the tick rate to scale according to the end users hardware. We could for example use a fixed tick rate that works for that hardware, or even vary the duration of each physics tick to match a particular frame duration.
 
-This works, but there is a problem. Physics (*and game logic*, which is often also run in the ``_physics_process``) work best and most consistently when run at a **fixed**, predetermined tick rate. If you attempt to run a racing game physics that has been designed for 60 TPS (ticks per second) at e.g. 10 TPS, the physics will behave completely differently. Controls may be less responsive, collisions / trajectories can be completely different. You may test your game thoroughly at 60 TPS, then find it breaks on end users machines when it runs at a different tick rate.
+This works, but there is a problem. Physics (*and game logic*, which is often also run in the `_physics_process`) work best and most consistently when run at a **fixed**, predetermined tick rate. If you attempt to run a racing game physics that has been designed for 60 TPS (ticks per second) at e.g. 10 TPS, the physics will behave completely differently. Controls may be less responsive, collisions / trajectories can be completely different. You may test your game thoroughly at 60 TPS, then find it breaks on end users machines when it runs at a different tick rate.
 
 This can make quality assurance difficult with hard to reproduce bugs, especially in AAA games where problems of this sort can be very costly. This can also be problematic for multiplayer games for competitive integrity, as running the game at certain tick rates may be more advantageous than others.
 
@@ -84,7 +84,7 @@ Once we have the interpolation fraction, we can insert it into a standard linear
 
 	x_interpolated = x_prev + ((x_curr - x_prev) * 0.2)
 
-So substituting our ``x_prev`` as 10, and ``x_curr`` as 30:
+So substituting our `x_prev` as 10, and `x_curr` as 30:
 
 .. code-block:: python
 
@@ -94,8 +94,8 @@ So substituting our ``x_prev`` as 10, and ``x_curr`` as 30:
 
 Let's break that down:
 
-- We know the X starts from the coordinate on the previous tick (``x_prev``) which is 10 units.
-- We know that after the full tick, the difference between the current tick and the previous tick will have been added (``x_curr - x_prev``) (which is 20 units).
+- We know the X starts from the coordinate on the previous tick (`x_prev`) which is 10 units.
+- We know that after the full tick, the difference between the current tick and the previous tick will have been added (`x_curr - x_prev`) (which is 20 units).
 - The only thing we need to vary is the proportion of this difference we add, according to how far we are through the physics tick.
 
 .. note:: Although this example interpolates the position, the same thing can be done with the rotation and scale of objects. It is not necessary to know the details as Godot will do all this for you.

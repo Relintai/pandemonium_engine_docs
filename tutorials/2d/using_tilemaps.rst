@@ -31,7 +31,7 @@ Create a new project and place the above image in the project folder.
 When using a tileset, it's important that adjacent tiles match up. Godot's default
 is to import 2D images using an interpolated "filter" mode, which will result in
 ugly borders between the tiles. Select the image and click the Import tab. Turn
-off ``Filter`` and click "Reimport". See `doc_import_images` for details.
+off `Filter` and click "Reimport". See `doc_import_images` for details.
 
 TileMap node
 ------------
@@ -47,22 +47,22 @@ customize your tilemap's behavior:
 
 .. image:: img/tilemap_size.png
 
-- ``Cell Size``
+- `Cell Size`
     This defines the size of the grid. This should match the pixel size
-    of your tiles. The default value is ``(64, 64)``.
+    of your tiles. The default value is `(64, 64)`.
 
-- ``YSort``
-    This causes tiles to be drawn in order of their ``Y`` position, so that
+- `YSort`
+    This causes tiles to be drawn in order of their `Y` position, so that
     "lower" tiles are drawn on top of "higher" ones.
 
-- ``Half Offset`` and ``Tile Origin``
+- `Half Offset` and `Tile Origin`
     These properties affect the position of the tile relative to the grid position.
 
-- ``Quadrant``
+- `Quadrant`
     Defines the chunk size used for batched drawing. This can negatively
     affect performance. Don't change it unless you know what you're doing.
 
-- ``Custom Transform``
+- `Custom Transform`
     Used to alter the tile's shape. Use this if you have non-square tiles.
 
 All of these options can be left at their defaults for this demo.
@@ -87,7 +87,7 @@ of the editor window:
 .. image:: img/tilemap_tool.png
 
 First, you need to add the texture(s) that you'll use for the tiles. Click the
-"Add Texture(s) to TileSet" button and select the ``tilesheet.png`` image.
+"Add Texture(s) to TileSet" button and select the `tilesheet.png` image.
 
 Next, click "New Single Tile" and drag in the image to select the tile you want.
 Click the "Enable Snap" button to make it easier to select the entire tile. A
@@ -289,15 +289,15 @@ Key (applies to the four templates below):
 
 **Template - Top-down wall in 3/4 perspective (thick walls):**
 
-When using this template, set the TileSet subtile size to ``Vector2(64, 88)``.
+When using this template, set the TileSet subtile size to `Vector2(64, 88)`.
 
 .. image:: img/autotile_template_3x3_minimal_topdown_walls_thick.png
 
 **Template - Top-down wall in 3/4 perspective (tall walls):**
 
-When using this template, set the "Snap Options" Step to ``Vector2(64, 184)``
+When using this template, set the "Snap Options" Step to `Vector2(64, 184)`
 and the "Selected Tile" Texture offset to height minus the cell size.
-This means the texture offset should be ``Vector2(0, -120)``:
+This means the texture offset should be `Vector2(0, -120)`:
 
 .. image:: img/autotile_template_3x3_minimal_topdown_walls_tall.png
 

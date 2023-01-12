@@ -19,7 +19,7 @@ Cameras
 
 In many cases, a `Camera<class_Camera>` can use automatic interpolation just like any other node. However, for best results, especially at low physics tick rates, it is recommended that you take a manual approach to Camera interpolation.
 
-This is because viewers are very sensitive to Camera movement. For instance, a Camera that realigns slightly every 1/10th of a second (at 10tps tick rate) will often be noticeable. You can get a much smoother result by moving the Camera each frame in ``_process``, and following an interpolated target manually.
+This is because viewers are very sensitive to Camera movement. For instance, a Camera that realigns slightly every 1/10th of a second (at 10tps tick rate) will often be noticeable. You can get a much smoother result by moving the Camera each frame in `_process`, and following an interpolated target manually.
 
 Manual Camera interpolation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -34,25 +34,25 @@ There are two ways of doing this:
 
 .. image:: img/fti_camera_worldspace.png
 
-2) Call `Spatial.set_as_toplevel<class_Spatial_method_set_as_toplevel>` and set this to ``true``, which will make the Camera ignore the transform of its parent.
+2) Call `Spatial.set_as_toplevel<class_Spatial_method_set_as_toplevel>` and set this to `true`, which will make the Camera ignore the transform of its parent.
 
 Typical example
 ^^^^^^^^^^^^^^^
 
-A typical example of a custom approach is to use the ``look_at`` function in the Camera every frame in ``_process()`` to look at a target node (such as the player).
+A typical example of a custom approach is to use the `look_at` function in the Camera every frame in `_process()` to look at a target node (such as the player).
 
-But there is a problem. If we use the traditional ``get_global_transform()`` on a Camera "target" Node, this transform will only focus the Camera on the target *at the current physics tick*. This is *not* what we want, as the Camera will jump about on each physics tick as the target moves. Even though the Camera may be updated each frame, this does not help give smooth motion if the *target* is only changing each physics tick.
+But there is a problem. If we use the traditional `get_global_transform()` on a Camera "target" Node, this transform will only focus the Camera on the target *at the current physics tick*. This is *not* what we want, as the Camera will jump about on each physics tick as the target moves. Even though the Camera may be updated each frame, this does not help give smooth motion if the *target* is only changing each physics tick.
 
 get_global_transform_interpolated()
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 What we really want to focus the Camera on, is not the position of the target on the physics tick, but the *interpolated* position, i.e. the position at which the target will be rendered.
 
-We can do this using the `Spatial.get_global_transform_interpolated<class_Spatial_method_get_global_transform_interpolated>` function. This acts exactly like getting `Spatial.global_transform<class_Spatial_property_global_transform>` but it gives you the *interpolated* transform (during a ``_process()`` call).
+We can do this using the `Spatial.get_global_transform_interpolated<class_Spatial_method_get_global_transform_interpolated>` function. This acts exactly like getting `Spatial.global_transform<class_Spatial_property_global_transform>` but it gives you the *interpolated* transform (during a `_process()` call).
 
-.. important:: ``get_global_transform_interpolated()`` should only be used once or twice for special cases such as Cameras. It should **not** be used all over the place in your code (both for performance reasons, and to give correct gameplay).
+.. important:: `get_global_transform_interpolated()` should only be used once or twice for special cases such as Cameras. It should **not** be used all over the place in your code (both for performance reasons, and to give correct gameplay).
 
-.. note:: Aside from exceptions like the Camera, in most cases, your game logic should be in ``_physics_process()``. In game logic you should be calling ``get_global_transform()`` or ``get_transform()``, which will give the current physics transform (in global or local space respectively), which is usually what you will want for gameplay code.
+.. note:: Aside from exceptions like the Camera, in most cases, your game logic should be in `_physics_process()`. In game logic you should be calling `get_global_transform()` or `get_transform()`, which will give the current physics transform (in global or local space respectively), which is usually what you will want for gameplay code.
 
 Example manual Camera script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -93,7 +93,7 @@ Mouse look
 
 Mouse look is a very common way of controlling Cameras. But there is a problem. Unlike keyboard input which can be sampled periodically on the physics tick, mouse move events can come in continuously. The Camera will be expected to react and follow these mouse movements on the next frame, rather than waiting until the next physics tick.
 
-In this situation, it can be better to disable physics interpolation for the Camera node (using `Node.physics_interpolation_mode<class_Node_property_physics_interpolation_mode>`) and directly apply the mouse input to the Camera rotation, rather than apply it in ``_physics_process``.
+In this situation, it can be better to disable physics interpolation for the Camera node (using `Node.physics_interpolation_mode<class_Node_property_physics_interpolation_mode>`) and directly apply the mouse input to the Camera rotation, rather than apply it in `_physics_process`.
 
 Sometimes, especially with Cameras, you will want to use a combination of interpolation and non-interpolation:
 

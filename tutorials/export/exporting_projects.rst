@@ -20,7 +20,7 @@ On PC
 ~~~~~
 
 Distributing a game project on PC with Godot is rather easy. Drop
-the Godot binary in the same directory as the ``project.godot`` file,
+the Godot binary in the same directory as the `project.godot` file,
 then compress the project directory and you are done.
 
 It sounds simple, but there are probably a few reasons why the developer
@@ -126,18 +126,18 @@ select every scene or resource you want to export.
 
     Files and folders whose name begin with a period will never be included in
     the exported project. This is done to prevent version control folders like
-    ``.git`` from being included in the exported PCK file.
+    `.git` from being included in the exported PCK file.
 
 Below the list of resources are two filters that can be setup. The first allows
-non resource files such as ``.txt``,``.json`` and ``.csv`` to be exported with
+non resource files such as `.txt`,`.json` and `.csv` to be exported with
 the project. The second filter can be used to exclude every file of a certain
-type without manually deselecting every one. For example, ``.png`` files.
+type without manually deselecting every one. For example, `.png` files.
 
 Exporting from the command line
 -------------------------------
 
 In production, it is useful to automate builds, and Godot supports this
-with the ``--export`` and ``--export-debug`` command line parameters.
+with the `--export` and `--export-debug` command line parameters.
 Exporting from the command line still requires an export preset to define
 the export parameters. A basic invocation of the command would be:
 
@@ -145,7 +145,7 @@ the export parameters. A basic invocation of the command would be:
 
     godot --export "Windows Desktop" some_name.exe
 
-This will export to ``some_name.exe``, assuming there is a preset
+This will export to `some_name.exe`, assuming there is a preset
 called "Windows Desktop" and the template can be found. (The export preset name
 must be written within quotes if it contains spaces or special characters.)
 The output path is *relative to the project path* or *absolute*;
@@ -153,13 +153,13 @@ The output path is *relative to the project path* or *absolute*;
 
 The output file extension should match the one used by the Godot export process:
 
-- Windows: ``.exe``
-- macOS: ``.zip`` (from all platforms) or ``.dmg`` (only when exporting *from* macOS).
-  ``.app`` is not supported directly, although the generated ZIP archive contains an ``.app`` bundle.
-- Linux: Any extension (including none). ``.x86_64`` is typically used for 64-bit x86 binaries.
-- HTML5: ``.zip``
-- Android: ``.apk``
-- iOS: ``.zip``
+- Windows: `.exe`
+- macOS: `.zip` (from all platforms) or `.dmg` (only when exporting *from* macOS).
+  `.app` is not supported directly, although the generated ZIP archive contains an `.app` bundle.
+- Linux: Any extension (including none). `.x86_64` is typically used for 64-bit x86 binaries.
+- HTML5: `.zip`
+- Android: `.apk`
+- iOS: `.zip`
 
 You can also configure it to export *only* the PCK or ZIP file, allowing
 a single exported main pack file to be used with multiple Godot executables.
@@ -169,8 +169,8 @@ When doing so, the export preset name must still be specified on the command lin
 
     godot --export-pack "Windows Desktop" some_name.pck
 
-It is often useful to combine the ``--export`` flag with the ``--path``
-flag, so that you do not need to ``cd`` to the project folder before running
+It is often useful to combine the `--export` flag with the `--path`
+flag, so that you do not need to `cd` to the project folder before running
 the command:
 
 .. code-block:: shell
@@ -219,4 +219,4 @@ depending on your needs.
 
     Save the launcher script and place it in the same folder as the exported binary.
     On Linux, make sure to give executable permissions to the launcher script using
-    the command ``chmod +x launch.sh``.
+    the command `chmod +x launch.sh`.

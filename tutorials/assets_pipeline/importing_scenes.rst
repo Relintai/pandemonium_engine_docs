@@ -13,7 +13,7 @@ transferred as close as possible.
 
 Godot supports the following 3D *scene file formats*:
 
-* glTF 2.0 **(recommended)**. Godot has full support for both text (``.gltf``) and binary (``.glb``) formats.
+* glTF 2.0 **(recommended)**. Godot has full support for both text (`.gltf`) and binary (`.glb`) formats.
 * DAE (COLLADA), an older format that is fully supported.
 * OBJ (Wavefront) format + their MTL material files. This is also fully supported, but pretty limited (no support for pivots, skeletons, animations, PBR materials, ...).
 * ESCN, a Godot-specific format that Blender can export with a plugin.
@@ -38,8 +38,8 @@ with the latest version of the software.
 Exporting glTF 2.0 files from Blender
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are three ways to export glTF files from Blender. As a glTF binary (``.glb`` file), glTF embedded (``.gltf`` file),
-and with textures (``gltf`` + ``.bin`` + textures).
+There are three ways to export glTF files from Blender. As a glTF binary (`.glb` file), glTF embedded (`.gltf` file),
+and with textures (`gltf` + `.bin` + textures).
 
 glTF binary files are the smallest of the three options. They include the mesh and textures set up in Blender.
 When brought into Godot the textures are part of the object's material file.
@@ -181,7 +181,7 @@ Create a script like this:
         # Do your stuff here.
         return scene # remember to return the imported scene
 
-The ``post_import`` function takes the imported scene as argument (the
+The `post_import` function takes the imported scene as argument (the
 parameter is actually the root node of the scene). The scene that
 will finally be used must be returned. It can be a different one.
 
@@ -217,7 +217,7 @@ is modified and re-imported.
 .. note::
 
     Godot will not reimport materials that are stored in external files unless
-    you remove the associated ``.material`` file before reimporting.
+    you remove the associated `.material` file before reimporting.
 
     To force reimporting materials every time the 3D scene is reimported, change
     the material storage mode in the 3D scene by selecting it in the FileSystem
@@ -329,18 +329,18 @@ animations should be kept.
 The filter script is executed against each imported animation. The syntax consists of two types of
 statements, the first for choosing which animations to filter, and the second for filtering
 individual tracks within the matched animation. All name patterns are performed using a case
-insensitive expression match, using ``?`` and ``*`` wildcards (using ``String.matchn()`` under the
+insensitive expression match, using `?` and `*` wildcards (using `String.matchn()` under the
 hood).
 
 The script must start with an animation filter statement (as denoted by the line beginning with an
-``@``). For example, if we would like to apply filters to all imported animations which have a name
-ending in ``"_Loop"``::
+`@`). For example, if we would like to apply filters to all imported animations which have a name
+ending in `"_Loop"`::
 
     @+*_Loop
 
 Similarly, additional patterns can be added to the same line, separated by commas. Here is a
-modified example to additionally *include* all animations with names that begin with ``"Arm_Left"``,
-but also *exclude* all animations which have names ending in ``"Attack"``::
+modified example to additionally *include* all animations with names that begin with `"Arm_Left"`,
+but also *exclude* all animations which have names ending in `"Attack"`::
 
     @+*_Loop, +Arm_Left*, -*Attack
 
@@ -353,8 +353,8 @@ animation, this means that one line may include a track, a later rule can still 
 Similarly, a track excluded by an early rule may then be re-included once again by a filter rule
 further down in the filter script.
 
-For example: include all tracks in animations with names ending in ``"_Loop"``, but discard any
-tracks affecting a ``"Skeleton"`` which end in ``"Control"``, unless they have ``"Arm"`` in their
+For example: include all tracks in animations with names ending in `"_Loop"`, but discard any
+tracks affecting a `"Skeleton"` which end in `"Control"`, unless they have `"Arm"` in their
 name::
 
     @+*_Loop
@@ -362,10 +362,10 @@ name::
     -Skeleton:*Control
     +*Arm*
 
-In the above example, tracks like ``"Skeleton:Leg_Control"`` would be discarded, while tracks such
-as ``"Skeleton:Head"`` or ``"Skeleton:Arm_Left_Control"`` would be retained.
+In the above example, tracks like `"Skeleton:Leg_Control"` would be discarded, while tracks such
+as `"Skeleton:Head"` or `"Skeleton:Arm_Left_Control"` would be retained.
 
-Any track filter lines that do not begin with a ``+`` or ``-`` are ignored.
+Any track filter lines that do not begin with a `+` or `-` are ignored.
 
 Storage
 ~~~~~~~
@@ -383,7 +383,7 @@ Clips
 ~~~~~
 
 It is possible to specify multiple animations from a single timeline as clips. For this to work, the model
-must have only one animation that is named ``default``. To create clips, change the clip amount to something
+must have only one animation that is named `default`. To create clips, change the clip amount to something
 greater than zero. You can then name a clip, specify which frames it starts and stops on, and choose whether
 the animation loops or not.
 
@@ -394,7 +394,7 @@ Scene inheritance
 -----------------
 
 In many cases, it may be desired to make modifications to the imported scene. By default, this is not possible because
-if the source asset changes (source ``.dae``, ``.gltf``, ``.obj`` file re-exported from 3D modelling app), Godot will re-import the whole scene.
+if the source asset changes (source `.dae`, `.gltf`, `.obj` file re-exported from 3D modelling app), Godot will re-import the whole scene.
 
 It is possible, however, to make local modifications by using *Scene Inheritance*. Try to open the imported scene and the
 following dialog will appear:
@@ -430,19 +430,19 @@ will detect suffixes in object names and will perform actions automatically.
 Remove nodes (-noimp)
 ~~~~~~~~~~~~~~~~~~~~~
 
-Objects that have the ``-noimp`` suffix will be removed at import-time no matter
+Objects that have the `-noimp` suffix will be removed at import-time no matter
 what their type is. They will not appear in the imported scene.
 
 Create collisions (-col, -convcol, -colonly, -convcolonly)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The option ``-col`` will work only for Mesh objects. If it is detected, a child
+The option `-col` will work only for Mesh objects. If it is detected, a child
 static collision node will be added, using the same geometry as the mesh. This
 will create a triangle mesh collision shape, which is a slow, but accurate
 option for collision detection. This option is usually what you want for level
-geometry (but see also ``-colonly`` below).
+geometry (but see also `-colonly` below).
 
-The option ``-convcol`` will create a `convexpolygonshape` instead of
+The option `-convcol` will create a `convexpolygonshape` instead of
 a `concavepolygonshape`. Unlike triangle meshes which can be concave,
 a convex shape can only accurately represent a shape that doesn't have any
 concave angles (a pyramid is convex, but a hollow box is concave). Due to this,
@@ -455,13 +455,13 @@ However, in both cases, the visual geometry may be too complex or not smooth
 enough for collisions. This can create physics glitches and slow down the engine
 unnecessarily.
 
-To solve this, the ``-colonly`` modifier exists. It will remove the mesh upon
+To solve this, the `-colonly` modifier exists. It will remove the mesh upon
 importing and will create a `staticbody` collision instead.
 This helps the visual mesh and actual collision to be separated.
 
-The option ``-convcolonly`` works in a similar way, but will create a `convexpolygonshape` instead.
+The option `-convcolonly` works in a similar way, but will create a `convexpolygonshape` instead.
 
-The option ``-colonly`` can also be used with Blender's empty objects.
+The option `-colonly` can also be used with Blender's empty objects.
 On import, it will create a `staticbody` with
 a collision node as a child. The collision node will have one of a number of predefined shapes,
 depending on Blender's empty draw type:
@@ -491,32 +491,32 @@ reliability.
 Create navigation (-navmesh)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A mesh node with the ``-navmesh`` suffix will be converted to a navigation mesh.
+A mesh node with the `-navmesh` suffix will be converted to a navigation mesh.
 The original Mesh object will be removed at import-time.
 
 Create a VehicleBody (-vehicle)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A mesh node with the ``-vehicle`` suffix will be imported as a child to a
+A mesh node with the `-vehicle` suffix will be imported as a child to a
 `VehicleBody` node.
 
 Create a VehicleWheel (-wheel)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A mesh node with the ``-wheel`` suffix will be imported as a child to a
+A mesh node with the `-wheel` suffix will be imported as a child to a
 `VehicleWheel` node.
 
 Rigid Body (-rigid)
 ~~~~~~~~~~~~~~~~~~~
 
-A mesh node with the ``-rigid`` suffix will be imported as a `RigidBody`.
+A mesh node with the `-rigid` suffix will be imported as a `RigidBody`.
 
 Animation loop (-loop, -cycle)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Animation clips in the COLLADA document that start or end with the token ``loop`` or ``cycle``
+Animation clips in the COLLADA document that start or end with the token `loop` or `cycle`
 will be imported as a Godot Animation with the loop flag set.
 **Unlike the other suffixes described above, this does not require a hyphen.**
 
-In Blender, this requires using the NLA Editor and naming the Action with the ``loop`` or
-``cycle`` prefix or suffix.
+In Blender, this requires using the NLA Editor and naming the Action with the `loop` or
+`cycle` prefix or suffix.

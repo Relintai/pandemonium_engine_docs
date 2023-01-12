@@ -23,13 +23,13 @@ Using BBCode
 
 For uniformly formatted text you can write in the "Text" property, but if you want
 to use BBCode markup you should use the "Text" property in the "Bb Code" section
-instead (``bbcode_text``). Writing to this property will trigger the parsing of your
+instead (`bbcode_text`). Writing to this property will trigger the parsing of your
 markup to format the text as requested. Before this happens, you need to toggle the
-"Enabled" checkbox in the "Bb Code" section (``bbcode_enabled``).
+"Enabled" checkbox in the "Bb Code" section (`bbcode_enabled`).
 
 .. image:: img/bbcodeText.png
 
-For example, ``BBCode [color=blue]blue[/color]`` would render the word "blue" with
+For example, `BBCode [color=blue]blue[/color]` would render the word "blue" with
 a blue color.
 
 .. image:: img/bbcodeDemo.png
@@ -41,7 +41,7 @@ markup. All changes to the text must be done in the BBCode parameter.
 
 .. note::
 
-    For BBCode tags such as ``[b]`` (bold), ``[i]`` (italics) or ``[code]`` to
+    For BBCode tags such as `[b]` (bold), `[i]` (italics) or `[code]` to
     work, you must set up custom fonts for the RichTextLabel node first.
 
     There are no BBCode tags to control vertical centering of text yet.
@@ -52,45 +52,45 @@ Reference
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
 | Command               | Tag                                                       | Description                                                              |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **bold**              | ``[b]{text}[/b]``                                         | Makes {text} bold.                                                       |
+| **bold**              | `[b]{text}[/b]`                                         | Makes {text} bold.                                                       |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **italics**           | ``[i]{text}[/i]``                                         | Makes {text} italics.                                                    |
+| **italics**           | `[i]{text}[/i]`                                         | Makes {text} italics.                                                    |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **underline**         | ``[u]{text}[/u]``                                         | Makes {text} underline.                                                  |
+| **underline**         | `[u]{text}[/u]`                                         | Makes {text} underline.                                                  |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **strikethrough**     | ``[s]{text}[/s]``                                         | Makes {text} strikethrough.                                              |
+| **strikethrough**     | `[s]{text}[/s]`                                         | Makes {text} strikethrough.                                              |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **code**              | ``[code]{text}[/code]``                                   | Makes {text} use the code font (which is typically monospace).           |
+| **code**              | `[code]{text}[/code]`                                   | Makes {text} use the code font (which is typically monospace).           |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **center**            | ``[center]{text}[/center]``                               | Makes {text} horizontally centered.                                      |
+| **center**            | `[center]{text}[/center]`                               | Makes {text} horizontally centered.                                      |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **right**             | ``[right]{text}[/right]``                                 | Makes {text} horizontally right-aligned.                                 |
+| **right**             | `[right]{text}[/right]`                                 | Makes {text} horizontally right-aligned.                                 |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **fill**              | ``[fill]{text}[/fill]``                                   | Makes {text} fill the RichTextLabel's width.                             |
+| **fill**              | `[fill]{text}[/fill]`                                   | Makes {text} fill the RichTextLabel's width.                             |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **indent**            | ``[indent]{text}[/indent]``                               | Increase the indentation level of {text}.                                |
+| **indent**            | `[indent]{text}[/indent]`                               | Increase the indentation level of {text}.                                |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **url**               | ``[url]{url}[/url]``                                      | Show {url} as such, underline it and make it clickable.                  |
+| **url**               | `[url]{url}[/url]`                                      | Show {url} as such, underline it and make it clickable.                  |
 |                       |                                                           | **Must be handled with the "meta_clicked" signal to have an effect.**    |
 |                       |                                                           | See `doc_bbcode_in_richtextlabel_handling_url_tag_clicks`.          |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **url (ref)**         | ``[url=<url>]{text}[/url]``                               | Makes {text} reference <url> (underlined and clickable).                 |
+| **url (ref)**         | `[url=<url>]{text}[/url]`                               | Makes {text} reference <url> (underlined and clickable).                 |
 |                       |                                                           | **Must be handled with the "meta_clicked" signal to have an effect.**    |
 |                       |                                                           | See `doc_bbcode_in_richtextlabel_handling_url_tag_clicks`.          |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **image**             | ``[img]{path}[/img]``                                     | Insert image at resource {path}.                                         |
+| **image**             | `[img]{path}[/img]`                                     | Insert image at resource {path}.                                         |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **resized image**     | ``[img=<width>]{path}[/img]``                             | Insert image at resource {path} using <width> (keeps ratio).             |
+| **resized image**     | `[img=<width>]{path}[/img]`                             | Insert image at resource {path} using <width> (keeps ratio).             |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **resized image**     | ``[img=<width>x<height>]{path}[/img]``                    | Insert image at resource {path} using <width>×<height>.                  |
+| **resized image**     | `[img=<width>x<height>]{path}[/img]`                    | Insert image at resource {path} using <width>×<height>.                  |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **font**              | ``[font=<path>]{text}[/font]``                            | Use custom font at <path> for {text}.                                    |
+| **font**              | `[font=<path>]{text}[/font]`                            | Use custom font at <path> for {text}.                                    |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **color**             | ``[color=<code/name>]{text}[/color]``                     | Change {text} color; use name or # format, such as ``#ff00ff``.          |
+| **color**             | `[color=<code/name>]{text}[/color]`                     | Change {text} color; use name or # format, such as `#ff00ff`.          |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **table**             | ``[table=<number>]{cells}[/table]``                       | Creates a table with <number> of columns.                                |
+| **table**             | `[table=<number>]{cells}[/table]`                       | Creates a table with <number> of columns.                                |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
-| **cell**              | ``[cell]{text}[/cell]``                                   | Adds cells with the {text} to the table.                                 |
+| **cell**              | `[cell]{text}[/cell]`                                   | Adds cells with the {text} to the table.                                 |
 +-----------------------+-----------------------------------------------------------+--------------------------------------------------------------------------+
 
 Built-in color names
@@ -117,25 +117,25 @@ List of valid color names for the [color=<name>] tag:
 Hexadecimal color codes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-For opaque RGB colors, any valid 6-digit hexadecimal code is supported, e.g. ``[color=#ffffff]white[/color]``.
-Short RGB color codes such as ``#6f2`` (equivalent to ``#66ff22``) are also supported.
+For opaque RGB colors, any valid 6-digit hexadecimal code is supported, e.g. `[color=#ffffff]white[/color]`.
+Short RGB color codes such as `#6f2` (equivalent to `#66ff22`) are also supported.
 
-For transparent RGB colors, any 8-digit hexadecimal code can be used, e.g. ``[color=#88ffffff]translucent white[/color]``.
+For transparent RGB colors, any 8-digit hexadecimal code can be used, e.g. `[color=#88ffffff]translucent white[/color]`.
 In this case, note that the alpha channel is the **first** component of the color code, not the last one.
-Short RGBA color codes such as ``#86f2`` (equivalent to ``#8866ff22``) are also supported.
+Short RGBA color codes such as `#86f2` (equivalent to `#8866ff22`) are also supported.
 
 .. _doc_bbcode_in_richtextlabel_handling_url_tag_clicks:
 
-Handling ``[url]`` tag clicks
+Handling `[url]` tag clicks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, ``[url]`` tags do nothing when clicked. This is to allow flexible use
-of ``[url]`` tags rather than limiting them to opening URLs in a web browser.
+By default, `[url]` tags do nothing when clicked. This is to allow flexible use
+of `[url]` tags rather than limiting them to opening URLs in a web browser.
 
-To handle clicked ``[url]`` tags, connect the RichTextLabel node's
+To handle clicked `[url]` tags, connect the RichTextLabel node's
 `meta_clicked` signal to a script function.
 
-For example, the following method can be connected to ``meta_clicked`` to open
+For example, the following method can be connected to `meta_clicked` to open
 clicked URLs using the user's default web browser::
 
     # This assumes RichTextLabel's `meta_clicked` signal was connected to
@@ -145,18 +145,18 @@ clicked URLs using the user's default web browser::
         # to avoid script errors at run-time.
         OS.shell_open(str(meta))
 
-For more advanced use cases, it's also possible to store JSON in an ``[url]``
-tag's option and parse it in the function that handles the ``meta_clicked`` signal.
-For example: ``[url={"example": "value"}]JSON[/url]``
+For more advanced use cases, it's also possible to store JSON in an `[url]`
+tag's option and parse it in the function that handles the `meta_clicked` signal.
+For example: `[url={"example": "value"}]JSON[/url]`
 
 Image vertical offset
 ~~~~~~~~~~~~~~~~~~~~~
 
 You use a custom font for your image in order to align it vertically.
 
-1. Create a ``BitmapFont`` resource
-2. Set this bitmap font with a positive value for the ``ascent`` property, that's your height offset
-3. Set the BBCode tag this way: ``[font=<font-path>][img]{image-path}[/img][/font]``
+1. Create a `BitmapFont` resource
+2. Set this bitmap font with a positive value for the `ascent` property, that's your height offset
+3. Set the BBCode tag this way: `[font=<font-path>][img]{image-path}[/img][/font]`
 
 Animation effects
 -----------------
@@ -169,8 +169,8 @@ Wave
 
 .. image:: img/wave.png
 
-Wave makes the text go up and down. Its tag format is ``[wave amp=50 freq=2][/wave]``.
-``amp`` controls how high and low the effect goes, and ``freq`` controls how fast the
+Wave makes the text go up and down. Its tag format is `[wave amp=50 freq=2][/wave]`.
+`amp` controls how high and low the effect goes, and `freq` controls how fast the
 text goes up and down.
 
 Tornado
@@ -179,8 +179,8 @@ Tornado
 .. image:: img/tornado.png
 
 Tornao makes the text move around in a circle. Its tag format is
-``[tornado radius=5 freq=2][/tornado]``.
-``radius`` is the radius of the circle that controls the offset, ``freq`` is how
+`[tornado radius=5 freq=2][/tornado]`.
+`radius` is the radius of the circle that controls the offset, `freq` is how
 fast the text moves in a circle.
 
 Shake
@@ -188,8 +188,8 @@ Shake
 
 .. image:: img/shake.png
 
-Shake makes the text shake. Its tag format is ``[shake rate=5 level=10][/shake]``.
-``rate`` controls how fast the text shakes, ``level`` controls how far the text is
+Shake makes the text shake. Its tag format is `[shake rate=5 level=10][/shake]`.
+`rate` controls how fast the text shakes, `level` controls how far the text is
 offset from the origin.
 
 Fade
@@ -198,9 +198,9 @@ Fade
 .. image:: img/fade.png
 
 Fade creates a fade effect over the text that is not animated. Its tag format is
-``[fade start=4 length=14][/fade]``.
-``start`` controls the starting position of the falloff relative to where the fade
-command is inserted, ``length`` controls over how many characters should the fade
+`[fade start=4 length=14][/fade]`.
+`start` controls the starting position of the falloff relative to where the fade
+command is inserted, `length` controls over how many characters should the fade
 out take place.
 
 Rainbow
@@ -209,18 +209,18 @@ Rainbow
 .. image:: img/rainbow.png
 
 Rainbow gives the text a rainbow color that changes over time. Its tag format is
-``[rainbow freq=0.2 sat=10 val=20][/rainbow]``.
-``freq`` is the number of full rainbow cycles per second, ``sat`` is the saturation
-of the rainbow, ``val`` is the value of the rainbow.
+`[rainbow freq=0.2 sat=10 val=20][/rainbow]`.
+`freq` is the number of full rainbow cycles per second, `sat` is the saturation
+of the rainbow, `val` is the value of the rainbow.
 
 Custom BBCode tags and text effects
 -----------------------------------
 
 You can extend the `RichTextEffect` resource type to create your own custom
 BBCode tags. You begin by extending the `RichTextEffect` resource type. Add
-the ``tool`` prefix to your GDScript file if you wish to have these custom effects run
+the `tool` prefix to your GDScript file if you wish to have these custom effects run
 within the editor itself. The RichTextLabel does not need to have a script attached,
-nor does it need to be running in ``tool`` mode. The new effect will be activable in
+nor does it need to be running in `tool` mode. The new effect will be activable in
 the Inspector through the **Custom Effects** property.
 
 .. warning::
@@ -229,37 +229,37 @@ the Inspector through the **Custom Effects** property.
     **Custom Effects** property, no effect will be visible and the original
     tag will be left as-is.
 
-There is only one function that you need to extend: ``_process_custom_fx(char_fx)``.
+There is only one function that you need to extend: `_process_custom_fx(char_fx)`.
 Optionally, you can also provide a custom BBCode identifier simply by adding a member
-name ``bbcode``. The code will check the ``bbcode`` property automatically or will
+name `bbcode`. The code will check the `bbcode` property automatically or will
 use the name of the file to determine what the BBCode tag should be.
 
-``_process_custom_fx``
+`_process_custom_fx`
 ~~~~~~~~~~~~~~~~~~~~~~
 
 This is where the logic of each effect takes place and is called once per character
 during the draw phase of text rendering. This passes in a `CharFXTransform`
 object, which holds a few variables to control how the associated character is rendered:
 
-- ``identity`` specifies which custom effect is being processed. You should use that for
+- `identity` specifies which custom effect is being processed. You should use that for
   code flow control.
-- ``relative_index`` tells you how far into a given custom effect block you are in as an
+- `relative_index` tells you how far into a given custom effect block you are in as an
   index.
-- ``absolute_index`` tells you how far into the entire text you are as an index.
-- ``elapsed_time`` is the total amount of time the text effect has been running.
-- ``visible`` will tell you whether the character is visible or not and will also allow you
+- `absolute_index` tells you how far into the entire text you are as an index.
+- `elapsed_time` is the total amount of time the text effect has been running.
+- `visible` will tell you whether the character is visible or not and will also allow you
   to hide a given portion of text.
-- ``offset`` is an offset position relative to where the given character should render under
+- `offset` is an offset position relative to where the given character should render under
   normal circumstances.
-- ``color`` is the color of a given character.
-- Finally, ``env`` is a `Dictionary` of parameters assigned to a given custom
+- `color` is the color of a given character.
+- Finally, `env` is a `Dictionary` of parameters assigned to a given custom
   effect. You can use `get()` with an optional default value
-  to retrieve each parameter, if specified by the user. For example ``[custom_fx spread=0.5
-  color=#FFFF00]test[/custom_fx]`` would have a float ``spread`` and Color ``color``
-  parameters in its ` `env`` Dictionary. See below for more usage examples.
+  to retrieve each parameter, if specified by the user. For example `[custom_fx spread=0.5
+  color=#FFFF00]test[/custom_fx]` would have a float `spread` and Color `color`
+  parameters in its ` `env` Dictionary. See below for more usage examples.
 
 The last thing to note about this function is that it is necessary to return a boolean
-``true`` value to verify that the effect processed correctly. This way, if there's a problem
+`true` value to verify that the effect processed correctly. This way, if there's a problem
 with rendering a given character, it will back out of rendering custom effects entirely until
 the user fixes whatever error cropped up in their custom effect logic.
 

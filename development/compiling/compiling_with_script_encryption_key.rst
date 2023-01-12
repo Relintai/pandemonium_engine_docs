@@ -34,7 +34,7 @@ Step by step
 
        openssl rand -hex 32 > godot.gdkey
 
-   The output in ``godot.gdkey`` should be similar to:
+   The output in `godot.gdkey` should be similar to:
 
    ::
 
@@ -54,7 +54,7 @@ bash Linux/macOS
 
 bat Windows (cmd)
 
-``` set SCRIPT_AES256_ENCRYPTION_KEY=your_generated_key ````
+``` set SCRIPT_AES256_ENCRYPTION_KEY=your_generated_key ```
 
 bat Windows (PowerShell)
 

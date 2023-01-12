@@ -22,7 +22,7 @@ Shader programs
 
 In GLSL, each shader uses a separate program. You have one program for the
 vertex shader and one for the fragment shader. In Godot, you have a single
-shader that contains a ``vertex`` and/or a ``fragment`` function. If you only
+shader that contains a `vertex` and/or a `fragment` function. If you only
 choose to write one, Godot will supply the other.
 
 Godot allows uniform variables and functions to be shared by defining the
@@ -34,25 +34,25 @@ Vertex attributes
 
 In GLSL, you can pass in per-vertex information using attributes and have the
 flexibility to pass in as much or as little as you want. In Godot, you have a
-set number of input attributes, including ``VERTEX`` (position), ``COLOR``,
-``UV``, ``UV2``, ``NORMAL``. For a complete list, see the `Shading language
+set number of input attributes, including `VERTEX` (position), `COLOR`,
+`UV`, `UV2`, `NORMAL`. For a complete list, see the `Shading language
 reference <doc_shading_language>`.
 
 gl_Position
 ^^^^^^^^^^^
 
-``gl_Position`` receives the final position of a vertex specified in the vertex
+`gl_Position` receives the final position of a vertex specified in the vertex
 shader. It is specified by the user in clip space. Typically, in GLSL, the model
-space vertex position is passed in using a vertex attribute called ``position``
+space vertex position is passed in using a vertex attribute called `position`
 and you handle the conversion from model space to clip space manually.
 
-In Godot, ``VERTEX`` specifies the vertex position in model space at the
-beginning of the ``vertex`` function. Godot also handles the final conversion to
-clip space after the user-defined ``vertex`` function is run. If you want to
-skip the conversion from model to view space, you can set the ``render_mode`` to
-``skip_vertex_transform``. If you want to skip all transforms, set
-``render_mode`` to ``skip_vertex_transform`` and set the ``PROJECTION_MATRIX``
-to ``mat4(1.0)`` in order to nullify the final transform from view space to clip
+In Godot, `VERTEX` specifies the vertex position in model space at the
+beginning of the `vertex` function. Godot also handles the final conversion to
+clip space after the user-defined `vertex` function is run. If you want to
+skip the conversion from model to view space, you can set the `render_mode` to
+`skip_vertex_transform`. If you want to skip all transforms, set
+`render_mode` to `skip_vertex_transform` and set the `PROJECTION_MATRIX`
+to `mat4(1.0)` in order to nullify the final transform from view space to clip
 space.
 
 Varyings
@@ -60,16 +60,16 @@ Varyings
 
 Varyings are a type of variable that can be passed from the vertex shader to the
 fragment shader. In modern GLSL (3.0 and up), varyings are defined with the
-``in`` and ``out`` keywords. A variable going out of the vertex shader is
-defined with ``out`` in the vertex shader and ``in`` inside the fragment shader.
+`in` and `out` keywords. A variable going out of the vertex shader is
+defined with `out` in the vertex shader and `in` inside the fragment shader.
 
 Main
 ^^^^
 
 In GLSL, each shader program looks like a self-contained C-style program.
-Accordingly, the main entry point is ``main``. If you are copying a vertex
-shader, rename ``main`` to ``vertex`` and if you are copying a fragment shader,
-rename ``main`` to ``fragment``.
+Accordingly, the main entry point is `main`. If you are copying a vertex
+shader, rename `main` to `vertex` and if you are copying a fragment shader,
+rename `main` to `fragment`.
 
 Constants
 ^^^^^^^^^
@@ -81,10 +81,10 @@ Macros
 ^^^^^^
 
 In keeping with its similarity to C, GLSL lets you use macros. Commonly
-``#define`` is used to define constants or small functions. There is no
+`#define` is used to define constants or small functions. There is no
 straightforward way to translate defines to Godot's shading language. If it is a
 function that is defined, then replace with a function, and if it is a constant,
-then replace with a uniform. For other macros (``#if``, ``#ifdef``, etc.), there
+then replace with a uniform. For other macros (`#if`, `#ifdef`, etc.), there
 is no equivalent because they run during the pre-processing stage of
 compilation.
 
@@ -115,7 +115,7 @@ uniforms, so they are not editable from the main program.
 Coordinates
 ^^^^^^^^^^^
 
-``gl_FragCoord`` in GLSL and ``FRAGCOORD`` in the Godot shading language use the
+`gl_FragCoord` in GLSL and `FRAGCOORD` in the Godot shading language use the
 same coordinate system. If using UV in Godot, the y-coordinate will be flipped
 upside down.
 
@@ -123,9 +123,9 @@ Precision
 ^^^^^^^^^
 
 In GLSL, you can define the precision of a given type (float or int) at the top
-of the shader with the ``precision`` keyword. In Godot, you can set the
+of the shader with the `precision` keyword. In Godot, you can set the
 precision of individual variables as you need by placing precision qualifiers
-``lowp``, ``mediump``, and ``highp`` before the type when defining the variable.
+`lowp`, `mediump`, and `highp` before the type when defining the variable.
 For more information, see the `Shading Language <doc_shading_language>`
 reference.
 
@@ -148,12 +148,12 @@ However, it still has the regular types, including constants and macros.
 mainImage
 ^^^^^^^^^
 
-The main point of entry to a Shadertoy shader is the ``mainImage`` function.
-``mainImage`` has two parameters, ``fragColor`` and ``fragCoord``, which
-correspond to ``COLOR`` and ``FRAGCOORD`` in Godot, respectively. These
+The main point of entry to a Shadertoy shader is the `mainImage` function.
+`mainImage` has two parameters, `fragColor` and `fragCoord`, which
+correspond to `COLOR` and `FRAGCOORD` in Godot, respectively. These
 parameters are handled automatically in Godot, so you do not need to include
-them as parameters yourself. Anything in the ``mainImage`` function should be
-copied into the ``fragment`` function when porting to Godot.
+them as parameters yourself. Anything in the `mainImage` function should be
+copied into the `fragment` function when porting to Godot.
 
 Variables
 ^^^^^^^^^
@@ -196,8 +196,8 @@ what they can pass in as a substitute.
 Coordinates
 ^^^^^^^^^^^
 
-``fragCoord`` behaves the same as ``gl_FragCoord`` in `GLSL
-<glsl_coordinates>` and ``FRAGCOORD`` in Godot.
+`fragCoord` behaves the same as `gl_FragCoord` in `GLSL
+<glsl_coordinates>` and `FRAGCOORD` in Godot.
 
 
 The Book of Shaders
@@ -222,9 +222,9 @@ macros.
 Main
 ^^^^
 
-The entry point for a Book of Shaders fragment shader is ``main``, just like in
-GLSL. Everything written in a Book of Shaders ``main`` function should be copied
-into Godot's ``fragment`` function.
+The entry point for a Book of Shaders fragment shader is `main`, just like in
+GLSL. Everything written in a Book of Shaders `main` function should be copied
+into Godot's `fragment` function.
 
 Variables
 ^^^^^^^^^

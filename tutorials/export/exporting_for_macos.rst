@@ -9,7 +9,7 @@ Exporting for macOS
     If you're looking to compile editor or export template binaries from source instead,
     read `doc_compiling_for_osx`.
 
-macOS apps are exported as an ``.app`` bundle, a folder with a specific structure which stores the executable, libraries and all the project files.
+macOS apps are exported as an `.app` bundle, a folder with a specific structure which stores the executable, libraries and all the project files.
 This bundle can be exported as is, packed in a ZIP archive or DMG disk image (only supported when exporting from a computer running macOS).
 
 Requirements
@@ -17,8 +17,8 @@ Requirements
 
 -  To enable code signing with Apple Developer ID and notarization, you must export from a computer running macOS with Xcode command line tools installed.
 -  Ad-hoc code signing is supported on all platforms, without additional tools.
--  Download the Godot export templates. Use the Godot menu: ``Editor > Manage Export Templates``.
--  A valid and unique ``Bundle identifier`` should be set in the ``Application`` section of the export options.
+-  Download the Godot export templates. Use the Godot menu: `Editor > Manage Export Templates`.
+-  A valid and unique `Bundle identifier` should be set in the `Application` section of the export options.
 
 .. warning::
 
@@ -35,12 +35,12 @@ If you have an Apple Developer ID Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Export your project from a computer running macOS with Xcode command line tools installed.
-- Enable ``Code Signing``, ``Notarization``, ``Hardened Runtime`` and ``Timestamp`` and disable the ``Debug`` entitlement.
+- Enable `Code Signing`, `Notarization`, `Hardened Runtime` and `Timestamp` and disable the `Debug` entitlement.
 - Provide valid Apple ID credentials and certificate identity.
 
-If ``Notarization`` is enabled, Godot will automatically upload the exported project for notarization.
+If `Notarization` is enabled, Godot will automatically upload the exported project for notarization.
 
-You can use the ``xcrun notarytool history`` command to check notarization status and use the ``xcrun notarytool log {ID}`` command to download the notarization log.
+You can use the `xcrun notarytool history` command to check notarization status and use the `xcrun notarytool log {ID}` command to download the notarization log.
 
 If you encounter notarization issues, see `Resolving common notarization issues <https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution/resolving_common_notarization_issues>`__ for more info.
 
@@ -49,7 +49,7 @@ After notarization is completed, `staple the ticket <https://developer.apple.com
 If you do not have an Apple Developer ID Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Keep ``Code Signing`` enabled and leave the ``Identity`` option empty (when exporting from a computer running macOS, on other platforms this option is hidden).
+Keep `Code Signing` enabled and leave the `Identity` option empty (when exporting from a computer running macOS, on other platforms this option is hidden).
 In this case Godot will use a ad-hoc signature, which will make running an exported app easier for the end users, see the `Running Godot apps on macOS <doc_running_on_macos>` page for more information.
 
 Signing Options
@@ -71,11 +71,11 @@ Signing Options
 
 .. note::
 
-    To notarize an app, you must enable the ``Hardened Runtime`` and ``Timestamp``.
+    To notarize an app, you must enable the `Hardened Runtime` and `Timestamp`.
 
-    The ``Hardened Runtime`` and ``Timestamp`` options are incompatible with ad-hoc signing and will be ignored.
+    The `Hardened Runtime` and `Timestamp` options are incompatible with ad-hoc signing and will be ignored.
 
-.. [1] Leave ``Identity`` option empty to use ad-hoc signature.
+.. [1] Leave `Identity` option empty to use ad-hoc signature.
 .. [2] This option is visible only when exporting from a computer running macOS.
 
 Notarization Options
@@ -136,15 +136,15 @@ See `Hardened Runtime <https://developer.apple.com/documentation/security/harden
 | Debugging                             | [5]_ You can temporarily enable this entitlement to use native debugger (GDB, LLDB) with the exported app. This entitlement should be disabled for production export.                            |
 +---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. [3] The ``Allow JIT Code Execution``, ``Allow Unsigned Executable Memory`` and ``Allow DYLD Environment Variables`` entitlements are always enabled for the Godot Mono exports, and are not visible in the export options.
+.. [3] The `Allow JIT Code Execution`, `Allow Unsigned Executable Memory` and `Allow DYLD Environment Variables` entitlements are always enabled for the Godot Mono exports, and are not visible in the export options.
 .. [4] These features aren't supported by Godot out of the box, enable them only if you are using add-ons which require them.
-.. [5] To notarize an app, you must disable the ``Debugging`` entitlement.
+.. [5] To notarize an app, you must disable the `Debugging` entitlement.
 
 App Sandbox Entitlement
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 The App Sandbox restricts access to user data, networking and devices.
-Sandboxed apps can't access most of the file system, can't use custom file dialogs and execute binaries (using ``OS.execute`` and ``OS.create_process``) outside the ``.app`` bundle.
+Sandboxed apps can't access most of the file system, can't use custom file dialogs and execute binaries (using `OS.execute` and `OS.create_process`) outside the `.app` bundle.
 See `App Sandbox <https://developer.apple.com/documentation/security/app_sandbox?language=objc>`__ for more info.
 
 .. note::

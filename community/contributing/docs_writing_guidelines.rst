@@ -78,7 +78,7 @@ Active:
 Use precise action verbs
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Favor precise yet common verbs over generic ones like ``make``, ``set``,
+Favor precise yet common verbs over generic ones like `make`, `set`,
 and any expression you can replace with a single word.
 
 **Don't** repeat the method's name. It already states it sets the pivot
@@ -90,7 +90,7 @@ value to a new one:
     Set the pivot position of the 2D node to [code]pivot[/code] value. [...]
 
 **Do** explain what's the consequence of this "set": use precise verbs
-like ``place``, ``position``, ``rotate``, ``fade``, etc.
+like `place`, `position`, `rotate`, `fade`, etc.
 
 ::
 
@@ -127,8 +127,8 @@ continuous in time. Anything like animation or coroutines.
 .. tip::
 
     Verbs can turn into adjectival nouns with -ing. This is not a
-    conjugation, so you may use them: ``the remaining movement``,
-    ``the missing file``, etc.
+    conjugation, so you may use them: `the remaining movement`,
+    `the missing file`, etc.
 
 Remove unnecessary adverbs and adjectives
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -165,7 +165,7 @@ Ban these 8 words
 
 Game creation and programming aren't simple, and nothing's easy to
 someone learning to use the API for the first time. Other words in the
-list, like ``just`` or ``actual`` won't add any info to the sentence.
+list, like `just` or `actual` won't add any info to the sentence.
 Don't use corresponding adverbs either: obviously, simply, basically,
 easily, actually, clearly.
 
@@ -248,7 +248,7 @@ milk" instead.
 
     The region **of the AtlasTexture that is** used.
 
-**Do** use ``'s``. It lets you put the main subject at the start of the
+**Do** use `'s`. It lets you put the main subject at the start of the
 sentence, and keep it short:
 
 ::
@@ -338,11 +338,11 @@ The exception is topics that explain static typing concepts to users.
 Use real-world code examples where appropriate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Real-world examples are more accessible to beginners than abstract ``foos`` and
-``bars``. You can also copy them directly from your game projects, ensuring that
+Real-world examples are more accessible to beginners than abstract `foos` and
+`bars`. You can also copy them directly from your game projects, ensuring that
 any code snippet compiles without errors.
 
-Writing ``var speed = 10`` rather than ``var my_var = 10`` allows beginners to
+Writing `var speed = 10` rather than `var my_var = 10` allows beginners to
 understand code better. It gives them a frame of reference as to where they
 could use the code snippets in a live project.
 
@@ -370,8 +370,8 @@ could use the code snippets in a live project.
         audio_player.play()
 
 Of course, there are times when using real-world examples is impractical. In
-those situations, you should still avoid using names such as ``my_var``,
-``foo()`` or ``my_func()`` and consider more meaningful names for your examples.
+those situations, you should still avoid using names such as `my_var`,
+`foo()` or `my_func()` and consider more meaningful names for your examples.
 
 Give an overview of the node in the brief description
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -407,7 +407,7 @@ Mention what methods return if it's useful
 
 Some methods return important values. Describe them at the end of the
 description, ideally on a new line. No need to mention the return values
-for any method whose name starts with ``set`` or ``get``.
+for any method whose name starts with `set` or `get`.
 
 **Don't** use the passive voice:
 
@@ -425,16 +425,16 @@ for any method whose name starts with ``set`` or ``get``.
 
 Notice the exception to the "direct voice" rule: with the move method,
 an external collider can influence the method and the body that calls
-``move``. In this case, you can use the passive voice.
+`move`. In this case, you can use the passive voice.
 
 Use "if true" to describe booleans
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For boolean member variables, always use ``if true`` and/or
-``if false``, to stay explicit. ``Controls whether or not`` may be
+For boolean member variables, always use `if true` and/or
+`if false`, to stay explicit. `Controls whether or not` may be
 ambiguous and won't work for every member variable.
 
-Also, surround boolean values, variable names and methods with ``[code][/code]``.
+Also, surround boolean values, variable names and methods with `[code][/code]`.
 
 **Do** start with "if true":
 
@@ -444,13 +444,13 @@ Also, surround boolean values, variable names and methods with ``[code][/code]``
     If [code]true[/code], the timer will automatically start when entering the scene tree.
 
 
-Use ``[code]`` around arguments
+Use `[code]` around arguments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the class reference, always surround arguments with ``[code][/code]``. In the
-documentation and in Godot, it will display like ``this``. When you edit XML
+In the class reference, always surround arguments with `[code][/code]`. In the
+documentation and in Godot, it will display like `this`. When you edit XML
 files in the Godot repository, replace existing arguments written like 'this' or
-\`this\` with ``[code]this[/code]``.
+\`this\` with `[code]this[/code]`.
 
 
 Common vocabulary to use in Godot's documentation
@@ -466,45 +466,45 @@ you're talking about.
 
    Overview of the interface and common vocabulary
 
-In the top left corner of the editor lie the ``main menus``. In the
-center, the buttons change the ``workspace``. And together the buttons
-in the top right are the ``playtest buttons``. The area in the center,
-that displays the 2D or the 3D space, is the ``viewport``. At its top,
-you find a list of ``tools`` inside the ``toolbar``.
+In the top left corner of the editor lie the `main menus`. In the
+center, the buttons change the `workspace`. And together the buttons
+in the top right are the `playtest buttons`. The area in the center,
+that displays the 2D or the 3D space, is the `viewport`. At its top,
+you find a list of `tools` inside the `toolbar`.
 
 The tabs or dockable panels on either side of the viewport are
-``docks``. You have the ``FileSystem dock``, the ``Scene dock`` that
-contains your scene tree, the ``Import dock``, the ``Node dock``, and
-the ``Inspector`` or ``Inspector dock``. With the default layout you may
-call the tabbed docks ``tabs``: the ``Scene tab``, the ``Node tab``...
+`docks`. You have the `FileSystem dock`, the `Scene dock` that
+contains your scene tree, the `Import dock`, the `Node dock`, and
+the `Inspector` or `Inspector dock`. With the default layout you may
+call the tabbed docks `tabs`: the `Scene tab`, the `Node tab`...
 
 The Animation, Debugger, etc. at the bottom of the viewport are
-``panels``. Together they make up the ``bottom panels``.
+`panels`. Together they make up the `bottom panels`.
 
-Foldable areas of the Inspector are ``sections``. The node's parent
-class names, which you can't fold, are ``Classes`` e.g. the
-``KinematicBody2D class``. And individual lines with key-value pairs are
-``properties``. E.g. ``position`` or ``modulate color`` are both
-``properties``.
+Foldable areas of the Inspector are `sections`. The node's parent
+class names, which you can't fold, are `Classes` e.g. the
+`KinematicBody2D class`. And individual lines with key-value pairs are
+`properties`. E.g. `position` or `modulate color` are both
+`properties`.
 
 Keyboard shortcut guidelines
 ----------------------------
 
-Keyboard and mouse shortcuts should make use of the ``:kbd:`` tag, which allows
+Keyboard and mouse shortcuts should make use of the `:kbd:` tag, which allows
 shortcuts to stand out from the rest of the text and inline code. Use the
 compact form for modifier keys (:kbd:`Ctrl`/:kbd:`Cmd`) instead of their spelled
-out form (:kbd:`Control`/:kbd:`Command`). For combinations, use the ``+`` symbol
+out form (:kbd:`Control`/:kbd:`Command`). For combinations, use the `+` symbol
 with a space on either side of the symbol.
 
 Make sure to mention shortcuts that differ on macOS compared to other platforms.
-On macOS, ``Cmd`` often replaces ``Ctrl`` in keyboard shortcuts.
+On macOS, `Cmd` often replaces `Ctrl` in keyboard shortcuts.
 
 Try to integrate the shortcut into sentences the best you can. Here are some
-examples with the ``:kbd:`` tag left as-is for better visibility:
+examples with the `:kbd:` tag left as-is for better visibility:
 
-- Press ``:kbd:`Ctrl + Alt + T``` to toggle the panel (``:kbd:`Cmd + Alt + T``` on macOS).
-- Press ``:kbd:`Space``` and hold the left mouse button to pan in the 2D editor.
-- Press ``:kbd:`Shift + Up Arrow``` to move the node upwards by 8 pixels.
+- Press `:kbd:`Ctrl + Alt + T``` to toggle the panel (`:kbd:`Cmd + Alt + T``` on macOS).
+- Press `:kbd:`Space``` and hold the left mouse button to pan in the 2D editor.
+- Press `:kbd:`Shift + Up Arrow``` to move the node upwards by 8 pixels.
 
 Image contribution guidelines
 -----------------------------

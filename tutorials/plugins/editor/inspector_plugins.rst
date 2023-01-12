@@ -27,19 +27,19 @@ Create a new empty plugin to get started.
 
 .. seealso:: See `doc_making_plugins` guide to set up your new plugin.
 
-Let's assume you've called your plugin folder ``my_inspector_plugin``. If so,
-you should end up with a new ``addons/my_inspector_plugin`` folder that contains
-two files: ``plugin.cfg`` and ``plugin.gd``.
+Let's assume you've called your plugin folder `my_inspector_plugin`. If so,
+you should end up with a new `addons/my_inspector_plugin` folder that contains
+two files: `plugin.cfg` and `plugin.gd`.
 
-As before, ``plugin.gd`` is a script extending `EditorPlugin` and you
-need to introduce new code for its ``_enter_tree`` and ``_exit_tree`` methods.
+As before, `plugin.gd` is a script extending `EditorPlugin` and you
+need to introduce new code for its `_enter_tree` and `_exit_tree` methods.
 To set up your inspector plugin, you must load its script, then create and add
-the instance by calling ``add_inspector_plugin()``. If the plugin is disabled,
+the instance by calling `add_inspector_plugin()`. If the plugin is disabled,
 you should remove the instance you have added by calling
-``remove_inspector_plugin()``.
+`remove_inspector_plugin()`.
 
 .. note:: Here, you are loading a script and not a packed scene. Therefore you
-          should use ``new()`` instead of ``instance()``.
+          should use `new()` instead of `instance()`.
 
 gdscript GDScript
 
@@ -64,26 +64,26 @@ gdscript GDScript
 Interacting with the inspector
 ------------------------------
 
-To interact with the inspector dock, your ``MyInspectorPlugin.gd`` script must
+To interact with the inspector dock, your `MyInspectorPlugin.gd` script must
 extend the `EditorInspectorPlugin` class. This class provides several
 virtual methods that affect how the inspector handles properties.
 
-To have any effect at all, the script must implement the ``can_handle()``
+To have any effect at all, the script must implement the `can_handle()`
 method. This function is called for each edited `Object` and must
-return ``true`` if this plugin should handle the object or its properties.
+return `true` if this plugin should handle the object or its properties.
 
 .. note:: This includes any `Resource` attached to the object.
 
 You can implement four other methods to add controls to the inspector at
-specific positions. The ``parse_begin()`` and ``parse_end()`` methods are called
+specific positions. The `parse_begin()` and `parse_end()` methods are called
 only once at the beginning and the end of parsing for each object, respectively.
 They can add controls at the top or bottom of the inspector layout by calling
-``add_custom_control()``.
+`add_custom_control()`.
 
-As the editor parses the object, it calls the ``parse_category()`` and
-``parse_property()`` methods. There, in addition to ``add_custom_control()``,
-you can call both ``add_property_editor()`` and
-``add_property_editor_for_multiple_properties()``. Use these last two methods to
+As the editor parses the object, it calls the `parse_category()` and
+`parse_property()` methods. There, in addition to `add_custom_control()`,
+you can call both `add_property_editor()` and
+`add_property_editor_for_multiple_properties()`. Use these last two methods to
 specifically add `EditorProperty`-based controls.
 
 gdscript GDScript
@@ -124,18 +124,18 @@ anything but can house any other control nodes, including complex scenes.
 There are three essential parts to the script extending
 `EditorProperty`:
 
-1. You must define the ``_init()`` method to set up the control nodes'
+1. You must define the `_init()` method to set up the control nodes'
    structure.
 
-2. You should implement the ``update_property()`` to handle changes to the data
+2. You should implement the `update_property()` to handle changes to the data
    from the outside.
 
 3. A signal must be emitted at some point to inform the inspector that the
-   control has changed the property using ``emit_changed``.
+   control has changed the property using `emit_changed`.
 
-You can display your custom widget in two ways. Use just the default ``add_child()``
-method to display it to the right of the property name, and use ``add_child()``
-followed by ``set_bottom_editor()`` to position it below the name.
+You can display your custom widget in two ways. Use just the default `add_child()`
+method to display it to the right of the property name, and use `add_child()`
+followed by `set_bottom_editor()` to position it below the name.
 
 gdscript GDScript
 

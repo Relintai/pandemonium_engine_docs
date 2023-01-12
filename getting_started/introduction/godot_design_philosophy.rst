@@ -164,7 +164,7 @@ or run game code in the editor. This means you can **use the same code**
 and scenes for your games, or **build plugins and extend the editor.**
 
 This leads to a reliable and flexible UI system, as it powers the editor
-itself. With the ``tool`` keyword, you can run any game code in the editor.
+itself. With the `tool` keyword, you can run any game code in the editor.
 
 |image5|
 
@@ -172,7 +172,7 @@ itself. With the ``tool`` keyword, you can run any game code in the editor.
 UI tools for its node-based programming system and for the rest of the
 interface.*
 
-Put the ``tool`` keyword at the top of any GDScript file and it will run
+Put the `tool` keyword at the top of any GDScript file and it will run
 in the editor. This lets you import and export plugins, create plugins
 like custom level editors, or create scripts with the same nodes and API
 you use in your projects.
@@ -181,7 +181,7 @@ you use in your projects.
 
    The editor is fully written in C++ and is statically compiled into the
    binary. This means you can't import it as a typical project that would have a
-   ``project.godot`` file.
+   `project.godot` file.
 
 Separate 2D and 3D engines
 --------------------------

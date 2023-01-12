@@ -21,14 +21,14 @@ required:
 -  SCons 3.0+ build system. If your distribution uses Python 2 by default,
    or you are using a version of SCons prior to 3.1.2, you will need to change
    the version of Python that SCons uses by changing the shebang (the first line)
-   of the SCons script file to ``#! /usr/bin/python3``.
-   Use the command ``which scons`` to find the location of the SCons script file.
+   of the SCons script file to `#! /usr/bin/python3`.
+   Use the command `which scons` to find the location of the SCons script file.
 -  pkg-config (used to detect the dependencies below).
 -  X11, Xcursor, Xinerama, Xi and XRandR development libraries.
 -  MesaGL development libraries.
 -  ALSA development libraries.
 -  PulseAudio development libraries.
--  *Optional* - libudev (build with ``udev=yes``).
+-  *Optional* - libudev (build with `udev=yes`).
 -  *Optional* - yasm (for WebM SIMD optimizations).
 
 .. seealso:: To get the Godot source code for compiling, see
@@ -91,7 +91,7 @@ Distro-specific one-liners
 |                  |                                                                                                           |
 |                  |     pkg_add pkg-config py37-scons yasm                                                                    |
 |                  |                                                                                                           |
-|                  | For audio support, you can optionally install ``pulseaudio``.                                             |
+|                  | For audio support, you can optionally install `pulseaudio`.                                             |
 +------------------+-----------------------------------------------------------------------------------------------------------+
 | **Solus**        | ::                                                                                                        |
 |                  |                                                                                                           |
@@ -108,9 +108,9 @@ Start a terminal, go to the root dir of the engine source code and type:
 
     scons -j8 platform=x11
 
-A good rule of thumb for the ``-j`` (*jobs*) flag, is to have at least as many
+A good rule of thumb for the `-j` (*jobs*) flag, is to have at least as many
 threads compiling Godot as you have cores in your CPU, if not one or two more.
-Feel free to add the ``-j`` option to any SCons command you see below.
+Feel free to add the `-j` option to any SCons command you see below.
 
 If all goes well, the resulting binary executable will be placed in the
 "bin" subdirectory. This executable file contains the whole engine and
@@ -130,17 +130,17 @@ manager.
 
 .. note:: If you are compiling Godot for production use, then you can
           make the final executable smaller and faster by adding the
-          SCons option ``target=release_debug``.
+          SCons option `target=release_debug`.
 
           If you are compiling Godot with GCC, you can make the binary
-          even smaller and faster by adding the SCons option ``use_lto=yes``.
+          even smaller and faster by adding the SCons option `use_lto=yes`.
           As link-time optimization is a memory-intensive process,
           this will require about 7 GB of available RAM while compiling.
 
 .. note:: If you want to use separate editor settings for your own Godot builds
           and official releases, you can enable
           `doc_data_paths_self_contained_mode` by creating a file called
-          ``._sc_`` or ``_sc_`` in the ``bin/`` folder.
+          `._sc_` or `_sc_` in the `bin/` folder.
 
 Compiling a headless/server build
 ---------------------------------
@@ -213,7 +213,7 @@ here:
 .. image:: img/lintemplates.png
 
 You don't even need to copy them, you can just reference the resulting
-files in the ``bin/`` directory of your Godot source folder, so the next
+files in the `bin/` directory of your Godot source folder, so the next
 time you build, you automatically have the custom templates referenced.
 
 Using Clang and LLD for faster development
@@ -226,13 +226,13 @@ the default GCC + GNU ld setup:
   faster iteration times.
 - Clang tends to give more useful error messages compared to GCC.
 
-To do so, install Clang and the ``lld`` package from your distribution's package manager
+To do so, install Clang and the `lld` package from your distribution's package manager
 then use the following SCons command::
 
     scons platform=x11 use_llvm=yes use_lld=yes
 
-After the build is completed, a new binary with a ``.llvm`` suffix will be
-created in the ``bin/`` folder.
+After the build is completed, a new binary with a `.llvm` suffix will be
+created in the `bin/` folder.
 
 It's still recommended to use GCC for production builds as they can be compiled using
 link-time optimization, making the resulting binaries smaller and faster.
@@ -247,16 +247,16 @@ often by a factor between 1.5× and 2×. Pyston can be combined with Clang and L
 to get even faster builds.
 
 - Download the `latest portable Pyston release <https://github.com/pyston/pyston/releases/latest>`__.
-- Extract the portable ``.tar.gz`` to a set location, such as ``$HOME/.local/opt/pyston/`` (create folders as needed).
-- Use ``cd`` to reach the extracted Pyston folder from a terminal,
-  then run ``./pyston -m pip install scons`` to install SCons within Pyston.
+- Extract the portable `.tar.gz` to a set location, such as `$HOME/.local/opt/pyston/` (create folders as needed).
+- Use `cd` to reach the extracted Pyston folder from a terminal,
+  then run `./pyston -m pip install scons` to install SCons within Pyston.
 - To make SCons via Pyston easier to run, create a symbolic link of its wrapper
-  script to a location in your ``PATH`` environment variable::
+  script to a location in your `PATH` environment variable::
 
     ln -s ~/.local/opt/pyston/bin/scons ~/.local/bin/pyston-scons
 
-- Instead of running ``scons <build arguments>``, run ``pyston-scons <build arguments>``
+- Instead of running `scons <build arguments>`, run `pyston-scons <build arguments>`
   to compile Godot.
 
-If you can't run ``pyston-scons`` after creating the symbolic link,
-make sure ``$HOME/.local/bin/`` is part of your user's ``PATH`` environment variable.
+If you can't run `pyston-scons` after creating the symbolic link,
+make sure `$HOME/.local/bin/` is part of your user's `PATH` environment variable.

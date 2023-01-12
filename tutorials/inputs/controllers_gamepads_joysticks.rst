@@ -44,7 +44,7 @@ Which Input singleton method should I use?
 There are 3 ways to get input in an analog-aware way:
 
 - When you have two axes (such as joystick or WASD movement) and want both
-  axes to behave as a single input, use ``Input.get_vector()``:
+  axes to behave as a single input, use `Input.get_vector()`:
 
 gdscript GDScript
 
@@ -63,7 +63,7 @@ gdscript GDScript
 
 - When you have one axis that can go both ways (such as a throttle on a
   flight stick), or when you want to handle separate axes individually,
-  use ``Input.get_axis()``:
+  use `Input.get_axis()`:
 
 gdscript GDScript
 
@@ -76,7 +76,7 @@ gdscript GDScript
 ```
 
 - For other types of analog input, such as handling a trigger or handling
-  one direction at a time, use ``Input.get_action_strength()``:
+  one direction at a time, use `Input.get_action_strength()`:
 
 gdscript GDScript
 
@@ -87,7 +87,7 @@ gdscript GDScript
 
 For non-analog digital/boolean input (only "pressed" or "not pressed" values),
 such as controller buttons, mouse buttons or keyboard keys,
-use ``Input.is_action_pressed()``:
+use `Input.is_action_pressed()`:
 
 gdscript GDScript
 
@@ -96,9 +96,9 @@ gdscript GDScript
     var jumping = Input.is_action_pressed("jump")
 ```
 
-In Godot versions before 3.4, such as 3.3, ``Input.get_vector()`` and
-``Input.get_axis()`` aren't available. Only ``Input.get_action_strength()``
-and ``Input.is_action_pressed()`` are available in Godot 3.3.
+In Godot versions before 3.4, such as 3.3, `Input.get_vector()` and
+`Input.get_axis()` aren't available. Only `Input.get_action_strength()`
+and `Input.is_action_pressed()` are available in Godot 3.3.
 
 Differences between keyboard/mouse and controller input
 -------------------------------------------------------
@@ -111,27 +111,27 @@ Dead zone
 
 Unlike keyboards and mice, controllers offer axes with *analog* inputs. The
 upside of analog inputs is that they offer additional flexibility for actions.
-Unlike digital inputs which can only provide strengths of ``0.0`` and ``1.0``,
-an analog input can provide *any* strength between ``0.0`` and ``1.0``. The
+Unlike digital inputs which can only provide strengths of `0.0` and `1.0`,
+an analog input can provide *any* strength between `0.0` and `1.0`. The
 downside is that without a deadzone system, an analog axis' strength will never
-be equal to ``0.0`` due to how the controller is physically built. Instead, it
-will linger at a low value such as ``0.062``. This phenomenon is known as
+be equal to `0.0` due to how the controller is physically built. Instead, it
+will linger at a low value such as `0.062`. This phenomenon is known as
 *drifting* and can be more noticeable on old or faulty controllers.
 
 Let's take a racing game as a real-world example. Thanks to analog inputs, we
 can steer the car slowly in one direction or another. However, without a
 deadzone system, the car would slowly steer by itself even if the player isn't
 touching the joystick. This is because the directional axis strength won't be
-equal to ``0.0`` when we expect it to. Since we don't want our car to steer by
-itself in this case, we define a "dead zone" value of ``0.2`` which will ignore
-all input whose strength is lower than ``0.2``. An ideal dead zone value is high
+equal to `0.0` when we expect it to. Since we don't want our car to steer by
+itself in this case, we define a "dead zone" value of `0.2` which will ignore
+all input whose strength is lower than `0.2`. An ideal dead zone value is high
 enough to ignore the input caused by joystick drifting, but is low enough to not
 ignore actual input from the player.
 
 Godot features a built-in dead zone system to tackle this problem. The default
-value is ``0.2``, but you can increase it or decrease it on a per-action basis
+value is `0.2`, but you can increase it or decrease it on a per-action basis
 in the Project Settings' Input Map tab.
-For ``Input.get_vector()``, the deadzone can be specified, or otherwise it
+For `Input.get_vector()`, the deadzone can be specified, or otherwise it
 will calculate the average deadzone value from all of the actions in the vector.
 
 "Echo" events
@@ -175,7 +175,7 @@ by opening a pull request on the linked repository.
 There are many ways to create mappings. One option is to use the mapping wizard
 in the `official Joypads demo <https://godotengine.org/asset-library/asset/140>`__.
 Once you have a working mapping for your controller, you can test it by defining
-the ``SDL_GAMECONTROLLERCONFIG`` environment variable before running Godot:
+the `SDL_GAMECONTROLLERCONFIG` environment variable before running Godot:
 
 bash Linux/macOS
 
@@ -201,7 +201,7 @@ powershell Windows (powershell)
 To test mappings on non-desktop platforms or to distribute your project with
 additional controller mappings, you can add them by calling
 `Input.add_joy_mapping()`
-as early as possible in a script's ``_ready()`` function.
+as early as possible in a script's `_ready()` function.
 
 My controller works on a given platform, but not on another platform.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,7 +211,7 @@ Linux
 
 Prior to Godot 3.3, official Godot binaries were compiled with udev support
 but self-compiled binaries were compiled *without* udev support unless
-``udev=yes`` was passed on the SCons command line. This made controller
+`udev=yes` was passed on the SCons command line. This made controller
 hotplugging support unavailable in self-compiled binaries.
 
 HTML5

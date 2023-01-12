@@ -11,20 +11,20 @@ that you cannot see your model with the material applied inside Blender.
 
 To do this, the exporter attempts to find Godot materials with names that match
 those of the material name in Blender. So if you export an object in Blender
-with the material name ``PurpleDots`` then the exporter will search for the
-file ``PurpleDots.tres`` and assign it to the object. If this file is not a
-``SpatialMaterial`` or ``ShaderMaterial`` or if it cannot be found, then the
+with the material name `PurpleDots` then the exporter will search for the
+file `PurpleDots.tres` and assign it to the object. If this file is not a
+`SpatialMaterial` or `ShaderMaterial` or if it cannot be found, then the
 exporter will fall back to exporting the material from Blender.
 
 
-Where the exporter searches for the ``.tres`` file is determined by the "Material
+Where the exporter searches for the `.tres` file is determined by the "Material
 Search Paths" option:
 
 .. image:: img/material_search.jpg
 
 This can take the value of:
- - Project Directory - Attempts to find the ``project.Godot`` and recursively
-   searches through subdirectories. If ``project.Godot`` cannot be found it
+ - Project Directory - Attempts to find the `project.Godot` and recursively
+   searches through subdirectories. If `project.Godot` cannot be found it
    will throw an error. This is useful for most projects where naming conflicts
    are unlikely.
  - Export Directory - Look for materials in subdirectories of the export
@@ -40,10 +40,10 @@ The exporter has a primitive support for converting Cycles/EEVEE material node t
 to Godot Shader Material. Note that some of the Shader Node are not supported yet due to
 difficulties in implementation, which are:
 
-- all the ``noisy textures``
-- ``generated texture coordinates``
-- ``group node``
-- shader nodes except ``PrincipledBSDF``, ``Diffuse``, ``Glossy``, ``Glass``, ``add shader`` and ``mix shader``
+- all the `noisy textures`
+- `generated texture coordinates`
+- `group node`
+- shader nodes except `PrincipledBSDF`, `Diffuse`, `Glossy`, `Glass`, `add shader` and `mix shader`
 
 .. warning::
 
@@ -59,11 +59,11 @@ Generate external materials
 ---------------------------
 
 The default configuration of material exporting would keep all the materials internal to
-the ``escn`` file. There is an option which could enable generating external ``.material``
-file when the ``escn`` file opens in Godot.
+the `escn` file. There is an option which could enable generating external `.material`
+file when the `escn` file opens in Godot.
 
 .. image:: img/external_mat_option.jpg
 
-``.material`` file can be assigned to any material slot to be a external resource.
+`.material` file can be assigned to any material slot to be a external resource.
 
 .. image:: img/gd_dot_material.jpg

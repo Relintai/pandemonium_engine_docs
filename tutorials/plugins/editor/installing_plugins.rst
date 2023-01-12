@@ -27,9 +27,9 @@ You can also find assets on code hosting websites such as GitHub.
     use them. Download them and extract the files in your project folder.
 
     One way to distinguish editor plugins from non-editor plugins is to look for
-    a ``plugin.cfg`` file in the repository that hosts the plugin. If the
-    repository contains a ``plugin.cfg`` file in a folder placed in the
-    ``addons/`` folder, then it is an editor plugin.
+    a `plugin.cfg` file in the repository that hosts the plugin. If the
+    repository contains a `plugin.cfg` file in a folder placed in the
+    `addons/` folder, then it is an editor plugin.
 
 Installing a plugin
 ~~~~~~~~~~~~~~~~~~~
@@ -47,9 +47,9 @@ button to download a ZIP of the latest revision:
 
 .. image:: img/installing_plugins_github_download_zip.png
 
-Extract the ZIP archive and move the ``addons/`` folder it contains into your
-project folder. If your project already contains an ``addons/`` folder, move the
-plugin's ``addons/`` folder into your project folder to merge the new folder
+Extract the ZIP archive and move the `addons/` folder it contains into your
+project folder. If your project already contains an `addons/` folder, move the
+plugin's `addons/` folder into your project folder to merge the new folder
 contents with the existing one. Your file manager may ask you whether to write
 into the folder; answer **Yes**. No files will be overwritten in the process.
 

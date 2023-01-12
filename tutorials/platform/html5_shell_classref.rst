@@ -12,8 +12,8 @@ of `Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Usin
 Engine
 ------
 
-The ``Engine`` class provides methods for loading and starting exported projects on the Web. For default export
-settings, this is already part of the exported HTML page. To understand practical use of the ``Engine`` class,
+The `Engine` class provides methods for loading and starting exported projects on the Web. For default export
+settings, this is already part of the exported HTML page. To understand practical use of the `Engine` class,
 see `Custom HTML page for Web export <doc_customizing_html5_shell>`.
 
 Static Methods
@@ -94,7 +94,7 @@ Instance Methods
          Base path of the engine to load.
 
       :return:
-         A ``Promise`` that resolves once the engine is loaded and initialized.
+         A `Promise` that resolves once the engine is loaded and initialized.
 
       :rtype: Promise
 
@@ -103,17 +103,17 @@ Instance Methods
       Load a file so it is available in the instance's file system once it runs. Must be called **before** starting the
       instance.
 
-      If not provided, the ``path`` is derived from the URL of the loaded file.
+      If not provided, the `path` is derived from the URL of the loaded file.
 
       :param string\|ArrayBuffer file:
          The file to preload.
 
-         If a ``string`` the file will be loaded from that path.
+         If a `string` the file will be loaded from that path.
 
-         If an ``ArrayBuffer`` or a view on one, the buffer will used as the content of the file.
+         If an `ArrayBuffer` or a view on one, the buffer will used as the content of the file.
 
       :param string path:
-         Path by which the file will be accessible. Required, if ``file`` is not a string.
+         Path by which the file will be accessible. Required, if `file` is not a string.
 
       :return:
          A Promise that resolves once the file is loaded.
@@ -159,7 +159,7 @@ Instance Methods
 
    .. js:function:: prototype.copyToFS( path, buffer )
 
-      Create a file at the specified ``path`` with the passed as ``buffer`` in the instance's file system.
+      Create a file at the specified `path` with the passed as `buffer` in the instance's file system.
 
       :param string path:
          The location where the file will be created.
@@ -215,7 +215,7 @@ Properties
 
    The Engine configuration object. This is just a typedef, create it like a regular object, e.g.:
 
-   ``const MyConfig = { executable: 'godot', unloadAfterInit: false }``
+   `const MyConfig = { executable: 'godot', unloadAfterInit: false }`
 
    **Property Descriptions**
 
@@ -225,7 +225,7 @@ Properties
 
       :type: boolean
 
-      :value: ``true``
+      :value: `true`
 
    .. js:attribute:: canvas
 
@@ -235,7 +235,7 @@ Properties
 
       :type: HTMLCanvasElement
 
-      :value: ``null``
+      :value: `null`
 
    .. js:attribute:: executable
 
@@ -243,7 +243,7 @@ Properties
 
       :type: string
 
-      :value: ``""``
+      :value: `""`
 
    .. js:attribute:: mainPack
 
@@ -251,7 +251,7 @@ Properties
 
       :type: string
 
-      :value: ``null``
+      :value: `null`
 
    .. js:attribute:: locale
 
@@ -262,22 +262,22 @@ Properties
 
       :type: string
 
-      :value: ``null``
+      :value: `null`
 
    .. js:attribute:: canvasResizePolicy
 
       The canvas resize policy determines how the canvas should be resized by Godot.
 
-      ``0`` means Godot won't do any resizing. This is useful if you want to control the canvas size from
+      `0` means Godot won't do any resizing. This is useful if you want to control the canvas size from
       javascript code in your template.
 
-      ``1`` means Godot will resize the canvas on start, and when changing window size via engine functions.
+      `1` means Godot will resize the canvas on start, and when changing window size via engine functions.
 
-      ``2`` means Godot will adapt the canvas size to match the whole browser window.
+      `2` means Godot will adapt the canvas size to match the whole browser window.
 
       :type: number
 
-      :value: ``2``
+      :value: `2`
 
    .. js:attribute:: args
 
@@ -285,15 +285,15 @@ Properties
 
       See `command line tutorial <doc_command_line_tutorial>`.
 
-      **Note**: :js:meth:`startGame <Engine.prototype.startGame>` will always add the ``--main-pack`` argument.
+      **Note**: :js:meth:`startGame <Engine.prototype.startGame>` will always add the `--main-pack` argument.
 
       :type: Array.<string>
 
-      :value: ``[]``
+      :value: `[]`
 
    .. js:function:: onExecute( path, args )
 
-      A callback function for handling Godot's ``OS.execute`` calls.
+      A callback function for handling Godot's `OS.execute` calls.
 
       This is for example used in the Web Editor template to switch between project manager and editor, and for running the game.
 
@@ -316,7 +316,7 @@ Properties
 
       A callback function for displaying download progress.
 
-      The function is called once per frame while downloading files, so the usage of ``requestAnimationFrame()``
+      The function is called once per frame while downloading files, so the usage of `requestAnimationFrame()`
       is not necessary.
 
       If the callback function receives a total amount of bytes as 0, this means that it is impossible to calculate.
@@ -336,7 +336,7 @@ Properties
 
       A callback function for handling the standard output stream. This method should usually only be used in debug pages.
 
-      By default, ``console.log()`` is used.
+      By default, `console.log()` is used.
 
       :param * var_args:
          A variadic number of arguments to be printed.
@@ -345,7 +345,7 @@ Properties
 
       A callback function for handling the standard error stream. This method should usually only be used in debug pages.
 
-      By default, ``console.error()`` is used.
+      By default, `console.error()` is used.
 
       :param * var_args:
          A variadic number of arguments to be printed as errors.

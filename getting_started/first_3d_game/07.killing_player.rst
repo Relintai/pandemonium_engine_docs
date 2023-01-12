@@ -48,17 +48,17 @@ the mask to the "enemies" layer.
 
 When areas detect a collision, they emit signals. We're going to connect
 one to the *Player* node. In the *Node* tab, double-click the
-``body_entered`` signal and connect it to the *Player*.
+`body_entered` signal and connect it to the *Player*.
 
 |image4|
 
-The *MobDetector* will emit ``body_entered`` when a *KinematicBody* or a
+The *MobDetector* will emit `body_entered` when a *KinematicBody* or a
 *RigidBody* node enters it. As it only masks the "enemies" physics
 layers, it will only detect the *Mob* nodes.
 
 Code-wise, we're going to do two things: emit a signal we'll later use
 to end the game and destroy the player. We can wrap these operations in
-a ``die()`` function that helps us put a descriptive label on the code.
+a `die()` function that helps us put a descriptive label on the code.
 
 gdscript GDScript
 
@@ -88,16 +88,16 @@ and resize them to achieve a tight game feel.
 Ending the game
 ---------------
 
-We can use the *Player*\ 's ``hit`` signal to end the game. All we need
+We can use the *Player*\ 's `hit` signal to end the game. All we need
 to do is connect it to the *Main* node and stop the *MobTimer* in
 reaction.
 
-Open ``Main.tscn``, select the *Player* node, and in the *Node* dock,
-connect its ``hit`` signal to the *Main* node.
+Open `Main.tscn`, select the *Player* node, and in the *Node* dock,
+connect its `hit` signal to the *Main* node.
 
 |image5|
 
-Get and stop the timer in the ``_on_Player_hit()`` function.
+Get and stop the timer in the `_on_Player_hit()` function.
 
 gdscript GDScript
 
@@ -122,7 +122,7 @@ Code checkpoint
 Here are the complete scripts for the *Main*, *Mob*, and *Player* nodes,
 for reference. You can use them to compare and check your code.
 
-Starting with ``Main.gd``.
+Starting with `Main.gd`.
 
 gdscript GDScript
 
@@ -157,7 +157,7 @@ gdscript GDScript
        $MobTimer.stop()
 ```
 
-Next is ``Mob.gd``.
+Next is `Mob.gd`.
 
 gdscript GDScript
 
@@ -197,7 +197,7 @@ gdscript GDScript
        queue_free()
 ```
 
-Finally, the longest script, ``Player.gd``.
+Finally, the longest script, `Player.gd`.
 
 gdscript GDScript
 

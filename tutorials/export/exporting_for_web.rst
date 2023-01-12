@@ -70,7 +70,7 @@ compatible export).
 If a path to a **Custom HTML shell** file is given, it will be used instead of
 the default HTML page. See `doc_customizing_html5_shell`.
 
-**Head Include** is appended into the ``<head>`` element of the generated
+**Head Include** is appended into the `<head>` element of the generated
 HTML page. This allows to, for example, load webfonts and third-party
 JavaScript APIs, include CSS, or run JavaScript code.
 
@@ -108,20 +108,20 @@ Using cookies for data persistence
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Users must **allow cookies** (specifically IndexedDB) if persistence of the
-``user://`` file system is desired. When playing a game presented in an
-``iframe``, **third-party** cookies must also be enabled. Incognito/private
+`user://` file system is desired. When playing a game presented in an
+`iframe`, **third-party** cookies must also be enabled. Incognito/private
 browsing mode also prevents persistence.
 
-The method ``OS.is_userfs_persistent()`` can be used to check if the
-``user://`` file system is persistent, but can give false positives in some
+The method `OS.is_userfs_persistent()` can be used to check if the
+`user://` file system is persistent, but can give false positives in some
 cases.
 
 Background processing
 ~~~~~~~~~~~~~~~~~~~~~
 
 The project will be paused by the browser when the tab is no longer the active
-tab in the user's browser. This means functions such as ``_process()`` and
-``_physics_process()`` will no longer run until the tab is made active again by
+tab in the user's browser. This means functions such as `_process()` and
+`_physics_process()` will no longer run until the tab is made active again by
 the user (by switching back to the tab). This can cause networked games to
 disconnect if the user switches tabs for a long duration.
 
@@ -146,7 +146,7 @@ GDNative
 As mentioned `above <doc_javascript_export_options>` GDNative is only
 available if the appropriate **Export Type** is set.
 
-The export will also copy the required GDNative ``.wasm`` files to the output
+The export will also copy the required GDNative `.wasm` files to the output
 folder (and must be uploaded to your server along with your game).
 
 Full screen and mouse capture
@@ -155,7 +155,7 @@ Full screen and mouse capture
 Browsers do not allow arbitrarily **entering full screen**. The same goes for
 **capturing the cursor**. Instead, these actions have to occur as a response to
 a JavaScript input event. In Godot, this means entering full screen from within
-a pressed input event callback such as ``_input`` or ``_unhandled_input``.
+a pressed input event callback such as `_input` or `_unhandled_input`.
 Querying the `Input` singleton is not sufficient, the relevant
 input event must currently be active.
 
@@ -187,7 +187,7 @@ supported.
 
 The HTTP classes also have several restrictions on the HTML5 platform:
 
- -  Accessing or changing the ``StreamPeer`` is not possible
+ -  Accessing or changing the `StreamPeer` is not possible
  -  Threaded/Blocking mode is not available
  -  Cannot progress more than once per frame, so polling in a loop will freeze
  -  No chunked responses
@@ -235,32 +235,32 @@ Exporting for the web generates several files to be served from a web server,
 including a default HTML page for presentation. A custom HTML file can be
 used, see `doc_customizing_html5_shell`.
 
-The generated ``.html`` file can be used as ``DirectoryIndex`` in Apache
-servers and can be renamed to e.g. ``index.html`` at any time, its name is
+The generated `.html` file can be used as `DirectoryIndex` in Apache
+servers and can be renamed to e.g. `index.html` at any time, its name is
 never depended on by default.
 
 The HTML page draws the game at maximum size within the browser window.
-This way it can be inserted into an ``<iframe>`` with the game's size, as is
+This way it can be inserted into an `<iframe>` with the game's size, as is
 common on most web game hosting sites.
 
-The other exported files are served as they are, next to the ``.html`` file,
-names unchanged. The ``.wasm`` file is a binary WebAssembly module implementing
-the engine. The ``.pck`` file is the Godot main pack containing your game. The
-``.js`` file contains start-up code and is used by the ``.html`` file to access
-the engine. The ``.png`` file contains the boot splash image. It is not used in
+The other exported files are served as they are, next to the `.html` file,
+names unchanged. The `.wasm` file is a binary WebAssembly module implementing
+the engine. The `.pck` file is the Godot main pack containing your game. The
+`.js` file contains start-up code and is used by the `.html` file to access
+the engine. The `.png` file contains the boot splash image. It is not used in
 the default HTML page, but is included for
 `custom HTML pages <doc_customizing_html5_shell>`.
 
-The ``.pck`` file is binary, usually delivered with the MIME-type
-:mimetype:`application/octet-stream`. The ``.wasm`` file is delivered as
+The `.pck` file is binary, usually delivered with the MIME-type
+:mimetype:`application/octet-stream`. The `.wasm` file is delivered as
 :mimetype:`application/wasm`.
 
-.. caution:: Delivering the WebAssembly module (``.wasm``) with a MIME-type
+.. caution:: Delivering the WebAssembly module (`.wasm`) with a MIME-type
              other than :mimetype:`application/wasm` can prevent some start-up
              optimizations.
 
 Delivering the files with server-side compression is recommended especially for
-the ``.pck`` and ``.wasm`` files, which are usually large in size.
+the `.pck` and `.wasm` files, which are usually large in size.
 The WebAssembly module compresses particularly well, down to around a quarter
 of its original size with gzip compression.
 
@@ -274,8 +274,8 @@ of its original size with gzip compression.
 Calling JavaScript from script
 ------------------------------
 
-In web builds, the ``JavaScript`` singleton is implemented. It offers a single
-method called ``eval`` that works similarly to the JavaScript function of the
+In web builds, the `JavaScript` singleton is implemented. It offers a single
+method called `eval` that works similarly to the JavaScript function of the
 same name. It takes a string as an argument and executes it as JavaScript code.
 This allows interacting with the browser in ways not possible with script
 languages integrated into Godot.
@@ -286,12 +286,12 @@ languages integrated into Godot.
         JavaScript.eval("alert('Calling JavaScript per GDScript!');")
 
 The value of the last JavaScript statement is converted to a GDScript value and
-returned by ``eval()`` under certain circumstances:
+returned by `eval()` under certain circumstances:
 
- * JavaScript ``number`` is returned as GDScript `float`
- * JavaScript ``boolean`` is returned as GDScript `bool`
- * JavaScript ``string`` is returned as GDScript `String`
- * JavaScript ``ArrayBuffer``, ``TypedArray`` and ``DataView`` are returned as
+ * JavaScript `number` is returned as GDScript `float`
+ * JavaScript `boolean` is returned as GDScript `bool`
+ * JavaScript `string` is returned as GDScript `String`
+ * JavaScript `ArrayBuffer`, `TypedArray` and `DataView` are returned as
    GDScript `PoolByteArray`
 
 ::
@@ -300,13 +300,13 @@ returned by ``eval()`` under certain circumstances:
         var js_return = JavaScript.eval("var myNumber = 1; myNumber + 2;")
         print(js_return) # prints '3.0'
 
-Any other JavaScript value is returned as ``null``.
+Any other JavaScript value is returned as `null`.
 
 HTML5 export templates may be `built <doc_compiling_for_web>` without
 support for the singleton to improve security. With such templates, and on
-platforms other than HTML5, calling ``JavaScript.eval`` will also return
-``null``. The availability of the singleton can be checked with the
-``JavaScript`` `feature tag <doc_feature_tags>`::
+platforms other than HTML5, calling `JavaScript.eval` will also return
+`null`. The availability of the singleton can be checked with the
+`JavaScript` `feature tag <doc_feature_tags>`::
 
     func my_func3():
         if OS.has_feature('JavaScript'):
@@ -316,12 +316,12 @@ platforms other than HTML5, calling ``JavaScript.eval`` will also return
         else:
             print("The JavaScript singleton is NOT available")
 
-.. tip:: GDScript's multi-line strings, surrounded by 3 quotes ``"""`` as in
-         ``my_func3()`` above, are useful to keep JavaScript code readable.
+.. tip:: GDScript's multi-line strings, surrounded by 3 quotes `"""` as in
+         `my_func3()` above, are useful to keep JavaScript code readable.
 
-The ``eval`` method also accepts a second, optional Boolean argument, which
+The `eval` method also accepts a second, optional Boolean argument, which
 specifies whether to execute the code in the global execution context,
-defaulting to ``false`` to prevent polluting the global namespace::
+defaulting to `false` to prevent polluting the global namespace::
 
     func my_func4():
         # execute in global execution context,

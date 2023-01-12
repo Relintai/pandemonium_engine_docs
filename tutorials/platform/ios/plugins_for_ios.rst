@@ -81,10 +81,10 @@ don't behave this way it should be treated as a bug.
 
 The pending event interface consists of two methods:
 
--  ``get_pending_event_count()``
+-  `get_pending_event_count()`
    Returns the number of pending events on the queue.
 
--  ``Variant pop_pending_event()``
+-  `Variant pop_pending_event()`
    Pops the first event from the queue and returns it.
 
 Store Kit
@@ -92,7 +92,7 @@ Store Kit
 
 Implemented in `Godot iOS InAppStore plugin <https://github.com/godotengine/godot-ios-plugins/blob/master/plugins/inappstore/in_app_store.mm>`_.
 
-The Store Kit API is accessible through the ``InAppStore`` singleton.
+The Store Kit API is accessible through the `InAppStore` singleton.
 It is initialized automatically.
 
 The following methods are available and documented below:
@@ -112,17 +112,17 @@ The following methods are available and documented below:
     int get_pending_event_count()
     Variant pop_pending_event()
 
-``purchase``
+`purchase`
 ~~~~~~~~~~~~
 
-Purchases a product ID through the Store Kit API. You have to call ``finish_transaction(product_id)`` once you
-receive a successful response or call ``set_auto_finish_transaction(true)`` prior to calling ``purchase()``.
+Purchases a product ID through the Store Kit API. You have to call `finish_transaction(product_id)` once you
+receive a successful response or call `set_auto_finish_transaction(true)` prior to calling `purchase()`.
 These two methods ensure the transaction is completed.
 
 Parameters
 ^^^^^^^^^^
 
-Takes a dictionary as a parameter, with one field, ``product_id``, a
+Takes a dictionary as a parameter, with one field, `product_id`, a
 string with your product ID. Example:
 
 ::
@@ -154,7 +154,7 @@ On success:
       "product_id": "the product ID requested",
     }
 
-``request_product_info``
+`request_product_info`
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Requests the product info on a list of product IDs.
@@ -162,7 +162,7 @@ Requests the product info on a list of product IDs.
 Parameters
 ^^^^^^^^^^
 
-Takes a dictionary as a parameter, with a single ``product_ids`` key to which a
+Takes a dictionary as a parameter, with a single `product_ids` key to which a
 string array of product IDs is assigned. Example:
 
 ::
@@ -187,7 +187,7 @@ The response event will be a dictionary with the following fields:
       "localized_prices": [ list of valid product localized prices ],
     }
 
-``restore_purchases``
+`restore_purchases`
 ~~~~~~~~~~~~~~~~~~~~~
 
 Restores previously made purchases on user's account. This will create
@@ -206,11 +206,11 @@ The response events will be dictionaries with the following fields:
       "product_id": "product ID of restored purchase",
     }
 
-``set_auto_finish_transaction``
+`set_auto_finish_transaction`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If set to ``true``, once a purchase is successful, your purchase will be
-finalized automatically. Call this method prior to calling ``purchase()``.
+If set to `true`, once a purchase is successful, your purchase will be
+finalized automatically. Call this method prior to calling `purchase()`.
 
 Parameters
 ^^^^^^^^^^
@@ -222,7 +222,7 @@ automatically finalized. Example:
 
     in_app_store.set_auto_finish_transaction(true)
 
-``finish_transaction``
+`finish_transaction`
 ~~~~~~~~~~~~~~~~~~~~~~
 
 If you don't want transactions to be automatically finalized, call this
@@ -232,7 +232,7 @@ method after you receive a successful purchase response.
 Parameters
 ^^^^^^^^^^
 
-Takes a string ``product_id`` as an argument. ``product_id`` specifies what product to
+Takes a string `product_id` as an argument. `product_id` specifies what product to
 finalize the purchase on. Example:
 
 ::
@@ -266,7 +266,7 @@ and the pending events interface:
     int get_pending_event_count()
     Variant pop_pending_event()
 
-``authenticate``
+`authenticate`
 ~~~~~~~~~~~~~~~~
 
 Authenticates a user in Game Center.
@@ -297,7 +297,7 @@ On success:
       "player_id": the value from GKLocalPlayer::playerID,
     }
 
-``post_score``
+`post_score`
 ~~~~~~~~~~~~~~
 
 Posts a score to a Game Center leaderboard.
@@ -307,8 +307,8 @@ Parameters
 
 Takes a dictionary as a parameter, with two fields:
 
--  ``score`` a float number
--  ``category`` a string with the category name
+-  `score` a float number
+-  `category` a string with the category name
 
 Example:
 
@@ -341,7 +341,7 @@ On success:
       "result": "ok",
     }
 
-``award_achievement``
+`award_achievement`
 ~~~~~~~~~~~~~~~~~~~~~
 
 Modifies the progress of a Game Center achievement.
@@ -351,10 +351,10 @@ Parameters
 
 Takes a Dictionary as a parameter, with 3 fields:
 
--  ``name`` (string) the achievement name
--  ``progress`` (float) the achievement progress from 0.0 to 100.0
-   (passed to ``GKAchievement::percentComplete``)
--  ``show_completion_banner`` (bool) whether Game Center should display
+-  `name` (string) the achievement name
+-  `progress` (float) the achievement progress from 0.0 to 100.0
+   (passed to `GKAchievement::percentComplete`)
+-  `show_completion_banner` (bool) whether Game Center should display
    an achievement banner at the top of the screen
 
 Example:
@@ -387,7 +387,7 @@ On success:
       "result": "ok",
     }
 
-``reset_achievements``
+`reset_achievements`
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Clears all Game Center achievements. The function takes no parameters.
@@ -416,7 +416,7 @@ On success:
       "result": "ok",
     }
 
-``request_achievements``
+`request_achievements`
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Request all the Game Center achievements the player has made progress
@@ -448,7 +448,7 @@ On success:
       "progress": [ list of the progress made on each achievement ],
     }
 
-``request_achievement_descriptions``
+`request_achievement_descriptions`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Request the descriptions of all existing Game Center achievements
@@ -485,7 +485,7 @@ On success:
       "replayable": [ list of booleans indicating whether each achievement can be earned more than once ],
     }
 
-``show_game_center``
+`show_game_center`
 ~~~~~~~~~~~~~~~~~~~~
 
 Displays the built in Game Center overlay showing leaderboards,
@@ -496,10 +496,10 @@ Parameters
 
 Takes a Dictionary as a parameter, with two fields:
 
--  ``view`` (string) (optional) the name of the view to present. Accepts
+-  `view` (string) (optional) the name of the view to present. Accepts
    "default", "leaderboards", "achievements", or "challenges". Defaults
    to "default".
--  ``leaderboard_name`` (string) (optional) the name of the leaderboard
+-  `leaderboard_name` (string) (optional) the name of the leaderboard
    to present. Only used when "view" is "leaderboards" (or "default" is
    configured to show leaderboards). If not specified, Game Center will
    display the aggregate leaderboard.

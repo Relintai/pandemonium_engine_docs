@@ -20,27 +20,27 @@ math is essential to becoming a strong game developer.
 Coordinate systems (2D)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-In 2D space, coordinates are defined using a horizontal axis (``x``) and
-a vertical axis (``y``). A particular position in 2D space is written
-as a pair of values such as ``(4, 3)``.
+In 2D space, coordinates are defined using a horizontal axis (`x`) and
+a vertical axis (`y`). A particular position in 2D space is written
+as a pair of values such as `(4, 3)`.
 
 .. image:: img/vector_axis1.png
 
 .. note:: If you're new to computer graphics, it might seem odd that the
-          positive ``y`` axis points **downwards** instead of upwards,
+          positive `y` axis points **downwards** instead of upwards,
           as you probably learned in math class. However, this is common
           in most computer graphics applications.
 
 Any position in the 2D plane can be identified by a pair of numbers in this
-way. However, we can also think of the position ``(4, 3)`` as an **offset**
-from the ``(0, 0)`` point, or **origin**. Draw an arrow pointing from
+way. However, we can also think of the position `(4, 3)` as an **offset**
+from the `(0, 0)` point, or **origin**. Draw an arrow pointing from
 the origin to the point:
 
 .. image:: img/vector_xy1.png
 
 This is a **vector**. A vector represents a lot of useful information. As
-well as telling us that the point is at ``(4, 3)``, we can also think of
-it as an angle ``θ`` and a length (or magnitude) ``m``. In this case, the
+well as telling us that the point is at `(4, 3)`, we can also think of
+it as an angle `θ` and a length (or magnitude) `m`. In this case, the
 arrow is a **position vector** - it denotes a position in space, relative
 to the origin.
 
@@ -60,7 +60,7 @@ Vector operations
 You can use either method (x and y coordinates or angle and magnitude) to
 refer to a vector, but for convenience, programmers typically use the
 coordinate notation. For example, in Godot, the origin is the top-left
-corner of the screen, so to place a 2D node named ``Node2D`` 400 pixels to the right and
+corner of the screen, so to place a 2D node named `Node2D` 400 pixels to the right and
 300 pixels down, use the following code:
 
 gdscript GDScript
@@ -105,7 +105,7 @@ the first:
 
 .. image:: img/vector_add1.png
 
-Note that adding ``a + b`` gives the same result as ``b + a``.
+Note that adding `a + b` gives the same result as `b + a`.
 
 Scalar multiplication
 ---------------------
@@ -136,8 +136,8 @@ Movement
 --------
 
 A vector can represent **any** quantity with a magnitude and direction. Typical examples are: position, velocity, acceleration, and force. In
-this image, the spaceship at step 1 has a position vector of ``(1,3)`` and
-a velocity vector of ``(2,1)``. The velocity vector represents how far the
+this image, the spaceship at step 1 has a position vector of `(1,3)` and
+a velocity vector of `(2,1)`. The velocity vector represents how far the
 ship moves each step. We can find the position for step 2 by adding
 the velocity to the current position.
 
@@ -155,22 +155,22 @@ vector pointing from the tank to the robot.
 
 .. image:: img/vector_subtract2.png
 
-.. tip:: To find a vector pointing from ``A`` to ``B`` use ``B - A``.
+.. tip:: To find a vector pointing from `A` to `B` use `B - A`.
 
 Unit vectors
 ~~~~~~~~~~~~
 
-A vector with **magnitude** of ``1`` is called a **unit vector**. They are
+A vector with **magnitude** of `1` is called a **unit vector**. They are
 also sometimes referred to as **direction vectors** or **normals**. Unit
 vectors are helpful when you need to keep track of a direction.
 
 Normalization
 -------------
 
-**Normalizing** a vector means reducing its length to ``1`` while
+**Normalizing** a vector means reducing its length to `1` while
 preserving its direction. This is done by dividing each of its components
 by its magnitude. Because this is such a common operation,
-``Vector2`` and ``Vector3`` provide a method for normalizing:
+`Vector2` and `Vector3` provide a method for normalizing:
 
 gdscript GDScript
 
@@ -180,7 +180,7 @@ gdscript GDScript
 
 
 .. warning:: Because normalization involves dividing by the vector's length,
-             you cannot normalize a vector of length ``0``. Attempting to
+             you cannot normalize a vector of length `0`. Attempting to
              do so will result in an error.
 
 Reflection
@@ -196,10 +196,10 @@ wall or other object:
 
 .. image:: img/vector_reflect1.png
 
-The surface normal has a value of ``(0, -1)`` because this is a horizontal
+The surface normal has a value of `(0, -1)` because this is a horizontal
 surface. When the ball collides, we take its remaining motion (the amount
 left over when it hits the surface) and reflect it using the normal. In
-Godot, the `Vector2` class has a ``bounce()`` method
+Godot, the `Vector2` class has a `bounce()` method
 to handle this. Here is a GDScript example of the diagram above using a
 `KinematicBody2D`:
 
@@ -242,28 +242,28 @@ gdscript GDScript
 ```
 
 The dot product is most useful when used with unit vectors, making the
-first formula reduce to just ``cosθ``. This means we can use the dot
+first formula reduce to just `cosθ`. This means we can use the dot
 product to tell us something about the angle between two vectors:
 
 .. image:: img/vector_dot3.png
 
-When using unit vectors, the result will always be between ``-1`` (180°)
-and ``1`` (0°).
+When using unit vectors, the result will always be between `-1` (180°)
+and `1` (0°).
 
 Facing
 ------
 
 We can use this fact to detect whether an object is facing toward another
-object. In the diagram below, the player ``P`` is trying to avoid the
-zombies ``A`` and ``B``. Assuming a zombie's field of view is **180°**, can they see the player?
+object. In the diagram below, the player `P` is trying to avoid the
+zombies `A` and `B`. Assuming a zombie's field of view is **180°**, can they see the player?
 
 .. image:: img/vector_facing2.png
 
-The green arrows ``fA`` and ``fB`` are **unit vectors** representing the
+The green arrows `fA` and `fB` are **unit vectors** representing the
 zombies' facing directions and the blue semicircle represents its field of
-view. For zombie ``A``, we find the direction vector ``AP`` pointing to
-the player using ``P - A`` and normalize it, however, Godot has a helper
-method to do this called ``direction_to``. If the angle between this
+view. For zombie `A`, we find the direction vector `AP` pointing to
+the player using `P - A` and normalize it, however, Godot has a helper
+method to do this called `direction_to`. If the angle between this
 vector and the facing vector is less than 90°, then the zombie can see
 the player.
 
@@ -308,17 +308,17 @@ gdscript GDScript
     var c = a.cross(b)
 ```
 
-.. note:: In the cross product, order matters. ``a.cross(b)`` does not
-          give the same result as ``b.cross(a)``. The resulting vectors
+.. note:: In the cross product, order matters. `a.cross(b)` does not
+          give the same result as `b.cross(a)`. The resulting vectors
           point in **opposite** directions.
 
 Calculating normals
 -------------------
 
 One common use of cross products is to find the surface normal of a plane
-or surface in 3D space. If we have the triangle ``ABC`` we can use vector
-subtraction to find two edges ``AB`` and ``AC``. Using the cross product,
-``AB x AC`` produces a vector perpendicular to both: the surface normal.
+or surface in 3D space. If we have the triangle `ABC` we can use vector
+subtraction to find two edges `AB` and `AC`. Using the cross product,
+`AB x AC` produces a vector perpendicular to both: the surface normal.
 
 Here is a function to calculate a triangle's normal:
 

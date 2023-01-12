@@ -89,7 +89,7 @@ If the game includes printed manuals, license text can be included there.
 Link to the license
 ^^^^^^^^^^^^^^^^^^^
 
-The Godot Engine developers consider that a link to ``godotengine.org/license``
+The Godot Engine developers consider that a link to `godotengine.org/license`
 in your game documentation or credits would be an acceptable way to satisfy
 the license terms.
 

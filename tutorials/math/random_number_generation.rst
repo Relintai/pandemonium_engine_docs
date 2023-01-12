@@ -42,7 +42,7 @@ In global scope, you can find a `randomize()
 once when your project starts to initialize the random seed.** Calling it
 multiple times is unnecessary and may impact performance negatively.
 
-Putting it in your main scene script's ``_ready()`` method is a good choice:
+Putting it in your main scene script's `_ready()` method is a good choice:
 
 gdscript GDScript
 
@@ -64,7 +64,7 @@ gdscript GDScript
         seed("Hello world".hash())
 ```
 
-When using the RandomNumberGenerator class, you should call ``randomize()`` on
+When using the RandomNumberGenerator class, you should call `randomize()` on
 the instance since it has its own seed:
 
 gdscript GDScript
@@ -83,7 +83,7 @@ random numbers in Godot.
 
 The function `randi()` returns a random
 number between 0 and 2^32-1. Since the maximum value is huge, you most likely
-want to use the modulo operator (``%``) to bound the result between 0 and the
+want to use the modulo operator (`%`) to bound the result between 0 and the
 denominator:
 
 gdscript GDScript
@@ -118,8 +118,8 @@ gdscript GDScript
 ```
 
 `rand_range()` takes two arguments
-``from`` and ``to``, and returns a random floating-point number between ``from``
-and ``to``:
+`from` and `to`, and returns a random floating-point number between `from`
+and `to`:
 
 gdscript GDScript
 
@@ -129,8 +129,8 @@ gdscript GDScript
 ```
 
 `RandomNumberGenerator.randi_range()
-<class_RandomNumberGenerator_method_randi_range>` takes two arguments ``from``
-and ``to``, and returns a random integer between ``from`` and ``to``:
+<class_RandomNumberGenerator_method_randi_range>` takes two arguments `from`
+and `to`, and returns a random integer between `from` and `to`:
 
 gdscript GDScript
 

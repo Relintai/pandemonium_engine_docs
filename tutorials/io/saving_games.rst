@@ -83,7 +83,7 @@ gdscript GDScript
 
 
 This gives us a dictionary with the style
-``{ "variable_name":value_of_variable }``, which will be useful when
+`{ "variable_name":value_of_variable }`, which will be useful when
 loading.
 
 Saving and reading data

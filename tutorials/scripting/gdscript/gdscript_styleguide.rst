@@ -299,7 +299,7 @@ The only exception to that rule is the ternary operator:
 Format multiline statements for readability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you have particularly long ``if`` statements or nested ternary expressions,
+When you have particularly long `if` statements or nested ternary expressions,
 wrapping them over multiple lines improves readability. Since continuation lines
 are still part of the same expression, 2 indent levels should be used instead of one.
 
@@ -309,7 +309,7 @@ easier refactoring. With backslashes, you have to ensure that the last line
 never contains a backslash at the end. With parentheses, you don't have to
 worry about the last line having a backslash at the end.
 
-When wrapping a conditional expression over multiple lines, the ``and``/``or``
+When wrapping a conditional expression over multiple lines, the `and`/`or`
 keywords should be placed at the beginning of the line continuation, not at the
 end of the previous line.
 
@@ -369,8 +369,8 @@ Boolean operators
 
 Prefer the plain English versions of boolean operators, as they are the most accessible:
 
-- Use ``and`` instead of ``&&``.
-- Use ``or`` instead of ``||``.
+- Use `and` instead of `&&`.
+- Use `or` instead of `||`.
 
 You may also use parentheses around boolean operators to clear any ambiguity.
 This can make long expressions easier to read.
@@ -649,14 +649,14 @@ This code order follows four rules of thumb:
 1. Properties and signals come first, followed by methods.
 2. Public comes before private.
 3. Virtual callbacks come before the class's interface.
-4. The object's construction and initialization functions, ``_init`` and
-   ``_ready``, come before functions that modify the object at runtime.
+4. The object's construction and initialization functions, `_init` and
+   `_ready`, come before functions that modify the object at runtime.
 
 
 Class declaration
 ~~~~~~~~~~~~~~~~~
 
-If the code is meant to run in the editor, place the ``tool`` keyword on the
+If the code is meant to run in the editor, place the `tool` keyword on the
 first line of the script.
 
 Follow with the `name` if necessary. You can turn a GDScript file into a
@@ -710,7 +710,7 @@ variables, in that order.
 
 .. note::
 
-   The GDScript compiler evaluates onready variables right before the ``_ready``
+   The GDScript compiler evaluates onready variables right before the `_ready`
    callback. You can use that to cache node dependencies, that is to say, to get
    child nodes in the scene that your class relies on. This is what the example
    above shows.
@@ -734,15 +734,15 @@ Methods and static functions
 
 After the class's properties come the methods.
 
-Start with the ``_init()`` callback method, that the engine will call upon
-creating the object in memory. Follow with the ``_ready()`` callback, that Godot
+Start with the `_init()` callback method, that the engine will call upon
+creating the object in memory. Follow with the `_ready()` callback, that Godot
 calls when it adds a node to the scene tree.
 
 These functions should come first because they show how the object is
 initialized.
 
-Other built-in virtual callbacks, like ``_unhandled_input()`` and
-``_physics_process``, should come next. These control the object's main loop and
+Other built-in virtual callbacks, like `_unhandled_input()` and
+`_physics_process`, should come next. These control the object's main loop and
 interactions with the game engine.
 
 The rest of the class's interface, public and private methods, come after that,
@@ -789,13 +789,13 @@ Since Godot 3.1, GDScript supports `optional static typing<doc_gdscript_static_t
 Declared types
 ~~~~~~~~~~~~~~
 
-To declare a variable's type, use ``<variable>: <type>``:
+To declare a variable's type, use `<variable>: <type>`:
 
 ::
 
    var health: int = 0
 
-To declare the return type of a function, use ``-> <type>``:
+To declare the return type of a function, use `-> <type>`:
 
 ::
 
@@ -804,14 +804,14 @@ To declare the return type of a function, use ``-> <type>``:
 Inferred types
 ~~~~~~~~~~~~~~
 
-In most cases you can let the compiler infer the type, using ``:=``:
+In most cases you can let the compiler infer the type, using `:=`:
 
 ::
 
    var health := 0  # The compiler will use the int type.
 
 However, in a few cases when context is missing, the compiler falls back to
-the function's return type. For example, ``get_node()`` cannot infer a type
+the function's return type. For example, `get_node()` cannot infer a type
 unless the scene or file of the node is loaded in memory. In this case, you
 should set the type explicitly.
 
@@ -821,7 +821,7 @@ should set the type explicitly.
 
    onready var health_bar: ProgressBar = get_node("UI/LifeBar")
 
-Alternatively, you can use the ``as`` keyword to cast the return type, and
+Alternatively, you can use the `as` keyword to cast the return type, and
 that type will be used to infer the type of the var.
 
 .. rst-class:: code-example-good

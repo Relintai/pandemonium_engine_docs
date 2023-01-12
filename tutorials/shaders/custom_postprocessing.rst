@@ -10,7 +10,7 @@ Godot provides many post-processing effects out of the box, including Bloom, DOF
 want to write your own custom effect. Here's how you can do so.
 
 Post-processing effects are shaders applied to a frame after Godot rendered it. You first want to render
-your scene into a `Viewport`, then render the ``Viewport``
+your scene into a `Viewport`, then render the `Viewport`
 inside a `ViewportTexture` and show it on the screen.
 
 The easiest way to implement a custom post-processing shader is to use Godot's built-in ability to read from
@@ -26,34 +26,34 @@ Tutorial <doc_screen-reading_shaders>` first.
 Single pass post-processing
 ---------------------------
 
-You will need a ``Viewport`` to render your scene to, and a scene to render your
-``Viewport`` on the screen. You can use a `ViewportContainer
-<class_ViewportContainer>` to display your ``Viewport`` on the entire screen or inside
+You will need a `Viewport` to render your scene to, and a scene to render your
+`Viewport` on the screen. You can use a `ViewportContainer
+<class_ViewportContainer>` to display your `Viewport` on the entire screen or inside
 another `Control` node.
 
 .. note::
 
-    Rendering using a ``Viewport`` gives you control over
+    Rendering using a `Viewport` gives you control over
     how the scene render, including the framerate, and you can use the
-    ``ViewportContainer`` to render 3D objects in a 2D scene.
+    `ViewportContainer` to render 3D objects in a 2D scene.
 
-For this demo, we will use a `Node2D` with a ``ViewportContainer`` and finally a
-``Viewport``. Your **Scene** tab should look like this:
+For this demo, we will use a `Node2D` with a `ViewportContainer` and finally a
+`Viewport`. Your **Scene** tab should look like this:
 
 .. image:: img/post_hierarchy1.png
 
-Inside the ``Viewport``, you can have whatever you want. This will contain
+Inside the `Viewport`, you can have whatever you want. This will contain
 your main scene. For this tutorial, we will use a field of random boxes:
 
 .. image:: img/post_boxes.png
 
-Add a new `ShaderMaterial` to the ``ViewportContainer``, and assign a new
-shader resource to it. You can access your rendered ``Viewport`` with the built-in ``TEXTURE`` uniform.
+Add a new `ShaderMaterial` to the `ViewportContainer`, and assign a new
+shader resource to it. You can access your rendered `Viewport` with the built-in `TEXTURE` uniform.
 
 .. note::
 
-    You can choose not to use a ``ViewportContainer``, but if you do so, you will
-    need to create your own uniform in the shader and pass the ``Viewport`` texture in
+    You can choose not to use a `ViewportContainer`, but if you do so, you will
+    need to create your own uniform in the shader and pass the `Viewport` texture in
     manually, like so:
 
     .. code-block:: glsl
@@ -105,17 +105,17 @@ Some post-processing effects like blur are resource intensive. If you break them
 however, you can make them run a lot faster. In a multipass material, each pass takes the result from the
 previous pass as an input and processes it.
 
-To make a multi-pass post-processing shader, you stack ``Viewport`` nodes. In the example above, you
-rendered the content of one ``Viewport`` object into the root ``Viewport``, through a ``ViewportContainer``
-node. You can do the same thing for a multi-pass shader by rendering the content of one ``Viewport`` into
-another and then rendering the last ``Viewport`` into the root ``Viewport``.
+To make a multi-pass post-processing shader, you stack `Viewport` nodes. In the example above, you
+rendered the content of one `Viewport` object into the root `Viewport`, through a `ViewportContainer`
+node. You can do the same thing for a multi-pass shader by rendering the content of one `Viewport` into
+another and then rendering the last `Viewport` into the root `Viewport`.
 
 Your scene hierarchy will look something like this:
 
 .. image:: img/post_hierarchy2.png
 
-Godot will render the bottom ``Viewport`` node first. So if the order of the passes matters for your
-shaders, make sure that you assign the shader you want to apply first to the lowest ``ViewportContainer`` in
+Godot will render the bottom `Viewport` node first. So if the order of the passes matters for your
+shaders, make sure that you assign the shader you want to apply first to the lowest `ViewportContainer` in
 the tree.
 
 .. note::
@@ -169,4 +169,4 @@ Using the above code, you should end up with a full screen blur effect like belo
 
 .. image:: img/post_blur.png
 
-For more information on how ``Viewport`` nodes work, see the `Viewports Tutorial <doc_viewports>`.
+For more information on how `Viewport` nodes work, see the `Viewports Tutorial <doc_viewports>`.

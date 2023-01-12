@@ -44,14 +44,14 @@ References
 Creating a ResourceFormatLoader
 -------------------------------
 
-Each file format consist of a data container and a ``ResourceFormatLoader``.
+Each file format consist of a data container and a `ResourceFormatLoader`.
 
 ResourceFormatLoaders are usually simple classes which return all the
 necessary metadata for supporting new extensions in Godot. The
 class must return the format name and the extension string.
 
 In addition, ResourceFormatLoaders must convert file paths into
-resources with the ``load`` function. To load a resource, ``load`` must
+resources with the `load` function. To load a resource, `load` must
 read and handle data serialization.
 
 
@@ -109,7 +109,7 @@ Creating a ResourceFormatSaver
 ------------------------------
 
 If you'd like to be able to edit and save a resource, you can implement a
-``ResourceFormatSaver``:
+`ResourceFormatSaver`:
 
 .. code-block:: cpp
 
@@ -264,8 +264,8 @@ Considerations
 Some libraries may not define certain common routines such as IO handling.
 Therefore, Godot call translations are required.
 
-For example, here is the code for translating ``FileAccess``
-calls into ``std::istream``.
+For example, here is the code for translating `FileAccess`
+calls into `std::istream`.
 
 .. code-block:: cpp
 
@@ -309,9 +309,9 @@ References
 Registering the new file format
 -------------------------------
 
-Godot registers ``ResourcesFormatLoader`` with a ``ResourceLoader``
+Godot registers `ResourcesFormatLoader` with a `ResourceLoader`
 handler. The handler selects the proper loader automatically
-when ``load`` is called.
+when `load` is called.
 
 .. code-block:: cpp
 
@@ -360,7 +360,7 @@ References
 Loading it on GDScript
 ----------------------
 
-Save a file called ``demo.json`` with the following contents and place it in the
+Save a file called `demo.json` with the following contents and place it in the
 project's root folder:
 
 .. code-block:: json

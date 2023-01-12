@@ -149,7 +149,7 @@ following code:
    # Set Sprite Texture.
    $sprite.texture = tex
 
-But if you use this in ``_ready()`` or from the first frame of the `Viewport's` initialization,
+But if you use this in `_ready()` or from the first frame of the `Viewport's` initialization,
 you will get an empty texture because there is nothing to get as texture. You can deal with
 it using (for example):
 
@@ -167,7 +167,7 @@ If the `Viewport`, it will become active and display anything it has inside. The
 .. image:: img/container.png
 
 The `Viewport` completely
-if `Stretch<class_viewportcontainer_property_stretch>` is set to ``true`` in `ViewportContainer`.
+if `Stretch<class_viewportcontainer_property_stretch>` is set to `true` in `ViewportContainer`.
 Note: The size of the `ViewportContainer`.
 
 Rendering
@@ -237,7 +237,7 @@ and then selecting the `Viewport` you want to use.
 .. image:: img/texturepath.png
 
 Every frame, the `Viewport`'s texture is cleared away with the default clear color (or a transparent
-color if `Transparent Bg<class_Viewport_property_transparent_bg>` is set to ``true``). This can be changed by setting `Clear Mode<class_Viewport_property_render_target_clear_mode>` to Never or Next Frame.
+color if `Transparent Bg<class_Viewport_property_transparent_bg>` is set to `true`). This can be changed by setting `Clear Mode<class_Viewport_property_render_target_clear_mode>` to Never or Next Frame.
 As the name implies, Never means the texture will never be cleared, while next frame will
 clear the texture on the next frame and then set itself to Never.
 

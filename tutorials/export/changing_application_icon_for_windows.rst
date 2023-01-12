@@ -25,7 +25,7 @@ using this `ImageMagick <https://www.imagemagick.org/>`_ command:
 
     magick convert icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
 
-Depending on which version of ImageMagick you installed, you might need to leave out the ``magick`` and run this command instead:
+Depending on which version of ImageMagick you installed, you might need to leave out the `magick` and run this command instead:
 
 .. code-block:: none
 
@@ -55,8 +55,8 @@ Click on the folder icon and select your ICO file.
 .. image:: img/icon_project_settings.png
 
 This setting only changes the icon for your exported game on Windows.
-To set the icon for macOS, use ``Macos Native Icon``. And for any other platform,
-use the ``Icon`` setting.
+To set the icon for macOS, use `Macos Native Icon`. And for any other platform,
+use the `Icon` setting.
 
 Changing the file icon
 ----------------------
@@ -124,5 +124,5 @@ You can now export the project. If it worked correctly, you should see this:
 .. note::
 
     If your icon isn't showing up properly, on Windows 10, try clearing the icon
-    cache. To do so, open the **Run** dialog and enter ``ie4uinit.exe
-    -ClearIconCache`` or ``ie4uinit.exe -show``.
+    cache. To do so, open the **Run** dialog and enter `ie4uinit.exe
+    -ClearIconCache` or `ie4uinit.exe -show`.

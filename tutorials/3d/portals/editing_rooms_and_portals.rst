@@ -9,12 +9,12 @@ Putting all the ideas together, here is an example scene tree:
 .. image:: img/example_scenetree.png
 
 - We have used a `RoomGroup<class_RoomGroup>` to denote an outside area.
-- The `MeshInstance<class_MeshInstance>`\ s inside the `Room<class_Room>`\ s are either ``STATIC`` or ``DYNAMIC``.
-- We have created a `Spatial<class_Spatial>` (I decided to call it 'Freeform', but you could use any name) under which to place ``STATIC`` and ``DYNAMIC`` objects that will be autoplaced in rooms
-  (Freeform is inside the ``roomlist``, but *not* inside a room.)
-- The player and the monsters are on branches *OUTSIDE* the ``roomlist``.
-- The player and monster meshes have portal mode ``ROAMING`` so they can be in any room.
-- The camera is outside the ``roomlist``.
+- The `MeshInstance<class_MeshInstance>`\ s inside the `Room<class_Room>`\ s are either `STATIC` or `DYNAMIC`.
+- We have created a `Spatial<class_Spatial>` (I decided to call it 'Freeform', but you could use any name) under which to place `STATIC` and `DYNAMIC` objects that will be autoplaced in rooms
+  (Freeform is inside the `roomlist`, but *not* inside a room.)
+- The player and the monsters are on branches *OUTSIDE* the `roomlist`.
+- The player and monster meshes have portal mode `ROAMING` so they can be in any room.
+- The camera is outside the `roomlist`.
 
 .. _doc_rooms_and_portals_blender:
 
@@ -26,18 +26,18 @@ Although you can create your room system entirely within the editor, you can als
 Postfix convention
 ^^^^^^^^^^^^^^^^^^
 
-- ``-room`` becomes a `Room<class_Room>`.
-- ``-roomgroup`` becomes a `RoomGroup<class_RoomGroup>`.
-- ``-portal`` becomes a `Portal<class_Portal>`.
-- ``-bound`` becomes a manual bound.
+- `-room` becomes a `Room<class_Room>`.
+- `-roomgroup` becomes a `RoomGroup<class_RoomGroup>`.
+- `-portal` becomes a `Portal<class_Portal>`.
+- `-bound` becomes a manual bound.
 
-Rooms and RoomGroups should be created as Empties within Blender. Any mesh children of the ``-room`` Empty will thus be placed in the Room during conversion in Godot.
+Rooms and RoomGroups should be created as Empties within Blender. Any mesh children of the `-room` Empty will thus be placed in the Room during conversion in Godot.
 
 For example:
 
-- ``kitchen-room`` - create a Room called "kitchen".
-- ``outside-roomgroup`` - create a RoomGroup called "outside".
-- ``kitchen-portal`` - create a Portal leading to the "kitchen" Room.
+- `kitchen-room` - create a Room called "kitchen".
+- `outside-roomgroup` - create a RoomGroup called "outside".
+- `kitchen-portal` - create a Portal leading to the "kitchen" Room.
 
 Portals
 ^^^^^^^
@@ -46,20 +46,20 @@ Portals are different from Rooms. In Portals, we need to specify the geometry of
 
 Portal meshes have some restrictions to work properly. They must be convex, and the polygon points should be in the same plane. The accuracy to the plane does not have to be exact, as Godot will automatically average the direction of the portal plane. Once converted to a `Portal<class_Portal>` node, the snapping to the portal plane is enforced, and the vertices are specified (and editable) as 2D coordinates in the inspector, rather than 3D points.
 
-The portal's naming is quite important. You can either name the portal ``-portal`` which will attempt to autolink the Portal in Godot, or you can use the name of the Room you wish to link the Portal to as a prefix.
+The portal's naming is quite important. You can either name the portal `-portal` which will attempt to autolink the Portal in Godot, or you can use the name of the Room you wish to link the Portal to as a prefix.
 
 Wildcard
 ^^^^^^^^
 
-In most cases, this can be done using a name such as ``kitchen-portal``. However, there is one problem. Blender and Godot do not deal well when you have multiple objects with the same name. What happens when we want more than one Portal to lead to the kitchen?
+In most cases, this can be done using a name such as `kitchen-portal`. However, there is one problem. Blender and Godot do not deal well when you have multiple objects with the same name. What happens when we want more than one Portal to lead to the kitchen?
 
-The workaround is the use of a *wildcard* character, ``*``. When Godot reads the wildcard, it will ignore anything placed after it in the name.
+The workaround is the use of a *wildcard* character, `*`. When Godot reads the wildcard, it will ignore anything placed after it in the name.
 
 This means we can use the following portal names:
 
-- ``kitchen*1-portal`` - creates a Portal leading to the "kitchen".
-- ``kitchen*2-portal`` - also creates a Portal leading to the "kitchen".
-- ``kitchen*anything_you_want_here-portal`` - also works.
+- `kitchen*1-portal` - creates a Portal leading to the "kitchen".
+- `kitchen*2-portal` - also creates a Portal leading to the "kitchen".
+- `kitchen*anything_you_want_here-portal` - also works.
 
 Wildcards work on all of the nodes which use these naming conventions.
 
@@ -68,7 +68,7 @@ Manual bounds
 
 Manual bounds are a way of explicitly setting the convex hull for a room, and are used if they are present as children of a room in the scene tree. Aside from the postfix, the naming is unimportant. They should be meshes (i.e. MeshInstance in Godot). Bear in mind they will be converted to convex hulls during the conversion process, so they don't have to be perfect.
 
-.. tip:: Once used during conversion, they will be converted to the ``IGNORE`` **Portal Mode** and won't be shown. You can alternatively use **Generate Points** within the editor to convert these to a set of points stored in the room, and delete the original ``-bound`` MeshInstance.
+.. tip:: Once used during conversion, they will be converted to the `IGNORE` **Portal Mode** and won't be shown. You can alternatively use **Generate Points** within the editor to convert these to a set of points stored in the room, and delete the original `-bound` MeshInstance.
 
 Portal point editing
 ~~~~~~~~~~~~~~~~~~~~
@@ -86,7 +86,7 @@ You can edit these points in the gizmo or inspector to make a better match to th
 Room point editing
 ~~~~~~~~~~~~~~~~~~
 
-You also have the option to manually edit the points used to define the convex hull of a room. These points are not present by default. You would typically create them by pressing the **Generate Points** button in the editor toolbar when a room is selected. This will transfer the auto bound from the geometry (or manual ``-bound`` mesh) into the inspector. Once there are points in the inspector, they will be used and override any other method. So if you wish to revert your manual editing, delete all the room's points.
+You also have the option to manually edit the points used to define the convex hull of a room. These points are not present by default. You would typically create them by pressing the **Generate Points** button in the editor toolbar when a room is selected. This will transfer the auto bound from the geometry (or manual `-bound` mesh) into the inspector. Once there are points in the inspector, they will be used and override any other method. So if you wish to revert your manual editing, delete all the room's points.
 
 .. image:: img/room_point_editing.png
 
@@ -98,7 +98,7 @@ RoomManager
 Show Debug
 ^^^^^^^^^^
 
-This can be used to control the amount of logging, especially the room conversion logs. Debug will always be set to ``false`` on exported projects.
+This can be used to control the amount of logging, especially the room conversion logs. Debug will always be set to `false` on exported projects.
 
 Debug Sprawl
 ^^^^^^^^^^^^
@@ -108,12 +108,12 @@ This mode will only display meshes that are sprawling through portals from the c
 Merge Meshes
 ^^^^^^^^^^^^
 
-To keep drawcalls to a minimum, the system offers the option to automatically merge similar ``STATIC`` meshes within a room (also known as *static batching*). This can increase performance in many cases. The culling accuracy is reduced, but as a room is a fairly logical unit for culling, this trade off usually works in your favor.
+To keep drawcalls to a minimum, the system offers the option to automatically merge similar `STATIC` meshes within a room (also known as *static batching*). This can increase performance in many cases. The culling accuracy is reduced, but as a room is a fairly logical unit for culling, this trade off usually works in your favor.
 
 Plane Simplification
 ^^^^^^^^^^^^^^^^^^^^
 
-In some cases, the convex hulls automatically generated for rooms may contain a very large number of planes, particularly if you use curved surfaces. This is not ideal because it slows down the system. This option can optionally simplify hulls. The degree of simplification can be selected by the user, between ``0`` (no simplification) and ``1`` (maximum simplification). You can also override this value in individual rooms.
+In some cases, the convex hulls automatically generated for rooms may contain a very large number of planes, particularly if you use curved surfaces. This is not ideal because it slows down the system. This option can optionally simplify hulls. The degree of simplification can be selected by the user, between `0` (no simplification) and `1` (maximum simplification). You can also override this value in individual rooms.
 
 Portals
 ~~~~~~~
@@ -131,7 +131,7 @@ Portals can either be two-way or one-way. The default two-way portals are quicke
 Particle Systems
 ~~~~~~~~~~~~~~~~
 
-Be aware that when placing ``STATIC`` particle systems, the AABB on conversion may have zero size. This means the particle system may be unexpectedly culled early. To prevent this, either set the particle system ``portal mode`` to ``DYNAMIC``, or alternatively, add an **Extra Cull Margin** to the particle system in the Geometry Inspector.
+Be aware that when placing `STATIC` particle systems, the AABB on conversion may have zero size. This means the particle system may be unexpectedly culled early. To prevent this, either set the particle system `portal mode` to `DYNAMIC`, or alternatively, add an **Extra Cull Margin** to the particle system in the Geometry Inspector.
 
 Multimeshes
 ~~~~~~~~~~~

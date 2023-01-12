@@ -106,7 +106,7 @@ For a general indentation rule, follow
 which recommends placing the brace associated with a control statement on the
 same line. Always use braces for statements, even if they only span one line.
 This makes them easier to refactor and avoids mistakes when adding more lines to
-an ``if`` statement or similar.
+an `if` statement or similar.
 
 **Good**:
 
@@ -214,7 +214,7 @@ Don't use multiline comment syntax if your comment can fit on a single line:
 .. note::
 
    In the shader editor, to make the selected code a comment (or uncomment it),
-   press :kbd:`Ctrl + K`. This feature adds or removes ``//`` at the start of
+   press :kbd:`Ctrl + K`. This feature adds or removes `//` at the start of
    the selected lines.
 
 Whitespace
@@ -272,9 +272,9 @@ distinguishing numbers greater than 1 from those lower than 1.
 Accessing vector members
 ------------------------
 
-Use ``r``, ``g``, ``b``, and ``a`` when accessing a vector's members if it
-contains a color. If the vector contains anything else than a color, use ``x``,
-``y``, ``z``, and ``w``. This allows those reading your code to better
+Use `r`, `g`, `b`, and `a` when accessing a vector's members if it
+contains a color. If the vector contains anything else than a color, use `x`,
+`y`, `z`, and `w`. This allows those reading your code to better
 understand what the underlying data represents.
 
 **Good**:

@@ -13,7 +13,7 @@ Each *feature* is represented as a string, which can refer to many of the follow
 * Platform architecture (64-bit or 32-bit, x86 or ARM).
 * Platform type (desktop, mobile, Web).
 * Supported texture compression algorithms on the platform.
-* Whether a build is ``debug`` or ``release`` (``debug`` includes the editor).
+* Whether a build is `debug` or `release` (`debug` includes the editor).
 * Whether the project is running from the editor or a "standalone" binary.
 * Many more things.
 
@@ -90,8 +90,8 @@ Here is a list of most feature tags in Godot. Keep in mind they are **case-sensi
 
     With the exception of texture compression feature tags, default feature tags
     are **immutable**. This means that they will *not* change depending on
-    run-time conditions. For example, ``OS.has_feature("mobile")`` will return
-    ``false`` when running a project exported to HTML5 on a mobile device.
+    run-time conditions. For example, `OS.has_feature("mobile")` will return
+    `false` when running a project exported to HTML5 on a mobile device.
 
     To check whether a project exported to HTML5 is running on a mobile device,
     `call JavaScript code <doc_javascript_eval>` that reads the browser's

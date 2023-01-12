@@ -84,7 +84,7 @@ code that is called repeatedly. It causes frames to be drawn, physics ticks to
 be simulated, and nodes and scripts to be updated. A large proportion of the
 time is spent in the functions to render a canvas (66%), because this example
 uses a 2D benchmark. Below this, we see that almost 50% of the time is spent
-outside Godot code in ``libglapi`` and ``i965_dri`` (the graphics driver).
+outside Godot code in `libglapi` and `i965_dri` (the graphics driver).
 This tells us the a large proportion of CPU time is being spent in the
 graphics driver.
 

@@ -11,7 +11,7 @@ Getting nodes
 
 You can get a reference to a node by calling the `Node.get_node()
 <class_Node_method_get_node>` method. For this to work, the child node must be
-present in the scene tree. Getting it in the parent node's ``_ready()`` function
+present in the scene tree. Getting it in the parent node's `_ready()` function
 guarantees that.
 
 If, for example,  you have a scene tree like this, and you want to get a reference to the
@@ -38,14 +38,14 @@ Note that you get nodes using their name, not their type. Above, "Sprite" and
 .. image:: img/nodes_and_scene_instances_sprite_node.png
 
 If you rename the Sprite node as Skin in the Scene dock, you have to change the
-line that gets the node to ``get_node("Skin")`` in the script.
+line that gets the node to `get_node("Skin")` in the script.
 
 .. image:: img/nodes_and_scene_instances_sprite_node_renamed.png
 
 Node paths
 ----------
 
-When getting a reference to a node, you're not limited to getting a direct child. The ``get_node()`` function
+When getting a reference to a node, you're not limited to getting a direct child. The `get_node()` function
 supports paths, a bit like when working with a file browser. Add a slash to
 separate nodes.
 
@@ -75,14 +75,14 @@ Syntactic sugar
 ~~~~~~~~~~~~~~~
 
 You can use two shorthands to shorten your code in GDScript. Firstly, putting the
-``onready`` keyword before a member variable makes it initialize right before
-the ``_ready()`` callback.
+`onready` keyword before a member variable makes it initialize right before
+the `_ready()` callback.
 
 .. code-block:: gdscript
 
     onready var sprite = get_node("Sprite")
 
-There is also a short notation for ``get_node()``: the dollar sign, "$". You
+There is also a short notation for `get_node()`: the dollar sign, "$". You
 place it before the name or path of the node you want to get.
 
 .. code-block:: gdscript
@@ -93,11 +93,11 @@ place it before the name or path of the node you want to get.
 Creating nodes
 --------------
 
-To create a node from code, call its ``new()`` method like for any other
+To create a node from code, call its `new()` method like for any other
 class-based datatype.
 
 You can store the newly created node's reference in a variable and call
-``add_child()`` to add it as a child of the node to which you attached the
+`add_child()` to add it as a child of the node to which you attached the
 script.
 
 gdscript GDScript
@@ -110,7 +110,7 @@ gdscript GDScript
         add_child(sprite) # Add it as a child of this node.
 ```
 
-To delete a node and free it from memory, you can call its ``queue_free()``
+To delete a node and free it from memory, you can call its `queue_free()`
 method. Doing so queues the node for deletion at the end of the current frame
 after it has finished processing. At that point, the engine removes the node from
 the scene and frees the object in memory.
@@ -121,7 +121,7 @@ gdscript GDScript
     sprite.queue_free()
 ```
 
-Before calling ``sprite.queue_free()``, the remote scene tree looks like this.
+Before calling `sprite.queue_free()`, the remote scene tree looks like this.
 
 .. image:: img/nodes_and_scene_instances_remote_tree_with_sprite.png
 
@@ -130,9 +130,9 @@ sprite anymore.
 
 .. image:: img/nodes_and_scene_instances_remote_tree_no_sprite.png
 
-You can alternatively call ``free()`` to immediately destroy the node. You
-should do this with care as any reference to it will instantly become ``null``.
-We recommend using ``queue_free()`` unless you know what you're doing.
+You can alternatively call `free()` to immediately destroy the node. You
+should do this with care as any reference to it will instantly become `null`.
+We recommend using `queue_free()` unless you know what you're doing.
 
 When you free a node, it also frees all its children. Thanks to this, to delete
 an entire branch of the scene tree, you only have to free the topmost parent
@@ -165,7 +165,7 @@ gdscript GDScript
     var scene = preload("res://MyScene.tscn")
     ```
 
-At that point, ``scene`` is a packed scene resource, not a node. To create the
+At that point, `scene` is a packed scene resource, not a node. To create the
 actual node, you need to call `PackedScene.instance()
 <class_PackedScene_method_instance>`. It returns a tree of nodes that you can
 as a child of your current node.

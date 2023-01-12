@@ -28,14 +28,14 @@ Stripping binaries
 - **Performed in official builds:** Yes
 
 If you build Windows (MinGW), Linux or macOS binaries from source, remember to
-strip debug symbols from binaries by installing the ``strip`` package from your
+strip debug symbols from binaries by installing the `strip` package from your
 distribution then running:
 
 ::
 
     strip path/to/godot.binary
 
-On Windows, ``strip.exe`` is included in most MinGW toolchain setups.
+On Windows, `strip.exe` is included in most MinGW toolchain setups.
 
 This will reduce the size of compiled binaries by a factor between 5× and 10×.
 The downside is that crash backtraces will no longer provide accurate information
@@ -46,7 +46,7 @@ function names (this does not affect the built-in GDScript profiler).
 .. note::
 
     The above command will not work on Windows binaries compiled with MSVC
-    and platforms such as Android and HTML5. Instead, pass ``debug_symbols=no``
+    and platforms such as Android and HTML5. Instead, pass `debug_symbols=no`
     on the SCons command line when compiling.
 
 Optimizing for size instead of speed
@@ -57,7 +57,7 @@ Optimizing for size instead of speed
 - **Performed in official builds:** Yes, but only for HTML5
 
 Godot 3.1 onwards allows compiling using size optimizations (instead of speed).
-To enable this, set the ``optimize`` flag to ``size``:
+To enable this, set the `optimize` flag to `size`:
 
 ::
 
@@ -84,9 +84,9 @@ and MSVC compilers:
 Linking becomes much slower and more RAM-consuming with this option,
 so it should be used only for release builds:
 
-- When compiling the ``master`` branch, you need to have at least 8 GB of RAM
+- When compiling the `master` branch, you need to have at least 8 GB of RAM
   available for successful linking with LTO enabled.
-- When compiling the ``3.x`` branch, you need to have at least 6 GB of RAM
+- When compiling the `3.x` branch, you need to have at least 6 GB of RAM
   available for successful linking with LTO enabled.
 
 Disabling 3D
@@ -173,7 +173,7 @@ might want to keep networking-related modules, regex support, or theora/webm
 to play videos).
 
 Alternatively, you can supply a list of disabled modules by creating
-``custom.py`` at the root of the source, with the contents similar to the
+`custom.py` at the root of the source, with the contents similar to the
 following:
 
 .. code-block:: python

@@ -7,9 +7,9 @@ Visual Shader plugins are used to create custom `VisualShader` nodes
 in GDScript.
 
 The creation process is different from usual editor plugins. You do not need to
-create a ``plugin.cfg`` file to register it; instead, create and save a script
+create a `plugin.cfg` file to register it; instead, create and save a script
 file and it will be ready to use, provided the custom node is registered with
-``name``.
+`name`.
 
 This short tutorial will explain how to make a Perlin-3D noise node (original
 code from this `GPU noise shaders plugin

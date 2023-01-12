@@ -16,8 +16,8 @@ another datatype that is just as important:
 arrange user interfaces, etc. **Resources** are **data containers**. They don't
 do anything on their own: instead, nodes use the data contained in resources.
 
-Anything Godot saves or loads from disk is a resource. Be it a scene (a ``.tscn``
-or an ``.scn`` file), an image, a script... Here are some ``Resource`` examples:
+Anything Godot saves or loads from disk is a resource. Be it a scene (a `.tscn`
+or an `.scn` file), an image, a script... Here are some `Resource` examples:
 `Texture`, `Mesh
 <class_Mesh>`, `Animation`, `AudioStream
 <class_AudioStream>`, `Font`, `Translation
@@ -41,7 +41,7 @@ External vs built-in
 There are two ways to save resources. They can be:
 
 1. **External** to a scene, saved on the disk as individual files.
-2. **Built-in**, saved inside the ``.tscn`` or the ``.scn`` file they're attached to.
+2. **Built-in**, saved inside the `.tscn` or the `.scn` file they're attached to.
 
 To be more specific, here's a `Texture`
 in a `Sprite` node:
@@ -53,13 +53,13 @@ Clicking the resource preview allows us to view and edit the resource's properti
 .. image:: img/resourcerobi.png
 
 The path property tells us where the resource comes from. In this case, it comes
-from a PNG image called ``robi.png``. When the resource comes from a file like
+from a PNG image called `robi.png`. When the resource comes from a file like
 this, it is an external resource. If you erase the path or this path is empty,
 it becomes a built-in resource.
 
 The switch between built-in and external resources happens when you save the
-scene. In the example above, if you erase the path ``"res://robi.png"`` and
-save, Godot will save the image inside the ``.tscn`` scene file.
+scene. In the example above, if you erase the path `"res://robi.png"` and
+save, Godot will save the image inside the `.tscn` scene file.
 
 .. note::
 
@@ -69,7 +69,7 @@ save, Godot will save the image inside the ``.tscn`` scene file.
 Loading resources from code
 ---------------------------
 
-There are two ways to load resources from code. First, you can use the ``load()`` function anytime:
+There are two ways to load resources from code. First, you can use the `load()` function anytime:
 
 gdscript GDScript
 
@@ -79,7 +79,7 @@ gdscript GDScript
             get_node("sprite").texture = res
 ```
 
-You can also ``preload`` resources. Unlike ``load``, this function will read the
+You can also `preload` resources. Unlike `load`, this function will read the
 file from disk and load it at compile-time. As a result, you cannot call preload
 with a variable path: you need to use a constant string.
 
@@ -122,7 +122,7 @@ scene instances.
 Freeing resources
 -----------------
 
-When a ``Resource`` is no longer in use, it will automatically free itself.
+When a `Resource` is no longer in use, it will automatically free itself.
 Since, in most cases, Resources are contained in Nodes, when you free a node,
 the engine frees all the resources it owns as well if no other node uses them.
 
@@ -162,7 +162,7 @@ and `Resource` features:
 Godot makes it easy to create custom Resources in the Inspector.
 
 1. Create a plain Resource object in the Inspector. This can even be a type that derives Resource, so long as your script is extending that type.
-2. Set the ``script`` property in the Inspector to be your script.
+2. Set the `script` property in the Inspector to be your script.
 
 The Inspector will now display your Resource script's custom properties. If one edits
 those values and saves the resource, the Inspector serializes the custom properties
@@ -264,11 +264,11 @@ gdscript GDScript
     Beware that resource files (\*.tres/\*.res) will store the path of the script
     they use in the file. When loaded, they will fetch and load this script as an
     extension of their type. This means that trying to assign a subclass, i.e. an
-    inner class of a script (such as using the ``class`` keyword in GDScript) won't
+    inner class of a script (such as using the `class` keyword in GDScript) won't
     work. Godot will not serialize the custom properties on the script subclass properly.
 
-    In the example below, Godot would load the ``Node`` script, see that it doesn't
-    extend ``Resource``, and then determine that the script failed to load for the
+    In the example below, Godot would load the `Node` script, see that it doesn't
+    extend `Resource`, and then determine that the script failed to load for the
     Resource object since the types are incompatible.
 
     gdscript GDScript

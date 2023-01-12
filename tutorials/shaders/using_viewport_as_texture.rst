@@ -32,7 +32,7 @@ Setting up the Viewport
 
 First, add a `Viewport` to the scene.
 
-Next, set the size of the `Viewport` to ``(1024, 512)``. The
+Next, set the size of the `Viewport` to `(1024, 512)`. The
 `Viewport` can actually be any size so long as the width is double the height.
 The width needs to be double the height so that the image will accurately map onto the
 sphere, as we will be using equirectangular projection, but more on that later.
@@ -40,22 +40,22 @@ sphere, as we will be using equirectangular projection, but more on that later.
 .. image:: img/planet_new_viewport.png
 
 Next, disable HDR and disable 3D. We don't need HDR because our planet's surface will not be especially
-bright, so values between ``0`` and ``1`` will be fine. And we will be using a `ColorRect`
+bright, so values between `0` and `1` will be fine. And we will be using a `ColorRect`
 to render the surface, so we don't need 3D either.
 
 Select the Viewport and add a `ColorRect` as a child.
 
-Set the anchors "Right" and "Bottom" to ``1``, then make sure all the margins are set to ``0``. This
+Set the anchors "Right" and "Bottom" to `1`, then make sure all the margins are set to `0`. This
 will ensure that the `ColorRect`.
 
 .. image:: img/planet_new_colorrect.png
 
-Next, we add a `Shader Material ``New ShaderMaterial``).
+Next, we add a `Shader Material `New ShaderMaterial`).
 
 .. note:: Basic familiarity with shading is recommended for this tutorial. However, even if you are new
           to shaders, all the code will be provided, so you should have no problem following along.
 
-ColorRect > CanvasItem > Material > Material > click / Edit > ShaderMaterial > Shader > ``New Shader`` > click / Edit:
+ColorRect > CanvasItem > Material > Material > click / Edit > ShaderMaterial > Shader > `New Shader` > click / Edit:
 
 .. code-block:: glsl
 
@@ -75,13 +75,13 @@ apply to the sphere.
 Applying the texture
 --------------------
 
-MeshInstance > GeometryInstance > Geometry > Material Override > ``New SpatialMaterial``:
+MeshInstance > GeometryInstance > Geometry > Material Override > `New SpatialMaterial`:
 
 Now we go into the `Mesh Instance`
 to it. No need for a special `Shader Material` (although that would be a good idea
 for more advanced effects, like the atmosphere in the example above).
 
-MeshInstance > GeometryInstance > Geometry > Material Override > ``click`` / ``Edit``:
+MeshInstance > GeometryInstance > Geometry > Material Override > `click` / `Edit`:
 
 Open the newly created `SpatialMaterial` and scroll down to the "Albedo" section
 and click beside the "Texture" property to add an Albedo Texture. Here we will apply the texture we made.
@@ -109,7 +109,7 @@ Making the planet texture
 So now, when we render to our `Viewport`, it appears magically on the sphere. But there is an ugly
 seam created by our texture coordinates. So how do we get a range of coordinates that wrap around
 the sphere in a nice way? One solution is to use a function that repeats on the domain of our texture.
-``sin`` and ``cos`` are two such functions. Let's apply them to the texture and see what happens.
+`sin` and `cos` are two such functions. Let's apply them to the texture and see what happens.
 
 .. code-block:: glsl
 
@@ -132,7 +132,7 @@ For each pixel, we will calculate its 3D position on the sphere. From that, we w
 of the pinching at the poles. To understand why, picture the noise being calculated across the
 surface of the sphere instead of across the 2D plane. When you calculate across the
 surface of the sphere, you never hit an edge, and hence you never create a seam or
-a pinch point on the pole. The following code converts the ``UVs`` into Cartesian
+a pinch point on the pole. The following code converts the `UVs` into Cartesian
 coordinates.
 
 .. code-block:: glsl
@@ -146,7 +146,7 @@ coordinates.
     unit.z = cos(phi) * sin(theta);
     unit = normalize(unit);
 
-And if we use ``unit`` as an output ``COLOR`` value, we get:
+And if we use `unit` as an output `COLOR` value, we get:
 
 .. image:: img/planet_normals.png
 
@@ -178,9 +178,9 @@ to make the planet. We will be using this noise function directly from a `Shader
                          dot(hash(i + vec3(1.0, 1.0, 1.0)), f - vec3(1.0, 1.0, 1.0)), u.x), u.y), u.z );
     }
 
-.. note:: All credit goes to the author, Inigo Quilez. It is published under the ``MIT`` licence.
+.. note:: All credit goes to the author, Inigo Quilez. It is published under the `MIT` licence.
 
-Now to use ``noise``, add the following to the    ``fragment`` function:
+Now to use `noise`, add the following to the    `fragment` function:
 
 .. code-block:: glsl
 
@@ -200,10 +200,10 @@ Coloring the planet
 Now to make the planet colors. While there are many ways to do this, for now, we will stick
 with a gradient between water and land.
 
-To make a gradient in GLSL, we use the ``mix`` function. ``mix`` takes two values to interpolate
+To make a gradient in GLSL, we use the `mix` function. `mix` takes two values to interpolate
 between and a third argument to choose how much to interpolate between them; in essence,
-it *mixes* the two values together. In other APIs, this function is often called ``lerp``.
-However, ``lerp`` is typically reserved for mixing two floats together; ``mix`` can take any
+it *mixes* the two values together. In other APIs, this function is often called `lerp`.
+However, `lerp` is typically reserved for mixing two floats together; `mix` can take any
 values whether it be floats or vector types.
 
 .. code-block:: glsl
@@ -211,24 +211,24 @@ values whether it be floats or vector types.
     COLOR.xyz = mix(vec3(0.05, 0.3, 0.5), vec3(0.9, 0.4, 0.1), n * 0.5 + 0.5);
 
 The first color is blue for the ocean. The second color is a kind of reddish color (because
-all alien planets need red terrain). And finally, they are mixed together by ``n * 0.5 + 0.5``.
-``n`` smoothly varies between ``-1`` and ``1``. So we map it into the ``0-1`` range that ``mix`` expects.
+all alien planets need red terrain). And finally, they are mixed together by `n * 0.5 + 0.5`.
+`n` smoothly varies between `-1` and `1`. So we map it into the `0-1` range that `mix` expects.
 Now you can see that the colors change between blue and red.
 
 .. image:: img/planet_noise_color.png
 
 That is a little more blurry than we want. Planets typically have a relatively clear separation between
-land and sea. In order to do that, we will change the last term to ``smoothstep(-0.1, 0.0, n)``.
+land and sea. In order to do that, we will change the last term to `smoothstep(-0.1, 0.0, n)`.
 And thus the whole line becomes:
 
 .. code-block:: glsl
 
     COLOR.xyz = mix(vec3(0.05, 0.3, 0.5), vec3(0.9, 0.4, 0.1), smoothstep(-0.1, 0.0, n));
 
-What ``smoothstep`` does is return ``0`` if the third argument is below the first and ``1`` if the
-third argument is larger than the second and smoothly blends between ``0`` and ``1`` if the third number
-is between the first and the second. So in this line, ``smoothstep`` returns ``0`` whenever ``n`` is less than ``-0.1``
-and it returns ``1`` whenever ``n`` is above ``0``.
+What `smoothstep` does is return `0` if the third argument is below the first and `1` if the
+third argument is larger than the second and smoothly blends between `0` and `1` if the third number
+is between the first and the second. So in this line, `smoothstep` returns `0` whenever `n` is less than `-0.1`
+and it returns `1` whenever `n` is above `0`.
 
 .. image:: img/planet_noise_smooth.png
 
@@ -236,8 +236,8 @@ One more thing to make this a little more planet-y. The land shouldn't be so blo
 a little rougher. A trick that is often used in shaders to make rough looking terrain with noise is
 to layer levels of noise over one another at various frequencies. We use one layer to make the
 overall blobby structure of the continents. Then another layer breaks up the edges a bit, and then
-another, and so on. What we will do is calculate ``n`` with four lines of shader code
-instead of just one. ``n`` becomes:
+another, and so on. What we will do is calculate `n` with four lines of shader code
+instead of just one. `n` becomes:
 
 .. code-block:: glsl
 
@@ -259,42 +259,42 @@ Making an ocean
 
 One final thing to make this look more like a planet. The ocean and the land reflect light differently.
 So we want the ocean to shine a little more than the land. We can do this by passing a fourth value
-into the ``alpha`` channel of our output ``COLOR`` and using it as a Roughness map.
+into the `alpha` channel of our output `COLOR` and using it as a Roughness map.
 
 .. code-block:: glsl
 
     COLOR.a = 0.3 + 0.7 * smoothstep(-0.1, 0.0, n);
 
-This line returns ``0.3`` for water and ``1.0`` for land. This means that the land is going to be quite
+This line returns `0.3` for water and `1.0` for land. This means that the land is going to be quite
 rough, while the water will be quite smooth.
 
-And then, in the material, under the "Metallic" section, make sure ``Metallic`` is set to ``0`` and
-``Specular`` is set to ``1``. The reason for this is the water reflects light really well, but
+And then, in the material, under the "Metallic" section, make sure `Metallic` is set to `0` and
+`Specular` is set to `1`. The reason for this is the water reflects light really well, but
 isn't metallic. These values are not physically accurate, but they are good enough for this demo.
 
-Next, under the "Roughness" section, set ``Roughness`` to ``1`` and set the roughness texture to a
+Next, under the "Roughness" section, set `Roughness` to `1` and set the roughness texture to a
 `Viewport Texture`.
-Finally, set the ``Texture Channel`` to ``Alpha``. This instructs the renderer to use the ``alpha``
-channel of our output ``COLOR`` as the ``Roughness`` value.
+Finally, set the `Texture Channel` to `Alpha`. This instructs the renderer to use the `alpha`
+channel of our output `COLOR` as the `Roughness` value.
 
 .. image:: img/planet_ocean.png
 
 You'll notice that very little changes except that the planet is no longer reflecting the sky.
 This is happening because, by default, when something is rendered with an
 alpha value, it gets drawn as a transparent object over the background. And since the default background
-of the `Viewport` is opaque, the ``alpha`` channel of the
-`Viewport Texture` is ``1``, resulting in the planet texture being
-drawn with slightly fainter colors and a ``Roughness`` value of ``1`` everywhere. To correct this, we
+of the `Viewport` is opaque, the `alpha` channel of the
+`Viewport Texture` is `1`, resulting in the planet texture being
+drawn with slightly fainter colors and a `Roughness` value of `1` everywhere. To correct this, we
 go into the `Viewport` and enable the "Transparent Bg" property. Since we are now
-rendering one transparent object on top of another, we want to enable ``blend_premul_alpha``:
+rendering one transparent object on top of another, we want to enable `blend_premul_alpha`:
 
 .. code-block:: glsl
 
     render_mode blend_premul_alpha;
 
-This pre-multiplies the colors by the ``alpha`` value and then blends them correctly together. Typically,
-when blending one transparent color on top of another, even if the background has an ``alpha`` of ``0`` (as it
-does in this case), you end up with weird color bleed issues. Setting ``blend_premul_alpha`` fixes that.
+This pre-multiplies the colors by the `alpha` value and then blends them correctly together. Typically,
+when blending one transparent color on top of another, even if the background has an `alpha` of `0` (as it
+does in this case), you end up with weird color bleed issues. Setting `blend_premul_alpha` fixes that.
 
 Now the planet should look like it is reflecting light on the ocean but not the land. If you haven't done
 so already, add an `OmniLight` to the scene so you can move it around and see the

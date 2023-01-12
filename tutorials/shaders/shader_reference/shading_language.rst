@@ -22,7 +22,7 @@ Most GLSL ES 3.0 datatypes are supported:
 +=====================+=================================================================================+
 | **void**            | Void datatype, useful only for functions that return nothing.                   |
 +---------------------+---------------------------------------------------------------------------------+
-| **bool**            | Boolean datatype, can only contain ``true`` or ``false``.                       |
+| **bool**            | Boolean datatype, can only contain `true` or `false`.                       |
 +---------------------+---------------------------------------------------------------------------------+
 | **bvec2**           | Two-component vector of booleans.                                               |
 +---------------------+---------------------------------------------------------------------------------+
@@ -110,9 +110,9 @@ Individual scalar members of vector types are accessed via the "x", "y", "z" and
 Alternatively, using "r", "g", "b" and "a" also works and is equivalent. Use whatever fits
 best for your needs.
 
-For matrices, use the ``m[column][row]`` indexing syntax to access each scalar,
-or ``m[idx]`` to access a vector by row index. For example, for accessing the y
-position of an object in a mat4 you use ``m[3][1]``.
+For matrices, use the `m[column][row]` indexing syntax to access each scalar,
+or `m[idx]` to access a vector by row index. For example, for accessing the y
+position of an object in a mat4 you use `m[3][1]`.
 
 Constructing
 ~~~~~~~~~~~~
@@ -130,7 +130,7 @@ Construction of vector types must always pass:
     vec4 a = vec4(0.0);
 
 Construction of matrix types requires vectors of the same dimension as the matrix. You can
-also build a diagonal matrix using ``matx(float)`` syntax. Accordingly, ``mat4(1.0)`` is
+also build a diagonal matrix using `matx(float)` syntax. Accordingly, `mat4(1.0)` is
 an identity matrix.
 
 .. code-block:: glsl
@@ -202,7 +202,7 @@ Local arrays
 ~~~~~~~~~~~~
 
 Local arrays are declared in functions. They can use all of the allowed datatypes, except samplers.
-The array declaration follows a C-style syntax: ``[const] + [precision] + typename + identifier + [array size]``.
+The array declaration follows a C-style syntax: `[const] + [precision] + typename + identifier + [array size]`.
 
 .. code-block:: glsl
 
@@ -242,7 +242,7 @@ To access an array element, use the indexing syntax:
 
     COLOR.r = arr[0]; // getter
 
-Arrays also have a built-in function ``.length()`` (not to be confused with the built-in ``length()`` function). It doesn't accept any parameters and will return the array's size.
+Arrays also have a built-in function `.length()` (not to be confused with the built-in `length()` function). It doesn't accept any parameters and will return the array's size.
 
 .. code-block:: glsl
 
@@ -253,12 +253,12 @@ Arrays also have a built-in function ``.length()`` (not to be confused with the 
 
 .. note::
 
-    If you use an index below 0 or greater than array size - the shader will crash and break rendering. To prevent this, use ``length()``, ``if``, or ``clamp()`` functions to ensure the index is between 0 and the array's length. Always carefully test and check your code. If you pass a constant expression or a simple number, the editor will check its bounds to prevent this crash.
+    If you use an index below 0 or greater than array size - the shader will crash and break rendering. To prevent this, use `length()`, `if`, or `clamp()` functions to ensure the index is between 0 and the array's length. Always carefully test and check your code. If you pass a constant expression or a simple number, the editor will check its bounds to prevent this crash.
 
 Constants
 ---------
 
-Use the ``const`` keyword before the variable declaration to make that variable immutable, which means that it cannot be modified. All basic types, except samplers can be declared as constants. Accessing and using a constant value is slightly faster than using a uniform. Constants must be initialized at their declaration.
+Use the `const` keyword before the variable declaration to make that variable immutable, which means that it cannot be modified. All basic types, except samplers can be declared as constants. Accessing and using a constant value is slightly faster than using a uniform. Constants must be initialized at their declaration.
 
 .. code-block:: glsl
 
@@ -274,7 +274,7 @@ Constants cannot be modified and additionally cannot have hints, but multiple of
 
     const vec2 V1 = vec2(1, 1), V2 = vec2(2, 2);
 
-Similar to variables, arrays can also be declared with ``const``.
+Similar to variables, arrays can also be declared with `const`.
 
 .. code-block:: glsl
 
@@ -547,7 +547,7 @@ You can set uniforms in the editor in the material. Or you can set them through 
 
   material.set_shader_param("some_value", some_value)
 
-.. note:: The first argument to ``set_shader_param`` is the name of the uniform in the shader. It
+.. note:: The first argument to `set_shader_param` is the name of the uniform in the shader. It
           must match *exactly* to the name of the uniform in the shader or else it will not be recognized.
 
 Any GLSL type except for *void* can be a uniform. Additionally, Godot provides
@@ -562,7 +562,7 @@ used, and how the editor should allow users to modify it.
     uniform float amount : hint_range(0, 1);
     uniform vec4 other_color : hint_color = vec4(1.0);
 
-It's important to understand that textures that are supplied as color require hints for proper sRGB->linear conversion (i.e. ``hint_albedo``), as Godot's 3D engine renders in linear color space.
+It's important to understand that textures that are supplied as color require hints for proper sRGB->linear conversion (i.e. `hint_albedo`), as Godot's 3D engine renders in linear color space.
 
 Full list of hints below:
 
@@ -624,7 +624,7 @@ Uniforms can also be assigned default values:
 Built-in variables
 ------------------
 
-A large number of built-in variables are available, like ``UV``, ``COLOR`` and ``VERTEX``. What variables are available depends on the type of shader (``spatial``, ``canvas_item`` or ``particle``) and the function used (``vertex``, ``fragment`` or ``light``).
+A large number of built-in variables are available, like `UV`, `COLOR` and `VERTEX`. What variables are available depends on the type of shader (`spatial`, `canvas_item` or `particle`) and the function used (`vertex`, `fragment` or `light`).
 For a list of the build-in variables that are available, please see the corresponding pages:
 
 - `Spatial shaders <doc_spatial_shader>`
@@ -673,7 +673,7 @@ When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature i
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **atanh** (vec_type x)                                        | Inverse hyperbolic tangent                                    |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **pow** (vec_type x, vec_type y)                              | Power (undefined if ``x`` < 0 or if ``x`` = 0 and ``y`` <= 0) |
+| vec_type **pow** (vec_type x, vec_type y)                              | Power (undefined if `x` < 0 or if `x` = 0 and `y` <= 0) |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **exp** (vec_type x)                                          | Base-e exponential                                            |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
@@ -711,13 +711,13 @@ When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature i
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **mod** (vec_type x , float y)                                | Remainder                                                     |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **modf** (vec_type x, out vec_type i)                         | Fractional of ``x``, with ``i`` as integer part               |
+| vec_type **modf** (vec_type x, out vec_type i)                         | Fractional of `x`, with `i` as integer part               |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type  **min** (vec_type a, vec_type b)                             | Minimum                                                       |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type  **max** (vec_type a, vec_type b)                             | Maximum                                                       |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **clamp** (vec_type x, vec_type min, vec_type max)            | Clamp to ``min..max``                                         |
+| vec_type **clamp** (vec_type x, vec_type min, vec_type max)            | Clamp to `min..max`                                         |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | float **mix** (float a, float b, float c)                              | Linear interpolate                                            |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
@@ -727,17 +727,17 @@ When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature i
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **mix** (vec_type a, vec_type b, bvec_type c)                 | Linear interpolate (boolean-vector selection)                 |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **step** (vec_type a, vec_type b)                             | ``b[i] < a[i] ? 0.0 : 1.0``                                   |
+| vec_type **step** (vec_type a, vec_type b)                             | `b[i] < a[i] ? 0.0 : 1.0`                                   |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **step** (float a, vec_type b)                                | ``b[i] < a ? 0.0 : 1.0``                                      |
+| vec_type **step** (float a, vec_type b)                                | `b[i] < a ? 0.0 : 1.0`                                      |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **smoothstep** (vec_type a, vec_type b, vec_type c)           | Hermite interpolate                                           |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **smoothstep** (float a, float b, vec_type c)                 | Hermite interpolate                                           |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| bvec_type **isnan** (vec_type x)                                       | Returns ``true`` if scalar or vector component is ``NaN``     |
+| bvec_type **isnan** (vec_type x)                                       | Returns `true` if scalar or vector component is `NaN`     |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| bvec_type **isinf** (vec_type x)                                       | Returns ``true`` if scalar or vector component is ``INF``     |
+| bvec_type **isinf** (vec_type x)                                       | Returns `true` if scalar or vector component is `INF`     |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | ivec_type **floatBitsToInt** (vec_type x)                              | Float->Int bit copying, no conversion                         |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
@@ -749,7 +749,7 @@ When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature i
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | float **length** (vec_type x)                                          | Vector length                                                 |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| float **distance** (vec_type a, vec_type b)                            | Distance between vectors i.e ``length(a - b)``                |
+| float **distance** (vec_type a, vec_type b)                            | Distance between vectors i.e `length(a - b)`                |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | float **dot** (vec_type a, vec_type b)                                 | Dot product                                                   |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
@@ -761,7 +761,7 @@ When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature i
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec3 **refract** (vec3 I, vec3 N, float eta)                           | Refract                                                       |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **faceforward** (vec_type N, vec_type I, vec_type Nref)       | If ``dot(Nref, I)`` < 0, return N, otherwise –N               |
+| vec_type **faceforward** (vec_type N, vec_type I, vec_type Nref)       | If `dot(Nref, I)` < 0, return N, otherwise –N               |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | mat_type **matrixCompMult** (mat_type x, mat_type y)                   | Matrix component multiplication                               |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
@@ -785,9 +785,9 @@ When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature i
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **notEqual** (vec_type x, vec_type y)                        | Bool vector comparison on != int/uint/float vectors           |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| bool **any** (bvec_type x)                                             | Any component is ``true``                                     |
+| bool **any** (bvec_type x)                                             | Any component is `true`                                     |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| bool **all** (bvec_type x)                                             | All components are ``true``                                   |
+| bool **all** (bvec_type x)                                             | All components are `true`                                   |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **not** (bvec_type x)                                        | Invert boolean vector                                         |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
@@ -833,9 +833,9 @@ When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature i
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **texelFetch** (sampler3D_type s, ivec3 uv, int lod)         | Fetch a single texel using integer coordinates                |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **dFdx** (vec_type p)                                         | Derivative in ``x`` using local differencing                  |
+| vec_type **dFdx** (vec_type p)                                         | Derivative in `x` using local differencing                  |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **dFdy** (vec_type p)                                         | Derivative in ``y`` using local differencing                  |
+| vec_type **dFdy** (vec_type p)                                         | Derivative in `y` using local differencing                  |
 +------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **fwidth** (vec_type p)                                       | Sum of absolute derivative in ``x`` and ``y``                 |
+| vec_type **fwidth** (vec_type p)                                       | Sum of absolute derivative in `x` and `y`                 |
 +------------------------------------------------------------------------+---------------------------------------------------------------+

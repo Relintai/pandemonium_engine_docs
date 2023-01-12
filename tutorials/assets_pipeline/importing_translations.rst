@@ -30,7 +30,7 @@ translated to other languages. The unique ID can be a number, a string,
 or a string with a number (it's just a unique string anyway).
 
 .. note:: If you need a more powerful file format, Godot also supports
-          loading translations written in the gettext ``.po`` format. See
+          loading translations written in the gettext `.po` format. See
           `doc_localization_using_gettext` for details.
 
 Translation format
@@ -113,7 +113,7 @@ translations to load when the game runs, specified in project.godot (or the
 project settings). Godot allows loading and removing translations at
 runtime as well.
 
-Select the ``.csv`` file and access the **Import** dock to define import
+Select the `.csv` file and access the **Import** dock to define import
 options. You can toggle the compression of the imported translations, and
 select the delimiter to use when parsing the CSV file.
 

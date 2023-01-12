@@ -73,24 +73,24 @@ The camera actually rotated the opposite direction!
 
 There are a few reasons this may happen:
 
-* Rotations don't map linearly to orientation, so interpolating them does not always result in the shortest path (i.e., to go from ``270`` to ``0`` degrees is not the same as going from ``270`` to ``360``, even though the angles are equivalent).
+* Rotations don't map linearly to orientation, so interpolating them does not always result in the shortest path (i.e., to go from `270` to `0` degrees is not the same as going from `270` to `360`, even though the angles are equivalent).
 * Gimbal lock is at play (first and last rotated axis align, so a degree of freedom is lost). See `Wikipedia's page on Gimbal Lock <https://en.wikipedia.org/wiki/Gimbal_lock>`_ for a detailed explanation of this problem.
 
 Say no to Euler angles
 ======================
 
-The result of all this is that you should **not use** the ``rotation`` property of `Spatial` nodes in Godot for games. It's there to be used mainly in the editor, for coherence with the 2D engine, and for simple rotations (generally just one axis, or even two in limited cases). As much as you may be tempted, don't use it.
+The result of all this is that you should **not use** the `rotation` property of `Spatial` nodes in Godot for games. It's there to be used mainly in the editor, for coherence with the 2D engine, and for simple rotations (generally just one axis, or even two in limited cases). As much as you may be tempted, don't use it.
 
 Instead, there is a better way to solve your rotation problems.
 
 Introducing transforms
 ----------------------
 
-Godot uses the `Transform` datatype for orientations. Each `Spatial` node contains a ``transform`` property which is relative to the parent's transform, if the parent is a Spatial-derived type.
+Godot uses the `Transform` datatype for orientations. Each `Spatial` node contains a `transform` property which is relative to the parent's transform, if the parent is a Spatial-derived type.
 
-It is also possible to access the world coordinate transform via the ``global_transform`` property.
+It is also possible to access the world coordinate transform via the `global_transform` property.
 
-A transform has a `Basis` (transform.basis sub-property), which consists of three `Vector3` vectors. These are accessed via the ``transform.basis`` property and can be accessed directly by ``transform.basis.x``, ``transform.basis.y``, and ``transform.basis.z``. Each vector points in the direction its axis has been rotated, so they effectively describe the node's total rotation. The scale (as long as it's uniform) can also be inferred from the length of the axes. A *basis* can also be interpreted as a 3x3 matrix and used as ``transform.basis[x][y]``.
+A transform has a `Basis` (transform.basis sub-property), which consists of three `Vector3` vectors. These are accessed via the `transform.basis` property and can be accessed directly by `transform.basis.x`, `transform.basis.y`, and `transform.basis.z`. Each vector points in the direction its axis has been rotated, so they effectively describe the node's total rotation. The scale (as long as it's uniform) can also be inferred from the length of the axes. A *basis* can also be interpreted as a 3x3 matrix and used as `transform.basis[x][y]`.
 
 A default basis (unmodified) is akin to:
 
@@ -106,9 +106,9 @@ gdscript GDScript
 
 This is also an analog of a 3x3 identity matrix.
 
-Following the OpenGL convention, ``X`` is the *Right* axis, ``Y`` is the *Up* axis and ``Z`` is the *Forward* axis.
+Following the OpenGL convention, `X` is the *Right* axis, `Y` is the *Up* axis and `Z` is the *Forward* axis.
 
-Together with the *basis*, a transform also has an *origin*. This is a *Vector3* specifying how far away from the actual origin ``(0, 0, 0)`` this transform is. Combining the *basis* with the *origin*, a *transform* efficiently represents a unique translation, rotation, and scale in space.
+Together with the *basis*, a transform also has an *origin*. This is a *Vector3* specifying how far away from the actual origin `(0, 0, 0)` this transform is. Combining the *basis* with the *origin*, a *transform* efficiently represents a unique translation, rotation, and scale in space.
 
 .. image:: img/transforms_camera.png
 
@@ -117,7 +117,7 @@ One way to visualize a transform is to look at an object's 3D gizmo while in "lo
 
 .. image:: img/transforms_local_space.png
 
-The gizmo's arrows show the ``X``, ``Y``, and ``Z`` axes (in red, green, and blue respectively) of the basis, while the gizmo's center is at the object's origin.
+The gizmo's arrows show the `X`, `Y`, and `Z` axes (in red, green, and blue respectively) of the basis, while the gizmo's center is at the object's origin.
 
 .. image:: img/transforms_gizmo.png
 
@@ -166,7 +166,7 @@ gdscript GDScript
 Precision errors
 ================
 
-Doing successive operations on transforms will result in a loss of precision due to floating-point error. This means the scale of each axis may no longer be exactly ``1.0``, and they may not be exactly ``90`` degrees from each other.
+Doing successive operations on transforms will result in a loss of precision due to floating-point error. This means the scale of each axis may no longer be exactly `1.0`, and they may not be exactly `90` degrees from each other.
 
 If a transform is rotated every frame, it will eventually start deforming over time. This is unavoidable.
 
@@ -178,7 +178,7 @@ gdscript GDScript
     transform = transform.orthonormalized()
 ```
 
-This will make all axes have ``1.0`` length again and be ``90`` degrees from each other. However, any scale applied to the transform will be lost.
+This will make all axes have `1.0` length again and be `90` degrees from each other. However, any scale applied to the transform will be lost.
 
 It is recommended you not scale nodes that are going to be manipulated; scale their children nodes instead (such as MeshInstance). If you absolutely must scale the node, then re-apply it at the end:
 
@@ -194,7 +194,7 @@ Obtaining information
 
 You might be thinking at this point: **"Ok, but how do I get angles from a transform?"**. The answer again is: you don't. You must do your best to stop thinking in angles.
 
-Imagine you need to shoot a bullet in the direction your player is facing. Just use the forward axis (commonly ``Z`` or ``-Z``).
+Imagine you need to shoot a bullet in the direction your player is facing. Just use the forward axis (commonly `Z` or `-Z`).
 
 gdscript GDScript
 

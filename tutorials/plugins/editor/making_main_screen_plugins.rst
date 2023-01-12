@@ -20,9 +20,9 @@ Initializing the plugin
 -----------------------
 
 First create a new plugin from the Plugins menu. For this tutorial, we'll put
-it in a folder called ``main_screen``, but you can use any name you'd like.
+it in a folder called `main_screen`, but you can use any name you'd like.
 
-The plugin script will come with ``_enter_tree()`` and ``_exit_tree()``
+The plugin script will come with `_enter_tree()` and `_exit_tree()`
 methods, but for a main screen plugin we need to add a few extra methods.
 Add five extra methods such that the script looks like this:
 
@@ -55,8 +55,8 @@ Add five extra methods such that the script looks like this:
     func get_plugin_icon():
         return get_editor_interface().get_base_control().get_icon("Node", "EditorIcons")
 
-The important part in this script is the ``has_main_screen()`` function,
-which is overloaded so it returns ``true``. This function is automatically
+The important part in this script is the `has_main_screen()` function,
+which is overloaded so it returns `true`. This function is automatically
 called by the editor on plugin activation, to tell it that this plugin
 adds a new center view to the editor. For now, we'll leave this script
 as-is and we'll come back to it later.
@@ -64,15 +64,15 @@ as-is and we'll come back to it later.
 Main screen scene
 -----------------
 
-Create a new scene with a root node derived from ``Control`` (for this
-example plugin, we'll make the root node a ``CenterContainer``).
-Select this root node, and in the viewport, click the ``Layout`` menu
-and select ``Full Rect``. You also need to enable the ``Expand``
+Create a new scene with a root node derived from `Control` (for this
+example plugin, we'll make the root node a `CenterContainer`).
+Select this root node, and in the viewport, click the `Layout` menu
+and select `Full Rect`. You also need to enable the `Expand`
 vertical size flag in the inspector.
 The panel now uses all the space available in the main viewport.
 
 Next, let's add a button to our example main screen plugin.
-Add a ``Button`` node, and set the text to "Print Hello" or similar.
+Add a `Button` node, and set the text to "Print Hello" or similar.
 Add a script to the button like this:
 
 ::
@@ -87,12 +87,12 @@ Add a script to the button like this:
 Then connect the "pressed" signal to itself. If you need help with signals,
 see the `doc_signals` article.
 
-We are done with the main screen panel. Save the scene as ``main_panel.tscn``.
+We are done with the main screen panel. Save the scene as `main_panel.tscn`.
 
 Update the plugin script
 ------------------------
 
-We need to update the ``main_screen_plugin.gd`` script so the plugin
+We need to update the `main_screen_plugin.gd` script so the plugin
 instances our main panel scene and places it where it needs to be.
 Here is the full plugin script:
 
@@ -137,28 +137,28 @@ Here is the full plugin script:
         # Must return some kind of Texture for the icon.
         return get_editor_interface().get_base_control().get_icon("Node", "EditorIcons")
 
-A couple of specific lines were added. ``MainPanel`` is a constant that holds
+A couple of specific lines were added. `MainPanel` is a constant that holds
 a reference to the scene, and we instance it into `main_panel_instance`.
 
-The ``_enter_tree()`` function is called before ``_ready()``. This is where
+The `_enter_tree()` function is called before `_ready()`. This is where
 we instance the main panel scene, and add them as children of specific parts
-of the editor. We use ``get_editor_interface().get_editor_viewport()`` to
+of the editor. We use `get_editor_interface().get_editor_viewport()` to
 obtain the viewport and add our main panel instance as a child to it.
-We call the ``make_visible(false)`` function to hide the main panel so
+We call the `make_visible(false)` function to hide the main panel so
 it doesn't compete for space when first activating the plugin.
 
-The ``_exit_tree()`` function is called when the plugin is deactivated.
-If the main screen still exists, we call ``queue_free()`` to free the
+The `_exit_tree()` function is called when the plugin is deactivated.
+If the main screen still exists, we call `queue_free()` to free the
 instance and remove it from memory.
 
-The ``make_visible()`` function is overridden to hide or show the main
+The `make_visible()` function is overridden to hide or show the main
 panel as needed. This function is automatically called by the editor when the
 user clicks on the main viewport buttons at the top of the editor.
 
-The ``get_plugin_name()`` and ``get_plugin_icon()`` functions control
+The `get_plugin_name()` and `get_plugin_icon()` functions control
 the displayed name and icon for the plugin's main viewport button.
 
-Another function you can add is the ``handles()`` function, which
+Another function you can add is the `handles()` function, which
 allows you to handle a node type, automatically focusing the main
 screen when the type is selected. This is similar to how clicking
 on a 3D node will automatically switch to the 3D viewport.

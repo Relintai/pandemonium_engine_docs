@@ -25,7 +25,7 @@ Take three points, the minimum required for Quadratic Bezier to work:
 To draw a curve between them, we first interpolate gradually over the two
 vertices of each of the two segments formed by the three points, using values
 ranging from 0 to 1. This gives us two points that move along the segments as we
-change the value of ``t`` from 0 to 1.
+change the value of `t` from 0 to 1.
 
 gdscript GDScript
 
@@ -35,7 +35,7 @@ gdscript GDScript
         var q1 = p1.linear_interpolate(p2, t)
 ```
 
-We then interpolate ``q0`` and ``q1`` to obtain a single point ``r`` that moves
+We then interpolate `q0` and `q1` to obtain a single point `r` that moves
 along a curve.
 
 gdscript GDScript
@@ -60,7 +60,7 @@ between four points.
 .. image:: img/bezier_cubic_points.png
 
 We first use a function with four parameters to take four points as an input,
-``p0``, ``p1``, ``p2`` and ``p3``:
+`p0`, `p1`, `p2` and `p3`:
 
 gdscript GDScript
 
@@ -120,20 +120,20 @@ The result will be a smooth curve interpolating between all four points:
 
 *(Image credit: Wikipedia)*
 
-.. note:: Cubic Bezier interpolation works the same in 3D, just use ``Vector3``
-          instead of ``Vector2``.
+.. note:: Cubic Bezier interpolation works the same in 3D, just use `Vector3`
+          instead of `Vector2`.
 
 Adding control points
 ---------------------
 
 Building upon Cubic Bezier, we can change the way two of the points work to
-control the shape of our curve freely. Instead of having ``p0``, ``p1``, ``p2``
-and ``p3``, we will store them as:
+control the shape of our curve freely. Instead of having `p0`, `p1`, `p2`
+and `p3`, we will store them as:
 
-* ``point0 = p0``: Is the first point, the source
-* ``control0 = p1 - p0``: Is a vector relative to the first control point
-* ``control1 = p3 - p2``: Is a vector relative to the second control point
-* ``point1 = p3``: Is the second point, the destination
+* `point0 = p0`: Is the first point, the source
+* `control0 = p1 - p0`: Is a vector relative to the first control point
+* `control1 = p3 - p2`: Is a vector relative to the second control point
+* `point1 = p3`: Is the second point, the destination
 
 This way, we have two points and two control points which are relative vectors
 to the respective points. If you've used graphics or animation software before,
@@ -158,7 +158,7 @@ Using them, however, may not be completely obvious, so following is a descriptio
 Evaluating
 ----------
 
-Just evaluating them may be an option, but in most cases it's not very useful. The big drawback with Bezier curves is that if you traverse them at constant speed, from ``t = 0`` to ``t = 1``, the actual interpolation will *not* move at constant speed. The speed is also an interpolation between the distances between points ``p0``, ``p1``, ``p2`` and ``p3`` and there is not a mathematically simple way to traverse the curve at constant speed.
+Just evaluating them may be an option, but in most cases it's not very useful. The big drawback with Bezier curves is that if you traverse them at constant speed, from `t = 0` to `t = 1`, the actual interpolation will *not* move at constant speed. The speed is also an interpolation between the distances between points `p0`, `p1`, `p2` and `p3` and there is not a mathematically simple way to traverse the curve at constant speed.
 
 Let's do a simple example with the following pseudocode:
 
@@ -174,7 +174,7 @@ gdscript GDScript
 
 .. image:: img/bezier_interpolation_speed.gif
 
-As you can see, the speed (in pixels per second) of the circle varies, even though ``t`` is increased at constant speed. This makes beziers difficult to use for anything practical out of the box.
+As you can see, the speed (in pixels per second) of the circle varies, even though `t` is increased at constant speed. This makes beziers difficult to use for anything practical out of the box.
 
 Drawing
 -------
@@ -185,12 +185,12 @@ The reason is that some sections of a curve (specifically, corners) may require 
 
 .. image:: img/bezier_point_amount.png
 
-Additionally, if both control points were ``0, 0`` (remember they are relative vectors), the Bezier curve would just be a straight line (so drawing a high amount of points would be wasteful).
+Additionally, if both control points were `0, 0` (remember they are relative vectors), the Bezier curve would just be a straight line (so drawing a high amount of points would be wasteful).
 
 Before drawing Bezier curves, *tessellation* is required. This is often done with a recursive or divide and conquer function that splits the curve until the curvature amount becomes less than a certain threshold.
 
 The *Curve* classes provide this via the
-`Curve2D.tessellate()` function (which receives optional ``stages`` of recursion and angle ``tolerance`` arguments). This way, drawing something based on a curve is easier.
+`Curve2D.tessellate()` function (which receives optional `stages` of recursion and angle `tolerance` arguments). This way, drawing something based on a curve is easier.
 
 Traversal
 ---------

@@ -44,8 +44,8 @@ Please refer to the documentation for `doc_compiling_for_android`,
 `doc_compiling_for_uwp`, `doc_compiling_for_web`,
 `doc_compiling_for_windows` and `doc_compiling_for_x11`.
 
-Note that for **Windows/Visual Studio**, you need to use ``x86_x64 Cross Tools
-Command Prompt for VS 2017`` or similar, depending on your install, instead of
+Note that for **Windows/Visual Studio**, you need to use `x86_x64 Cross Tools
+Command Prompt for VS 2017` or similar, depending on your install, instead of
 the standard Windows command prompt to enter the commands below.
 
 Platform selection
@@ -56,11 +56,11 @@ for. If not detected, the platform will simply not appear on the list of
 available platforms. The build requirements for each platform are
 described in the rest of this tutorial section.
 
-SCons is invoked by just calling ``scons``. If no platform is specified,
+SCons is invoked by just calling `scons`. If no platform is specified,
 SCons will detect the target platform automatically based on the host platform.
 It will then start building for the target platform right away.
 
-To list the available target platforms, use ``scons platform=list``::
+To list the available target platforms, use `scons platform=list`::
 
     scons platform=list
     scons: Reading SConscript files ...
@@ -74,15 +74,15 @@ To list the available target platforms, use ``scons platform=list``::
 
     Please run SCons again and select a valid platform: platform=<string>
 
-To build for a platform (for example, x11), run with the ``platform=`` (or
-``p=`` to make it short) argument:
+To build for a platform (for example, x11), run with the `platform=` (or
+`p=` to make it short) argument:
 
 ::
 
     scons platform=x11
 
 This will start the build process, which will take a while. If you want
-SCons to build faster, use the ``-j <cores>`` parameter to specify how many
+SCons to build faster, use the `-j <cores>` parameter to specify how many
 cores will be used for the build. Or leave it using one core, so you
 can use your computer for something else :)
 
@@ -95,7 +95,7 @@ Example for using 4 cores:
 Resulting binary
 ----------------
 
-The resulting binaries will be placed in the ``bin/`` subdirectory,
+The resulting binaries will be placed in the `bin/` subdirectory,
 generally with this naming convention::
 
     godot.<platform>.[opt].[tools/debug].<architecture>[extension]
@@ -152,16 +152,16 @@ Target controls optimization and debug flags. Each mode means:
    reports errors). Official editor binaries use this configuration.
 -  **release**: Build without symbols, with optimization and with little
    to no runtime checks. This target can't be used together with
-   ``tools=yes``, as the editor requires some debug functionality and run-time
+   `tools=yes`, as the editor requires some debug functionality and run-time
    checks to run.
 
 ::
 
     scons platform=<platform> target=debug/release_debug/release
 
-This flag appends the ``.debug`` suffix (for debug), or ``.tools`` (for debug
+This flag appends the `.debug` suffix (for debug), or `.tools` (for debug
 with tools enabled). When optimization is enabled (release), it appends
-the ``.opt`` suffix.
+the `.opt` suffix.
 
 Bits
 ----
@@ -178,8 +178,8 @@ else.
 
     scons platform=<platform> bits=default/32/64
 
-This flag appends ``.32`` or ``.64`` suffixes to resulting binaries when
-relevant. If ``bits=default`` is used, the suffix will match the detected
+This flag appends `.32` or `.64` suffixes to resulting binaries when
+relevant. If `bits=default` is used, the suffix will match the detected
 architecture.
 
 .. _doc_buildsystem_custom_modules:
@@ -190,10 +190,10 @@ Custom modules
 It's possible to compile modules residing outside of Godot's directory
 tree, along with the built-in modules.
 
-A ``custom_modules`` build option can be passed to the command line before
+A `custom_modules` build option can be passed to the command line before
 compiling. The option represents a comma-separated list of directory paths
 containing a collection of independent C++ modules that can be seen as C++
-packages, just like the built-in ``modules/`` directory.
+packages, just like the built-in `modules/` directory.
 
 For instance, it's possible to provide both relative, absolute, and user
 directory paths containing such modules:
@@ -216,10 +216,10 @@ Cleaning generated files
 ------------------------
 
 Sometimes, you may encounter an error due to generated files being present. You
-can remove them by using ``scons --clean <options>``, where ``<options>`` is the
+can remove them by using `scons --clean <options>`, where `<options>` is the
 list of build options you've used to build Godot previously.
 
-Alternatively, you can use ``git clean -fixd`` which will clean build artifacts
+Alternatively, you can use `git clean -fixd` which will clean build artifacts
 for all platforms and configurations. Beware, as this will remove all untracked
 and ignored files in the repository. Don't run this command if you have
 uncommitted work!
@@ -231,7 +231,7 @@ There are several other build options that you can use to configure the
 way Godot should be built (compiler, debug options, etc.) as well as the
 features to include/disable.
 
-Check the output of ``scons --help`` for details about each option for
+Check the output of `scons --help` for details about each option for
 the version you are willing to compile.
 
 .. _doc_overriding_build_options:
@@ -242,7 +242,7 @@ Overriding the build options
 Using a file
 ^^^^^^^^^^^^
 
-The default ``custom.py`` file can be created at the root of the Godot Engine
+The default `custom.py` file can be created at the root of the Godot Engine
 source to initialize any SCons build options passed via the command line:
 
 .. code-block:: python
@@ -261,10 +261,10 @@ time it takes to build the engine. See `doc_optimizing_for_size` page for more d
 
     You can use the online
     `Godot build options generator <https://godot-build-options-generator.github.io/>`__
-    to generate a ``custom.py`` file containing SCons options.
+    to generate a `custom.py` file containing SCons options.
     You can then save this file and place it at the root of your Godot source directory.
 
-Another custom file can be specified explicitly with the ``profile`` command
+Another custom file can be specified explicitly with the `profile` command
 line option, both overriding the default build configuration:
 
 .. code-block:: shell
@@ -291,11 +291,11 @@ It's also possible to override the options conditionally:
 Using the SCONSFLAGS
 ^^^^^^^^^^^^^^^^^^^^
 
-``SCONSFLAGS`` is an environment variable which is used by the SCons to set the
+`SCONSFLAGS` is an environment variable which is used by the SCons to set the
 options automatically without having to supply them via the command line.
 
 For instance, you may want to build Godot in parallel with the aforementioned
-``-j`` option for all the future builds:
+`-j` option for all the future builds:
 
 bash Linux/macOS
 
@@ -344,12 +344,12 @@ To create those yourself, follow the instructions detailed for each
 platform in this same tutorial section. Each platform explains how to
 create its own template.
 
-The ``version.txt`` file should contain the corresponding Godot version
+The `version.txt` file should contain the corresponding Godot version
 identifier. This file is used to install export templates in a version-specific
 directory to avoid conflicts. For instance, if you are building export templates
-for Godot 3.1.1, ``version.txt`` should contain ``3.1.1.stable`` on the first
-line (and nothing else). This version identifier is based on the ``major``,
-``minor``, ``patch`` (if present) and ``status`` lines of the
+for Godot 3.1.1, `version.txt` should contain `3.1.1.stable` on the first
+line (and nothing else). This version identifier is based on the `major`,
+`minor`, `patch` (if present) and `status` lines of the
 `version.py file in the Godot Git repository <https://github.com/godotengine/godot/blob/master/version.py>`__.
 
 If you are developing for multiple platforms, macOS is definitely the most

@@ -43,7 +43,7 @@ with the following nodes:
           `Physics Introduction <doc_physics_introduction>` for more
           information.
 
-Now select the ``AnimatedSprite`` and in its *SpriteFrames* property, select
+Now select the `AnimatedSprite` and in its *SpriteFrames* property, select
 "New SpriteFrames".
 
 .. image:: img/2d_animation_new_spriteframes.png
@@ -70,7 +70,7 @@ Controlling the animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once the animation is complete, you can control the animation via code using
-the ``play()`` and ``stop()`` methods. Here is a brief example to play the
+the `play()` and `stop()` methods. Here is a brief example to play the
 animation while the right arrow key is held, and stop it when the key is
 released.
 
@@ -92,13 +92,13 @@ gdscript GDScript
 Sprite sheet with AnimatedSprite
 --------------------------------
 
-You can also easily animate from a sprite sheet with the class ``AnimatedSprite``. We will use this public domain sprite sheet:
+You can also easily animate from a sprite sheet with the class `AnimatedSprite`. We will use this public domain sprite sheet:
 
 .. image:: img/2d_animation_frog_spritesheet.png
 
 Right-click the image and choose "Save Image As" to download it, and then copy the image into your project folder.
 
-Set up your scene tree the same way you did previously when using individual images. Select the ``AnimatedSprite`` and in its *SpriteFrames* property, select
+Set up your scene tree the same way you did previously when using individual images. Select the `AnimatedSprite` and in its *SpriteFrames* property, select
 "New SpriteFrames".
 
 Click on the new SpriteFrames resource. This time, when the bottom panel appears, select "Add frames from a Sprite Sheet".
@@ -152,27 +152,27 @@ setting up your scene tree:
 
 Drag the spritesheet into the Sprite's *Texture* property, and you'll see the
 whole sheet displayed on the screen. To slice it up into individual frames,
-expand the *Animation* section in the Inspector and set the *Hframes* to ``6``.
+expand the *Animation* section in the Inspector and set the *Hframes* to `6`.
 *Hframes* and *Vframes* are the number of horizontal and vertical frames in
 your sprite sheet.
 
 .. image:: img/2d_animation_setframes.png
 
 Now try changing the value of the *Frame* property. You'll see that it ranges
-from ``0`` to ``5`` and the image displayed by the Sprite changes accordingly.
+from `0` to `5` and the image displayed by the Sprite changes accordingly.
 This is the property we'll be animating.
 
-Select the ``AnimationPlayer`` and click the "Animation" button followed by
-"New". Name the new animation "walk". Set the animation length to ``0.6`` and
+Select the `AnimationPlayer` and click the "Animation" button followed by
+"New". Name the new animation "walk". Set the animation length to `0.6` and
 click the "Loop" button so that our animation will repeat.
 
 .. image:: img/2d_animation_new_animation.png
 
-Now select the ``Sprite`` node and click the key icon to add a new track.
+Now select the `Sprite` node and click the key icon to add a new track.
 
 .. image:: img/2d_animation_new_track.png
 
-Continue adding frames at each point in the timeline (``0.1`` seconds by
+Continue adding frames at each point in the timeline (`0.1` seconds by
 default), until you have all the frames from 0 to 5. You'll see the frames
 actually appearing in the animation track:
 
@@ -186,7 +186,7 @@ Controlling an AnimationPlayer animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Like with AnimatedSprite, you can control the animation via code using
-the ``play()`` and ``stop()`` methods. Again, here is an example to play the
+the `play()` and `stop()` methods. Again, here is an example to play the
 animation while the right arrow key is held, and stop it when the key is
 released.
 
@@ -205,19 +205,19 @@ gdscript GDScript
 ```
 
 .. note:: If updating both an animation and a separate property at once
-          (for example, a platformer may update the sprite's ``h_flip``/``v_flip``
+          (for example, a platformer may update the sprite's `h_flip`/`v_flip`
           properties when a character turns while starting a 'turning' animation),
-          it's important to keep in mind that ``play()`` isn't applied instantly.
+          it's important to keep in mind that `play()` isn't applied instantly.
           Instead, it's applied the next time the `AnimationPlayer` is processed.
           This may end up being on the next frame, causing a 'glitch' frame,
           where the property change was applied but the animation was not.
-          If this turns out to be a problem, after calling ``play()``, you can call ``advance(0)``
+          If this turns out to be a problem, after calling `play()`, you can call `advance(0)`
           to update the animation immediately.
 
 Summary
 -------
 
 These examples illustrate the two classes you can use in Godot for
-2D animation. ``AnimationPlayer`` is
-a bit more complex than ``AnimatedSprite``, but it provides additional functionality, since you can also
-animate other properties like position or scale. The class ``AnimationPlayer`` can also be used with an ``AnimatedSprite``. Experiment to see what works best for your needs.
+2D animation. `AnimationPlayer` is
+a bit more complex than `AnimatedSprite`, but it provides additional functionality, since you can also
+animate other properties like position or scale. The class `AnimationPlayer` can also be used with an `AnimatedSprite`. Experiment to see what works best for your needs.

@@ -16,7 +16,7 @@ own limitations:
 -  You can use a "master" scene that loads and unloads other scenes as
    its children. However, this means you can no longer run those scenes
    individually and expect them to work correctly.
--  Information can be stored to disk in ``user://`` and then loaded by scenes
+-  Information can be stored to disk in `user://` and then loaded by scenes
    that require it, but frequently saving and loading data is cumbersome and
    may be slow.
 
@@ -66,7 +66,7 @@ menu and switch to the **AutoLoad** tab.
 .. image:: img/autoload_tab.png
 
 Here you can add any number of scenes or scripts. Each entry in the list
-requires a name, which is assigned as the node's ``name`` property. The order of
+requires a name, which is assigned as the node's `name` property. The order of
 the entries as they are added to the global scene tree can be manipulated using
 the up/down arrow keys. Like regular scenes, the engine will read these nodes
 in top-to-bottom order.
@@ -83,7 +83,7 @@ gdscript GDScript
 ```
 
 If the **Enable** column is checked (which is the default), then the singleton can
-be accessed directly without requiring ``get_node()``:
+be accessed directly without requiring `get_node()`:
 
 gdscript GDScript
 
@@ -99,7 +99,7 @@ you'll see the autoloaded nodes appear:
 
 .. warning::
 
-    Autoloads must **not** be removed using ``free()`` or ``queue_free()`` at
+    Autoloads must **not** be removed using `free()` or `queue_free()` at
     runtime, or the engine will crash.
 
 Custom scene switcher
@@ -114,23 +114,23 @@ complex behavior when changing scenes, this method provides more functionality.
 To begin, download the template from here:
 :download:`autoload.zip <files/autoload.zip>` and open it in Godot.
 
-The project contains two scenes: ``Scene1.tscn`` and ``Scene2.tscn``. Each
+The project contains two scenes: `Scene1.tscn` and `Scene2.tscn`. Each
 scene contains a label displaying the scene name and a button with its
-``pressed()`` signal connected. When you run the project, it starts in
-``Scene1.tscn``. However, pressing the button does nothing.
+`pressed()` signal connected. When you run the project, it starts in
+`Scene1.tscn`. However, pressing the button does nothing.
 
 Global.gd
 ~~~~~~~~~
 
-Switch to the **Script** tab and create a new script called ``Global.gd``.
-Make sure it inherits from ``Node``:
+Switch to the **Script** tab and create a new script called `Global.gd`.
+Make sure it inherits from `Node`:
 
 .. image:: img/autoload_script.png
 
 The next step is to add this script to the autoLoad list. Open
 **Project > Project Settings** from the menu, switch to the **AutoLoad** tab and
 select the script by clicking the browse button or typing its path:
-``res://Global.gd``. Press **Add** to add it to the autoload list:
+`res://Global.gd`. Press **Add** to add it to the autoload list:
 
 .. image:: img/autoload_tutorial1.png
 
@@ -138,7 +138,7 @@ Now whenever we run any scene in the project, this script will always be loaded.
 
 Returning to the script, it needs to fetch the current scene in the
 `_ready()` function. Both the current scene (the one with the button) and
-``Global.gd`` are children of root, but autoloaded nodes are always first. This
+`Global.gd` are children of root, but autoloaded nodes are always first. This
 means that the last child of root is always the loaded scene.
 
 gdscript GDScript

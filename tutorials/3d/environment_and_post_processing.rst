@@ -46,7 +46,7 @@ Just head to Project Settings -> Rendering -> Environment:
 .. image:: img/environment_default.png
 
 New projects created from the Project Manager come with a default environment
-(``default_env.tres``). If one needs to be created, save it to disk before
+(`default_env.tres`). If one needs to be created, save it to disk before
 referencing it here.
 
 Environment options
@@ -152,7 +152,7 @@ The tone mapping options are:
     tonemapping operator, but it causes bright lighting to look blown out, with
     noticeable clipping in the output colors.
   - **Reinhardt:** Performs a variation on rendered pixels' colors by this
-    formula: ``color = color / (1 + color)``. This avoids clipping bright
+    formula: `color = color / (1 + color)`. This avoids clipping bright
     highlights, but the resulting image can look a bit dull.
   - **Filmic:** This avoids clipping bright highlights, with a resulting image
     that usually looks more vivid than Reinhardt.
@@ -166,13 +166,13 @@ The tone mapping options are:
     It's recommended to use ACES Fitted instead of ACES.
 
 - **Exposure:** Tone mapping exposure which simulates amount of light received
-  over time (default: ``1.0``). Higher values result in an overall brighter appearance.
+  over time (default: `1.0`). Higher values result in an overall brighter appearance.
   If the scene appears too dark as a result of a tonemapping operator or whitepoint
   change, try increasing this value slightly.
 
 - **White:** Tone mapping whitepoint, which simulates where in the scale white is
-  located (default: ``1.0``). For photorealistic lighting, recommended values are
-  between ``6.0`` and ``8.0``. Higher values result in less blown out highlights,
+  located (default: `1.0`). For photorealistic lighting, recommended values are
+  between `6.0` and `8.0`. Higher values result in less blown out highlights,
   but make the scene appear slightly darker as a whole.
 
 Auto Exposure (HDR)

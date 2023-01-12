@@ -26,9 +26,9 @@ Click Next, to pass the welcome to the new empty project wizard.
    :figclass: figure-w480
    :align: center
 
-The project file should be created in the root of the cloned project folder. To achieve this, first, ensure that the **Project title** is the same as the folder name that Godot was cloned into. Unless you cloned the project into a folder with a different name, this will be ``godot``.
+The project file should be created in the root of the cloned project folder. To achieve this, first, ensure that the **Project title** is the same as the folder name that Godot was cloned into. Unless you cloned the project into a folder with a different name, this will be `godot`.
 
-Second, ensure that the **Folder to create project in** is the folder you ran the Git clone command from, not the ``godot`` project folder. Confirm that the **Resulting filename** field will create the project file in the root of the cloned project folder.
+Second, ensure that the **Folder to create project in** is the folder you ran the Git clone command from, not the `godot` project folder. Confirm that the **Resulting filename** field will create the project file in the root of the cloned project folder.
 
 .. figure:: img/code_blocks_project_title_and_location.png
    :figclass: figure-w480
@@ -61,9 +61,9 @@ The next step is to change the build options. Right-click on the new project and
    :figclass: figure-w480
    :align: center
 
-Select the **"Make" commands** tab and remove all the existing commands for all the build targets. For each build target enter the **SCons** command for creating the desired build in the **Build project/target** field. The minimum is ``scons``. For details on the **SCons** build options, see `doc_introduction_to_the_buildsystem`. It's also useful to add the ``scons --clean`` command in the **Clean project/target** field to the project's default commmands.
+Select the **"Make" commands** tab and remove all the existing commands for all the build targets. For each build target enter the **SCons** command for creating the desired build in the **Build project/target** field. The minimum is `scons`. For details on the **SCons** build options, see `doc_introduction_to_the_buildsystem`. It's also useful to add the `scons --clean` command in the **Clean project/target** field to the project's default commmands.
 
-If you're using Windows, all the commands need to be preceded with ``cmd /c`` to iniitalize the command interpreter.
+If you're using Windows, all the commands need to be preceded with `cmd /c` to iniitalize the command interpreter.
 
 .. figure:: img/code_blocks_scons_minimum.png
    :figclass: figure-w480
@@ -84,7 +84,7 @@ Code::Blocks should now be configured to build Godot; so either select **Build >
 Configuring the run
 -------------------
 
-Once **SCons** has successfully built the desired target, reopen the project **Properties...** and select the **Build targets** tab. In the **Output filename** field, browse to the ``bin`` folder and select the compiled file.
+Once **SCons** has successfully built the desired target, reopen the project **Properties...** and select the **Build targets** tab. In the **Output filename** field, browse to the `bin` folder and select the compiled file.
 
 Deselect the **Auto-generate filename prefix** and **Auto-generate filename extension** options.
 
@@ -94,7 +94,7 @@ Deselect the **Auto-generate filename prefix** and **Auto-generate filename exte
 
 Code::Blocks should now be configured to run your compiled Godot executable; so either select **Build > Run**, click the green arrow button, or press :kbd:`Ctrl + F10`.
 
-There are two additional points worth noting. First, if required, the **Execution working dir** field can be used to test specific projects, by setting it to the folder containing the ``project.godot`` file. Second, the **Build targets** tab can be used to add and remove build targets for working with and creating different builds.
+There are two additional points worth noting. First, if required, the **Execution working dir** field can be used to test specific projects, by setting it to the folder containing the `project.godot` file. Second, the **Build targets** tab can be used to add and remove build targets for working with and creating different builds.
 
 Adding files to the project
 ---------------------------

@@ -22,7 +22,7 @@ Overview of PCK files
 ---------------------
 
 Godot enables this via a feature called **resource packs** (PCK files,
-with extension ``.pck``).
+with extension `.pck`).
 
 **Advantages:**
 
@@ -113,13 +113,13 @@ gdscript GDScript
     subfolder). However, it is also a way of creating patches for one's own game. A
     PCK file of this kind can fix the content of a previously loaded PCK.
 
-    To opt out of this behavior, pass ``false`` as the second argument to
+    To opt out of this behavior, pass `false` as the second argument to
     `ProjectSettings.load_resource_pack()`.
 
 .. note::
     For a C# project, you need to build the DLL and place it in the project directory first.
     Then, before loading the resource pack, you need to load its DLL as follows:
-    ``Assembly.LoadFile("mod.dll")``
+    `Assembly.LoadFile("mod.dll")`
 
 Summary
 -------

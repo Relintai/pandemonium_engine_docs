@@ -20,27 +20,27 @@ to use this feature:
 
 New created action is always an active action bound to object. There are
 several ways to place an active action into NLA track,
-one is of course doing it in ``NLA Editor``
+one is of course doing it in `NLA Editor`
 
 .. image:: img/nla_editor.jpg
 .. image:: img/nla_pushdown.jpg
 
-Or it can be done stashing the action in ``Dope Sheet``
+Or it can be done stashing the action in `Dope Sheet`
 
 .. image:: img/dope_sheet.jpg
 .. image:: img/stash_action.jpg
 
 **2. Check mute status of NLA tracks**
 
-An NLA track can be ``mute`` or ``unmute``, the exporter will export all
-the ``mute`` NLA track as a separate action, while blends all the ``unmute``
+An NLA track can be `mute` or `unmute`, the exporter will export all
+the `mute` NLA track as a separate action, while blends all the `unmute`
 NLA tracks into every action (including the action action) being exported.
 
 .. image:: img/nla_strip.jpg
 
 **3. Export the scene**
 
-Make sure the ``Export Stashed Actions`` option has been turned on.
+Make sure the `Export Stashed Actions` option has been turned on.
 
 .. image:: img/stash_action_option.jpg
 

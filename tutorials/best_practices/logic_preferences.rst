@@ -17,7 +17,7 @@ resources while in the middle of performance-sensitive code.
 Its counterpart, the `load` method, loads a
 resource only when it reaches the load statement. That is, it will load a
 resource in-place which can cause slowdowns when it occurs in the middle of
-sensitive processes. The ``load`` function is also an alias for
+sensitive processes. The `load` function is also an alias for
 `ResourceLoader.load(path)` which is
 accessible to *all* scripting languages.
 
@@ -85,7 +85,7 @@ consider:
    in exceptional cases, one may wish not to do this:
 
    1. If the 'imported' class is liable to change, then it should be a property
-      instead, initialized either using an ``export`` or a ``load`` (and
+      instead, initialized either using an `export` or a `load` (and
       perhaps not even initialized until later).
 
    2. If the script requires a great many dependencies, and one does not wish
@@ -93,7 +93,7 @@ consider:
       dependencies at runtime as circumstances change. If one preloads
       resources into constants, then the only way to unload these resources
       would be to unload the entire script. If they are instead loaded
-      properties, then one can set them to ``null`` and remove all references
+      properties, then one can set them to `null` and remove all references
       to the resource entirely (which, as a
       `Reference`-extending type, will cause the
       resources to delete themselves from memory).

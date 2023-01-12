@@ -80,7 +80,7 @@ gdscript GDScript
 
 Keep in mind, however, that it is generally not desired to work with
 screen coordinates. The recommended approach is to simply work in Canvas
-coordinates (``CanvasItem.get_global_transform()``), to allow automatic
+coordinates (`CanvasItem.get_global_transform()`), to allow automatic
 screen resolution resizing to work properly.
 
 Feeding custom input events

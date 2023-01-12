@@ -86,12 +86,12 @@ To import an existing project, the current process is as follows:
 
 .. attention::
 
-    It's important to place the project folder somewhere in ``/home/web_user/``.
-    If your project folder is placed outside ``/home/web_user/``, you will
+    It's important to place the project folder somewhere in `/home/web_user/`.
+    If your project folder is placed outside `/home/web_user/`, you will
     lose your project when closing the editor!
 
     When you follow the steps described above, the project folder will always be
-    located in ``/home/web_user/projects``, keeping it safe.
+    located in `/home/web_user/projects`, keeping it safe.
 
 Editing and running a project
 -----------------------------

@@ -13,11 +13,11 @@ A `SoftBody` node is used for soft body simulations.
 
 We will create a bouncy cube to demonstrate the setup of a soft body.
 
-Create a new scene with a ``Spatial`` node as root. Then, create a ``Softbody`` node. Add a ``CubeMesh`` in the ``mesh`` property of the node in the inspector and increase the subdivision of the mesh for simulation.
+Create a new scene with a `Spatial` node as root. Then, create a `Softbody` node. Add a `CubeMesh` in the `mesh` property of the node in the inspector and increase the subdivision of the mesh for simulation.
 
 .. image:: img/softbody_cube.png
 
-Set the parameters to obtain the type of soft body you aim for. Try to keep the ``Simulation Precision`` above 5, otherwise, the soft body may collapse.
+Set the parameters to obtain the type of soft body you aim for. Try to keep the `Simulation Precision` above 5, otherwise, the soft body may collapse.
 
 .. image:: img/softbody_cube_menu.png
 
@@ -25,7 +25,7 @@ Set the parameters to obtain the type of soft body you aim for. Try to keep the 
 
 Play the scene to view the simulation.
 
-.. tip:: To improve the simulation's result, increase the ``Simulation Precision``, this will give significant improvement at the cost of performance.
+.. tip:: To improve the simulation's result, increase the `Simulation Precision`, this will give significant improvement at the cost of performance.
 
 Cloak simulation
 ~~~~~~~~~~~~~~~~
@@ -34,9 +34,9 @@ Let's make a cloak in the Platformer3D demo.
 
 .. note:: You can download the Platformer3D demo on `GitHub <https://github.com/godotengine/godot-demo-projects/tree/master/3d/platformer>`_ or `the Asset Library <https://godotengine.org/asset-library/asset/125>`_.
 
-Open the ``Player`` scene, add a ``SoftBody`` node and assign a ``PlaneMesh`` to it.
+Open the `Player` scene, add a `SoftBody` node and assign a `PlaneMesh` to it.
 
-Open the ``PlaneMesh`` properties and set the size(x: 0.5 y: 1) then set ``Subdivide Width`` and ``Subdivide Depth`` to 5. Adjust the ``SoftBody``'s position. You should end up with something like this:
+Open the `PlaneMesh` properties and set the size(x: 0.5 y: 1) then set `Subdivide Width` and `Subdivide Depth` to 5. Adjust the `SoftBody`'s position. You should end up with something like this:
 
 .. image:: img/softbody_cloak_subdivide.png
 
@@ -44,19 +44,19 @@ Open the ``PlaneMesh`` properties and set the size(x: 0.5 y: 1) then set ``Subdi
 
 Add a `BoneAttachment` node under the skeleton node and select the Neck bone to attach the cloak to the character skeleton.
 
-.. note:: ``BoneAttachment`` node is to attach objects to a bone of a armature. The attached object will follow the bone's movement, weapon of a character can be attached this way.
+.. note:: `BoneAttachment` node is to attach objects to a bone of a armature. The attached object will follow the bone's movement, weapon of a character can be attached this way.
 
 .. image:: img/softbody_cloak_bone_attach.png
 
-To create pinned joints, select the upper vertices in the ``SoftBody`` node:
+To create pinned joints, select the upper vertices in the `SoftBody` node:
 
 .. image:: img/softbody_cloak_pinned.png
 
-The pinned joints can be found in ``SoftBody``'s ``Attachments`` property, choose the ``BoneAttachment`` as the ``SpatialAttachment`` for each pinned joints, the pinned joints are now attached to the neck.
+The pinned joints can be found in `SoftBody`'s `Attachments` property, choose the `BoneAttachment` as the `SpatialAttachment` for each pinned joints, the pinned joints are now attached to the neck.
 
 .. image:: img/softbody_cloak_pinned_attach.png
 
-Last step is to avoid clipping by adding the Kinematic Body `Player` to ``Parent Collision Ignore`` of the ``SoftBody``.
+Last step is to avoid clipping by adding the Kinematic Body `Player` to `Parent Collision Ignore` of the `SoftBody`.
 
 .. image:: img/softbody_cloak_ignore.png
 

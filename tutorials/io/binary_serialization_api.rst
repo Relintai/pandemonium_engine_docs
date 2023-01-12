@@ -8,7 +8,7 @@ Introduction
 
 Godot has a simple serialization API based on Variant. It's used for
 converting data types to an array of bytes efficiently. This API is used
-in the functions ``get_var`` and ``store_var`` of `File`
+in the functions `get_var` and `store_var` of `File`
 as well as the packet APIs for `PacketPeer`. This format
 is *not* used for binary scenes and resources.
 
@@ -89,7 +89,7 @@ Following this is the actual packet contents, which varies for each type of
 packet. Note that this assumes Godot is compiled with single-precision floats,
 which is the default. If Godot was compiled with double-precision floats, the
 length of "Float" fields within data structures should be 8, and the offset
-should be ``(offset - 4) * 2 + 4``. The "float" type itself always uses double
+should be `(offset - 4) * 2 + 4`. The "float" type itself always uses double
 precision.
 
 0: null
@@ -115,7 +115,7 @@ If no flags are set (flags == 0), the integer is sent as a 32 bit integer:
 | 4        | 4     | Integer   | 32-bit signed integer    |
 +----------+-------+-----------+--------------------------+
 
-If flag ``ENCODE_FLAG_64`` is set (``flags & 1 == 1``), the integer is sent as
+If flag `ENCODE_FLAG_64` is set (`flags & 1 == 1`), the integer is sent as
 a 64-bit integer:
 
 +----------+-------+-----------+--------------------------+
@@ -135,7 +135,7 @@ If no flags are set (flags == 0), the float is sent as a 32 bit single precision
 | 4        | 4     | Float   | IEEE 754 single-precision float   |
 +----------+-------+---------+-----------------------------------+
 
-If flag ``ENCODE_FLAG_64`` is set (``flags & 1 == 1``), the float is sent as
+If flag `ENCODE_FLAG_64` is set (`flags & 1 == 1`), the float is sent as
 a 64-bit double precision number:
 
 +----------+-------+---------+-----------------------------------+

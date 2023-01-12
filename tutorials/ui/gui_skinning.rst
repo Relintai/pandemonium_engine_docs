@@ -88,8 +88,8 @@ To help with the organization of its items each theme is separated into types,
 and each item must belong to a single type. In other words, each theme item
 is defined by its name, its data type and its theme type. This combination
 must be unique within the theme. For example, there cannot be two color items named
-``font_color`` in a type called ``Label``, but there can be another ``font_color``
-item in a type ``LineEdit``.
+`font_color` in a type called `Label`, but there can be another `font_color`
+item in a type `LineEdit`.
 
 The default Godot theme comes with multiple theme types already defined,
 one for every built-in control node that uses UI skinning. The example above
@@ -98,7 +98,7 @@ contains actual theme items present in the default theme. You can refer to the
 which items are available to it and its child classes.
 
 .. note::
-   Child classes can use theme items defined for their parent class (``Button``
+   Child classes can use theme items defined for their parent class (`Button`
    and its derivatives being a good example of that). In fact, every control can
    use every theme item of any theme type, if it needs to (but for the clarity and
    predictability we try to avoid that in the engine).
@@ -107,7 +107,7 @@ which items are available to it and its child classes.
    Whenever a built-in control requests a theme item from the theme it can omit
    the theme type, and its class name will be used instead. On top of that,
    the class names of its parent classes will also be used in turn. This allows
-   changes to the parent class, such as ``Button``, to affect all derived
+   changes to the parent class, such as `Button`, to affect all derived
    classes without the need to customize every one of them.
 
 You can also define your own theme types, and additionally customize both built-in
@@ -125,12 +125,12 @@ gdscript
 
 To give more customization opportunities types can also be linked together as
 type variations. This is another use-case for custom theme types. For example,
-a theme can contain a type ``Header`` which can be marked as a variation of
-the base ``Label`` type. An individual ``Label`` control can then be set to
-use the ``Header`` variation for its type, and every time a theme item is
+a theme can contain a type `Header` which can be marked as a variation of
+the base `Label` type. An individual `Label` control can then be set to
+use the `Header` variation for its type, and every time a theme item is
 requested from a theme this variation will be used before any other type. This
 allows to store various presets of theme items for the same class of the
-control node in the single ``Theme`` resource.
+control node in the single `Theme` resource.
 
 .. warning::
    Only variations available from the default theme or defined in the custom

@@ -65,7 +65,7 @@ Simple approach
 ---------------
 
 The first step is to, in our custom gizmo plugin, override the `has_gizmo()<class_EditorSpatialGizmoPlugin_method_has_gizmo>`
-method so that it returns ``true`` when the spatial parameter is of our target type.
+method so that it returns `true` when the spatial parameter is of our target type.
 
 ::
 

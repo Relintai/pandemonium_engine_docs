@@ -40,7 +40,7 @@ in the top left corner.
 
 You can also `download an HTML copy <https://nightly.link/godotengine/godot-docs/workflows/build_offline_docs/master/godot-docs-html-stable.zip>`__
 for offline reading (updated every Monday). Extract the ZIP archive then open
-the top-level ``index.html`` in a web browser.
+the top-level `index.html` in a web browser.
 
 .. note:: Godot Engine is an open source project developed by a community of
           volunteers. The documentation team can always use your
@@ -54,7 +54,7 @@ the top-level ``index.html`` in a web browser.
           help us `translate the documentation
           <https://hosted.weblate.org/engage/godot-engine/>`_ into your
           language, or talk to us on the
-          ``#documentation`` channel on the `Godot Contributors Chat
+          `#documentation` channel on the `Godot Contributors Chat
           <https://chat.godotengine.org/>`_!
 
 .. centered:: |weblate_widget|

@@ -12,18 +12,18 @@ understanding.
 Definitions
 -----------
 
-Godot uses the standard C99 datatypes, such as ``uint8_t``,
-``uint32_t``, ``int64_t``, etc. which are nowadays supported by every
+Godot uses the standard C99 datatypes, such as `uint8_t`,
+`uint32_t`, `int64_t`, etc. which are nowadays supported by every
 compiler. Reinventing the wheel for those is not fun, as it makes code
 more difficult to read.
 
 In general, care is not taken to use the most efficient datatype for a
-given task unless using large structures or arrays. ``int`` is used
+given task unless using large structures or arrays. `int` is used
 through most of the code unless necessary. This is done because nowadays
 every device has at least a 32 bits bus and can do such operations in
 one cycle. It makes code more readable too.
 
-For files or memory sizes, ``size_t`` is used, which is warranted to be
+For files or memory sizes, `size_t` is used, which is warranted to be
 64 bits.
 
 For Unicode characters, CharType instead of wchar_t is used, because

@@ -3,11 +3,11 @@
 Occluder Nodes
 ==============
 
-In addition to occlusion via `doc_rooms_and_portals`, Godot also has the ability to provide basic occlusion using simple geometric ``Occluder`` nodes. These are geometric shapes that are shown in the editor using gizmos, but are invisible at runtime.
+In addition to occlusion via `doc_rooms_and_portals`, Godot also has the ability to provide basic occlusion using simple geometric `Occluder` nodes. These are geometric shapes that are shown in the editor using gizmos, but are invisible at runtime.
 
 Any object that is fully occluded by the shape (behind or in some cases inside) will be culled at runtime. They are designed to be simple to use and inexpensive at runtime, but the trade off is they may not be as effective at culling as `doc_rooms_and_portals`. Nevertheless they can still significantly boost performance in some situations.
 
-.. note:: It is important to understand that geometric occluders work by testing the axis aligned bounding box (``AABB``) of the occludee against the occluder. The AABB must be *fully occluded* to be culled. The consequence of this is that smaller objects are more likely to be effectively culled than larger objects, and larger occluders tend to be much more effective than smaller ones.
+.. note:: It is important to understand that geometric occluders work by testing the axis aligned bounding box (`AABB`) of the occludee against the occluder. The AABB must be *fully occluded* to be culled. The consequence of this is that smaller objects are more likely to be effectively culled than larger objects, and larger occluders tend to be much more effective than smaller ones.
 
 A major advantage to Occluder nodes is that they are fully dynamic. For example if you place an occluder node as a child of a spaceship, it will move as you move the parent object.
 
@@ -15,18 +15,18 @@ The reason that Occluder nodes are so cheap in performance terms is that the eng
 
 The Occluder node itself is a holder for an OccluderShape resource, which determines the functionality. To get started, add an Occluder node to your scene tree.
 
-.. tip:: You will see a yellow warning triangle that lets you know that you must set an OccluderShape from the inspector before the ``Occluder`` becomes functional.
+.. tip:: You will see a yellow warning triangle that lets you know that you must set an OccluderShape from the inspector before the `Occluder` becomes functional.
 
 OccluderShapeSphere
 -------------------
 
 The sphere is one of the simplest and fastest occluders, and is easy to setup and position. The downside is that the sphere only tends to make sense in certain game level designs, and is more suited to terrain or organic background geometry.
 
-Once you have added an OccluderNode and chosen to add a new ``OccluderShapeSphere`` in the inspector, click the OccluderShapeSphere in the inspector to bring up the parameters.
+Once you have added an OccluderNode and chosen to add a new `OccluderShapeSphere` in the inspector, click the OccluderShapeSphere in the inspector to bring up the parameters.
 
 .. image:: img/occluder_shape_sphere_inspector.png
 
-Unlike many Nodes, the ``OccluderShapeSphere`` can store multiple spheres in the same object. This is more efficient in the engine, and keeps your SceneTree clearer. You don't have to store all your spheres in one Occluder as it could become tricky to manage, but it is perfectly reasonable to add 10 or so spheres or more. They are very cheap, and often the more you place, the better the match you will get to your geometry.
+Unlike many Nodes, the `OccluderShapeSphere` can store multiple spheres in the same object. This is more efficient in the engine, and keeps your SceneTree clearer. You don't have to store all your spheres in one Occluder as it could become tricky to manage, but it is perfectly reasonable to add 10 or so spheres or more. They are very cheap, and often the more you place, the better the match you will get to your geometry.
 
 In order to store multiple spheres, they are stored as an Array. If you click on the Array in the inspector, you can increase the size of the Array to add one.
 
@@ -47,18 +47,18 @@ OccluderShapePolygon
 
 The polygon is a generalist occluder. It can be made to work well in almost all situations, and can quickly provide a degree of occlusion culling to most scenes.
 
-As with all geometric occluders, the key to success is to make them large. They do not have to match rendered geometry, and in many cases they will work better if you extend them past rendered geometry to make them as big as possible (without blocking legitimate lines of sight). The reason why they need to be large is that in general, they will only cull objects whose ``AABB`` is completely hidden by the polygon. For large objects to be culled, you will need large occluders.
+As with all geometric occluders, the key to success is to make them large. They do not have to match rendered geometry, and in many cases they will work better if you extend them past rendered geometry to make them as big as possible (without blocking legitimate lines of sight). The reason why they need to be large is that in general, they will only cull objects whose `AABB` is completely hidden by the polygon. For large objects to be culled, you will need large occluders.
 
 .. note:: Like all occluders, polygons **can** overlap, and in many cases they will work better if you overlap them (they are more likely to cull objects on boundaries).
 
 Editing and details
 ~~~~~~~~~~~~~~~~~~~
 
-Occluder polygons are edited as a list of points which define a *convex* polygon, on a single plane. In order to confine the polygon to a single plane, the points are defined in 2D space rather than 3D. The orientation, position and scale of the polygon is taken instead from the transform of the ``Occluder`` Node.
+Occluder polygons are edited as a list of points which define a *convex* polygon, on a single plane. In order to confine the polygon to a single plane, the points are defined in 2D space rather than 3D. The orientation, position and scale of the polygon is taken instead from the transform of the `Occluder` Node.
 
 .. image:: img/occluder_shape_polygon_inspector.png
 
-If you create an Occluder and add to it a ``OccluderShapePolygon`` resource, by default it will create 4 starting points forming a rectangle. If you move the position and rotation of the Occluder Node you will see how the rectangle follows the node. When the Occluder is selected in the editor, handles will appear for each of the points. You can actually click and drag these handles, to match your polygon to the environment of your scene.
+If you create an Occluder and add to it a `OccluderShapePolygon` resource, by default it will create 4 starting points forming a rectangle. If you move the position and rotation of the Occluder Node you will see how the rectangle follows the node. When the Occluder is selected in the editor, handles will appear for each of the points. You can actually click and drag these handles, to match your polygon to the environment of your scene.
 
 .. image:: img/occluder_shape_polygon.png
 

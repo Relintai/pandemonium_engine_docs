@@ -23,11 +23,11 @@ Therefore, **using WebM is not recommended**.
 
 .. note::
 
-    You may find videos with an ``.ogg`` or ``.ogx`` extensions, which are generic
+    You may find videos with an `.ogg` or `.ogx` extensions, which are generic
     extensions for data within an Ogg container.
 
-    Renaming these file extensions to ``.ogv`` *may* allow the videos to be
-    imported in Godot. However, not all files with ``.ogg`` or ``.ogx``
+    Renaming these file extensions to `.ogv` *may* allow the videos to be
+    imported in Godot. However, not all files with `.ogg` or `.ogx`
     extensions are videos - some of them may only contain audio.
 
 Setting up VideoPlayer
@@ -35,14 +35,14 @@ Setting up VideoPlayer
 
 1. Create a VideoPlayer node using the Create New Node dialog.
 2. Select the VideoPlayer node in the scene tree dock, go to the inspector
-   and load an ``.ogv`` file in the Stream property.
+   and load an `.ogv` file in the Stream property.
 
    - If you don't have your video in Ogg Theora format yet, jump to
      `doc_playing_videos_recommended_theora_encoding_settings`.
 
 3. If you want the video to play as soon as the scene is loaded, check
    **Autoplay** in the inspector. If not, leave **Autoplay** disabled and call
-   ``play()`` on the VideoPlayer node in a script to start playback when
+   `play()` on the VideoPlayer node in a script to start playback when
    desired.
 
 Handling resizing and different aspect ratios
@@ -187,24 +187,24 @@ below with almost any input video format (AVI, MOV, WebM, …).
 .. note::
 
    Make sure your copy of FFmpeg is compiled with libtheora and libvorbis support.
-   You can check this by running ``ffmpeg`` without any arguments, then looking
-   at the ``configuration:`` line in the command output.
+   You can check this by running `ffmpeg` without any arguments, then looking
+   at the `configuration:` line in the command output.
 
 Balancing quality and file size
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The **video quality** level (``-q:v``) must be between ``1`` and ``10``. Quality
-``6`` is a good compromise between quality and file size. If encoding at a high
-resolution (such as 1440p or 4K), you will probably want to decrease ``-q:v`` to
-``5`` to keep file sizes reasonable. Since pixel density is higher on a 1440p or
+The **video quality** level (`-q:v`) must be between `1` and `10`. Quality
+`6` is a good compromise between quality and file size. If encoding at a high
+resolution (such as 1440p or 4K), you will probably want to decrease `-q:v` to
+`5` to keep file sizes reasonable. Since pixel density is higher on a 1440p or
 4K video, lower quality presets at higher resolutions will look as good or
 better compared to low-resolution videos.
 
-The **audio quality** level (``-q:a``) must be between ``-1`` and ``10``. Quality
-``6`` provides a good compromise between quality and file size. In contrast to
+The **audio quality** level (`-q:a`) must be between `-1` and `10`. Quality
+`6` provides a good compromise between quality and file size. In contrast to
 video quality, increasing audio quality doesn't increase the output file size
 nearly as much. Therefore, if you want the cleanest audio possible, you can
-increase this to ``9`` to get *perceptually lossless* audio. This is especially
+increase this to `9` to get *perceptually lossless* audio. This is especially
 valuable if your input file already uses lossy audio compression. See
 `this page <https://wiki.hydrogenaud.io/index.php?title=Recommended_Ogg_Vorbis#Recommended_Encoder_Settings>`__
 for a table listing Ogg Vorbis audio quality presets and their respective

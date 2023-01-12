@@ -15,8 +15,8 @@ Visual Studio requires a solution file to work on a project. While Godot does no
 with the solution file, it can be generated using SCons.
 
 - Navigate to the Godot root folder and open a Command Prompt or PowerShell window.
-- Run ``scons platform=windows vsproj=yes`` to generate the solution.
-- You can now open the project by double-clicking on the ``godot.sln`` in the project root
+- Run `scons platform=windows vsproj=yes` to generate the solution.
+- You can now open the project by double-clicking on the `godot.sln` in the project root
   or by using the **Open a project or solution** option inside of the Visual Studio.
 - Use the **Build** top menu to build the project.
 
@@ -45,9 +45,9 @@ project manager opens a project, the initial process is terminated and the debug
    :align: center
 
 - Open the **Debugging** section and under **Command Arguments** add two new arguments: 
-  the ``-e`` flag opens the editor instead of the project manager, and the ``--path`` argument
+  the `-e` flag opens the editor instead of the project manager, and the `--path` argument
   tells the executable to open the specified project (must be provided as an *absolute* path 
-  to the project root, not the ``project.godot`` file).
+  to the project root, not the `project.godot` file).
 
 .. figure:: img/vs_3_debug_command_line.png
    :align: center
@@ -58,7 +58,7 @@ To learn more about command line arguments, refer to the
 Even if you start the project without a debugger attached it can still be connected to the running
 process using **Debug > Attach to Process...** menu.
 
-To check that everything is working, put a breakpoint in ``main.cpp`` and press :kbd:`F5` to
+To check that everything is working, put a breakpoint in `main.cpp` and press :kbd:`F5` to
 start debugging.
 
 .. figure:: img/vs_4_debugging_main.png

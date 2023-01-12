@@ -45,21 +45,21 @@ All the code for the animation will be in the vertex shader with uniforms contro
 We use uniforms to control the strength of the motion so that you can tweak the animation in editor and see the
 results in real time, without the shader having to recompile.
 
-All the motions will be made using cosine waves applied to ``VERTEX`` in model space. We want the vertices to
+All the motions will be made using cosine waves applied to `VERTEX` in model space. We want the vertices to
 be in model space so that the motion is always relative to the orientation of the fish. For example, side-to-side
-will always move the fish back and forth in its left to right direction, instead of on the ``x`` axis in the
+will always move the fish back and forth in its left to right direction, instead of on the `x` axis in the
 world orientation.
 
-In order to control the speed of the animation, we will start by defining our own time variable using ``TIME``.
+In order to control the speed of the animation, we will start by defining our own time variable using `TIME`.
 
 .. code-block:: glsl
 
   //time_scale is a uniform float
   float time = TIME * time_scale;
 
-The first motion we will implement is the side to side motion. It can be made by offsetting ``VERTEX.x`` by
-``cos`` of ``TIME``. Each time the mesh is rendered, all the vertices will move to the side by the amount
-of ``cos(time)``.
+The first motion we will implement is the side to side motion. It can be made by offsetting `VERTEX.x` by
+`cos` of `TIME`. Each time the mesh is rendered, all the vertices will move to the side by the amount
+of `cos(time)`.
 
 .. code-block:: glsl
 
@@ -70,7 +70,7 @@ The resulting animation should look something like this:
 
 .. image:: img/sidetoside.gif
 
-Next, we add the pivot. Because the fish is centered at (0, 0), all we have to do is multiply ``VERTEX`` by a
+Next, we add the pivot. Because the fish is centered at (0, 0), all we have to do is multiply `VERTEX` by a
 rotation matrix for it to rotate around the center of the fish.
 
 We construct a rotation matrix like so:
@@ -82,7 +82,7 @@ We construct a rotation matrix like so:
   float pivot_angle = cos(time) * 0.1 * pivot;
   mat2 rotation_matrix = mat2(vec2(cos(pivot_angle), -sin(pivot_angle)), vec2(sin(pivot_angle), cos(pivot_angle)));
 
-And then we apply it in the ``x`` and ``z`` axes by multiplying it by ``VERTEX.xz``.
+And then we apply it in the `x` and `z` axes by multiplying it by `VERTEX.xz`.
 
 .. code-block:: glsl
 
@@ -92,16 +92,16 @@ With only the pivot applied you should see something like this:
 
 .. image:: img/pivot.gif
 
-The next two motions need to pan down the spine of the fish. For that, we need a new variable, ``body``.
-``body`` is a float that is ``0`` at the tail of the fish and ``1`` at its head.
+The next two motions need to pan down the spine of the fish. For that, we need a new variable, `body`.
+`body` is a float that is `0` at the tail of the fish and `1` at its head.
 
 .. code-block:: glsl
 
   float body = (VERTEX.z + 1.0) / 2.0; //for a fish centered at (0, 0) with a length of 2
 
 The next motion is a cosine wave that moves down the length of the fish. To make
-it move along the spine of the fish, we offset the input to ``cos`` by the position
-along the spine, which is the variable we defined above, ``body``.
+it move along the spine of the fish, we offset the input to `cos` by the position
+along the spine, which is the variable we defined above, `body`.
 
 .. code-block:: glsl
 
@@ -109,7 +109,7 @@ along the spine, which is the variable we defined above, ``body``.
   VERTEX.x += cos(time + body) * wave;
 
 This looks very similar to the side to side motion we defined above, but in this one, by
-using ``body`` to offset ``cos`` each vertex along the spine has a different position in
+using `body` to offset `cos` each vertex along the spine has a different position in
 the wave making it look like a wave is moving along the fish.
 
 .. image:: img/wave.gif
@@ -123,8 +123,8 @@ we first construct a rotation matrix.
   float twist_angle = cos(time + body) * 0.3 * twist;
   mat2 twist_matrix = mat2(vec2(cos(twist_angle), -sin(twist_angle)), vec2(sin(twist_angle), cos(twist_angle)));
 
-We apply the rotation in the ``xy`` axes so that the fish appears to roll around its spine. For
-this to work, the fish's spine needs to be centered on the ``z`` axis.
+We apply the rotation in the `xy` axes so that the fish appears to roll around its spine. For
+this to work, the fish's spine needs to be centered on the `z` axis.
 
 .. code-block:: glsl
 
@@ -139,32 +139,32 @@ If we apply all these motions one after another, we get a fluid jelly-like motio
 .. image:: img/all_motions.gif
 
 Normal fish swim mostly with the back half of their body. Accordingly, we need to limit the
-panning motions to the back half of the fish. To do this, we create a new variable, ``mask``.
+panning motions to the back half of the fish. To do this, we create a new variable, `mask`.
 
-``mask`` is a float that goes from ``0`` at the front of the fish to ``1`` at the end using
-``smoothstep`` to control the point at which the transition from ``0`` to ``1`` happens.
+`mask` is a float that goes from `0` at the front of the fish to `1` at the end using
+`smoothstep` to control the point at which the transition from `0` to `1` happens.
 
 .. code-block:: glsl
 
   //mask_black and mask_white are uniforms
   float mask = smoothstep(mask_black, mask_white, 1.0 - body);
 
-Below is an image of the fish with ``mask`` used as ``COLOR``:
+Below is an image of the fish with `mask` used as `COLOR`:
 
 .. image:: img/mask.png
 
-For the wave, we multiply the motion by ``mask`` which will limit it to the back half.
+For the wave, we multiply the motion by `mask` which will limit it to the back half.
 
 .. code-block:: glsl
 
   //wave motion with mask
   VERTEX.x += cos(time + body) * mask * wave;
 
-In order to apply the mask to the twist, we use ``mix``. ``mix`` allows us to mix the
+In order to apply the mask to the twist, we use `mix`. `mix` allows us to mix the
 vertex position between a fully rotated vertex and one that is not rotated. We need to
-use ``mix`` instead of multiplying ``mask`` by the rotated ``VERTEX`` because we are not
-adding the motion to the ``VERTEX`` we are replacing the ``VERTEX`` with the rotated
-version. If we multiplied that by ``mask``, we would shrink the fish.
+use `mix` instead of multiplying `mask` by the rotated `VERTEX` because we are not
+adding the motion to the `VERTEX` we are replacing the `VERTEX` with the rotated
+version. If we multiplied that by `mask`, we would shrink the fish.
 
 .. code-block:: glsl
 
@@ -184,7 +184,7 @@ Making a school of fish
 Godot makes it easy to render thousands of the same object using a MultiMeshInstance node.
 
 A MultiMeshInstance node is created and used the same way you would make a MeshInstance node.
-For this tutorial, we will name the MultiMeshInstance node ``School``, because it will contain
+For this tutorial, we will name the MultiMeshInstance node `School`, because it will contain
 a school of fish.
 
 Once you have a MultiMeshInstance add a `MultiMesh`, and to that
@@ -194,20 +194,20 @@ MultiMeshes draw your Mesh with three additional per-instance properties: Transf
 translation, scale), Color, and Custom. Custom is used to pass in 4 multi-use variables using
 a `Color`.
 
-``instance_count`` specifies how many instances of the mesh you want to draw. For now, leave
-``instance_count`` at ``0`` because you cannot change any of the other parameters while
-``instance_count`` is larger than ``0``. We will set ``instance count`` in GDScript later.
+`instance_count` specifies how many instances of the mesh you want to draw. For now, leave
+`instance_count` at `0` because you cannot change any of the other parameters while
+`instance_count` is larger than `0`. We will set `instance count` in GDScript later.
 
-``transform_format`` specifies whether the transforms used are 3D or 2D. For this tutorial, select 3D.
+`transform_format` specifies whether the transforms used are 3D or 2D. For this tutorial, select 3D.
 
-For both ``color_format`` and ``custom_data_format`` you can choose between ``None``, ``Byte``, and
-``Float``. ``None`` means you won't be passing in that data (either a per-instance ``COLOR`` variable,
-or ``INSTANCE_CUSTOM``) to the shader. ``Byte`` means each number making up the color you pass in will
-be stored with 8 bits while ``Float`` means each number will be stored in a floating-point number
-(32 bits). ``Float`` is slower but more precise, ``Byte`` will take less memory and be faster, but you
+For both `color_format` and `custom_data_format` you can choose between `None`, `Byte`, and
+`Float`. `None` means you won't be passing in that data (either a per-instance `COLOR` variable,
+or `INSTANCE_CUSTOM`) to the shader. `Byte` means each number making up the color you pass in will
+be stored with 8 bits while `Float` means each number will be stored in a floating-point number
+(32 bits). `Float` is slower but more precise, `Byte` will take less memory and be faster, but you
 may see some visual artifacts.
 
-Now, set ``instance_count`` to the number of fish you want to have.
+Now, set `instance_count` to the number of fish you want to have.
 
 Next we need to set the per-instance transforms.
 
@@ -236,18 +236,18 @@ school looks more organic.
 Animating a school of fish
 --------------------------
 
-One of the benefits of animating the fish using ``cos`` functions is that they are animated with
-one parameter, ``time``. In order to give each fish a unique position in the
-swim cycle, we only need to offset ``time``.
+One of the benefits of animating the fish using `cos` functions is that they are animated with
+one parameter, `time`. In order to give each fish a unique position in the
+swim cycle, we only need to offset `time`.
 
-We do that by adding the per-instance custom value ``INSTANCE_CUSTOM`` to ``time``.
+We do that by adding the per-instance custom value `INSTANCE_CUSTOM` to `time`.
 
 .. code-block:: glsl
 
   float time = (TIME * time_scale) + (6.28318 * INSTANCE_CUSTOM.x);
 
-Next, we need to pass a value into ``INSTANCE_CUSTOM``. We do that by adding one line into
-the ``for`` loop from above. In the ``for`` loop we assign each instance a set of four
+Next, we need to pass a value into `INSTANCE_CUSTOM`. We do that by adding one line into
+the `for` loop from above. In the `for` loop we assign each instance a set of four
 random floats to use.
 
 ::
@@ -255,8 +255,8 @@ random floats to use.
   $School.multimesh.set_instance_custom_data(i, Color(randf(), randf(), randf(), randf()))
 
 Now the fish all have unique positions in the swim cycle. You can give them a little more
-individuality by using ``INSTANCE_CUSTOM`` to make them swim faster or slower by multiplying
-by ``TIME``.
+individuality by using `INSTANCE_CUSTOM` to make them swim faster or slower by multiplying
+by `TIME`.
 
 .. code-block:: glsl
 

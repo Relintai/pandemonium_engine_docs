@@ -40,8 +40,8 @@ modules or GDNative scripts.
 Disallowed features
 -------------------
 
-**Any feature not listed below is allowed.** Using features like ``constexpr``
-variables and ``nullptr`` is encouraged when possible. Still, try to keep your
+**Any feature not listed below is allowed.** Using features like `constexpr`
+variables and `nullptr` is encouraged when possible. Still, try to keep your
 use of modern C++ features conservative. Their use needs to serve a real
 purpose, such as improving code readability or performance.
 
@@ -52,13 +52,13 @@ We don't allow using the `STL <https://en.wikipedia.org/wiki/Standard_Template_L
 as Godot provides its own data types (among other things).
 See `doc_faq_why_not_stl` for more information.
 
-This means that pull requests should **not** use ``std::string``,
-``std::vector`` and the like. Instead, use Godot's datatypes as described below:
+This means that pull requests should **not** use `std::string`,
+`std::vector` and the like. Instead, use Godot's datatypes as described below:
 
-- Use ``String`` instead of ``std::string``.
-- Use ``Vector`` instead of ``std::vector``. In some cases, ``LocalVector``
+- Use `String` instead of `std::string`.
+- Use `Vector` instead of `std::vector`. In some cases, `LocalVector`
   can be used as an alternative (ask core developers first).
-- Use ``Array`` instead of ``std::array``.
+- Use `Array` instead of `std::array`.
 
 .. note::
 
@@ -66,10 +66,10 @@ This means that pull requests should **not** use ``std::string``,
     in the codebase, it typically performs worse than other datatypes like Vector
     and Array. Therefore, List should be avoided in new code unless necessary.
 
-``auto`` keyword
+`auto` keyword
 ^^^^^^^^^^^^^^^^
 
-Please don't use the ``auto`` keyword for type inference. While it can avoid
+Please don't use the `auto` keyword for type inference. While it can avoid
 repetition, it can also lead to confusing code:
 
 .. code-block:: cpp
@@ -84,7 +84,7 @@ Keep in mind hover documentation often isn't readily available for pull request
 reviewers. Most of the time, reviewers will use GitHub's online viewer to review
 pull requests.
 
-We chose to forbid ``auto`` instead of allowing it on a case-by-case basis to
+We chose to forbid `auto` instead of allowing it on a case-by-case basis to
 avoid having to decide on difficult edge cases. Thank you for your understanding.
 
 Lambdas
@@ -94,11 +94,11 @@ Lambdas should be used conservatively when they make code effectively faster or
 simpler, and do not impede readability. Please ask before using lambdas in a
 pull request.
 
-``#pragma once`` directive
+`#pragma once` directive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To follow the existing style, please use standard ``#ifdef``-based include
-guards instead of ``#pragma once`` in new files.
+To follow the existing style, please use standard `#ifdef`-based include
+guards instead of `#pragma once` in new files.
 
 .. seealso::
 

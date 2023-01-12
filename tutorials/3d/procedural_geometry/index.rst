@@ -59,13 +59,13 @@ in the Mesh when you use a MeshInstance using the `material_override` property.
 Surface array
 ^^^^^^^^^^^^^
 
-The surface array is an array of length ``ArrayMesh.ARRAY_MAX``. Each position in the array is
+The surface array is an array of length `ArrayMesh.ARRAY_MAX`. Each position in the array is
 filled with a sub-array containing per-vertex information. For example, the array located at
-``ArrayMesh.ARRAY_NORMAL`` is a `PoolVector3Array` of vertex normals.
+`ArrayMesh.ARRAY_NORMAL` is a `PoolVector3Array` of vertex normals.
 See `Mesh.ArrayType <enum_Mesh_ArrayType>` for more information.
 
 The surface array can be indexed or non-indexed. Creating a non-indexed array is as easy as not assigning
-an array at the index ``ArrayMesh.ARRAY_INDEX``. A non-indexed array stores unique vertex information for
+an array at the index `ArrayMesh.ARRAY_INDEX`. A non-indexed array stores unique vertex information for
 every triangle, meaning that when two triangles share a vertex, the vertex is duplicated in the array. An
 indexed surface array only stores vertex information for each unique vertex and then also stores an array
 of indices which maps out how to construct the triangles from the vertex array. In general, using an indexed
@@ -123,7 +123,7 @@ Which approach you use depends on what you are trying to do and what kind of pro
 Both SurfaceTool and ArrayMesh are excellent for generating static geometry (meshes) that don't change over time.
 
 Using an ArrayMesh is slightly faster than using a SurfaceTool, but the API is a little more challenging.
-Additionally, SurfaceTool has a few quality of life methods such as ``generate_normals()`` and ``index()``.
+Additionally, SurfaceTool has a few quality of life methods such as `generate_normals()` and `index()`.
 
 ImmediateGeometry regenerates the mesh every frame, so it is much slower than ArrayMesh or SurfaceTool. However, if you
 need the geometry to change every frame anyway, it provides a much easier interface that may even be a little faster than generating

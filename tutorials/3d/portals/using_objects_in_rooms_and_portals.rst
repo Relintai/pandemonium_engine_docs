@@ -6,14 +6,14 @@ Normally, when you use Godot, all objects that you can see (`VisualInstance<clas
 Portal mode
 ~~~~~~~~~~~
 
-If you look in the inspector, every VisualInstance in Godot is derived from a `CullInstance<class_CullInstance>`, where you can set a ``PortalMode``. This determines how objects will behave in the portal system.
+If you look in the inspector, every VisualInstance in Godot is derived from a `CullInstance<class_CullInstance>`, where you can set a `PortalMode`. This determines how objects will behave in the portal system.
 
 .. image:: img/cull_instance.png
 
 STATIC
 ^^^^^^
 
-The default mode for objects is ``STATIC``. Static objects are objects within rooms that will not move throughout the lifecycle of the level. Things like floors, walls, ceilings are good candidates for ``STATIC`` objects.
+The default mode for objects is `STATIC`. Static objects are objects within rooms that will not move throughout the lifecycle of the level. Things like floors, walls, ceilings are good candidates for `STATIC` objects.
 
 DYNAMIC
 ^^^^^^^
@@ -23,48 +23,48 @@ Dynamic mode is for objects that are expected to move during the game. But there
 ROAMING
 ^^^^^^^
 
-Roaming mode is for objects that can move between rooms. Things like players and enemies should be marked as roaming. These are more expensive to calculate than ``STATIC`` or ``DYNAMIC`` modes, because the system has to keep track of which room a roaming object is within.
+Roaming mode is for objects that can move between rooms. Things like players and enemies should be marked as roaming. These are more expensive to calculate than `STATIC` or `DYNAMIC` modes, because the system has to keep track of which room a roaming object is within.
 
 GLOBAL
 ^^^^^^
 
-Global mode is for objects that you don't want occlusion culled at all. Things like a main player's weapon, bullets and some particle effects are good candidates for ``GLOBAL`` mode.
+Global mode is for objects that you don't want occlusion culled at all. Things like a main player's weapon, bullets and some particle effects are good candidates for `GLOBAL` mode.
 
 IGNORE
 ^^^^^^
 
-Ignore is a special mode for objects that will be essentially free in the system. Manual bounds (``-bound``) get converted to ignore portal mode automatically. They don't need to show up during the game, but are kept in the scene tree in case you need to convert the level multiple times (e.g. in the Editor). You might also choose to use this for objects that you *only* want to show up in the editor (when RoomManager is inactive).
+Ignore is a special mode for objects that will be essentially free in the system. Manual bounds (`-bound`) get converted to ignore portal mode automatically. They don't need to show up during the game, but are kept in the scene tree in case you need to convert the level multiple times (e.g. in the Editor). You might also choose to use this for objects that you *only* want to show up in the editor (when RoomManager is inactive).
 
 Should you place objects within rooms (in the scene tree) or not?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``STATIC`` and ``DYNAMIC`` objects are ideally placed within rooms in the scene tree. The system needs to know which room they are in during conversion as it assumes they will never change room. Placing them within rooms in the scene tree allows you to explicitly tell the system where you want them.
+`STATIC` and `DYNAMIC` objects are ideally placed within rooms in the scene tree. The system needs to know which room they are in during conversion as it assumes they will never change room. Placing them within rooms in the scene tree allows you to explicitly tell the system where you want them.
 
 Autoplace
 ^^^^^^^^^
 
-However, for ease of use, it is also possible to place ``STATIC`` and ``DYNAMIC`` objects *outside* the rooms in the scene tree, but within the RoomList branch. The system will attempt to **autoplace** the objects into the appropriate room. This works in most cases but if in doubt, use the explicit approach. The explicit approach is especially needed when dealing with internal rooms, which have some restrictions for sprawling objects.
+However, for ease of use, it is also possible to place `STATIC` and `DYNAMIC` objects *outside* the rooms in the scene tree, but within the RoomList branch. The system will attempt to **autoplace** the objects into the appropriate room. This works in most cases but if in doubt, use the explicit approach. The explicit approach is especially needed when dealing with internal rooms, which have some restrictions for sprawling objects.
 
 .. image:: img/freeform.png
 
-Note that if you place ``STATIC`` and ``DYNAMIC`` objects outside of rooms, they will not contribute to the room bound. If you are using the room geometry to derive the bound, tables and chairs can be placed outside the room. However, walls and floors should be explicitly within the Room's branch of the scene tree to ensure the bound is correct.
+Note that if you place `STATIC` and `DYNAMIC` objects outside of rooms, they will not contribute to the room bound. If you are using the room geometry to derive the bound, tables and chairs can be placed outside the room. However, walls and floors should be explicitly within the Room's branch of the scene tree to ensure the bound is correct.
 
-``ROAMING`` and ``GLOBAL`` objects are recommended to be kept in a branch of the scene tree outside of any rooms or the RoomList. They *can* be placed inside the rooms, but to save confusion, they are normally better kept on their own branch. There are no restrictions on the placement of ``IGNORE`` objects.
+`ROAMING` and `GLOBAL` objects are recommended to be kept in a branch of the scene tree outside of any rooms or the RoomList. They *can* be placed inside the rooms, but to save confusion, they are normally better kept on their own branch. There are no restrictions on the placement of `IGNORE` objects.
 
 Object Lifetimes
 ^^^^^^^^^^^^^^^^
 
-It is important to note that the lifetime of ``STATIC`` and ``DYNAMIC`` objects is tied to the lifetime of the level, between when you call ``rooms_convert()`` to activate the portal system, and calling ``rooms_clear()`` to unload the system. This is because quite a bit of pre-processing goes on during the conversion phase in order to render them efficiently.
+It is important to note that the lifetime of `STATIC` and `DYNAMIC` objects is tied to the lifetime of the level, between when you call `rooms_convert()` to activate the portal system, and calling `rooms_clear()` to unload the system. This is because quite a bit of pre-processing goes on during the conversion phase in order to render them efficiently.
 
-You should therefore not try to create or delete ``STATIC`` or ``DYNAMIC`` objects while the portal system is active. Doing so will cause the system to automatically unload because it is in an invalid state. You can however, freely ``show()`` and ``hide()`` these objects.
+You should therefore not try to create or delete `STATIC` or `DYNAMIC` objects while the portal system is active. Doing so will cause the system to automatically unload because it is in an invalid state. You can however, freely `show()` and `hide()` these objects.
 
 The sequence should be therefore:
 
 - Load your level.
-- Place any ``STATIC`` or ``DYNAMIC`` objects.
-- Then run ``rooms_convert()`` *after* all the ``STATIC`` and ``DYNAMIC`` objects were added to the scene tree.
+- Place any `STATIC` or `DYNAMIC` objects.
+- Then run `rooms_convert()` *after* all the `STATIC` and `DYNAMIC` objects were added to the scene tree.
 
-Objects that are ``ROAMING``, ``GLOBAL`` or ``IGNORE`` can be freely created and deleted as required.
+Objects that are `ROAMING`, `GLOBAL` or `IGNORE` can be freely created and deleted as required.
 
 Sprawling
 ~~~~~~~~~
@@ -76,7 +76,7 @@ This means that if the corner of an object extends into a neighbouring room, but
 Portal Margins
 ^^^^^^^^^^^^^^
 
-It is hard to place objects exactly at the edges of rooms, and if we chose to sprawl objects to the adjacent room the moment a portal was crossed (even by a very small amount), there would be an unnecessary amount of sprawling, and objects would end up being rendered when not really required. To counter this, portals have an adjustable ``margin`` over which an object can cross without being considered in the next room. The margin is shown in the editor gizmo as a red translucent area.
+It is hard to place objects exactly at the edges of rooms, and if we chose to sprawl objects to the adjacent room the moment a portal was crossed (even by a very small amount), there would be an unnecessary amount of sprawling, and objects would end up being rendered when not really required. To counter this, portals have an adjustable `margin` over which an object can cross without being considered in the next room. The margin is shown in the editor gizmo as a red translucent area.
 
 You can set the margin globally in the RoomManager. You can also override this margin value in any portal if you need to finetune things. As you edit the margin values in the inspector, you should see the margins update in the 3D editor viewport.
 

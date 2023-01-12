@@ -66,7 +66,7 @@ learn. You can do so by:
 1. Introducing only one new concept at a time whenever possible.
 2. Using simple English, as we recommend in our writing guidelines.
 3. Including one or more **concrete usage examples**. Prefer a real-world example
-   to abstract code like ``foobar``.
+   to abstract code like `foobar`.
 
 While many people may understand more complex language and abstract examples,
 you will lose others. Also, understandable writing and practical examples

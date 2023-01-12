@@ -66,14 +66,14 @@ It uses the following format:
 
   shader_type canvas_item;
 
-Because we are writing a CanvasItem shader, we specify ``canvas_item`` in the
+Because we are writing a CanvasItem shader, we specify `canvas_item` in the
 first line. All our code will go beneath this declaration.
 
 This line tells the engine which built-in variables and functionality to supply
 you with.
 
 In Godot you can override three functions to control how the shader operates;
-``vertex``, ``fragment``, and ``light``. This tutorial will walk you through
+`vertex`, `fragment`, and `light`. This tutorial will walk you through
 writing a shader with both vertex and fragment functions. Light functions are
 significantly more complex than vertex and fragment functions and so will not be
 covered here.
@@ -90,9 +90,9 @@ use one to, for example, create an outline around a Sprite.
 The most basic fragment function does nothing except assign a single color to
 every pixel.
 
-We do so by writing a ``vec4`` to the built-in variable ``COLOR``. ``vec4`` is
+We do so by writing a `vec4` to the built-in variable `COLOR`. `vec4` is
 shorthand for constructing a vector with 4 numbers. For more information about
-vectors see the `Vector math tutorial <doc_vector_math>` ``COLOR`` is both
+vectors see the `Vector math tutorial <doc_vector_math>` `COLOR` is both
 an input variable to the fragment function and the final output from it.
 
 .. code-block:: glsl
@@ -109,14 +109,14 @@ Godot.
 Now let's make things more complex.
 
 There are many inputs to the fragment function that you can use for calculating
-``COLOR``. ``UV`` is one of them. UV coordinates are specified in your Sprite
+`COLOR`. `UV` is one of them. UV coordinates are specified in your Sprite
 (without you knowing it!) and they tell the shader where to read from textures
 for each part of the mesh.
 
-In the fragment function you can only read from ``UV``, but you can use it in
-other functions or to assign values to ``COLOR`` directly.
+In the fragment function you can only read from `UV`, but you can use it in
+other functions or to assign values to `COLOR` directly.
 
-``UV`` varies between 0-1 from left-right and from top-bottom.
+`UV` varies between 0-1 from left-right and from top-bottom.
 
 .. image:: img/iconuv.png
 
@@ -128,7 +128,7 @@ other functions or to assign values to ``COLOR`` directly.
 
 .. image:: img/UV.png
 
-Using ``TEXTURE`` built-in
+Using `TEXTURE` built-in
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When you want to adjust a color in a Sprite you cannot just adjust the color
@@ -143,10 +143,10 @@ from the texture manually like in the code below.
 
 The default fragment function reads from a texture and displays it. When you
 overwrite the default fragment function, you lose that functionality, so you
-have to implement it yourself. You read from textures using the ``texture``
+have to implement it yourself. You read from textures using the `texture`
 function. Certain nodes, like Sprites, have a dedicated texture variable that
-can be accessed in the shader using ``TEXTURE``. Use it together with ``UV`` and
-``texture`` to draw the Sprite.
+can be accessed in the shader using `TEXTURE`. Use it together with `UV` and
+`texture` to draw the Sprite.
 
 .. code-block:: glsl
 
@@ -192,9 +192,9 @@ value you provided in the shader.
 Interacting with shaders from code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can change uniforms from code using the function ``set_shader_param()``
+You can change uniforms from code using the function `set_shader_param()`
 which is called on the node's material resource. With a Sprite node, the
-following code can be used to set the ``blue`` uniform.
+following code can be used to set the `blue` uniform.
 
 ::
 
@@ -212,13 +212,13 @@ Now that we have a fragment function, let's write a vertex function.
 Use the vertex function to calculate where on the screen each vertex should end
 up.
 
-The most important variable in the vertex function is ``VERTEX``. Initially, it
+The most important variable in the vertex function is `VERTEX`. Initially, it
 specifies the vertex coordinates in your model, but you also write to it to
-determine where to actually draw those vertices. ``VERTEX`` is a ``vec2`` that
+determine where to actually draw those vertices. `VERTEX` is a `vec2` that
 is initially presented in local-space (i.e. not relative to the camera,
 viewport, or parent nodes).
 
-You can offset the vertices by directly adding to ``VERTEX``.
+You can offset the vertices by directly adding to `VERTEX`.
 
 .. code-block:: glsl
 
@@ -226,7 +226,7 @@ You can offset the vertices by directly adding to ``VERTEX``.
     VERTEX += vec2(10.0, 0.0);
   }
 
-Combined with the ``TIME`` built-in variable, this can be used for simple
+Combined with the `TIME` built-in variable, this can be used for simple
 animation.
 
 .. code-block:: glsl
@@ -239,8 +239,8 @@ animation.
 Conclusion
 ----------
 
-At their core, shaders do what you have seen so far, they compute ``VERTEX`` and
-``COLOR``. It is up to you to dream up more complex mathematical strategies for
+At their core, shaders do what you have seen so far, they compute `VERTEX` and
+`COLOR`. It is up to you to dream up more complex mathematical strategies for
 assigning values to those variables.
 
 For inspiration, take a look at some of the more advanced shader tutorials, and

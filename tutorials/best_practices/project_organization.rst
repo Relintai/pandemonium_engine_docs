@@ -55,7 +55,7 @@ For consistency across projects, we recommend following these guidelines:
   as the convention is to name them after the class name which should be
   in PascalCase.
 - Use **PascalCase** for node names, as this matches built-in node casing.
-- In general, keep third-party resources in a top-level ``addons/`` folder, even
+- In general, keep third-party resources in a top-level `addons/` folder, even
   if they aren't editor plugins. This makes it easier to track which files are
   third-party. There are some exceptions to this rule; for instance, if you use
   third-party game assets for a character, it makes more sense to include them
@@ -75,21 +75,21 @@ Ignoring specific folders
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To prevent Godot from importing files contained in a specific folder, create
-an empty file called ``.gdignore`` in the folder (the leading ``.`` is required).
+an empty file called `.gdignore` in the folder (the leading `.` is required).
 This can be useful to speed up the initial project importing.
 
 .. note::
 
     To create a file whose name starts with a dot on Windows, you can use a
     text editor such as Notepad++ or use the following command in a
-    command prompt: ``type nul > .gdignore``
+    command prompt: `type nul > .gdignore`
 
 Once the folder is ignored, resources in that folder can't be loaded anymore
-using the ``load()`` and ``preload()`` methods. Ignoring a folder will also
+using the `load()` and `preload()` methods. Ignoring a folder will also
 automatically hide it from the FileSystem dock, which can be useful to reduce clutter.
 
-Note that the ``.gdignore`` file's contents are ignored, which is why the file
-should be empty. It does not support patterns like ``.gitignore`` files do.
+Note that the `.gdignore` file's contents are ignored, which is why the file
+should be empty. It does not support patterns like `.gitignore` files do.
 
 .. _doc_project_organization_case_sensitivity:
 
@@ -100,7 +100,7 @@ Windows and recent macOS versions use case-insensitive filesystems by default,
 whereas Linux distributions use a case-sensitive filesystem by default.
 This can cause issues after exporting a project, since Godot's PCK virtual
 filesystem is case-sensitive. To avoid this, it's recommended to stick to
-``snake_case`` naming for all files in the project (and lowercase characters
+`snake_case` naming for all files in the project (and lowercase characters
 in general).
 
 .. note::

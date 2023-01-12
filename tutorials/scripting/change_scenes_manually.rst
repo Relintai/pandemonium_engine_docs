@@ -31,7 +31,7 @@ access and integrity.
    `SceneTree.change_scene_to()`
    will delete the current scene immediately. Developers can also delete the
    main scene though. Assuming the root node's name is "Main", one could do
-   ``get_node("/root/Main").free()`` to delete the whole scene.
+   `get_node("/root/Main").free()` to delete the whole scene.
 
     - Unloads memory.
 

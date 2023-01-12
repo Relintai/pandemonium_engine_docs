@@ -71,7 +71,7 @@ Using code
 ~~~~~~~~~~
 
 You can also manage groups from scripts. The following code adds the node to
-which you attach the script to the ``guards`` group as soon as it enters the
+which you attach the script to the `guards` group as soon as it enters the
 scene tree.
 
 gdscript GDScript
@@ -84,7 +84,7 @@ gdscript GDScript
 Imagine you're creating an infiltration game. When an
 enemy spots the player, you want all guards and robots to be on alert.
 
-In the fictional example below, we use ``SceneTree.call_group()`` to alert all
+In the fictional example below, we use `SceneTree.call_group()` to alert all
 enemies that the player was spotted.
 
 gdscript GDScript
@@ -94,10 +94,10 @@ gdscript GDScript
         get_tree().call_group("guards", "enter_alert_mode")
 ```
 
-The above code calls the function ``enter_alert_mode`` on every member of the
-group ``guards``.
+The above code calls the function `enter_alert_mode` on every member of the
+group `guards`.
 
-To get the full list of nodes in the ``guards`` group as an array, you can call
+To get the full list of nodes in the `guards` group as an array, you can call
 `SceneTree.get_nodes_in_group()
 <class_SceneTree_method_get_nodes_in_group>`:
 

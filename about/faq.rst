@@ -204,7 +204,7 @@ Windows
 - Move the Godot executable to a stable location (i.e. outside of your Downloads folder),
   so you don't accidentally move it and break the shortcut in the future.
 - Right-click the Godot executable and choose **Create Shortcut**.
-- Move the created shortcut to ``%LOCALAPPDATA%\Microsoft\Windows\Start Menu\Programs``.
+- Move the created shortcut to `%LOCALAPPDATA%\Microsoft\Windows\Start Menu\Programs`.
   This is the user-wide location for shortcuts that will appear in the Start menu.
   You can also pin Godot in the task bar by right-clicking the executable and choosing
   **Pin to Task Bar**.
@@ -212,29 +212,29 @@ Windows
 macOS
 ^^^^^
 
-Drag the extracted Godot application to ``/Applications/Godot.app``, then drag it
+Drag the extracted Godot application to `/Applications/Godot.app`, then drag it
 to the Dock if desired. Spotlight will be able to find Godot as long as it's in
-``/Applications`` or ``~/Applications``.
+`/Applications` or `~/Applications`.
 
 Linux
 ^^^^^
 
 - Move the Godot binary to a stable location (i.e. outside of your Downloads folder),
   so you don't accidentally move it and break the shortcut in the future.
-- Rename and move the Godot binary to a location present in your ``PATH`` environment variable.
-  This is typically ``/usr/local/bin/godot`` or ``/usr/bin/godot``.
+- Rename and move the Godot binary to a location present in your `PATH` environment variable.
+  This is typically `/usr/local/bin/godot` or `/usr/bin/godot`.
   Doing this requires administrator privileges,
   but this also allows you to
-  `run the Godot editor from a terminal <doc_command_line_tutorial>` by entering ``godot``.
+  `run the Godot editor from a terminal <doc_command_line_tutorial>` by entering `godot`.
 
   - If you cannot move the Godot editor binary to a protected location, you can
-    keep the binary somewhere in your home directory, and modify the ``Path=``
-    line in the ``.desktop`` file linked below to contain the full *absolute* path
+    keep the binary somewhere in your home directory, and modify the `Path=`
+    line in the `.desktop` file linked below to contain the full *absolute* path
     to the Godot binary.
 
 - Save `this .desktop file <https://raw.githubusercontent.com/godotengine/godot/3.x/misc/dist/linux/org.godotengine.Godot.desktop>`__
-  to ``$HOME/.local/share/applications/``. If you have administrator privileges,
-  you can also save the ``.desktop`` file to ``/usr/local/share/applications``
+  to `$HOME/.local/share/applications/`. If you have administrator privileges,
+  you can also save the `.desktop` file to `/usr/local/share/applications`
   to make the shortcut available for all users.
 
 Is the Godot editor a portable application?

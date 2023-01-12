@@ -72,16 +72,16 @@ blending to add the color of their texture to the scene.
 
 .. image:: img/light_shadow_light.png
 
-`Lights` have four ``Modes``: ``Add``, ``Sub``, ``Mix``, and ``Mask``.
+`Lights` have four `Modes`: `Add`, `Sub`, `Mix`, and `Mask`.
 
-``Add`` adds the color of the light texture to the scene. It brightens the area under the light.
+`Add` adds the color of the light texture to the scene. It brightens the area under the light.
 
-``Sub`` subtracts the color of the light from the scene. It darkens the area under the light.
+`Sub` subtracts the color of the light from the scene. It darkens the area under the light.
 
-``Mix`` mixes the color of the light with the underlying scene. The resulting brightness is
+`Mix` mixes the color of the light with the underlying scene. The resulting brightness is
 halfway between the color of the light and the color underneath.
 
-``Mask`` is used to mask out areas that are covered by the light. Masked out areas are hidden or revealed based on
+`Mask` is used to mask out areas that are covered by the light. Masked out areas are hidden or revealed based on
 the color of the light.
 
 For the demo the lights have two components, the `Light` itself (which
@@ -97,7 +97,7 @@ Shadows
 Shadows are made by intersecting a `Light`.
 
 By default shadows are turned off. To turn them on click on the `Light`
-and under the Shadows section check ``Enabled``.
+and under the Shadows section check `Enabled`.
 
 In the demo we are using a `Sprite` with a Texture on it to make the "Shadow Casters",
 but in reality all you need is a couple of `LightOccluder2Ds`. By itself
@@ -116,7 +116,7 @@ background you choose. For this style of shadow it is most likely to be a floor 
 .. image:: img/light_shadow_background.png
 
 Next create three `Light2D's`_. You can alter their
-color in the top section. By default shadows are turned off and the ``mode`` is set to ``add``. This
+color in the top section. By default shadows are turned off and the `mode` is set to `add`. This
 means that each light adds its own color to whatever is underneath.
 
 .. image:: img/light_shadow_all_lights_no_blob.png
@@ -137,7 +137,7 @@ Right now the scene should look too bright. This is because all three lights are
 This is why the demo uses a `CanvasModulate` in the scene. The
 `CanvasModulate` multiples the entire viewport by a specific color.
 
-Add a `CanvasModulate` to the scene and set its color to ``rgb(70, 70, 70)``.
+Add a `CanvasModulate` to the scene and set its color to `rgb(70, 70, 70)`.
 This will make the scene sufficiently dark to see the effects of the lights distinctly.
 
 .. image:: img/light_shadow_ambient.png
@@ -159,42 +159,42 @@ the shadow: a wall, a magical chest, or anything else.
 `LightOccluder2Ds` tell the game what shape the occluder has. They hold
 an `OccluderPolygon2D`, which is a container
 for a polygon and some other information. For this demo, since our wall is a square, we
-set ``Polygon`` to a square. The other default settings are fine.
+set `Polygon` to a square. The other default settings are fine.
 
-The first setting, ``Closed`` can be either ``on`` or ``off``. A closed polygon occludes light
+The first setting, `Closed` can be either `on` or `off`. A closed polygon occludes light
 coming from all directions. An open polygon only occludes light from one direction.
 
-``Cull Mode`` lets you select which direction gets culled. The default is ``Disabled``, meaning the occluder
-will cast a shadow no matter which side the light is on. The other two settings ``Clockwise`` and
-``Counter-Clockwise`` refer to the winding order of the vertices of the polygon. The winding order
+`Cull Mode` lets you select which direction gets culled. The default is `Disabled`, meaning the occluder
+will cast a shadow no matter which side the light is on. The other two settings `Clockwise` and
+`Counter-Clockwise` refer to the winding order of the vertices of the polygon. The winding order
 is used to determine which side of the line is inside the polygon. Only outward facing lines cast shadows.
 
-To illustrate the difference, here is an image of a `LightOccluder2D` with ``Closed``
-set to ``off`` in the corresponding `OccluderPolygon2D`, so that the
+To illustrate the difference, here is an image of a `LightOccluder2D` with `Closed`
+set to `off` in the corresponding `OccluderPolygon2D`, so that the
 lines of the polygon can be seen:
 
 .. image:: img/light_shadow_cull_disabled.png
 
-.. note:: ``Cull Mode`` is set to ``Disabled``. All three lines cast shadows.
+.. note:: `Cull Mode` is set to `Disabled`. All three lines cast shadows.
 
 .. image:: img/light_shadow_cull_clockwise.png
 
-.. note:: ``Cull Mode`` is set to ``Clockwise``. Only the top and right lines cast shadows.
+.. note:: `Cull Mode` is set to `Clockwise`. Only the top and right lines cast shadows.
 
 .. image:: img/light_shadow_cull_counter_clockwise.png
 
-.. note:: ``Cull Mode`` is set to ``Counter-Clockwise``. Only the bottom line casts a shadow.
-          If ``Closed`` was set to ``on`` there would be an additional vertical line on the
+.. note:: `Cull Mode` is set to `Counter-Clockwise`. Only the bottom line casts a shadow.
+          If `Closed` was set to `on` there would be an additional vertical line on the
           left which would cast a shadow as well.
 
 When you have added the `LightOccluder2Ds` the shadows still won't
 appear. You need to go back into the `Light2Ds` and under the Shadow
-section set ``Enable`` to ``on``. This turns on shadows with hard edges like in the image below.
+section set `Enable` to `on`. This turns on shadows with hard edges like in the image below.
 
 .. image:: img/light_shadow_filter0_pcf0.png
 
-To give the shadows that nice, soft edge look we set the variables ``filter``, ``filter smooth``, and
-``gradient length``. Godot supports `Percentage Closer Filtering <https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch11.html>`_
+To give the shadows that nice, soft edge look we set the variables `filter`, `filter smooth`, and
+`gradient length`. Godot supports `Percentage Closer Filtering <https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch11.html>`_
 (PCF), which takes multiple samples of the shadow map around a pixel and blurs them to create
 a smooth shadow effect. The higher the number of samples the smoother the shadow will
 look, but the slower it will run. That is why Godot provides 3-13 samples by default and allows you to choose.
@@ -202,42 +202,42 @@ The demo uses PCF7.
 
 .. image:: img/light_shadow_normal.png
 
-.. note:: This is a shadow rendered with the demo's settings. ``gradient length`` is set
-          to ``1.3``, ``filter smooth`` is set to ``11.1``, and ``filter`` is set to ``PCF7``.
+.. note:: This is a shadow rendered with the demo's settings. `gradient length` is set
+          to `1.3`, `filter smooth` is set to `11.1`, and `filter` is set to `PCF7`.
 
 .. image:: img/light_shadow_pcf13.png
 
-.. note:: ``filter`` is set to ``PCF13``. Notice how the shadow becomes wider, this is because the
-          distance between samples is based on the variable ``filter smooth``.
+.. note:: `filter` is set to `PCF13`. Notice how the shadow becomes wider, this is because the
+          distance between samples is based on the variable `filter smooth`.
 
-In order to make use of filtering you need to set the ``filter smooth`` variable.
+In order to make use of filtering you need to set the `filter smooth` variable.
 This dictates how far apart the samples are. If you want the soft area to extend quite far, you can increase
-the size of ``filter smooth``. However, with few samples and a large filter smooth, you can see lines
+the size of `filter smooth`. However, with few samples and a large filter smooth, you can see lines
 forming between the samples.
 
 .. image:: img/light_shadow_filter30.png
 
-.. note:: ``filter smooth`` is set to ``30``.
+.. note:: `filter smooth` is set to `30`.
 
 The different `Light` nodes in the demo use different values for filter smooth.
 Play around with it and see what you like.
 
 .. image:: img/light_shadow_filter0.png
 
-.. note:: ``filter smooth`` is set to ``0``.
+.. note:: `filter smooth` is set to `0`.
 
-Lastly, there is the variable ``gradient length``. For some smooth shadows it is preferable not to have the
+Lastly, there is the variable `gradient length`. For some smooth shadows it is preferable not to have the
 shadow start immediately on the object, as this produces a hard edge. The gradient length variable creates
 a smooth gradient to begin the shadow to reduce the effect of the hard edge.
 
 .. image:: img/light_shadow_grad0.png
 
-.. note:: ``gradient length`` is set to ``0``.
+.. note:: `gradient length` is set to `0`.
 
 .. image:: img/light_shadow_grad10.png
 
-.. note:: ``gradient length`` is set to ``10``.
+.. note:: `gradient length` is set to `10`.
 
 You will need to play around with the options a bit to find settings that suit your project. There is no right solution
-for everyone, which is why Godot provides so much flexibility. Just keep in mind that the higher ``filter``
+for everyone, which is why Godot provides so much flexibility. Just keep in mind that the higher `filter`
 set the more expensive the shadows will be.

@@ -103,7 +103,7 @@ gdscript GDScript
             print("Hit at point: ", result.position)
 ```
 
-The ``result`` dictionary when a collision occurs contains the following
+The `result` dictionary when a collision occurs contains the following
 data:
 
 ::
@@ -130,7 +130,7 @@ as shown in the following image:
 
 .. image:: img/raycast_falsepositive.png
 
-To avoid self-intersection, the ``intersect_ray()`` function can take an
+To avoid self-intersection, the `intersect_ray()` function can take an
 optional third parameter which is an array of exceptions. This is an
 example of how to use it from a KinematicBody2D or any other
 collision object node:
@@ -154,8 +154,8 @@ While the exceptions method works fine for excluding the parent body, it becomes
 very inconvenient if you need a large and/or dynamic list of exceptions. In
 this case, it is much more efficient to use the collision layer/mask system.
 
-The optional fourth argument for ``intersect_ray()`` is a collision mask. For
-example, to use the same mask as the parent body, use the ``collision_mask``
+The optional fourth argument for `intersect_ray()` is a collision mask. For
+example, to use the same mask as the parent body, use the `collision_mask`
 member variable:
 
 gdscript GDScript
@@ -181,10 +181,10 @@ has an "input_event" signal that will let you know when it was clicked,
 but in case there is any desire to do it manually, here's how.
 
 To cast a ray from the screen, you need a `Camera`
-node. A ``Camera`` can be in two projection modes: perspective and
+node. A `Camera` can be in two projection modes: perspective and
 orthogonal. Because of this, both the ray origin and direction must be
-obtained. This is because ``origin`` changes in orthogonal mode, while
-``normal`` changes in perspective mode:
+obtained. This is because `origin` changes in orthogonal mode, while
+`normal` changes in perspective mode:
 
 .. image:: img/raycast_projection.png
 
@@ -203,5 +203,5 @@ gdscript GDScript
 ```
 
 
-Remember that during ``_input()``, the space may be locked, so in practice
-this query should be run in ``_physics_process()``.
+Remember that during `_input()`, the space may be locked, so in practice
+this query should be run in `_physics_process()`.

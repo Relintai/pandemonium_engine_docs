@@ -34,9 +34,9 @@ One way we can potentially reduce the amount to be rendered is to take advantage
 of occlusion.
 
 For instance, in our city street scenario, you may be able to work out in advance
-that you can only see two other streets, ``B`` and ``C``, from street ``A``.
-Streets ``D`` to ``Z`` are hidden. In order to take advantage of occlusion, all
-you have to do is work out when your viewer is in street ``A`` (perhaps using
+that you can only see two other streets, `B` and `C`, from street `A`.
+Streets `D` to `Z` are hidden. In order to take advantage of occlusion, all
+you have to do is work out when your viewer is in street `A` (perhaps using
 Godot Areas), then you can hide the other streets.
 
 This example is a manual version of what is known as a *potentially visible set*.
@@ -158,4 +158,4 @@ also limit the processing needed to the local area.
 There may also be rendering and physics glitches due to floating point error in
 large worlds. You may be able to use techniques such as orienting the world
 around the player (rather than the other way around), or shifting the origin
-periodically to keep things centred around ``Vector3(0, 0, 0)``.
+periodically to keep things centred around `Vector3(0, 0, 0)`.

@@ -18,9 +18,9 @@ The structure of the demo
 The demo consists of a single scene. This scene includes two major parts: the
 GUI and the audio.
 
-We will focus on the audio part. In this demo, a bus named ``Record`` with the
-effect ``Record`` is created to handle the audio recording.
-An ``AudioStreamPlayer`` named ``AudioStreamRecord`` is used for recording.
+We will focus on the audio part. In this demo, a bus named `Record` with the
+effect `Record` is created to handle the audio recording.
+An `AudioStreamPlayer` named `AudioStreamRecord` is used for recording.
 
 .. image:: img/record_bus.png
 
@@ -68,12 +68,12 @@ gdscript GDScript
 
 
 At the start of the demo, the recording effect is not active. When the user
-presses the ``RecordButton``, the effect is enabled with
-``set_recording_active(true)``.
+presses the `RecordButton`, the effect is enabled with
+`set_recording_active(true)`.
 
-On the next button press, as ``effect.is_recording_active()`` is ``true``,
-the recorded stream can be stored into the ``recording`` variable by calling
-``effect.get_recording()``.
+On the next button press, as `effect.is_recording_active()` is `true`,
+the recorded stream can be stored into the `recording` variable by calling
+`effect.get_recording()`.
 
 gdscript GDScript
 
@@ -91,7 +91,7 @@ gdscript GDScript
 ```
 
 To playback the recording, you assign the recording as the stream of the
-``AudioStreamPlayer`` and call ``play()``.
+`AudioStreamPlayer` and call `play()`.
 
 gdscript GDScript
 
@@ -103,5 +103,5 @@ gdscript GDScript
 ```
 
 
-To save the recording, you call ``save_to_wav()`` with the path to a file.
-In this demo, the path is defined by the user via a ``LineEdit`` input box.
+To save the recording, you call `save_to_wav()` with the path to a file.
+In this demo, the path is defined by the user via a `LineEdit` input box.

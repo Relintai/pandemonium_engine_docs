@@ -15,7 +15,7 @@ Requirements
 
 -  SCons 3.0+ (you can install it via `Homebrew <https://brew.sh/>`_ or
    `MacPorts <https://www.macports.org/>`_, you should be able
-   to run ``scons`` in a terminal when installed).
+   to run `scons` in a terminal when installed).
 -  Xcode 10.0 (or later) with the iOS (10.0) SDK and the command line tools.
 
 .. seealso:: To get the Godot source code for compiling, see
@@ -39,7 +39,7 @@ for a debug build, or:
 
     $ scons p=iphone target=release
 
-for a release build (check ``platform/iphone/detect.py`` for the compiler
+for a release build (check `platform/iphone/detect.py` for the compiler
 flags used for each configuration).
 
 Alternatively, you can run
@@ -53,7 +53,7 @@ for a Simulator executable.
 For recent devices, Apple requires 64-bit versions of application binaries when you are uploading to the Apple Store.
 The best way to provide these is to create a bundle in which there are both 32-bit and 64-bit binaries, so every device will be able to run the game.
 
-It can be done in three steps: first compile the 32-bit version, then compile the 64-bit version and then use ``lipo`` to bundle them into one "universal" binary.
+It can be done in three steps: first compile the 32-bit version, then compile the 64-bit version and then use `lipo` to bundle them into one "universal" binary.
 All those steps can be performed with following commands:
 
 ::
@@ -64,7 +64,7 @@ All those steps can be performed with following commands:
     $ lipo -create bin/libgodot_camera_module.iphone.opt.arm.a bin/libgodot_camera_module.iphone.opt.arm64.a -output bin/libgodot_camera_module.iphone.release.fat.a
     $ lipo -create bin/libgodot_arkit_module.iphone.opt.arm.a bin/libgodot_arkit_module.iphone.opt.arm64.a -output bin/libgodot_arkit_module.iphone.release.fat.a
 
-If you also want to provide a simulator build (reduces the chance of any linker errors with dependencies), you'll need to build and lipo the ``x86_64`` architecture as well.
+If you also want to provide a simulator build (reduces the chance of any linker errors with dependencies), you'll need to build and lipo the `x86_64` architecture as well.
 
 ::
 

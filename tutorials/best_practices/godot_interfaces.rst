@@ -73,7 +73,7 @@ Note the following:
 3. Keep in mind that loading a resource fetches the cached resource
    instance maintained by the engine. To get a new object, one must
    `duplicate` an existing reference
-   or instantiate one from scratch with ``new()``.
+   or instantiate one from scratch with `new()`.
 
 Nodes likewise have an alternative access point: the SceneTree.
 
@@ -140,7 +140,7 @@ Godot's scripting API is duck-typed. This means that if a script executes an
 operation, Godot doesn't validate that it supports the operation by **type**.
 It instead checks that the object **implements** the individual method.
 
-For example, the `CanvasItem` class has a ``visible``
+For example, the `CanvasItem` class has a `visible`
 property. All properties exposed to the scripting API are in fact a setter and
 getter pair bound to a name. If one tried to access
 `CanvasItem.visible`, then Godot would do the
@@ -160,10 +160,10 @@ following checks, in order:
 - If not found, it does an explicit check to see if the user wants to access
   the "script" or "meta" properties.
 
-- If not, it checks for a ``_set``/``_get`` implementation (depending on type
+- If not, it checks for a `_set`/`_get` implementation (depending on type
   of access) in the CanvasItem and its inherited types. These methods can
   execute logic that gives the impression that the Object has a property. This
-  is also the case with the ``_get_property_list`` method.
+  is also the case with the `_get_property_list` method.
 
   - Note that this happens even for non-legal symbol names such as in the
     case of `TileSet`'s "1/tile_name" property. This
@@ -200,7 +200,7 @@ gdscript GDScript
 
 - A method check. In the case of
   `CanvasItem.visible`, one can
-  access the methods, ``set_visible`` and ``is_visible`` like any other method.
+  access the methods, `set_visible` and `is_visible` like any other method.
 
 gdscript GDScript
 

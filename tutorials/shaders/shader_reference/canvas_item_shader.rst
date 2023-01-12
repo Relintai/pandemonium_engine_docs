@@ -54,15 +54,15 @@ Global built-ins are available everywhere, including custom functions.
 | in float **TIME** | Global time since the engine has started, in seconds (always positive).     |
 |                   | It's subject to the rollover setting (which is 3,600 seconds by default).   |
 |                   | It's not affected by `time_scale<class_Engine_property_time_scale>`    |
-|                   | or pausing, but you can override the ``TIME`` variable's time scale by      |
-|                   | calling ``VisualServer.set_shader_time_scale()`` with the desired           |
-|                   | time scale factor as parameter (``1.0`` being the default).                 |
+|                   | or pausing, but you can override the `TIME` variable's time scale by      |
+|                   | calling `VisualServer.set_shader_time_scale()` with the desired           |
+|                   | time scale factor as parameter (`1.0` being the default).                 |
 +-------------------+-----------------------------------------------------------------------------+
 
 Vertex built-ins
 ^^^^^^^^^^^^^^^^
 
-Vertex data (``VERTEX``) is presented in local space (pixel coordinates, relative to the camera).
+Vertex data (`VERTEX`) is presented in local space (pixel coordinates, relative to the camera).
 If not written to, these values will not be modified and be passed through as they came.
 
 The user can disable the built-in modelview transform (projection will still happen later) and do
@@ -78,7 +78,7 @@ it manually with the following code:
         VERTEX = (EXTRA_MATRIX * (WORLD_MATRIX * vec4(VERTEX, 0.0, 1.0))).xy;
     }
 
-.. note:: ``WORLD_MATRIX`` is actually a modelview matrix. It takes input in local space and transforms it
+.. note:: `WORLD_MATRIX` is actually a modelview matrix. It takes input in local space and transforms it
           into view space.
 
 In order to get the world space coordinates of a vertex, you have to pass in a custom uniform like so:
@@ -99,7 +99,7 @@ Then, in your vertex shader:
         world_position = (global_transform * vec4(VERTEX, 0.0, 1.0)).xy;
     }
 
-``world_position`` can then be used in either the vertex or fragment functions.
+`world_position` can then be used in either the vertex or fragment functions.
 
 Other built-ins, such as UV and COLOR, are also passed through to the fragment function if not modified.
 
@@ -121,7 +121,7 @@ is usually:
 +--------------------------------+----------------------------------------------------------------+
 | in vec4 **INSTANCE_CUSTOM**    | Instance custom data.                                          |
 +--------------------------------+----------------------------------------------------------------+
-| in bool **AT_LIGHT_PASS**      | ``true`` if this is a light pass.                              |
+| in bool **AT_LIGHT_PASS**      | `true` if this is a light pass.                              |
 +--------------------------------+----------------------------------------------------------------+
 | inout vec2 **VERTEX**          | Vertex, in image space.                                        |
 +--------------------------------+----------------------------------------------------------------+
@@ -145,7 +145,7 @@ Fragment built-ins
 
 Certain Nodes (for example, `Sprites`) display a texture by default. However,
 when a custom fragment function is attached to these nodes, the texture lookup needs to be done
-manually. Godot does not provide the texture color in the ``COLOR`` built-in variable; to read
+manually. Godot does not provide the texture color in the `COLOR` built-in variable; to read
 the texture color for such nodes, use:
 
 .. code-block:: glsl
@@ -153,9 +153,9 @@ the texture color for such nodes, use:
   COLOR = texture(TEXTURE, UV);
 
 This differs from the behavior of the built-in normal map. If a normal map is attached, Godot uses
-it by default and assigns its value to the built-in ``NORMAL`` variable. If you are using a normal
+it by default and assigns its value to the built-in `NORMAL` variable. If you are using a normal
 map meant for use in 3D, it will appear inverted. In order to use it in your shader, you must assign
-it to the ``NORMALMAP`` property. Godot will handle converting it for use in 2D and overwriting ``NORMAL``.
+it to the `NORMALMAP` property. Godot will handle converting it for use in 2D and overwriting `NORMAL`.
 
 .. code-block:: glsl
 
@@ -164,9 +164,9 @@ it to the ``NORMALMAP`` property. Godot will handle converting it for use in 2D 
 +----------------------------------+----------------------------------------------------------------+
 | Built-in                         | Description                                                    |
 +==================================+================================================================+
-| in vec4 **FRAGCOORD**            | Coordinate of pixel center. In screen space. ``xy`` specifies  |
-|                                  | position in window, ``z`` specifies fragment depth if          |
-|                                  | ``DEPTH`` is not used. Origin is lower-left.                   |
+| in vec4 **FRAGCOORD**            | Coordinate of pixel center. In screen space. `xy` specifies  |
+|                                  | position in window, `z` specifies fragment depth if          |
+|                                  | `DEPTH` is not used. Origin is lower-left.                   |
 +----------------------------------+----------------------------------------------------------------+
 | inout vec3 **NORMAL**            | Normal read from **NORMAL_TEXTURE**. Writable.                 |
 +----------------------------------+----------------------------------------------------------------+
@@ -198,7 +198,7 @@ it to the ``NORMALMAP`` property. Godot will handle converting it for use in 2D 
 +----------------------------------+----------------------------------------------------------------+
 | in vec2 **POINT_COORD**          | Coordinate for drawing points.                                 |
 +----------------------------------+----------------------------------------------------------------+
-| in bool **AT_LIGHT_PASS**        | ``true`` if this is a light pass.                              |
+| in bool **AT_LIGHT_PASS**        | `true` if this is a light pass.                              |
 +----------------------------------+----------------------------------------------------------------+
 | in sampler2D **SCREEN_TEXTURE**  | Screen texture, mipmaps contain gaussian blurred versions.     |
 +----------------------------------+----------------------------------------------------------------+
@@ -208,18 +208,18 @@ Light built-ins
 
 Light processor functions work differently in 2D than they do in 3D. In CanvasItem shaders, the
 shader is called once for the object being drawn, and then once for each light touching that
-object in the scene. Use render_mode ``unshaded`` if you do not want any light passes to occur
-for that object. Use render_mode ``light_only`` if you only want light passes to occur for
+object in the scene. Use render_mode `unshaded` if you do not want any light passes to occur
+for that object. Use render_mode `light_only` if you only want light passes to occur for
 that object; this can be useful when you only want the object visible where it is covered by light.
 
-When the shader is on a light pass, the ``AT_LIGHT_PASS`` variable will be ``true``.
+When the shader is on a light pass, the `AT_LIGHT_PASS` variable will be `true`.
 
 +-------------------------------------+-------------------------------------------------------------------------------+
 | Built-in                            | Description                                                                   |
 +=====================================+===============================================================================+
-| in vec4 **FRAGCOORD**               | Coordinate of pixel center. In screen space. ``xy`` specifies                 |
-|                                     | position in window, ``z`` specifies fragment depth if                         |
-|                                     | ``DEPTH`` is not used. Origin is lower-left.                                  |
+| in vec4 **FRAGCOORD**               | Coordinate of pixel center. In screen space. `xy` specifies                 |
+|                                     | position in window, `z` specifies fragment depth if                         |
+|                                     | `DEPTH` is not used. Origin is lower-left.                                  |
 +-------------------------------------+-------------------------------------------------------------------------------+
 | in vec3 **NORMAL**                  | Input Normal. Although this value is passed in,                               |
 |                                     | **normal calculation still happens outside of this function**.                |

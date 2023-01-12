@@ -34,8 +34,8 @@ described below.
 Format a string
 ---------------
 
-The ``vformat()`` function returns a formatted `String`. It behaves
-in a way similar to C's ``sprintf()``:
+The `vformat()` function returns a formatted `String`. It behaves
+in a way similar to C's `sprintf()`:
 
 .. code-block:: cpp
 
@@ -48,7 +48,7 @@ in a way similar to C's ``sprintf()``:
     // to a method that expects a `const char *` instead of a String.
     vformat("My name is %s.", "Godette").c_str();
 
-In most cases, try to use ``vformat()`` instead of string concatenation as it
+In most cases, try to use `vformat()` instead of string concatenation as it
 makes for more readable code.
 
 Convert an integer or float to a string
@@ -69,11 +69,11 @@ Internationalize a string
 
 There are two types of internationalization in Godot's codebase:
 
-- ``TTR()``: **Editor ("tools") translations** will only be processed in the
+- `TTR()`: **Editor ("tools") translations** will only be processed in the
   editor. If a user uses the same text in one of their projects, it won't be
   translated if they provide a translation for it. When contributing to the
   engine, this is generally the macro you should use for localizable strings.
-- ``RTR()``: **Run-time translations** will be automatically localized in
+- `RTR()`: **Run-time translations** will be automatically localized in
   projects if they provide a translation for the given string. This kind of
   translation shouldn't be used in editor-only code.
 
@@ -85,7 +85,7 @@ There are two types of internationalization in Godot's codebase:
     TTR("Exit the editor?");
 
 To insert placeholders in localizable strings, wrap the localization macro in a
-``vformat()`` call as follows:
+`vformat()` call as follows:
 
 .. code-block:: cpp
 
@@ -94,16 +94,16 @@ To insert placeholders in localizable strings, wrap the localization macro in a
 
 .. note::
 
-    When using ``vformat()`` and a translation macro together, always wrap the
-    translation macro in ``vformat()``, not the other way around. Otherwise, the
+    When using `vformat()` and a translation macro together, always wrap the
+    translation macro in `vformat()`, not the other way around. Otherwise, the
     string will never match the translation as it will have the placeholder
     already replaced when it's passed to TranslationServer.
 
 Clamp a value
 -------------
 
-Godot provides macros for clamping a value with a lower bound (``MAX``), an
-upper bound (``MIN``) or both (``CLAMP``):
+Godot provides macros for clamping a value with a lower bound (`MAX`), an
+upper bound (`MIN`) or both (`CLAMP`):
 
 .. code-block:: cpp
 
@@ -114,8 +114,8 @@ upper bound (``MIN``) or both (``CLAMP``):
     MIN(2, a); // 2
     CLAMP(a, 10, 30); // 10
 
-This works with any type that can be compared to other values (like ``int`` and
-``float``).
+This works with any type that can be compared to other values (like `int` and
+`float`).
 
 Microbenchmarking
 -----------------
@@ -132,12 +132,12 @@ use this snippet:
     uint64_t end = OS::get_singleton()->get_ticks_usec();
     print_line(vformat("Snippet took %d microseconds", end - begin));
 
-This will print the time spent between the ``begin`` declaration and the ``end``
+This will print the time spent between the `begin` declaration and the `end`
 declaration.
 
 .. note::
 
-    You may have to ``#include "core/os/os.h"`` if it's not present already.
+    You may have to `#include "core/os/os.h"` if it's not present already.
 
     When opening a pull request, make sure to remove this snippet as well as the
     include if it wasn't there previously.
@@ -167,8 +167,8 @@ repetition:
     // Returns the value of the editor setting.
     EDITOR_GET("section/subsection/value");
 
-It's recommended to use ``GLOBAL_DEF``/``EDITOR_DEF`` only once per setting and
-use ``GLOBAL_GET``/``EDITOR_GET`` in all other places where it's referenced.
+It's recommended to use `GLOBAL_DEF`/`EDITOR_DEF` only once per setting and
+use `GLOBAL_GET`/`EDITOR_GET` in all other places where it's referenced.
 
 Error macros
 ------------
@@ -178,8 +178,8 @@ Godot features many error macros to make error reporting more convenient.
 .. warning::
 
     Conditions in error macros work in the **opposite** way of GDScript's
-    built-in ``assert()`` function. An error is reached if the condition inside
-    evaluates to ``true``, not ``false``.
+    built-in `assert()` function. An error is reached if the condition inside
+    evaluates to `true`, not `false`.
 
 .. note::
 
@@ -190,7 +190,7 @@ Godot features many error macros to make error reporting more convenient.
     the invalid value in question to ease debugging.
 
     For internal error checking where displaying a human-readable message isn't
-    necessary, remove ``_MSG`` at the end of the macro name and don't supply a
+    necessary, remove `_MSG` at the end of the macro name and don't supply a
     message argument.
 
     Also, always try to return processable data so the engine can keep running
@@ -241,6 +241,6 @@ Godot features many error macros to make error reporting more convenient.
     in Godot's codebase for more information about each error macro.
 
     Some functions return an error code (materialized by a return type of
-    ``Error``). This value can be returned directly from an error macro.
+    `Error`). This value can be returned directly from an error macro.
     See the list of available error codes in
     `core/error_list.h <https://github.com/godotengine/godot/blob/3.x/core/error_list.h>`__.

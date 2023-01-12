@@ -172,7 +172,7 @@ gdscript GDScript
     ev.pressed = true
     # Feedback.
     Input.parse_input_event(ev)
-`````
+````
 
 InputMap
 --------

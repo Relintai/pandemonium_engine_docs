@@ -41,10 +41,10 @@ repository: `doc/classes/
 <https://github.com/godotengine/godot/tree/master/doc/classes>`_.
 
 .. note:: For some modules in the engine's source code, you'll find the XML
-          files in the ``modules/<module_name>/doc_classes/`` directory instead.
+          files in the `modules/<module_name>/doc_classes/` directory instead.
 
 .. warning:: Always edit the API reference through these source XML files. Do
-             not edit the generated ``.rst`` files `in the online documentation
+             not edit the generated `.rst` files `in the online documentation
              <toc-class-ref>`, hosted in the `godot-docs
              <https://github.com/godotengine/godot-docs>`_ repository.
 
@@ -61,16 +61,16 @@ repository: `doc/classes/
 Updating the documentation template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you create a new class or modify the engine's API, you need to re-generate the XML files in ``doc/classes/``.
+When you create a new class or modify the engine's API, you need to re-generate the XML files in `doc/classes/`.
 
 To do so, you first need to compile Godot. See the
 `doc_introduction_to_the_buildsystem` page to learn how. Then, execute the
-compiled Godot binary from the Godot root directory with the ``--doctool`` option.
+compiled Godot binary from the Godot root directory with the `--doctool` option.
 For example, if you're on 64-bit Linux, the command is::
 
     ./bin/godot.linuxbsd.tools.64 --doctool
 
 The XML files in doc/classes should then be up-to-date with current Godot Engine
-features. You can then check what changed using the ``git diff`` command. Please
+features. You can then check what changed using the `git diff` command. Please
 only include changes that are relevant to your work on the API in your commits.
-You can discard changes in other XML files using ``git checkout``.
+You can discard changes in other XML files using `git checkout`.

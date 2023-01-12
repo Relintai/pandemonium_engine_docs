@@ -5,12 +5,12 @@ Localization using gettext
 
 In addition to `doc_importing_translations` in CSV format, Godot
 also supports loading translation files written in the GNU gettext
-format (text-based ``.po`` and compiled ``.mo`` since Godot 3.5).
+format (text-based `.po` and compiled `.mo` since Godot 3.5).
 
 .. note:: For an introduction to gettext, check out
           `A Quick Gettext Tutorial <https://www.labri.fr/perso/fleury/posts/programming/a-quick-gettext-tutorial.html>`_.
           It's written with C projects in mind, but much of the advice
-          also applies to Godot (with the exception of ``xgettext``).
+          also applies to Godot (with the exception of `xgettext`).
 
 Advantages
 ----------
@@ -32,7 +32,7 @@ Disadvantages
   people new to software localization.
 - People who maintain localization files will have to install gettext tools
   on their system. However, as Godot supports using text-based message files
-  (``.po``), translators can test their work without having to install gettext tools.
+  (`.po`), translators can test their work without having to install gettext tools.
 
 Caveats
 -------
@@ -53,22 +53,22 @@ install them.
   Any architecture and binary type (shared or static) works;
   if in doubt, choose the 64-bit static installer.
 - **macOS:** Install gettext either using `Homebrew <https://brew.sh/>`_
-  with the ``brew install gettext`` command, or using
+  with the `brew install gettext` command, or using
   `MacPorts <https://www.macports.org/>`_ with the
-  ``sudo port install gettext`` command.
-- **Linux:** On most distributions, install the ``gettext`` package from
+  `sudo port install gettext` command.
+- **Linux:** On most distributions, install the `gettext` package from
   your distribution's package manager.
 
 Creating the PO template (POT) manually
 ---------------------------------------
 
-Godot currently doesn't support extracting source strings using ``xgettext``,
-so the ``.pot`` file must be created manually. This file can be placed anywhere
+Godot currently doesn't support extracting source strings using `xgettext`,
+so the `.pot` file must be created manually. This file can be placed anywhere
 in the project directory, but it's recommended to keep it in a subdirectory, as
 each locale will be defined in its own file.
 
 Create a directory named `locale` in the project directory. In this directory,
-save a file named ``messages.pot`` with the following contents:
+save a file named `messages.pot` with the following contents:
 
 ::
 
@@ -79,12 +79,12 @@ save a file named ``messages.pot`` with the following contents:
     msgid "Hello world!"
     msgstr ""
 
-Messages in gettext are made of ``msgid`` and ``msgstr`` pairs.
-``msgid`` is the source string (usually in English), ``msgstr`` will be
+Messages in gettext are made of `msgid` and `msgstr` pairs.
+`msgid` is the source string (usually in English), `msgstr` will be
 the translated string.
 
-The ``msgstr`` value in PO template files (``.pot``) should **always** be empty.
-Localization will be done in the generated ``.po`` files instead.
+The `msgstr` value in PO template files (`.pot`) should **always** be empty.
+Localization will be done in the generated `.po` files instead.
 
 Creating the PO template (POT) using pybabel
 --------------------------------------------
@@ -92,13 +92,13 @@ Creating the PO template (POT) using pybabel
 The Python tool pybabel has support for Godot and can be used to automatically
 create and update the POT file from your scene files and scripts.
 
-After installing ``babel`` and ``babel-godot``, for example using pip:
+After installing `babel` and `babel-godot`, for example using pip:
 
 .. code-block:: shell
 
     pip3 install babel babel-godot
 
-Write a mapping file (for example ``babelrc``) which will indicate which files
+Write a mapping file (for example `babelrc`) which will indicate which files
 pybabel needs to process (note that we process GDScript as Python, which is
 generally sufficient):
 
@@ -116,7 +116,7 @@ You can then run pybabel like so:
 
     pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr -o godot-l10n.pot .
 
-Use the ``-k`` option to specify what needs to be extracted. In this case,
+Use the `-k` option to specify what needs to be extracted. In this case,
 arguments to `tr()` will be translated, as well
 as properties named "text" (commonly used by Control nodes) and LineEdit's
 "placeholder_text" property.
@@ -124,15 +124,15 @@ as properties named "text" (commonly used by Control nodes) and LineEdit's
 Creating a messages file from a PO template
 -------------------------------------------
 
-The ``msginit`` command is used to turn a PO template into a messages file.
+The `msginit` command is used to turn a PO template into a messages file.
 For instance, to create a French localization file, use the following command
-while in the ``locale`` directory:
+while in the `locale` directory:
 
 .. code-block:: shell
 
     msginit --no-translator --input=messages.pot --locale=fr
 
-The command above will create a file named ``fr.po`` in the same directory
+The command above will create a file named `fr.po` in the same directory
 as the PO template.
 
 Alternatively, you can do that graphically using Poedit, or by uploading the
@@ -143,9 +143,9 @@ Loading a messages file in Godot
 
 To register a messages file as a translation in a project, open the
 **Project Settings**, then go to the **Localization** tab.
-In **Translations**, click **Add…** then choose the ``.po`` or ``.mo`` file
+In **Translations**, click **Add…** then choose the `.po` or `.mo` file
 in the file dialog. The locale will be inferred from the
-``"Language: <code>\n"`` property in the messages file.
+`"Language: <code>\n"` property in the messages file.
 
 .. note:: See `doc_internationalizing_games` for more information on
           importing and testing translations in Godot.
@@ -156,7 +156,7 @@ Updating message files to follow the PO template
 After updating the PO template, you will have to update message files so
 that they contain new strings, while removing strings that are no longer
 present in the PO template. This can be done automatically using the
-``msgmerge`` tool:
+`msgmerge` tool:
 
 .. code-block:: shell
 
@@ -164,12 +164,12 @@ present in the PO template. This can be done automatically using the
     msgmerge --update --backup=none fr.po messages.pot
 
 If you want to keep a backup of the original message file (which would be
-saved as ``fr.po~`` in this example), remove the ``--backup=none`` argument.
+saved as `fr.po~` in this example), remove the `--backup=none` argument.
 
 .. note::
 
-    After running ``msgmerge``, strings which were modified in the source language
-    will have a "fuzzy" comment added before them in the ``.po`` file. This comment
+    After running `msgmerge`, strings which were modified in the source language
+    will have a "fuzzy" comment added before them in the `.po` file. This comment
     denotes that the translation should be updated to match the new source string,
     as the translation will most likely be inaccurate until it's updated.
 
@@ -187,7 +187,7 @@ the command below:
     msgfmt fr.po --check
 
 If there are syntax errors or warnings, they will be displayed in the console.
-Otherwise, ``msgfmt`` won't output anything.
+Otherwise, `msgfmt` won't output anything.
 
 Using binary MO files (useful for large projects only)
 ------------------------------------------------------
@@ -203,7 +203,7 @@ You can generate a MO file with the command below:
 
     msgfmt fr.po --no-hash -o fr.mo
 
-If the PO file is valid, this command will create a ``fr.mo`` file besides
+If the PO file is valid, this command will create a `fr.mo` file besides
 the PO file. This MO file can then be loaded in Godot as described below.
 
 The original PO file should be kept in version control so you can update

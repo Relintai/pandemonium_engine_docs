@@ -42,7 +42,7 @@ internal/external buffer, or a file reference.
 
 Some AudioStreams need to be stateless such as objects loaded from
 ResourceLoader. ResourceLoader loads once and references the same
-object regardless how many times ``load`` is called on a specific resource.
+object regardless how many times `load` is called on a specific resource.
 Therefore, playback state must be self-contained in AudioStreamPlayback.
 
 .. code-block:: cpp
@@ -122,7 +122,7 @@ References:
 Create an AudioStreamPlayback
 -----------------------------
 
-AudioStreamPlayer uses ``mix`` callback to obtain PCM data. The callback must match sample rate and fill the buffer.
+AudioStreamPlayer uses `mix` callback to obtain PCM data. The callback must match sample rate and fill the buffer.
 
 Since AudioStreamPlayback is controlled by the audio thread, i/o and dynamic memory allocation are forbidden.
 
@@ -235,8 +235,8 @@ Godot's AudioServer currently uses 44100 Hz sample rate. When other sample rates
 needed such as 48000, either provide one or use AudioStreamPlaybackResampled.
 Godot provides cubic interpolation for audio resampling.
 
-Instead of overloading ``mix``, AudioStreamPlaybackResampled uses ``_mix_internal`` to
-query AudioFrames and ``get_stream_sampling_rate`` to query current mix rate.
+Instead of overloading `mix`, AudioStreamPlaybackResampled uses `_mix_internal` to
+query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
 
 .. code-block:: cpp
 

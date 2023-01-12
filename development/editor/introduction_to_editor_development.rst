@@ -56,26 +56,26 @@ Some important files in the editor are:
   Where the 3D editor gizmos are defined and drawn.
   This file doesn't have a 2D counterpart as 2D gizmos are drawn by the nodes themselves.
 
-Editor dependencies in ``scene/`` files
+Editor dependencies in `scene/` files
 ---------------------------------------
 
 When working on an editor feature, you may have to modify files in
-Godot's GUI nodes, which you can find in the ``scene/`` folder.
+Godot's GUI nodes, which you can find in the `scene/` folder.
 
 One rule to keep in mind is that you must **not** introduce new dependencies to
-``editor/`` includes in other folders such as ``scene/``. This applies even if
-you use ``#ifdef TOOLS_ENABLED``.
+`editor/` includes in other folders such as `scene/`. This applies even if
+you use `#ifdef TOOLS_ENABLED`.
 
 To make the codebase easier to follow and more self-contained, the allowed
 dependency order is:
 
-- ``editor/`` -> ``scene/`` -> ``servers/`` -> ``core/``
+- `editor/` -> `scene/` -> `servers/` -> `core/`
 
-This means that files in ``editor/`` can depend on includes from ``scene/``,
-``servers/``, and ``core/``. But, for example, while ``scene/`` can depend on includes
-from ``servers/`` and ``core/``, it cannot depend on includes from ``editor/``.
+This means that files in `editor/` can depend on includes from `scene/`,
+`servers/`, and `core/`. But, for example, while `scene/` can depend on includes
+from `servers/` and `core/`, it cannot depend on includes from `editor/`.
 
-Currently, there are some dependencies to ``editor/`` includes in ``scene/``
+Currently, there are some dependencies to `editor/` includes in `scene/`
 files, but
 `they are in the process of being removed <https://github.com/godotengine/godot/issues/29730>`__.
 

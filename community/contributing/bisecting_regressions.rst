@@ -26,7 +26,7 @@ performance regressions.
 Using official builds to speed up bisecting
 -------------------------------------------
 
-Before using Git's ``bisect`` command, we strongly recommend trying to reproduce
+Before using Git's `bisect` command, we strongly recommend trying to reproduce
 the bug with an older (or newer) official release. This greatly reduces the
 range of commits that potentially need to be built from source and tested.
 You can find binaries of official releases, as well as alphas, betas,
@@ -45,14 +45,14 @@ manage to reproduce the bug with Godot 3.2 beta 1, then try older alpha builds.
     Instead, use the minor version's first release like Godot 3.1. This is
     because patch releases are built from a separate *stable branch*. This kind
     of branch doesn't follow the rest of Godot's development, which is done in
-    the ``master`` branch.
+    the `master` branch.
 
 The Git bisect command
 ----------------------
 
 If you've found a build that didn't exhibit the bug in the above testing
 process, you can now start bisecting the regression. The Git version control
-system offers a built-in command for this: ``git bisect``. This makes the
+system offers a built-in command for this: `git bisect`. This makes the
 process semi-automated as you only have to build the engine, run it and try to
 reproduce the bug.
 
@@ -74,7 +74,7 @@ the "bad" and "good" build. "bad" refers to the build that exhibits the bug,
 whereas "good" refers to the version that doesn't exhibit the bug. If you're
 using a pre-release build as the "good" or "bad" build, browse the `download
 mirror <https://downloads.tuxfamily.org/godotengine/>`__, go to the folder that
-contains the pre-release you downloaded and look for the ``README.txt`` file.
+contains the pre-release you downloaded and look for the `README.txt` file.
 The commit hash is written inside that file.
 
 If you're using a stable release as the "good" or "bad" build, use one of the
@@ -86,11 +86,11 @@ following commit hashes depending on the version:
     3.1-stable
     3.0-stable
 
-To refer to the latest state of the master branch, you can use ``master``
+To refer to the latest state of the master branch, you can use `master`
 instead of a commit hash.
 
 `Get Godot's source code using Git <doc_getting_source>`. Once this
-is done, in the terminal window, use ``cd`` to reach the Godot repository
+is done, in the terminal window, use `cd` to reach the Godot repository
 folder and enter the following command:
 
 .. code-block:: shell
@@ -110,10 +110,10 @@ Compile Godot. This assumes you've set up a build environment:
     $ scons platform=<platform> -j4
 
 Since building Godot takes a while, you want to dedicate as many CPU threads as
-possible to the task. This is what the ``-j`` parameter does. Here, the command
+possible to the task. This is what the `-j` parameter does. Here, the command
 assigns 4 CPU threads to compiling Godot.
 
-Run the binary located in the ``bin/`` folder and try to reproduce the bug.
+Run the binary located in the `bin/` folder and try to reproduce the bug.
 
 If the build **still** exhibits the bug, run the following command:
 
@@ -128,8 +128,8 @@ If the build **does not** exhibit the bug, run the following command:
     $ git bisect good
 
 After entering one of the commands above, Git will switch to a different commit.
-You should now build Godot again, try to reproduce the bug, then enter ``git
-bisect good`` or ``git bisect bad`` depending on the result. You'll have to
+You should now build Godot again, try to reproduce the bug, then enter `git
+bisect good` or `git bisect bad` depending on the result. You'll have to
 repeat this several times. The longer the commit range, the more steps will be
 required. 5 to 10 steps are usually sufficient to find most regressions; Git
 will remind you of the number of steps remaining (in the worst case scenario).
@@ -141,5 +141,5 @@ contributing to Godot :)
 
 .. note::
 
-    You can read the full documentation on ``git bisect``
+    You can read the full documentation on `git bisect`
     `here <https://git-scm.com/docs/git-bisect>`__.

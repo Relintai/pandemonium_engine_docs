@@ -1,20 +1,13 @@
 
 
-Compiling for X11 (Linux, \*BSD)
-================================
+# Compiling for X11 (Linux, \*BSD)
 
+This page describes how to compile Linux editor and export template binaries from source.
+If you're looking to export your project to Linux instead, read `doc_exporting_for_linux`.
 
-See also:
+## Requirements
 
-
-    This page describes how to compile Linux editor and export template binaries from source.
-    If you're looking to export your project to Linux instead, read `doc_exporting_for_linux`.
-
-Requirements
-------------
-
-For compiling under Linux or other Unix variants, the following is
-required:
+For compiling under Linux or other Unix variants, the following is required:
 
 -  GCC 7+ or Clang 6+.
 -  Python 3.5+.
@@ -31,77 +24,92 @@ required:
 -  *Optional* - libudev (build with `udev=yes`).
 -  *Optional* - yasm (for WebM SIMD optimizations).
 
-See also:
- To get the Godot source code for compiling, see
-             `doc_getting_source`.
+To get the Godot source code for compiling, see `doc_getting_source`.
+For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
 
-             For a general overview of SCons usage for Godot, see
-             `doc_introduction_to_the_buildsystem`.
+### Distro-specific one-liners
 
-Distro-specific one-liners
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **Alpine Linux** |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     apk add scons pkgconf gcc g++ libx11-dev libxcursor-dev libxinerama-dev libxi-dev libxrandr-dev \     |
-|                  |         mesa-dev libexecinfo-dev eudev-dev alsa-lib-dev pulseaudio-dev                                    |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **Arch Linux**   |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     pacman -S --needed scons pkgconf gcc libxcursor libxinerama libxi libxrandr mesa glu libglvnd \       |
-|                  |         alsa-lib pulseaudio yasm                                                                          |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **Debian** /     |                                                                                                         |
-| **Ubuntu**       |                                                                                                           |
-|                  |     sudo apt-get install build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev \     |
-|                  |         libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm   |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **Fedora**       |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     sudo dnf install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \    |
-|                  |         libXi-devel mesa-libGL-devel mesa-libGLU-devel alsa-lib-devel pulseaudio-libs-devel \             |
-|                  |         libudev-devel yasm gcc-c++ libstdc++-static libatomic-static                                      |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **FreeBSD**      |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     sudo pkg install py37-scons pkgconf xorg-libraries libXcursor libXrandr libXi xorgproto libGLU \      |
-|                  |         alsa-lib pulseaudio yasm                                                                          |
-|                  |                                                                                                           |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **Gentoo**       |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     emerge -an dev-util/scons x11-libs/libX11 x11-libs/libXcursor x11-libs/libXinerama x11-libs/libXi \   |
-|                  |         media-libs/mesa media-libs/glu media-libs/alsa-lib media-sound/pulseaudio dev-lang/yasm           |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **Mageia**       |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     urpmi scons task-c++-devel pkgconfig "pkgconfig(alsa)" "pkgconfig(glu)" "pkgconfig(libpulse)" \       |
-|                  |         "pkgconfig(udev)" "pkgconfig(x11)" "pkgconfig(xcursor)" "pkgconfig(xinerama)" "pkgconfig(xi)" \   |
-|                  |         "pkgconfig(xrandr)" yasm                                                                          |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **OpenBSD**      |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     pkg_add python scons llvm yasm                                                                        |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **openSUSE**     |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     sudo zypper install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \ |
-|                  |             libXi-devel Mesa-libGL-devel alsa-devel libpulse-devel libudev-devel libGLU1 yasm             |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **NetBSD**       |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     pkg_add pkg-config py37-scons yasm                                                                    |
-|                  |                                                                                                           |
-|                  | For audio support, you can optionally install `pulseaudio`.                                             |
-+------------------+-----------------------------------------------------------------------------------------------------------+
-| **Solus**        |                                                                                                         |
-|                  |                                                                                                           |
-|                  |     sudo eopkg install -c system.devel scons libxcursor-devel libxinerama-devel libxi-devel \             |
-|                  |         libxrandr-devel mesalib-devel libglu alsa-lib-devel pulseaudio-devel yasm                         |
-+------------------+-----------------------------------------------------------------------------------------------------------+
+**Alpine Linux**
 
-Compiling
----------
+```
+apk add scons pkgconf gcc g++ libx11-dev libxcursor-dev libxinerama-dev libxi-dev libxrandr-dev \
+    mesa-dev libexecinfo-dev eudev-dev alsa-lib-dev pulseaudio-dev
+```
+
+**Arch Linux** 
+
+```
+pacman -S --needed scons pkgconf gcc libxcursor libxinerama libxi libxrandr mesa glu libglvnd \
+    alsa-lib pulseaudio yasm
+```
+
+**Debian** / **Ubuntu**
+
+```
+sudo apt-get install build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev \
+    libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
+```
+
+**Fedora**
+
+```
+sudo dnf install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \
+    libXi-devel mesa-libGL-devel mesa-libGLU-devel alsa-lib-devel pulseaudio-libs-devel \
+    libudev-devel yasm gcc-c++ libstdc++-static libatomic-static
+```
+
+**FreeBSD**
+
+```
+sudo pkg install py37-scons pkgconf xorg-libraries libXcursor libXrandr libXi xorgproto libGLU \
+    alsa-lib pulseaudio yasm
+```
+
+**Gentoo**
+
+```
+emerge -an dev-util/scons x11-libs/libX11 x11-libs/libXcursor x11-libs/libXinerama x11-libs/libXi \
+    media-libs/mesa media-libs/glu media-libs/alsa-lib media-sound/pulseaudio dev-lang/yasm
+```
+
+**Mageia**
+
+```
+urpmi scons task-c++-devel pkgconfig "pkgconfig(alsa)" "pkgconfig(glu)" "pkgconfig(libpulse)" \
+    "pkgconfig(udev)" "pkgconfig(x11)" "pkgconfig(xcursor)" "pkgconfig(xinerama)" "pkgconfig(xi)" \
+    "pkgconfig(xrandr)" yasm
+```
+
+**OpenBSD**
+
+```
+pkg_add python scons llvm yasm
+```
+
+**openSUSE**
+
+```
+sudo zypper install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \
+    libXi-devel Mesa-libGL-devel alsa-devel libpulse-devel libudev-devel libGLU1 yasm
+```
+
+**NetBSD** 
+
+```
+pkg_add pkg-config py37-scons yasm
+```
+
+For audio support, you can optionally install `pulseaudio`.
+
+**Solus**
+
+```
+sudo eopkg install -c system.devel scons libxcursor-devel libxinerama-devel libxi-devel \
+    libxrandr-devel mesalib-devel libglu alsa-lib-devel pulseaudio-devel yasm 
+```
+
+
+## Compiling
 
 Start a terminal, go to the root dir of the engine source code and type:
 
@@ -118,36 +126,29 @@ If all goes well, the resulting binary executable will be placed in the
 runs without any dependencies. Executing it will bring up the project
 manager.
 
-Note:
-
-
-    If you wish to compile using Clang rather than GCC, use this command:
+Note: If you wish to compile using Clang rather than GCC, use this command:
 
 ```
         scons platform=x11 use_llvm=yes
 ```
 
-    Using Clang appears to be a requirement for OpenBSD, otherwise fonts
-    would not build.
+Using Clang appears to be a requirement for OpenBSD, otherwise fonts would not build.
 
 Note:
- If you are compiling Godot for production use, then you can
-          make the final executable smaller and faster by adding the
-          SCons option `target=release_debug`.
 
-          If you are compiling Godot with GCC, you can make the binary
-          even smaller and faster by adding the SCons option `use_lto=yes`.
-          As link-time optimization is a memory-intensive process,
-          this will require about 7 GB of available RAM while compiling.
+If you are compiling Godot for production use, then you can make the final executable smaller 
+and faster by adding the SCons option `target=release_debug`.
+
+If you are compiling Godot with GCC, you can make the binary even smaller and faster by adding the SCons 
+option `use_lto=yes`. As link-time optimization is a memory-intensive process, this will require about 
+7 GB of available RAM while compiling.
 
 Note:
- If you want to use separate editor settings for your own Godot builds
-          and official releases, you can enable
-          `doc_data_paths_self_contained_mode` by creating a file called
-          `._sc_` or `sc_` in the `bin/` folder.
 
-Compiling a headless/server build
----------------------------------
+If you want to use separate editor settings for your own Godot builds and official releases, 
+you can enable `doc_data_paths_self_contained_mode` by creating a file called `._sc_` or `sc_` in the `bin/` folder.
+
+## Compiling a headless/server build
 
 To compile a *headless* build which provides editor functionality to export
 projects in an automated manner, use:
@@ -156,34 +157,27 @@ projects in an automated manner, use:
     scons -j8 platform=server tools=yes target=release_debug
 ```
 
-To compile a debug *server* build which can be used with
-`remote debugging tools ( doc_command_line_tutorial )`, use:
+To compile a debug *server* build which can be used with `remote debugging tools ( doc_command_line_tutorial )`, use:
 
 ```
     scons -j8 platform=server tools=no target=release_debug
 ```
 
-To compile a *server* build which is optimized to run dedicated game servers,
-use:
+To compile a *server* build which is optimized to run dedicated game servers, use:
 
 ```
     scons -j8 platform=server tools=no target=release
 ```
 
-Building export templates
--------------------------
+## Building export templates
 
 Warning:
- Linux binaries usually won't run on distributions that are
-             older than the distribution they were built on. If you wish to
-             distribute binaries that work on most distributions,
-             you should build them on an old distribution such as Ubuntu 16.04.
-             You can use a virtual machine or a container to set up a suitable
-             build environment.
 
+Linux binaries usually won't run on distributions that are older than the distribution they were built on. 
+If you wish to distribute binaries that work on most distributions, you should build them on an old distribution 
+such as Ubuntu 16.04. You can use a virtual machine or a container to set up a suitable build environment.
 
-To build X11 (Linux, \*BSD) export templates, run the build system with the
-following parameters:
+To build X11 (Linux, \*BSD) export templates, run the build system with the following parameters:
 
 -  (32 bits)
 
@@ -217,24 +211,19 @@ and named like this (even for \*BSD which is seen as "Linux X11" by Godot):
     linux_x11_64_release
 ```
 
-However, if you are writing your custom modules or custom C++ code, you
-might instead want to configure your binaries as custom export templates
-here:
+However, if you are writing your custom modules or custom C++ code, you might instead want to configure your 
+binaries as custom export templates here:
 
 ![](img/lintemplates.png)
 
-You don't even need to copy them, you can just reference the resulting
-files in the `bin/` directory of your Godot source folder, so the next
-time you build, you automatically have the custom templates referenced.
+You don't even need to copy them, you can just reference the resulting files in the `bin/` directory of your 
+Godot source folder, so the next time you build, you automatically have the custom templates referenced.
 
-Using Clang and LLD for faster development
-------------------------------------------
+## Using Clang and LLD for faster development
 
-You can also use Clang and LLD to build Godot. This has two upsides compared to
-the default GCC + GNU ld setup:
+You can also use Clang and LLD to build Godot. This has two upsides compared to the default GCC + GNU ld setup:
 
-- LLD links Godot significantly faster compared to GNU ld or gold. This leads to
-  faster iteration times.
+- LLD links Godot significantly faster compared to GNU ld or gold. This leads to faster iteration times.
 - Clang tends to give more useful error messages compared to GCC.
 
 To do so, install Clang and the `lld` package from your distribution's package manager
@@ -244,8 +233,7 @@ then use the following SCons command:
     scons platform=x11 use_llvm=yes use_lld=yes
 ```
 
-After the build is completed, a new binary with a `.llvm` suffix will be
-created in the `bin/` folder.
+After the build is completed, a new binary with a `.llvm` suffix will be created in the `bin/` folder.
 
 It's still recommended to use GCC for production builds as they can be compiled using
 link-time optimization, making the resulting binaries smaller and faster.

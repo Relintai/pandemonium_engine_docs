@@ -1,17 +1,11 @@
 
 
-Compiling for Android
-=====================
+# Compiling for Android
 
+This page describes how to compile Android export template binaries from source.
+If you're looking to export your project to Android instead, read `doc_exporting_for_android`.
 
-See also:
-
-
-    This page describes how to compile Android export template binaries from source.
-    If you're looking to export your project to Android instead, read `doc_exporting_for_android`.
-
-Note
-----
+## Note
 
 In most cases, using the built-in deployer and export templates is good
 enough. Compiling the Android APK manually is mostly useful for custom
@@ -21,8 +15,7 @@ Also, you still need to follow the steps mentioned in the
 `doc_exporting_for_android` tutorial before attempting to build
 a custom export template.
 
-Requirements
-------------
+## Requirements
 
 For compiling under Windows, Linux or macOS, the following is required:
 
@@ -40,17 +33,12 @@ For compiling under Windows, Linux or macOS, the following is required:
 
    -  You can download a build from `ojdkbuild ( https://github.com/ojdkbuild/ojdkbuild )`.
 
-See also:
- To get the Godot source code for compiling, see
-             `doc_getting_source`.
+To get the Godot source code for compiling, see `doc_getting_source`.
 
-             For a general overview of SCons usage for Godot, see
-             `doc_introduction_to_the_buildsystem`.
+For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
 
 
-
-Setting up the buildsystem
---------------------------
+## Setting up the buildsystem
 
 -  Set the environment variable `ANDROID_SDK_ROOT` to point to the Android 
    SDK. If you downloaded the Android command-line tools, this would be
@@ -58,31 +46,26 @@ Setting up the buildsystem
 
 -  Install the necessary SDK components in this folder:
 
-    -  Accept the SDK component licenses by running the following command 
-       where `android_sdk_path` is the path to the Android SDK, then answering all the prompts with `y`:
+-  Accept the SDK component licenses by running the following command where `android_sdk_path` is the 
+path to the Android SDK, then answering all the prompts with `y`:
 
 ```
         tools/bin/sdkmanager --sdk_root=( android_sdk_path> --licenses
 ```
 
-    -  Complete setup by running the following command where `android_sdk_path` is the path to the Android SDK.
+-  Complete setup by running the following command where `android_sdk_path` is the path to the Android SDK.
 
 ```
         tools/bin/sdkmanager --sdk_root=( android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-29" "cmdline-tools;latest" "cmake;3.10.2.4988404"
 ```
 
-See also:
-   To set the environment variable on Windows, press :kbd:`Windows + R`, type 
-            "control system", then click on **Advanced system settings** in the left
-            pane, then click on **Environment variables** on the window that appears.
+To set the environment variable on Windows, press :kbd:`Windows + R`, type "control system", then click 
+on **Advanced system settings** in the left pane, then click on **Environment variables** on the window that appears.
 
-See also:
-   To set the environment variable on Linux or macOS, use
-            `export ANDROID_SDK_ROOT=/path/to/android-sdk` where `/path/to/android-sdk` points to
-            the root of the SDK directories.
+To set the environment variable on Linux or macOS, use `export ANDROID_SDK_ROOT=/path/to/android-sdk` where `/path/to/android-sdk` 
+points to the root of the SDK directories.
 
-Building the export templates
------------------------------
+## Building the export templates
 
 Godot needs two export templates for Android: the optimized "release"
 template (`android_release.apk`) and the debug template (`android_debug.apk`).
@@ -121,8 +104,7 @@ The resulting APK will be located at `bin/android_release.apk`.
 
 The resulting APK will be located at `bin/android_debug.apk`.
 
-Adding support for x86 devices
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Adding support for x86 devices
 
 If you also want to include support for x86 and x86-64 devices, run the SCons
 command a third and fourth time with the `android_arch=x86`, and
@@ -146,8 +128,7 @@ The final APK size of exported projects will depend on the platforms you choose
 to support when exporting; in other words, unused platforms will be removed from
 the APK.
 
-Cleaning the generated export templates
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Cleaning the generated export templates
 
 You can use the following commands to remove the generated export templates:
 
@@ -159,8 +140,7 @@ You can use the following commands to remove the generated export templates:
     ./gradlew cleanGodotTemplates
 ```
 
-Using the export templates
---------------------------
+## Using the export templates
 
 Godot needs release and debug APKs that were compiled against the same
 version/commit as the editor. If you are using official binaries
@@ -171,7 +151,6 @@ When exporting your game, Godot opens the APK, changes a few things inside and
 adds your files.
 
 Installing the templates
-~~~~~~~~~~~~~~~~~~~~~~~~
 
 The newly-compiled templates (`android_debug.apk`
 and `android_release.apk`) must be copied to Godot's templates folder
@@ -186,8 +165,6 @@ with their respective names. The templates folder can be located in:
 You also need to write this same version string to a `version.txt` file located
 next to your export templates.
 
-.. TODO: Move these paths to a common reference page
-
 However, if you are writing your custom modules or custom C++ code, you
 might instead want to configure your APKs as custom export templates
 here:
@@ -199,11 +176,9 @@ file in the `bin\` directory of your Godot source folder, so that the
 next time you build you will automatically have the custom templates
 referenced.
 
-Troubleshooting
----------------
+## Troubleshooting
 
-Platform doesn't appear in SCons
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Platform doesn't appear in SCons
 
 Double-check that you've set the `ANDROID_SDK_ROOT`
 environment variable. This is required for the platform to appear in SCons'
@@ -211,8 +186,8 @@ list of detected platforms.
 See `Setting up the buildsystem ( doc_android_setting_up_the_buildsystem )`
 for more information.
 
-Application not installed
-~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### Application not installed
 
 Android might complain the application is not correctly installed.
 If so:
@@ -230,8 +205,7 @@ Then check the output while the application is installed;
 the error message should be presented there.
 Seek assistance if you can't figure it out.
 
-Application exits immediately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Application exits immediately
 
 If the application runs but exits immediately, this might be due to
 one of the following reasons:

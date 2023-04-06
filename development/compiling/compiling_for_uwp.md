@@ -1,14 +1,12 @@
 
 
-Compiling for Universal Windows Platform
-========================================
+# Compiling for Universal Windows Platform
 
+Note that the UWP platform has been removed, as the build and build instructions was unreliable, espacially with containers.
+This will likely get reversed eventually.
 
-See also:
-
-
-    This page describes how to compile UWP export template binaries from source.
-    If you're looking to export your project to UWP instead, read `doc_exporting_for_uwp`.
+This page describes how to compile UWP export template binaries from source. If you're looking to export 
+your project to UWP instead, read `doc_exporting_for_uwp`.
 
 Requirements
 ------------

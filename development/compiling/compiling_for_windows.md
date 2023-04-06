@@ -1,6 +1,5 @@
 
 # Compiling for Windows
-=====================
 
 This page describes how to compile Windows editor and export template binaries from source. If you're looking to 
 export your project to Windows instead, read `doc_exporting_for_windows`.
@@ -21,24 +20,23 @@ For compiling under Windows, the following is required:
   recommended, especially for proper support of recent Visual Studio releases.
 
 ### Note:
- If you have `Scoop ( https://scoop.sh/ )` installed, you can easily
-          install MinGW and other dependencies using the following command:
+
+If you have `Scoop ( https://scoop.sh/ )` installed, you can easily install MinGW and other dependencies using the following command:
 
 ```
-              scoop install gcc python scons make
+    scoop install gcc python scons make
 ```
 
 ### Note:
- If you have `MSYS2 ( https://www.msys2.org/ )` installed, you can easily
-          install MinGW and other dependencies using the following command:
+
+If you have `MSYS2 ( https://www.msys2.org/ )` installed, you can easily install MinGW and other dependencies using the following command:
 
 ```
-              pacman -S mingw-w64-x86_64-python3-pip mingw-w64-x86_64-gcc \
-                  mingw-w64-i686-python3-pip mingw-w64-i686-gcc make
+    pacman -S mingw-w64-x86_64-python3-pip mingw-w64-x86_64-gcc \
+        mingw-w64-i686-python3-pip mingw-w64-i686-gcc make
 ```
 
-          For each MSYS2 MinGW subsystem, you should then run
-          `pip3 install scons` in its shell.
+For each MSYS2 MinGW subsystem, you should then run `pip3 install scons` in its shell.
 
 ### See also:
 

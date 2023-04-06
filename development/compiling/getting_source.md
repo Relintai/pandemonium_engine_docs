@@ -1,11 +1,7 @@
 
+# Getting the source
 
-Getting the source
-==================
-
-
-Downloading the Godot source code
----------------------------------
+## Downloading the Godot source code
 
 Before `getting into the SCons build system ( doc_introduction_to_the_buildsystem )`
 and compiling Godot, you need to actually download the Godot source code.

@@ -1,11 +1,8 @@
 
-
-Optimizing a build for size
-===========================
+# Optimizing a build for size
 
 
-Rationale
----------
+## Rationale
 
 Sometimes, it is desired to optimize a build for size rather than speed.
 This means not compiling unused functions from the engine, as well as using
@@ -19,8 +16,7 @@ on compiling Godot for each platform.
 The options below are listed from the most important (greatest size savings)
 to the least important (lowest size savings).
 
-Stripping binaries
-------------------
+## Stripping binaries
 
 - **Space savings:** Very high
 - **Difficulty:** Easy
@@ -49,8 +45,7 @@ Note:
     and platforms such as Android and HTML5. Instead, pass `debug_symbols=no`
     on the SCons command line when compiling.
 
-Optimizing for size instead of speed
-------------------------------------
+## Optimizing for size instead of speed
 
 - **Space savings:** High
 - **Difficulty:** Easy
@@ -65,8 +60,7 @@ To enable this, set the `optimize` flag to `size`:
 
 Some platforms such as WebAssembly already use this mode by default.
 
-Compiling with link-time optimization
--------------------------------------
+## Compiling with link-time optimization
 
 - **Space savings:** High
 - **Difficulty:** Easy
@@ -89,8 +83,7 @@ so it should be used only for release builds:
 - When compiling the `3.x` branch, you need to have at least 6 GB of RAM
   available for successful linking with LTO enabled.
 
-Disabling 3D
-------------
+## Disabling 3D
 
 - **Space savings:** Moderate
 - **Difficulty:** Easy
@@ -106,8 +99,7 @@ Tools must be disabled in order to use this flag, as the editor is not designed
 to operate without 3D support. Without it, the binary size can be reduced
 by about 15%.
 
-Disabling advanced GUI objects
-------------------------------
+## Disabling advanced GUI objects
 
 - **Space savings:** Moderate
 - **Difficulty:** Easy
@@ -145,8 +137,7 @@ This is everything that will be disabled:
 - GraphNode
 - GraphEdit
 
-Disabling unwanted modules
---------------------------
+## Disabling unwanted modules
 
 - **Space savings:** Very low to moderate depending on modules
 - **Difficulty:** Medium to hard depending on modules
@@ -213,7 +204,4 @@ following:
     module_xatlas_unwrap_enabled = "no"
 ```
 
-See also:
-
-
-    `doc_overriding_build_options`.
+See also: `doc_overriding_build_options`.

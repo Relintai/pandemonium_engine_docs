@@ -1,7 +1,6 @@
 
 
-Compiling with script encryption key
-====================================
+# Compiling with script encryption key
 
 
 The export dialog gives you the option to encrypt your scripts with a 256-bit
@@ -16,13 +15,11 @@ with that same key.
 
 Warning:
 
+This will **not** work if you use official, precompiled export templates.
+It is absolutely **required** to compile your own export templates to use
+PCK encryption.
 
-    This will **not** work if you use official, precompiled export templates.
-    It is absolutely **required** to compile your own export templates to use
-    PCK encryption.
-
-Step by step
-------------
+## Step by step
 
 1. Generate a 256-bit AES key in hexadecimal format. You can use the aes-256-cbc variant from
    `this service ( https://asecuritysite.com/encryption/keygen )`.
@@ -69,8 +66,7 @@ bat Windows (PowerShell)
 
 5. Export the project. The game should run with encrypted scripts now.
 
-Troubleshooting
----------------
+## Troubleshooting
 
 If you get an error like below, it means the key wasn't properly included in
 your Godot build. Godot is encrypting the scripts during export, but can't read

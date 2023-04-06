@@ -1,17 +1,11 @@
 
-
-Compiling for Windows
+# Compiling for Windows
 =====================
 
+This page describes how to compile Windows editor and export template binaries from source. If you're looking to 
+export your project to Windows instead, read `doc_exporting_for_windows`.
 
-See also:
-
-
-    This page describes how to compile Windows editor and export template binaries from source.
-    If you're looking to export your project to Windows instead, read `doc_exporting_for_windows`.
-
-Requirements
-------------
+## Requirements
 
 For compiling under Windows, the following is required:
 
@@ -26,7 +20,7 @@ For compiling under Windows, the following is required:
 - `SCons ( https://www.scons.org/ )` build system. Using the latest release is
   recommended, especially for proper support of recent Visual Studio releases.
 
-Note:
+### Note:
  If you have `Scoop ( https://scoop.sh/ )` installed, you can easily
           install MinGW and other dependencies using the following command:
 
@@ -34,7 +28,7 @@ Note:
               scoop install gcc python scons make
 ```
 
-Note:
+### Note:
  If you have `MSYS2 ( https://www.msys2.org/ )` installed, you can easily
           install MinGW and other dependencies using the following command:
 
@@ -46,15 +40,13 @@ Note:
           For each MSYS2 MinGW subsystem, you should then run
           `pip3 install scons` in its shell.
 
-See also:
- To get the Godot source code for compiling, see
-             `doc_getting_source`.
+### See also:
 
-             For a general overview of SCons usage for Godot, see
-             `doc_introduction_to_the_buildsystem`.
+To get the Godot source code for compiling, see `doc_getting_source`.
 
-Setting up SCons
-----------------
+For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
+
+## Setting up SCons
 
 To install SCons, open the command prompt and run the following command:
 
@@ -82,9 +74,7 @@ SCons version is too old. Update it to the latest version with
 `python -m pip install --upgrade scons`.
 
 
-
-Installing Visual Studio caveats
---------------------------------
+## Installing Visual Studio caveats
 
 If installing Visual Studio 2017 or 2019, make sure to enable **C++** in
 the list of workflows to install.
@@ -97,32 +87,25 @@ C++ support, run the installer again; it should present you a **Modify** button.
 Running the installer from *Add/Remove Programs* will only give you
 a **Repair** option, which won't let you install C++ tools.
 
-Downloading Godot's source
---------------------------
+## Downloading Godot's source
 
 Refer to `doc_getting_source` for detailed instructions.
 
-The tutorial will assume from now on that you placed the source code in
-`C:\godot`.
+The tutorial will assume from now on that you placed the source code in `C:\godot`.
 
-Warning:
+### Warning:
 
+To prevent slowdowns caused by continuous virus scanning during compilation, add the Godot source 
+folder to the list of exceptions in your antivirus software.
 
-    To prevent slowdowns caused by continuous virus scanning during compilation,
-    add the Godot source folder to the list of exceptions in your antivirus
-    software.
+For Windows Defender, hit the :kbd:`Windows` key, type "Windows Defender Settings" then hit :kbd:`Enter`.
 
-    For Windows Defender, hit the :kbd:`Windows` key, type
-    "Windows Defender Settings" then hit :kbd:`Enter`.
-    Under **Virus & threat protection**, go to **Virus & threat protection setting**
-    and scroll down to **Exclusions**. Click **Add or remove exclusions** then
-    add the Godot source folder.
+Under **Virus & threat protection**, go to **Virus & threat protection setting** and scroll 
+down to **Exclusions**. Click **Add or remove exclusions** then add the Godot source folder.
 
-Compiling
----------
+## Compiling
 
-Selecting a compiler
-~~~~~~~~~~~~~~~~~~~~
+### Selecting a compiler
 
 SCons will automatically find and use an existing Visual Studio installation.
 If you do not have Visual Studio installed, it will attempt to use
@@ -136,8 +119,7 @@ as it links the Godot binary much faster than MinGW. However, MinGW can
 produce more optimized binaries using link-time optimization (see below),
 making it a better choice for production use.
 
-Running SCons
-~~~~~~~~~~~~~
+### Running SCons
 
 After opening a command prompt, change to the root directory of
 the engine source code (using `cd`) and type:
@@ -156,9 +138,7 @@ In general, it is OK to have at least as many threads compiling Godot as you
 have cores in your CPU, if not one or two more. Feel free to add the `-j`
 option to any SCons command you see below.
 
-Note:
- When compiling with multiple CPU threads, SCons may warn about
-          pywin32 being missing. You can safely ignore this warning.
+Note: When compiling with multiple CPU threads, SCons may warn about pywin32 being missing. You can safely ignore this warning.
 
 If all goes well, the resulting binary executable will be placed in
 `C:\godot\bin\` with the name `godot.windows.tools.32.exe` or
@@ -170,23 +150,20 @@ This executable file contains the whole engine and runs without any
 dependencies. Running it will bring up the Project Manager.
 
 Note:
- If you are compiling Godot for production use, then you can
-          make the final executable smaller and faster by adding the
-          SCons option `target=release_debug`.
 
-          If you are compiling Godot with MinGW, you can make the binary
-          even smaller and faster by adding the SCons option `use_lto=yes`.
-          As link-time optimization is a memory-intensive process,
-          this will require about 7 GB of available RAM while compiling.
+If you are compiling Godot for production use, then you can make the final executable smaller and faster by adding the 
+SCons option `target=release_debug`.
+
+If you are compiling Godot with MinGW, you can make the binary even smaller and faster by adding the SCons 
+option `use_lto=yes`. As link-time optimization is a memory-intensive process, this will require about 
+7 GB of available RAM while compiling.
 
 Note:
- If you want to use separate editor settings for your own Godot builds
-          and official releases, you can enable
-          `doc_data_paths_self_contained_mode` by creating a file called
-          `._sc_` or `sc_` in the `bin/` folder.
 
-Development in Visual Studio
-----------------------------
+If you want to use separate editor settings for your own Godot builds and official releases, you can enable 
+`doc_data_paths_self_contained_mode` by creating a file called `._sc_` or `sc_` in the `bin/` folder.
+
+## Development in Visual Studio
 
 Using an IDE is not required to compile Godot, as SCons takes care of everything.
 But if you intend to do engine development or debugging of the engine's C++ code,
@@ -208,37 +185,40 @@ and able to build Godot using Visual Studio's **Build** button.
 See also:
  See `doc_configuring_an_ide_vs` for further details.
 
-Cross-compiling for Windows from other operating systems
---------------------------------------------------------
+## Cross-compiling for Windows from other operating systems
 
 If you are a Linux or macOS user, you need to install
 `MinGW-w64 ( https://mingw-w64.org/doku.php )`, which typically comes in 32-bit
 and 64-bit variants. The package names may differ based on your distribution,
 here are some known ones:
 
-+----------------+--------------------------------------------------------------+
-| **Arch Linux** | Install `mingw-w64-gcc from the AUR`.                       |
-+----------------+--------------------------------------------------------------+
-| **Debian** /   |                                                            |
-| **Ubuntu**     |                                                              |
-|                |     apt install mingw-w64                                    |
-+----------------+--------------------------------------------------------------+
-| **Fedora**     |                                                            |
-|                |                                                              |
-|                |     dnf install mingw64-gcc-c++ mingw64-winpthreads-static \ |
-|                |                 mingw32-gcc-c++ mingw32-winpthreads-static   |
-+----------------+--------------------------------------------------------------+
-| **macOS**      |                                                            |
-|                |                                                              |
-|                |     brew install mingw-w64                                   |
-+----------------+--------------------------------------------------------------+
-| **Mageia**     |                                                            |
-|                |                                                              |
-|                |     urpmi mingw64-gcc-c++ mingw64-winpthreads-static \       |
-|                |           mingw32-gcc-c++ mingw32-winpthreads-static         |
-+----------------+--------------------------------------------------------------+
+**Arch Linux**
 
-.. _mingw-w64-gcc from the AUR: https://aur.archlinux.org/packages/mingw-w64-gcc/
+Install `mingw-w64-gcc` from the AUR: https://aur.archlinux.org/packages/mingw-w64-gcc/
+
+**Debian** / **Ubuntu**   
+
+```
+apt install mingw-w64
+```
+
+**Fedora** 
+
+```
+dnf install mingw64-gcc-c++ mingw64-winpthreads-static mingw32-gcc-c++ mingw32-winpthreads-static 
+```
+
+**macOS** 
+
+```
+brew install mingw-w64
+```
+
+**Mageia**
+
+```
+urpmi mingw64-gcc-c++ mingw64-winpthreads-static mingw32-gcc-c++ mingw32-winpthreads-static
+```
 
 Before attempting the compilation, SCons will check for
 the following binaries in your `PATH` environment variable:
@@ -266,8 +246,7 @@ differ based on your system):
     # i686-w64-mingw32-gcc (GCC) 6.1.0 20160427 (Mageia MinGW 6.1.0-1.mga6)
 ```
 
-Troubleshooting
-~~~~~~~~~~~~~~~
+### Troubleshooting
 
 Cross-compiling from some Ubuntu versions may lead to
 `this bug ( https://github.com/godotengine/godot/issues/9258 )`,
@@ -292,8 +271,7 @@ And for 32-bit:
     <choose i686-w64-mingw32-g++-posix from the list>
 ```
 
-Creating Windows export templates
----------------------------------
+### Creating Windows export templates
 
 Windows export templates are created by compiling Godot without the editor,
 with the following flags:

@@ -1,32 +1,20 @@
 
+# Compiling for iOS
 
-Compiling for iOS
-=================
+This page describes how to compile iOS export template binaries from source. If you're looking to export your 
+project to iOS instead, read `doc_exporting_for_ios`.
 
-
-See also:
-
-
-    This page describes how to compile iOS export template binaries from source.
-    If you're looking to export your project to iOS instead, read `doc_exporting_for_ios`.
-
-Requirements
-------------
+## Requirements
 
 -  SCons 3.0+ (you can install it via `Homebrew ( https://brew.sh/ )` or
    `MacPorts ( https://www.macports.org/ )`, you should be able
    to run `scons` in a terminal when installed).
 -  Xcode 10.0 (or later) with the iOS (10.0) SDK and the command line tools.
 
-See also:
- To get the Godot source code for compiling, see
-             `doc_getting_source`.
+To get the Godot source code for compiling, see `doc_getting_source`.
+For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
 
-             For a general overview of SCons usage for Godot, see
-             `doc_introduction_to_the_buildsystem`.
-
-Compiling
----------
+## Compiling
 
 Open a Terminal, go to the root dir of the engine source code and type:
 
@@ -76,11 +64,9 @@ If you also want to provide a simulator build (reduces the chance of any linker 
     $ lipo -create bin/libgodot_arkit_module.iphone.opt.arm.a bin/libgodot_arkit_module.iphone.opt.arm64.a bin/libgodot_arkit_module.iphone.opt.x86_64.a -output bin/libgodot_arkit_module.iphone.release.fat.a
 ```
 
-Run
----
+## Run
 
-To run on a device or simulator, follow these instructions:
-`doc_exporting_for_ios`.
+To run on a device or simulator, follow these instructions: `doc_exporting_for_ios`.
 
 Replace or add your executable to the Xcode project, and change the
 "executable name" property on Info.plist accordingly if you use an

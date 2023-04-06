@@ -1,17 +1,11 @@
 
+# Compiling for the Web
 
-Compiling for the Web
-=====================
-
-See also:
-
-
-    This page describes how to compile HTML5 editor and export template binaries from source.
-    If you're looking to export your project to HTML5 instead, read `doc_exporting_for_web`.
+This page describes how to compile HTML5 editor and export template binaries from source. If you're looking 
+to export your project to HTML5 instead, read `doc_exporting_for_web`.
 
 
-Requirements
-------------
+## Requirements
 
 To compile export templates for the Web, the following is required:
 
@@ -19,15 +13,11 @@ To compile export templates for the Web, the following is required:
 -  `Python 3.5+ ( https://www.python.org/ )`.
 -  `SCons 3.0+ ( https://www.scons.org )` build system.
 
-See also:
- To get the Godot source code for compiling, see
-             `doc_getting_source`.
 
-             For a general overview of SCons usage for Godot, see
-             `doc_introduction_to_the_buildsystem`.
+To get the Godot source code for compiling, see `doc_getting_source`.
+For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
 
-Building export templates
--------------------------
+## Building export templates
 
 Before starting, confirm that `emcc` is available in your PATH. This is
 usually configured by the Emscripten SDK, e.g. when invoking `emsdk activate`
@@ -70,45 +60,36 @@ And `webassembly_debug.zip` for the debug template:
     mv bin/godot.javascript.opt.debug.zip bin/webassembly_debug.zip
 ```
 
-Threads and GDNative
---------------------
+## Threads
 
-The default export templates do not include threads and GDNative support for
+The default export templates do not include threads support for
 performance and compatibility reasons. See the
 `export page ( doc_javascript_export_options )` for more info.
 
-You can build the export templates using the option `threads_enabled=yes` or
-`gdnative_enabled=yes` to enable threads or GDNative support:
+You can build the export templates using the option `threads_enabled=yes` to enable threads support:
 
 ```
     scons platform=javascript tools=no threads_enabled=yes target=release
     scons platform=javascript tools=no threads_enabled=yes target=release_debug
-
-    scons platform=javascript tools=no gdnative_enabled=yes target=release
-    scons platform=javascript tools=no gdnative_enabled=yes target=release_debug
 ```
 
 Once finished, the resulting file will be placed in the `bin` subdirectory.
-Its name will have either the `.threads` or `.gdnative` suffix.
+Its name will have the `.threads` suffix.
 
-Finally, rename the zip archives to `webassembly_release_threads.zip` and
-`webassembly_release_gdnative.zip` for the release template:
+Finally, rename the zip archives to `webassembly_release_threads.zip` for the release template:
 
 ```
     mv bin/godot.javascript.opt.threads.zip bin/webassembly_threads_release.zip
-    mv bin/godot.javascript.opt.gdnative.zip bin/webassembly_gdnative_release.zip
 ```
 
-And `webassembly_debug_threads.zip` and `webassembly_debug_gdnative.zip` for
-the debug template:
+And `webassembly_debug_threads.zip` for the debug template:
 
 ```
     mv bin/godot.javascript.opt.debug.threads.zip bin/webassembly_threads_debug.zip
-    mv bin/godot.javascript.opt.debug.gdnative.zip bin/webassembly_gdnative_debug.zip
 ```
 
-Building the Editor
--------------------
+## Building the Editor
+
 
 It is also possible to build a version of the Godot editor that can run in the
 browser. The editor version requires threads support and is not recommended

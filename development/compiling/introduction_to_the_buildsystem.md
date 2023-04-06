@@ -1,11 +1,7 @@
 
+# Introduction to the buildsystem
 
-Introduction to the buildsystem
-===============================
-
-
-SCons
------
+## SCons
 
 Godot uses `SCons ( https://www.scons.org/ )` to build. We love it, we are
 not changing it for anything else. We are not even sure other build
@@ -35,8 +31,7 @@ other alternatives, for example:
 So, please try to keep an open mind and get at least a little familiar with it
 if you are planning to build Godot yourself.
 
-Setup
------
+## Setup
 
 Please refer to the documentation for `doc_compiling_for_android`,
 `doc_compiling_for_ios`, `doc_compiling_for_osx`,
@@ -47,8 +42,7 @@ Note that for **Windows/Visual Studio**, you need to use `x86_x64 Cross Tools
 Command Prompt for VS 2017` or similar, depending on your install, instead of
 the standard Windows command prompt to enter the commands below.
 
-Platform selection
-------------------
+## Platform selection
 
 Godot's build system will begin by detecting the platforms it can build
 for. If not detected, the platform will simply not appear on the list of
@@ -93,8 +87,8 @@ Example for using 4 cores:
     scons platform=x11 -j 4
 ```
 
-Resulting binary
-----------------
+## Resulting binary
+
 
 The resulting binaries will be placed in the `bin/` subdirectory,
 generally with this naming convention:
@@ -130,9 +124,7 @@ Aside from that, there are a few standard options that can be set in all
 build targets, and which will be explained below.
 
 
-
-Tools
------
+## Tools
 
 Tools are enabled by default in all PC targets (Linux, Windows, macOS),
 disabled for everything else. Disabling tools produces a binary that can
@@ -143,9 +135,7 @@ manager.
     scons platform=<platform> tools=yes/no
 ```
 
-
-Target
-------
+## Target
 
 Target controls optimization and debug flags. Each mode means:
 
@@ -167,8 +157,7 @@ This flag appends the `.debug` suffix (for debug), or `.tools` (for debug
 with tools enabled). When optimization is enabled (release), it appends
 the `.opt` suffix.
 
-Bits
-----
+## Bits
 
 Bits is meant to control the CPU or OS version intended to run the
 binaries. It is focused mostly on desktop platforms and ignored everywhere
@@ -186,10 +175,7 @@ This flag appends `.32` or `.64` suffixes to resulting binaries when
 relevant. If `bits=default` is used, the suffix will match the detected
 architecture.
 
-
-
-Custom modules
---------------
+## Custom modules
 
 It's possible to compile modules residing outside of Godot's directory
 tree, along with the built-in modules.
@@ -218,8 +204,7 @@ See also:
 
     `doc_custom_modules_in_c++`
 
-Cleaning generated files
-------------------------
+## Cleaning generated files
 
 Sometimes, you may encounter an error due to generated files being present. You
 can remove them by using `scons --clean <options )`, where `<options )` is the
@@ -230,8 +215,7 @@ for all platforms and configurations. Beware, as this will remove all untracked
 and ignored files in the repository. Don't run this command if you have
 uncommitted work!
 
-Other build options
--------------------
+## Other build options
 
 There are several other build options that you can use to configure the
 way Godot should be built (compiler, debug options, etc.) as well as the
@@ -240,13 +224,9 @@ features to include/disable.
 Check the output of `scons --help` for details about each option for
 the version you are willing to compile.
 
+### Overriding the build options
 
-
-Overriding the build options
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Using a file
-^^^^^^^^^^^^
+#### Using a file
 
 The default `custom.py` file can be created at the root of the Godot Engine
 source to initialize any SCons build options passed via the command line:
@@ -265,11 +245,9 @@ time it takes to build the engine. See `doc_optimizing_for_size` page for more d
 
 See also:
 
-
-    You can use the online
-    `Godot build options generator ( https://godot-build-options-generator.github.io/ )`
-    to generate a `custom.py` file containing SCons options.
-    You can then save this file and place it at the root of your Godot source directory.
+You can use the online `Godot build options generator ( https://godot-build-options-generator.github.io/ )` 
+to generate a `custom.py` file containing SCons options. You can then save this file and place it at the root 
+of your Godot source directory.
 
 Another custom file can be specified explicitly with the `profile` command
 line option, both overriding the default build configuration:
@@ -278,9 +256,7 @@ line option, both overriding the default build configuration:
     scons profile=path/to/custom.py
 ```
 
-Note:
- Build options set from the file can be overridden by the command line
-          options.
+Note: Build options set from the file can be overridden by the command line options.
 
 It's also possible to override the options conditionally:
 
@@ -296,8 +272,7 @@ It's also possible to override the options conditionally:
         pass
 ```
 
-Using the SCONSFLAGS
-^^^^^^^^^^^^^^^^^^^^
+#### Using the SCONSFLAGS
 
 `SCONSFLAGS` is an environment variable which is used by the SCons to set the
 options automatically without having to supply them via the command line.
@@ -317,8 +292,7 @@ powershell Windows (powershell)
 
 ``` $env:SCONSFLAGS="-j4" ```
 
-Export templates
-----------------
+## Export templates
 
 Official export templates are downloaded from the Godot Engine site:
 `godotengine.org ( https://godotengine.org/ )`. However, you might want

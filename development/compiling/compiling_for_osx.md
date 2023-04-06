@@ -1,17 +1,10 @@
 
+# Compiling for macOS
 
-Compiling for macOS
-===================
+This page describes how to compile macOS editor and export template binaries from source. If you're looking to 
+export your project to macOS instead, read `doc_exporting_for_macos`.
 
-
-Note:
-
-
-    This page describes how to compile macOS editor and export template binaries from source.
-    If you're looking to export your project to macOS instead, read `doc_exporting_for_macos`.
-
-Requirements
-------------
+## Requirements
 
 For compiling under macOS, the following is required:
 
@@ -21,34 +14,28 @@ For compiling under macOS, the following is required:
   (or the more lightweight Command Line Tools for Xcode).
 - *Optional* - `yasm ( https://yasm.tortall.net/ )` (for WebM SIMD optimizations).
 
-Note:
- If you have `Homebrew ( https://brew.sh/ )` installed, you can easily
-          install SCons and yasm using the following command:
+### Note:
+
+If you have `Homebrew ( https://brew.sh/ )` installed, you can easily install SCons and yasm using the following command:
 
 ```
               brew install scons yasm
 ```
 
-          Installing Homebrew will also fetch the Command Line Tools
-          for Xcode automatically if you don't have them already.
+Installing Homebrew will also fetch the Command Line Tools for Xcode automatically if you don't have them already.
 
-          Similarly, if you have `MacPorts ( https://www.macports.org/ )`
-          installed, you can easily install SCons and yasm using the
-          following command:
+Similarly, if you have `MacPorts ( https://www.macports.org/ )` installed, you can easily install 
+SCons and yasm using the following command:
 
 ```
               sudo port install scons yasm
 ```
 
-See also:
- To get the Godot source code for compiling, see
-             `doc_getting_source`.
+To get the Godot source code for compiling, see `doc_getting_source`.
 
-             For a general overview of SCons usage for Godot, see
-             `doc_introduction_to_the_buildsystem`.
+For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
 
-Compiling
----------
+## Compiling
 
 Start a terminal, go to the root directory of the engine source code.
 
@@ -70,16 +57,11 @@ To support both architectures in a single "Universal 2" binary, run the above tw
     lipo -create bin/godot.osx.tools.x86_64 bin/godot.osx.tools.arm64 -output bin/godot.osx.tools.universal
 ```
 
-If all goes well, the resulting binary executable will be placed in the
-`bin/` subdirectory. This executable file contains the whole engine and
-runs without any dependencies. Executing it will bring up the project
-manager.
+If all goes well, the resulting binary executable will be placed in the `bin/` subdirectory. This executable 
+file contains the whole engine and runs without any dependencies. Executing it will bring up the project manager.
 
-Note:
- If you want to use separate editor settings for your own Godot builds
-          and official releases, you can enable
-          `doc_data_paths_self_contained_mode` by creating a file called
-          `._sc_` or `sc_` in the `bin/` folder.
+If you want to use separate editor settings for your own Godot builds and official releases, you can enable 
+`doc_data_paths_self_contained_mode` by creating a file called `._sc_` or `sc_` in the `bin/` folder.
 
 To create an `.app` bundle like in the official builds, you need to use the
 template located in `misc/dist/osx_tools.app`. Typically, for an optimized
@@ -92,8 +74,7 @@ editor binary built with `target=release_debug`:
     chmod +x Godot.app/Contents/MacOS/Godot
 ```
 
-Compiling a headless/server build
----------------------------------
+## Compiling a headless/server build
 
 To compile a *headless* build which provides editor functionality to export
 projects in an automated manner, use:
@@ -116,8 +97,7 @@ use:
     scons platform=server tools=no target=release --jobs=$(sysctl -n hw.logicalcpu)
 ```
 
-Building export templates
--------------------------
+## Building export templates
 
 To build macOS export templates, you have to compile with `tools=no` (no
 editor) and respectively for `target=release` (release template) and
@@ -171,8 +151,7 @@ template from the official Godot distribution:
     zip -q -9 -r osx.zip osx_template.app
 ```
 
-Cross-compiling for macOS from Linux
-------------------------------------
+## Cross-compiling for macOS from Linux
 
 It is possible to compile for macOS in a Linux environment (and maybe also in
 Windows using the Windows Subsystem for Linux). For that, you'll need to install

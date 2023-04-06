@@ -1,15 +1,12 @@
 
-
-Cross-compiling for iOS on Linux
-================================
+# Cross-compiling for iOS on Linux
 
 
 The procedure for this is somewhat complex and requires a lot of steps,
 but once you have the environment properly configured it will be easy to
 compile Godot for iOS anytime you want.
 
-Disclaimer
-----------
+## Disclaimer
 
 While it is possible to compile for iOS on a Linux environment, Apple is
 very restrictive about the tools to be used (especially hardware-wise),
@@ -22,8 +19,7 @@ to allow any tool to be used, as long as the resulting binary does not
 download any code, which means it should be OK to use the procedure
 described here and cross-compiling the binary.
 
-Requirements
-------------
+## Requirements
 
 -  `XCode with the iOS SDK ( https://developer.apple.com/xcode/download )`
    (a dmg image)
@@ -45,11 +41,9 @@ Requirements
 
    -  This also has some extra dependencies: automake, autogen, libtool.
 
-Configuring the environment
----------------------------
+## Configuring the environment
 
-darling-dmg
-~~~~~~~~~~~
+### darling-dmg
 
 Clone the repository on your machine:
 
@@ -68,8 +62,7 @@ Build it:
     $ cd ../..
 ```
 
-Preparing the SDK
-~~~~~~~~~~~~~~~~~
+### Preparing the SDK
 
 Mount the XCode image:
 
@@ -96,8 +89,7 @@ Pack the SDK:
     $ tar -cf - * | xz -9 -c - > iPhoneOS9.1.sdk.tar.xz
 ```
 
-Toolchain
-~~~~~~~~~
+### Toolchain
 
 Build cctools:
 
@@ -120,8 +112,7 @@ to the following commands:
 Now you should have the iOS toolchain binaries in
 `/home/user/iostoolchain/usr/bin`.
 
-Compiling Godot for iPhone
---------------------------
+## Compiling Godot for iPhone
 
 Once you've done the above steps, you should keep two things in your
 environment: the built toolchain and the iPhoneOS SDK directory. Those
@@ -143,8 +134,7 @@ way, with some additional arguments to provide the correct paths:
     $ scons -j 4 platform=iphone arch=arm64 target=release_debug IPHONESDK="/path/to/iPhoneSDK" IPHONEPATH="/path/to/iostoolchain" ios_triple="arm-apple-darwin11-"
 ```
 
-Producing fat binaries
-~~~~~~~~~~~~~~~~~~~~~~
+### Producing fat binaries
 
 Apple requires a fat binary with both architectures (`armv7` and
 `arm64`) in a single file. To do this, use the

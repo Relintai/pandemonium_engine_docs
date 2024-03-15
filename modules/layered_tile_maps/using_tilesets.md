@@ -1,13 +1,13 @@
 .. _doc_using_tilesets:
 
-Using TileSets
+Using LayeredTileSets
 ==============
 
 Introduction
 ------------
 
 A tilemap is a grid of tiles used to create a game's layout. There are several
-benefits to using :ref:`TileMap <class_TileMap>` nodes to design your levels.
+benefits to using :ref:`LayeredTileMap <class_LayeredTileMap>` nodes to design your levels.
 First, they let you draw a layout by "painting" tiles onto a grid,
 which is much faster than placing individual :ref:`Sprite2D
 <class_Sprite2D>` nodes one by one. Second, they allow for larger levels
@@ -15,9 +15,9 @@ because they are optimized for drawing large numbers of tiles.
 Finally, they allow you to add greater functionality to your tiles with
 collision, occlusion, and navigation shapes.
 
-To use tilemaps, you will need to create a TileSet first. A TileSet is a
-collection of tiles that can be placed in a TileMap node. After creating a
-TileSet, you will be able to place them :ref:`using the TileMap editor
+To use tilemaps, you will need to create a LayeredTileSet first. A LayeredTileSet is a
+collection of tiles that can be placed in a LayeredTileMap node. After creating a
+LayeredTileSet, you will be able to place them :ref:`using the LayeredTileMap editor
 <doc_using_tilemaps>`.
 
 To follow this guide, you will need an image containing your tiles where every
@@ -25,7 +25,7 @@ tile has the same size (large objects can be split into several tiles). This
 image is called a *tilesheet*. Tiles do not have to be square: they can be
 rectangular, hexagonal, or isometric (pseudo-3D perspective).
 
-Creating a new TileSet
+Creating a new LayeredTileSet
 ----------------------
 
 .. _doc_creating_tilesets_using_tilesheet:
@@ -43,15 +43,15 @@ We'll use this particular *tilesheet* from the set:
 
    Tilesheet with 64×64 tiles. Credit: `Kenney <https://kenney.nl/assets/abstract-platformer>`__
 
-Create a new **TileMap** node, then select it and create a new TileSet resource in the inspector:
+Create a new **LayeredTileMap** node, then select it and create a new LayeredTileSet resource in the inspector:
 
 .. figure:: img/using_tilesets_create_new_tileset.webp
    :align: center
-   :alt: Creating a new TileSet resource within the TileMap node
+   :alt: Creating a new LayeredTileSet resource within the LayeredTileMap node
 
-   Creating a new TileSet resource within the TileMap node
+   Creating a new LayeredTileSet resource within the LayeredTileMap node
 
-After creating the TileSet resource, click the value to unfold it in the
+After creating the LayeredTileSet resource, click the value to unfold it in the
 inspector. The default tile shape is Square, but you can also choose Isometric,
 Half-Offset Square or Hexagon (depending on the shape of your tile images). If
 using a tile shape other than Square, you may also need to adjust the **Tile
@@ -70,17 +70,17 @@ Set the tile size to 64×64 in the inspector to match the example tilesheet:
 
 If relying on automatic tiles creation (like we're about to do here), you must
 set the tile size **before** creating the *atlas*. The atlas will
-determine which tiles from the tilesheet can be added to a TileMap node
+determine which tiles from the tilesheet can be added to a LayeredTileMap node
 (as not every part of the image may be a valid tile).
 
-Open the **TileSet** panel at the bottom of the editor, then click the "+" icon
+Open the **LayeredTileSet** panel at the bottom of the editor, then click the "+" icon
 in the bottom-left corner to add a new atlas:
 
 .. figure:: img/using_tilesets_create_new_atlas.webp
    :align: center
-   :alt: Creating a new atlas in a TileSet resource using the bottom panel
+   :alt: Creating a new atlas in a LayeredTileSet resource using the bottom panel
 
-   Creating a new atlas in a TileSet resource using the bottom panel
+   Creating a new atlas in a LayeredTileSet resource using the bottom panel
 
 After creating an atlas, you must assign a tilesheet texture to it.
 This can be done by choosing it on the left column of the bottom panel, then
@@ -89,9 +89,9 @@ Specify the path to the image file using the file dialog that appears.
 
 .. figure:: img/using_tilesets_load_tilesheet.webp
    :align: center
-   :alt: Loading a tilesheet image in the newly created TileSet atlas
+   :alt: Loading a tilesheet image in the newly created LayeredTileSet atlas
 
-   Loading a tilesheet image in the newly created TileSet atlas
+   Loading a tilesheet image in the newly created LayeredTileSet atlas
 
 After specifying a valid image, you will be asked whether to create tiles
 automatically. Answer **Yes**:
@@ -103,7 +103,7 @@ automatically. Answer **Yes**:
    Automatically creating tiles based on tilesheet image content
 
 This will automatically create tiles according to the tile size you specified
-earlier in the TileSet resource. This greatly speeds up initial tile setup.
+earlier in the LayeredTileSet resource. This greatly speeds up initial tile setup.
 
 .. note::
 
@@ -116,20 +116,20 @@ you wish to remove:
 
 .. figure:: img/using_tilesets_eraser_tool.webp
    :align: center
-   :alt: Using the Eraser tool to remove unwanted tiles from the TileSet atlas
+   :alt: Using the Eraser tool to remove unwanted tiles from the LayeredTileSet atlas
 
-   Using the Eraser tool to remove unwanted tiles from the TileSet atlas
+   Using the Eraser tool to remove unwanted tiles from the LayeredTileSet atlas
 
 You can also right-click a tile and choose **Delete**, as an alternative to the
 Eraser tool.
 
 .. tip::
 
-    Like in the 2D and TileMap editors, you can pan across the TileSet panel using
+    Like in the 2D and LayeredTileMap editors, you can pan across the LayeredTileSet panel using
     the middle or right mouse buttons, and zoom using the mouse wheel or buttons in
     the top-left corner.
 
-If you wish to source tiles from several tilesheet images for a single TileSet,
+If you wish to source tiles from several tilesheet images for a single LayeredTileSet,
 create additional atlases and assign textures to each of them before continuing.
 It is also possible to use one image per tile this way (although using
 tilesheets is recommended for better usability).
@@ -138,13 +138,13 @@ You can adjust properties for the atlas in the middle column:
 
 .. figure:: img/using_tilesets_properties.webp
    :align: center
-   :alt: Adjusting TileSet atlas properties in the dedicated inspector (part of the TileSet panel)
+   :alt: Adjusting LayeredTileSet atlas properties in the dedicated inspector (part of the LayeredTileSet panel)
 
-   Adjusting TileSet atlas properties in the dedicated inspector (part of the TileSet panel)
+   Adjusting LayeredTileSet atlas properties in the dedicated inspector (part of the LayeredTileSet panel)
 
 The following properties can be adjusted on the atlas:
 
-- **ID:** The identifier (unique within this TileSet), used for sorting.
+- **ID:** The identifier (unique within this LayeredTileSet), used for sorting.
 - **Name:** The human-readable name for the atlas. Use a descriptive name
   here for organizational purposes (such as "terrain", "decoration", etc).
 - **Margins:** The margins on the image's edges that should not be selectable as
@@ -154,7 +154,7 @@ The following properties can be adjusted on the atlas:
   Increasing this can be useful if the tilesheet image you're using contains
   guides (such as outlines between every tile).
 - **Texture Region Size:** The size of each tile on the atlas in pixels. In most
-  cases, this should match the tile size defined in the TileMap property
+  cases, this should match the tile size defined in the LayeredTileMap property
   (although this is not strictly necessary).
 - **Use Texture Padding:** If checked, adds a 1-pixel transparent edge around
   each tile to prevent texture bleeding when filtering is enabled.
@@ -164,7 +164,7 @@ The following properties can be adjusted on the atlas:
 Note that changing texture margin, separation and region size may cause tiles to
 be lost (as some of them would be located outside the atlas image's
 coordinates). To regenerate tiles automatically from the tilesheet, use the
-three vertical dots menu button at the top of the TileSet editor and choose
+three vertical dots menu button at the top of the LayeredTileSet editor and choose
 **Create Tiles in Non-Transparent Texture Regions**:
 
 .. figure:: img/using_tilesets_recreate_tiles_automatically.webp
@@ -193,14 +193,14 @@ sounds), particle effects, and more.
 
 For this example, we'll create a scene containing a CPUParticles2D root node.
 Save this scene to a scene file (separate from the scene containing the
-TileMap), then switch to the scene containing the TileMap node. Open the TileSet
+LayeredTileMap), then switch to the scene containing the LayeredTileMap node. Open the LayeredTileSet
 editor, and create a new **Scenes Collection** in the left column:
 
 .. figure:: img/using_tilesets_creating_scene_collection.webp
    :align: center
-   :alt: Creating a scenes collection in the TileSet editor
+   :alt: Creating a scenes collection in the LayeredTileSet editor
 
-   Creating a scenes collection in the TileSet editor
+   Creating a scenes collection in the LayeredTileSet editor
 
 After creating a scenes collection, you can enter a descriptive name for the
 scenes collection in the middle column if you wish. Select this scenes
@@ -208,32 +208,32 @@ collection then create a new scene slot:
 
 .. figure:: img/using_tilesets_scene_collection_create_scene_tile.webp
    :align: center
-   :alt: Creating a scene tile after selecting the scenes collection in the TileSet editor
+   :alt: Creating a scene tile after selecting the scenes collection in the LayeredTileSet editor
 
-   Creating a scene tile after selecting the scenes collection in the TileSet editor
+   Creating a scene tile after selecting the scenes collection in the LayeredTileSet editor
 
 Select this scene slot in the right column, then use **Quick Load** (or
 **Load**) to load the scene file containing the particles:
 
 .. figure:: img/using_tilesets_adding_scene_tile.webp
    :align: center
-   :alt: Creating a scene slot, then loading a scene file into it in the TileSet editor
+   :alt: Creating a scene slot, then loading a scene file into it in the LayeredTileSet editor
 
-   Creating a scene slot, then loading a scene file into it in the TileSet editor
+   Creating a scene slot, then loading a scene file into it in the LayeredTileSet editor
 
-You now have a scene tile in your TileSet. Once you switch to the TileMap
+You now have a scene tile in your LayeredTileSet. Once you switch to the LayeredTileMap
 editor, you'll be able to select it from the scenes collection and paint it like
 any other tile.
 
 Merging several atlases into a single atlas
 -------------------------------------------
 
-Using multiple atlases within a single TileSet resource can sometimes be useful,
+Using multiple atlases within a single LayeredTileSet resource can sometimes be useful,
 but it can also be cumbersome in certain situations (especially if you're using
 one image per tile). Godot allows you to merge several atlases into a single
 atlas for easier organization.
 
-To do so, you must have more than one atlas created in the TileSet resource.
+To do so, you must have more than one atlas created in the LayeredTileSet resource.
 Use the "three vertical dots" menu button located at the bottom of the list of
 atlases, then choose **Open Atlas Merging Tool**:
 
@@ -253,15 +253,15 @@ This will open a dialog, in which you can select several atlases by holding
    Using the atlas merging tool dialog
 
 Choose **Merge** to merge the selected atlases into a single atlas image (which
-translates to a single atlas within the TileSet). The unmerged atlases will be
-removed within the TileSet, but *the original tilesheet images will be kept on
+translates to a single atlas within the LayeredTileSet). The unmerged atlases will be
+removed within the LayeredTileSet, but *the original tilesheet images will be kept on
 the filesystem*. If you don't want the unmerged atlases to be removed from the
-TileSet resource, choose **Merge (Keep Original Atlases)** instead.
+LayeredTileSet resource, choose **Merge (Keep Original Atlases)** instead.
 
 .. tip::
 
-    TileSet features a system of *tile proxies*. Tile proxies are a mapping
-    table that allows notifying the TileMap using a given TileSet that a given
+    LayeredTileSet features a system of *tile proxies*. Tile proxies are a mapping
+    table that allows notifying the LayeredTileMap using a given LayeredTileSet that a given
     set of tile identifiers should be replaced by another one.
 
     Tile proxies are automatically set up when merging different atlases, but
@@ -270,14 +270,14 @@ TileSet resource, choose **Merge (Keep Original Atlases)** instead.
 
     Manually creating tile proxies may be useful when you changed an atlas ID or
     want to replace all tiles from an atlas by the ones from another atlas. Note
-    that when editing a TileMap, you can replace all cells by their
+    that when editing a LayeredTileMap, you can replace all cells by their
     corresponding mapped value.
 
-Adding collision, navigation and occlusion to the TileSet
+Adding collision, navigation and occlusion to the LayeredTileSet
 ---------------------------------------------------------
 
-We've now successfully created a basic TileSet. We could start using in the
-TileMap node now, but it currently lacks any form of collision detection.
+We've now successfully created a basic LayeredTileSet. We could start using in the
+LayeredTileMap node now, but it currently lacks any form of collision detection.
 This means the player and other objects could walk straight through the floor or
 walls.
 
@@ -286,36 +286,36 @@ to define navigation polygons for tiles to generate a navigation mesh that
 agents can use for pathfinding.
 
 Lastly, if you use :ref:`doc_2d_lights_and_shadows` or GPUParticles2D, you may
-also want your TileSet to be able to cast shadows and collide with particles.
-This requires defining occluder polygons for "solid" tiles on the TileSet.
+also want your LayeredTileSet to be able to cast shadows and collide with particles.
+This requires defining occluder polygons for "solid" tiles on the LayeredTileSet.
 
 To be able to define collision, navigation and occlusion shapes for each tile,
-you will need to create a physics, navigation or occlusion layer for the TileSet
-resource first. To do so, select the TileMap node, click the TileSet property
+you will need to create a physics, navigation or occlusion layer for the LayeredTileSet
+resource first. To do so, select the LayeredTileMap node, click the LayeredTileSet property
 value in the inspector to edit it then unfold **Physics Layers** and choose
 **Add Element**:
 
 .. figure:: img/using_tilesets_create_physics_layer.webp
    :align: center
-   :alt: Creating a physics layer in the TileSet resource inspector (within the TileMap node)
+   :alt: Creating a physics layer in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
-   Creating a physics layer in the TileSet resource inspector (within the TileMap node)
+   Creating a physics layer in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
 If you also need navigation support, now is a good time to create a navigation layer:
 
 .. figure:: img/using_tilesets_create_navigation_layer.webp
    :align: center
-   :alt: Creating a navigation layer in the TileSet resource inspector (within the TileMap node)
+   :alt: Creating a navigation layer in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
-   Creating a navigation layer in the TileSet resource inspector (within the TileMap node)
+   Creating a navigation layer in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
 If you need support for light polygon occluders, now is a good time to create an occlusion layer:
 
 .. figure:: img/using_tilesets_create_occlusion_layer.webp
    :align: center
-   :alt: Creating an occlusion layer in the TileSet resource inspector (within the TileMap node)
+   :alt: Creating an occlusion layer in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
-   Creating an occlusion layer in the TileSet resource inspector (within the TileMap node)
+   Creating an occlusion layer in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
 .. note::
 
@@ -329,7 +329,7 @@ If you need support for light polygon occluders, now is a good time to create an
     section so you can edit the polygon.
 
 After creating a physics layer, you have access to the **Physics Layer** section
-in the TileSet atlas inspector:
+in the LayeredTileSet atlas inspector:
 
 .. figure:: img/using_tilesets_selecting_collision_editor.webp
    :align: center
@@ -338,7 +338,7 @@ in the TileSet atlas inspector:
    Opening the collision editor while in Select mode
 
 You can quickly create a rectangle collision shape by pressing :kbd:`F` while
-the TileSet editor is focused. If the keyboard shortcut doesn't work, try
+the LayeredTileSet editor is focused. If the keyboard shortcut doesn't work, try
 clicking in the empty area around the polygon editor to focus it:
 
 .. figure:: img/using_tilesets_using_default_rectangle_collision.webp
@@ -378,13 +378,13 @@ You can also use the rectangle as a base for more complex shapes by adding more 
 .. tip::
 
     If you have a large tileset, specifying the collision for each tile
-    individually could take a lot of time. This is especially true as TileMaps
+    individually could take a lot of time. This is especially true as LayeredTileMaps
     tend to have many tiles with common collision patterns (such as solid blocks
     or 45-degree slopes). To apply a similar collision shape to several tiles
     quickly, use functionality to
     :ref:`assign properties to multiple tiles at once <doc_using_tilemaps_assigning_properties_to_multiple_tiles>`.
 
-Assigning custom metadata to the TileSet's tiles
+Assigning custom metadata to the LayeredTileSet's tiles
 ------------------------------------------------
 
 You can assign custom data on a per-tile basis using *custom data layers*.
@@ -392,7 +392,7 @@ This can be useful to store information specific to your game, such as the damag
 that a tile should deal when the player touches it, or whether a tile can be
 destroyed using a weapon.
 
-The data is associated with the tile in the TileSet: all instances of the placed
+The data is associated with the tile in the LayeredTileSet: all instances of the placed
 tile will use the same custom data. If you need to create a variant of a tile
 that has different custom data, this can be done by :ref:`creating an
 alternative tile <doc_using_tilesets_creating_alternative_tiles>` and changing
@@ -400,9 +400,9 @@ the custom data for the alternative tile only.
 
 .. figure:: img/using_tilesets_create_custom_data_layer.webp
    :align: center
-   :alt: Creating a custom data layer in the TileSet resource inspector (within the TileMap node)
+   :alt: Creating a custom data layer in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
-   Creating a custom data layer in the TileSet resource inspector (within the TileMap node)
+   Creating a custom data layer in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
 .. figure:: img/using_tilesets_custom_data_layers_example.webp
    :align: center
@@ -410,7 +410,7 @@ the custom data for the alternative tile only.
 
    Example of configured custom data layers with game-specific properties
 
-You can reorder custom data without breaking existing metadata: the TileSet
+You can reorder custom data without breaking existing metadata: the LayeredTileSet
 editor will update automatically after reordering custom data properties.
 
 Note that in the editor, property names do not appear (only their index, which
@@ -421,18 +421,18 @@ to ``false``:
 
 .. figure:: img/using_tilesets_edit_custom_data.webp
    :align: center
-   :alt: Editing custom data in the TileSet editor while in Select mode
+   :alt: Editing custom data in the LayeredTileSet editor while in Select mode
 
-   Editing custom data in the TileSet editor while in Select mode
+   Editing custom data in the LayeredTileSet editor while in Select mode
 
 :ref:`Tile property painting <doc_using_tilemaps_using_tile_property_painting>`
 can also be used for custom data:
 
 .. figure:: img/using_tilesets_paint_custom_data.webp
    :align: center
-   :alt: Assigning custom data in the TileSet editor using tile property painting
+   :alt: Assigning custom data in the LayeredTileSet editor using tile property painting
 
-   Assigning custom data in the TileSet editor using tile property painting
+   Assigning custom data in the LayeredTileSet editor using tile property painting
 
 .. _doc_using_tilesets_creating_terrain_sets:
 
@@ -448,7 +448,7 @@ Creating terrain sets (autotiling)
 
     Unlike before, where autotiles were a specific kind of tiles, terrains are
     only a set of properties assigned to atlas tiles. These properties are then
-    used by a dedicated TileMap painting mode that selects tiles featuring
+    used by a dedicated LayeredTileMap painting mode that selects tiles featuring
     terrain data in a smart way. This means any terrain tile can be either
     painted as terrain or as a single tile, like any other.
 
@@ -470,13 +470,13 @@ terrains are matched to each other in a terrain set.
     Godot 3.x: 2×2, 3×3 or 3×3 minimal. This is also similar to what
     the `Tiled <https://www.mapeditor.org/>`__ editor features.
 
-Select the TileMap node, go to the inspector and create a new terrain set within the TileSet *resource*:
+Select the LayeredTileMap node, go to the inspector and create a new terrain set within the LayeredTileSet *resource*:
 
 .. figure:: img/using_tilesets_create_terrain_set.webp
    :align: center
-   :alt: Creating a terrain set in the TileSet resource inspector (within the TileMap node)
+   :alt: Creating a terrain set in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
-   Creating a terrain set in the TileSet resource inspector (within the TileMap node)
+   Creating a terrain set in the LayeredTileSet resource inspector (within the LayeredTileMap node)
 
 After creating a terrain set, you **must** create one or more terrains *within* the terrain set:
 
@@ -486,7 +486,7 @@ After creating a terrain set, you **must** create one or more terrains *within* 
 
    Creating a terrain within the terrain set
 
-In the TileSet editor, switch to Select mode and click a tile. In the middle
+In the LayeredTileSet editor, switch to Select mode and click a tile. In the middle
 column, unfold the **Terrains** section then assign a terrain set ID and a
 terrain ID for the tile. ``-1`` means "no terrain set" or "no terrain", which
 means you must set **Terrain Set** to ``0`` or greater before you can set
@@ -499,9 +499,9 @@ means you must set **Terrain Set** to ``0`` or greater before you can set
 
 .. figure:: img/using_tilesets_configure_terrain_on_tile.webp
    :align: center
-   :alt: Configuring terrain on a single tile in the TileSet editor's Select mode
+   :alt: Configuring terrain on a single tile in the LayeredTileSet editor's Select mode
 
-   Configuring terrain on a single tile in the TileSet editor's Select mode
+   Configuring terrain on a single tile in the LayeredTileSet editor's Select mode
 
 After doing so, you can now configure the **Terrain Peering Bits** section which
 becomes visible in the middle column. The peering bits determine which tile will
@@ -516,9 +516,9 @@ if there is empty space on top of it (including diagonally).
 
 .. figure:: img/using_tilesets_configure_terrain_peering_bits.webp
    :align: center
-   :alt: Configuring terrain peering bits on a single tile in the TileSet editor's Select mode
+   :alt: Configuring terrain peering bits on a single tile in the LayeredTileSet editor's Select mode
 
-   Configuring terrain peering bits on a single tile in the TileSet editor's Select mode
+   Configuring terrain peering bits on a single tile in the LayeredTileSet editor's Select mode
 
 An example configuration for a full tilesheet may look as follows:
 
@@ -546,7 +546,7 @@ Using multiple tile selection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you wish to configure various properties on several times at once,
-choose the **Select** mode at the top of the TileSet editor:
+choose the **Select** mode at the top of the LayeredTileSet editor:
 
 After doing this, you can select multiple tiles on the right column by holding
 :kbd:`Shift` then clicking on tiles. You can also perform rectangle selection by
@@ -555,7 +555,7 @@ deselect tiles that were already selected (without affecting the rest of the
 selection) by holding :kbd:`Shift` then clicking on a selected tile.
 
 You can then assign properties using the inspector in the middle column of the
-TileSet editor. Only properties that you change here will be applied to all
+LayeredTileSet editor. Only properties that you change here will be applied to all
 selected tiles. Like in the editor's inspector, properties that differ on
 selected tiles will remain different until you edit them.
 
@@ -582,9 +582,9 @@ to "paint" properties onto tiles.
 
 .. figure:: img/using_tilesets_paint_tile_properties.webp
    :align: center
-   :alt: Painting tile properties using the TileSet editor
+   :alt: Painting tile properties using the LayeredTileSet editor
 
-   Painting tile properties using the TileSet editor
+   Painting tile properties using the LayeredTileSet editor
 
 Tile property painting is especially useful with properties that are
 time-consuming to set manually, such as collision shapes:
@@ -609,17 +609,17 @@ can be done using *alternative tiles*.
 
       Since Godot 4.2, you don't have to create alternative tiles to rotate or
       flip tiles anymore. You can rotate any tile while placing it in the
-      TileMap editor by using the rotation/flip buttons in the TileMap editor
+      LayeredTileMap editor by using the rotation/flip buttons in the LayeredTileMap editor
       toolbar.
 
 To create an alternative tile, right-click a base tile in the atlas displayed by
-the TileSet editor, then choose **Create an Alternative Tile**:
+the LayeredTileSet editor, then choose **Create an Alternative Tile**:
 
 .. figure:: img/using_tilesets_create_alternative_tile.webp
    :align: center
-   :alt: Creating an alternative tile by right-clicking a base tile in the TileSet editor
+   :alt: Creating an alternative tile by right-clicking a base tile in the LayeredTileSet editor
 
-   Creating an alternative tile by right-clicking a base tile in the TileSet editor
+   Creating an alternative tile by right-clicking a base tile in the LayeredTileSet editor
 
 If currently in Select mode, the alternative tile will already be selected
 for editing. If not currently in Select mode, you can still create alternative
@@ -628,20 +628,20 @@ tile to edit it.
 
 If you don't see the alternative tile, pan over to the right of the atlas image,
 as alternative tiles always appear on the right of base tiles of a given atlas
-in the TileSet editor:
+in the LayeredTileSet editor:
 
 .. figure:: img/using_tilesets_configure_alternative_tile.webp
    :align: center
-   :alt: Configuring an alternative tile after clicking it in the TileSet editor
+   :alt: Configuring an alternative tile after clicking it in the LayeredTileSet editor
 
-   Configuring an alternative tile after clicking it in the TileSet editor
+   Configuring an alternative tile after clicking it in the LayeredTileSet editor
 
 After selecting an alternative tile, you can change any properties using the
 middle column like you would on a base tile. However, the list of exposed
 properties is different compared to base tiles:
 
 - **Alternative ID:** The unique numerical identifier for this alternative tile.
-  Changing it will break existing TileMaps, so be careful! This ID also controls
+  Changing it will break existing LayeredTileMaps, so be careful! This ID also controls
   the sorting in the list of alternative tiles displayed in the editor.
 - **Rendering > Flip H:** If ``true``, the tile is horizontally flipped.
 - **Rendering > Flip V:** If ``true``, the tile is vertically flipped.
@@ -662,7 +662,7 @@ properties is different compared to base tiles:
   coordinate (in pixels). This allows using layers as if they were on different
   height for top-down games. Adjusting this can help alleviate issues with
   sorting certain tiles. Only effective if **Y Sort Enabled** is ``true`` on
-  the TileMap layer the tile is placed on.
+  the LayeredTileMap layer the tile is placed on.
 
 You can create an additional alternative tile variant by clicking the large "+"
 icon next to the alternative tile. This is equivalent to selecting the base tile

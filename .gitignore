@@ -8,6 +8,8 @@ __pycache__
 .vscode/
 *.mo
 
+out/
+
 # Vim temp files
 *.swo
 *.swp

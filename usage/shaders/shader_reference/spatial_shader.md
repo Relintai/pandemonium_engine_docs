@@ -3,7 +3,7 @@
 Spatial shaders
 ===============
 
-Spatial shaders are used for shading 3D objects. They are the most complex type of shader Godot offers.
+Spatial shaders are used for shading 3D objects. They are the most complex type of shader Pandemonium offers.
 Spatial shaders are highly configurable with different render modes and different rendering options
 (e.g. Subsurface Scattering, Transmission, Ambient Occlusion, Rim lighting etc). Users can optionally
 write vertex, fragment, and light processor functions to affect how objects are drawn.
@@ -196,9 +196,9 @@ Note:
 Fragment built-ins
 ^^^^^^^^^^^^^^^^^^
 
-The default use of a Godot fragment processor function is to set up the material properties of your object
+The default use of a Pandemonium fragment processor function is to set up the material properties of your object
 and to let the built-in renderer handle the final shading. However, you are not required to use all
-these properties, and if you don't write to them, Godot will optimize away the corresponding functionality.
+these properties, and if you don't write to them, Pandemonium will optimize away the corresponding functionality.
 
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | Built-in                          | Description                                                                                      |
@@ -262,13 +262,13 @@ these properties, and if you don't write to them, Godot will optimize away the c
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | out float **ROUGHNESS**           | Roughness (0..1).                                                                                |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
-| out float **RIM**                 | Rim (0..1). If used, Godot calculates rim lighting.                                              |
+| out float **RIM**                 | Rim (0..1). If used, Pandemonium calculates rim lighting.                                              |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
-| out float **RIM_TINT**            | Rim Tint, goes from 0 (white) to 1 (albedo). If used, Godot calculates rim lighting.             |
+| out float **RIM_TINT**            | Rim Tint, goes from 0 (white) to 1 (albedo). If used, Pandemonium calculates rim lighting.             |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
-| out float **CLEARCOAT**           | Small added specular blob. If used, Godot calculates Clearcoat.                                  |
+| out float **CLEARCOAT**           | Small added specular blob. If used, Pandemonium calculates Clearcoat.                                  |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
-| out float **CLEARCOAT_GLOSS**     | Gloss of Clearcoat. If used, Godot calculates Clearcoat.                                         |
+| out float **CLEARCOAT_GLOSS**     | Gloss of Clearcoat. If used, Pandemonium calculates Clearcoat.                                         |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
 | out float **ANISOTROPY**          | For distorting the specular blob according to tangent space.                                     |
 +-----------------------------------+--------------------------------------------------------------------------------------------------+
@@ -307,7 +307,7 @@ Light built-ins
 ^^^^^^^^^^^^^^^
 
 Writing light processor functions is completely optional. You can skip the light function by setting
-render_mode to `unshaded`. If no light function is written, Godot will use the material
+render_mode to `unshaded`. If no light function is written, Pandemonium will use the material
 properties written to in the fragment function to calculate the lighting for you (subject to
 the render_mode).
 

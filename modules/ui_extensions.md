@@ -1,8 +1,8 @@
 # UI Extensions
 
-This is a c++ engine module for the Godot engine, containing smaller utilities.
+This is a c++ engine module for the Pandemonium engine, containing smaller utilities.
 
-It supports both godot 3.2 and 4.0 (master [last tested commit](https://github.com/godotengine/godot/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)). Note that since 4.0 is still in very early stages I only
+It supports both pandemonium 3.2 and 4.0 (master [last tested commit](https://github.com/pandemoniumengine/pandemonium/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)). Note that since 4.0 is still in very early stages I only
 check whether it works from time to time.
 
 # Pre-built binaries
@@ -18,7 +18,7 @@ A `Control` based button, that handles multitouch properly.
 
 An `inputEventKey` implementation, that matches actions exactly.
 
-For example with the default godot implementation if you have an action that gets triggered
+For example with the default pandemonium implementation if you have an action that gets triggered
 with the key `E` then `Ctrl-E` will also trigger it.
 
 This has the side effect, that if you bind an action to `E`, and an another one to `Ctrl-E`,
@@ -53,17 +53,17 @@ I recommend putting this code into a singleton.
 
 1. Get the source code for the engine.
 
-If you want Godot 3.2:
-```git clone -b 3.2 https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 3.2:
+```git clone -b 3.2 https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-If you want Godot 4.0:
-```git clone https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 4.0:
+```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
 
-2. Go into Godot's modules directory.
+2. Go into Pandemonium's modules directory.
 
 ```
-cd ./godot/modules/
+cd ./pandemonium/modules/
 ```
 
 3. Clone this repository
@@ -72,7 +72,7 @@ cd ./godot/modules/
 git clone https://github.com/Relintai/ui_extensions ui_extensions
 ```
 
-4. Build Godot. [Tutorial](https://docs.godotengine.org/en/latest/development/compiling/index.html)
+4. Build Pandemonium. [Tutorial](https://docs.pandemoniumengine.org/en/latest/development/compiling/index.html)
 
 
 

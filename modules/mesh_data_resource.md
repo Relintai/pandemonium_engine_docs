@@ -1,6 +1,6 @@
 # Mesh data resource Module
 
-A c++ Godot engine module, that adds a resource, which contains raw mesh data for merging and collider information.
+A c++ Pandemonium engine module, that adds a resource, which contains raw mesh data for merging and collider information.
 
 The module also comes with importers (gltf, and collada for now), you can import 3d models as MeshDataResources with these.
 
@@ -44,18 +44,18 @@ Since MeshDataResource can hold collider information, these importers can create
 
 1. Get the source code for the engine.
 
-If you want Godot 3.2:
-```git clone -b 3.2 https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 3.2:
+```git clone -b 3.2 https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-If you want Godot 4.0:
-```git clone https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 4.0:
+```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-[last tested commit for 4.0](https://github.com/godotengine/godot/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)
+[last tested commit for 4.0](https://github.com/pandemoniumengine/pandemonium/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)
 
-2. Go into Godot's modules directory.
+2. Go into Pandemonium's modules directory.
 
 ```
-cd ./godot/modules/
+cd ./pandemonium/modules/
 ```
 
 3. Clone this repository
@@ -64,6 +64,6 @@ cd ./godot/modules/
 git clone https://github.com/Relintai/mesh_data_resource mesh_data_resource
 ```
 
-4. Build Godot. [Tutorial](https://docs.godotengine.org/en/latest/development/compiling/index.html)
+4. Build Pandemonium. [Tutorial](https://docs.pandemoniumengine.org/en/latest/development/compiling/index.html)
 
 

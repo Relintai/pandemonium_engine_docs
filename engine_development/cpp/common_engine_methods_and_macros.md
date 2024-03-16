@@ -3,7 +3,7 @@
 Common engine methods and macros
 ================================
 
-Godot's C++ codebase makes use of dozens of custom methods and macros which are
+Pandemonium's C++ codebase makes use of dozens of custom methods and macros which are
 used in almost every file. This page is geared towards beginner contributors,
 but it can also be useful for those writing custom C++ modules.
 
@@ -67,7 +67,7 @@ This is mainly useful when printing numbers directly.
 Internationalize a string
 -------------------------
 
-There are two types of internationalization in Godot's codebase:
+There are two types of internationalization in Pandemonium's codebase:
 
 - `TTR()`: **Editor ("tools") translations** will only be processed in the
   editor. If a user uses the same text in one of their projects, it won't be
@@ -103,7 +103,7 @@ Note:
 Clamp a value
 -------------
 
-Godot provides macros for clamping a value with a lower bound (`MAX`), an
+Pandemonium provides macros for clamping a value with a lower bound (`MAX`), an
 upper bound (`MIN`) or both (`CLAMP`):
 
 ```
@@ -175,7 +175,7 @@ use `GLOBAL_GET`/`EDITOR_GET` in all other places where it's referenced.
 Error macros
 ------------
 
-Godot features many error macros to make error reporting more convenient.
+Pandemonium features many error macros to make error reporting more convenient.
 
 Warning:
 
@@ -233,7 +233,7 @@ Note:
     }
 
     // Crashes the engine. This should generally never be used
-    // except for testing crash handling code. Godot's philosophy
+    // except for testing crash handling code. Pandemonium's philosophy
     // is to never crash, both in the editor and in exported projects.
     CRASH_NOW_MSG("Can't predict the future! Aborting.");
 ```
@@ -241,10 +241,10 @@ Note:
 See also:
 
 
-    See `core/error_macros.h ( https://github.com/godotengine/godot/blob/3.x/core/error_macros.h )`
-    in Godot's codebase for more information about each error macro.
+    See `core/error_macros.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/error_macros.h )`
+    in Pandemonium's codebase for more information about each error macro.
 
     Some functions return an error code (materialized by a return type of
     `Error`). This value can be returned directly from an error macro.
     See the list of available error codes in
-    `core/error_list.h ( https://github.com/godotengine/godot/blob/3.x/core/error_list.h )`.
+    `core/error_list.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/error_list.h )`.

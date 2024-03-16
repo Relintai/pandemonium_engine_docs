@@ -72,7 +72,7 @@ Note:
 Try it out
 -----------
 
-Add a `Sprite` node to your scene and set the texture to Godot icon. Attach and open a script, and change it to this:
+Add a `Sprite` node to your scene and set the texture to Pandemonium icon. Attach and open a script, and change it to this:
 
 gdscript GDScript
 

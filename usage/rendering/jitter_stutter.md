@@ -33,10 +33,10 @@ There can be many causes of jitter, the most typical one happens when the game *
 at a different resolution than the monitor refresh rate. Check whether your monitor refresh rate is different from 60 Hz.
 
 This is generally not a problem, given that most monitors are 60 Hz, and
-starting with Godot 3.1, a frame timer was introduced that tries to synchronize with refresh as well as possible.
+starting with Pandemonium 3.1, a frame timer was introduced that tries to synchronize with refresh as well as possible.
 
 Sometimes only some objects appear to jitter (character or background). This happens when they are processed in different
-time sources (one is processed in the physics step while another is processed in the idle step). Godot 3.1 does some
+time sources (one is processed in the physics step while another is processed in the idle step). Pandemonium 3.1 does some
 improvements to this, from allowing kinematic bodies to be animated in the regular _process loop, to further fixes in the
 frame timer.
 
@@ -61,7 +61,7 @@ Windows
 
 Windows is known to cause stutter in windowed games. This mostly depends on the hardware installed, drivers version and
 processes running in parallel (e.g. having many browser tabs open may cause stutter in a running game). To avoid this,
-starting with 3.1, Godot raises the game priority to "Above Normal". This helps considerably but may not completely eliminate
+starting with 3.1, Pandemonium raises the game priority to "Above Normal". This helps considerably but may not completely eliminate
 stutter.
 
 Eliminating this completely requires giving your game full privileges to become "time critical", which is not advised.

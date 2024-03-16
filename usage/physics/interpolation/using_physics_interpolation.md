@@ -2,7 +2,7 @@
 
 Using physics interpolation
 ===========================
-How do we incorporate physics interpolation into a Godot game? Are there any caveats?
+How do we incorporate physics interpolation into a Pandemonium game? Are there any caveats?
 
 We have tried to make the system as easy to use as possible, and many existing games will work with few changes. That said there are some situations which require special treatment, and these will be described.
 
@@ -26,7 +26,7 @@ The most fundamental requirement for physics interpolation (which you may be doi
 Setting the transform of objects only within physics ticks allows the automatic interpolation to deal with transforms *between* physics ticks, and ensures the game will run the same whatever machine it is run on. As a bonus, this also reduces CPU usage if the game is rendering at high FPS, since AI logic (for example) will no longer run on every rendered frame.
 
 Note:
- If you attempt to set the transform of interpolated objects *outside* the physics tick, the calculations for the interpolated position will be incorrect, and you will get jitter. This jitter may not be visible on your machine, but it *will* occur for some players. For this reason, setting the transform of interpolated objects should be avoided outside of the physics tick. Godot will attempt to produce warnings in the editor if this case is detected.
+ If you attempt to set the transform of interpolated objects *outside* the physics tick, the calculations for the interpolated position will be incorrect, and you will get jitter. This jitter may not be visible on your machine, but it *will* occur for some players. For this reason, setting the transform of interpolated objects should be avoided outside of the physics tick. Pandemonium will attempt to produce warnings in the editor if this case is detected.
 
 Tip:
  This is only a *soft-rule*. There are some occasions where you might want to teleport objects outside of the physics tick (for instance when starting a level, or respawning objects). Still, in general, you should be applying transforms from the physics tick.
@@ -35,7 +35,7 @@ Tip:
 Ensure that all indirect movement happens during physics ticks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Consider that in Godot, Nodes can be moved not just directly in your own scripts, but also by automatic methods such as tweening, animation, and navigation. All these methods should also have their timing set to operate on the physics tick rather than each frame ("idle"), **if** you are using them to move objects (*these methods can also be used to control properties that are not interpolated*).
+Consider that in Pandemonium, Nodes can be moved not just directly in your own scripts, but also by automatic methods such as tweening, animation, and navigation. All these methods should also have their timing set to operate on the physics tick rather than each frame ("idle"), **if** you are using them to move objects (*these methods can also be used to control properties that are not interpolated*).
 
 Note:
  Also consider that nodes can be moved not just by moving themselves, but also by moving parent nodes in the `SceneTree( SceneTree )`. The movement of parents should therefore also only occur during physics ticks.

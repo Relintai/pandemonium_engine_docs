@@ -7,7 +7,7 @@ Overview
 --------
 
 Now that you have a working game, you probably want to share your success with
-others. However, it's not practical to ask your friends to download Godot
+others. However, it's not practical to ask your friends to download Pandemonium
 just so they can open your project. Instead, you can *export* your project,
 converting it into a "package" that can be run by anyone.
 
@@ -29,9 +29,9 @@ or tablet, you need to support touchscreen input. Because a click event can
 be treated the same as a touch event, we'll convert the game to a click-and-move
 input style.
 
-By default, Godot emulates mouse input from touch input. That means that if
+By default, Pandemonium emulates mouse input from touch input. That means that if
 anything is coded to happen on a mouse event, touch will trigger it as well.
-Godot can also emulate touch input from mouse clicks, which we will need to be
+Pandemonium can also emulate touch input from mouse clicks, which we will need to be
 able to keep playing our game on our computer after we switch to touch input.
 
 In **Project > Project Settings**, under **Input Devices > Pointing**, enable
@@ -107,7 +107,7 @@ gdscript GDScript
 
         position += velocity * delta
         # We still need to clamp the player's position here because on devices that don't
-        # match your game's aspect ratio, Godot will try to maintain it as much as possible
+        # match your game's aspect ratio, Pandemonium will try to maintain it as much as possible
         # by creating black borders, if necessary.
         # Without clamp(), the player would be able to move under those borders.
         position.x = clamp(position.x, 0, screen_size.x)
@@ -139,30 +139,30 @@ Export templates
 ----------------
 
 To export the project, you need to download the *export templates* from the
-http://godotengine.org/download. These templates are optimized versions of the engine
+http://pandemoniumengine.org/download. These templates are optimized versions of the engine
 without the editor pre-compiled for each platform. You can also
-download them in Godot by clicking on **Editor -> Manage Export Templates**:
+download them in Pandemonium by clicking on **Editor -> Manage Export Templates**:
 
 ![](img/export_template_menu.png)
 
 Note:
 
 
-    If you've downloaded Godot from
-    `Steam ( https://store.steampowered.com/app/404790/Godot_Engine/ )`,
+    If you've downloaded Pandemonium from
+    `Steam ( https://store.steampowered.com/app/404790/Pandemonium_Engine/ )`,
     export templates are already included. Therefore, you don't need to download
     them using the **Manage Export Templates** dialog.
 
 In the window that appears, you can click **Download** to get the template
-version that matches your version of Godot.
+version that matches your version of Pandemonium.
 
 ![](img/export_template_manager.png)
 
 Note:
 
 
-    Export templates are bound to a specific Godot version. If you upgrade
-    Godot, you must download templates that match the new version.
+    Export templates are bound to a specific Pandemonium version. If you upgrade
+    Pandemonium, you must download templates that match the new version.
 
 Export presets
 --------------
@@ -222,7 +222,7 @@ Tip:
 
 
     Mobile devices come with a wide variety of capabilities. In most cases,
-    Godot's default settings will work, but mobile development is sometimes more
+    Pandemonium's default settings will work, but mobile development is sometimes more
     art than science, and you may need to do some experimenting and searching
     for help in order to get everything working.
 
@@ -234,7 +234,7 @@ software:
 
 When you run Android Studio for the first time, click on **Configure -> SDK Manager**
 and install **Android SDK Platform Tools**. This installs the `adb`
-command-line tool that Godot uses to communicate with your device.
+command-line tool that Pandemonium uses to communicate with your device.
 
 Next, create a debug keystore by running the following command on your
 system's command line:
@@ -243,7 +243,7 @@ system's command line:
     keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999
 ```
 
-Click on *Editor -> Editor Settings* in Godot and select the *Export/Android*
+Click on *Editor -> Editor Settings* in Pandemonium and select the *Export/Android*
 section. Here, you need to set the paths to the Android SDK applications on
 your system and the location of the keystore you just created.
 
@@ -255,7 +255,7 @@ go to **Screen** and set **Orientation** to **Portrait**. If your game is in
 landscape mode (i.e. the window width in pixels is greater than the window height),
 leave this on **Landscape**.
 
-Click the **Export Project** button and Godot will build an APK you can download
+Click the **Export Project** button and Pandemonium will build an APK you can download
 on your device. To do this on the command line, use the following:
 
 ```
@@ -267,7 +267,7 @@ Note:
           device's documentation for details.
 
 If your system supports it, connecting a compatible Android device will cause
-a **One-click Deploy** button to appear in Godot's playtest button area:
+a **One-click Deploy** button to appear in Pandemonium's playtest button area:
 
 ![](img/export_android_oneclick.png)
 
@@ -336,4 +336,4 @@ Note:
     emerging technology and you may find some things that don't work. Make sure
     you have updated your browser to the most recent version, and report any
     bugs you find on the
-    `Godot GitHub repository ( https://github.com/godotengine/godot/issues )`.
+    `Pandemonium GitHub repository ( https://github.com/pandemoniumengine/pandemonium/issues )`.

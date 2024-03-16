@@ -6,7 +6,7 @@ WebRTC
 HTML5, WebSocket, WebRTC
 ------------------------
 
-One of Godot's great features is its ability to export to the HTML5/WebAssembly platform, allowing your game to run directly in the browser when a user visit your webpage.
+One of Pandemonium's great features is its ability to export to the HTML5/WebAssembly platform, allowing your game to run directly in the browser when a user visit your webpage.
 
 This is a great opportunity for both demos and full games, but used to come with some limitations. In the area of networking, browsers used to support only HTTPRequests until recently, when first WebSocket and then WebRTC were proposed as standards.
 
@@ -30,13 +30,13 @@ However, this comes at a price, which is that some media information must be exc
 
 Peers connect to a signaling server (for example a WebSocket server) and send their media information. The server then relays this information to other peers, allowing them to establish the desired direct communication. Once this step is done, peers can disconnect from the signaling server and keep the direct Peer-to-Peer (P2P) connection open.
 
-Using WebRTC in Godot
+Using WebRTC in Pandemonium
 ---------------------
 
-WebRTC is implemented in Godot via two main classes `WebRTCPeerConnection` for more details.
+WebRTC is implemented in Pandemonium via two main classes `WebRTCPeerConnection` for more details.
 
 Note:
- These classes are available automatically in HTML5, but **require an external GDNative plugin on native (non-HTML5) platforms**. Check out the `webrtc-native plugin repository ( https://github.com/godotengine/webrtc-native )` for instructions and to get the latest `release ( https://github.com/godotengine/webrtc-native/releases )`.
+ These classes are available automatically in HTML5, but **require an external GDNative plugin on native (non-HTML5) platforms**. Check out the `webrtc-native plugin repository ( https://github.com/pandemoniumengine/webrtc-native )` for instructions and to get the latest `release ( https://github.com/pandemoniumengine/webrtc-native/releases )`.
 
 Warning:
 

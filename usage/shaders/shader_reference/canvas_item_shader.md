@@ -3,7 +3,7 @@
 CanvasItem shaders
 ==================
 
-CanvasItem shaders are used to draw all 2D elements in Godot. These include
+CanvasItem shaders are used to draw all 2D elements in Pandemonium. These include
 all nodes that inherit from CanvasItems, and all GUI elements.
 
 CanvasItem shaders contain less built-in variables and functionality than Spatial
@@ -146,17 +146,17 @@ Fragment built-ins
 
 Certain Nodes (for example, `Sprites`) display a texture by default. However,
 when a custom fragment function is attached to these nodes, the texture lookup needs to be done
-manually. Godot does not provide the texture color in the `COLOR` built-in variable; to read
+manually. Pandemonium does not provide the texture color in the `COLOR` built-in variable; to read
 the texture color for such nodes, use:
 
 ```
   COLOR = texture(TEXTURE, UV);
 ```
 
-This differs from the behavior of the built-in normal map. If a normal map is attached, Godot uses
+This differs from the behavior of the built-in normal map. If a normal map is attached, Pandemonium uses
 it by default and assigns its value to the built-in `NORMAL` variable. If you are using a normal
 map meant for use in 3D, it will appear inverted. In order to use it in your shader, you must assign
-it to the `NORMALMAP` property. Godot will handle converting it for use in 2D and overwriting `NORMAL`.
+it to the `NORMALMAP` property. Pandemonium will handle converting it for use in 2D and overwriting `NORMAL`.
 
 ```
   NORMALMAP = texture(NORMAL_TEXTURE, UV).rgb;

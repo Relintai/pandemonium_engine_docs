@@ -5,11 +5,11 @@ Collision shapes (3D)
 
 This guide explains:
 
-- The types of collision shapes available in 3D in Godot.
+- The types of collision shapes available in 3D in Pandemonium.
 - Using a convex or a concave mesh as a collision shape.
 - Performance considerations regarding 3D collisions.
 
-Godot provides many kinds of collision shapes, with different performance and
+Pandemonium provides many kinds of collision shapes, with different performance and
 accuracy tradeoffs.
 
 You can define the shape of a `PhysicsBody` by adding one or more
@@ -26,7 +26,7 @@ Note:
 Primitive collision shapes
 --------------------------
 
-Godot provides the following primitive collision shape types:
+Pandemonium provides the following primitive collision shape types:
 
 - `BoxShape`
 - `SphereShape`
@@ -52,7 +52,7 @@ a pyramid is *convex*, but a hollow box is *concave*. To define a concave object
 with a single collision shape, you need to use a concave collision shape.
 
 Depending on the object's complexity, you may get better performance by using
-multiple convex shapes instead of a concave collision shape. Godot lets you use
+multiple convex shapes instead of a concave collision shape. Pandemonium lets you use
 *convex decomposition* to generate convex shapes that roughly match a hollow
 object. Note this performance advantage no longer applies after a certain amount
 of convex shapes. For large and complex objects such as a whole level, we
@@ -79,7 +79,7 @@ Concave or trimesh collision shapes
 `Concave collision shapes`, also called trimesh
 collision shapes, can take any form, from a few triangles to thousands of
 triangles. Concave shapes are the slowest option but are also the most accurate
-in Godot. **You can only use concave shapes within StaticBodies.** They will not
+in Pandemonium. **You can only use concave shapes within StaticBodies.** They will not
 work with KinematicBodies or RigidBodies unless the RigidBody's mode is Static.
 
 Note:
@@ -91,7 +91,7 @@ Note:
 When not using GridMaps for level design, concave shapes are the best approach
 for a level's collision. That said, if your level has small details, you may
 want to exclude those from collision for performance and game feel. To do so,
-you can build a simplified collision mesh in a 3D modeler and have Godot
+you can build a simplified collision mesh in a 3D modeler and have Pandemonium
 generate a collision shape for it automatically. More on that below
 
 Note that unlike primitive and convex shapes, a concave collision shape doesn't
@@ -124,7 +124,7 @@ Note:
 See also:
 
 
-    Godot can generate collision shapes for your imported 3D scenes
+    Pandemonium can generate collision shapes for your imported 3D scenes
     automatically. See `doc_importing_scenes_import_hints` in the
     documentation for more information.
 

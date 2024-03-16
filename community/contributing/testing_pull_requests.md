@@ -5,9 +5,9 @@ Testing pull requests
 
 Many people are developing new features or fixing bugs on GitHub.
 To help with engine development, you may be asked to test those pull requests
-with a Godot build that includes code from the pull request in question.
+with a Pandemonium build that includes code from the pull request in question.
 
-Thanks to GitHub Actions, all `pull requests ( https://github.com/godotengine/godot/pulls )`
+Thanks to GitHub Actions, all `pull requests ( https://github.com/pandemoniumengine/pandemonium/pulls )`
 have continuous builds available. These builds let you try out pull requests
 without having to compile anything from source.
 
@@ -90,7 +90,7 @@ Compiling a pull request branch from source
 
 This approach may be needed for pull requests that were last updated more than
 90 days ago, or to test on platforms and configurations that are not supported
-by Godot's GitHub Actions setup.
+by Pandemonium's GitHub Actions setup.
 
 - Open the pull request page. Click the *fork*'s branch name near the top of the page:
 

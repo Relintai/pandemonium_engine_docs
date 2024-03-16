@@ -40,9 +40,9 @@ For each MSYS2 MinGW subsystem, you should then run `pip3 install scons` in its 
 
 ### See also:
 
-To get the Godot source code for compiling, see `doc_getting_source`.
+To get the Pandemonium source code for compiling, see `doc_getting_source`.
 
-For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
+For a general overview of SCons usage for Pandemonium, see `doc_introduction_to_the_buildsystem`.
 
 ## Setting up SCons
 
@@ -85,21 +85,21 @@ C++ support, run the installer again; it should present you a **Modify** button.
 Running the installer from *Add/Remove Programs* will only give you
 a **Repair** option, which won't let you install C++ tools.
 
-## Downloading Godot's source
+## Downloading Pandemonium's source
 
 Refer to `doc_getting_source` for detailed instructions.
 
-The tutorial will assume from now on that you placed the source code in `C:\godot`.
+The tutorial will assume from now on that you placed the source code in `C:\pandemonium`.
 
 ### Warning:
 
-To prevent slowdowns caused by continuous virus scanning during compilation, add the Godot source 
+To prevent slowdowns caused by continuous virus scanning during compilation, add the Pandemonium source 
 folder to the list of exceptions in your antivirus software.
 
 For Windows Defender, hit the :kbd:`Windows` key, type "Windows Defender Settings" then hit :kbd:`Enter`.
 
 Under **Virus & threat protection**, go to **Virus & threat protection setting** and scroll 
-down to **Exclusions**. Click **Add or remove exclusions** then add the Godot source folder.
+down to **Exclusions**. Click **Add or remove exclusions** then add the Pandemonium source folder.
 
 ## Compiling
 
@@ -113,7 +113,7 @@ builds cannot be performed from the MSYS2 or MinGW shells. Use either
 `cmd.exe` or PowerShell instead.
 
 During development, using the Visual Studio compiler is usually a better idea,
-as it links the Godot binary much faster than MinGW. However, MinGW can
+as it links the Pandemonium binary much faster than MinGW. However, MinGW can
 produce more optimized binaries using link-time optimization (see below),
 making it a better choice for production use.
 
@@ -123,24 +123,24 @@ After opening a command prompt, change to the root directory of
 the engine source code (using `cd`) and type:
 
 ```
-    C:\godot> scons platform=windows
+    C:\pandemonium> scons platform=windows
 ```
 
 You can specify a number of CPU threads to use to speed up the build:
 
 ```
-    C:\godot> scons -j6 platform=windows
+    C:\pandemonium> scons -j6 platform=windows
 ```
 
-In general, it is OK to have at least as many threads compiling Godot as you
+In general, it is OK to have at least as many threads compiling Pandemonium as you
 have cores in your CPU, if not one or two more. Feel free to add the `-j`
 option to any SCons command you see below.
 
 Note: When compiling with multiple CPU threads, SCons may warn about pywin32 being missing. You can safely ignore this warning.
 
 If all goes well, the resulting binary executable will be placed in
-`C:\godot\bin\` with the name `godot.windows.tools.32.exe` or
-`godot.windows.tools.64.exe`. By default, SCons will build a binary matching
+`C:\pandemonium\bin\` with the name `pandemonium.windows.tools.32.exe` or
+`pandemonium.windows.tools.64.exe`. By default, SCons will build a binary matching
 your CPU architecture, but this can be overridden using `bits=64` or
 `bits=32`.
 
@@ -149,25 +149,25 @@ dependencies. Running it will bring up the Project Manager.
 
 Note:
 
-If you are compiling Godot for production use, then you can make the final executable smaller and faster by adding the 
+If you are compiling Pandemonium for production use, then you can make the final executable smaller and faster by adding the 
 SCons option `target=release_debug`.
 
-If you are compiling Godot with MinGW, you can make the binary even smaller and faster by adding the SCons 
+If you are compiling Pandemonium with MinGW, you can make the binary even smaller and faster by adding the SCons 
 option `use_lto=yes`. As link-time optimization is a memory-intensive process, this will require about 
 7 GB of available RAM while compiling.
 
 Note:
 
-If you want to use separate editor settings for your own Godot builds and official releases, you can enable 
+If you want to use separate editor settings for your own Pandemonium builds and official releases, you can enable 
 `doc_data_paths_self_contained_mode` by creating a file called `._sc_` or `sc_` in the `bin/` folder.
 
 ## Development in Visual Studio
 
-Using an IDE is not required to compile Godot, as SCons takes care of everything.
+Using an IDE is not required to compile Pandemonium, as SCons takes care of everything.
 But if you intend to do engine development or debugging of the engine's C++ code,
 you may be interested in configuring a code editor or an IDE.
 
-Folder-based editors don't require any particular setup to start working with Godot's
+Folder-based editors don't require any particular setup to start working with Pandemonium's
 codebase. To edit projects with Visual Studio they need to be set up as a solution.
 
 You can create a Visual Studio solution via SCons by running SCons with
@@ -177,8 +177,8 @@ the `vsproj=yes` parameter, like this:
    scons p=windows vsproj=yes
 ```
 
-You will be able to open Godot's source in a Visual Studio solution now,
-and able to build Godot using Visual Studio's **Build** button.
+You will be able to open Pandemonium's source in a Visual Studio solution now,
+and able to build Pandemonium using Visual Studio's **Build** button.
 
 See also:
  See `doc_configuring_an_ide_vs` for further details.
@@ -247,7 +247,7 @@ differ based on your system):
 ### Troubleshooting
 
 Cross-compiling from some Ubuntu versions may lead to
-`this bug ( https://github.com/godotengine/godot/issues/9258 )`,
+`this bug ( https://github.com/pandemoniumengine/pandemonium/issues/9258 )`,
 due to a default configuration lacking support for POSIX threading.
 
 You can change that configuration following those instructions,
@@ -271,14 +271,14 @@ And for 32-bit:
 
 ### Creating Windows export templates
 
-Windows export templates are created by compiling Godot without the editor,
+Windows export templates are created by compiling Pandemonium without the editor,
 with the following flags:
 
 ```
-    C:\godot> scons platform=windows tools=no target=release_debug bits=32
-    C:\godot> scons platform=windows tools=no target=release bits=32
-    C:\godot> scons platform=windows tools=no target=release_debug bits=64
-    C:\godot> scons platform=windows tools=no target=release bits=64
+    C:\pandemonium> scons platform=windows tools=no target=release_debug bits=32
+    C:\pandemonium> scons platform=windows tools=no target=release bits=32
+    C:\pandemonium> scons platform=windows tools=no target=release_debug bits=64
+    C:\pandemonium> scons platform=windows tools=no target=release bits=64
 ```
 
 If you plan on replacing the standard export templates, copy these to the
@@ -286,7 +286,7 @@ following location, replacing `( version )` with the version identifier
 (such as `3.1.1.stable` or `3.2.dev`):
 
 ```
-    %USERPROFILE%\AppData\Roaming\Godot\templates\<version>\
+    %USERPROFILE%\AppData\Roaming\Pandemonium\templates\<version>\
 ```
 
 With the following names:
@@ -305,5 +305,5 @@ here:
 ![](img/wintemplates.png)
 
 You don't need to copy them in this case, just reference the resulting
-files in the `bin\` directory of your Godot source folder, so the next
+files in the `bin\` directory of your Pandemonium source folder, so the next
 time you build, you will automatically have the custom templates referenced.

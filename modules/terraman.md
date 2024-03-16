@@ -1,6 +1,6 @@
 # Terraman
 
-A terrain engine for godot, focusing more on editor integration, gameplay-related features, and extendability (even from gdscript), without sacrificing too much speed.
+A terrain engine for pandemonium, focusing more on editor integration, gameplay-related features, and extendability (even from gdscript), without sacrificing too much speed.
 
 It is a spinoff of [Voxelman](https://github.com/Relintai/voxelman). I started working on it when I realized that not only a full 3d voxel engine is too hard for me to use properly for an rpg (just think about how hard it is to do smooth zone - zone and dungeon transitions with the proper fidelity for an rpg), it's also unnecessary.
 
@@ -8,11 +8,11 @@ I could have technically implemented all of this into voxelman, as having only h
 
 So I ended up creating this. Everything works the same as in voxelman, but the apis have been simplified to make UX a bit better.
 
-This is an engine module! Which means that you will need to compile it into Godot! [See the compiling section here.](#compiling)
+This is an engine module! Which means that you will need to compile it into Pandemonium! [See the compiling section here.](#compiling)
 
 You can grab pre-built binaries (even editor + export templates) from the [Broken Seals](https://github.com/Relintai/broken_seals/releases) repo.
 
-## Godot Version Support
+## Pandemonium Version Support
 
 3.2 - Will likely work, probably needs changes by now. (TODO check.)\
 3.3 - Will more likely work, might need smaller changes by now. (TODO check.)\
@@ -55,7 +55,7 @@ This is the basic Minecraft-style lib rary. Use this if you just have one textur
 
 ### TerraLibraryMerger
 
-You will only have this if your godot also contains https://github.com/Relintai/texture_packer
+You will only have this if your pandemonium also contains https://github.com/Relintai/texture_packer
 
 You can assign any texture to your surfaces with this, and it will merge them together.
 
@@ -63,7 +63,7 @@ You can assign any texture to your surfaces with this, and it will merge them to
 
 (PCM = Per Chunk Material)
 
-You will only have this if your godot also contains https://github.com/Relintai/texture_packer
+You will only have this if your pandemonium also contains https://github.com/Relintai/texture_packer
 
 You can assign any texture to your surfaces with this, and it will merge them together, but it will do it for every required chunk/voxel combination.
 
@@ -182,20 +182,20 @@ They won't get reset, so for example if you want all your vertices to have a cer
 
 ## Compiling
 
-First make sure that you can compile godot. See the official docs: https://docs.godotengine.org/en/3.x/development/compiling/index.html
+First make sure that you can compile pandemonium. See the official docs: https://docs.pandemoniumengine.org/en/3.x/development/compiling/index.html
 
 1. Clone the engine if you haven't already:
 
-If you want Godot 3.x:
-```git clone -b 3.x https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 3.x:
+```git clone -b 3.x https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-If you want Godot 4.0:
-```git clone https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 4.0:
+```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
 
 2. go into the modules folder inside the engine's directory:
 
-```cd godot``` \
+```cd pandemonium``` \
 ```cd modules```
 
 3. clone this repository
@@ -213,7 +213,7 @@ If you want Godot 4.0:
 
 ```cd ..```
 
-6. Compile godot.
+6. Compile pandemonium.
 
 For example:
 

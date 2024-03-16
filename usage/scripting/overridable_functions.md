@@ -3,15 +3,15 @@
 Overridable functions
 =====================
 
-Godot's Node class provides virtual functions you can override to update nodes
+Pandemonium's Node class provides virtual functions you can override to update nodes
 every frame or on specific events, like when they enter the scene tree.
 
 This document presents the ones you'll use most often.
 
 See also:
- Under the hood, these functions rely on Godot's low-level
+ Under the hood, these functions rely on Pandemonium's low-level
              notifications system. To learn more about it, see
-             `doc_godot_notifications`.
+             `doc_pandemonium_notifications`.
 
 Two functions allow you to initialize and get nodes, besides the class's
 constructor: `enter_tree()` and `ready()`.
@@ -76,7 +76,7 @@ every key press, mouse click, etc. that have not been handled already in an
 gameplay input in general. The `input()` callback allows you to intercept and
 process input events before `unhandled_input()` gets them.
 
-To learn more about inputs in Godot, see the `Input section <toc-learn-features-inputs )`.
+To learn more about inputs in Pandemonium, see the `Input section <toc-learn-features-inputs )`.
 
 gdscript GDScript
 

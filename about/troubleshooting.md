@@ -3,18 +3,18 @@
 Troubleshooting
 ===============
 
-This page lists common issues encountered when using Godot and possible solutions.
+This page lists common issues encountered when using Pandemonium and possible solutions.
 
 See also:
 
 
     See `doc_using_the_web_editor` for caveats specific to the HTML5 version
-    of the Godot editor.
+    of the Pandemonium editor.
 
 Everything I do in the editor or project manager appears delayed by one frame.
 ------------------------------------------------------------------------------
 
-This is a `known bug ( https://github.com/godotengine/godot/issues/23069 )` on
+This is a `known bug ( https://github.com/pandemoniumengine/pandemonium/issues/23069 )` on
 Intel graphics drivers on Windows. Updating to the latest graphics driver
 version *provided by Intel* should fix the issue.
 
@@ -25,19 +25,19 @@ outdated.
 The grid disappears and meshes turn black when I rotate the 3D camera in the editor.
 ------------------------------------------------------------------------------------
 
-This is a `known bug ( https://github.com/godotengine/godot/issues/30330 )` on
+This is a `known bug ( https://github.com/pandemoniumengine/pandemonium/issues/30330 )` on
 Intel graphics drivers on Windows.
 
 The only workaround, for now, is to switch to the GLES2 renderer. You can switch
 the renderer in the top-right corner of the editor or the Project Settings.
 
 If you use a computer allowing you to switch your graphics card, like NVIDIA
-Optimus, you can use the dedicated graphics card to run Godot.
+Optimus, you can use the dedicated graphics card to run Pandemonium.
 
 The editor or project takes a very long time to start.
 ------------------------------------------------------
 
-This is a `known bug ( https://github.com/godotengine/godot/issues/20566 )` on
+This is a `known bug ( https://github.com/pandemoniumengine/pandemonium/issues/20566 )` on
 Windows when you have specific USB peripherals connected. In particular,
 Corsair's iCUE software seems to cause the bug. Try updating your USB
 peripherals' drivers to their latest version. If the bug persists, you need to
@@ -47,17 +47,17 @@ connect the peripheral again.
 Editor tooltips in the Inspector and Node docks blink when they're displayed.
 -----------------------------------------------------------------------------
 
-This is a `known issue ( https://github.com/godotengine/godot/issues/32990 )`
+This is a `known issue ( https://github.com/pandemoniumengine/pandemonium/issues/32990 )`
 caused by the third-party Stardock Fences application on Windows.
-The only known workaround is to disable Stardock Fences while using Godot.
+The only known workaround is to disable Stardock Fences while using Pandemonium.
 
-The Godot editor appears frozen after clicking the system console.
+The Pandemonium editor appears frozen after clicking the system console.
 ------------------------------------------------------------------
 
-When running Godot on Windows with the system console enabled, you can
+When running Pandemonium on Windows with the system console enabled, you can
 accidentally enable *selection mode* by clicking inside the command window. This
 Windows-specific behavior pauses the application to let you select text inside
-the system console. Godot cannot override this system-specific behavior.
+the system console. Pandemonium cannot override this system-specific behavior.
 
 To solve this, select the system console window and press Enter to leave
 selection mode.
@@ -87,7 +87,7 @@ configured to support `multiple resolutions ( doc_multiple_resolutions )`.
 The project window doesn't appear centered when I run the project.
 ------------------------------------------------------------------
 
-This is a `known bug ( https://github.com/godotengine/godot/issues/13017 )`. To
+This is a `known bug ( https://github.com/pandemoniumengine/pandemonium/issues/13017 )`. To
 resolve this, open **Project > Project Settings** and enable **Display > Window
 > Dpi > Allow Hidpi**. On top of that, make sure your project is configured to
 support `multiple resolutions ( doc_multiple_resolutions )`.
@@ -96,7 +96,7 @@ The project works when run from the editor, but fails to load some files when ru
 ------------------------------------------------------------------------------------------------------------
 
 This is usually caused by forgetting to specify a filter for non-resource files
-in the Export dialog. By default, Godot will only include actual *resources*
+in the Export dialog. By default, Pandemonium will only include actual *resources*
 into the PCK file. Some files commonly used, such as JSON files, are not
 considered resources. For example, if you load `test.json` in the exported
 project, you need to specify `*.json` in the non-resource export filter. See

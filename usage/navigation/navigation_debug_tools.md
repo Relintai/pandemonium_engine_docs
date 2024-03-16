@@ -5,7 +5,7 @@ Navigation Debug Tools
 
 .. note::
 
-    The debug tools, properties and functions are only available in Godot debug builds. 
+    The debug tools, properties and functions are only available in Pandemonium debug builds. 
     Do not use any of them in code that will be part of a release build.
 
 Enabling debug navigation
@@ -17,7 +17,7 @@ enable the option ``Visible Navigation`` in the editor debug menu.
 
 .. image:: img/navigation_debug_toggle.png
 
-In Godot debug builds the navigation debug can also be toggled on the NavigationServers from scripts.
+In Pandemonium debug builds the navigation debug can also be toggled on the NavigationServers from scripts.
 
 .. tabs::
  .. code-tab:: gdscript GDScript

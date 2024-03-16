@@ -3,10 +3,10 @@
 3D Navigation Overview
 ======================
 
-Godot provides multiple objects, classes and servers to facilitate grid-based or mesh-based navigation and pathfinding for 2D and 3D games.
-The following section provides a quick overview over all available navigation related objects in Godot for 3D scenes and their primary use.
+Pandemonium provides multiple objects, classes and servers to facilitate grid-based or mesh-based navigation and pathfinding for 2D and 3D games.
+The following section provides a quick overview over all available navigation related objects in Pandemonium for 3D scenes and their primary use.
 
-Godot provides the following objects and classes for 3D navigation:
+Pandemonium provides the following objects and classes for 3D navigation:
 
 - :ref:`Astar3D<class_Astar3D>`
     ``Astar3D`` objects provide an option to find the shortest path in a graph of weighted **points**.
@@ -80,7 +80,7 @@ The 3D navigation meshes are defined with the following resources:
 .. seealso::
 
     You can see how 3D navigation works in action using the
-    `3D Navigation demo project <https://github.com/godotengine/godot-demo-projects/tree/master/3d/navigation>`__.
+    `3D Navigation demo project <https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/3d/navigation>`__.
 
 Setup for 3D scene
 ------------------
@@ -162,7 +162,7 @@ a NavigationAgent3D for path movement.
 
  .. code-tab:: csharp C#
 
-    using Godot;
+    using Pandemonium;
 
     public partial class MyCharacterBody3D : CharacterBody3D
     {

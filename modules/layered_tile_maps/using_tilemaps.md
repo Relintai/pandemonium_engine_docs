@@ -33,7 +33,7 @@ Saving the built-in LayeredTileSet resource to an external resource file
 
 ## Creating LayeredTileMap layers
 
-As of Godot 4.0, you can place several *layers* in a single LayeredTileMap node. For
+As of Pandemonium 4.0, you can place several *layers* in a single LayeredTileMap node. For
 example, this allows you to distinguish foreground tiles from background tiles
 for better organization. You can place one tile per layer at a given location,
 which allows you to overlap several tiles together if you have more than one layer.

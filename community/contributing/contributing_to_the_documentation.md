@@ -3,7 +3,7 @@
 Contributing to the documentation
 =================================
 
-This guide explains how to contribute to Godot's documentation, be it by
+This guide explains how to contribute to Pandemonium's documentation, be it by
 writing or reviewing pages.
 
 See also:
@@ -16,29 +16,29 @@ Getting started
 ---------------
 
 To modify or create pages in the reference manual, you need to edit `.rst`
-files in the `godot-docs GitHub repository
-( https://github.com/godotengine/godot-docs )`. Modifying those pages in a pull
+files in the `pandemonium-docs GitHub repository
+( https://github.com/pandemoniumengine/pandemonium-docs )`. Modifying those pages in a pull
 request triggers a rebuild of the online documentation upon merging.
 
 See also:
  For details on Git usage and the pull request workflow, please
              refer to the `doc_pr_workflow` page. Most of what it describes
-             regarding the main godotengine/godot repository is also valid for
+             regarding the main pandemoniumengine/pandemonium repository is also valid for
              the docs repository.
 
 Warning:
- The class reference's source files are in the `Godot engine
-             repository ( https://github.com/godotengine/godot )`. We generate
-             the `Godot API ( toc-class-ref )` section of this documentation
+ The class reference's source files are in the `Pandemonium engine
+             repository ( https://github.com/pandemoniumengine/pandemonium )`. We generate
+             the `Pandemonium API ( toc-class-ref )` section of this documentation
              from them. If you want to update the description of a class, its
              methods, or properties, read
              `doc_updating_the_class_reference`.
 
-What is the Godot documentation
+What is the Pandemonium documentation
 -------------------------------
 
-The Godot documentation is intended as a comprehensive reference manual for the
-Godot game engine. It is not meant to contain step-by-step tutorials, except for
+The Pandemonium documentation is intended as a comprehensive reference manual for the
+Pandemonium game engine. It is not meant to contain step-by-step tutorials, except for
 two game creation tutorials in the Getting Started section.
 
 We strive to write factual content in an accessible and well-written language. To
@@ -54,7 +54,7 @@ Contributing changes
 
 **Pull Requests should use the** `master` **branch by default.** Only make Pull
 Requests against other branches (e.g. `2.1` or `3.0`) if your changes only
-apply to that specific version of Godot.
+apply to that specific version of Pandemonium.
 
 Though less convenient to edit than a wiki, this Git repository is where we
 write the documentation. Having direct access to the source files in a revision
@@ -66,8 +66,8 @@ Editing existing pages
 To edit an existing page, locate its `.rst` source file and open it in your
 favorite text editor. You can then commit the changes, push them to your fork,
 and make a pull request. **Note that the pages in** `classes/` **should not be
-edited here.** They are automatically generated from Godot’s `XML class
-reference ( https://github.com/godotengine/godot/tree/master/doc/classes )`.
+edited here.** They are automatically generated from Pandemonium’s `XML class
+reference ( https://github.com/pandemoniumengine/pandemonium/tree/master/doc/classes )`.
 See `doc_updating_the_class_reference` for details.
 
 See also:
@@ -96,7 +96,7 @@ and to log in to use it. Once logged in, you can propose change like so:
    by a short but clear one-line description, as this is the commit title.
 
 5. On the following screens, click the **Create pull request** button until you
-   see a message like *Username wants to merge 1 commit into godotengine:master
+   see a message like *Username wants to merge 1 commit into pandemoniumengine:master
    from Username:patch-1*.
 
 Another contributor will review your changes and merge them into the docs if
@@ -108,7 +108,7 @@ Adding new pages
 Before adding a new page, please ensure that it fits in the documentation:
 
 1. Look for `existing issues
-   ( https://github.com/godotengine/godot-docs/issues )` or open a new one to see
+   ( https://github.com/pandemoniumengine/pandemonium-docs/issues )` or open a new one to see
    if the page is necessary.
 2. Ensure there isn't a page that already covers the topic.
 3. Read our `doc_content_guidelines`.
@@ -138,8 +138,8 @@ the lack of leading underscore in the reference).
 
 Write your titles like plain sentences, without capitalizing each word:
 
--  **Good:** Understanding signals in Godot
--  **Bad:** Understanding Signals In Godot
+-  **Good:** Understanding signals in Pandemonium
+-  **Bad:** Understanding Signals In Pandemonium
 
 Only propers nouns, projects, people, and node class names should have their
 first letter capitalized.
@@ -185,7 +185,7 @@ License
 This documentation and every page it contains is published under the terms of
 the `Creative Commons Attribution 3.0 license (CC-BY-3.0)
 ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with
-attribution to "Juan Linietsky, Ariel Manzur and the Godot community".
+attribution to "Juan Linietsky, Ariel Manzur and the Pandemonium community".
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.

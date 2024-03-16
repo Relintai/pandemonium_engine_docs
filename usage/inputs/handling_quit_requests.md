@@ -42,7 +42,7 @@ gdscript GDScript
 When developing mobile apps, quitting is not desired unless the user is
 on the main screen, so the behavior can be changed.
 
-It is important to note that by default, Godot apps have the built-in
+It is important to note that by default, Pandemonium apps have the built-in
 behavior to quit when quit is requested, this can be changed:
 
 gdscript GDScript

@@ -6,13 +6,13 @@ Using AnimationTree
 Introduction
 ------------
 
-With `AnimationPlayer`, Godot has one of the most flexible animation systems that you can find in any game engine.
+With `AnimationPlayer`, Pandemonium has one of the most flexible animation systems that you can find in any game engine.
 The ability to animate almost any property in any node or resource, as well as having dedicated transform, bezier,
 function calling, audio and sub-animation tracks, is pretty much unique.
 
 However, the support for blending those animations via `AnimationPlayer` is relatively limited, as only a fixed cross-fade transition time can be set.
 
-`AnimationTree` is a new node introduced in Godot 3.1 to deal with advanced transitions.
+`AnimationTree` is a new node introduced in Pandemonium 3.1 to deal with advanced transitions.
 It supersedes the ancient `AnimationTreePlayer`, while adding a huge amount of features and flexibility.
 
 Creating an AnimationTree
@@ -24,12 +24,12 @@ as usual and then use this extra node to control the playback.
 
 The most common way to use `AnimationTree` is in a 3D scene. When importing your scenes from a 3D exchange format, they will usually come
 with animations built-in (either multiple ones or split from a large one on import).
-At the end, the imported Godot scene will contain the animations in a `AnimationPlayer` node.
+At the end, the imported Pandemonium scene will contain the animations in a `AnimationPlayer` node.
 
-As you rarely use imported scenes directly in Godot (they are either instantiated or inherited from), you can place the `AnimationTree` node in your
+As you rarely use imported scenes directly in Pandemonium (they are either instantiated or inherited from), you can place the `AnimationTree` node in your
 new scene which contains the imported one. Afterwards, point the `AnimationTree` node to the `AnimationPlayer` that was created in the imported scene.
 
-This is how it's done in the `Third Person Shooter demo ( https://github.com/godotengine/tps-demo )`, for reference:
+This is how it's done in the `Third Person Shooter demo ( https://github.com/pandemoniumengine/tps-demo )`, for reference:
 
 ![](img/animtree1.png)
 
@@ -188,7 +188,7 @@ Root motion
 When working with 3D animations, a popular technique is for animators to use the root skeleton bone to give motion to the rest of the skeleton.
 This allows animating characters in a way where steps actually match the floor below. It also allows precise interaction with objects during cinematics.
 
-When playing back the animation in Godot, it is possible to select this bone as the *root motion track*. Doing so will cancel the bone
+When playing back the animation in Pandemonium, it is possible to select this bone as the *root motion track*. Doing so will cancel the bone
 transformation visually (the animation will stay in place).
 
 ![](img/animtree14.png)
@@ -245,7 +245,7 @@ gdscript GDScript
 State machine travel
 --------------------
 
-One of the nice features in Godot's `StateMachine` implementation is the ability to travel. The graph can be instructed to go from the
+One of the nice features in Pandemonium's `StateMachine` implementation is the ability to travel. The graph can be instructed to go from the
 current state to another one, while visiting all the intermediate ones. This is done via the A\* algorithm.
 In the absence of any viable set of transitions starting at the current state and finishing at the destination state, the graph teleports
 to the destination state.

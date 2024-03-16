@@ -1,24 +1,24 @@
 
 
-Custom Godot servers
+Custom Pandemonium servers
 ====================
 
 Introduction
 ------------
 
-Godot implements multi-threading as servers. Servers are daemons which
+Pandemonium implements multi-threading as servers. Servers are daemons which
 manage data, process it, and push the result. Servers implement the
 mediator pattern which interprets resource ID and process data for the
 engine and other modules. In addition, the server claims ownership for
 its RID allocations.
 
-This guide assumes the reader knows how to create C++ modules and Godot
+This guide assumes the reader knows how to create C++ modules and Pandemonium
 data types. If not, refer to `doc_custom_modules_in_c++`.
 
 References
 ~~~~~~~~~~~
 
-- `Why does Godot use servers and RIDs? ( https://godotengine.org/article/why-does-godot-use-servers-and-rids )`
+- `Why does Pandemonium use servers and RIDs? ( https://pandemoniumengine.org/article/why-does-pandemonium-use-servers-and-rids )`
 - `Singleton pattern ( https://en.wikipedia.org/wiki/Singleton_pattern )`
 - `Mediator pattern ( https://en.wikipedia.org/wiki/Mediator_pattern )`
 
@@ -32,7 +32,7 @@ What for?
 - Adding a custom VoIP protocol.
 - And more...
 
-Creating a Godot server
+Creating a Pandemonium server
 -----------------------
 
 At minimum, a server must have a static instance, a sleep timer, a thread loop,
@@ -75,7 +75,7 @@ an initialization state and a cleanup procedure.
 	private:
 		uint64_t counter;
 		RID_Owner<InfiniteBus> bus_owner;
-		// https://github.com/godotengine/godot/blob/3.x/core/rid.h#L196
+		// https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/rid.h#L196
 		Set<RID> buses;
 		void _emit_occupy_room(uint64_t room, RID rid);
 
@@ -203,7 +203,7 @@ an initialization state and a cleanup procedure.
 		return ret;
 	}
 
-	// https://github.com/godotengine/godot/blob/3.x/core/rid.h#L187
+	// https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/rid.h#L187
 	bool HilbertHotel::delete_bus(RID id) {
 		if (bus_owner.owns(id)) {
 			lock();
@@ -273,7 +273,7 @@ an initialization state and a cleanup procedure.
 Custom managed resource data
 ----------------------------
 
-Godot servers implement a mediator pattern. All data types inherit `RID_Data`.
+Pandemonium servers implement a mediator pattern. All data types inherit `RID_Data`.
 `RID_Owner<MyRID_Data )` owns the object when `make_rid` is called. During debug mode only,
 RID_Owner maintains a list of RIDs. In practice, RIDs are similar to writing
 object-oriented C code.
@@ -316,7 +316,7 @@ References
 ~~~~~~~~~~~
 
 - `RID( rid )`
-- `core/rid.h ( https://github.com/godotengine/godot/blob/3.x/core/rid.h )`
+- `core/rid.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/rid.h )`
 
 Registering the class in GDScript
 ---------------------------------
@@ -325,9 +325,9 @@ Servers are allocated in `register_types.cpp`. The constructor sets the static
 instance and `init()` creates the managed thread; `unregister_types.cpp`
 cleans up the server.
 
-Since a Godot server class creates an instance and binds it to a static singleton,
+Since a Pandemonium server class creates an instance and binds it to a static singleton,
 binding the class might not reference the correct instance. Therefore, a dummy
-class must be created to reference the proper Godot server.
+class must be created to reference the proper Pandemonium server.
 
 In `register_server_types()`, `Engine::get_singleton()->add_singleton`
 is used to register the dummy class in GDScript.
@@ -373,7 +373,7 @@ is used to register the dummy class in GDScript.
 	void unregister_hilbert_hotel_types();
 ```
 
-- `servers/register_server_types.cpp ( https://github.com/godotengine/godot/blob/master/servers/register_server_types.cpp )`
+- `servers/register_server_types.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/master/servers/register_server_types.cpp )`
 
 Bind methods
 ~~~~~~~~~~~~
@@ -474,7 +474,7 @@ to execute the desired behavior. The queue will be flushed whenever either
 References:
 ~~~~~~~~~~~
 
-- `core/message_queue.cpp ( https://github.com/godotengine/godot/blob/3.x/core/message_queue.cpp )`
+- `core/message_queue.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/message_queue.cpp )`
 
 Summing it up
 -------------

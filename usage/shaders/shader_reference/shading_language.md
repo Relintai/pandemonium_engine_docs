@@ -6,11 +6,11 @@ Shading language
 Introduction
 ------------
 
-Godot uses a shading language similar to GLSL ES 3.0. Most datatypes and functions are supported,
+Pandemonium uses a shading language similar to GLSL ES 3.0. Most datatypes and functions are supported,
 and the few remaining ones will likely be added over time.
 
-If you are already familiar with GLSL, the `Godot Shader Migration Guide( doc_converting_glsl_to_godot_shaders )`
-is a resource that will help you transition from regular GLSL to Godot's shading language.
+If you are already familiar with GLSL, the `Pandemonium Shader Migration Guide( doc_converting_glsl_to_pandemonium_shaders )`
+is a resource that will help you transition from regular GLSL to Pandemonium's shading language.
 
 Data types
 ----------
@@ -196,7 +196,7 @@ Arrays
 ------
 
 Arrays are containers for multiple variables of a similar type.
-Note: As of Godot 3.2, only local and varying arrays have been implemented.
+Note: As of Pandemonium 3.2, only local and varying arrays have been implemented.
 
 Local arrays
 ~~~~~~~~~~~~
@@ -297,7 +297,7 @@ Global constants are useful when you want to have access to a value throughout y
 Operators
 ---------
 
-Godot shading language supports the same set of operators as GLSL ES 3.0. Below is the list of them in precedence order:
+Pandemonium shading language supports the same set of operators as GLSL ES 3.0. Below is the list of them in precedence order:
 
 +-------------+------------------------+------------------+
 | Precedence  | Class                  | Operator         |
@@ -330,7 +330,7 @@ Godot shading language supports the same set of operators as GLSL ES 3.0. Below 
 Flow control
 ------------
 
-Godot Shading language supports the most common types of flow control:
+Pandemonium Shading language supports the most common types of flow control:
 
 ```
     // if and else
@@ -371,7 +371,7 @@ Godot Shading language supports the most common types of flow control:
 ```
 
 Keep in mind that, in modern GPUs, an infinite loop can exist and can freeze your application (including editor).
-Godot can't protect you from this, so be careful not to make this mistake!
+Pandemonium can't protect you from this, so be careful not to make this mistake!
 
 Warning:
 
@@ -387,7 +387,7 @@ Fragment and light functions can use the **discard** keyword. If used, the fragm
 Functions
 ---------
 
-It is possible to define functions in a Godot shader. They use the following syntax:
+It is possible to define functions in a Pandemonium shader. They use the following syntax:
 
 ```
     ret_type func_name(args) {
@@ -553,7 +553,7 @@ Note:
  The first argument to `set_shader_param` is the name of the uniform in the shader. It
           must match *exactly* to the name of the uniform in the shader or else it will not be recognized.
 
-Any GLSL type except for *void* can be a uniform. Additionally, Godot provides
+Any GLSL type except for *void* can be a uniform. Additionally, Pandemonium provides
 optional shader hints to make the compiler understand for what the uniform is
 used, and how the editor should allow users to modify it.
 
@@ -565,7 +565,7 @@ used, and how the editor should allow users to modify it.
     uniform vec4 other_color : hint_color = vec4(1.0);
 ```
 
-It's important to understand that textures that are supplied as color require hints for proper sRGB->linear conversion (i.e. `hint_albedo`), as Godot's 3D engine renders in linear color space.
+It's important to understand that textures that are supplied as color require hints for proper sRGB->linear conversion (i.e. `hint_albedo`), as Pandemonium's 3D engine renders in linear color space.
 
 Full list of hints below:
 
@@ -590,7 +590,7 @@ Full list of hints below:
 +----------------+------------------------------+------------------------------------------------------+
 
 GDScript uses different variable types than GLSL does, so when passing variables from GDScript
-to shaders, Godot converts the type automatically. Below is a table of the corresponding types:
+to shaders, Pandemonium converts the type automatically. Below is a table of the corresponding types:
 
 +-----------------+-----------+
 | GDScript type   | GLSL type |

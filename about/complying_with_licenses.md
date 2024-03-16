@@ -6,7 +6,7 @@ Complying with licenses
 What are licenses?
 ------------------
 
-Godot is created and distributed under the `MIT License ( https://opensource.org/licenses/MIT )`.
+Pandemonium is created and distributed under the `MIT License ( https://opensource.org/licenses/MIT )`.
 It doesn't have a sole owner either, as every contributor that submits code to
 the project does it under this same license and keeps ownership of the
 contribution.
@@ -33,10 +33,10 @@ text somewhere in your game or derivative project.
 
 This text reads as follows:
 
-    This game uses Godot Engine, available under the following license:
+    This game uses Pandemonium Engine, available under the following license:
 
     Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.
-    Copyright (c) 2014-2022 Godot Engine contributors.
+    Copyright (c) 2014-2022 Pandemonium Engine contributors.
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -48,7 +48,7 @@ Note:
 
 
     Your games do not need to be under the same license. You are free to release
-    your Godot projects under any license and to create commercial games with
+    your Pandemonium projects under any license and to create commercial games with
     the engine.
 
 Inclusion
@@ -91,17 +91,17 @@ If the game includes printed manuals, license text can be included there.
 Link to the license
 ^^^^^^^^^^^^^^^^^^^
 
-The Godot Engine developers consider that a link to `godotengine.org/license`
+The Pandemonium Engine developers consider that a link to `pandemoniumengine.org/license`
 in your game documentation or credits would be an acceptable way to satisfy
 the license terms.
 
 Third-party licenses
 --------------------
 
-Godot itself contains software written by
-`third parties ( https://github.com/godotengine/godot/blob/master/COPYRIGHT.txt )`.
+Pandemonium itself contains software written by
+`third parties ( https://github.com/pandemoniumengine/pandemonium/blob/master/COPYRIGHT.txt )`.
 Most of it does not require license inclusion, but some do.
-Make sure to do it if these are compiled in your Godot export template. If
+Make sure to do it if these are compiled in your Pandemonium export template. If
 you're using the official export templates, all libraries are enabled. This
 means you need to provide attribution for all the libraries listed below.
 
@@ -110,9 +110,9 @@ Here's a list of libraries requiring attribution:
 FreeType
 ^^^^^^^^
 
-Godot uses `FreeType ( https://www.freetype.org/ )` to render fonts. Its license
+Pandemonium uses `FreeType ( https://www.freetype.org/ )` to render fonts. Its license
 requires attribution, so the following text must be included together with the
-Godot license:
+Pandemonium license:
 
     Portions of this software are copyright © ( year> The FreeType Project (www.freetype.org).  All rights reserved.
 
@@ -127,8 +127,8 @@ Note:
 ENet
 ^^^^
 
-Godot includes the `ENet ( http://enet.bespin.org/ )` library to handle
-high-level multiplayer. ENet has similar licensing terms as Godot:
+Pandemonium includes the `ENet ( http://enet.bespin.org/ )` library to handle
+high-level multiplayer. ENet has similar licensing terms as Pandemonium:
 
 
     Copyright (c) 2002-2020 Lee Salzman
@@ -142,7 +142,7 @@ high-level multiplayer. ENet has similar licensing terms as Godot:
 mbed TLS
 ^^^^^^^^
 
-If the project is exported with Godot 3.1 or later, it includes `mbed TLS ( https://tls.mbed.org )`.
+If the project is exported with Pandemonium 3.1 or later, it includes `mbed TLS ( https://tls.mbed.org )`.
 The Apache license needs to be complied to by including the following text:
 
     Copyright The Mbed TLS Contributors
@@ -159,7 +159,7 @@ The Apache license needs to be complied to by including the following text:
     See the License for the specific language governing permissions and
     limitations under the License.
 
-Keep in mind that Godot 2.x and 3.0 use `OpenSSL ( https://www.openssl.org )` 1.x
+Keep in mind that Pandemonium 2.x and 3.0 use `OpenSSL ( https://www.openssl.org )` 1.x
 instead. This old OpenSSL version used the OpenSSL license, not the Apache 2 license
 as the latest version of OpenSSL currently uses (as of April 2022).
 

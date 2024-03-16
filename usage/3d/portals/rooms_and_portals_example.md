@@ -2,7 +2,7 @@ Rooms and Portals example
 =========================
 
 Download this tutorial project:
-`Simple Portals Example ( https://github.com/lawnjelly/godot-demo-projects/tree/portals_simple_demo/3d/portals/room_and_portals_simple_example )`
+`Simple Portals Example ( https://github.com/lawnjelly/pandemonium-demo-projects/tree/portals_simple_demo/3d/portals/room_and_portals_simple_example )`
 .
 
 Introduction

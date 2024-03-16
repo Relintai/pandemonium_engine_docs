@@ -1,12 +1,12 @@
 Using objects in Rooms and Portals
 ==================================
 
-Normally, when you use Godot, all objects that you can see (`VisualInstance( VisualInstance )`\ s) are treated in the same way by the engine. The portal renderer is slightly different, in that it makes a distinction between the different roles objects will have in your game. It makes this distinction to define the `Room( Room )`\ s, and to render and process everything in the most efficient way.
+Normally, when you use Pandemonium, all objects that you can see (`VisualInstance( VisualInstance )`\ s) are treated in the same way by the engine. The portal renderer is slightly different, in that it makes a distinction between the different roles objects will have in your game. It makes this distinction to define the `Room( Room )`\ s, and to render and process everything in the most efficient way.
 
 Portal mode
 ~~~~~~~~~~~
 
-If you look in the inspector, every VisualInstance in Godot is derived from a `CullInstance( CullInstance )`, where you can set a `PortalMode`. This determines how objects will behave in the portal system.
+If you look in the inspector, every VisualInstance in Pandemonium is derived from a `CullInstance( CullInstance )`, where you can set a `PortalMode`. This determines how objects will behave in the portal system.
 
 ![](img/cull_instance.png)
 

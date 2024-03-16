@@ -3,10 +3,10 @@
 2D Navigation Overview
 ======================
 
-Godot provides multiple objects, classes and servers to facilitate grid-based or mesh-based navigation and pathfinding for 2D and 3D games.
-The following section provides a quick overview over all available navigation related objects in Godot for 2D scenes and their primary use.
+Pandemonium provides multiple objects, classes and servers to facilitate grid-based or mesh-based navigation and pathfinding for 2D and 3D games.
+The following section provides a quick overview over all available navigation related objects in Pandemonium for 2D scenes and their primary use.
 
-Godot provides the following objects and classes for 2D navigation:
+Pandemonium provides the following objects and classes for 2D navigation:
 
 - :ref:`Astar2D<class_Astar2D>`
     ``Astar2D`` objects provide an option to find the shortest path in a graph of weighted **points**.
@@ -76,8 +76,8 @@ The 2D navigation meshes are defined with the following resources:
 .. seealso::
 
     You can see how 2D navigation works in action using the
-    `2D Navigation Polygon <https://github.com/godotengine/godot-demo-projects/tree/master/2d/navigation>`__
-    and `Grid-based Navigation with AStarGrid2D <https://github.com/godotengine/godot-demo-projects/tree/master/2d/navigation_astar>`__
+    `2D Navigation Polygon <https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/2d/navigation>`__
+    and `Grid-based Navigation with AStarGrid2D <https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/2d/navigation_astar>`__
     demo projects.
 
 Setup for 2D scene
@@ -157,7 +157,7 @@ NavigationServer2D and a NavigationAgent2D for path movement.
 
  .. code-tab:: csharp C#
 
-    using Godot;
+    using Pandemonium;
 
     public partial class MyCharacterBody2D : CharacterBody2D
     {

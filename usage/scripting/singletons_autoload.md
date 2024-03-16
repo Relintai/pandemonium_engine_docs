@@ -6,7 +6,7 @@ Singletons (AutoLoad)
 Introduction
 ------------
 
-Godot's scene system, while powerful and flexible, has a drawback: there is no
+Pandemonium's scene system, while powerful and flexible, has a drawback: there is no
 method for storing information (e.g. a player's score or inventory) that is
 needed by more than one scene.
 
@@ -38,7 +38,7 @@ Autoloading nodes and scripts can give us these characteristics.
 Note:
 
 
-    Godot won't make an AutoLoad a "true" singleton as per the singleton design
+    Pandemonium won't make an AutoLoad a "true" singleton as per the singleton design
     pattern. It may still be instanced more than once by the user if desired.
 
 Tip:
@@ -116,7 +116,7 @@ method (see `doc_scene_tree` for details). However, if you need more
 complex behavior when changing scenes, this method provides more functionality.
 
 To begin, download the template from here:
-:download:`autoload.zip <files/autoload.zip )` and open it in Godot.
+:download:`autoload.zip <files/autoload.zip )` and open it in Pandemonium.
 
 The project contains two scenes: `Scene1.tscn` and `Scene2.tscn`. Each
 scene contains a label displaying the scene name and a button with its

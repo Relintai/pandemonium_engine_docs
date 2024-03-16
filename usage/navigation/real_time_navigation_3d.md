@@ -8,7 +8,7 @@ Introduction
 
 Pathfinding in a 3D environment is crucial for many games, it's commonly
 how non directly controlled characters or entities find their way around
-an environment. Godot provides several nodes for this purpose:
+an environment. Pandemonium provides several nodes for this purpose:
 
 -  `Navigation( Navigation )` (deprecated)
 -  `NavigationMeshInstance( NavigationMeshInstance )`
@@ -97,7 +97,7 @@ Generating a path (old method)
 ------------------------------
 
 This is the old method for generating a navigation path, it will be
-removed in Godot 4. First, add a navigation node to the scene, then
+removed in Pandemonium 4. First, add a navigation node to the scene, then
 add a navigation mesh instance as it's child and set up a navigation
 mesh. 
 

@@ -3,7 +3,7 @@
 Cross-language scripting
 ========================
 
-Godot allows you to mix and match scripting languages to suit your needs.
+Pandemonium allows you to mix and match scripting languages to suit your needs.
 This means a single project can define nodes in both C# and GDScript.
 This page will go through the possible interactions between two nodes written
 in different languages.
@@ -56,7 +56,7 @@ Warning:
 
 
     When creating `.cs` scripts, you should always keep in mind that the class
-    Godot will use is the one named like the `.cs` file itself. If that class
+    Pandemonium will use is the one named like the `.cs` file itself. If that class
     does not exist in the file, you'll see the following error:
     `Invalid call. Nonexistent function `new` in base`.
 
@@ -73,7 +73,7 @@ be instantiated with `GDScript.New()`.
 
 ```
     GDScript MyGDScript = (GDScript) GD.Load("res://path_to_gd_file.gd");
-    Object myGDScriptNode = (Godot.Object) MyGDScript.New(); // This is a Godot.Object
+    Object myGDScriptNode = (Pandemonium.Object) MyGDScript.New(); // This is a Pandemonium.Object
 ```
 
 Here we are using an `Object`, but you can use type conversion like
@@ -179,5 +179,5 @@ Inheritance
 A GDScript file may not inherit from a C# script. Likewise, a C# script may not
 inherit from a GDScript file. Due to how complex this would be to implement,
 this limitation is unlikely to be lifted in the future. See
-`this GitHub issue ( https://github.com/godotengine/godot/issues/38352 )`
+`this GitHub issue ( https://github.com/pandemoniumengine/pandemonium/issues/38352 )`
 for more information.

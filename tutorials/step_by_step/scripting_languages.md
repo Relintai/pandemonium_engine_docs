@@ -7,7 +7,7 @@ Scripting languages
 ===================
 
 This lesson will give you an overview of the available scripting languages in
-Godot. You will learn the pros and cons of each option. In the next part, you
+Pandemonium. You will learn the pros and cons of each option. In the next part, you
 will write your first script using GDScript.
 
 **Scripts attach to a node and extend its behavior**. This means that scripts
@@ -15,7 +15,7 @@ inherit all functions and properties of the node they attach to.
 
 For example, take a game where a Camera2D node follows a ship. The Camera2D node
 follows its parent by default. Imagine you want the camera to shake when the player
-takes damage. As this feature is not built into Godot, you would attach a script
+takes damage. As this feature is not built into Pandemonium, you would attach a script
 to the Camera2D node and code the shake.
 
 ![](img/scripting_camera_shake.gif)
@@ -23,7 +23,7 @@ to the Camera2D node and code the shake.
 Available scripting languages
 -----------------------------
 
-Godot offers **five gameplay programming languages**: GDScript, C#,
+Pandemonium offers **five gameplay programming languages**: GDScript, C#,
 VisualScript, and, via its GDNative technology, C and C++. There are more
 `community-supported languages ( doc_what_is_gdnative_third_party_bindings )`,
 but these are the official ones.
@@ -40,21 +40,21 @@ developers.
 Warning:
 
 
-    `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
-    As a result, creating new projects using visual scripting in Godot is not recommended.
-    Future Godot 4.x releases may have VisualScript reimplemented as an extension.
+    `Pandemonium 4.0 will remove VisualScript from core entirely. ( https://pandemoniumengine.org/article/pandemonium-4-will-discontinue-visual-scripting )`
+    As a result, creating new projects using visual scripting in Pandemonium is not recommended.
+    Future Pandemonium 4.x releases may have VisualScript reimplemented as an extension.
 
-    While Godot 3.x will keep VisualScript supported, we recommend
+    While Pandemonium 3.x will keep VisualScript supported, we recommend
     `trying out GDScript <toc-learn-scripting-gdscript )` instead,
-    especially if you intend to migrate your project to Godot 4.
+    especially if you intend to migrate your project to Pandemonium 4.
 
 Which language should I use?
 ----------------------------
 
 If you're a beginner, we recommend to **start with GDScript**. We made this
-language specifically for Godot and the needs of game developers. It has a
+language specifically for Pandemonium and the needs of game developers. It has a
 lightweight and straightforward syntax and provides the tightest integration
-with Godot.
+with Pandemonium.
 
 ![](img/scripting_gdscript.png)
 
@@ -72,7 +72,7 @@ GDScript
 `GDScript( doc_gdscript )` is an
 `object-oriented ( https://en.wikipedia.org/wiki/Object-oriented_programming )` and
 `imperative ( https://en.wikipedia.org/wiki/Imperative_programming )`
-programming language built for Godot. It's made by and for game developers
+programming language built for Pandemonium. It's made by and for game developers
 to save you time coding games. Its features include:
 
 - A simple syntax that leads to short files.
@@ -100,7 +100,7 @@ Note:
 
     Why don't we use Python or Lua directly?
 
-    Years ago, Godot used Python, then Lua. Both languages' integration took a
+    Years ago, Pandemonium used Python, then Lua. Both languages' integration took a
     lot of work and had severe limitations. For example, threading support was a
     big challenge with Python.
 
@@ -124,12 +124,12 @@ C# offers a good tradeoff between performance and ease of use, although you
 should be aware of its garbage collector.
 
 Note:
- You must use the Mono edition of the Godot editor to script in C#. You
-          can download it on the Godot website's `download
-          ( https://godotengine.org/download/ )` page.
+ You must use the Mono edition of the Pandemonium editor to script in C#. You
+          can download it on the Pandemonium website's `download
+          ( https://pandemoniumengine.org/download/ )` page.
 
-Since Godot uses the `Mono ( https://mono-project.com )` .NET runtime, in theory,
-you can use any third-party .NET library or framework in Godot, as well as any
+Since Pandemonium uses the `Mono ( https://mono-project.com )` .NET runtime, in theory,
+you can use any third-party .NET library or framework in Pandemonium, as well as any
 Common Language Infrastructure-compliant programming language, such as F#, Boo,
 or ClojureCLR. However, C# is the only officially supported .NET option.
 
@@ -146,13 +146,13 @@ VisualScript
 Warning:
 
 
-    `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
-    As a result, creating new projects using visual scripting in Godot is not recommended.
-    Future Godot 4.x releases may have VisualScript reimplemented as an extension.
+    `Pandemonium 4.0 will remove VisualScript from core entirely. ( https://pandemoniumengine.org/article/pandemonium-4-will-discontinue-visual-scripting )`
+    As a result, creating new projects using visual scripting in Pandemonium is not recommended.
+    Future Pandemonium 4.x releases may have VisualScript reimplemented as an extension.
 
-    While Godot 3.x will keep VisualScript supported, we recommend
+    While Pandemonium 3.x will keep VisualScript supported, we recommend
     `trying out GDScript <toc-learn-scripting-gdscript )` instead,
-    especially if you intend to migrate your project to Godot 4.
+    especially if you intend to migrate your project to Pandemonium 4.
 
 `Visual Scripting( doc_what_is_visual_script )` is a graph-based visual
 programming language where you connect blocks. It can be a great tool for
@@ -178,7 +178,7 @@ C and C++ via GDNative
 ~~~~~~~~~~~~~~~~~~~~~~
 
 GDNative allows you to write game code in C or C++ without needing to recompile
-or even restart Godot.
+or even restart Pandemonium.
 
 ![](img/scripting_cpp.png)
 
@@ -190,7 +190,7 @@ throughout an entire game, as you can write other parts in GDScript, C#, or
 VisualScript.
 
 When working with GDNative, the available types, functions, and properties
-closely resemble Godot's actual C++ API.
+closely resemble Pandemonium's actual C++ API.
 
 Summary
 -------
@@ -198,7 +198,7 @@ Summary
 Scripts are files containing code that you attach to a node to extend its
 functionality.
 
-Godot supports five official scripting languages, offering you flexibility
+Pandemonium supports five official scripting languages, offering you flexibility
 between performance and ease of use.
 
 You can mix languages, for instance, to implement demanding algorithms with C or

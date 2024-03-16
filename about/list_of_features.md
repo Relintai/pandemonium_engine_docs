@@ -3,13 +3,13 @@
 List of features
 ================
 
-This page aims to list all features currently supported by Godot.
+This page aims to list all features currently supported by Pandemonium.
 
 Note:
 
 
     This page lists features supported by the current stable version of
-    Godot (3.5). `More features ( https://docs.godotengine.org/en/latest/about/list_of_features.html )`
+    Pandemonium (3.5). `More features ( https://docs.pandemoniumengine.org/en/latest/about/list_of_features.html )`
     are available in the latest development version (4.0).
 
 Features
@@ -37,7 +37,7 @@ Platforms
 - `Consoles ( doc_consoles )`.
 - `Headless Linux and macOS servers ( doc_exporting_for_dedicated_servers )`.
 
-Godot aims to be as platform-independent as possible and can be ported to new
+Pandemonium aims to be as platform-independent as possible and can be ported to new
 platforms with relative ease.
 
 Editor
@@ -286,7 +286,7 @@ Note:
 
 
     Most of the effects listed above can be adjusted for better performance or
-    to further improve quality. This can be helpful when using Godot for
+    to further improve quality. This can be helpful when using Pandemonium for
     offline rendering.
 
 3D tools
@@ -384,13 +384,13 @@ Scripting
 Warning:
 
 
-    `Godot 4.0 will remove VisualScript from core entirely. ( https://godotengine.org/article/godot-4-will-discontinue-visual-scripting )`
-    As a result, creating new projects using visual scripting in Godot is not recommended.
-    Future Godot 4.x releases may have VisualScript reimplemented as an extension.
+    `Pandemonium 4.0 will remove VisualScript from core entirely. ( https://pandemoniumengine.org/article/pandemonium-4-will-discontinue-visual-scripting )`
+    As a result, creating new projects using visual scripting in Pandemonium is not recommended.
+    Future Pandemonium 4.x releases may have VisualScript reimplemented as an extension.
 
-    While Godot 3.x will keep VisualScript supported, we recommend
+    While Pandemonium 3.x will keep VisualScript supported, we recommend
     `trying out GDScript ( toc-learn-scripting-gdscript )` instead,
-    especially if you intend to migrate your project to Godot 4.
+    especially if you intend to migrate your project to Pandemonium 4.
 
 Audio
 ^^^^^
@@ -433,7 +433,7 @@ Import
 - *3D scenes:*
 
    - glTF 2.0 *(recommended)*.
-   - `ESCN ( https://github.com/godotengine/godot-blender-exporter )`
+   - `ESCN ( https://github.com/pandemoniumengine/pandemonium-blender-exporter )`
      (direct export from Blender).
    - FBX (experimental, static meshes only).
    - Collada (.dae).
@@ -499,7 +499,7 @@ Internationalization
   or `gettext ( doc_localization_using_gettext )`.
 - Use localized strings in your project automatically in GUI elements or by
   using the `tr()` function.
-- Support for right-to-left typesetting and text shaping planned in Godot 4.0.
+- Support for right-to-left typesetting and text shaping planned in Pandemonium 4.0.
 
 Windowing and OS integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -544,7 +544,7 @@ XR support (AR and VR)
 GUI system
 ^^^^^^^^^^
 
-Godot's GUI is built using the same Control nodes used to make games in Godot.
+Pandemonium's GUI is built using the same Control nodes used to make games in Pandemonium.
 The editor UI can easily be extended in many ways using add-ons.
 
 **Nodes:**
@@ -587,7 +587,7 @@ The editor UI can easily be extended in many ways using add-ons.
 
 - Texture-based theming using `StyleBoxTexture`.
 
-Godot's small distribution size can make it a suitable alternative to frameworks
+Pandemonium's small distribution size can make it a suitable alternative to frameworks
 like Electron or Qt.
 
 Animation
@@ -615,7 +615,7 @@ File formats
 - Read and write `JSON` files.
 - Read and write INI-style configuration files using `ConfigFile`.
 
-   - Can (de)serialize any Godot datatype, including Vector2/3, Color, ...
+   - Can (de)serialize any Pandemonium datatype, including Vector2/3, Color, ...
 
 - Read XML files using `XMLParser`.
 - Pack game data into a PCK file (custom format optimized for fast seeking),
@@ -631,7 +631,7 @@ Miscellaneous
 - `Command line interface ( doc_command_line_tutorial )` for automation.
 
    - Export and deploy projects using continuous integration platforms.
-   - `Shell completion scripts ( https://github.com/godotengine/godot/tree/master/misc/dist/shell )`
+   - `Shell completion scripts ( https://github.com/pandemoniumengine/pandemonium/tree/master/misc/dist/shell )`
      are available for Bash, zsh and fish.
 
 - Support for `C++ modules ( doc_custom_modules_in_c++ )` statically linked
@@ -641,9 +641,9 @@ Miscellaneous
    - Can be `compiled ( doc_introduction_to_the_buildsystem )` using GCC,
      Clang and MSVC. MinGW is also supported.
    - Friendly towards packagers. In most cases, system libraries can be used
-     instead of the ones provided by Godot. The build system doesn't download anything.
+     instead of the ones provided by Pandemonium. The build system doesn't download anything.
      Builds can be fully reproducible.
-   - Godot 4.0 will be written in C++17.
+   - Pandemonium 4.0 will be written in C++17.
 
 - Licensed under the permissive MIT license.
 
@@ -652,6 +652,6 @@ Miscellaneous
 See also:
 
 
-    The `Godot proposals repository ( https://github.com/godotengine/godot-proposals )`
+    The `Pandemonium proposals repository ( https://github.com/pandemoniumengine/pandemonium-proposals )`
     lists features that have been requested by the community and may be implemented
-    in future Godot releases.
+    in future Pandemonium releases.

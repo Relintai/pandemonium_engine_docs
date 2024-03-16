@@ -1,4 +1,4 @@
-Godot file formats
+Pandemonium file formats
 ==================
 
 .. toctree::

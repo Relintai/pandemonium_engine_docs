@@ -1,10 +1,10 @@
 # Prop2Ds Module
 
-This is a c++ engine module for the Godot Engine.
+This is a c++ engine module for the Pandemonium Engine.
 
 It gives you props, and editor utilities to convert scenes to props.
 
-It supports both godot 3.2 and 4.0 (master [last tested commit](https://github.com/godotengine/godot/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)). Note that since 4.0 is still in very early stages I only
+It supports both pandemonium 3.2 and 4.0 (master [last tested commit](https://github.com/pandemoniumengine/pandemonium/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)). Note that since 4.0 is still in very early stages I only
 check whether it works from time to time.
 
 # Pre-built binaries
@@ -71,17 +71,17 @@ or look into Project->Tools.
 
 1. Get the source code for the engine.
 
-If you want Godot 3.2:
-```git clone -b 3.2 https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 3.2:
+```git clone -b 3.2 https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-If you want Godot 4.0:
-```git clone https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 4.0:
+```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
 
-2. Go into Godot's modules directory.
+2. Go into Pandemonium's modules directory.
 
 ```
-cd ./godot/modules/
+cd ./pandemonium/modules/
 ```
 
 3. Clone this repository
@@ -90,6 +90,6 @@ cd ./godot/modules/
 git clone https://github.com/Relintai/props props
 ```
 
-4. Build Godot. [Tutorial](https://docs.godotengine.org/en/latest/development/compiling/index.html)
+4. Build Pandemonium. [Tutorial](https://docs.pandemoniumengine.org/en/latest/development/compiling/index.html)
 
 

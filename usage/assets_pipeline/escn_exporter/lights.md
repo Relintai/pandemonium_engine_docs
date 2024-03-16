@@ -3,7 +3,7 @@ Lights
 Warning:
 
     By default, lamps in Blender have shadows enabled. This can cause
-    performance issues in Godot.
+    performance issues in Pandemonium.
 
 Warning:
 
@@ -17,12 +17,12 @@ properties:
 
 There are some things to note:
 
- - In Blender, a light casts light all the way to infinity. In Godot, it is
+ - In Blender, a light casts light all the way to infinity. In Pandemonium, it is
    clamped by the attenuation distance. To most closely match between the
-   viewport and Godot, enable the "Sphere" checkbox. (Highlighted green)
- - Light attenuation models differ between Godot and Blender. The exporter
+   viewport and Pandemonium, enable the "Sphere" checkbox. (Highlighted green)
+ - Light attenuation models differ between Pandemonium and Blender. The exporter
    attempts to make them match, but it isn't always very good.
- - Spotlight angular attenuation models also differ between Godot and Blender.
+ - Spotlight angular attenuation models also differ between Pandemonium and Blender.
    The exporter attempts to make them similar, but it doesn't always look the
    same.
  - There is no difference between buffer shadow and ray shadow in the export.

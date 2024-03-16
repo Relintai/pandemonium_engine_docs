@@ -31,9 +31,9 @@ SCons and yasm using the following command:
               sudo port install scons yasm
 ```
 
-To get the Godot source code for compiling, see `doc_getting_source`.
+To get the Pandemonium source code for compiling, see `doc_getting_source`.
 
-For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
+For a general overview of SCons usage for Pandemonium, see `doc_introduction_to_the_buildsystem`.
 
 ## Compiling
 
@@ -54,13 +54,13 @@ To compile for Apple Silicon (ARM64) powered Macs, use:
 To support both architectures in a single "Universal 2" binary, run the above two commands and then use `lipo` to bundle them together:
 
 ```
-    lipo -create bin/godot.osx.tools.x86_64 bin/godot.osx.tools.arm64 -output bin/godot.osx.tools.universal
+    lipo -create bin/pandemonium.osx.tools.x86_64 bin/pandemonium.osx.tools.arm64 -output bin/pandemonium.osx.tools.universal
 ```
 
 If all goes well, the resulting binary executable will be placed in the `bin/` subdirectory. This executable 
 file contains the whole engine and runs without any dependencies. Executing it will bring up the project manager.
 
-If you want to use separate editor settings for your own Godot builds and official releases, you can enable 
+If you want to use separate editor settings for your own Pandemonium builds and official releases, you can enable 
 `doc_data_paths_self_contained_mode` by creating a file called `._sc_` or `sc_` in the `bin/` folder.
 
 To create an `.app` bundle like in the official builds, you need to use the
@@ -68,10 +68,10 @@ template located in `misc/dist/osx_tools.app`. Typically, for an optimized
 editor binary built with `target=release_debug`:
 
 ```
-    cp -r misc/dist/osx_tools.app ./Godot.app
-    mkdir -p Godot.app/Contents/MacOS
-    cp bin/godot.osx.opt.tools.universal Godot.app/Contents/MacOS/Godot
-    chmod +x Godot.app/Contents/MacOS/Godot
+    cp -r misc/dist/osx_tools.app ./Pandemonium.app
+    mkdir -p Pandemonium.app/Contents/MacOS
+    cp bin/pandemonium.osx.opt.tools.universal Pandemonium.app/Contents/MacOS/Pandemonium
+    chmod +x Pandemonium.app/Contents/MacOS/Pandemonium
 ```
 
 ## Compiling a headless/server build
@@ -125,27 +125,27 @@ To support both architectures in a single "Universal 2" binary, run the above
 two commands blocks and then use `lipo` to bundle them together:
 
 ```
-    lipo -create bin/godot.osx.opt.x86_64 bin/godot.osx.opt.arm64 -output bin/godot.osx.opt.universal
-    lipo -create bin/godot.osx.opt.debug.x86_64 bin/godot.osx.opt.debug.arm64 -output bin/godot.osx.opt.debug.universal
+    lipo -create bin/pandemonium.osx.opt.x86_64 bin/pandemonium.osx.opt.arm64 -output bin/pandemonium.osx.opt.universal
+    lipo -create bin/pandemonium.osx.opt.debug.x86_64 bin/pandemonium.osx.opt.debug.arm64 -output bin/pandemonium.osx.opt.debug.universal
 ```
 
 To create an `.app` bundle like in the official builds, you need to use the
 template located in `misc/dist/osx_template.app`. The release and debug
 builds should be placed in `osx_template.app/Contents/MacOS` with the names
-`godot_osx_release.64` and `godot_osx_debug.64` respectively. You can do so
+`pandemonium_osx_release.64` and `pandemonium_osx_debug.64` respectively. You can do so
 with the following commands (assuming a universal build, otherwise replace the
 `.universal` extension with the one of your arch-specific binaries):
 
 ```
     cp -r misc/dist/osx_template.app .
     mkdir -p osx_template.app/Contents/MacOS
-    cp bin/godot.osx.opt.universal osx_template.app/Contents/MacOS/godot_osx_release.64
-    cp bin/godot.osx.opt.debug.universal osx_template.app/Contents/MacOS/godot_osx_debug.64
-    chmod +x osx_template.app/Contents/MacOS/godot_osx*
+    cp bin/pandemonium.osx.opt.universal osx_template.app/Contents/MacOS/pandemonium_osx_release.64
+    cp bin/pandemonium.osx.opt.debug.universal osx_template.app/Contents/MacOS/pandemonium_osx_debug.64
+    chmod +x osx_template.app/Contents/MacOS/pandemonium_osx*
 ```
 
 You can then zip the `osx_template.app` folder to reproduce the `osx.zip`
-template from the official Godot distribution:
+template from the official Pandemonium distribution:
 
 ```
     zip -q -9 -r osx.zip osx_template.app

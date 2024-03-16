@@ -11,14 +11,14 @@ Resources are primary containers. When load is called on the same file
 path again, the previous loaded Resource will be referenced. Naturally,
 loaded resources must be stateless.
 
-This guide assumes the reader knows how to create C++ modules and Godot
+This guide assumes the reader knows how to create C++ modules and Pandemonium
 data types. If not, refer to this guide `doc_custom_modules_in_c++`.
 
 References
 ~~~~~~~~~~
 
 - `ResourceLoader( resourceloader )`
-- `core/io/resource_loader.cpp ( https://github.com/godotengine/godot/blob/master/core/io/resource_loader.cpp )`
+- `core/io/resource_loader.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/io/resource_loader.cpp )`
 
 What for?
 ---------
@@ -38,7 +38,7 @@ ImageFormatLoader should be used to load images.
 References
 ~~~~~~~~~~
 
-- `core/io/image_loader.h ( https://github.com/godotengine/godot/blob/master/core/io/image_loader.h )`
+- `core/io/image_loader.h ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/io/image_loader.h )`
 
 
 Creating a ResourceFormatLoader
@@ -47,7 +47,7 @@ Creating a ResourceFormatLoader
 Each file format consist of a data container and a `ResourceFormatLoader`.
 
 ResourceFormatLoaders are usually simple classes which return all the
-necessary metadata for supporting new extensions in Godot. The
+necessary metadata for supporting new extensions in Pandemonium. The
 class must return the format name and the extension string.
 
 In addition, ResourceFormatLoaders must convert file paths into
@@ -157,8 +157,8 @@ If you'd like to be able to edit and save a resource, you can implement a
 Creating custom data types
 --------------------------
 
-Godot may not have a proper substitute within its `doc_core_types`
-or managed resources. Godot needs a new registered data type to
+Pandemonium may not have a proper substitute within its `doc_core_types`
+or managed resources. Pandemonium needs a new registered data type to
 understand additional binary formats such as machine learning models.
 
 Here is an example of creating a custom datatype:
@@ -262,7 +262,7 @@ Considerations
 ~~~~~~~~~~~~~~
 
 Some libraries may not define certain common routines such as IO handling.
-Therefore, Godot call translations are required.
+Therefore, Pandemonium call translations are required.
 
 For example, here is the code for translating `FileAccess`
 calls into `std::istream`.
@@ -273,10 +273,10 @@ calls into `std::istream`.
     #include <istream>
     #include <streambuf>
 
-    class GodotFileInStreamBuf : public std::streambuf {
+    class PandemoniumFileInStreamBuf : public std::streambuf {
 
     public:
-    	GodotFileInStreamBuf(FileAccess *fa) {
+    	PandemoniumFileInStreamBuf(FileAccess *fa) {
     		_file = fa;
     	}
     	int underflow() {
@@ -303,12 +303,12 @@ References
 
 - `istream ( http://www.cplusplus.com/reference/istream/istream/ )`
 - `streambuf ( http://www.cplusplus.com/reference/streambuf/streambuf/?kw=streambuf )`
-- `core/io/fileaccess.h ( https://github.com/godotengine/godot/blob/master/core/os/file_access.h )`
+- `core/io/fileaccess.h ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/os/file_access.h )`
 
 Registering the new file format
 -------------------------------
 
-Godot registers `ResourcesFormatLoader` with a `ResourceLoader`
+Pandemonium registers `ResourcesFormatLoader` with a `ResourceLoader`
 handler. The handler selects the proper loader automatically
 when `load` is called.
 
@@ -354,7 +354,7 @@ when `load` is called.
 References
 ~~~~~~~~~~
 
-- `core/io/resource_loader.cpp ( https://github.com/godotengine/godot/blob/master/core/io/resource_loader.cpp )`
+- `core/io/resource_loader.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/io/resource_loader.cpp )`
 
 Loading it on GDScript
 ----------------------
@@ -368,7 +368,7 @@ project's root folder:
       "demo": [
         "welcome",
         "to",
-        "godot",
+        "pandemonium",
         "resource",
         "loaders"
       ]

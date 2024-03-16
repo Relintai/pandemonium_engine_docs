@@ -7,12 +7,12 @@ Introduction
 ------------
 
 In a project, there may be times when text needs to be created as
-part of a 3D scene and not just in the HUD. Godot provides two
+part of a 3D scene and not just in the HUD. Pandemonium provides two
 methods to do this. The Label3D node and the text mesh for a
 MeshInstance node.
 
 This page does **not** cover how to display a GUI scene in a 3D
-environment. For information on how to do that see `this ( https://github.com/godotengine/godot-demo-projects/tree/master/viewport/2d_in_3d )`
+environment. For information on how to do that see `this ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport/2d_in_3d )`
 demo project.
 
 Label3D

@@ -7,13 +7,13 @@ Introduction
 ------------
 
 It is often desired to use SSL connections for communications to avoid
-"man in the middle" attacks. Godot has a connection wrapper,
+"man in the middle" attacks. Pandemonium has a connection wrapper,
 `StreamPeerSSL`,
 which can take a regular connection and add security around it. The
 `HTTPClient`
 class also supports HTTPS by using this same wrapper.
 
-Godot includes SSL certificates from Mozilla, but you can provide your own
+Pandemonium includes SSL certificates from Mozilla, but you can provide your own
 with a .crt file in the project settings:
 
 ![](img/ssl_certs.png)

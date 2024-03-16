@@ -3,15 +3,15 @@
 Localization using gettext
 ==========================
 
-In addition to `doc_importing_translations` in CSV format, Godot
+In addition to `doc_importing_translations` in CSV format, Pandemonium
 also supports loading translation files written in the GNU gettext
-format (text-based `.po` and compiled `.mo` since Godot 3.5).
+format (text-based `.po` and compiled `.mo` since Pandemonium 3.5).
 
 Note:
  For an introduction to gettext, check out
           `A Quick Gettext Tutorial ( https://www.labri.fr/perso/fleury/posts/programming/a-quick-gettext-tutorial.html )`.
           It's written with C projects in mind, but much of the advice
-          also applies to Godot (with the exception of `xgettext`).
+          also applies to Pandemonium (with the exception of `xgettext`).
 
 Advantages
 ----------
@@ -32,13 +32,13 @@ Disadvantages
 - gettext is a more complex format than CSV and can be harder to grasp for
   people new to software localization.
 - People who maintain localization files will have to install gettext tools
-  on their system. However, as Godot supports using text-based message files
+  on their system. However, as Pandemonium supports using text-based message files
   (`.po`), translators can test their work without having to install gettext tools.
 
 Caveats
 -------
 
-- As Godot uses its own PO file parser behind the scenes
+- As Pandemonium uses its own PO file parser behind the scenes
   (which is more limited than the reference GNU gettext implementation),
   some features such as pluralization aren't supported.
 
@@ -63,7 +63,7 @@ install them.
 Creating the PO template (POT) manually
 ---------------------------------------
 
-Godot currently doesn't support extracting source strings using `xgettext`,
+Pandemonium currently doesn't support extracting source strings using `xgettext`,
 so the `.pot` file must be created manually. This file can be placed anywhere
 in the project directory, but it's recommended to keep it in a subdirectory, as
 each locale will be defined in its own file.
@@ -90,13 +90,13 @@ Localization will be done in the generated `.po` files instead.
 Creating the PO template (POT) using pybabel
 --------------------------------------------
 
-The Python tool pybabel has support for Godot and can be used to automatically
+The Python tool pybabel has support for Pandemonium and can be used to automatically
 create and update the POT file from your scene files and scripts.
 
-After installing `babel` and `babel-godot`, for example using pip:
+After installing `babel` and `babel-pandemonium`, for example using pip:
 
 ```
-    pip3 install babel babel-godot
+    pip3 install babel babel-pandemonium
 ```
 
 Write a mapping file (for example `babelrc`) which will indicate which files
@@ -107,14 +107,14 @@ generally sufficient):
     [python: **.gd]
     encoding = utf-8
 
-    [godot_scene: **.tscn]
+    [pandemonium_scene: **.tscn]
     encoding = utf-8
 ```
 
 You can then run pybabel like so:
 
 ```
-    pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr -o godot-l10n.pot .
+    pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr -o pandemonium-l10n.pot .
 ```
 
 Use the `-k` option to specify what needs to be extracted. In this case,
@@ -139,7 +139,7 @@ as the PO template.
 Alternatively, you can do that graphically using Poedit, or by uploading the
 POT file to your web platform of choice.
 
-Loading a messages file in Godot
+Loading a messages file in Pandemonium
 --------------------------------
 
 To register a messages file as a translation in a project, open the
@@ -150,7 +150,7 @@ in the file dialog. The locale will be inferred from the
 
 Note:
  See `doc_internationalizing_games` for more information on
-          importing and testing translations in Godot.
+          importing and testing translations in Pandemonium.
 
 Updating message files to follow the PO template
 ------------------------------------------------
@@ -176,7 +176,7 @@ Note:
     denotes that the translation should be updated to match the new source string,
     as the translation will most likely be inaccurate until it's updated.
 
-    Strings with "fuzzy" comments will **not** be read by Godot until the
+    Strings with "fuzzy" comments will **not** be read by Pandemonium until the
     translation is updated and the "fuzzy" comment is removed.
 
 Checking the validity of a PO file or template
@@ -207,7 +207,7 @@ You can generate a MO file with the command below:
 ```
 
 If the PO file is valid, this command will create a `fr.mo` file besides
-the PO file. This MO file can then be loaded in Godot as described below.
+the PO file. This MO file can then be loaded in Pandemonium as described below.
 
 The original PO file should be kept in version control so you can update
 your translation in the future. In case you lose the original PO file and

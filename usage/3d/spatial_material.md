@@ -39,7 +39,7 @@ Spatial materials have many flags determining the general usage of a material.
 Transparent
 ~~~~~~~~~~~
 
-In Godot, materials are not transparent unless specifically configured to be.
+In Pandemonium, materials are not transparent unless specifically configured to be.
 The main reason behind this is that transparent materials are rendered
 using a different technique (sorted from back to front and rendered in order).
 
@@ -47,7 +47,7 @@ This technique is less efficient (many state changes happen) and makes
 the materials unusable with many mid- and post-processing effects
 (such as SSAO, SSR, etc.) that require perfectly opaque geometry.
 
-For this reason, materials in Godot are assumed opaque unless
+For this reason, materials in Pandemonium are assumed opaque unless
 specified otherwise. The main settings that enable transparency are:
 
 * Transparent flag (this one)
@@ -74,7 +74,7 @@ pure, unlit color.
 Vertex Lighting
 ~~~~~~~~~~~~~~~
 
-Godot has a more or less uniform cost per pixel thanks to depth pre-pass. All
+Pandemonium has a more or less uniform cost per pixel thanks to depth pre-pass. All
 lighting calculations are made by running the lighting shader on every pixel.
 
 As these calculations are costly, performance can be brought down considerably
@@ -231,7 +231,7 @@ Note:
 
     By default, Blender has backface culling disabled on materials and will
     export materials to match how they render in Blender. This means that
-    materials in Godot will have their cull mode set to **Disabled**. This can
+    materials in Pandemonium will have their cull mode set to **Disabled**. This can
     decrease performance since backfaces will be rendered, even when they are
     being culled by other faces. To resolve this, enable **Backface Culling** in
     Blender's Materials tab, then export the scene to glTF again.
@@ -312,7 +312,7 @@ Material colors, maps and channels
 ----------------------------------
 
 Besides the parameters, what defines materials themselves are the colors,
-textures, and channels. Godot supports an extensive list of them. They are
+textures, and channels. Pandemonium supports an extensive list of them. They are
 described in detail below:
 
 Albedo
@@ -320,7 +320,7 @@ Albedo
 
 *Albedo* is the base color for the material, on which all the other settings
 operate. When set to *Unshaded*, this is the only color that is visible. In
-previous versions of Godot, this channel was named *Diffuse*. The change
+previous versions of Pandemonium, this channel was named *Diffuse*. The change
 of name mainly happened because, in PBR (Physically Based Rendering), this color affects many
 more calculations than just the diffuse lighting path.
 
@@ -333,7 +333,7 @@ make sure to either enable transparency or *alpha scissoring* for it to work.
 Metallic
 ~~~~~~~~
 
-Godot uses a metallic model over competing models due to its simplicity.
+Pandemonium uses a metallic model over competing models due to its simplicity.
 This parameter defines how reflective the material is. The more reflective, the
 less diffuse/ambient light affects the material and the more light is reflected.
 This model is called "energy-conserving".
@@ -371,7 +371,7 @@ Normal map
 ~~~~~~~~~~
 
 Normal mapping allows you to set a texture that represents finer shape detail.
-This does not modify geometry, only the incident angle for light. In Godot,
+This does not modify geometry, only the incident angle for light. In Pandemonium,
 only the red and green channels of normal maps are used for better compression
 and wider compatibility.
 
@@ -380,7 +380,7 @@ and wider compatibility.
 Note:
 
 
-  Godot requires the normal map to use the X+, Y+ and Z+ coordinates, this is
+  Pandemonium requires the normal map to use the X+, Y+ and Z+ coordinates, this is
   known as OpenGL style. If you've imported a material made to be used with
   another engine it may be DirectX style, in which case the normal map needs to
   be converted so its Y axis is flipped.
@@ -392,7 +392,7 @@ Note:
 Rim
 ~~~
 
-Some fabrics have small micro-fur that causes light to scatter around it. Godot
+Some fabrics have small micro-fur that causes light to scatter around it. Pandemonium
 emulates this with the *Rim* parameter. Unlike other rim lighting implementations,
 which just use the emission channel, this one actually takes light into account
 (no light means no rim). This makes the effect considerably more believable.
@@ -413,7 +413,7 @@ The *Clearcoat* parameter is used to add a secondary pass of transparent coat
 to the material. This is common in car paint and toys. In practice, it's a
 smaller specular blob added on top of the existing material.
 
-The effect is extremely subtle in Godot 3 releases, and may require specific
+The effect is extremely subtle in Pandemonium 3 releases, and may require specific
 lighting or looking at a material a specific way to notice a difference.
 This can be seen in the image below where clearcoat is turned on in the
 right.
@@ -421,7 +421,7 @@ right.
 ![](img/clearcoat_comparison.png)
 
 Note:
- The effect will be more noticeable in Godot 4.
+ The effect will be more noticeable in Pandemonium 4.
 
 Anisotropy
 ~~~~~~~~~~
@@ -483,7 +483,7 @@ Refraction
 
 *This feature is only available when using the GLES3 backend.*
 
-When refraction is enabled, it supersedes alpha blending, and Godot attempts to
+When refraction is enabled, it supersedes alpha blending, and Pandemonium attempts to
 fetch information from behind the object being rendered instead. This allows
 distorting the transparency in a way similar to refraction in real life.
 
@@ -492,7 +492,7 @@ distorting the transparency in a way similar to refraction in real life.
 Detail
 ~~~~~~
 
-Godot allows using secondary albedo and normal maps to generate a detail
+Pandemonium allows using secondary albedo and normal maps to generate a detail
 texture, which can be blended in many ways. By combining this with secondary
 UV or triplanar modes, many interesting textures can be achieved.
 
@@ -533,7 +533,7 @@ even if the material does not have normal map enabled.
 UV1 and UV2
 ~~~~~~~~~~~~
 
-Godot supports two UV channels per material. Secondary UV is often useful for
+Pandemonium supports two UV channels per material. Secondary UV is often useful for
 ambient occlusion or emission (baked light). UVs can be scaled and offset,
 which is useful when using repeating textures.
 
@@ -553,7 +553,7 @@ world triplanar, so the brick texture continues smoothly between them.
 Proximity and distance fade
 ----------------------------
 
-Godot allows materials to fade by proximity to each other as well as depending
+Pandemonium allows materials to fade by proximity to each other as well as depending
 on the distance from the viewer. Proximity fade is useful for effects such as
 soft particles or a mass of water with a smooth blending to the shores. Distance
 fade is useful for light shafts or indicators that are only present after a

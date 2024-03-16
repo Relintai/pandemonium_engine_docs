@@ -95,7 +95,7 @@ as well and both 2D and 3D avoidance agents can exist on the same map.
     Actors with avoidance enabled will avoid both 2D and 3D avoidance agents when placed on the same map.
 
 .. warning::
-    It is not possible to use NavigationServer2D while disabling 3D on a Godot custom build.
+    It is not possible to use NavigationServer2D while disabling 3D on a Pandemonium custom build.
 
 Waiting for synchronization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

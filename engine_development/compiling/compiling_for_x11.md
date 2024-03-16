@@ -24,8 +24,8 @@ For compiling under Linux or other Unix variants, the following is required:
 -  *Optional* - libudev (build with `udev=yes`).
 -  *Optional* - yasm (for WebM SIMD optimizations).
 
-To get the Godot source code for compiling, see `doc_getting_source`.
-For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
+To get the Pandemonium source code for compiling, see `doc_getting_source`.
+For a general overview of SCons usage for Pandemonium, see `doc_introduction_to_the_buildsystem`.
 
 ### Distro-specific one-liners
 
@@ -118,7 +118,7 @@ Start a terminal, go to the root dir of the engine source code and type:
 ```
 
 A good rule of thumb for the `-j` (*jobs*) flag, is to have at least as many
-threads compiling Godot as you have cores in your CPU, if not one or two more.
+threads compiling Pandemonium as you have cores in your CPU, if not one or two more.
 Feel free to add the `-j` option to any SCons command you see below.
 
 If all goes well, the resulting binary executable will be placed in the
@@ -136,16 +136,16 @@ Using Clang appears to be a requirement for OpenBSD, otherwise fonts would not b
 
 Note:
 
-If you are compiling Godot for production use, then you can make the final executable smaller 
+If you are compiling Pandemonium for production use, then you can make the final executable smaller 
 and faster by adding the SCons option `target=release_debug`.
 
-If you are compiling Godot with GCC, you can make the binary even smaller and faster by adding the SCons 
+If you are compiling Pandemonium with GCC, you can make the binary even smaller and faster by adding the SCons 
 option `use_lto=yes`. As link-time optimization is a memory-intensive process, this will require about 
 7 GB of available RAM while compiling.
 
 Note:
 
-If you want to use separate editor settings for your own Godot builds and official releases, 
+If you want to use separate editor settings for your own Pandemonium builds and official releases, 
 you can enable `doc_data_paths_self_contained_mode` by creating a file called `._sc_` or `sc_` in the `bin/` folder.
 
 ## Compiling a headless/server build
@@ -199,10 +199,10 @@ platform is not always straight-forward and might need a chroot environment.
 To create standard export templates, the resulting files must be copied to:
 
 ```
-    $HOME/.local/share/godot/templates/[gd-version]/
+    $HOME/.local/share/pandemonium/templates/[gd-version]/
 ```
 
-and named like this (even for \*BSD which is seen as "Linux X11" by Godot):
+and named like this (even for \*BSD which is seen as "Linux X11" by Pandemonium):
 
 ```
     linux_x11_32_debug
@@ -217,13 +217,13 @@ binaries as custom export templates here:
 ![](img/lintemplates.png)
 
 You don't even need to copy them, you can just reference the resulting files in the `bin/` directory of your 
-Godot source folder, so the next time you build, you automatically have the custom templates referenced.
+Pandemonium source folder, so the next time you build, you automatically have the custom templates referenced.
 
 ## Using Clang and LLD for faster development
 
-You can also use Clang and LLD to build Godot. This has two upsides compared to the default GCC + GNU ld setup:
+You can also use Clang and LLD to build Pandemonium. This has two upsides compared to the default GCC + GNU ld setup:
 
-- LLD links Godot significantly faster compared to GNU ld or gold. This leads to faster iteration times.
+- LLD links Pandemonium significantly faster compared to GNU ld or gold. This leads to faster iteration times.
 - Clang tends to give more useful error messages compared to GCC.
 
 To do so, install Clang and the `lld` package from your distribution's package manager
@@ -259,7 +259,7 @@ to get even faster builds.
 ```
 
 - Instead of running `scons ( build arguments )`, run `pyston-scons ( build arguments )`
-  to compile Godot.
+  to compile Pandemonium.
 
 If you can't run `pyston-scons` after creating the symbolic link,
 make sure `$HOME/.local/bin/` is part of your user's `PATH` environment variable.

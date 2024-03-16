@@ -3,7 +3,7 @@
 Evaluating expressions
 ======================
 
-Godot provides an `Expression` class you can use to evaluate expressions.
+Pandemonium provides an `Expression` class you can use to evaluate expressions.
 
 An expression can be:
 
@@ -17,7 +17,7 @@ Note:
 
 
     The Expression class is independent from GDScript.
-    It's available even if you compile Godot with the GDScript module disabled.
+    It's available even if you compile Pandemonium with the GDScript module disabled.
 
 Basic usage
 -----------
@@ -54,7 +54,7 @@ Spaces around operators are optional. Also, keep in mind the usual
 `order of operations ( https://en.wikipedia.org/wiki/Order_of_operations )`
 applies. Use parentheses to override the order of operations if needed.
 
-All the Variant types supported in Godot can be used: integers, floating-point
+All the Variant types supported in Pandemonium can be used: integers, floating-point
 numbers, strings, arrays, dictionaries, colors, vectors, …
 
 Arrays and dictionaries can be indexed like in GDScript:

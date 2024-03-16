@@ -3,18 +3,18 @@
 Documentation guidelines
 ========================
 
-This page describes the rules to follow if you want to contribute to Godot
+This page describes the rules to follow if you want to contribute to Pandemonium
 Engine by writing or reviewing documentation, or by translating existing
 documentation. Also, have a look at README of the
-`godot-docs GitHub repository ( https://github.com/godotengine/godot-docs )`
-and the `docs front page ( https://docs.godotengine.org )`
+`pandemonium-docs GitHub repository ( https://github.com/pandemoniumengine/pandemonium-docs )`
+and the `docs front page ( https://docs.pandemoniumengine.org )`
 on what steps to follow and how to contact the docs team.
 
 How to contribute
 -----------------
 
 Creating or modifying documentation pages is mainly done via the
-`godot-docs GitHub repository ( https://github.com/godotengine/godot-docs )`.
+`pandemonium-docs GitHub repository ( https://github.com/pandemoniumengine/pandemonium-docs )`.
 The HTML (or PDF and EPUB) documentation is generated from the .rst files
 (reStructuredText markup language) in that repository. Modifying those pages
 in a pull request and getting it merged will trigger a rebuild of the online
@@ -23,20 +23,20 @@ documentation.
 See also:
  For details on Git usage and the pull request workflow, please
              refer to the `doc_pr_workflow` page. Most of what it
-             describes regarding the main godotengine/godot repository is
+             describes regarding the main pandemoniumengine/pandemonium repository is
              also valid for the docs repository.
 
 Warning:
- The class reference's source files are in the `Godot engine repository
-             ( https://github.com/godotengine/godot )`. We generate the `Godot API
+ The class reference's source files are in the `Pandemonium engine repository
+             ( https://github.com/pandemoniumengine/pandemonium )`. We generate the `Pandemonium API
              ( toc-class-ref )` section of this documentation from them. If you want to update the
              description of a class, its methods, or properties, read
              `doc_updating_the_class_reference`.
 
 Warning:
  If you want to edit the **API reference**, please note that it
-             should *not* be done in the godot-docs repository. Instead, you
-             should edit the `doc/classes/*` XML files of Godot's
+             should *not* be done in the pandemonium-docs repository. Instead, you
+             should edit the `doc/classes/*` XML files of Pandemonium's
              main repository. These files are then later used to generate the
              in-editor documentation as well as the API reference of the
              online docs. Read more here: `doc_updating_the_class_reference`.
@@ -44,7 +44,7 @@ Warning:
 The 'Edit on GitHub' link
 -------------------------
 
-If you're reading documentation on `docs.godotengine.org ( https://docs.godotengine.org )`,
+If you're reading documentation on `docs.pandemoniumengine.org ( https://docs.pandemoniumengine.org )`,
 you'll see an **Edit on GitHub** hyperlink at the top right of the page.
 Once you've created a GitHub account, you can propose changes to a page you're
 reading as follows:
@@ -62,7 +62,7 @@ reading as follows:
 
 5. On the following screens, click the **Create pull request** button until you
    see a message like *Username wants to merge 1 commit into
-   godotengine:master from Username:patch-6*.
+   pandemoniumengine:master from Username:patch-6*.
 
 6. A reviewer will evaluate your changes and incorporate them into the docs if
    they're acceptable. You might also be asked to make
@@ -84,7 +84,7 @@ definitions:
    object").
 -  Documentation: a page describing precisely one and only one concept at a
    time, if possible exhaustively (e.g. the list of methods of the
-   Sprite class, or an overview of the input management in Godot).
+   Sprite class, or an overview of the input management in Pandemonium).
 
 You are free to write the kind of documentation you wish, as long as you
 respect the following rules (and the ones on the repo).
@@ -119,24 +119,24 @@ letter.
 Translating existing pages
 --------------------------
 
-You can help to translate the official Godot documentation on our `Hosted Weblate ( https://hosted.weblate.org/engage/godot-engine/ )`.
+You can help to translate the official Pandemonium documentation on our `Hosted Weblate ( https://hosted.weblate.org/engage/pandemonium-engine/ )`.
 
-![](https://hosted.weblate.org/widgets/godot-engine/-/godot-docs/287x66-white.png)
+![](https://hosted.weblate.org/widgets/pandemonium-engine/-/pandemonium-docs/287x66-white.png)
     :alt: Translation state
     :align: center
-    :target: https://hosted.weblate.org/engage/godot-engine/?utm_source=widget
+    :target: https://hosted.weblate.org/engage/pandemonium-engine/?utm_source=widget
     :width: 287
     :height: 66
 
 There also is the official
-`Godot i18n repository ( https://github.com/godotengine/godot-docs-l10n )`
+`Pandemonium i18n repository ( https://github.com/pandemoniumengine/pandemonium-docs-l10n )`
 where you can see when the data was last synchronized.
 
 License
 -------
 
 This documentation and every page it contains is published under the terms of
-the `Creative Commons Attribution 3.0 license (CC-BY-3.0) ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with attribution to "Juan Linietsky, Ariel Manzur and the Godot community".
+the `Creative Commons Attribution 3.0 license (CC-BY-3.0) ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with attribution to "Juan Linietsky, Ariel Manzur and the Pandemonium community".
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.

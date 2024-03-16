@@ -10,7 +10,7 @@ Sería excelente que el mundo hablara solo un idioma (It would be great if the
 world spoke only one language). Unfortunately for
 us developers, that is not the case. While indie or niche games usually
 do not need localization, games targeting a more massive market
-often require localization. Godot offers many tools to make this process
+often require localization. Pandemonium offers many tools to make this process
 more straightforward, so this tutorial is more like a collection of
 tips and tricks.
 
@@ -24,7 +24,7 @@ so this one could be seen more like a follow-up to that one.
 
 Note:
  We will be using the official demo as an example; you can
-          `download it from the Asset Library ( https://godotengine.org/asset-library/asset/134 )`.
+          `download it from the Asset Library ( https://pandemoniumengine.org/asset-library/asset/134 )`.
 
 Configuring the imported translation
 ------------------------------------
@@ -40,7 +40,7 @@ The above dialog is used to add or remove translations project-wide.
 Localizing resources
 --------------------
 
-It is also possible to instruct Godot to use alternate versions of
+It is also possible to instruct Pandemonium to use alternate versions of
 assets (resources) depending on the current language. The **Remaps** tab
 can be used for this:
 
@@ -106,7 +106,7 @@ options available in `Label`.
 TranslationServer
 -----------------
 
-Godot has a server handling low-level translation management
+Pandemonium has a server handling low-level translation management
 called the `TranslationServer`.
 Translations can be added or removed during run-time;
 the current language can also be changed at run-time.
@@ -114,11 +114,11 @@ the current language can also be changed at run-time.
 Testing translations
 --------------------
 
-You may want to test a project's translation before releasing it. Godot provides two ways
+You may want to test a project's translation before releasing it. Pandemonium provides two ways
 to do this.
 
 First, in the Project Settings, under **Input Devices > Locale**, there is a **Test**
-property. Set this property to the locale code of the language you want to test. Godot will
+property. Set this property to the locale code of the language you want to test. Pandemonium will
 run the project with that locale when the project is run (either from the editor or when
 exported).
 
@@ -128,12 +128,12 @@ Keep in mind that since this is a project setting, it will show up in version co
 it is set to a non-empty value. Therefore, it should be set back to an empty value before
 committing changes to version control.
 
-Translations can also be tested when running Godot from the command line.
+Translations can also be tested when running Pandemonium from the command line.
 For example, to test a game in French, the following argument can be
 supplied:
 
 ```
-   godot --language fr
+   pandemonium --language fr
 ```
 
 Translating the project name

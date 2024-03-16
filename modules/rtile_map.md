@@ -1,6 +1,6 @@
 # TileMap
 
-Godot's TileMap but as an engine module, with a few smaller features added.
+Pandemonium's TileMap but as an engine module, with a few smaller features added.
 
 The tilemap classes will be prefixed with R, so it compiles cleanly with the built in TileMap class.
 
@@ -8,12 +8,12 @@ The tilemap classes will be prefixed with R, so it compiles cleanly with the bui
 
 1. Get the source code for the engine.
 
-```git clone -b 3.x https://github.com/godotengine/godot.git godot```
+```git clone -b 3.x https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-2. Go into Godot's modules directory.
+2. Go into Pandemonium's modules directory.
 
 ```
-cd ./godot/modules/
+cd ./pandemonium/modules/
 ```
 
 3. Clone this repository
@@ -22,4 +22,4 @@ cd ./godot/modules/
 git clone https://github.com/Relintai/rtile_map.git rtile_map
 ```
 
-4. Build Godot. [Tutorial](https://docs.godotengine.org/en/latest/development/compiling/index.html)
+4. Build Pandemonium. [Tutorial](https://docs.pandemoniumengine.org/en/latest/development/compiling/index.html)

@@ -63,7 +63,7 @@ Navigation meshes in the 3D editor are created with the help of the
 and the NavigationMesh bake settings that appear in the editor inspector.
 
 NavigationMesh baking is the process of creating a simplified mesh used for pathfinding out of (complex) 3D level geometry.
-For this process Godot parses scene geometry and hands the raw mesh or collision data to the
+For this process Pandemonium parses scene geometry and hands the raw mesh or collision data to the
 third-party ReCast library for processing and creation of the final navigationmesh.
 
 The resulting NavigationMesh is an approximation of the source geometry surfaces

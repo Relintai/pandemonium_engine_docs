@@ -1,12 +1,12 @@
 # Voxelman
 
-A voxel engine for godot, focusing more on editor integration, gameplay-related features, and extendability (even from gdscript), without sacrificing too much speed.
+A voxel engine for pandemonium, focusing more on editor integration, gameplay-related features, and extendability (even from gdscript), without sacrificing too much speed.
 
-This is an engine module! Which means that you will need to compile it into Godot! [See the compiling section here.](#compiling)
+This is an engine module! Which means that you will need to compile it into Pandemonium! [See the compiling section here.](#compiling)
 
 You can find a demonstration project (with pre-built binaries) here: https://github.com/Relintai/the_tower
 
-## Godot Version Support
+## Pandemonium Version Support
 
 I'm currently mostly using [Terraman](https://github.com/Relintai/terraman) instead of this, so it might get temporarily a bit behind.\
 If compile breaks, and I don't notice please report.
@@ -52,7 +52,7 @@ This is the basic Minecraft-style lib rary. Use this if you just have one textur
 
 ### VoxelLibraryMerger
 
-You will only have this if your godot also contains https://github.com/Relintai/texture_packer
+You will only have this if your pandemonium also contains https://github.com/Relintai/texture_packer
 
 You can assign any texture to your surfaces with this, and it will merge them together.
 
@@ -60,7 +60,7 @@ You can assign any texture to your surfaces with this, and it will merge them to
 
 (PCM = Per Chunk Material)
 
-You will only have this if your godot also contains https://github.com/Relintai/texture_packer
+You will only have this if your pandemonium also contains https://github.com/Relintai/texture_packer
 
 You can assign any texture to your surfaces with this, and it will merge them together, but it will do it for every required chunk/voxel combination.
 
@@ -189,20 +189,20 @@ They won't get reset, so for example if you want all your vertices to have a cer
 
 ## Compiling
 
-First make sure that you can compile godot. See the official docs: https://docs.godotengine.org/en/3.x/development/compiling/index.html
+First make sure that you can compile pandemonium. See the official docs: https://docs.pandemoniumengine.org/en/3.x/development/compiling/index.html
 
 1. Clone the engine if you haven't already:
 
-If you want Godot 3.x:
-```git clone -b 3.x https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 3.x:
+```git clone -b 3.x https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-If you want Godot 4.0:
-```git clone https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 4.0:
+```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
 
 2. go into the modules folder inside the engine's directory:
 
-```cd godot``` \
+```cd pandemonium``` \
 ```cd modules```
 
 3. clone this repository
@@ -220,7 +220,7 @@ If you want Godot 4.0:
 
 ```cd ..```
 
-6. Compile godot.
+6. Compile pandemonium.
 
 For example:
 

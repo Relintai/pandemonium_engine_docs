@@ -6,7 +6,7 @@ Input examples
 Introduction
 ------------
 
-In this tutorial, you'll learn how to use Godot's `InputEvent`
+In this tutorial, you'll learn how to use Pandemonium's `InputEvent`
 system to capture player input. There are many different types of input your
 game may use - keyboard, gamepad, mouse, etc. - and many different ways to
 turn those inputs into actions in your game. This document will show you some
@@ -14,7 +14,7 @@ of the most common scenarios, which you can use as starting points for your
 own projects.
 
 Note:
- For a detailed overview of how Godot's input event system works,
+ For a detailed overview of how Pandemonium's input event system works,
           see `doc_inputevent`.
 
 Events versus polling
@@ -24,7 +24,7 @@ Sometimes you want your game to respond to a certain input event - pressing
 the "jump" button, for example. For other situations, you might want something
 to happen as long as a key is pressed, such as movement. In the first case,
 you can use the `input()` function, which will be called whenever an input
-event occurs. In the second case, Godot provides the `Input`
+event occurs. In the second case, Pandemonium provides the `Input`
 singleton, which you can use to query the state of an input.
 
 Examples:
@@ -114,7 +114,7 @@ InputMap
 The `InputMap` is the most flexible way to handle a
 variety of inputs. You use this by creating named input *actions*, to which
 you can assign any number of input events, such as keypresses or mouse clicks.
-A new Godot project includes a number of default actions already defined. To
+A new Pandemonium project includes a number of default actions already defined. To
 see them, and to add your own, open Project -> Project Settings and select
 the InputMap tab:
 

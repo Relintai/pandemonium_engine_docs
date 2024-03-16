@@ -1,26 +1,26 @@
-Godot Docs – *3.5* branch
+Pandemonium Docs – *3.5* branch
 =========================
 
 .. only:: not i18n
 
   Note:
- Godot's documentation is available in various languages and versions.
+ Pandemonium's documentation is available in various languages and versions.
             Expand the "Read the Docs" panel at the bottom of the sidebar to see
             the list.
 
   Tip:
  This is the documentation for the 3.5 branch.
            Looking for the documentation of the current **development** branch?
-           `Have a look here ( https://docs.godotengine.org/en/latest )`.
+           `Have a look here ( https://docs.pandemoniumengine.org/en/latest )`.
            You can also browse the documentation for the current stable
-           `3.4 ( https://docs.godotengine.org/en/3.4 )` branch.
+           `3.4 ( https://docs.pandemoniumengine.org/en/3.4 )` branch.
 
 .. only:: i18n
 
   Note:
  This documentation is translated from the `original English one
-            ( https://docs.godotengine.org/en/latest )` by community members
-            on `Weblate ( https://hosted.weblate.org/projects/godot-engine/godot-docs )`.
+            ( https://docs.pandemoniumengine.org/en/latest )` by community members
+            on `Weblate ( https://hosted.weblate.org/projects/pandemonium-engine/pandemonium-docs )`.
 
             Depending on the translation effort's completion level, you may
             find paragraphs or whole pages which are still in English. You can
@@ -29,9 +29,9 @@ Godot Docs – *3.5* branch
 
             For the time being, localized translations are only available for
             the "latest" (development) branch, but should be suitable to learn
-            how to use stable Godot releases nevertheless.
+            how to use stable Pandemonium releases nevertheless.
 
-Welcome to the official documentation of `Godot Engine ( https://godotengine.org )`,
+Welcome to the official documentation of `Pandemonium Engine ( https://pandemoniumengine.org )`,
 the free and open source community-driven 2D and 3D game engine! If you are new
 to this documentation, we recommend that you read the
 `introduction page ( doc_about_intro )` to get an overview of what this
@@ -41,12 +41,12 @@ The table of contents below and in the sidebar should let you easily access the
 documentation for your topic of interest. You can also use the search function
 in the top left corner.
 
-You can also `download an HTML copy ( https://nightly.link/godotengine/godot-docs/workflows/build_offline_docs/master/godot-docs-html-stable.zip )`
+You can also `download an HTML copy ( https://nightly.link/pandemoniumengine/pandemonium-docs/workflows/build_offline_docs/master/pandemonium-docs-html-stable.zip )`
 for offline reading (updated every Monday). Extract the ZIP archive then open
 the top-level `index.html` in a web browser.
 
 Note:
- Godot Engine is an open source project developed by a community of
+ Pandemonium Engine is an open source project developed by a community of
           volunteers. The documentation team can always use your
           feedback and help to improve the tutorials and class reference. If
           you don't understand something, or cannot find what you
@@ -54,12 +54,12 @@ Note:
           by letting us know!
 
           Submit an issue or pull request on the `GitHub repository
-          ( https://github.com/godotengine/godot-docs/issues )`,
+          ( https://github.com/pandemoniumengine/pandemonium-docs/issues )`,
           help us `translate the documentation
-          ( https://hosted.weblate.org/engage/godot-engine/ )` into your
+          ( https://hosted.weblate.org/engage/pandemonium-engine/ )` into your
           language, or talk to us on the
-          `#documentation` channel on the `Godot Contributors Chat
-          ( https://chat.godotengine.org/ )`!
+          `#documentation` channel on the `Pandemonium Contributors Chat
+          ( https://chat.pandemoniumengine.org/ )`!
 
 .. centered:: |weblate_widget|
 

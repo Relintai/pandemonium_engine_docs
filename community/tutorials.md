@@ -3,27 +3,27 @@
 Tutorials and resources
 =======================
 
-This is a list of third-party tutorials and resources created by the Godot community. For resources, remember that there is the official `Godot Asset Library ( https://godotengine.org/asset-library/asset )` full of official and community resources too! Also, have a look at this `huge list over at Reddit ( https://www.reddit.com/r/godot/comments/an0iq5/godot_tutorials_list_of_video_and_written/ )`.
+This is a list of third-party tutorials and resources created by the Pandemonium community. For resources, remember that there is the official `Pandemonium Asset Library ( https://pandemoniumengine.org/asset-library/asset )` full of official and community resources too! Also, have a look at this `huge list over at Reddit ( https://www.reddit.com/r/pandemonium/comments/an0iq5/pandemonium_tutorials_list_of_video_and_written/ )`.
 
-Think there is something missing here? Feel free to submit a `Pull Request ( https://github.com/godotengine/godot-docs/blob/master/community/tutorials.rst )` as always.
+Think there is something missing here? Feel free to submit a `Pull Request ( https://github.com/pandemoniumengine/pandemonium-docs/blob/master/community/tutorials.rst )` as always.
 
 Where to start
 --------------
 
-The Godot video tutorials by `GDQuest ( https://www.youtube.com/channel/UCxboW7x0jZqFdvMdCFKTMsQ/playlists )`, `Game from Scratch ( https://www.youtube.com/watch?v=iDEcP8Mc-7s&list=PLS9MbmO_ssyDk79j9ewONxV88fD5e_o5d )` and `KidsCanCode ( https://www.youtube.com/channel/UCNaPQ5uLX5iIEHUCLmfAgKg/playlists )` are well-regarded in the community and often recommended as a gentle introduction to beginners.
+The Pandemonium video tutorials by `GDQuest ( https://www.youtube.com/channel/UCxboW7x0jZqFdvMdCFKTMsQ/playlists )`, `Game from Scratch ( https://www.youtube.com/watch?v=iDEcP8Mc-7s&list=PLS9MbmO_ssyDk79j9ewONxV88fD5e_o5d )` and `KidsCanCode ( https://www.youtube.com/channel/UCNaPQ5uLX5iIEHUCLmfAgKg/playlists )` are well-regarded in the community and often recommended as a gentle introduction to beginners.
 
 If you're interested in Visual Scripting, `Emilio's tutorials ( https://www.youtube.com/channel/UC9DR22-qohBDtZ74R3FxOZg )` may be worth a look.
 
-If you're interested in a complete introduction to programming using Godot and GDScript, the unofficial `Godot Tutorials ( https://www.youtube.com/channel/UCnr9ojBEQGgwbcKsZC-2rIg )` YouTube channel is a good place to start.
+If you're interested in a complete introduction to programming using Pandemonium and GDScript, the unofficial `Pandemonium Tutorials ( https://www.youtube.com/channel/UCnr9ojBEQGgwbcKsZC-2rIg )` YouTube channel is a good place to start.
 
-GDQuest's *Learn GDScript From Zero* is a free and open source interactive tutorial for absolute beginners to learn to program with Godot's GDScript language. It is available as a `desktop application ( https://gdquest.itch.io/learn-godot-gdscript )`  or `in the browser ( https://gdquest.github.io/learn-gdscript )`.
+GDQuest's *Learn GDScript From Zero* is a free and open source interactive tutorial for absolute beginners to learn to program with Pandemonium's GDScript language. It is available as a `desktop application ( https://gdquest.itch.io/learn-pandemonium-gdscript )`  or `in the browser ( https://gdquest.github.io/learn-gdscript )`.
 
 Some tutorials mentioned below provide more advanced tutorials, e.g. on 3D or shaders.
 
 Video tutorials
 ---------------
 
-- `Godot Tutorials ( https://www.youtube.com/channel/UCnr9ojBEQGgwbcKsZC-2rIg )` (2D, GDScript, Programming Basics).
+- `Pandemonium Tutorials ( https://www.youtube.com/channel/UCnr9ojBEQGgwbcKsZC-2rIg )` (2D, GDScript, Programming Basics).
 - `Emilio ( https://www.youtube.com/channel/UC9DR22-qohBDtZ74R3FxOZg )` (2D, GDScript and VisualScript).
 - `FinePointCGI ( https://www.youtube.com/channel/UCSojAWUnEUTUcdA9iJ6bryQ )` (2D, 3D, GDScript and C#).
 - `GDQuest ( https://www.youtube.com/channel/UCxboW7x0jZqFdvMdCFKTMsQ/playlists )` (2D and 3D, GDScript, VisualScript and C#).
@@ -51,7 +51,7 @@ Text tutorials
 
 - `FinepointCGI website by Mitch ( http://finepointcgi.io/ )`
 - `GDScript website by Andrew Wilkes ( https://gdscript.com )`
-- `Godot Recipes by KidsCanCode ( http://godotrecipes.com/ )`
+- `Pandemonium Recipes by KidsCanCode ( http://pandemoniumrecipes.com/ )`
 - `Steincodes ( https://steincodes.tumblr.com )`
 
 Devlogs
@@ -63,5 +63,5 @@ Devlogs
 Resources
 ---------
 
-- `awesome-godot: A curated list of free/libre plugins, scripts and add-ons ( https://github.com/godotengine/awesome-godot )`
-- `Zeef Godot Engine: A curated directory of resources by Andre Schmitz ( https://godot-engine.zeef.com/andre.antonio.schmitz )`
+- `awesome-pandemonium: A curated list of free/libre plugins, scripts and add-ons ( https://github.com/pandemoniumengine/awesome-pandemonium )`
+- `Zeef Pandemonium Engine: A curated directory of resources by Andre Schmitz ( https://pandemonium-engine.zeef.com/andre.antonio.schmitz )`

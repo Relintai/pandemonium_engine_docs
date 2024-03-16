@@ -6,7 +6,7 @@ Binary serialization API
 Introduction
 ------------
 
-Godot has a simple serialization API based on Variant. It's used for
+Pandemonium has a simple serialization API based on Variant. It's used for
 converting data types to an array of bytes efficiently. This API is used
 in the functions `get_var` and `store_var` of `File`
 as well as the packet APIs for `PacketPeer`. This format
@@ -88,8 +88,8 @@ two bytes contain flags
 +--------+--------------------------+
 
 Following this is the actual packet contents, which varies for each type of
-packet. Note that this assumes Godot is compiled with single-precision floats,
-which is the default. If Godot was compiled with double-precision floats, the
+packet. Note that this assumes Pandemonium is compiled with single-precision floats,
+which is the default. If Pandemonium was compiled with double-precision floats, the
 length of "Float" fields within data structures should be 8, and the offset
 should be `(offset - 4) * 2 + 4`. The "float" type itself always uses double
 precision.

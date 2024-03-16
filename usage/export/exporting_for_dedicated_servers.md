@@ -4,17 +4,17 @@ Exporting for dedicated servers
 ===============================
 
 If you want to run a dedicated server for your project on a machine that doesn't
-have a GPU or display server available, you'll need to use a server build of Godot.
+have a GPU or display server available, you'll need to use a server build of Pandemonium.
 
 Platform support
 ----------------
 
-- **Linux:** `Download an official Linux server binary ( https://godotengine.org/download/server )`.
+- **Linux:** `Download an official Linux server binary ( https://pandemoniumengine.org/download/server )`.
   To compile a server binary from source, follow instructions in
   `doc_compiling_for_x11`.
 - **macOS:** `Compile a server binary from source for macOS ( doc_compiling_for_osx )`.
 - **Windows:** There is no dedicated server build for Windows yet. As an alternative,
-  you can use the `--no-window` command-line argument to prevent Godot from
+  you can use the `--no-window` command-line argument to prevent Pandemonium from
   spawning a window. Note that even with the `--no-window` command-line argument,
   you'll need to have OpenGL support available on the Windows machine.
 
@@ -23,7 +23,7 @@ If your project uses C#, you'll have to use a Mono-enabled server binary.
 "Headless" versus "server" binaries
 -----------------------------------
 
-The `server download page ( https://godotengine.org/download/server )`
+The `server download page ( https://pandemoniumengine.org/download/server )`
 offers two kinds of binaries with several differences.
 
 - **Server:** Use this one for running dedicated servers. It does not contain
@@ -66,7 +66,7 @@ Note:
     The PCK file will include resources not normally needed by the server, such
     as textures and sounds. This means the PCK file will be larger than it could
     possibly be. Support for stripping unneeded resources from a PCK for server
-    usage is planned in a future Godot release.
+    usage is planned in a future Pandemonium release.
 
     On the bright side, this allows the same PCK file to be used both by a
     client and dedicated server build. This can be useful if you want to ship a
@@ -77,19 +77,19 @@ Preparing the server distribution
 
 After downloading or compiling a server binary, you should now place it in the
 same folder as the PCK file you've exported. The server binary should have the
-same name as the PCK (excluding the extension). This lets Godot detect and use
+same name as the PCK (excluding the extension). This lets Pandemonium detect and use
 the PCK file automatically. If you want to start a server with a PCK that has a
 different name, you can specify the path to the PCK file using the
 `--main-pack` command-line argument:
 
 ```
-    ./godot-server --main-pack my_project.pck
+    ./pandemonium-server --main-pack my_project.pck
 ```
 
 Starting the dedicated server
 -----------------------------
 
-If both your client and server are part of the same Godot project, you will have
+If both your client and server are part of the same Pandemonium project, you will have
 to add a way to start the server directly using a command-line argument. This
 can be done by adding the following code snippet in your main scene (or a
 singleton)'s `ready()` method:
@@ -98,7 +98,7 @@ singleton)'s `ready()` method:
     if "--server" in OS.get_cmdline_args():
         # Run your server startup code here...
         # Using this check, you can start a dedicated server by running
-        # a Godot binary (headless or not) with the `--server` command-line argument.
+        # a Pandemonium binary (headless or not) with the `--server` command-line argument.
         pass
 ```
 
@@ -114,7 +114,7 @@ or server binary is detected:
         pass
 ```
 
-If your client and server are separate Godot projects, your server should most
+If your client and server are separate Pandemonium projects, your server should most
 likely be configured in a way where running the main scene starts a server
 automatically.
 

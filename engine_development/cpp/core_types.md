@@ -3,7 +3,7 @@
 Core types
 ==========
 
-Godot has a rich set of classes and templates that compose its core,
+Pandemonium has a rich set of classes and templates that compose its core,
 and everything is built upon them.
 
 This reference will try to list them in order for their better
@@ -12,7 +12,7 @@ understanding.
 Definitions
 -----------
 
-Godot uses the standard C99 datatypes, such as `uint8_t`,
+Pandemonium uses the standard C99 datatypes, such as `uint8_t`,
 `uint32_t`, `int64_t`, etc. which are nowadays supported by every
 compiler. Reinventing the wheel for those is not fun, as it makes code
 more difficult to read.
@@ -34,7 +34,7 @@ directly to wchar_t.
 References:
 ~~~~~~~~~~~
 
--  `core/typedefs.h ( https://github.com/godotengine/godot/blob/3.x/core/typedefs.h )`
+-  `core/typedefs.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/typedefs.h )`
 
 Memory model
 ------------
@@ -62,10 +62,10 @@ be unused, segmentation will not be a problem over time as it will
 remain constant. In other words, leave 10-20% of your memory free
 and perform all small allocations and you are fine.
 
-Godot ensures that all objects that can be allocated dynamically are
+Pandemonium ensures that all objects that can be allocated dynamically are
 small (less than a few kb at most). But what happens if an allocation is
 too large (like an image or mesh geometry or large array)? In this case
-Godot has the option to use a dynamic memory pool. This memory needs to
+Pandemonium has the option to use a dynamic memory pool. This memory needs to
 be locked to be accessed, and if an allocation runs out of memory, the
 pool will be rearranged and compacted on demand. Depending on the need
 of the game, the programmer can configure the dynamic memory pool size.
@@ -73,11 +73,11 @@ of the game, the programmer can configure the dynamic memory pool size.
 Allocating memory
 -----------------
 
-Godot has many tools for tracking memory usage in a game, especially
+Pandemonium has many tools for tracking memory usage in a game, especially
 during debug. Because of this, the regular C and C++ library calls
 should not be used. Instead, a few other ones are provided.
 
-For C-style allocation, Godot provides a few macros:
+For C-style allocation, Pandemonium provides a few macros:
 
 ```
     memalloc()
@@ -131,13 +131,13 @@ large amount of accesses.
 References:
 ~~~~~~~~~~~
 
--  `core/os/memory.h ( https://github.com/godotengine/godot/blob/3.x/core/os/memory.h )`
--  `core/pool_vector.h ( https://github.com/godotengine/godot/blob/3.x/core/pool_vector.cpp )`
+-  `core/os/memory.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/os/memory.h )`
+-  `core/pool_vector.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/pool_vector.cpp )`
 
 Containers
 ----------
 
-Godot provides also a set of common containers:
+Pandemonium provides also a set of common containers:
 
 -  Vector
 -  List
@@ -165,15 +165,15 @@ The Vector<> class also has a few nice features:
 References:
 ~~~~~~~~~~~
 
--  `core/vector.h ( https://github.com/godotengine/godot/blob/3.x/core/vector.h )`
--  `core/list.h ( https://github.com/godotengine/godot/blob/3.x/core/list.h )`
--  `core/set.h ( https://github.com/godotengine/godot/blob/3.x/core/set.h )`
--  `core/map.h ( https://github.com/godotengine/godot/blob/3.x/core/map.h )`
+-  `core/vector.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/vector.h )`
+-  `core/list.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/list.h )`
+-  `core/set.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/set.h )`
+-  `core/map.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/map.h )`
 
 String
 ------
 
-Godot also provides a String class. This class has a huge amount of
+Pandemonium also provides a String class. This class has a huge amount of
 features, full Unicode support in all the functions (like case
 operations) and utf8 parsing/extracting, as well as helpers for
 conversion and visualization.
@@ -181,7 +181,7 @@ conversion and visualization.
 References:
 ~~~~~~~~~~~
 
--  `core/ustring.h ( https://github.com/godotengine/godot/blob/3.x/core/ustring.h )`
+-  `core/ustring.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/ustring.h )`
 
 StringName
 ----------
@@ -197,7 +197,7 @@ is fast.
 References:
 ~~~~~~~~~~~
 
--  `core/string_name.h ( https://github.com/godotengine/godot/blob/3.x/core/string_name.h )`
+-  `core/string_name.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/string_name.h )`
 
 Math types
 ----------
@@ -208,7 +208,7 @@ directory.
 References:
 ~~~~~~~~~~~
 
--  `core/math ( https://github.com/godotengine/godot/tree/3.x/core/math )`
+-  `core/math ( https://github.com/pandemoniumengine/pandemonium/tree/3.x/core/math )`
 
 NodePath
 --------
@@ -219,7 +219,7 @@ referencing them fast.
 References:
 ~~~~~~~~~~~
 
--  `core/node_path.h ( https://github.com/godotengine/godot/blob/3.x/core/node_path.h )`
+-  `core/node_path.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/node_path.h )`
 
 RID
 ---
@@ -232,4 +232,4 @@ referenced data.
 References:
 ~~~~~~~~~~~
 
--  `core/rid.h ( https://github.com/godotengine/godot/blob/3.x/core/rid.h )`
+-  `core/rid.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/rid.h )`

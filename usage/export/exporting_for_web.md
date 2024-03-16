@@ -6,11 +6,11 @@ Exporting for the Web
 See also:
 
 
-    This page describes how to export a Godot project to HTML5.
+    This page describes how to export a Pandemonium project to HTML5.
     If you're looking to compile editor or export template binaries from source instead,
     read `doc_compiling_for_web`.
 
-HTML5 export allows publishing games made in Godot Engine to the browser.
+HTML5 export allows publishing games made in Pandemonium Engine to the browser.
 This requires support for `WebAssembly
 ( https://webassembly.org/ )` and `WebGL ( https://www.khronos.org/webgl/ )`
 in the user's browser.
@@ -20,7 +20,7 @@ in the user's browser.
                engine, and WebGL errors.
 
 .. attention:: `There are significant bugs when running HTML5 projects on iOS
-               ( https://github.com/godotengine/godot/issues?q=is:issue+is:open+label:platform:html5+ios )`
+               ( https://github.com/pandemoniumengine/pandemonium/issues?q=is:issue+is:open+label:platform:html5+ios )`
                (regardless of the browser). We recommend using
                `iOS' native export functionality ( doc_exporting_for_ios )`
                instead, as it will also result in better performance.
@@ -28,13 +28,13 @@ in the user's browser.
 WebGL version
 -------------
 
-Depending on your choice of renderer, Godot can target WebGL 1.0 (*GLES2*) or
+Depending on your choice of renderer, Pandemonium can target WebGL 1.0 (*GLES2*) or
 WebGL 2.0 (*GLES3*).
 
 WebGL 1.0 is the recommended option if you want your project to be supported
 on all browsers with the best performance.
 
-Godot's GLES3 renderer targets high end devices, and the performance using
+Pandemonium's GLES3 renderer targets high end devices, and the performance using
 WebGL 2.0 can be subpar. Some features are also not supported in WebGL 2.0
 specifically.
 
@@ -91,7 +91,7 @@ Limitations
 
 For security and privacy reasons, many features that work effortlessly on
 native platforms are more complicated on the web platform. Following is a list
-of limitations you should be aware of when porting a Godot game to the web.
+of limitations you should be aware of when porting a Pandemonium game to the web.
 
 
 
@@ -103,7 +103,7 @@ of limitations you should be aware of when porting a Godot game to the web.
 
 Tip:
  Check the `list of open HTML5 issues on GitHub
-         ( https://github.com/godotengine/godot/issues?q=is:open+is:issue+label:platform:html5 )`
+         ( https://github.com/pandemoniumengine/pandemonium/issues?q=is:open+is:issue+label:platform:html5 )`
          to see if the functionality you're interested in has an issue yet. If
          not, open one to communicate your interest.
 
@@ -158,7 +158,7 @@ Full screen and mouse capture
 
 Browsers do not allow arbitrarily **entering full screen**. The same goes for
 **capturing the cursor**. Instead, these actions have to occur as a response to
-a JavaScript input event. In Godot, this means entering full screen from within
+a JavaScript input event. In Pandemonium, this means entering full screen from within
 a pressed input event callback such as `input` or `unhandled_input`.
 Querying the `Input` singleton is not sufficient, the relevant
 input event must currently be active.
@@ -253,7 +253,7 @@ common on most web game hosting sites.
 
 The other exported files are served as they are, next to the `.html` file,
 names unchanged. The `.wasm` file is a binary WebAssembly module implementing
-the engine. The `.pck` file is the Godot main pack containing your game. The
+the engine. The `.pck` file is the Pandemonium main pack containing your game. The
 `.js` file contains start-up code and is used by the `.html` file to access
 the engine. The `.png)` file contains the boot splash image. It is not used in
 the default HTML page, but is included for
@@ -286,7 +286,7 @@ In web builds, the `JavaScript` singleton is implemented. It offers a single
 method called `eval` that works similarly to the JavaScript function of the
 same name. It takes a string as an argument and executes it as JavaScript code.
 This allows interacting with the browser in ways not possible with script
-languages integrated into Godot.
+languages integrated into Pandemonium.
 
 ```
     func my_func():

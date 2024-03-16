@@ -67,7 +67,7 @@ by N and D. For example:
 
 ![](img/tutovec12.png)
 
-For 3D math, Godot provides a `Plane`
+For 3D math, Pandemonium provides a `Plane`
 built-in type that handles this.
 
 Basically, N and D can represent any plane in space, be it for 2D or 3D
@@ -114,7 +114,7 @@ gdscript GDScript
     D = -D
 ```
 
-Of course, Godot also implements this operator in `Plane`,
+Of course, Pandemonium also implements this operator in `Plane`,
 so doing:
 
 gdscript GDScript
@@ -274,7 +274,7 @@ Collision detection in 3D
 
 This is another bonus bit, a reward for being patient and keeping up
 with this long tutorial. Here is another piece of wisdom. This might
-not be something with a direct use case (Godot already does collision
+not be something with a direct use case (Pandemonium already does collision
 detection pretty well) but it's used by almost all physics engines and collision
 detection libraries :)
 
@@ -380,7 +380,7 @@ gdscript GDScript
 More information
 ~~~~~~~~~~~~~~~~
 
-For more information on using vector math in Godot, see the following article:
+For more information on using vector math in Pandemonium, see the following article:
 
 - `doc_matrices_and_transforms`
 

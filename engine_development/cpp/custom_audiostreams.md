@@ -22,8 +22,8 @@ This guide assumes the reader knows how to create C++ modules. If not, refer to 
 References:
 ~~~~~~~~~~~
 
--  `servers/audio/audio_stream.h ( https://github.com/godotengine/godot/blob/master/servers/audio/audio_stream.h )`
--  `scene/audio/audioplayer.cpp ( https://github.com/godotengine/godot/blob/master/scene/audio/audio_player.cpp )`
+-  `servers/audio/audio_stream.h ( https://github.com/pandemoniumengine/pandemonium/blob/master/servers/audio/audio_stream.h )`
+-  `scene/audio/audioplayer.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/master/scene/audio/audio_player.cpp )`
 
 What for?
 ---------
@@ -116,7 +116,7 @@ Therefore, playback state must be self-contained in AudioStreamPlayback.
 References:
 ~~~~~~~~~~~
 
--  `servers/audio/audio_stream.h ( https://github.com/godotengine/godot/blob/master/servers/audio/audio_stream.h )`
+-  `servers/audio/audio_stream.h ( https://github.com/pandemoniumengine/pandemonium/blob/master/servers/audio/audio_stream.h )`
 
 
 Create an AudioStreamPlayback
@@ -231,9 +231,9 @@ Since AudioStreamPlayback is controlled by the audio thread, i/o and dynamic mem
 Resampling
 ~~~~~~~~~~
 
-Godot's AudioServer currently uses 44100 Hz sample rate. When other sample rates are
+Pandemonium's AudioServer currently uses 44100 Hz sample rate. When other sample rates are
 needed such as 48000, either provide one or use AudioStreamPlaybackResampled.
-Godot provides cubic interpolation for audio resampling.
+Pandemonium provides cubic interpolation for audio resampling.
 
 Instead of overloading `mix`, AudioStreamPlaybackResampled uses `mix_internal` to
 query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
@@ -345,6 +345,6 @@ query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
 
 References:
 ~~~~~~~~~~~
--  `core/math/audio_frame.h ( https://github.com/godotengine/godot/blob/master/core/math/audio_frame.h )`
--  `servers/audio/audio_stream.h ( https://github.com/godotengine/godot/blob/master/servers/audio/audio_stream.h )`
--  `scene/audio/audioplayer.cpp ( https://github.com/godotengine/godot/blob/master/scene/audio/audio_player.cpp )`
+-  `core/math/audio_frame.h ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/math/audio_frame.h )`
+-  `servers/audio/audio_stream.h ( https://github.com/pandemoniumengine/pandemonium/blob/master/servers/audio/audio_stream.h )`
+-  `scene/audio/audioplayer.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/master/scene/audio/audio_player.cpp )`

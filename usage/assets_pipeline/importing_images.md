@@ -6,7 +6,7 @@ Importing images
 Supported image formats
 -----------------------
 
-Godot can import the following image formats:
+Pandemonium can import the following image formats:
 
 - BMP (`.bmp`)
   - No support for 16-bit per pixel images. Only 1-bit, 4-bit, 8-bit, 24-bit, and 32-bit per pixel images are supported.
@@ -34,13 +34,13 @@ Godot can import the following image formats:
 Note:
 
 
-    If you've compiled the Godot editor from source with specific modules disabled,
+    If you've compiled the Pandemonium editor from source with specific modules disabled,
     some formats may not be available.
 
 Importing textures
 ------------------
 
-The default action in Godot is to import images as textures. Textures are stored
+The default action in Pandemonium is to import images as textures. Textures are stored
 in video memory and can't be accessed directly. This is what makes drawing them
 efficient.
 
@@ -51,14 +51,14 @@ Import options are vast:
 Detect 3D
 ~~~~~~~~~
 
-This option makes Godot be aware of when a texture (which is imported for 2D as default) is used in 3D. If this happens, setting are changed so the texture flags
+This option makes Pandemonium be aware of when a texture (which is imported for 2D as default) is used in 3D. If this happens, setting are changed so the texture flags
 are friendlier to 3D (mipmaps, filter and repeat become enabled and compression is changed to VRAM). Texture is also reimported automatically.
 
 Compression
 -----------
 
 Images are one of the largest assets in a game. To handle them efficiently, they need to be compressed.
-Godot offers several compression methods, depending on the use case.
+Pandemonium offers several compression methods, depending on the use case.
 
 Compress Mode
 ~~~~~~~~~~~~~
@@ -106,16 +106,16 @@ advantages and disadvantages (|good| = best, |bad| = worst):
 HDR Mode
 ~~~~~~~~
 
-Godot supports high dynamic range textures (as .HDR or .EXR). These are mostly useful as high dynamic range equirectangular panorama skies (the internet
-has plenty if you search for them), which replace Cubemaps in Godot 2.x. Modern PCs support the BC6H VRAM format, but there are still plenty that do not.
+Pandemonium supports high dynamic range textures (as .HDR or .EXR). These are mostly useful as high dynamic range equirectangular panorama skies (the internet
+has plenty if you search for them), which replace Cubemaps in Pandemonium 2.x. Modern PCs support the BC6H VRAM format, but there are still plenty that do not.
 
-If you want Godot to ensure full compatibility in terms of the kind of textures, enable the "Force RGBE" option.
+If you want Pandemonium to ensure full compatibility in terms of the kind of textures, enable the "Force RGBE" option.
 
 Normal Map
 ~~~~~~~~~~
 
 When using a texture as normal map, only the red and green channels are required. Given regular texture compression algorithms produce artifacts that don't
-look that nice in normal maps, the RGTC compression format is the best fit for this data. Forcing this option to "Enabled" will make Godot import the
+look that nice in normal maps, the RGTC compression format is the best fit for this data. Forcing this option to "Enabled" will make Pandemonium import the
 image as RGTC compressed. By default, it's set to "Detect", which means that if the texture is ever used as a normal map, it will be changed to "Enabled" and
 reimported automatically.
 
@@ -124,7 +124,7 @@ Note that RGTC compression affects the resulting normal map image. You will have
 Note:
 
 
-  Godot requires the normal map to use the X+, Y+ and Z+ coordinates, this is
+  Pandemonium requires the normal map to use the X+, Y+ and Z+ coordinates, this is
   known as OpenGL style. If you've imported a material made to be used with
   another engine it may be DirectX style, in which case the normal map needs to
   be converted so its Y axis is flipped.
@@ -171,7 +171,7 @@ When textures are near parallel to the view (like floors), this option makes the
 sRGB
 ~~~~
 
-Godot uses Linear colorspace when rendering 3D. Textures mapped to albedo or detail channels need to have this option turned on in order for colors to look correct.
+Pandemonium uses Linear colorspace when rendering 3D. Textures mapped to albedo or detail channels need to have this option turned on in order for colors to look correct.
 When set to **Detect** mode, the texture will be marked as sRGB when used in albedo channels.
 
 Warning:

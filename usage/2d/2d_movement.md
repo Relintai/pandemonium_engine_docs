@@ -19,7 +19,7 @@ Setup
 -----
 
 Each example below uses the same scene setup. Start with a `KinematicBody2D` with two
-children: `Sprite` and `CollisionShape2D`. You can use the Godot icon ("icon.png)")
+children: `Sprite` and `CollisionShape2D`. You can use the Pandemonium icon ("icon.png)")
 for the Sprite's texture or use any other 2D image you have.
 
 Open `Project -> Project Settings` and select the "Input Map" tab. Add the following
@@ -74,7 +74,7 @@ its *length* to `1`, and multiply by the desired speed.
 
 Tip:
  If you've never used vector math before, or need a refresher,
-         you can see an explanation of vector usage in Godot at `doc_vector_math`.
+         you can see an explanation of vector usage in Pandemonium at `doc_vector_math`.
 
 Note:
 

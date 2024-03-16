@@ -4,7 +4,7 @@ Command line tutorial
 =====================
 
 
-Some developers like using the command line extensively. Godot is
+Some developers like using the command line extensively. Pandemonium is
 designed to be friendly to them, so here are the steps for working
 entirely from the command line. Given the engine relies on almost no
 external libraries, initialization times are pretty fast, making it
@@ -13,15 +13,15 @@ suitable for this workflow.
 Note:
 
 
-    On Windows and Linux, you can run a Godot binary in a terminal by specifying
+    On Windows and Linux, you can run a Pandemonium binary in a terminal by specifying
     its relative or absolute path.
 
-    On macOS, the process is different due to Godot being contained within an
-    `.app` bundle (which is a *folder*, not a file). To run a Godot binary
-    from a terminal on macOS, you have to `cd` to the folder where the Godot
-    application bundle is located, then run `Godot.app/Contents/MacOS/Godot`
+    On macOS, the process is different due to Pandemonium being contained within an
+    `.app` bundle (which is a *folder*, not a file). To run a Pandemonium binary
+    from a terminal on macOS, you have to `cd` to the folder where the Pandemonium
+    application bundle is located, then run `Pandemonium.app/Contents/MacOS/Pandemonium`
     followed by any command line arguments. If you've renamed the application
-    bundle from `Godot` to another name, make sure to edit this command line
+    bundle from `Pandemonium` to another name, make sure to edit this command line
     accordingly.
 
 Command line reference
@@ -54,9 +54,9 @@ Command line reference
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `-l <locale )`, `--language <locale )` | Use a specific locale (<locale> being a two-letter code). See `doc_locales` for more details.                                                           |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--path <directory )`                   | Path to a project (<directory> must contain a 'project.godot' file).                                                                                         |
+| `--path <directory )`                   | Path to a project (<directory> must contain a 'project.pandemonium' file).                                                                                         |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `-u`, `--upwards`                    | Scan folders upwards for 'project.godot' file.                                                                                                               |
+| `-u`, `--upwards`                    | Scan folders upwards for 'project.pandemonium' file.                                                                                                               |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `--main-pack <file )`                   | Path to a pack (.pck) file to load.                                                                                                                          |
 +------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -147,7 +147,7 @@ Note:
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `--build-solutions`                  | Build the scripting solutions (e.g. for C# projects, `tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                    |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| `--gdnative-generate-json-api`       | Generate JSON dump of the Godot API for GDNative bindings (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                              |
+| `--gdnative-generate-json-api`       | Generate JSON dump of the Pandemonium API for GDNative bindings (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                              |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `--test <test )`                      | Run a unit test. Use `--help` first to display the list of tests. (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                    |
 +----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -158,35 +158,35 @@ Note:
 Path
 ----
 
-It is recommended that your Godot binary be in your PATH environment
+It is recommended that your Pandemonium binary be in your PATH environment
 variable, so it can be executed easily from any place by typing
-`godot`. You can do so on Linux by placing the Godot binary in
-`/usr/local/bin` and making sure it is called `godot`.
+`pandemonium`. You can do so on Linux by placing the Pandemonium binary in
+`/usr/local/bin` and making sure it is called `pandemonium`.
 
 Setting the project path
 ------------------------
 
-Depending on where your Godot binary is located and what your current
+Depending on where your Pandemonium binary is located and what your current
 working directory is, you may need to set the path to your project
 for any of the following commands to work correctly.
 
-This can be done by giving the path to the `project.godot` file
+This can be done by giving the path to the `project.pandemonium` file
 of your project as either the first argument, like this:
 
 ```
-    godot path_to_your_project/project.godot [other] [commands] [and] [args]
+    pandemonium path_to_your_project/project.pandemonium [other] [commands] [and] [args]
 ```
 
 Or by using the `--path` argument:
 
 ```
-    godot --path path_to_your_project [other] [commands] [and] [args]
+    pandemonium --path path_to_your_project [other] [commands] [and] [args]
 ```
 
 For example, the full command for exporting your game (as explained below) might look like this:
 
 ```
-    godot --path path_to_your_project --export my_export_preset_name game.exe
+    pandemonium --path path_to_your_project --export my_export_preset_name game.exe
 ```
 
 Creating a project
@@ -194,41 +194,41 @@ Creating a project
 
 
 Creating a project from the command line can be done by navigating the
-shell to the desired place and making a project.godot file.
+shell to the desired place and making a project.pandemonium file.
 
 
 ```
     mkdir newgame
     cd newgame
-    touch project.godot
+    touch project.pandemonium
 ```
 
 
-The project can now be opened with Godot.
+The project can now be opened with Pandemonium.
 
 
 Running the editor
 ------------------
 
-Running the editor is done by executing Godot with the `-e` flag. This
+Running the editor is done by executing Pandemonium with the `-e` flag. This
 must be done from within the project directory or a subdirectory,
 otherwise the command is ignored and the project manager appears.
 
 ```
-    godot -e
+    pandemonium -e
 ```
 
 If a scene has been created and saved, it can be edited later by running
 the same code with that scene as argument.
 
 ```
-    godot -e scene.tscn
+    pandemonium -e scene.tscn
 ```
 
 Erasing a scene
 ---------------
 
-Godot is friends with your filesystem and will not create extra
+Pandemonium is friends with your filesystem and will not create extra
 metadata files. Use `rm` to erase a scene file. Make sure nothing
 references that scene or else an error will be thrown upon opening.
 
@@ -239,18 +239,18 @@ references that scene or else an error will be thrown upon opening.
 Running the game
 ----------------
 
-To run the game, simply execute Godot within the project directory or
+To run the game, simply execute Pandemonium within the project directory or
 subdirectory.
 
 ```
-    godot
+    pandemonium
 ```
 
 When a specific scene needs to be tested, pass that scene to the command
 line.
 
 ```
-    godot scene.tscn
+    pandemonium scene.tscn
 ```
 
 Debugging
@@ -261,11 +261,11 @@ just fly by. For this, a command line debugger is provided by adding
 `-d`. It works for running either the game or a simple scene.
 
 ```
-    godot -d
+    pandemonium -d
 ```
 
 ```
-    godot -d scene.tscn
+    pandemonium -d scene.tscn
 ```
 
 
@@ -273,12 +273,12 @@ Exporting
 ---------
 
 Exporting the project from the command line is also supported. This is
-especially useful for continuous integration setups. The version of Godot
+especially useful for continuous integration setups. The version of Pandemonium
 that is headless (server build, no video) is ideal for this.
 
 ```
-    godot --export "Linux/X11" /var/builds/project
-    godot --export Android /var/builds/project.apk
+    pandemonium --export "Linux/X11" /var/builds/project
+    pandemonium --export Android /var/builds/project.apk
 ```
 
 The preset name must match the name of an export preset defined in the
@@ -297,7 +297,7 @@ Warning:
 
     When specifying a relative path as the path for `--export`, `--export-debug`
     or `--export-pack`, the path will be relative to the directory containing
-    the `project.godot` file, **not** relative to the current working directory.
+    the `project.pandemonium` file, **not** relative to the current working directory.
 
 Running a script
 ----------------
@@ -311,7 +311,7 @@ The script must inherit from `SceneTree` or `MainLoop`.
 Here is a simple `sayhello.gd` example of how it works:
 
 ```
-    #!/usr/bin/env -S godot -s
+    #!/usr/bin/env -S pandemonium -s
     extends SceneTree
 
     func _init():
@@ -323,14 +323,14 @@ And how to run it:
 
 ```
     # Prints "Hello!" to standard output.
-    godot -s sayhello.gd
+    pandemonium -s sayhello.gd
 ```
 
-If no `project.godot` exists at the path, current path is assumed to be the
+If no `project.pandemonium` exists at the path, current path is assumed to be the
 current working directory (unless `--path` is specified).
 
 The first line of `sayhello.gd` above is commonly referred to as
-a *shebang*. If the Godot binary is in your `PATH` as `godot`,
+a *shebang*. If the Pandemonium binary is in your `PATH` as `pandemonium`,
 it allows you to run the script as follows in modern Linux
 distributions, as well as macOS:
 
@@ -342,8 +342,8 @@ distributions, as well as macOS:
 ```
 
 If the above doesn't work in your current version of Linux or macOS, you can
-always have the shebang run Godot straight from where it is located as follows:
+always have the shebang run Pandemonium straight from where it is located as follows:
 
 ```
-    #!/usr/bin/godot -s
+    #!/usr/bin/pandemonium -s
 ```

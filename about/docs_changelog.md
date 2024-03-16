@@ -121,13 +121,13 @@ Project workflow
 Best Practices:
 
 - `doc_introduction_best_practices`
-- `doc_what_are_godot_classes`
+- `doc_what_are_pandemonium_classes`
 - `doc_scene_organization`
 - `doc_scenes_versus_scripts`
 - `doc_autoloads_versus_internal_nodes`
 - `doc_node_alternatives`
-- `doc_godot_interfaces`
-- `doc_godot_notifications`
+- `doc_pandemonium_interfaces`
+- `doc_pandemonium_notifications`
 - `doc_data_preferences`
 - `doc_logic_preferences`
 
@@ -170,7 +170,7 @@ Viewports
 Shading
 ^^^^^^^
 
-- `doc_converting_glsl_to_godot_shaders`
+- `doc_converting_glsl_to_pandemonium_shaders`
 - `doc_advanced_postprocessing`
 
 Shading Reference:

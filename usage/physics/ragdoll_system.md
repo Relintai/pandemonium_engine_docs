@@ -6,12 +6,12 @@ Ragdoll system
 Introduction
 ------------
 
-Since version 3.1, Godot supports ragdoll physics. Ragdolls rely on physics simulation to create realistic procedural animation. They are used for death animations in many games.
+Since version 3.1, Pandemonium supports ragdoll physics. Ragdolls rely on physics simulation to create realistic procedural animation. They are used for death animations in many games.
 
 In this tutorial, we will be using the Platformer3D demo to set up a ragdoll.
 
 Note:
- You can download the Platformer3D demo on `GitHub ( https://github.com/godotengine/godot-demo-projects/tree/master/3d/platformer )` or using the `Asset Library ( https://godotengine.org/asset-library/asset/125 )`.
+ You can download the Platformer3D demo on `GitHub ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/3d/platformer )` or using the `Asset Library ( https://pandemoniumengine.org/asset-library/asset/125 )`.
 
 Setting up the ragdoll
 ----------------------
@@ -21,11 +21,11 @@ Creating physical bones
 
 Like many other features in the engine, there is a node to set up a ragdoll: the `PhysicalBone` node. To simplify the setup, you can generate `PhysicalBone` nodes with the "Create physical skeleton" feature in the skeleton node.
 
-Open the platformer demo in Godot, and then the Robi scene. Select the `Skeleton` node. A skeleton button appears on the top bar menu:
+Open the platformer demo in Pandemonium, and then the Robi scene. Select the `Skeleton` node. A skeleton button appears on the top bar menu:
 
 ![](img/ragdoll_menu.png)
 
-Click it and select the `Create physical skeleton` option. Godot will generate `PhysicalBone` nodes and collision shapes for each bone in the skeleton and pin joints to connect them together:
+Click it and select the `Create physical skeleton` option. Pandemonium will generate `PhysicalBone` nodes and collision shapes for each bone in the skeleton and pin joints to connect them together:
 
 ![](img/ragdoll_bones.png)
 

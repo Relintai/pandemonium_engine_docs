@@ -3,7 +3,7 @@
 Debugger panel
 ==============
 
-Many of Godot's debugging tools, including the debugger, can be found in the
+Many of Pandemonium's debugging tools, including the debugger, can be found in the
 debugger panel at the bottom of the screen. Click on **Debugger** to open it.
 
 ![](img/overview_debugger.png)

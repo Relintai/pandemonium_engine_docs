@@ -1,9 +1,9 @@
 
 
-Godot notifications
+Pandemonium notifications
 ===================
 
-Every Object in Godot implements a
+Every Object in Pandemonium implements a
 `notification` method. Its purpose is to
 allow the Object to respond to a variety of engine-level callbacks that may
 relate to it. For example, if the engine tells a
@@ -11,7 +11,7 @@ relate to it. For example, if the engine tells a
 `notification(NOTIFICATION_DRAW)`.
 
 Some of these notifications, like draw, are useful to override in scripts. So
-much so that Godot exposes many of them with dedicated functions:
+much so that Pandemonium exposes many of them with dedicated functions:
 
 - `ready()` : NOTIFICATION_READY
 
@@ -164,7 +164,7 @@ following sequence:
    priority over initialization values.
 
 2. **Exported value assignment:** If instancing from a scene rather than
-   a script, Godot will assign the exported value to replace the initial
+   a script, Pandemonium will assign the exported value to replace the initial
    value defined in the script.
 
 As a result, instantiating a script versus a scene will affect both the
@@ -173,7 +173,7 @@ initialization *and* the number of times the engine calls the setter.
 _ready vs. _enter_tree vs. NOTIFICATION_PARENTED
 ------------------------------------------------
 
-When instantiating a scene connected to the first executed scene, Godot will
+When instantiating a scene connected to the first executed scene, Pandemonium will
 instantiate nodes down the tree (making `init` calls) and build the tree
 going downwards from the root. This causes `enter_tree` calls to cascade
 down the tree. Once the tree is complete, leaf nodes call `ready`. A node

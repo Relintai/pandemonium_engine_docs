@@ -6,21 +6,21 @@ Custom post-processing
 Introduction
 ------------
 
-Godot provides many post-processing effects out of the box, including Bloom, DOF, and SSAO. Sometimes you
+Pandemonium provides many post-processing effects out of the box, including Bloom, DOF, and SSAO. Sometimes you
 want to write your own custom effect. Here's how you can do so.
 
-Post-processing effects are shaders applied to a frame after Godot rendered it. You first want to render
+Post-processing effects are shaders applied to a frame after Pandemonium rendered it. You first want to render
 your scene into a `Viewport`, then render the `Viewport`
 inside a `ViewportTexture` and show it on the screen.
 
-The easiest way to implement a custom post-processing shader is to use Godot's built-in ability to read from
+The easiest way to implement a custom post-processing shader is to use Pandemonium's built-in ability to read from
 the screen texture. If you're not familiar with this, you should read the `Screen Reading Shaders
 Tutorial ( doc_screen-reading_shaders )` first.
 
 Note:
 
 
-    As of the time of writing, Godot does not support rendering to multiple buffers at the same time. Your
+    As of the time of writing, Pandemonium does not support rendering to multiple buffers at the same time. Your
     post-processing shader will not have access to normals or other render passes. You only have
     access to the rendered frame.
 
@@ -118,7 +118,7 @@ Your scene hierarchy will look something like this:
 
 ![](img/post_hierarchy2.png)
 
-Godot will render the bottom `Viewport` node first. So if the order of the passes matters for your
+Pandemonium will render the bottom `Viewport` node first. So if the order of the passes matters for your
 shaders, make sure that you assign the shader you want to apply first to the lowest `ViewportContainer` in
 the tree.
 

@@ -6,7 +6,7 @@ Introduction
 Physics ticks and rendered frames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One key concept to understand in Godot is the distinction between physics ticks (sometimes referred to as iterations or physics frames), and rendered frames. The physics proceeds at a fixed tick rate (set in `ProjectSettings.physics/common/physics_fps( ProjectSettings_property_physics/common/physics_fps )`), which defaults to 60 ticks per second.
+One key concept to understand in Pandemonium is the distinction between physics ticks (sometimes referred to as iterations or physics frames), and rendered frames. The physics proceeds at a fixed tick rate (set in `ProjectSettings.physics/common/physics_fps( ProjectSettings_property_physics/common/physics_fps )`), which defaults to 60 ticks per second.
 
 However, the engine does not necessarily **render** at the same rate. Although many monitors refresh at 60 Hz (cycles per second), many refresh at completely different frequencies (e.g. 75 Hz, 144 Hz, 240 Hz or more). Even though a monitor may be able to show a new frame e.g. 60 times a second, there is no guarantee that the CPU and GPU will be able to *supply* frames at this rate. For instance, when running with V-Sync, the computer may be too slow for 60 and only reach the deadlines for 30 FPS, in which case the frames you see will change at 30 FPS (resulting in stuttering).
 
@@ -40,7 +40,7 @@ This can make quality assurance difficult with hard to reproduce bugs, especiall
 Lock the tick rate, but use interpolation to smooth frames in between physics ticks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This has become one of the most popular approaches to dealing with the problem. It is supported by Godot 3.5 and later in 3D (although it is optional and disabled by default).
+This has become one of the most popular approaches to dealing with the problem. It is supported by Pandemonium 3.5 and later in 3D (although it is optional and disabled by default).
 
 We have established that the most desirable physics/game logic arrangement for consistency and predictability is a physics tick rate that is fixed at design-time. The problem is the discrepancy between the physics position recorded, and where we "want" a physics object to be shown on a frame to give smooth motion.
 
@@ -60,7 +60,7 @@ The simplest way to achieve this is linear interpolation, or lerping, which you 
 Let us consider only the position, and a situation where we know that the previous physics tick X coordinate was 10 units, and the current physics tick X coordinate is 30 units.
 
 Note:
- Although the maths is explained here, you do not have to worry about the details, as this step will be performed for you. Under the hood, Godot may use more complex forms of interpolation, but linear interpolation is the easiest in terms of explanation.
+ Although the maths is explained here, you do not have to worry about the details, as this step will be performed for you. Under the hood, Pandemonium may use more complex forms of interpolation, but linear interpolation is the easiest in terms of explanation.
 
 The physics interpolation fraction
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,7 +74,7 @@ First of all, we have to calculate how far through the physics tick we want the 
 	fraction = 0.2
 ```
 
-This is called the **physics interpolation fraction**, and is handily calculated for you by Godot. It can be retrieved on any frame by calling `Engine.get_physics_interpolation_fraction( Engine_method_get_physics_interpolation_fraction )`.
+This is called the **physics interpolation fraction**, and is handily calculated for you by Pandemonium. It can be retrieved on any frame by calling `Engine.get_physics_interpolation_fraction( Engine_method_get_physics_interpolation_fraction )`.
 
 Calculating the interpolated position
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -100,7 +100,7 @@ Let's break that down:
 - The only thing we need to vary is the proportion of this difference we add, according to how far we are through the physics tick.
 
 Note:
- Although this example interpolates the position, the same thing can be done with the rotation and scale of objects. It is not necessary to know the details as Godot will do all this for you.
+ Although this example interpolates the position, the same thing can be done with the rotation and scale of objects. It is not necessary to know the details as Pandemonium will do all this for you.
 
 Smoothed transformations between physics ticks?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,7 +129,7 @@ There is an alternative to this scheme, which is: instead of interpolating betwe
 Fixed timestep interpolation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In Godot this whole system is referred to as physics interpolation, but you may also hear it referred to as **"fixed timestep interpolation"**, as it is interpolating between objects moved with a fixed timestep (physics ticks per second). In some ways the second term is more accurate, because it can also be used to interpolate objects that are not driven by physics.
+In Pandemonium this whole system is referred to as physics interpolation, but you may also hear it referred to as **"fixed timestep interpolation"**, as it is interpolating between objects moved with a fixed timestep (physics ticks per second). In some ways the second term is more accurate, because it can also be used to interpolate objects that are not driven by physics.
 
 Tip:
- Although physics interpolation is usually a good choice, there are exceptions where you may choose not to use Godot's built-in physics interpolation (or use it in a limited fashion). An example category is internet multiplayer games. Multiplayer games often receive tick or timing based information from other players or a server and these may not coincide with local physics ticks, so a custom interpolation technique can often be a better fit.
+ Although physics interpolation is usually a good choice, there are exceptions where you may choose not to use Pandemonium's built-in physics interpolation (or use it in a limited fashion). An example category is internet multiplayer games. Multiplayer games often receive tick or timing based information from other players or a server and these may not coincide with local physics ticks, so a custom interpolation technique can often be a better fit.

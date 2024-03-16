@@ -4,7 +4,7 @@ Your first 3D game
 ==================
 
 In this step-by-step tutorial series, you will create your first complete 3D
-game with Godot. By the end of the series, you will have a simple yet finished
+game with Pandemonium. By the end of the series, you will have a simple yet finished
 project of your own like the animated gif below.
 
 |image0|
@@ -31,7 +31,7 @@ This tutorial is for beginners who followed the complete getting started series.
 We'll start slow with detailed instructions and shorten them as we do similar
 steps. If you're an experienced programmer, you can browse the complete demo's
 source code here: `Squash the Creep source code
-( https://github.com/GDQuest/godot-3d-dodge-the-creeps/ )`.
+( https://github.com/GDQuest/pandemonium-3d-dodge-the-creeps/ )`.
 
 Note:
 
@@ -43,7 +43,7 @@ Note:
 
 We prepared some game assets so we can jump straight to the code. You can
 download them here: `Squash the Creeps assets
-( https://github.com/GDQuest/godot-3d-dodge-the-creeps/releases/tag/1.1.0 )`.
+( https://github.com/GDQuest/pandemonium-3d-dodge-the-creeps/releases/tag/1.1.0 )`.
 
 We will first work on a basic prototype for the player's movement. We will then
 add the monsters that we'll spawn randomly around the screen. After that, we'll

@@ -1,6 +1,6 @@
 # Thread pool module
 
-A c++ Godot engine module, that will help you with threading.
+A c++ Pandemonium engine module, that will help you with threading.
 
 It can also work if threads are not available (like on the javascript backend), in this case it runs jobs on the
 main thread. Jobs themselves can also distribute their work onto multiple frames, and you can set how much time
@@ -119,18 +119,18 @@ It's api is still a bit messy, it will be cleaned up (hopefully very soon).
 
 1. Get the source code for the engine.
 
-If you want Godot 3.2:
-```git clone -b 3.2 https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 3.2:
+```git clone -b 3.2 https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-If you want Godot 4.0:
-```git clone https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 4.0:
+```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-[last tested commit](https://github.com/godotengine/godot/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)
+[last tested commit](https://github.com/pandemoniumengine/pandemonium/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)
 
-2. Go into Godot's modules directory.
+2. Go into Pandemonium's modules directory.
 
 ```
-cd ./godot/modules/
+cd ./pandemonium/modules/
 ```
 
 3. Clone this repository
@@ -139,6 +139,6 @@ cd ./godot/modules/
 git clone https://github.com/Relintai/thread_pool thread_pool
 ```
 
-4. Build Godot. [Tutorial](https://docs.godotengine.org/en/latest/development/compiling/index.html)
+4. Build Pandemonium. [Tutorial](https://docs.pandemoniumengine.org/en/latest/development/compiling/index.html)
 
 

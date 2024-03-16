@@ -6,7 +6,7 @@ Feature tags
 Introduction
 ------------
 
-Godot has a special system to tag availability of features.
+Pandemonium has a special system to tag availability of features.
 Each *feature* is represented as a string, which can refer to many of the following:
 
 * Platform name.
@@ -26,7 +26,7 @@ Features can be queried at run-time from the singleton API by calling:
 Default features
 ----------------
 
-Here is a list of most feature tags in Godot. Keep in mind they are **case-sensitive**:
+Here is a list of most feature tags in Pandemonium. Keep in mind they are **case-sensitive**:
 
 +-----------------+--------------------------------------------------------+
 | **Feature tag** | **Description**                                        |

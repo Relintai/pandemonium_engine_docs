@@ -33,9 +33,9 @@ For compiling under Windows, Linux or macOS, the following is required:
 
    -  You can download a build from `ojdkbuild ( https://github.com/ojdkbuild/ojdkbuild )`.
 
-To get the Godot source code for compiling, see `doc_getting_source`.
+To get the Pandemonium source code for compiling, see `doc_getting_source`.
 
-For a general overview of SCons usage for Godot, see `doc_introduction_to_the_buildsystem`.
+For a general overview of SCons usage for Pandemonium, see `doc_introduction_to_the_buildsystem`.
 
 
 ## Setting up the buildsystem
@@ -67,13 +67,13 @@ points to the root of the SDK directories.
 
 ## Building the export templates
 
-Godot needs two export templates for Android: the optimized "release"
+Pandemonium needs two export templates for Android: the optimized "release"
 template (`android_release.apk`) and the debug template (`android_debug.apk`).
 As Google will require all APKs to include ARMv8 (64-bit) libraries starting
 from August 2019, the commands below will build an APK containing both
 ARMv7 and ARMv8 libraries.
 
-Compiling the standard export templates is done by calling SCons from the Godot
+Compiling the standard export templates is done by calling SCons from the Pandemonium
 root directory with the following arguments:
 
 -  Release template (used when exporting with **Debugging Enabled** unchecked)
@@ -83,9 +83,9 @@ root directory with the following arguments:
     scons platform=android target=release android_arch=arm64v8
     cd platform/android/java
     # On Windows
-    .\gradlew generateGodotTemplates
+    .\gradlew generatePandemoniumTemplates
     # On Linux and macOS
-    ./gradlew generateGodotTemplates
+    ./gradlew generatePandemoniumTemplates
 ```
 
 The resulting APK will be located at `bin/android_release.apk`.
@@ -97,9 +97,9 @@ The resulting APK will be located at `bin/android_release.apk`.
     scons platform=android target=release_debug android_arch=arm64v8
     cd platform/android/java
     # On Windows
-    .\gradlew generateGodotTemplates
+    .\gradlew generatePandemoniumTemplates
     # On Linux and macOS
-    ./gradlew generateGodotTemplates
+    ./gradlew generatePandemoniumTemplates
 ```
 
 The resulting APK will be located at `bin/android_debug.apk`.
@@ -118,9 +118,9 @@ example, for the release template:
     scons platform=android target=release android_arch=x86_64
     cd platform/android/java
     # On Windows
-    .\gradlew generateGodotTemplates
+    .\gradlew generatePandemoniumTemplates
     # On Linux and macOS
-    ./gradlew generateGodotTemplates
+    ./gradlew generatePandemoniumTemplates
 ```
 
 This will create a fat binary that works on all platforms.
@@ -135,33 +135,33 @@ You can use the following commands to remove the generated export templates:
 ```
     cd platform/android/java
     # On Windows
-    .\gradlew cleanGodotTemplates
+    .\gradlew cleanPandemoniumTemplates
     # On Linux and macOS
-    ./gradlew cleanGodotTemplates
+    ./gradlew cleanPandemoniumTemplates
 ```
 
 ## Using the export templates
 
-Godot needs release and debug APKs that were compiled against the same
+Pandemonium needs release and debug APKs that were compiled against the same
 version/commit as the editor. If you are using official binaries
 for the editor, make sure to install the matching export templates,
 or build your own from the same version.
 
-When exporting your game, Godot opens the APK, changes a few things inside and
+When exporting your game, Pandemonium opens the APK, changes a few things inside and
 adds your files.
 
 Installing the templates
 
 The newly-compiled templates (`android_debug.apk`
-and `android_release.apk`) must be copied to Godot's templates folder
+and `android_release.apk`) must be copied to Pandemonium's templates folder
 with their respective names. The templates folder can be located in:
 
--  Windows: `%APPDATA%\Godot\templates\( version>\`
--  Linux: `$HOME/.local/share/godot/templates/( version>/`
--  macOS: `$HOME/Library/Application Support/Godot/templates/( version>/`
+-  Windows: `%APPDATA%\Pandemonium\templates\( version>\`
+-  Linux: `$HOME/.local/share/pandemonium/templates/( version>/`
+-  macOS: `$HOME/Library/Application Support/Pandemonium/templates/( version>/`
 
 `( version )` is of the form `major.minor[.patch].status` using values from
-`version.py` in your Godot source repository (e.g. `3.0.5.stable` or `3.1.dev`).
+`version.py` in your Pandemonium source repository (e.g. `3.0.5.stable` or `3.1.dev`).
 You also need to write this same version string to a `version.txt` file located
 next to your export templates.
 
@@ -172,7 +172,7 @@ here:
 ![](img/andtemplates.png)
 
 You don't even need to copy them, you can just reference the resulting
-file in the `bin\` directory of your Godot source folder, so that the
+file in the `bin\` directory of your Pandemonium source folder, so that the
 next time you build you will automatically have the custom templates
 referenced.
 
@@ -211,8 +211,8 @@ If the application runs but exits immediately, this might be due to
 one of the following reasons:
 
 -  Make sure to use export templates that match your editor version; if
-   you use a new Godot version, you *have* to update the templates too.
--  `libgodot_android.so` is not in `libs/( android_arch>/`
+   you use a new Pandemonium version, you *have* to update the templates too.
+-  `libpandemonium_android.so` is not in `libs/( android_arch>/`
    where `( android_arch )` is the device's architecture.
 -  The device's architecture does not match the exported one(s).
    Make sure your templates were built for that device's architecture,

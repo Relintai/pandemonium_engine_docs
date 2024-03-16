@@ -13,12 +13,12 @@ The protocol is quite simple, message based, and a very powerful tool to send pu
 
 Due to its simplicity, its wide compatibility, and being easier to use than a raw TCP connection, WebSocket soon started to spread outside the browsers, in native applications as a mean to communicate with network servers.
 
-Godot supports WebSocket in both native and HTML5 exports.
+Pandemonium supports WebSocket in both native and HTML5 exports.
 
-Using WebSocket in Godot
+Using WebSocket in Pandemonium
 ------------------------
 
-WebSocket is implemented in Godot via three main classes `WebSocketClient` for more details.
+WebSocket is implemented in Pandemonium via three main classes `WebSocketClient` for more details.
 
 Warning:
 
@@ -164,4 +164,4 @@ This will print (when a client connects) something similar to this:
 Advanced chat demo
 ^^^^^^^^^^^^^^^^^^
 
-A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer demo are available in the `godot demo projects ( https://github.com/godotengine/godot-demo-projects )` under `networking/websocket_chat` and `networking/websocket_multiplayer`.
+A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer demo are available in the `pandemonium demo projects ( https://github.com/pandemoniumengine/pandemonium-demo-projects )` under `networking/websocket_chat` and `networking/websocket_multiplayer`.

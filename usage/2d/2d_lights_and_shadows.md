@@ -7,15 +7,15 @@ Introduction
 ------------
 
 This tutorial explains how the 2D lighting works in the
-`lights and shadows ( https://github.com/godotengine/godot-demo-projects/tree/master/2d/lights_and_shadows )` demo project.
+`lights and shadows ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/2d/lights_and_shadows )` demo project.
 It begins with a brief description of the resources used in the final demo and then describes how
 to make a scene like the demo step by step.
 
 ![](img/light_shadow_main.png)
 
-All the resources for this tutorial can be found in the `official demo repository ( https://github.com/godotengine/godot-demo-projects )`
+All the resources for this tutorial can be found in the `official demo repository ( https://github.com/pandemoniumengine/pandemonium-demo-projects )`
 on GitHub. I suggest you download it before starting. Alternatively,
-it can be downloaded from the Project Manager. Launch Godot and in the top
+it can be downloaded from the Project Manager. Launch Pandemonium and in the top
 bar select "Templates" and search for "2D Lights and Shadows Demo".
 
 Setup
@@ -25,19 +25,19 @@ For this demo we use four textures: two for the lights, one for the shadow caste
 and one for the background. I've included links to them all here if you want to download them
 separately from the demo.
 
-The first is the background image (`background.png) ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/background.png) )`)
+The first is the background image (`background.png) ( https://raw.githubusercontent.com/pandemoniumengine/pandemonium-demo-projects/master/2d/lights_and_shadows/background.png) )`)
 used in the demo. You do not necessarily need a background, but we use one for the demo.
 
-The second is a plain black image (`caster.png) ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png) )`)
+The second is a plain black image (`caster.png) ( https://raw.githubusercontent.com/pandemoniumengine/pandemonium-demo-projects/master/2d/lights_and_shadows/caster.png) )`)
 to use as our shadow caster object. For a top down game this could be a wall or any
 other object that casts a shadow.
 
-Next is the light itself (`light.png) ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/light.png) )`).
+Next is the light itself (`light.png) ( https://raw.githubusercontent.com/pandemoniumengine/pandemonium-demo-projects/master/2d/lights_and_shadows/light.png) )`).
 If you click the link you will notice how large it is. The image you use
 for a light should cover the area you want your light to cover. This image is
 1024x1024 pixels, so you should use it to cover 1024x1024 pixels in your game.
 
-Lastly, we have the spotlight image (`spot.png) ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/spot.png) )`).
+Lastly, we have the spotlight image (`spot.png) ( https://raw.githubusercontent.com/pandemoniumengine/pandemonium-demo-projects/master/2d/lights_and_shadows/spot.png) )`).
 The demo uses a blob to show where the light is and the larger light
 image to show the effect of the light upon the rest of the scene.
 
@@ -151,7 +151,7 @@ This way we can show and hide them all at the same time.
 
 Each shadow caster is made of a `Sprite`
 child. For the demo the `Sprite` has a texture
-set to the `caster image ( https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/caster.png) )` and nothing else. The child `LightOccluder2D` is where all the magic happens. In a
+set to the `caster image ( https://raw.githubusercontent.com/pandemoniumengine/pandemonium-demo-projects/master/2d/lights_and_shadows/caster.png) )` and nothing else. The child `LightOccluder2D` is where all the magic happens. In a
 game the `Sprite` could be more than a black box; it could be an image of whatever object is casting
 the shadow: a wall, a magical chest, or anything else.
 
@@ -198,10 +198,10 @@ section set `Enable` to `on`. This turns on shadows with hard edges like in the 
 ![](img/light_shadow_filter0_pcf0.png)
 
 To give the shadows that nice, soft edge look we set the variables `filter`, `filter smooth`, and
-`gradient length`. Godot supports `Percentage Closer Filtering ( https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch11.html )`
+`gradient length`. Pandemonium supports `Percentage Closer Filtering ( https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch11.html )`
 (PCF), which takes multiple samples of the shadow map around a pixel and blurs them to create
 a smooth shadow effect. The higher the number of samples the smoother the shadow will
-look, but the slower it will run. That is why Godot provides 3-13 samples by default and allows you to choose.
+look, but the slower it will run. That is why Pandemonium provides 3-13 samples by default and allows you to choose.
 The demo uses PCF7.
 
 ![](img/light_shadow_normal.png)
@@ -249,5 +249,5 @@ Note:
  `gradient length` is set to `10`.
 
 You will need to play around with the options a bit to find settings that suit your project. There is no right solution
-for everyone, which is why Godot provides so much flexibility. Just keep in mind that the higher `filter`
+for everyone, which is why Pandemonium provides so much flexibility. Just keep in mind that the higher `filter`
 set the more expensive the shadows will be.

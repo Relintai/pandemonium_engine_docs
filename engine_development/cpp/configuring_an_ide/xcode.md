@@ -23,7 +23,7 @@ Importing the project
   +------------+------------------------------------------------------------------------------+
   | Arguments  | See `doc_introduction_to_the_buildsystem` for a full list of arguments. |
   +------------+------------------------------------------------------------------------------+
-  | Directory  | A full path to the Godot root folder                                         |
+  | Directory  | A full path to the Pandemonium root folder                                         |
   +------------+------------------------------------------------------------------------------+
 
 .. figure:: img/xcode_2_configure_scons.png)
@@ -44,24 +44,24 @@ Importing the project
    :align: center
 
 Note:
- Name it something so you know not to compile with this target (e.g. `GodotXcodeIndex`).
+ Name it something so you know not to compile with this target (e.g. `PandemoniumXcodeIndex`).
 
 - For this target open the **Build Settings** tab and look for **Header Search Paths**.
-- Set **Header Search Paths** to the absolute path to the Godot root folder. You need to
+- Set **Header Search Paths** to the absolute path to the Pandemonium root folder. You need to
   include subdirectories as well. To achieve that, add two two asterisks (`**`) to the 
-  end of the path, e.g. `/Users/me/repos/godot-source/**`.
+  end of the path, e.g. `/Users/me/repos/pandemonium-source/**`.
 
-- Add the Godot source to the project by dragging and dropping it into the project file browser.
+- Add the Pandemonium source to the project by dragging and dropping it into the project file browser.
 - Uncheck **Create external build system project**.
 
-.. figure:: img/xcode_5_after_add_godot_source_to_project.png)
+.. figure:: img/xcode_5_after_add_pandemonium_source_to_project.png)
    :figclass: figure-w480
    :align: center
 
 - Next select **Create groups** for the **Added folders** option and check *only* 
   your command line indexing target in the **Add to targets** section.
 
-.. figure:: img/xcode_6_after_add_godot_source_to_project_2.png)
+.. figure:: img/xcode_6_after_add_pandemonium_source_to_project_2.png)
    :figclass: figure-w480
    :align: center
 
@@ -82,7 +82,7 @@ To enable debugging support you need to edit the external build target's build a
 - Create a script that will give the binary a name that Xcode can recognize, e.g.:
 
 ```
-  ln -f ${PROJECT_DIR}/godot/bin/godot.osx.tools.64 ${PROJECT_DIR}/godot/bin/godot
+  ln -f ${PROJECT_DIR}/pandemonium/bin/pandemonium.osx.tools.64 ${PROJECT_DIR}/pandemonium/bin/pandemonium
 ```
 
 .. figure:: img/xcode_7_setup_build_post_action.png)
@@ -102,10 +102,10 @@ To enable debugging support you need to edit the external build target's build a
 - You can add two arguments on the **Arguments** tab:
   the `-e` flag opens the editor instead of the project manager, and the `--path` argument
   tells the executable to open the specified project (must be provided as an *absolute* path 
-  to the project root, not the `project.godot` file).
+  to the project root, not the `project.pandemonium` file).
 
-To check that everything is working, put a breakpoint in `platform/osx/godot_main_osx.mm` and
+To check that everything is working, put a breakpoint in `platform/osx/pandemonium_main_osx.mm` and
 run the project.
 
 If you run into any issues, ask for help in one of
-`Godot's community channels ( https://godotengine.org/community )`.
+`Pandemonium's community channels ( https://pandemoniumengine.org/community )`.

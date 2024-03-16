@@ -1,9 +1,9 @@
 
 
-Introduction to Godot
+Introduction to Pandemonium
 =====================
 
-This article is here to help you figure out whether Godot might be a good fit
+This article is here to help you figure out whether Pandemonium might be a good fit
 for you. We will introduce some broad features of the engine to give you a feel
 for what you can achieve with it and answer questions such as "what do I need to
 know to get started?".
@@ -11,10 +11,10 @@ know to get started?".
 This is by no means an exhaustive overview. We will introduce many more features
 in this getting started series.
 
-What is Godot?
+What is Pandemonium?
 --------------
 
-Godot is a general-purpose 2D and 3D game engine designed to support all sorts
+Pandemonium is a general-purpose 2D and 3D game engine designed to support all sorts
 of projects. You can use it to create games or applications you can then release
 on desktop or mobile, as well as on the web.
 
@@ -22,7 +22,7 @@ You can also create console games with it, although you either need strong
 programming skills or a developer to port the game for you.
 
 Note:
- The Godot team can't provide an open-source console export due to the
+ The Pandemonium team can't provide an open-source console export due to the
           licensing terms imposed by console manufacturers. Regardless of the
           engine you use, though, releasing games on consoles is always a lot of
           work. You can read more on that here: `doc_consoles`.
@@ -30,18 +30,18 @@ Note:
 What can the engine do?
 -----------------------
 
-Godot was initially developed in-house by an Argentinan game studio. Its
+Pandemonium was initially developed in-house by an Argentinan game studio. Its
 development started in 2001, and the engine was rewritten and improved
 tremendously since its open-source release in 2014.
 
-Some examples of games created with Godot include Ex-Zodiac and Helms of Fury.
+Some examples of games created with Pandemonium include Ex-Zodiac and Helms of Fury.
 
 ![](img/introduction_ex_zodiac.png)
 
 ![](img/introduction_helms_of_fury.jpg
 
 As for applications, the open-source pixel art drawing program Pixelorama is
-powered by Godot, and so is the voxel RPG creator RPG in a box.
+powered by Pandemonium, and so is the voxel RPG creator RPG in a box.
 
 ![](img/introduction_rpg_in_a_box.png)
 
@@ -50,7 +50,7 @@ You can find many more examples in the `official showcase videos`.
 How does it work and look?
 --------------------------
 
-Godot comes with a fully-fledged game editor with integrated tools to answer the
+Pandemonium comes with a fully-fledged game editor with integrated tools to answer the
 most common needs. It includes a code editor, an animation editor, a tilemap
 editor, a shader editor, a debugger, a profiler, and more.
 
@@ -73,11 +73,11 @@ Programming languages
 Let's talk about the available programming languages.
 
 You can code your games using `GDScript <toc-learn-scripting-gdscript )`, a
-Godot-specific and tightly integrated language with a lightweight syntax, or
+Pandemonium-specific and tightly integrated language with a lightweight syntax, or
 `C# <toc-learn-scripting-C# )`, which is popular in the games industry.
 These are the two main scripting languages we support.
 
-Godot also supports a node-based visual programming language named
+Pandemonium also supports a node-based visual programming language named
 `VisualScript <toc-learn-scripting-visual_script )`.
 
 With the `GDNative <toc-tutorials-gdnative )` technology, you can also write
@@ -94,15 +94,15 @@ See also:
              see `GDNative third-party bindings
              ( doc_what_is_gdnative_third_party_bindings )`.
 
-What do I need to know to use Godot?
+What do I need to know to use Pandemonium?
 ------------------------------------
 
-Godot is a feature-packed game engine. With its thousands of features, there is
+Pandemonium is a feature-packed game engine. With its thousands of features, there is
 a lot to learn. To make the most of it, you need good programming foundations.
 While we try to make the engine accessible, you will benefit a lot from knowing
 how to think like a programmer first.
 
-Godot relies on the object-oriented programming paradigm. Being comfortable with
+Pandemonium relies on the object-oriented programming paradigm. Being comfortable with
 concepts such as classes and objects will help you code efficiently in it.
 
 If you are entirely new to programming, we recommend following the `CS50 open
@@ -115,13 +115,13 @@ Note:
           afraid of that: programming languages have many similarities. The
           skills you learn with one language transfer well to others.
 
-We will provide you with more Godot-specific learning resources in
+We will provide you with more Pandemonium-specific learning resources in
 `doc_learning_new_features`.
 
 In the next part, you will get an overview of the engine's essential concepts.
 
 .. _Blender: https://www.blender.org/
-.. _VSCode: https://github.com/godotengine/godot-vscode-plugin
-.. _Emacs: https://github.com/godotengine/emacs-gdscript-mode
+.. _VSCode: https://github.com/pandemoniumengine/pandemonium-vscode-plugin
+.. _Emacs: https://github.com/pandemoniumengine/emacs-gdscript-mode
 .. _official showcase videos: https://www.youtube.com/playlist?list=PLeG_dAglpVo6EpaO9A1nkwJZOwrfiLdQ8
 .. _CS50 open courseware: https://cs50.harvard.edu/x

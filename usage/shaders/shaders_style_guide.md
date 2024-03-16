@@ -8,10 +8,10 @@ encourage writing clean, readable code and promote consistency across projects,
 discussions, and tutorials. Hopefully, this will also support the development of
 auto-formatting tools.
 
-Since the Godot shader language is close to C-style languages and GLSL, this
-guide is inspired by Godot's own GLSL formatting. You can view an example of a
-GLSL file in Godot's source code
-`here ( https://github.com/godotengine/godot/blob/master/drivers/gles2/shaders/copy.glsl )`.
+Since the Pandemonium shader language is close to C-style languages and GLSL, this
+guide is inspired by Pandemonium's own GLSL formatting. You can view an example of a
+GLSL file in Pandemonium's source code
+`here ( https://github.com/pandemoniumengine/pandemonium/blob/master/drivers/gles2/shaders/copy.glsl )`.
 
 Style guides aren't meant as hard rulebooks. At times, you may not be able to
 apply some of the guidelines below. When that happens, use your best judgment,
@@ -21,7 +21,7 @@ In general, keeping your code consistent in your projects and within your team i
 more important than following this guide to a tee.
 
 Note:
- Godot's built-in shader editor uses a lot of these conventions
+ Pandemonium's built-in shader editor uses a lot of these conventions
           by default. Let it help you.
 
 Here is a complete shader example based on these guidelines:
@@ -30,7 +30,7 @@ Here is a complete shader example based on these guidelines:
     shader_type canvas_item;
     // Screen-space shader to adjust a 2D scene's brightness, contrast
     // and saturation. Taken from
-    // https://github.com/godotengine/godot-demo-projects/blob/master/2d/screen_space_shaders/shaders/BCS.shader
+    // https://github.com/pandemoniumengine/pandemonium-demo-projects/blob/master/2d/screen_space_shaders/shaders/BCS.shader
 
     uniform float brightness = 0.8;
     uniform float contrast = 1.5;
@@ -294,7 +294,7 @@ understand what the underlying data represents.
 Naming conventions
 ------------------
 
-These naming conventions follow the Godot Engine style. Breaking these will make
+These naming conventions follow the Pandemonium Engine style. Breaking these will make
 your code clash with the built-in naming conventions, leading to inconsistent
 code.
 

@@ -4,8 +4,8 @@ Bug triage guidelines
 =====================
 
 This page describes the typical workflow of the bug triage team aka
-bugsquad when handling issues and pull requests on Godot's
-`GitHub repository ( https://github.com/godotengine/godot )`.
+bugsquad when handling issues and pull requests on Pandemonium's
+`GitHub repository ( https://github.com/pandemoniumengine/pandemonium )`.
 It is bound to evolve together with the bugsquad, so do not
 hesitate to propose modifications to the following guidelines.
 
@@ -17,10 +17,10 @@ GitHub proposes various features to manage issues:
 -  Set one or several labels from a predefined list
 -  Set one milestone from a predefined list
 -  Keep track of the issue in the project dashboard
--  Define one contributor as "assignee" among the Godot engine
+-  Define one contributor as "assignee" among the Pandemonium engine
    organization members
 
-As the Godot engine organization on GitHub currently has a restricted
+As the Pandemonium engine organization on GitHub currently has a restricted
 number of contributors, we do not use assignees extensively for now. All
 contributors are welcome to take on any issue, if relevant after mentioning
 it on the issue ticket and/or discussing the best way to resolve it with
@@ -34,7 +34,7 @@ to both issues and pull requests.
 Labels
 ~~~~~~
 
-The following labels are currently defined in the Godot repository:
+The following labels are currently defined in the Pandemonium repository:
 
 **Categories:**
 
@@ -52,7 +52,7 @@ The following labels are currently defined in the Godot repository:
    The purpose of this label is to let developers know which issues are
    still reproducible when they want to select what to work on. It is
    therefore a good practice to add in a comment on what platform and
-   what version or commit of Godot the issue could be reproduced; if a
+   what version or commit of Pandemonium the issue could be reproduced; if a
    developer looks at the issue one year later, the *Confirmed* label
    may not be relevant anymore.
 -  *Discussion*: the issue is not consensual and needs further
@@ -61,15 +61,15 @@ The following labels are currently defined in the Godot repository:
 -  *Documentation*: issue related to the documentation. Mainly to request
    enhancements in the API documentation. Issues related to the ReadTheDocs
    documentation should be filed on the
-   `godot-docs ( https://github.com/godotengine/godot-docs )` repository.
+   `pandemonium-docs ( https://github.com/pandemoniumengine/pandemonium-docs )` repository.
 -  *Enhancement*: describes a proposed enhancement to an existing
    functionality.
 -  *Feature proposal*: describes a wish for a new feature to be
-   implemented. Note that the main Godot repository no longer accepts
+   implemented. Note that the main Pandemonium repository no longer accepts
    feature requests. Please use
-   `godot-proposals ( https://github.com/godotengine/godot-proposals )` instead.
+   `pandemonium-proposals ( https://github.com/pandemoniumengine/pandemonium-proposals )` instead.
 -  *For PR meeting*: the issue needs to be discussed in a pull request meeting.
-   These meetings are public and are held on the `Godot Contributors Chat ( https://chat.godotengine.org/ )`.
+   These meetings are public and are held on the `Pandemonium Contributors Chat ( https://chat.pandemoniumengine.org/ )`.
 -  *Good first issue*: the issue is *assumed* to be an easy one to fix, which makes
    it a great fit for new contributors who need to become familiar with
    the code base.
@@ -126,9 +126,9 @@ feature request, or one that is not precise enough to be worked on.
 -  *Plugin*: relates to problems encountered while writing plugins.
 -  *Porting*: relates to some specific platforms or exporting projects.
 -  *Rendering*: relates to the 2D and 3D rendering engines.
--  *Shaders*: relates to the Godot shader language or visual shaders.
+-  *Shaders*: relates to the Pandemonium shader language or visual shaders.
 -  *Tests*: relates to unit tests.
--  *Thirdparty*: relates to third-party libraries used in Godot.
+-  *Thirdparty*: relates to third-party libraries used in Pandemonium.
 -  *VisualScript*: relates to issues with the visual scripting language (*not* visual shaders).
 -  *XR*: relates to Augmented Reality or Virtual Reality.
 
@@ -149,7 +149,7 @@ Android and Linux exclusively, select those two platforms).
 Documentation labels
 ~~~~~~~~~~~~~~~~~~~~
 
-In the `documentation repository ( https://github.com/godotengine/godot-docs )`, we
+In the `documentation repository ( https://github.com/pandemoniumengine/pandemonium-docs )`, we
 use the following labels:
 
 -  *Bug*: Incorrect information in an existing page. Not to be used for
@@ -170,15 +170,15 @@ use the following labels:
    merge conflicts and its author is not active anymore. However, it can still
    be picked up by an external contributor to bring it to a mergeable state.
    To do so, you need to open a new pull request based on the original pull request.
--  *Topic:Mono*: the issue is about C# support in Godot.
+-  *Topic:Mono*: the issue is about C# support in Pandemonium.
 -  *Topic:Website*: the issue relates to the Sphinx/Read the Docs frontend or backend,
    not the documentation contents.
 
 Milestones
 ~~~~~~~~~~
 
-`Milestones ( https://github.com/godotengine/godot/milestones )` correspond to
-planned future versions of Godot for which there is an existing roadmap. Issues
+`Milestones ( https://github.com/pandemoniumengine/pandemonium/milestones )` correspond to
+planned future versions of Pandemonium for which there is an existing roadmap. Issues
 that fit in the said roadmap should be filed under the corresponding milestone;
 if they don't correspond to any current roadmap, they should be left without
 milestone. As a rule of thumb, an issue corresponds to a given milestone if it

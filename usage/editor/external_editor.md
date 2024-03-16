@@ -5,15 +5,15 @@ Using an external text editor
 
 This page explains how to code using an external text editor.
 
-Godot can be used with an external text editor, such as Sublime Text or Visual
+Pandemonium can be used with an external text editor, such as Sublime Text or Visual
 Studio Code. Browse to the relevant editor settings: `Editor -> Editor Settings
 -> Text Editor -> External`
 
 ![](img/editor_settings.png)
 
 There are two fields: the executable path and command-line flags. The flags
-allow you to integrate the editor with Godot, passing it the file path to open
-and other relevant arguments. Godot will replace the following placeholders in
+allow you to integrate the editor with Pandemonium, passing it the file path to open
+and other relevant arguments. Pandemonium will replace the following placeholders in
 the flags string:
 
 +---------------------+-----------------------------------------------------+
@@ -56,5 +56,5 @@ Official editor plugins
 
 We have official plugins for the following code editors:
 
-- `Visual Studio Code ( https://github.com/godotengine/godot-vscode-plugin )`
-- `Emacs ( https://github.com/godotengine/emacs-gdscript-mode )`
+- `Visual Studio Code ( https://github.com/pandemoniumengine/pandemonium-vscode-plugin )`
+- `Emacs ( https://github.com/pandemoniumengine/emacs-gdscript-mode )`

@@ -18,8 +18,8 @@ Some use-cases where customizing the default page is useful include:
   the project file system as soon as possible;
 - Passing custom command line arguments, e.g. `-s` to start a `MainLoop` script.
 
-The default HTML page is available in the Godot Engine repository at
-`/misc/dist/html/full-size.html ( https://github.com/godotengine/godot/blob/master/misc/dist/html/full-size.html )`
+The default HTML page is available in the Pandemonium Engine repository at
+`/misc/dist/html/full-size.html ( https://github.com/pandemoniumengine/pandemonium/blob/master/misc/dist/html/full-size.html )`
 but the following template can be used as a much simpler example:
 
 ```
@@ -31,9 +31,9 @@ but the following template can be used as a much simpler example:
         </head>
         <body>
             <canvas id="canvas"></canvas>
-            <script src="$GODOT_URL"></script>
+            <script src="$PANDEMONIUM_URL"></script>
             <script>
-                var engine = new Engine($GODOT_CONFIG);
+                var engine = new Engine($PANDEMONIUM_CONFIG);
                 engine.startGame();
             </script>
         </body>
@@ -48,26 +48,26 @@ JavaScript code that calls the :js:class:`Engine` class.
 
 The only required placeholders are:
 
-- `$GODOT_URL`:
+- `$PANDEMONIUM_URL`:
   The name of the main JavaScript file, which provides the :js:class:`Engine` class required
   to start the engine and that must be included in the HTML as a `<script )`.
   The name is generated from the *Export Path* during the export process.
 
-- `$GODOT_CONFIG`:
+- `$PANDEMONIUM_CONFIG`:
   A JavaScript object, containing the export options and can be later overridden.
   See :js:attr:`EngineConfig` for the full list of overrides.
 
 The following optional placeholders will enable some extra features in your custom HTML template.
 
-- `$GODOT_PROJECT_NAME`:
+- `$PANDEMONIUM_PROJECT_NAME`:
   The project name as defined in the Project Settings. It is a good idea to use it as a `<title )`
   in your template.
 
-- `$GODOT_HEAD_INCLUDE`:
+- `$PANDEMONIUM_HEAD_INCLUDE`:
   A custom string to include in the HTML document just before the end of the `<head )` tag. It
   is customized in the export options under the *Html / Head Include* section. While you fully
   control the HTML page you create, this variable can be useful for configuring parts of the
-  HTML `head` element from the Godot Editor, e.g. for different Web export presets.
+  HTML `head` element from the Pandemonium Editor, e.g. for different Web export presets.
 
 When the custom page is ready, it can be selected in the export options under the *Html / Custom Html Shell*
 section.
@@ -89,7 +89,7 @@ class with the exported configuration, and then call the :js:meth:`engine.startG
 optionally overriding any :js:attr:`EngineConfig` parameters.
 
 ```
-    const engine = new Engine($GODOT_CONFIG);
+    const engine = new Engine($PANDEMONIUM_CONFIG);
     engine.startGame({
         /* optional override configuration, eg. */
         // unloadAfterInit: false,

@@ -13,7 +13,7 @@ We want to achieve two goals:
    them to learn from the docs.
 2. **Write a complete reference manual**. Our goal here is not to teach
    programming foundations. Instead, we should provide a reference for how
-   Godot's features work.
+   Pandemonium's features work.
 
 Guidelines and principles
 -------------------------
@@ -27,13 +27,13 @@ Writing complete and accessible documentation
 
 **A feature doesn't exist unless it is documented**. If a user can't find
 information about a feature and how it works, it doesn't exist to them. We
-should ensure that we cover everything Godot does.
+should ensure that we cover everything Pandemonium does.
 
 Note:
 
 
     When adding or updating an engine feature, the documentation team needs to
-    know about it. Contributors should open an issue on the `godot-docs` repository
+    know about it. Contributors should open an issue on the `pandemonium-docs` repository
     when their work gets merged and requires documentation.
 
 Do your best to keep documents **under 1000 words in length**. If a page goes
@@ -53,7 +53,7 @@ Note:
     Long section titles lead to long entries in the side menu, which can make
     navigation cumbersome. Try to keep headings five words long or less.
 
-If the page assumes specific knowledge of other Godot features, mention it and
+If the page assumes specific knowledge of other Pandemonium features, mention it and
 link it to the corresponding documentation. For instance, a page about physics
 may use signals, in which case we could note that the page that introduces
 signals is a pre-requisite.
@@ -89,7 +89,7 @@ Note:
 
 
     Having programming foundations is a pre-requisite to use a complex engine
-    like Godot. Talking about variables, functions, or classes is acceptable.
+    like Pandemonium. Talking about variables, functions, or classes is acceptable.
     But we should favor plain language over specific terminology like
     "metaprogramming". If you need to use precise terms, be sure to define them.
 

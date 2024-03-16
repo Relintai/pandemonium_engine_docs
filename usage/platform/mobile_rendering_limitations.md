@@ -8,7 +8,7 @@ See also:
 
     The general `doc_3d_rendering_limitations` also apply to mobile platforms.
 
-To improve out-of-the-box performance on mobile devices, Godot automatically uses
+To improve out-of-the-box performance on mobile devices, Pandemonium automatically uses
 low-end-friendly settings by default on both Android and iOS. These are configured
 by project settings with a `.mobile` `feature tag ( doc_feature_tags )` suffix.
 

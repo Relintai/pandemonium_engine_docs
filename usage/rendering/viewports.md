@@ -45,12 +45,12 @@ the input.
 
 ![](img/input.png)
 
-For more information on how Godot handles input, please read the `Input Event Tutorial( doc_inputevent )`.
+For more information on how Pandemonium handles input, please read the `Input Event Tutorial( doc_inputevent )`.
 
 Listener
 --------
 
-Godot supports 3D sound (in both 2D and 3D nodes); more on this can be
+Pandemonium supports 3D sound (in both 2D and 3D nodes); more on this can be
 found in the `Audio Streams Tutorial( doc_audio_streams )`. For this type of sound to be
 audible, the `Viewport` needs to be enabled as a listener (for 2D or 3D).
 If you are using a custom `Viewport`, don't forget
@@ -127,7 +127,7 @@ For 2D, each `Viewport`.
 This suffices in most cases, but in case sharing them may be desired, it
 is possible to do so by setting the `Viewport's` manually.
 
-For an example of how this works, see the demo projects `3D in 2D ( https://github.com/godotengine/godot-demo-projects/tree/master/viewport/3d_in_2d )` and `2D in 3D ( https://github.com/godotengine/godot-demo-projects/tree/master/viewport/2d_in_3d )` respectively.
+For an example of how this works, see the demo projects `3D in 2D ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport/3d_in_2d )` and `2D in 3D ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport/2d_in_3d )` respectively.
 
 Capture
 -------
@@ -178,7 +178,7 @@ rendering properties that can be different from the project settings. The first 
 choose to use a different level of MSAA for each `Viewport`; the default behavior is DISABLED.
 You can also set the `Viewport` to use HDR, HDR is very useful for when you want to store values in the texture that are outside the range 0.0 - 1.0.
 
-If you know how the `Viewport` is going to be used, you can set its Usage to either 3D or 2D. Godot will then
+If you know how the `Viewport` is going to be used, you can set its Usage to either 3D or 2D. Pandemonium will then
 restrict how the `Viewport` is drawn to in accordance with your choice; default is 3D.
 The 2D usage mode is slightly faster and uses less memory compared to the 3D one. It's a good idea to set the `Viewport`'s Usage property to 2D if your viewport doesn't render anything in 3D.
 
@@ -188,7 +188,7 @@ Note:
     If you need to render 3D shadows in the viewport, make sure to set the viewport's *Shadow Atlas Size* property to a value higher than 0.
     Otherwise, shadows won't be rendered. For reference, the Project Settings define it to 4096 by default.
 
-Godot also provides a way of customizing how everything is drawn inside `Viewports` using “Debug Draw”.
+Pandemonium also provides a way of customizing how everything is drawn inside `Viewports` using “Debug Draw”.
 Debug Draw allows you to specify one of four options for how the `Viewport` will display things drawn
 inside it. Debug Draw is disabled by default.
 
@@ -253,4 +253,4 @@ incurring the cost of rendering every frame.
 
 Make sure to check the Viewport demos! Viewport folder in the demos
 archive available to download, or
-https://github.com/godotengine/godot-demo-projects/tree/master/viewport
+https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport

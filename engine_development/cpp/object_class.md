@@ -6,13 +6,13 @@ Object class
 See also:
 
 
-    This page describes the C++ implementation of objects in Godot.
+    This page describes the C++ implementation of objects in Pandemonium.
     Looking for the Object class reference? `Have a look here.`
 
 General definition
 ------------------
 
-`Object` is the base class for almost everything. Most classes in Godot
+`Object` is the base class for almost everything. Most classes in Pandemonium
 inherit directly or indirectly from it. Objects provide reflection and
 editable properties, and declaring them is a matter of using a single
 macro like this.
@@ -36,7 +36,7 @@ This makes Objects gain a lot of functionality, like for example
 References:
 ~~~~~~~~~~~
 
--  `core/object.h ( https://github.com/godotengine/godot/blob/3.x/core/object.h )`
+-  `core/object.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/object.h )`
 
 Registering an Object
 ---------------------
@@ -94,7 +94,7 @@ string passing the name can be passed for brevity.
 References:
 ~~~~~~~~~~~
 
--  `core/class_db.h ( https://github.com/godotengine/godot/blob/3.x/core/class_db.h )`
+-  `core/class_db.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/class_db.h )`
 
 Constants
 ---------
@@ -201,7 +201,7 @@ compared against the desired names in serial order.
 Dynamic casting
 ---------------
 
-Godot provides dynamic casting between Object-derived classes, for
+Pandemonium provides dynamic casting between Object-derived classes, for
 example:
 
 ```
@@ -241,9 +241,9 @@ Adding signals to a class is done in `bind_methods`, using the
 Notifications
 -------------
 
-All objects in Godot have a `notification`
+All objects in Pandemonium have a `notification`
 method that allows it to respond to engine level callbacks that may relate to it.
-More information can be found on the `doc_godot_notifications` page.
+More information can be found on the `doc_pandemonium_notifications` page.
 
 References
 ----------
@@ -266,7 +266,7 @@ templates point to it.
 References:
 ~~~~~~~~~~~
 
--  `core/reference.h ( https://github.com/godotengine/godot/blob/3.x/core/reference.h )`
+-  `core/reference.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/reference.h )`
 
 Resources:
 ----------
@@ -282,7 +282,7 @@ Resources without a path are fine too.
 References:
 ~~~~~~~~~~~
 
--  `core/resource.h ( https://github.com/godotengine/godot/blob/3.x/core/resource.h )`
+-  `core/resource.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/resource.h )`
 
 Resource loading
 ----------------
@@ -303,7 +303,7 @@ the same time.
 References:
 ~~~~~~~~~~~
 
--  `core/io/resource_loader.h ( https://github.com/godotengine/godot/blob/3.x/core/io/resource_loader.h )`
+-  `core/io/resource_loader.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/io/resource_loader.h )`
 
 Resource saving
 ---------------
@@ -322,4 +322,4 @@ be bundled with the saved resource and assigned sub-IDs, like
 References:
 ~~~~~~~~~~~
 
--  `core/io/resource_saver.h ( https://github.com/godotengine/godot/blob/3.x/core/io/resource_saver.h )`
+-  `core/io/resource_saver.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/io/resource_saver.h )`

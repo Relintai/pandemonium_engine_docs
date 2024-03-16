@@ -3,7 +3,7 @@
 Controllers, gamepads, and joysticks
 ====================================
 
-Godot supports hundreds of controller models thanks to the community-sourced
+Pandemonium supports hundreds of controller models thanks to the community-sourced
 `SDL game controller database ( https://github.com/gabomdq/SDL_GameControllerDB )`.
 
 Controllers are supported on Windows, macOS, Linux, Android, iOS, and HTML5.
@@ -13,18 +13,18 @@ Note that more specialized devices such as steering wheels, rudder pedals and
 always work as expected. Overriding force feedback for those devices is also not
 implemented yet. If you have access to one of those devices, don't hesitate to
 `report bugs on GitHub
-( https://github.com/godotengine/godot/blob/master/CONTRIBUTING.md#reporting-bugs )`.
+( https://github.com/pandemoniumengine/pandemonium/blob/master/CONTRIBUTING.md#reporting-bugs )`.
 
 In this guide, you will learn:
 
 - **How to write your input logic to support both keyboard and controller inputs.**
 - **How controllers can behave differently from keyboard/mouse input.**
-- **Troubleshooting issues with controllers in Godot.**
+- **Troubleshooting issues with controllers in Pandemonium.**
 
 Supporting universal input
 --------------------------
 
-Thanks to Godot's input action system, Godot makes it possible to support both
+Thanks to Pandemonium's input action system, Pandemonium makes it possible to support both
 keyboard and controller input without having to write separate code paths.
 Instead of hardcoding keys or controller buttons in your scripts, you should
 create *input actions* in the Project Settings which will then refer to
@@ -97,9 +97,9 @@ gdscript GDScript
     var jumping = Input.is_action_pressed("jump")
 ```
 
-In Godot versions before 3.4, such as 3.3, `Input.get_vector()` and
+In Pandemonium versions before 3.4, such as 3.3, `Input.get_vector()` and
 `Input.get_axis()` aren't available. Only `Input.get_action_strength()`
-and `Input.is_action_pressed()` are available in Godot 3.3.
+and `Input.is_action_pressed()` are available in Pandemonium 3.3.
 
 Differences between keyboard/mouse and controller input
 -------------------------------------------------------
@@ -129,7 +129,7 @@ all input whose strength is lower than `0.2`. An ideal dead zone value is high
 enough to ignore the input caused by joystick drifting, but is low enough to not
 ignore actual input from the player.
 
-Godot features a built-in dead zone system to tackle this problem. The default
+Pandemonium features a built-in dead zone system to tackle this problem. The default
 value is `0.2`, but you can increase it or decrease it on a per-action basis
 in the Project Settings' Input Map tab.
 For `Input.get_vector()`, the deadzone can be specified, or otherwise it
@@ -156,10 +156,10 @@ See also:
 
 
     You can view a list of
-    `known issues with controller support ( https://github.com/godotengine/godot/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad )`
+    `known issues with controller support ( https://github.com/pandemoniumengine/pandemonium/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad )`
     on GitHub.
 
-My controller isn't recognized by Godot.
+My controller isn't recognized by Pandemonium.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 First, check that your controller is recognized by other applications. You can
@@ -171,33 +171,33 @@ My controller has incorrectly mapped buttons or axes.
 
 If buttons are incorrectly mapped, this may be due to an erroneous mapping from
 the `SDL game controller database ( https://github.com/gabomdq/SDL_GameControllerDB )`.
-You can contribute an updated mapping to be included in the next Godot version
+You can contribute an updated mapping to be included in the next Pandemonium version
 by opening a pull request on the linked repository.
 
 There are many ways to create mappings. One option is to use the mapping wizard
-in the `official Joypads demo ( https://godotengine.org/asset-library/asset/140 )`.
+in the `official Joypads demo ( https://pandemoniumengine.org/asset-library/asset/140 )`.
 Once you have a working mapping for your controller, you can test it by defining
-the `SDL_GAMECONTROLLERCONFIG` environment variable before running Godot:
+the `SDL_GAMECONTROLLERCONFIG` environment variable before running Pandemonium:
 
 bash Linux/macOS
 
 ```
     export SDL_GAMECONTROLLERCONFIG="your:mapping:here"
-    ./path/to/godot.x86_64
+    ./path/to/pandemonium.x86_64
 ```
 
 bat Windows (cmd)
 
 ```
     set SDL_GAMECONTROLLERCONFIG=your:mapping:here
-    path\to\godot.exe
+    path\to\pandemonium.exe
 ```
 
 powershell Windows (powershell)
 
 ```
     $env:SDL_GAMECONTROLLERCONFIG="your:mapping:here"
-    path\to\godot.exe
+    path\to\pandemonium.exe
 ```
 
 To test mappings on non-desktop platforms or to distribute your project with
@@ -211,7 +211,7 @@ My controller works on a given platform, but not on another platform.
 Linux
 ~~~~~
 
-Prior to Godot 3.3, official Godot binaries were compiled with udev support
+Prior to Pandemonium 3.3, official Pandemonium binaries were compiled with udev support
 but self-compiled binaries were compiled *without* udev support unless
 `udev=yes` was passed on the SCons command line. This made controller
 hotplugging support unavailable in self-compiled binaries.
@@ -225,5 +225,5 @@ result, you may have to instruct your players to use a different browser if they
 can't get their controller to work.
 
 Also, note that
-`controller support was significantly improved ( https://github.com/godotengine/godot/pull/45078 )`
-in Godot 3.3 and later.
+`controller support was significantly improved ( https://github.com/pandemoniumengine/pandemonium/pull/45078 )`
+in Pandemonium 3.3 and later.

@@ -3,24 +3,24 @@
 Android in-app purchases
 ========================
 
-Godot offers a first-party `GodotGooglePlayBilling` Android plugin since Godot 3.2.2.
+Pandemonium offers a first-party `PandemoniumGooglePlayBilling` Android plugin since Pandemonium 3.2.2.
 The new plugin uses the `Google Play Billing library ( https://developer.android.com/google/play/billing )`
 instead of the now deprecated AIDL IAP implementation.
 
 If you learn better by looking at an example, you can find the demo project
-`here ( https://github.com/godotengine/godot-demo-projects/tree/master/mobile/android_iap )`.
+`here ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/mobile/android_iap )`.
 
 
-Migrating from Godot 3.2.1 and lower (GodotPaymentsV3)
+Migrating from Pandemonium 3.2.1 and lower (PandemoniumPaymentsV3)
 ------------------------------------------------------
 
-The new `GodotGooglePlayBilling` API is not compatible with its predecessor `GodotPaymentsV3`.
+The new `PandemoniumGooglePlayBilling` API is not compatible with its predecessor `PandemoniumPaymentsV3`.
 
 Changes
 *******
 
 - You need to enable the Custom Build option in your Android export settings and install
-  the `GodotGooglePlayBilling` plugin manually (see below for details)
+  the `PandemoniumGooglePlayBilling` plugin manually (see below for details)
 - All purchases have to be acknowledged by your app. This is a
   `requirement from Google ( https://developer.android.com/google/play/billing/integrate#process )`.
   Purchases that are not acknowledged by your app will be refunded.
@@ -35,7 +35,7 @@ Getting started
 ***************
 
 If not already done, make sure you have enabled and successfully set up `Android Custom Builds ( doc_android_custom_build )`.
-Grab the`GodotGooglePlayBilling` plugin binary and config from the `releases page ( https://github.com/godotengine/godot-google-play-billing/releases )`
+Grab the`PandemoniumGooglePlayBilling` plugin binary and config from the `releases page ( https://github.com/pandemoniumengine/pandemonium-google-play-billing/releases )`
 and put both into `res://android/plugins`.
 The plugin should now show up in the Android export settings, where you can enable it.
 
@@ -43,15 +43,15 @@ The plugin should now show up in the Android export settings, where you can enab
 Getting started
 ***************
 
-To use the `GodotGooglePlayBilling` API you first have to get the `GodotGooglePlayBilling`
+To use the `PandemoniumGooglePlayBilling` API you first have to get the `PandemoniumGooglePlayBilling`
 singleton and start the connection:
 
 ```
     var payment
 
     func _ready():
-        if Engine.has_singleton("GodotGooglePlayBilling"):
-            payment = Engine.get_singleton("GodotGooglePlayBilling")
+        if Engine.has_singleton("PandemoniumGooglePlayBilling"):
+            payment = Engine.get_singleton("PandemoniumGooglePlayBilling")
 
             # These are all signals supported by the API
             # You can drop some of these based on your needs
@@ -69,7 +69,7 @@ singleton and start the connection:
 
             payment.startConnection()
         else:
-            print("Android IAP support is not enabled. Make sure you have enabled 'Custom Build' and the GodotGooglePlayBilling plugin in your Android export settings! IAP will not work.")
+            print("Android IAP support is not enabled. Make sure you have enabled 'Custom Build' and the PandemoniumGooglePlayBilling plugin in your Android export settings! IAP will not work.")
 ```
 
 All API methods only work if the API is connected. You can use `payment.isReady()` to check the connection status.

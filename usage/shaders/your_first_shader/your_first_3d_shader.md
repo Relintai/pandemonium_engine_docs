@@ -13,7 +13,7 @@ This tutorial will explain how to write a Spatial shader and will cover more
 topics than the `CanvasItem ( doc_your_first_canvasitem_shader )` tutorial.
 
 Spatial shaders have more built-in functionality than CanvasItem shaders. The
-expectation with spatial shaders is that Godot has already provided the
+expectation with spatial shaders is that Pandemonium has already provided the
 functionality for common use cases and all the user needs to do in the shader is
 set the proper parameters. This is especially true for a PBR (physically based
 rendering) workflow.
@@ -38,7 +38,7 @@ In 3D, objects are drawn using `Meshes`. Meshes are a resource
 type that store geometry (the shape of your object) and materials (the color and
 how the object reacts to light) in units called "surfaces". A Mesh can have
 multiple surfaces, or just one. Typically, you would import a mesh from another
-program (e.g. Blender). But Godot also has a few `PrimitiveMeshes
+program (e.g. Blender). But Pandemonium also has a few `PrimitiveMeshes
 ( primitivemesh )` that allow you to add basic geometry to a scene without
 importing Meshes.
 
@@ -103,7 +103,7 @@ Shader magic
 ![](img/shader-error.png)
 
 Notice how there is already error? This is because the shader editor reloads
-shaders on the fly. The first thing Godot shaders need is a declaration of what
+shaders on the fly. The first thing Pandemonium shaders need is a declaration of what
 type of shader they are. We set the variable `shader_type` to `spatial`
 because this is a spatial shader.
 
@@ -124,7 +124,7 @@ We define the vertex shader like so:
   }
 ```
 
-With nothing in the `vertex()` function, Godot will use its default vertex
+With nothing in the `vertex()` function, Pandemonium will use its default vertex
 shader. We can easily start to make changes by adding a single line:
 
 ```
@@ -164,7 +164,7 @@ Noise is a very popular tool for faking the look of terrain. Think of it as
 similar to the cosine function where you have repeating hills except, with
 noise, each hill has a different height.
 
-Godot provides the `NoiseTexture` resource for
+Pandemonium provides the `NoiseTexture` resource for
 generating a noise texture that can be accessed from a shader.
 
 To access a texture in a shader add the following code near the top of your
@@ -233,7 +233,7 @@ Let's make a uniform that changes the height of the terrain.
 ```
 
 
-Godot lets you initialize a uniform with a value; here, `height_scale` is set
+Pandemonium lets you initialize a uniform with a value; here, `height_scale` is set
 to `0.5`. You can set uniforms from GDScript by calling the function
 `set_shader_param()` on the material corresponding to the shader. The value
 passed from GDScript takes precedence over the value used to initialize it in
@@ -292,10 +292,10 @@ light.
 The normals are stored in the Mesh, but we are changing the shape of the Mesh in
 the shader, so the normals are no longer correct. To fix this, we can
 recalculate the normals in the shader or use a normal texture that corresponds
-to our noise. Godot makes both easy for us.
+to our noise. Pandemonium makes both easy for us.
 
 You can calculate the new normal manually in the vertex function and then just
-set `NORMAL`. With `NORMAL` set, Godot will do all the difficult lighting
+set `NORMAL`. With `NORMAL` set, Pandemonium will do all the difficult lighting
 calculations for us. We will cover this method in the next part of this
 tutorial, for now we will read normals from a texture.
 
@@ -322,7 +322,7 @@ explained in more detail in the next part of this tutorial.
 
 When we have normals that correspond to a specific vertex we set `NORMAL`, but
 if you have a normalmap that comes from a texture, set the normal using
-`NORMALMAP`. This way Godot will handle the wrapping the texture around the
+`NORMALMAP`. This way Pandemonium will handle the wrapping the texture around the
 mesh automatically.
 
 Lastly, in order to ensure that we are reading from the same places on the noise
@@ -362,7 +362,7 @@ We can even drag the light around and the lighting will update automatically.
 ![](img/normalmap2.png)
 
 Here is the full code for this tutorial. You can see it is not very long as
-Godot handles most of the difficult stuff for you.
+Pandemonium handles most of the difficult stuff for you.
 
 ```
   shader_type spatial;
@@ -385,6 +385,6 @@ Godot handles most of the difficult stuff for you.
 ```
 
 That is everything for this part. Hopefully, you now understand the basics of
-vertex shaders in Godot. In the next part of this tutorial we will write a
+vertex shaders in Pandemonium. In the next part of this tutorial we will write a
 fragment function to accompany this vertex function and we will cover a more
 advanced technique to turn this terrain into an ocean of moving waves.

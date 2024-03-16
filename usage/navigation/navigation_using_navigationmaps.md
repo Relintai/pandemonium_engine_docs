@@ -19,7 +19,7 @@ A map can be joined by avoidance agents to process collision avoidance between t
 Default navigation maps
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-By default Godot creates a navigation map RID for each :ref:`World2D<class_World2D>` and :ref:`World3D<class_World3D>` of the root viewport.
+By default Pandemonium creates a navigation map RID for each :ref:`World2D<class_World2D>` and :ref:`World3D<class_World3D>` of the root viewport.
 
 The 2D default navigation ``map`` can be obtained with ``get_world_2d().get_navigation_map()`` from any :ref:`Node2D<class_Node2D>` inheriting Node.
 

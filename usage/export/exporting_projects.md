@@ -6,7 +6,7 @@ Exporting projects
 Why export?
 -----------
 
-Originally, Godot did not have any means to export projects. The
+Originally, Pandemonium did not have any means to export projects. The
 developers would compile the proper binaries and build the packages for
 each platform manually.
 
@@ -17,8 +17,8 @@ became evident that this was a bottleneck.
 On PC
 ~~~~~
 
-Distributing a game project on PC with Godot is rather easy. Drop
-the Godot binary in the same directory as the `project.godot` file,
+Distributing a game project on PC with Pandemonium is rather easy. Drop
+the Pandemonium binary in the same directory as the `project.pandemonium` file,
 then compress the project directory and you are done.
 
 It sounds simple, but there are probably a few reasons why the developer
@@ -29,7 +29,7 @@ Another reason is that the developer might prefer a specially-compiled
 binary, which is smaller in size, more optimized and does not include
 tools like the editor and debugger.
 
-Finally, Godot has a simple but efficient system for
+Finally, Pandemonium has a simple but efficient system for
 `creating DLCs as extra package files ( doc_exporting_pcks )`.
 
 On mobile
@@ -76,7 +76,7 @@ to choose from for an export preset.
 
 The default options are often enough to export, so tweaking them is
 usually not necessary. However, many platforms require additional
-tools (SDKs) to be installed to be able to export. Additionally, Godot
+tools (SDKs) to be installed to be able to export. Additionally, Pandemonium
 needs export templates installed to create packages. The export menu
 will complain when something is missing and will not allow the user to
 export for that platform until they resolve it:
@@ -92,7 +92,7 @@ Export templates
 Apart from setting up the platform, the export templates must be
 installed to be able to export projects. They can be obtained as a
 TPZ file (which is a renamed ZIP archive) from the
-`download page of the website ( https://www.godotengine.org/download )`.
+`download page of the website ( https://www.pandemoniumengine.org/download )`.
 
 Once downloaded, they can be installed using the **Install Export Templates**
 option in the editor:
@@ -104,7 +104,7 @@ option in the editor:
 Resource options
 ~~~~~~~~~~~~~~~~
 
-When exporting, Godot makes a list of all the files to export and then
+When exporting, Pandemonium makes a list of all the files to export and then
 creates the package. There are 3 different modes for exporting:
 
 -  Export all resources in the project
@@ -135,13 +135,13 @@ type without manually deselecting every one. For example, `.png)` files.
 Exporting from the command line
 -------------------------------
 
-In production, it is useful to automate builds, and Godot supports this
+In production, it is useful to automate builds, and Pandemonium supports this
 with the `--export` and `--export-debug` command line parameters.
 Exporting from the command line still requires an export preset to define
 the export parameters. A basic invocation of the command would be:
 
 ```
-    godot --export "Windows Desktop" some_name.exe
+    pandemonium --export "Windows Desktop" some_name.exe
 ```
 
 This will export to `some_name.exe`, assuming there is a preset
@@ -150,7 +150,7 @@ must be written within quotes if it contains spaces or special characters.)
 The output path is *relative to the project path* or *absolute*;
 **it does not respect the directory the command was invoked from**.
 
-The output file extension should match the one used by the Godot export process:
+The output file extension should match the one used by the Pandemonium export process:
 
 - Windows: `.exe`
 - macOS: `.zip` (from all platforms) or `.dmg` (only when exporting *from* macOS).
@@ -161,11 +161,11 @@ The output file extension should match the one used by the Godot export process:
 - iOS: `.zip`
 
 You can also configure it to export *only* the PCK or ZIP file, allowing
-a single exported main pack file to be used with multiple Godot executables.
+a single exported main pack file to be used with multiple Pandemonium executables.
 When doing so, the export preset name must still be specified on the command line:
 
 ```
-    godot --export-pack "Windows Desktop" some_name.pck
+    pandemonium --export-pack "Windows Desktop" some_name.pck
 ```
 
 It is often useful to combine the `--export` flag with the `--path`
@@ -173,13 +173,13 @@ flag, so that you do not need to `cd` to the project folder before running
 the command:
 
 ```
-    godot --path /path/to/project --export "Windows Desktop" some_name.exe
+    pandemonium --path /path/to/project --export "Windows Desktop" some_name.exe
 ```
 
 See also:
 
 
-    See `doc_command_line_tutorial` for more information about using Godot
+    See `doc_command_line_tutorial` for more information about using Pandemonium
     from the command line.
 
 PCK versus ZIP pack file formats
@@ -194,7 +194,7 @@ depending on your needs.
 - Uncompressed format. Larger file size, but faster to read/write.
 - Not readable and writable using tools normally present on the user's
   operating system, even though there are
-  `third-party tools ( https://github.com/hhyyrylainen/GodotPckTool )`
+  `third-party tools ( https://github.com/hhyyrylainen/PandemoniumPckTool )`
   to extract and create PCK files.
 
 **ZIP format:**
@@ -206,7 +206,7 @@ depending on your needs.
 Warning:
 
 
-    Due to a `known bug ( https://github.com/godotengine/godot/pull/42123 )`,
+    Due to a `known bug ( https://github.com/pandemoniumengine/pandemonium/pull/42123 )`,
     when using a ZIP file as a pack file, the exported binary will not try to use
     it automatically. Therefore, you have to create a *launcher script* that
     the player can double-click or run from a terminal to launch the project:

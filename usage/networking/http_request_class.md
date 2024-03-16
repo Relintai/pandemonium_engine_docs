@@ -3,7 +3,7 @@
 Making HTTP requests
 ====================
 
-The `HTTPRequest` node is the easiest way to make HTTP requests in Godot.
+The `HTTPRequest` node is the easiest way to make HTTP requests in Pandemonium.
 It is backed by the more low-level `HTTPClient`.
 
 For the sake of this example, we will create a simple UI with a button, that when pressed will start the HTTP request to the specified URL.

@@ -10,7 +10,7 @@ In most games it is desirable to, at some point, interrupt the
 game to do something else, such as taking a break or changing options.
 Implementing a fine-grained control for what can be paused (and what cannot)
 is a lot of work, so a simple framework for pausing is provided in
-Godot.
+Pandemonium.
 
 How pausing works
 -----------------
@@ -35,7 +35,7 @@ Note:
 Process Modes
 -------------
 
-Each node in Godot has a "Pause Mode" that defines when it processes. It can
+Each node in Pandemonium has a "Pause Mode" that defines when it processes. It can
 be found and changed under a node's `Node` properties in the inspector.
 
 ![](img/pausemode.png)

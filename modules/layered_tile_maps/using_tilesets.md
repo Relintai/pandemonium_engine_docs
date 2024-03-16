@@ -141,7 +141,7 @@ Recreating tiles automatically after changing atlas properties
 
 ### Using a collection of scenes
 
-Since Godot 4.0, you can place actual *scenes* as tiles. This allows you to use
+Since Pandemonium 4.0, you can place actual *scenes* as tiles. This allows you to use
 any collection of nodes as a tile. For example, you could use scene tiles to
 place gameplay elements, such as shops the player may be able to interact with.
 You could also use scene tiles to place AudioStreamPlayer2Ds (for ambient
@@ -184,7 +184,7 @@ any other tile.
 
 Using multiple atlases within a single LayeredTileSet resource can sometimes be useful,
 but it can also be cumbersome in certain situations (especially if you're using
-one image per tile). Godot allows you to merge several atlases into a single
+one image per tile). Pandemonium allows you to merge several atlases into a single
 atlas for easier organization.
 
 To do so, you must have more than one atlas created in the LayeredTileSet resource.
@@ -342,7 +342,7 @@ Assigning custom data in the LayeredTileSet editor using tile property painting
 
 Note:
 
-- This functionality was implemented in a different form as *autotiling* in Godot 3.x. Terrains are essentially a more powerful replacement of autotiles. Unlike autotiles, terrains can support transitions from one terrain to another, as a tile may define several terrains at once.
+- This functionality was implemented in a different form as *autotiling* in Pandemonium 3.x. Terrains are essentially a more powerful replacement of autotiles. Unlike autotiles, terrains can support transitions from one terrain to another, as a tile may define several terrains at once.
 - Unlike before, where autotiles were a specific kind of tiles, terrains are only a set of properties assigned to atlas tiles. These properties are then used by a dedicated LayeredTileMap painting mode that selects tiles featuring terrain data in a smart way. This means any terrain tile can be either painted as terrain or as a single tile, like any other.
 
 A "polished" tileset generally features variations that you should use on
@@ -350,7 +350,7 @@ corners or edges of platforms, floors, etc. While these can be placed manually,
 this quickly becomes tedious. Handling this situation with procedurally
 generated levels can also be difficult and require a lot of code.
 
-Godot offers *terrains* to perform this kind of tile connections automatically.
+Pandemonium offers *terrains* to perform this kind of tile connections automatically.
 This allows you to have the "correct" tile variants automatically used.
 
 Terrains are grouped into terrain sets. Each terrain set is assigned a mode from
@@ -359,7 +359,7 @@ terrains are matched to each other in a terrain set.
 
 Note:
 
-- The above modes correspond to the previous bitmask modes autotiles used in Godot 3.x: 2×2, 3×3 or 3×3 minimal. This is also similar to what the [Tiled](https://www.mapeditor.org/) editor features.
+- The above modes correspond to the previous bitmask modes autotiles used in Pandemonium 3.x: 2×2, 3×3 or 3×3 minimal. This is also similar to what the [Tiled](https://www.mapeditor.org/) editor features.
 
 Select the LayeredTileMap node, go to the inspector and create a new terrain set within the LayeredTileSet *resource*:
 
@@ -469,7 +469,7 @@ can be done using *alternative tiles*.
 
 Tip:
 
-Since Godot 4.2, you don't have to create alternative tiles to rotate or
+Since Pandemonium 4.2, you don't have to create alternative tiles to rotate or
 flip tiles anymore. You can rotate any tile while placing it in the
 LayeredTileMap editor by using the rotation/flip buttons in the LayeredTileMap editor
 toolbar.

@@ -1,22 +1,22 @@
 # Entity Spell System
 
-An entity and spell system for the GODOT Engine, that is usable for both 2d, and 3d games. The main purpose of this
+An entity and spell system for the PANDEMONIUM Engine, that is usable for both 2d, and 3d games. The main purpose of this
 module is to handle spells, auras, and most entity-related things like spawning, items, inventory, containers,
 vendors, interaction, targeting, equipment (+ visuals), loot, crafting, talents, pets, npcs, etc ...
 
 The module supports networking. It is designed to be authoritative, so players shouldn't be able to cheat by design.
 
-It is a c++ engine module, which means you will need to compile it into godot. (See compiling)
+It is a c++ engine module, which means you will need to compile it into pandemonium. (See compiling)
 
-## Godot Version Support
+## Pandemonium Version Support
 
-This module is developed with the 3.x branch of godot, usually at the newest revisions.
+This module is developed with the 3.x branch of pandemonium, usually at the newest revisions.
 
 3.2 - Will likely work, probably needs changes by now. (TODO check.)\
 3.3 - Will more likely work, might need smaller changes by now. (TODO check.)\
 3.4 - Should work without any issues. (TODO check.)\
 3.x - Works.\
-4.0 - Have been fixing support from time to time. Currently it won't build on the latest master, and it will take considerable amount of work to get it to work again after the virtual method binding rework. It will be done eventually, but it will take time. [Here](https://github.com/godotengine/godot/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)'s the last know-to-work commit.
+4.0 - Have been fixing support from time to time. Currently it won't build on the latest master, and it will take considerable amount of work to get it to work again after the virtual method binding rework. It will be done eventually, but it will take time. [Here](https://github.com/pandemoniumengine/pandemonium/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)'s the last know-to-work commit.
 
 ## Project setup tl;dr
 
@@ -133,7 +133,7 @@ and quite a few notification constants.
 Open `ProjectSettings`, and then go to `ESS/Enums`.
 
 All of the string properties are customizable enums. These require a comma-separated list.
-They are essentially a godot comma separated property hint enum string.
+They are essentially a pandemonium comma separated property hint enum string.
 
 They all have defaults.
 
@@ -568,19 +568,19 @@ https://github.com/Relintai/broken_seals_2d.git
 
 ## Compiling
 
-First make sure that you can compile godot. See the official docs: https://docs.godotengine.org/en/3.x/development/compiling/index.html
+First make sure that you can compile pandemonium. See the official docs: https://docs.pandemoniumengine.org/en/3.x/development/compiling/index.html
 
 1. Clone the engine if you haven't already:
 
-If you want Godot 3.x:
-```git clone -b 3.x https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 3.x:
+```git clone -b 3.x https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
-If you want Godot 4.0:
-```git clone https://github.com/godotengine/godot.git godot```
+If you want Pandemonium 4.0:
+```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
 
 2. go into the modules folder inside the engine's directory"
 
-```cd godot```
+```cd pandemonium```
 ```cd modules```
 
 3. clone this repository
@@ -593,7 +593,7 @@ If you want Godot 4.0:
 
 ```cd ..```
 
-5. Compile godot.
+5. Compile pandemonium.
 
 For example:
 

@@ -21,7 +21,7 @@ class. It's just a script, so it can be run by executing:
 console GDScript
 
 ```
-    c:\godot> godot -s http_test.gd
+    c:\pandemonium> pandemonium -s http_test.gd
 ```
 
 
@@ -55,7 +55,7 @@ gdscript GDScript
 
         # Some headers
         var headers = [
-            "User-Agent: Pirulo/1.0 (Godot)",
+            "User-Agent: Pirulo/1.0 (Pandemonium)",
             "Accept: */*"
         ]
 

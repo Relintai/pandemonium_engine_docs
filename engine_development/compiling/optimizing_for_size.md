@@ -11,7 +11,7 @@ Common situations include creating builds for mobile and Web platforms.
 
 This tutorial aims to give an overview on different methods to create
 a smaller binary. Before continuing, it is recommended to read the previous tutorials
-on compiling Godot for each platform.
+on compiling Pandemonium for each platform.
 
 The options below are listed from the most important (greatest size savings)
 to the least important (lowest size savings).
@@ -27,7 +27,7 @@ strip debug symbols from binaries by installing the `strip` package from your
 distribution then running:
 
 ```
-    strip path/to/godot.binary
+    strip path/to/pandemonium.binary
 ```
 
 On Windows, `strip.exe` is included in most MinGW toolchain setups.
@@ -51,7 +51,7 @@ Note:
 - **Difficulty:** Easy
 - **Performed in official builds:** Yes, but only for HTML5
 
-Godot 3.1 onwards allows compiling using size optimizations (instead of speed).
+Pandemonium 3.1 onwards allows compiling using size optimizations (instead of speed).
 To enable this, set the `optimize` flag to `size`:
 
 ```
@@ -143,7 +143,7 @@ This is everything that will be disabled:
 - **Difficulty:** Medium to hard depending on modules
 - **Performed in official builds:** No
 
-A lot of Godot's functions are offered as modules.
+A lot of Pandemonium's functions are offered as modules.
 You can see a list of modules with the following command:
 
 ```

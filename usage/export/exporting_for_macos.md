@@ -6,7 +6,7 @@ Exporting for macOS
 See also:
 
 
-    This page describes how to export a Godot project to macOS.
+    This page describes how to export a Pandemonium project to macOS.
     If you're looking to compile editor or export template binaries from source instead,
     read `doc_compiling_for_osx`.
 
@@ -18,18 +18,18 @@ Requirements
 
 -  To enable code signing with Apple Developer ID and notarization, you must export from a computer running macOS with Xcode command line tools installed.
 -  Ad-hoc code signing is supported on all platforms, without additional tools.
--  Download the Godot export templates. Use the Godot menu: `Editor > Manage Export Templates`.
+-  Download the Pandemonium export templates. Use the Pandemonium menu: `Editor > Manage Export Templates`.
 -  A valid and unique `Bundle identifier` should be set in the `Application` section of the export options.
 
 Warning:
 
 
-    Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the `Running Godot apps on macOS ( doc_running_on_macos )` page for more information.
+    Projects exported without code signing and notarization will be blocked by Gatekeeper if they are downloaded from unknown sources, see the `Running Pandemonium apps on macOS ( doc_running_on_macos )` page for more information.
 
 Code signing and notarization
 -----------------------------
 
-By default, macOS will run only applications that are signed and notarized. If you use any other signing configuration, see `Running Godot apps on macOS ( doc_running_on_macos )` for workarounds.
+By default, macOS will run only applications that are signed and notarized. If you use any other signing configuration, see `Running Pandemonium apps on macOS ( doc_running_on_macos )` for workarounds.
 
 To notarize an app, you **must** have a valid `Apple Developer ID Certificate ( https://developer.apple.com/ )`.
 
@@ -40,7 +40,7 @@ If you have an Apple Developer ID Certificate
 - Enable `Code Signing`, `Notarization`, `Hardened Runtime` and `Timestamp` and disable the `Debug` entitlement.
 - Provide valid Apple ID credentials and certificate identity.
 
-If `Notarization` is enabled, Godot will automatically upload the exported project for notarization.
+If `Notarization` is enabled, Pandemonium will automatically upload the exported project for notarization.
 
 You can use the `xcrun notarytool history` command to check notarization status and use the `xcrun notarytool log {ID}` command to download the notarization log.
 
@@ -52,7 +52,7 @@ If you do not have an Apple Developer ID Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Keep `Code Signing` enabled and leave the `Identity` option empty (when exporting from a computer running macOS, on other platforms this option is hidden).
-In this case Godot will use a ad-hoc signature, which will make running an exported app easier for the end users, see the `Running Godot apps on macOS ( doc_running_on_macos )` page for more information.
+In this case Pandemonium will use a ad-hoc signature, which will make running an exported app easier for the end users, see the `Running Pandemonium apps on macOS ( doc_running_on_macos )` page for more information.
 
 Signing Options
 ~~~~~~~~~~~~~~~
@@ -140,8 +140,8 @@ See `Hardened Runtime ( https://developer.apple.com/documentation/security/harde
 | Debugging                             | [5]_ You can temporarily enable this entitlement to use native debugger (GDB, LLDB) with the exported app. This entitlement should be disabled for production export.                            |
 +---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. [3] The `Allow JIT Code Execution`, `Allow Unsigned Executable Memory` and `Allow DYLD Environment Variables` entitlements are always enabled for the Godot Mono exports, and are not visible in the export options.
-.. [4] These features aren't supported by Godot out of the box, enable them only if you are using add-ons which require them.
+.. [3] The `Allow JIT Code Execution`, `Allow Unsigned Executable Memory` and `Allow DYLD Environment Variables` entitlements are always enabled for the Pandemonium Mono exports, and are not visible in the export options.
+.. [4] These features aren't supported by Pandemonium out of the box, enable them only if you are using add-ons which require them.
 .. [5] To notarize an app, you must disable the `Debugging` entitlement.
 
 App Sandbox Entitlement

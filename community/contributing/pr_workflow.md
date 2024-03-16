@@ -4,7 +4,7 @@ Pull request workflow
 =====================
 
 
-The so-called "PR workflow" used by Godot is common to many projects using
+The so-called "PR workflow" used by Pandemonium is common to many projects using
 Git, and should be familiar to veteran free software contributors. The idea
 is that only a small number (if any) commit directly to the *master* branch.
 Instead, contributors *fork* the project (i.e. create a copy of it, which
@@ -20,21 +20,21 @@ the *master* branch).
 
 We will go together through an example to show the typical workflow and
 associated Git commands. But first, let's have a quick look at the
-organization of Godot's Git repository.
+organization of Pandemonium's Git repository.
 
 Git source repository
 ---------------------
 
-The `repository on GitHub ( https://github.com/godotengine/godot )` is a
+The `repository on GitHub ( https://github.com/pandemoniumengine/pandemonium )` is a
 `Git ( https://git-scm.com )` code repository together with an embedded
 issue tracker and PR system.
 
 Note:
  If you are contributing to the documentation, its repository can
-          be found `here ( https://github.com/godotengine/godot-docs )`.
+          be found `here ( https://github.com/pandemoniumengine/pandemonium-docs )`.
 
 The Git version control system is the tool used to keep track of successive
-edits to the source code - to contribute efficiently to Godot, learning the
+edits to the source code - to contribute efficiently to Pandemonium, learning the
 basics of the Git command line is *highly* recommended. There exist some
 graphical interfaces for Git, but they usually encourage users to take bad
 habits regarding the Git and PR workflow, and we therefore recommend not to
@@ -61,7 +61,7 @@ The branches on the Git repository are organized as follows:
    branch to the currently maintained stable release (e.g. 3.1.2 or 2.1.6).
    As a rule of thumb, the last stable branch is maintained until the next
    minor version (e.g. the `3.0` branch was maintained until the release of
-   Godot 3.1).
+   Pandemonium 3.1).
    If you want to make PRs against a maintained stable branch, please check
    first if your changes are also relevant for the `master` branch, and if so
    make the PR for the `master` branch in priority. Release managers can then
@@ -72,7 +72,7 @@ The branches on the Git repository are organized as follows:
 Forking and cloning
 -------------------
 
-The first step is to *fork* the `godotengine/godot ( https://github.com/godotengine/godot )`
+The first step is to *fork* the `pandemoniumengine/pandemonium ( https://github.com/pandemoniumengine/pandemonium )`
 repository on GitHub. To do so, you will need to have a GitHub account and to
 be logged in. In the top right corner of the repository's GitHub page, you
 should see the "Fork" button as shown below:
@@ -80,7 +80,7 @@ should see the "Fork" button as shown below:
 ![](img/github_fork_button.png)
 
 Click it, and after a while you should be redirected to your own fork of the
-Godot repo, with your GitHub username as namespace:
+Pandemonium repo, with your GitHub username as namespace:
 
 ![](img/github_fork_url.png)
 
@@ -96,7 +96,7 @@ Note:
 To clone your fork from GitHub, use the following command:
 
 ```
-    $ git clone https://github.com/USERNAME/godot
+    $ git clone https://github.com/USERNAME/pandemonium
 ```
 
 Note:
@@ -104,27 +104,27 @@ Note:
           on typical UNIX shells. It is not part of the command and should
           not be typed.
 
-After a little while, you should have a `godot` directory in your current
+After a little while, you should have a `pandemonium` directory in your current
 working directory. Move into it using the `cd` command:
 
 ```
-    $ cd godot
+    $ cd pandemonium
 ```
 
 We will start by setting up a reference to the original repository that we forked:
 
 ```
-    $ git remote add upstream https://github.com/godotengine/godot
+    $ git remote add upstream https://github.com/pandemoniumengine/pandemonium
     $ git fetch upstream
 ```
 
 This will create a reference named `upstream` pointing to the original
-`godotengine/godot` repository. This will be useful when you want to pull new
+`pandemoniumengine/pandemonium` repository. This will be useful when you want to pull new
 commits from its `master` branch to update your fork. You have another
-remote reference named `origin`, which points to your fork (`USERNAME/godot`).
+remote reference named `origin`, which points to your fork (`USERNAME/pandemonium`).
 
 You only need to do the above steps once, as long as you keep that local
-`godot` folder (which you can move around if you want, the relevant
+`pandemonium` folder (which you can move around if you want, the relevant
 metadata is hidden in its `.git` subfolder).
 
 Note:
@@ -140,7 +140,7 @@ Note:
           working in Git.
 
 In the following, we will assume as an example that you want to implement a feature in
-Godot's project manager, which is coded in the `editor/project_manager.cpp`
+Pandemonium's project manager, which is coded in the `editor/project_manager.cpp`
 file.
 
 Branching
@@ -361,18 +361,18 @@ Issuing a pull request
 ----------------------
 
 When you load your fork's branch on GitHub, you should see a line saying
-*"This branch is 2 commits ahead of godotengine:master."* (and potentially some
+*"This branch is 2 commits ahead of pandemoniumengine:master."* (and potentially some
 commits behind, if your `master` branch was out of sync with the upstream
 `master` branch).
 
 ![](img/github_fork_make_pr.png)
 
 On that line, there is a "Pull request" link. Clicking it will open a form
-that will let you issue a pull request on the `godotengine/godot` upstream
+that will let you issue a pull request on the `pandemoniumengine/pandemonium` upstream
 repository. It should show you your two commits, and state "Able to merge".
 If not (e.g. it has way more commits, or says there are merge conflicts),
 don't create the PR yet, something went wrong. Go to our
-`Godot Contributors Chat ( https://chat.godotengine.org/ )` and ask for support :)
+`Pandemonium Contributors Chat ( https://chat.pandemoniumengine.org/ )` and ask for support :)
 
 Use an explicit title for the PR and put the necessary details in the comment
 area. You can drag and drop screenshots, GIFs or zipped projects if relevant,
@@ -440,7 +440,7 @@ aware of our workflow and Git usage tips, reviewers might request of your to
 
 Indeed, if some commits have been made following reviews to fix bugs, typos, etc.
 in the original commit, they are not relevant to a future changelog reader who
-would want to know what happened in the Godot codebase, or when and how a given
+would want to know what happened in the Pandemonium codebase, or when and how a given
 file was last modified.
 
 To squash those extraneous commits into the main one, we will have to *rewrite
@@ -511,9 +511,9 @@ will raise an error:
 
 ```
     $ git push origin better-project-manager
-    To https://github.com/akien-mga/godot
+    To https://github.com/akien-mga/pandemonium
      ! [rejected]        better-project-manager -> better-project-manager (non-fast-forward)
-    error: failed to push some refs to 'https://akien-mga@github.com/akien-mga/godot'
+    error: failed to push some refs to 'https://akien-mga@github.com/akien-mga/pandemonium'
     hint: Updates were rejected because the tip of your current branch is behind
     hint: its remote counterpart.
 ```

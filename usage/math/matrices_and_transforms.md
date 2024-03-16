@@ -11,7 +11,7 @@ and understand the `doc_vector_math` tutorial, as this tutorial
 requires a knowledge of vectors.
 
 This tutorial is about *transformations* and how we represent them
-in Godot using matrices. It is not a full in-depth guide to matrices.
+in Pandemonium using matrices. It is not a full in-depth guide to matrices.
 Transformations are most of the time applied as translation, rotation,
 and scale, so we will focus on how to represent those with matrices.
 
@@ -20,7 +20,7 @@ Most of this guide focuses on 2D, using `Transform2D` and
 
 Note:
  As mentioned in the previous tutorial, it is important to
-          remember that in Godot, the Y axis points *down* in 2D.
+          remember that in Pandemonium, the Y axis points *down* in 2D.
           This is the opposite of how most schools teach linear
           algebra, with the Y axis pointing up.
 
@@ -61,10 +61,10 @@ Scaling the transformation matrix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Applying a scale is one of the easiest operations to understand.
-Let's start by placing the Godot logo underneath our vectors
+Let's start by placing the Pandemonium logo underneath our vectors
 so that we can visually see the effects on an object:
 
-![](img/matrices_and_transforms/identity-godot.png)
+![](img/matrices_and_transforms/identity-pandemonium.png)
 
 Now, to scale the matrix, all we need to do is multiply each
 component by the scale we want. Let's scale it up by 2. 1 times 2
@@ -98,18 +98,18 @@ Note:
 Rotating the transformation matrix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We'll start the same way as earlier, with the Godot logo underneath
+We'll start the same way as earlier, with the Pandemonium logo underneath
 the identity matrix:
 
-![](img/matrices_and_transforms/identity-godot.png)
+![](img/matrices_and_transforms/identity-pandemonium.png)
 
-As an example, let's say we want to rotate our Godot logo clockwise
+As an example, let's say we want to rotate our Pandemonium logo clockwise
 by 90 degrees. Right now the X axis points right and the Y axis
 points down. If we rotate these in our head, we would logically
 see that the new X axis should point down and the new Y axis
 should point left.
 
-You can imagine that you grab both the Godot logo and its vectors,
+You can imagine that you grab both the Pandemonium logo and its vectors,
 and then spin it around the center. Wherever you finish spinning,
 the orientation of the vectors determines what the matrix is.
 
@@ -133,13 +133,13 @@ hardest thing you need to know.
 ![](img/matrices_and_transforms/rotate2.png)
 
 Note:
- Godot represents all rotations with radians, not degrees.
+ Pandemonium represents all rotations with radians, not degrees.
           A full turn is `TAU` or `PI*2` radians, and a quarter
           turn of 90 degrees is `TAU/4` or `PI/2` radians. Working
           with `TAU` usually results in more readable code.
 
 Note:
- Fun fact: In addition to Y being *down* in Godot, rotation
+ Fun fact: In addition to Y being *down* in Pandemonium, rotation
           is represented clockwise. This means that all the math and
           trig functions behave the same as a Y-is-up CCW system,
           since these differences "cancel out". You can think of
@@ -189,7 +189,7 @@ keep track of the origin vector in all examples. You can think of
 origin as another column, but it's often better to think of it as
 completely separate.
 
-Note that in 3D, Godot has a separate `Basis` structure
+Note that in 3D, Pandemonium has a separate `Basis` structure
 for holding the three `Vector3` values of the basis,
 since the code can get complex and it makes sense to separate
 it from `Transform` (which is composed of one
@@ -220,7 +220,7 @@ For example, an object rotated 90 degrees clockwise will move to
 the right when `translated()` with `Vector2.UP`.
 
 Note:
- Godot's 2D uses coordinates based on pixels, so in actual
+ Pandemonium's 2D uses coordinates based on pixels, so in actual
           projects you will want to translate by hundreds of units.
 
 Putting it all together
@@ -228,7 +228,7 @@ Putting it all together
 
 We're going to apply everything we mentioned so far onto one transform.
 To follow along, create a simple project with a Sprite node and use the
-Godot logo for the texture resource.
+Pandemonium logo for the texture resource.
 
 Let's set the translation to (350, 150), rotate by -0.5 rad, and scale by 3.
 I've posted a screenshot, and the code to reproduce it, but I encourage
@@ -273,7 +273,7 @@ Normally, you will always have the basis vectors perpendicular to each
 other. However, shearing can be useful in some situations, and
 understanding shearing helps you understand how transforms work.
 
-To show you visually how it will look, let's overlay a grid onto the Godot
+To show you visually how it will look, let's overlay a grid onto the Pandemonium
 logo:
 
 ![](img/matrices_and_transforms/identity-grid.png)
@@ -328,7 +328,7 @@ the object, and the relationship between the basis vectors and how the
 object's "UV" or "intra-coordinates" have their world position changed.
 
 Note:
- In Godot, all transform math is done relative to the parent node.
+ In Pandemonium, all transform math is done relative to the parent node.
           When we refer to "world position", that would be relative to the
           node's parent instead, if the node had a parent.
 
@@ -515,7 +515,7 @@ One of the great things about transformation matrices is that they
 work very similarly between 2D and 3D transformations.
 All the code and formulas used above for 2D work the same in 3D,
 with 3 exceptions: the addition of a third axis, that each
-axis is of type `Vector3`, and also that Godot stores
+axis is of type `Vector3`, and also that Pandemonium stores
 the `Basis` separately from the `Transform`,
 since the math can get complex and it makes sense to separate it.
 
@@ -528,21 +528,21 @@ change the basis vectors to be non-perpendicular.
 ![](img/matrices_and_transforms/3d-identity.png)
 
 If you would like, it's a good idea to play around with transforms
-to get an understanding of how they work. Godot allows you to edit
+to get an understanding of how they work. Pandemonium allows you to edit
 3D transform matrices directly from the inspector. You can download
 this project which has colored lines and cubes to help visualize the
 `Basis` vectors and the origin in both 2D and 3D:
-https://github.com/godotengine/godot-demo-projects/tree/master/misc/matrix_transform
+https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/misc/matrix_transform
 
 Note:
- Spatial's "Matrix" section in Godot 3.2's inspector
+ Spatial's "Matrix" section in Pandemonium 3.2's inspector
           displays the matrix as transposed, with the columns
           horizontal and the rows vertical. This may be changed
-          to be less confusing in a future release of Godot.
+          to be less confusing in a future release of Pandemonium.
 
 Note:
- You cannot edit Node2D's transform matrix directly in Godot 3.2's
-          inspector. This may be changed in a future release of Godot.
+ You cannot edit Node2D's transform matrix directly in Pandemonium 3.2's
+          inspector. This may be changed in a future release of Pandemonium.
 
 If you would like additional explanation, you should check out
 3Blue1Brown's excellent video about 3D linear transformations:
@@ -561,7 +561,7 @@ rotations as a set of 3 numbers, however, they are limited and not very
 useful, except for trivial cases.
 
 In 3D we do not typically use angles, we either use a transformation basis
-(used pretty much everywhere in Godot), or we use quaternions. Godot can
+(used pretty much everywhere in Pandemonium), or we use quaternions. Pandemonium can
 represent quaternions using the `Quat` struct. My suggestion
 to you is to completely ignore how they work under-the-hood, because
 they are very complicated and unintuitive.

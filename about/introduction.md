@@ -8,7 +8,7 @@ Introduction
         $Label.text = "Hello world!"
 ```
 
-Welcome to the official documentation of Godot Engine, the free and open source
+Welcome to the official documentation of Pandemonium Engine, the free and open source
 community-driven 2D and 3D game engine! Behind this mouthful, you will find a
 powerful yet user-friendly tool that you can use to develop any kind of game,
 for any platform and with no usage restriction whatsoever.
@@ -26,25 +26,25 @@ those may be worth a look.
 
 In case you have trouble with one of the tutorials or your project,
 you can find help on the various `Community channels ( doc_community_channels )`,
-especially the Godot Discord community, Q&A, and IRC.
+especially the Pandemonium Discord community, Q&A, and IRC.
 
-About Godot Engine
+About Pandemonium Engine
 ------------------
 
-A game engine is a complex tool, and it is therefore difficult to present Godot
+A game engine is a complex tool, and it is therefore difficult to present Pandemonium
 in a few words. Here's a quick synopsis, which you are free to reuse
-if you need a quick writeup about Godot Engine.
+if you need a quick writeup about Pandemonium Engine.
 
-    Godot Engine is a feature-packed, cross-platform game engine to create 2D
+    Pandemonium Engine is a feature-packed, cross-platform game engine to create 2D
     and 3D games from a unified interface. It provides a comprehensive set of
     common tools, so users can focus on making games without having to
     reinvent the wheel. Games can be exported in one click to a number of
     platforms, including the major desktop platforms (Linux, macOS, Windows)
     as well as mobile (Android, iOS) and web-based (HTML5) platforms.
 
-    Godot is completely free and open source under the permissive MIT
+    Pandemonium is completely free and open source under the permissive MIT
     license. No strings attached, no royalties, nothing. Users' games are
-    theirs, down to the last line of engine code. Godot's development is fully
+    theirs, down to the last line of engine code. Pandemonium's development is fully
     independent and community-driven, empowering users to help shape their
     engine to match their expectations. It is supported by the `Software
     Freedom Conservancy ( https://sfconservancy.org )` not-for-profit.
@@ -57,22 +57,22 @@ About the documentation
 -----------------------
 
 This documentation is continuously written, corrected, edited, and revamped by
-members of the Godot Engine community. It is edited via text files in the
+members of the Pandemonium Engine community. It is edited via text files in the
 `reStructuredText ( http://www.sphinx-doc.org/en/stable/rest.html )` markup
 language and then compiled into a static website/offline document using the
 open source `Sphinx ( http://www.sphinx-doc.org )` and `ReadTheDocs
 ( https://readthedocs.org/ )` tools.
 
 Note:
- You can contribute to Godot's documentation by opening issue tickets
+ You can contribute to Pandemonium's documentation by opening issue tickets
           or sending patches via pull requests on its GitHub
-          `source repository ( https://github.com/godotengine/godot-docs )`, or
+          `source repository ( https://github.com/pandemoniumengine/pandemonium-docs )`, or
           translating it into your language on `Hosted Weblate
-          ( https://hosted.weblate.org/projects/godot-engine/godot-docs/ )`.
+          ( https://hosted.weblate.org/projects/pandemonium-engine/pandemonium-docs/ )`.
 
 All the contents are under the permissive Creative Commons Attribution 3.0
 (`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`) license, with
-attribution to "Juan Linietsky, Ariel Manzur and the Godot Engine community".
+attribution to "Juan Linietsky, Ariel Manzur and the Pandemonium Engine community".
 
 Organization of the documentation
 ---------------------------------
@@ -99,13 +99,13 @@ relatively intuitive:
   help with the documentation, etc. It also points to various community channels
   like IRC and Discord and contains a list of recommended third-party tutorials
   outside of this documentation.
-- Finally, the `sec-class-ref` is the documentation of the Godot API,
+- Finally, the `sec-class-ref` is the documentation of the Pandemonium API,
   which is also available directly within the engine's script editor. It is
   generated automatically from a file in the main source repository, therefore
   the generated files of the documentation are not meant to be modified. See
   `doc_updating_the_class_reference` for details.
 
 In addition to this documentation you may also want to take a look at the
-various `Godot demo projects ( https://github.com/godotengine/godot-demo-projects )`.
+various `Pandemonium demo projects ( https://github.com/pandemoniumengine/pandemonium-demo-projects )`.
 
-Have fun reading and making games with Godot Engine!
+Have fun reading and making games with Pandemonium Engine!

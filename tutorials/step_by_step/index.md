@@ -1,7 +1,7 @@
 Step by step
 ============
 
-This series builds upon the `Introduction to Godot
+This series builds upon the `Introduction to Pandemonium
 <toc-learn-introduction )` and will get you started with the editor and the
 engine. You will learn more about nodes and scenes, code your first classes with
 GDScript, use signals to make nodes communicate with one another, and more.

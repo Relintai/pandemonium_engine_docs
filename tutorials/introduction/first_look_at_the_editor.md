@@ -6,10 +6,10 @@
 
 
 
-First look at Godot's editor
+First look at Pandemonium's editor
 ============================
 
-This page will give you a brief overview of Godot's interface. We're going to
+This page will give you a brief overview of Pandemonium's interface. We're going to
 look at the different main screens and docks to help you situate yourself.
 
 See also:
@@ -19,7 +19,7 @@ See also:
 The Project manager
 -------------------
 
-When you launch Godot, the first window you see is the Project Manager. In the
+When you launch Pandemonium, the first window you see is the Project Manager. In the
 default tab, "Projects," you can manage existing projects, import or create new
 ones, and more.
 
@@ -37,7 +37,7 @@ English (EN).
 
 ![](img/editor_intro_language.png)
 
-First look at Godot's editor
+First look at Pandemonium's editor
 ----------------------------
 
 When you open a new or an existing project, the editor's interface appears.
@@ -131,7 +131,7 @@ See also:
 Integrated class reference
 --------------------------
 
-Godot comes with a built-in class reference.
+Pandemonium comes with a built-in class reference.
 
 You can search for information about a class, method, property, constant, or
 signal by any one of the following methods:

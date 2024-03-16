@@ -1,12 +1,12 @@
 
 
-Running Godot apps on macOS
+Running Pandemonium apps on macOS
 ===========================
 
 See also:
 
 
-    This page covers running Godot projects on macOS.
+    This page covers running Pandemonium projects on macOS.
     If you haven't exported your project yet, read `doc_exporting_for_macos` first.
 
 By default, macOS will run only applications that are signed and notarized.
@@ -51,7 +51,7 @@ App is signed (including ad-hoc signatures) but not notarized
 Note:
 
 
-    App developer used self-signed certificate or ad-hoc signing (default Godot behavior for exported project).
+    App developer used self-signed certificate or ad-hoc signing (default Pandemonium behavior for exported project).
 
 When you run the app for the first time, the following dialog is displayed:
 

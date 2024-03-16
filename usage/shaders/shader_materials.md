@@ -6,7 +6,7 @@ Shader materials
 Introduction
 ------------
 
-For the most common cases, Godot provides ready to use materials for
+For the most common cases, Pandemonium provides ready to use materials for
 most types of shaders, such as `SpatialMaterial`,
 `CanvasItemMaterial`.
 They are flexible implementations that cover most use cases.
@@ -23,8 +23,8 @@ Examples of this are:
 -  Create custom particle code.
 -  And much more!
 
-Godot provides built in functionality to make frequent operations
-easier. Additionally, Godot's shader editor will detect errors as you
+Pandemonium provides built in functionality to make frequent operations
+easier. Additionally, Pandemonium's shader editor will detect errors as you
 type, so you can see your edited shaders in real-time. It is also
 possible to edit shaders using a visual, node-based graph editor.
 

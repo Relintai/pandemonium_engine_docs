@@ -6,14 +6,14 @@ Using Area2D
 Introduction
 ------------
 
-Godot offers a number of collision objects to provide both collision detection
+Pandemonium offers a number of collision objects to provide both collision detection
 and response. Trying to decide which one to use for your project can be confusing.
 You can avoid problems and simplify development if you understand how each of them
 works and what their pros and cons are. In this tutorial, we'll look at the
 `Area2D` node and show some examples of how it can be used.
 
 Note:
- This document assumes you're familiar with Godot's various physics
+ This document assumes you're familiar with Pandemonium's various physics
           bodies. Please read `doc_physics_introduction` first.
 
 What is an area?

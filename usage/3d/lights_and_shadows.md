@@ -258,7 +258,7 @@ Shadow filter quality
 
 The filter quality of shadows can be tweaked. This can be found in
 Project Settings -> Rendering -> Quality -> Shadows.
-Godot supports no filter, PCF5 and PCF13.
+Pandemonium supports no filter, PCF5 and PCF13.
 
 ![](img/shadow_pcf1.png)
 

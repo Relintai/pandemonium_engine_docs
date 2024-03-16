@@ -30,7 +30,7 @@ Though arguably less convenient to edit than a wiki, this Git repository is mean
 ### Editing existing pages
 
 To edit an existing page, locate its .rst source file and open it in your favorite text editor. You can then commit the changes, push them to your fork and make a pull request.
-**Note that the pages in `classes/` should not be edited here, they are automatically generated from Pandemonium's [XML class references](https://github.com/pandemoniumengine/pandemonium/tree/master/doc/classes).**
+**Note that the pages in `classes/` should not be edited here, they are automatically generated from Pandemonium's [XML class references](https://github.com/Relintai/pandemonium_engine/tree/master/doc/classes).**
 See [Contribute to the Class Reference](https://docs.pandemoniumengine.org/en/latest/community/contributing/updating_the_class_reference.html) for details.
 
 ### Adding new pages
@@ -92,7 +92,7 @@ set SPHINXOPTS=-j2 && make html
 
 The compilation might take some time as the `classes/` folder contains many files to parse.
 
-In case of a `MemoryError` or `EOFError`, you can remove the `classes/` folder and run `make` again. This will drop the class references from the final HTML documentation but will keep the rest intact. Make sure to avoid using `git add .` in this case when working on a pull request, or the whole `classes/` folder will be removed when you make a commit. See [#3157](https://github.com/pandemoniumengine/pandemonium-docs/issues/3157) for more details.
+In case of a `MemoryError` or `EOFError`, you can remove the `classes/` folder and run `make` again. This will drop the class references from the final HTML documentation but will keep the rest intact. Make sure to avoid using `git add .` in this case when working on a pull request, or the whole `classes/` folder will be removed when you make a commit. See [#3157](https://github.com/Relintai/pandemonium_engine-docs/issues/3157) for more details.
 
 You can then test the changes live by opening `build/html/index.html` in your favorite browser.
 
@@ -133,7 +133,7 @@ Then do `make html` like above.
 
 ## License
 
-At the exception of the `classes/` folder, all the content of this repository is licensed under the Creative Commons Attribution 3.0 Unported license ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)) and is to be attributed to "Juan Linietsky, Ariel Manzur and the Pandemonium community".
+At the exception of the `classes/` folder, all the content of this repository is licensed under the Creative Commons Attribution 3.0 Unported license ([CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)) and is to be attributed to "Péter Magyar and the Pandemonium community, and Juan Linietsky, Ariel Manzur and the Godot community".
 See [LICENSE.txt](/LICENSE.txt) for details.
 
-The files in the `classes/` folder are derived from [Pandemonium's main source repository](https://github.com/pandemoniumengine/pandemonium) and are distributed under the MIT license, with the same authors as above.
+The files in the `classes/` folder are derived from [Pandemonium's main source repository](https://github.com/Relintai/pandemonium_engine) and are distributed under the MIT license, with the same authors as above.

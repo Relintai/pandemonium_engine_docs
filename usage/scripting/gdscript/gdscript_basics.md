@@ -135,7 +135,7 @@ keywords are reserved words (tokens), they can't be used as identifiers.
 Operators (like `in`, `not`, `and` or `or`) and names of built-in types
 as listed in the following sections are also reserved.
 
-Keywords are defined in the `GDScript tokenizer ( https://github.com/pandemoniumengine/pandemonium/blob/master/modules/gdscript/gdscript_tokenizer.cpp )`
+Keywords are defined in the `GDScript tokenizer ( https://github.com/Relintai/pandemonium_engine/blob/master/modules/gdscript/gdscript_tokenizer.cpp )`
 in case you want to take a look under the hood.
 
 +------------+---------------------------------------------------------------------------------------------------------------+

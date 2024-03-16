@@ -54,7 +54,7 @@ Note:
           by letting us know!
 
           Submit an issue or pull request on the `GitHub repository
-          ( https://github.com/pandemoniumengine/pandemonium-docs/issues )`,
+          ( https://github.com/Relintai/pandemonium_engine-docs/issues )`,
           help us `translate the documentation
           ( https://hosted.weblate.org/engage/pandemonium-engine/ )` into your
           language, or talk to us on the

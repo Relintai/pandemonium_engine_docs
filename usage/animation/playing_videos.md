@@ -115,7 +115,7 @@ This can be done with the following steps:
    **Flags > Unshaded** to improve rendering performance.
 
 See `doc_viewports` and the
-`GUI in 3D demo ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport/gui_in_3d )`
+`GUI in 3D demo ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/gui_in_3d )`
 for more information on setting this up.
 
 Video decoding conditions and recommended resolutions

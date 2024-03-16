@@ -433,7 +433,7 @@ Import
 - *3D scenes:*
 
    - glTF 2.0 *(recommended)*.
-   - `ESCN ( https://github.com/pandemoniumengine/pandemonium-blender-exporter )`
+   - `ESCN ( https://github.com/Relintai/pandemonium_engine-blender-exporter )`
      (direct export from Blender).
    - FBX (experimental, static meshes only).
    - Collada (.dae).
@@ -631,7 +631,7 @@ Miscellaneous
 - `Command line interface ( doc_command_line_tutorial )` for automation.
 
    - Export and deploy projects using continuous integration platforms.
-   - `Shell completion scripts ( https://github.com/pandemoniumengine/pandemonium/tree/master/misc/dist/shell )`
+   - `Shell completion scripts ( https://github.com/Relintai/pandemonium_engine/tree/master/misc/dist/shell )`
      are available for Bash, zsh and fish.
 
 - Support for `C++ modules ( doc_custom_modules_in_c++ )` statically linked
@@ -652,6 +652,6 @@ Miscellaneous
 See also:
 
 
-    The `Pandemonium proposals repository ( https://github.com/pandemoniumengine/pandemonium-proposals )`
+    The `Pandemonium proposals repository ( https://github.com/Relintai/pandemonium_engine-proposals )`
     lists features that have been requested by the community and may be implemented
     in future Pandemonium releases.

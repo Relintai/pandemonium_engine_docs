@@ -2,7 +2,7 @@
 
 This is a c++ engine module for the Pandemonium engine, containing smaller utilities.
 
-It supports both pandemonium 3.2 and 4.0 (master [last tested commit](https://github.com/pandemoniumengine/pandemonium/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)). Note that since 4.0 is still in very early stages I only
+It supports both pandemonium 3.2 and 4.0 (master [last tested commit](https://github.com/Relintai/pandemonium_engine/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)). Note that since 4.0 is still in very early stages I only
 check whether it works from time to time.
 
 # Pre-built binaries
@@ -54,10 +54,10 @@ I recommend putting this code into a singleton.
 1. Get the source code for the engine.
 
 If you want Pandemonium 3.2:
-```git clone -b 3.2 https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone -b 3.2 https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 If you want Pandemonium 4.0:
-```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 
 2. Go into Pandemonium's modules directory.

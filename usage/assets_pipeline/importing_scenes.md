@@ -85,7 +85,7 @@ Exporting ESCN files from Blender
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The most powerful one, called `pandemonium-blender-exporter
-( https://github.com/pandemoniumengine/pandemonium-blender-exporter )`.
+( https://github.com/Relintai/pandemonium_engine-blender-exporter )`.
 It uses a .escn file, which is kind of another name for a .tscn file (Pandemonium scene file);
 it keeps as much information as possible from a Blender scene. However, it is considered
 experimental.
@@ -398,7 +398,7 @@ must have only one animation that is named `default`. To create clips, change th
 greater than zero. You can then name a clip, specify which frames it starts and stops on, and choose whether
 the animation loops or not.
 
-.. If this PR (https://github.com/pandemoniumengine/pandemonium/pull/36709) is merged for Pandemonium 4.0 this section must
+.. If this PR (https://github.com/Relintai/pandemonium_engine/pull/36709) is merged for Pandemonium 4.0 this section must
    be updated to reflect that for the 4.0 documentation.
 
 Scene inheritance

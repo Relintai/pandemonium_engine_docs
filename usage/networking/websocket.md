@@ -164,4 +164,4 @@ This will print (when a client connects) something similar to this:
 Advanced chat demo
 ^^^^^^^^^^^^^^^^^^
 
-A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer demo are available in the `pandemonium demo projects ( https://github.com/pandemoniumengine/pandemonium-demo-projects )` under `networking/websocket_chat` and `networking/websocket_multiplayer`.
+A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer demo are available in the `pandemonium demo projects ( https://github.com/Relintai/pandemonium_engine-demo-projects )` under `networking/websocket_chat` and `networking/websocket_multiplayer`.

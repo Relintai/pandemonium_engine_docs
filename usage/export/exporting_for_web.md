@@ -20,7 +20,7 @@ in the user's browser.
                engine, and WebGL errors.
 
 .. attention:: `There are significant bugs when running HTML5 projects on iOS
-               ( https://github.com/pandemoniumengine/pandemonium/issues?q=is:issue+is:open+label:platform:html5+ios )`
+               ( https://github.com/Relintai/pandemonium_engine/issues?q=is:issue+is:open+label:platform:html5+ios )`
                (regardless of the browser). We recommend using
                `iOS' native export functionality ( doc_exporting_for_ios )`
                instead, as it will also result in better performance.
@@ -103,7 +103,7 @@ of limitations you should be aware of when porting a Pandemonium game to the web
 
 Tip:
  Check the `list of open HTML5 issues on GitHub
-         ( https://github.com/pandemoniumengine/pandemonium/issues?q=is:open+is:issue+label:platform:html5 )`
+         ( https://github.com/Relintai/pandemonium_engine/issues?q=is:open+is:issue+label:platform:html5 )`
          to see if the functionality you're interested in has an issue yet. If
          not, open one to communicate your interest.
 

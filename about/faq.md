@@ -14,14 +14,14 @@ In short:
 
 All the contents of this accompanying documentation are published under
 the permissive Creative Commons Attribution 3.0 (`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`) license, with attribution
-to "Juan Linietsky, Ariel Manzur and the Pandemonium Engine community."
+to "Péter Magyar and the Pandemonium community, and Juan Linietsky, Ariel Manzur and the Godot community".
 
 Logos and icons are generally under the same Creative Commons license. Note
 that some third-party libraries included with Pandemonium's source code may have
 different licenses.
 
-For full details, look at the `COPYRIGHT.txt ( https://github.com/pandemoniumengine/pandemonium/blob/master/COPYRIGHT.txt )` as well
-as the `LICENSE.txt ( https://github.com/pandemoniumengine/pandemonium/blob/master/LICENSE.txt )` and `LOGO_LICENSE.txt ( https://github.com/pandemoniumengine/pandemonium/blob/master/LOGO_LICENSE.md )` files
+For full details, look at the `COPYRIGHT.txt ( https://github.com/Relintai/pandemonium_engine/blob/master/COPYRIGHT.txt )` as well
+as the `LICENSE.txt ( https://github.com/Relintai/pandemonium_engine/blob/master/LICENSE.txt )` and `LOGO_LICENSE.txt ( https://github.com/Relintai/pandemonium_engine/blob/master/LOGO_LICENSE.md )` files
 in the Pandemonium repository.
 
 Also, see `the license page on the Pandemonium website ( https://pandemoniumengine.org/license )`.
@@ -77,7 +77,7 @@ Note that C# support is still relatively new, and as such, you may encounter som
 issues along the way. Our friendly and hard-working development community is always
 ready to tackle new problems as they arise, but since this is an open-source project,
 we recommend that you first do some due diligence yourself. Searching through
-discussions on `open issues ( https://github.com/pandemoniumengine/pandemonium/issues )` is a
+discussions on `open issues ( https://github.com/Relintai/pandemonium_engine/issues )` is a
 great way to start your troubleshooting.
 
 As for new languages, support is possible via third parties using the GDNative /
@@ -380,8 +380,8 @@ I would like to contribute! How can I get started?
 Awesome! As an open-source project, Pandemonium thrives off of the innovation and
 ambition of developers like you.
 
-The first place to get started is in the `issues ( https://github.com/pandemoniumengine/pandemonium/issues )`.
-Find an issue that resonates with you, then proceed to the `How to Contribute ( https://github.com/pandemoniumengine/pandemonium/blob/master/CONTRIBUTING.md#contributing-pull-requests )`
+The first place to get started is in the `issues ( https://github.com/Relintai/pandemonium_engine/issues )`.
+Find an issue that resonates with you, then proceed to the `How to Contribute ( https://github.com/Relintai/pandemonium_engine/blob/master/CONTRIBUTING.md#contributing-pull-requests )`
 guide to learn how to fork, modify, and submit a Pull Request (PR) with your changes.
 
 I have a great idea for Pandemonium. How can I share it?
@@ -392,8 +392,8 @@ result in massive core changes, some sort of mimicry of what another
 game engine does, or alternative workflows that you'd like built into
 the editor. These are great, and we are thankful to have such motivated
 people want to contribute, but Pandemonium's focus is and always will be the
-core functionality as outlined in the `Roadmap ( https://github.com/pandemoniumengine/pandemonium-roadmap/blob/master/ROADMAP.md )`,
-`squashing bugs and addressing issues ( https://github.com/pandemoniumengine/pandemonium/issues )`,
+core functionality as outlined in the `Roadmap ( https://github.com/Relintai/pandemonium_engine-roadmap/blob/master/ROADMAP.md )`,
+`squashing bugs and addressing issues ( https://github.com/Relintai/pandemonium_engine/issues )`,
 and conversations between Pandemonium community members.
 
 Most developers in the Pandemonium community will be more interested to learn

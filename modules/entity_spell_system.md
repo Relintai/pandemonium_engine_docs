@@ -16,7 +16,7 @@ This module is developed with the 3.x branch of pandemonium, usually at the newe
 3.3 - Will more likely work, might need smaller changes by now. (TODO check.)\
 3.4 - Should work without any issues. (TODO check.)\
 3.x - Works.\
-4.0 - Have been fixing support from time to time. Currently it won't build on the latest master, and it will take considerable amount of work to get it to work again after the virtual method binding rework. It will be done eventually, but it will take time. [Here](https://github.com/pandemoniumengine/pandemonium/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)'s the last know-to-work commit.
+4.0 - Have been fixing support from time to time. Currently it won't build on the latest master, and it will take considerable amount of work to get it to work again after the virtual method binding rework. It will be done eventually, but it will take time. [Here](https://github.com/Relintai/pandemonium_engine/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)'s the last know-to-work commit.
 
 ## Project setup tl;dr
 
@@ -573,10 +573,10 @@ First make sure that you can compile pandemonium. See the official docs: https:/
 1. Clone the engine if you haven't already:
 
 If you want Pandemonium 3.x:
-```git clone -b 3.x https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone -b 3.x https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 If you want Pandemonium 4.0:
-```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 2. go into the modules folder inside the engine's directory"
 

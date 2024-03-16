@@ -5,7 +5,7 @@ Tutorials and resources
 
 This is a list of third-party tutorials and resources created by the Pandemonium community. For resources, remember that there is the official `Pandemonium Asset Library ( https://pandemoniumengine.org/asset-library/asset )` full of official and community resources too! Also, have a look at this `huge list over at Reddit ( https://www.reddit.com/r/pandemonium/comments/an0iq5/pandemonium_tutorials_list_of_video_and_written/ )`.
 
-Think there is something missing here? Feel free to submit a `Pull Request ( https://github.com/pandemoniumengine/pandemonium-docs/blob/master/community/tutorials.rst )` as always.
+Think there is something missing here? Feel free to submit a `Pull Request ( https://github.com/Relintai/pandemonium_engine-docs/blob/master/community/tutorials.rst )` as always.
 
 Where to start
 --------------

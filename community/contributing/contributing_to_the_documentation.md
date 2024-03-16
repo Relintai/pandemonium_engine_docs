@@ -17,7 +17,7 @@ Getting started
 
 To modify or create pages in the reference manual, you need to edit `.rst`
 files in the `pandemonium-docs GitHub repository
-( https://github.com/pandemoniumengine/pandemonium-docs )`. Modifying those pages in a pull
+( https://github.com/Relintai/pandemonium_engine-docs )`. Modifying those pages in a pull
 request triggers a rebuild of the online documentation upon merging.
 
 See also:
@@ -28,7 +28,7 @@ See also:
 
 Warning:
  The class reference's source files are in the `Pandemonium engine
-             repository ( https://github.com/pandemoniumengine/pandemonium )`. We generate
+             repository ( https://github.com/Relintai/pandemonium_engine )`. We generate
              the `Pandemonium API ( toc-class-ref )` section of this documentation
              from them. If you want to update the description of a class, its
              methods, or properties, read
@@ -67,7 +67,7 @@ To edit an existing page, locate its `.rst` source file and open it in your
 favorite text editor. You can then commit the changes, push them to your fork,
 and make a pull request. **Note that the pages in** `classes/` **should not be
 edited here.** They are automatically generated from Pandemonium’s `XML class
-reference ( https://github.com/pandemoniumengine/pandemonium/tree/master/doc/classes )`.
+reference ( https://github.com/Relintai/pandemonium_engine/tree/master/doc/classes )`.
 See `doc_updating_the_class_reference` for details.
 
 See also:
@@ -108,7 +108,7 @@ Adding new pages
 Before adding a new page, please ensure that it fits in the documentation:
 
 1. Look for `existing issues
-   ( https://github.com/pandemoniumengine/pandemonium-docs/issues )` or open a new one to see
+   ( https://github.com/Relintai/pandemonium_engine-docs/issues )` or open a new one to see
    if the page is necessary.
 2. Ensure there isn't a page that already covers the topic.
 3. Read our `doc_content_guidelines`.
@@ -185,7 +185,7 @@ License
 This documentation and every page it contains is published under the terms of
 the `Creative Commons Attribution 3.0 license (CC-BY-3.0)
 ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with
-attribution to "Juan Linietsky, Ariel Manzur and the Pandemonium community".
+attribution to "Péter Magyar and the Pandemonium community, and Juan Linietsky, Ariel Manzur and the Godot community.".
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.

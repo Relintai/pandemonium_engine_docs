@@ -25,13 +25,13 @@ organization of Pandemonium's Git repository.
 Git source repository
 ---------------------
 
-The `repository on GitHub ( https://github.com/pandemoniumengine/pandemonium )` is a
+The `repository on GitHub ( https://github.com/Relintai/pandemonium_engine )` is a
 `Git ( https://git-scm.com )` code repository together with an embedded
 issue tracker and PR system.
 
 Note:
  If you are contributing to the documentation, its repository can
-          be found `here ( https://github.com/pandemoniumengine/pandemonium-docs )`.
+          be found `here ( https://github.com/Relintai/pandemonium_engine-docs )`.
 
 The Git version control system is the tool used to keep track of successive
 edits to the source code - to contribute efficiently to Pandemonium, learning the
@@ -72,7 +72,7 @@ The branches on the Git repository are organized as follows:
 Forking and cloning
 -------------------
 
-The first step is to *fork* the `pandemoniumengine/pandemonium ( https://github.com/pandemoniumengine/pandemonium )`
+The first step is to *fork* the `pandemoniumengine/pandemonium ( https://github.com/Relintai/pandemonium_engine )`
 repository on GitHub. To do so, you will need to have a GitHub account and to
 be logged in. In the top right corner of the repository's GitHub page, you
 should see the "Fork" button as shown below:
@@ -114,7 +114,7 @@ working directory. Move into it using the `cd` command:
 We will start by setting up a reference to the original repository that we forked:
 
 ```
-    $ git remote add upstream https://github.com/pandemoniumengine/pandemonium
+    $ git remote add upstream https://github.com/Relintai/pandemonium_engine
     $ git fetch upstream
 ```
 

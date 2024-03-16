@@ -127,7 +127,7 @@ For 2D, each `Viewport`.
 This suffices in most cases, but in case sharing them may be desired, it
 is possible to do so by setting the `Viewport's` manually.
 
-For an example of how this works, see the demo projects `3D in 2D ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport/3d_in_2d )` and `2D in 3D ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport/2d_in_3d )` respectively.
+For an example of how this works, see the demo projects `3D in 2D ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/3d_in_2d )` and `2D in 3D ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/2d_in_3d )` respectively.
 
 Capture
 -------
@@ -253,4 +253,4 @@ incurring the cost of rendering every frame.
 
 Make sure to check the Viewport demos! Viewport folder in the demos
 archive available to download, or
-https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport
+https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport

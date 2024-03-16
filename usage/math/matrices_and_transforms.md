@@ -532,7 +532,7 @@ to get an understanding of how they work. Pandemonium allows you to edit
 3D transform matrices directly from the inspector. You can download
 this project which has colored lines and cubes to help visualize the
 `Basis` vectors and the origin in both 2D and 3D:
-https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/misc/matrix_transform
+https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/misc/matrix_transform
 
 Note:
  Spatial's "Matrix" section in Pandemonium 3.2's inspector

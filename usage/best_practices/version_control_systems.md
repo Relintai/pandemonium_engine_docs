@@ -18,9 +18,9 @@ Official Git plugin
 
 Using Git from inside the editor is supported with an official plugin.
 You can find the latest releases
-`here ( https://github.com/pandemoniumengine/pandemonium-git-plugin/releases )`. Documentation on how to use the Git
+`here ( https://github.com/Relintai/pandemonium_engine-git-plugin/releases )`. Documentation on how to use the Git
 plugin can be found
-`here ( https://github.com/pandemoniumengine/pandemonium-git-plugin/wiki )`.
+`here ( https://github.com/Relintai/pandemonium_engine-git-plugin/wiki )`.
 
 Files to exclude from VCS
 -------------------------

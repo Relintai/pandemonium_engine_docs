@@ -25,7 +25,7 @@ To name a few:
 - See further down regarding header includes
 
 The rules used by clang-format are outlined in the
-`.clang-format ( https://github.com/pandemoniumengine/pandemonium/blob/master/.clang-format )`
+`.clang-format ( https://github.com/Relintai/pandemonium_engine/blob/master/.clang-format )`
 file of the Pandemonium repository.
 
 As long as you ensure that your style matches the surrounding code and that you
@@ -163,12 +163,13 @@ Example:
     /*************************************************************************/
     /*  my_new_file.h                                                        */
     /*************************************************************************/
-    /*                       This file is part of:                           */
-    /*                           PANDEMONIUM ENGINE                                */
-    /*                      https://pandemoniumengine.org                          */
+    /*                         This file is part of:                         */
+    /*                          PANDEMONIUM ENGINE                           */
+    /*             https://github.com/Relintai/pandemonium_engine            */
     /*************************************************************************/
-    /* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
-    /* Copyright (c) 2014-2021 Pandemonium Engine contributors (cf. AUTHORS.md).   */
+    /* Copyright (c) 2022-present Péter Magyar.                              */
+    /* Copyright (c) 2014-2022 Godot Engine contributors (cf. AUTHORS.md).   */
+    /* Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.                 */
     /*                                                                       */
     /* Permission is hereby granted, free of charge, to any person obtaining */
     /* a copy of this software and associated documentation files (the       */
@@ -208,12 +209,13 @@ Example:
     /*************************************************************************/
     /*  my_new_file.cpp                                                      */
     /*************************************************************************/
-    /*                       This file is part of:                           */
-    /*                           PANDEMONIUM ENGINE                                */
-    /*                      https://pandemoniumengine.org                          */
+    /*                         This file is part of:                         */
+    /*                          PANDEMONIUM ENGINE                           */
+    /*             https://github.com/Relintai/pandemonium_engine            */
     /*************************************************************************/
-    /* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
-    /* Copyright (c) 2014-2021 Pandemonium Engine contributors (cf. AUTHORS.md).   */
+    /* Copyright (c) 2022-present Péter Magyar.                              */
+    /* Copyright (c) 2014-2022 Godot Engine contributors (cf. AUTHORS.md).   */
+    /* Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.                 */
     /*                                                                       */
     /* Permission is hereby granted, free of charge, to any person obtaining */
     /* a copy of this software and associated documentation files (the       */

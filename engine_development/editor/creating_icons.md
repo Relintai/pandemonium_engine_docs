@@ -17,7 +17,7 @@ For instance, you can use the open source `Inkscape ( https://inkscape.org/ )` e
 Clone the `pandemonium` repository containing all the editor icons:
 
 ```
-    git clone https://github.com/pandemoniumengine/pandemonium.git
+    git clone https://github.com/Relintai/pandemonium_engine.git
 ```
 
 The icons must be created in a vector graphics editor in SVG format. There are
@@ -38,7 +38,7 @@ Color conversion for light editor themes
 
 If the user has configured their editor to use a light theme, Pandemonium will
 convert the icon's colors based on a
-`set of predefined color mappings ( https://github.com/pandemoniumengine/pandemonium/blob/b9f2e57d6240346f1833fd0390de195c956299e7/editor/editor_themes.cpp#L122-L184 )`.
+`set of predefined color mappings ( https://github.com/Relintai/pandemonium_engine/blob/b9f2e57d6240346f1833fd0390de195c956299e7/editor/editor_themes.cpp#L122-L184 )`.
 This is to ensure the icon always displays with a sufficient contrast rate.
 Try to restrict your icon's color palette to colors found in the list above.
 Otherwise, your icon may become difficult to read on a light background.
@@ -102,4 +102,4 @@ If icons don't appear in the editor, make sure that:
 References
 ~~~~~~~~~~
 
--  `editor/icons ( https://github.com/pandemoniumengine/pandemonium/tree/master/editor/icons )`
+-  `editor/icons ( https://github.com/Relintai/pandemonium_engine/tree/master/editor/icons )`

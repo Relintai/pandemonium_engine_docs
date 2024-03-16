@@ -8,7 +8,7 @@ The tilemap classes will be prefixed with R, so it compiles cleanly with the bui
 
 1. Get the source code for the engine.
 
-```git clone -b 3.x https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone -b 3.x https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 2. Go into Pandemonium's modules directory.
 

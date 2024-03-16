@@ -42,7 +42,7 @@ An iOS plugin can have the same functionality as a Pandemonium module but provid
 Here are the steps to get a plugin's development started. We recommend using `Xcode ( https://developer.apple.com/develop/ )` as your development environment.
 
 See also:
- The `Pandemonium iOS Plugins ( https://github.com/pandemoniumengine/pandemonium-ios-plugins )` Pandemonium iOS plugins.
+ The `Pandemonium iOS Plugins ( https://github.com/Relintai/pandemonium_engine-ios-plugins )` Pandemonium iOS plugins.
 
     The `Pandemonium iOS plugin template ( https://github.com/naithar/pandemonium_ios_plugin )` gives you all the boilerplate you need to get your iOS plugin started.
 
@@ -53,7 +53,7 @@ To build an iOS plugin:
 
 2. Add the Pandemonium engine header files as a dependency for your plugin library in `HEADER_SEARCH_PATHS`. You can find the setting inside the `Build Settings` tab:
 
-    - Download the Pandemonium engine source from the `Pandemonium GitHub page ( https://github.com/pandemoniumengine/pandemonium )`.
+    - Download the Pandemonium engine source from the `Pandemonium GitHub page ( https://github.com/Relintai/pandemonium_engine )`.
 
     - Run SCons to generate headers. You can learn the process by reading `doc_compiling_for_ios`. You don't have to wait for compilation to complete to move forward as headers are generated before the engine starts to compile.
 

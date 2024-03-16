@@ -7,13 +7,13 @@ Introduction
 ------------
 
 This tutorial explains how the 2D lighting works in the
-`lights and shadows ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/2d/lights_and_shadows )` demo project.
+`lights and shadows ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d/lights_and_shadows )` demo project.
 It begins with a brief description of the resources used in the final demo and then describes how
 to make a scene like the demo step by step.
 
 ![](img/light_shadow_main.png)
 
-All the resources for this tutorial can be found in the `official demo repository ( https://github.com/pandemoniumengine/pandemonium-demo-projects )`
+All the resources for this tutorial can be found in the `official demo repository ( https://github.com/Relintai/pandemonium_engine-demo-projects )`
 on GitHub. I suggest you download it before starting. Alternatively,
 it can be downloaded from the Project Manager. Launch Pandemonium and in the top
 bar select "Templates" and search for "2D Lights and Shadows Demo".

@@ -159,7 +159,7 @@ Reference implementations
 
 - `Pandemonium Oculus Mobile plugin ( https://github.com/PandemoniumVR/pandemonium_oculus_mobile )`
   - `Bundled gdnative resources ( https://github.com/PandemoniumVR/pandemonium_oculus_mobile/tree/master/plugin/src/main/assets/addons/pandemonium_ovrmobile )`
-- `Pandemonium Google Play Billing plugin ( https://github.com/pandemoniumengine/pandemonium-google-play-billing )`
+- `Pandemonium Google Play Billing plugin ( https://github.com/Relintai/pandemonium_engine-google-play-billing )`
 
 
 Troubleshooting

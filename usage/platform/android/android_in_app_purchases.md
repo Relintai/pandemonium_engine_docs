@@ -8,7 +8,7 @@ The new plugin uses the `Google Play Billing library ( https://developer.android
 instead of the now deprecated AIDL IAP implementation.
 
 If you learn better by looking at an example, you can find the demo project
-`here ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/mobile/android_iap )`.
+`here ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/mobile/android_iap )`.
 
 
 Migrating from Pandemonium 3.2.1 and lower (PandemoniumPaymentsV3)
@@ -35,7 +35,7 @@ Getting started
 ***************
 
 If not already done, make sure you have enabled and successfully set up `Android Custom Builds ( doc_android_custom_build )`.
-Grab the`PandemoniumGooglePlayBilling` plugin binary and config from the `releases page ( https://github.com/pandemoniumengine/pandemonium-google-play-billing/releases )`
+Grab the`PandemoniumGooglePlayBilling` plugin binary and config from the `releases page ( https://github.com/Relintai/pandemonium_engine-google-play-billing/releases )`
 and put both into `res://android/plugins`.
 The plugin should now show up in the Android export settings, where you can enable it.
 

@@ -8,7 +8,7 @@ They are using same model of asynchronous calls explained below.
 
 ARKit and Camera access are also provided as plugins.
 
-Latest updates, documentation and source code can be found at `Pandemonium iOS plugins repository ( https://github.com/pandemoniumengine/pandemonium-ios-plugins )`
+Latest updates, documentation and source code can be found at `Pandemonium iOS plugins repository ( https://github.com/Relintai/pandemonium_engine-ios-plugins )`
 
 Accessing plugin singletons
 ---------------------------
@@ -90,7 +90,7 @@ The pending event interface consists of two methods:
 Store Kit
 ---------
 
-Implemented in `Pandemonium iOS InAppStore plugin ( https://github.com/pandemoniumengine/pandemonium-ios-plugins/blob/master/plugins/inappstore/in_app_store.mm )`.
+Implemented in `Pandemonium iOS InAppStore plugin ( https://github.com/Relintai/pandemonium_engine-ios-plugins/blob/master/plugins/inappstore/in_app_store.mm )`.
 
 The Store Kit API is accessible through the `InAppStore` singleton.
 It is initialized automatically.
@@ -242,7 +242,7 @@ finalize the purchase on. Example:
 Game Center
 -----------
 
-Implemented in `Pandemonium iOS GameCenter plugin ( https://github.com/pandemoniumengine/pandemonium-ios-plugins/blob/master/plugins/gamecenter/game_center.mm )`.
+Implemented in `Pandemonium iOS GameCenter plugin ( https://github.com/Relintai/pandemonium_engine-ios-plugins/blob/master/plugins/gamecenter/game_center.mm )`.
 
 The Game Center API is available through the "GameCenter" singleton. It
 has the following methods:

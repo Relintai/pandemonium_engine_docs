@@ -18,7 +18,7 @@ References
 ~~~~~~~~~~
 
 - `ResourceLoader( resourceloader )`
-- `core/io/resource_loader.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/io/resource_loader.cpp )`
+- `core/io/resource_loader.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/resource_loader.cpp )`
 
 What for?
 ---------
@@ -38,7 +38,7 @@ ImageFormatLoader should be used to load images.
 References
 ~~~~~~~~~~
 
-- `core/io/image_loader.h ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/io/image_loader.h )`
+- `core/io/image_loader.h ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/image_loader.h )`
 
 
 Creating a ResourceFormatLoader
@@ -303,7 +303,7 @@ References
 
 - `istream ( http://www.cplusplus.com/reference/istream/istream/ )`
 - `streambuf ( http://www.cplusplus.com/reference/streambuf/streambuf/?kw=streambuf )`
-- `core/io/fileaccess.h ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/os/file_access.h )`
+- `core/io/fileaccess.h ( https://github.com/Relintai/pandemonium_engine/blob/master/core/os/file_access.h )`
 
 Registering the new file format
 -------------------------------
@@ -354,7 +354,7 @@ when `load` is called.
 References
 ~~~~~~~~~~
 
-- `core/io/resource_loader.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/master/core/io/resource_loader.cpp )`
+- `core/io/resource_loader.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/resource_loader.cpp )`
 
 Loading it on GDScript
 ----------------------

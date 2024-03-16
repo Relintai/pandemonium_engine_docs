@@ -9,7 +9,7 @@ can contribute to the project:
   reference manual or the code reference.
 - Translating the editor or documentation from English to other languages.
 - Reporting issues or `writing detailed proposals
-  ( https://github.com/pandemoniumengine/pandemonium-proposals/ )`.
+  ( https://github.com/Relintai/pandemonium_engine-proposals/ )`.
 
 Getting started
 ---------------
@@ -82,7 +82,7 @@ Class reference guides
 The pages below focus on the class reference.
 
 As the reference is included in the Pandemonium editor, its source files are part of
-the `pandemonium repository ( https://github.com/pandemoniumengine/pandemonium )`. We use XML files
+the `pandemonium repository ( https://github.com/Relintai/pandemonium_engine )`. We use XML files
 to write it, so the process to contribute to the class reference differs from
 writing the online manual.
 

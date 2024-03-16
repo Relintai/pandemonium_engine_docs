@@ -336,4 +336,4 @@ Note:
     emerging technology and you may find some things that don't work. Make sure
     you have updated your browser to the most recent version, and report any
     bugs you find on the
-    `Pandemonium GitHub repository ( https://github.com/pandemoniumengine/pandemonium/issues )`.
+    `Pandemonium GitHub repository ( https://github.com/Relintai/pandemonium_engine/issues )`.

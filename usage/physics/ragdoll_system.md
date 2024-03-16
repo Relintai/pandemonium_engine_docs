@@ -11,7 +11,7 @@ Since version 3.1, Pandemonium supports ragdoll physics. Ragdolls rely on physic
 In this tutorial, we will be using the Platformer3D demo to set up a ragdoll.
 
 Note:
- You can download the Platformer3D demo on `GitHub ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/3d/platformer )` or using the `Asset Library ( https://pandemoniumengine.org/asset-library/asset/125 )`.
+ You can download the Platformer3D demo on `GitHub ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/3d/platformer )` or using the `Asset Library ( https://pandemoniumengine.org/asset-library/asset/125 )`.
 
 Setting up the ragdoll
 ----------------------

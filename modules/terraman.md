@@ -187,10 +187,10 @@ First make sure that you can compile pandemonium. See the official docs: https:/
 1. Clone the engine if you haven't already:
 
 If you want Pandemonium 3.x:
-```git clone -b 3.x https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone -b 3.x https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 If you want Pandemonium 4.0:
-```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 
 2. go into the modules folder inside the engine's directory:

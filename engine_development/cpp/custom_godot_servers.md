@@ -75,7 +75,7 @@ an initialization state and a cleanup procedure.
 	private:
 		uint64_t counter;
 		RID_Owner<InfiniteBus> bus_owner;
-		// https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/rid.h#L196
+		// https://github.com/Relintai/pandemonium_engine/blob/3.x/core/rid.h#L196
 		Set<RID> buses;
 		void _emit_occupy_room(uint64_t room, RID rid);
 
@@ -203,7 +203,7 @@ an initialization state and a cleanup procedure.
 		return ret;
 	}
 
-	// https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/rid.h#L187
+	// https://github.com/Relintai/pandemonium_engine/blob/3.x/core/rid.h#L187
 	bool HilbertHotel::delete_bus(RID id) {
 		if (bus_owner.owns(id)) {
 			lock();
@@ -316,7 +316,7 @@ References
 ~~~~~~~~~~~
 
 - `RID( rid )`
-- `core/rid.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/rid.h )`
+- `core/rid.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/rid.h )`
 
 Registering the class in GDScript
 ---------------------------------
@@ -373,7 +373,7 @@ is used to register the dummy class in GDScript.
 	void unregister_hilbert_hotel_types();
 ```
 
-- `servers/register_server_types.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/master/servers/register_server_types.cpp )`
+- `servers/register_server_types.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/servers/register_server_types.cpp )`
 
 Bind methods
 ~~~~~~~~~~~~
@@ -474,7 +474,7 @@ to execute the desired behavior. The queue will be flushed whenever either
 References:
 ~~~~~~~~~~~
 
-- `core/message_queue.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/message_queue.cpp )`
+- `core/message_queue.cpp ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/message_queue.cpp )`
 
 Summing it up
 -------------

@@ -175,4 +175,4 @@ And give it a try.
 
 This is a good starting point for a platformer. A more complete demo can be found in the demo zip distributed with the
 engine, or in the
-https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/2d/kinematic_character.
+https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d/kinematic_character.

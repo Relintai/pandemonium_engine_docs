@@ -370,11 +370,11 @@ can use the downloaded PO file and `compile Pandemonium from source ( toc-devel-
 
 Rename the editor translation PO file to `( lang>.po` (e.g. `eo.po` for
 Esperanto) and place it in the `editor/translations/` folder
-(`GitHub ( https://github.com/pandemoniumengine/pandemonium/tree/master/editor/translations )`).
+(`GitHub ( https://github.com/Relintai/pandemonium_engine/tree/master/editor/translations )`).
 
 You can also test class reference changes the same way by renaming the PO file
 similarly and placing it in the `doc/translations/` folder
-(`GitHub ( https://github.com/pandemoniumengine/pandemonium/tree/master/doc/translations )`).
+(`GitHub ( https://github.com/Relintai/pandemonium_engine/tree/master/doc/translations )`).
 
 Localizing documentation images
 -------------------------------
@@ -384,7 +384,7 @@ Pandemonium editor, custom-made graphs, of any other kind of visual content. Som
 it includes text and might thus be relevant to localize in your language.
 
 This part is not handled via Weblate, but directly on the `pandemonium-docs-l10n
-( https://github.com/pandemoniumengine/pandemonium-docs-l10n )` Git repository where the
+( https://github.com/Relintai/pandemonium_engine-docs-l10n )` Git repository where the
 documentation translations are synced from Weblate.
 
 Note:
@@ -419,7 +419,7 @@ added before the extension, e.g. `project_manager_first_open.png)` would become
 
 Finally, on pandemonium-docs-l10n_, recreate the same folder structure as for the
 original image in the `images` subfolder
-(`GitHub ( https://github.com/pandemoniumengine/pandemonium-docs-l10n/tree/master/images )`),
+(`GitHub ( https://github.com/Relintai/pandemonium_engine-docs-l10n/tree/master/images )`),
 and place your translated image there. In our example, the end result should be
 `images/getting_started/step_by_step/img/project_manager_first_open.fr.png)`.
 

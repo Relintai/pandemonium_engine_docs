@@ -1,7 +1,7 @@
 Configuring an IDE
 ==================
 
-We assume that you have already `cloned ( https://github.com/pandemoniumengine/pandemonium )`
+We assume that you have already `cloned ( https://github.com/Relintai/pandemonium_engine )`
 and `compiled <toc-devel-compiling )` Pandemonium.
 
 You can easily develop Pandemonium with any text editor and by invoking `scons`

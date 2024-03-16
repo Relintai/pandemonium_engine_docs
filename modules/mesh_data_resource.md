@@ -45,12 +45,12 @@ Since MeshDataResource can hold collider information, these importers can create
 1. Get the source code for the engine.
 
 If you want Pandemonium 3.2:
-```git clone -b 3.2 https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone -b 3.2 https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 If you want Pandemonium 4.0:
-```git clone https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
-[last tested commit for 4.0](https://github.com/pandemoniumengine/pandemonium/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)
+[last tested commit for 4.0](https://github.com/Relintai/pandemonium_engine/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)
 
 2. Go into Pandemonium's modules directory.
 

@@ -5,7 +5,7 @@ Bisecting regressions
 
 
 Bisecting is a way to find regressions in software. After reporting a bug on the
-`Pandemonium repository on GitHub ( https://github.com/pandemoniumengine/pandemonium )`, you may
+`Pandemonium repository on GitHub ( https://github.com/Relintai/pandemonium_engine )`, you may
 be asked by a contributor to *bisect* the issue. Bisecting makes it possible for
 contributors to fix bugs faster, as they can know in advance which commit caused
 the regression. Your effort will be widely appreciated :)

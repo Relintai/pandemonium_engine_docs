@@ -34,26 +34,26 @@ Directory structure
 -------------------
 
 The editor's code is fully self-contained in the
-`editor/ ( https://github.com/pandemoniumengine/pandemonium/tree/master/editor )` folder
+`editor/ ( https://github.com/Relintai/pandemonium_engine/tree/master/editor )` folder
 of the Pandemonium source repository.
 
 Some editor functionality is also implemented via
 `modules ( doc_custom_modules_in_c++ )`. Some of these are only enabled in
 editor builds to decrease the binary size of export templates. See the
-`modules/ ( https://github.com/pandemoniumengine/pandemonium/tree/master/modules )` folder
+`modules/ ( https://github.com/Relintai/pandemonium_engine/tree/master/modules )` folder
 in the Pandemonium source repository.
 
 Some important files in the editor are:
 
-- `editor/editor_node.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/editor/editor_node.cpp )`:
+- `editor/editor_node.cpp ( https://github.com/Relintai/pandemonium_engine/blob/3.x/editor/editor_node.cpp )`:
   Main editor initialization file. Effectively the "main scene" of the editor.
-- `editor/project_manager.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/editor/project_manager.cpp )`:
+- `editor/project_manager.cpp ( https://github.com/Relintai/pandemonium_engine/blob/3.x/editor/project_manager.cpp )`:
   Main project manager initialization file. Effectively the "main scene" of the project manager.
-- `editor/plugins/canvas_item_editor_plugin.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/editor/plugins/canvas_item_editor_plugin.cpp )`:
+- `editor/plugins/canvas_item_editor_plugin.cpp ( https://github.com/Relintai/pandemonium_engine/blob/3.x/editor/plugins/canvas_item_editor_plugin.cpp )`:
   The 2D editor viewport and related functionality (toolbar at the top, editing modes, overlaid helpers/panels, …).
-- `editor/plugins/spatial_editor_plugin.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/editor/plugins/spatial_editor_plugin.cpp )`:
+- `editor/plugins/spatial_editor_plugin.cpp ( https://github.com/Relintai/pandemonium_engine/blob/3.x/editor/plugins/spatial_editor_plugin.cpp )`:
   The 3D editor viewport and related functionality (toolbar at the top, editing modes, overlaid panels, …).
-- `editor/spatial_editor_gizmos.cpp ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/editor/spatial_editor_gizmos.cpp )`:
+- `editor/spatial_editor_gizmos.cpp ( https://github.com/Relintai/pandemonium_engine/blob/3.x/editor/spatial_editor_gizmos.cpp )`:
   Where the 3D editor gizmos are defined and drawn.
   This file doesn't have a 2D counterpart as 2D gizmos are drawn by the nodes themselves.
 
@@ -78,7 +78,7 @@ from `servers/` and `core/`, it cannot depend on includes from `editor/`.
 
 Currently, there are some dependencies to `editor/` includes in `scene/`
 files, but
-`they are in the process of being removed ( https://github.com/pandemoniumengine/pandemonium/issues/29730 )`.
+`they are in the process of being removed ( https://github.com/Relintai/pandemonium_engine/issues/29730 )`.
 
 Development tips
 ----------------

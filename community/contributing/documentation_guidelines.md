@@ -6,7 +6,7 @@ Documentation guidelines
 This page describes the rules to follow if you want to contribute to Pandemonium
 Engine by writing or reviewing documentation, or by translating existing
 documentation. Also, have a look at README of the
-`pandemonium-docs GitHub repository ( https://github.com/pandemoniumengine/pandemonium-docs )`
+`pandemonium-docs GitHub repository ( https://github.com/Relintai/pandemonium_engine-docs )`
 and the `docs front page ( https://docs.pandemoniumengine.org )`
 on what steps to follow and how to contact the docs team.
 
@@ -14,7 +14,7 @@ How to contribute
 -----------------
 
 Creating or modifying documentation pages is mainly done via the
-`pandemonium-docs GitHub repository ( https://github.com/pandemoniumengine/pandemonium-docs )`.
+`pandemonium-docs GitHub repository ( https://github.com/Relintai/pandemonium_engine-docs )`.
 The HTML (or PDF and EPUB) documentation is generated from the .rst files
 (reStructuredText markup language) in that repository. Modifying those pages
 in a pull request and getting it merged will trigger a rebuild of the online
@@ -28,7 +28,7 @@ See also:
 
 Warning:
  The class reference's source files are in the `Pandemonium engine repository
-             ( https://github.com/pandemoniumengine/pandemonium )`. We generate the `Pandemonium API
+             ( https://github.com/Relintai/pandemonium_engine )`. We generate the `Pandemonium API
              ( toc-class-ref )` section of this documentation from them. If you want to update the
              description of a class, its methods, or properties, read
              `doc_updating_the_class_reference`.
@@ -129,14 +129,14 @@ You can help to translate the official Pandemonium documentation on our `Hosted 
     :height: 66
 
 There also is the official
-`Pandemonium i18n repository ( https://github.com/pandemoniumengine/pandemonium-docs-l10n )`
+`Pandemonium i18n repository ( https://github.com/Relintai/pandemonium_engine-docs-l10n )`
 where you can see when the data was last synchronized.
 
 License
 -------
 
 This documentation and every page it contains is published under the terms of
-the `Creative Commons Attribution 3.0 license (CC-BY-3.0) ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with attribution to "Juan Linietsky, Ariel Manzur and the Pandemonium community".
+the `Creative Commons Attribution 3.0 license (CC-BY-3.0) ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with attribution to "Péter Magyar and the Pandemonium community, and Juan Linietsky, Ariel Manzur and the Godot community".
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.

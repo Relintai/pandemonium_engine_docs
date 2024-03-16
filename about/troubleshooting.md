@@ -14,7 +14,7 @@ See also:
 Everything I do in the editor or project manager appears delayed by one frame.
 ------------------------------------------------------------------------------
 
-This is a `known bug ( https://github.com/pandemoniumengine/pandemonium/issues/23069 )` on
+This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/23069 )` on
 Intel graphics drivers on Windows. Updating to the latest graphics driver
 version *provided by Intel* should fix the issue.
 
@@ -25,7 +25,7 @@ outdated.
 The grid disappears and meshes turn black when I rotate the 3D camera in the editor.
 ------------------------------------------------------------------------------------
 
-This is a `known bug ( https://github.com/pandemoniumengine/pandemonium/issues/30330 )` on
+This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/30330 )` on
 Intel graphics drivers on Windows.
 
 The only workaround, for now, is to switch to the GLES2 renderer. You can switch
@@ -37,7 +37,7 @@ Optimus, you can use the dedicated graphics card to run Pandemonium.
 The editor or project takes a very long time to start.
 ------------------------------------------------------
 
-This is a `known bug ( https://github.com/pandemoniumengine/pandemonium/issues/20566 )` on
+This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/20566 )` on
 Windows when you have specific USB peripherals connected. In particular,
 Corsair's iCUE software seems to cause the bug. Try updating your USB
 peripherals' drivers to their latest version. If the bug persists, you need to
@@ -47,7 +47,7 @@ connect the peripheral again.
 Editor tooltips in the Inspector and Node docks blink when they're displayed.
 -----------------------------------------------------------------------------
 
-This is a `known issue ( https://github.com/pandemoniumengine/pandemonium/issues/32990 )`
+This is a `known issue ( https://github.com/Relintai/pandemonium_engine/issues/32990 )`
 caused by the third-party Stardock Fences application on Windows.
 The only known workaround is to disable Stardock Fences while using Pandemonium.
 
@@ -87,7 +87,7 @@ configured to support `multiple resolutions ( doc_multiple_resolutions )`.
 The project window doesn't appear centered when I run the project.
 ------------------------------------------------------------------
 
-This is a `known bug ( https://github.com/pandemoniumengine/pandemonium/issues/13017 )`. To
+This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/13017 )`. To
 resolve this, open **Project > Project Settings** and enable **Display > Window
 > Dpi > Allow Hidpi**. On top of that, make sure your project is configured to
 support `multiple resolutions ( doc_multiple_resolutions )`.

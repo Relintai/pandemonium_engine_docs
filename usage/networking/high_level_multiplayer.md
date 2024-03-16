@@ -398,7 +398,7 @@ If you have paid attention to the previous example, it's possible you noticed th
 Each time this piece of code is executed on each peer, the peer makes itself master on the node it controls, and all other nodes remain as puppets with the server being their network master.
 
 To clarify, here is an example of how this looks in the
-`bomber demo ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/networking/multiplayer_bomber )`:
+`bomber demo ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/networking/multiplayer_bomber )`:
 
 ![](img/nmms.png)
 

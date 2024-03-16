@@ -13,7 +13,7 @@ Note that more specialized devices such as steering wheels, rudder pedals and
 always work as expected. Overriding force feedback for those devices is also not
 implemented yet. If you have access to one of those devices, don't hesitate to
 `report bugs on GitHub
-( https://github.com/pandemoniumengine/pandemonium/blob/master/CONTRIBUTING.md#reporting-bugs )`.
+( https://github.com/Relintai/pandemonium_engine/blob/master/CONTRIBUTING.md#reporting-bugs )`.
 
 In this guide, you will learn:
 
@@ -156,7 +156,7 @@ See also:
 
 
     You can view a list of
-    `known issues with controller support ( https://github.com/pandemoniumengine/pandemonium/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad )`
+    `known issues with controller support ( https://github.com/Relintai/pandemonium_engine/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad )`
     on GitHub.
 
 My controller isn't recognized by Pandemonium.
@@ -225,5 +225,5 @@ result, you may have to instruct your players to use a different browser if they
 can't get their controller to work.
 
 Also, note that
-`controller support was significantly improved ( https://github.com/pandemoniumengine/pandemonium/pull/45078 )`
+`controller support was significantly improved ( https://github.com/Relintai/pandemonium_engine/pull/45078 )`
 in Pandemonium 3.3 and later.

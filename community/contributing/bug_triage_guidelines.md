@@ -5,7 +5,7 @@ Bug triage guidelines
 
 This page describes the typical workflow of the bug triage team aka
 bugsquad when handling issues and pull requests on Pandemonium's
-`GitHub repository ( https://github.com/pandemoniumengine/pandemonium )`.
+`GitHub repository ( https://github.com/Relintai/pandemonium_engine )`.
 It is bound to evolve together with the bugsquad, so do not
 hesitate to propose modifications to the following guidelines.
 
@@ -61,13 +61,13 @@ The following labels are currently defined in the Pandemonium repository:
 -  *Documentation*: issue related to the documentation. Mainly to request
    enhancements in the API documentation. Issues related to the ReadTheDocs
    documentation should be filed on the
-   `pandemonium-docs ( https://github.com/pandemoniumengine/pandemonium-docs )` repository.
+   `pandemonium-docs ( https://github.com/Relintai/pandemonium_engine-docs )` repository.
 -  *Enhancement*: describes a proposed enhancement to an existing
    functionality.
 -  *Feature proposal*: describes a wish for a new feature to be
    implemented. Note that the main Pandemonium repository no longer accepts
    feature requests. Please use
-   `pandemonium-proposals ( https://github.com/pandemoniumengine/pandemonium-proposals )` instead.
+   `pandemonium-proposals ( https://github.com/Relintai/pandemonium_engine-proposals )` instead.
 -  *For PR meeting*: the issue needs to be discussed in a pull request meeting.
    These meetings are public and are held on the `Pandemonium Contributors Chat ( https://chat.pandemoniumengine.org/ )`.
 -  *Good first issue*: the issue is *assumed* to be an easy one to fix, which makes
@@ -149,7 +149,7 @@ Android and Linux exclusively, select those two platforms).
 Documentation labels
 ~~~~~~~~~~~~~~~~~~~~
 
-In the `documentation repository ( https://github.com/pandemoniumengine/pandemonium-docs )`, we
+In the `documentation repository ( https://github.com/Relintai/pandemonium_engine-docs )`, we
 use the following labels:
 
 -  *Bug*: Incorrect information in an existing page. Not to be used for
@@ -177,7 +177,7 @@ use the following labels:
 Milestones
 ~~~~~~~~~~
 
-`Milestones ( https://github.com/pandemoniumengine/pandemonium/milestones )` correspond to
+`Milestones ( https://github.com/Relintai/pandemonium_engine/milestones )` correspond to
 planned future versions of Pandemonium for which there is an existing roadmap. Issues
 that fit in the said roadmap should be filed under the corresponding milestone;
 if they don't correspond to any current roadmap, they should be left without

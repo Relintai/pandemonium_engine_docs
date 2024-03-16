@@ -70,7 +70,7 @@ an embedded PCK.
 Warning:
 
 
-    There are `known issues ( https://github.com/pandemoniumengine/pandemonium/issues/33466 )`
+    There are `known issues ( https://github.com/Relintai/pandemonium_engine/issues/33466 )`
     when changing the application icon in executables that embed a PCK file.
     It's recommended to avoid using rcedit for now if you choose to enable the
     **Embed Pck** option for your Windows export preset in the Export dialog.
@@ -112,7 +112,7 @@ Note:
     If rcedit fails to change the icon, you can instead
     `compile your own Windows export templates ( doc_compiling_for_windows )`
     with the icon changed. To do so, replace
-    `platform/windows/pandemonium.ico ( https://github.com/pandemoniumengine/pandemonium/blob/master/platform/windows/pandemonium.ico )`
+    `platform/windows/pandemonium.ico ( https://github.com/Relintai/pandemonium_engine/blob/master/platform/windows/pandemonium.ico )`
     with your own ICO file *before* compiling export templates.
 
     Once this is done, you can specify your export templates as custom export

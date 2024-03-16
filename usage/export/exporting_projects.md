@@ -206,7 +206,7 @@ depending on your needs.
 Warning:
 
 
-    Due to a `known bug ( https://github.com/pandemoniumengine/pandemonium/pull/42123 )`,
+    Due to a `known bug ( https://github.com/Relintai/pandemonium_engine/pull/42123 )`,
     when using a ZIP file as a pack file, the exported binary will not try to use
     it automatically. Therefore, you have to create a *launcher script* that
     the player can double-click or run from a terminal to launch the project:

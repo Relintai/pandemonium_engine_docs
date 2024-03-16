@@ -121,7 +121,7 @@ We will provide you with more Pandemonium-specific learning resources in
 In the next part, you will get an overview of the engine's essential concepts.
 
 .. _Blender: https://www.blender.org/
-.. _VSCode: https://github.com/pandemoniumengine/pandemonium-vscode-plugin
+.. _VSCode: https://github.com/Relintai/pandemonium_engine-vscode-plugin
 .. _Emacs: https://github.com/pandemoniumengine/emacs-gdscript-mode
 .. _official showcase videos: https://www.youtube.com/playlist?list=PLeG_dAglpVo6EpaO9A1nkwJZOwrfiLdQ8
 .. _CS50 open courseware: https://cs50.harvard.edu/x

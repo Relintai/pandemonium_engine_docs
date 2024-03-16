@@ -66,13 +66,13 @@ open source `Sphinx ( http://www.sphinx-doc.org )` and `ReadTheDocs
 Note:
  You can contribute to Pandemonium's documentation by opening issue tickets
           or sending patches via pull requests on its GitHub
-          `source repository ( https://github.com/pandemoniumengine/pandemonium-docs )`, or
+          `source repository ( https://github.com/Relintai/pandemonium_engine-docs )`, or
           translating it into your language on `Hosted Weblate
           ( https://hosted.weblate.org/projects/pandemonium-engine/pandemonium-docs/ )`.
 
 All the contents are under the permissive Creative Commons Attribution 3.0
 (`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`) license, with
-attribution to "Juan Linietsky, Ariel Manzur and the Pandemonium Engine community".
+attribution to "Péter Magyar and the Pandemonium community, and Juan Linietsky, Ariel Manzur and the Godot community".
 
 Organization of the documentation
 ---------------------------------
@@ -106,6 +106,6 @@ relatively intuitive:
   `doc_updating_the_class_reference` for details.
 
 In addition to this documentation you may also want to take a look at the
-various `Pandemonium demo projects ( https://github.com/pandemoniumengine/pandemonium-demo-projects )`.
+various `Pandemonium demo projects ( https://github.com/Relintai/pandemonium_engine-demo-projects )`.
 
 Have fun reading and making games with Pandemonium Engine!

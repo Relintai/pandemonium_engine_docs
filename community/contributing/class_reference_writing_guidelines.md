@@ -25,7 +25,7 @@ The reference for each class is contained in an XML file like the one below:
         </description>
         <tutorials>
             <link title="Custom drawing in 2D">https://docs.pandemoniumengine.org/en/latest/tutorials/2d/custom_drawing_in_2d.html</link>
-            <link title="All 2D Demos">https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/2d</link>
+            <link title="All 2D Demos">https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d</link>
         </tutorials>
         <methods>
             <method name="apply_scale">

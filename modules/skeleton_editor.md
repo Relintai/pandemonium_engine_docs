@@ -2,7 +2,7 @@
 
 This is a c++ engine module for the Pandemonium engine that contains a modularized version of TokageItLab's pr's 3.2 version from the pandemonium engine repository, until it gets merged.
 
-The original pr is here: https://github.com/pandemoniumengine/pandemonium/pull/45699
+The original pr is here: https://github.com/Relintai/pandemonium_engine/pull/45699
 Tht 3.x version (linked in the pr itself) is here  (This is the base for this module): https://github.com/TokageItLab/pandemonium/tree/pose-edit-mode
 
 I'm developing this for pandemonium 3.x, it will probably work on earlier versions though. 4.0 is not supported.
@@ -11,7 +11,7 @@ I'm developing this for pandemonium 3.x, it will probably work on earlier versio
 
 1. Get the source code for the engine.
 
-```git clone -b 3.x https://github.com/pandemoniumengine/pandemonium.git pandemonium```
+```git clone -b 3.x https://github.com/Relintai/pandemonium_engine.git pandemonium```
 
 2. Go into Pandemonium's modules directory.
 

@@ -80,7 +80,7 @@ The 3D navigation meshes are defined with the following resources:
 .. seealso::
 
     You can see how 3D navigation works in action using the
-    `3D Navigation demo project <https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/3d/navigation>`__.
+    `3D Navigation demo project <https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/3d/navigation>`__.
 
 Setup for 3D scene
 ------------------

@@ -59,7 +59,7 @@ Pandemonium's `MIT ( https://tldrlegal.com/license/mit-license )` license grants
 making it `free and open source software ( https://en.wikipedia.org/wiki/Free_and_open-source_software )`.
 
 As such, everyone is entitled to modify
-`Pandemonium's source code ( https://github.com/pandemoniumengine/pandemonium )`, and send those
+`Pandemonium's source code ( https://github.com/Relintai/pandemonium_engine )`, and send those
 modifications back to the upstream project in the form of a patch (a text file
 describing the changes in a ready-to-apply manner) or - in the modern workflow
 that we use - via a so-called "pull request" (PR), i.e. a proposal to directly
@@ -85,7 +85,7 @@ enforce some rules for code contributions, for example regarding the style to
 use in the C++ code (indentation, brackets, etc.) or the Git and PR workflow.
 
 A good place to start is by searching for issues tagged as
-`good first issue ( https://github.com/pandemoniumengine/pandemonium/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 )`
+`good first issue ( https://github.com/Relintai/pandemonium_engine/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 )`
 on GitHub.
 
 See also:
@@ -105,7 +105,7 @@ way more contributions than people validating them.
 
 To make sure that your time and efforts aren't wasted, it is recommended to vet the idea
 first before implementing it and putting it for a review as a PR. To that end, Pandemonium
-has a `proposal system ( https://github.com/pandemoniumengine/pandemonium-proposals )`. Its
+has a `proposal system ( https://github.com/Relintai/pandemonium_engine-proposals )`. Its
 usage is encouraged to plan changes and discuss them with the community. Implementation
 details can also be discussed with other contributors on the `Pandemonium Contributors Chat ( https://chat.pandemoniumengine.org/ )`.
 
@@ -145,7 +145,7 @@ the developers.
 Filing an issue on GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Pandemonium uses `GitHub's issue tracker ( https://github.com/pandemoniumengine/pandemonium/issues )`
+Pandemonium uses `GitHub's issue tracker ( https://github.com/Relintai/pandemonium_engine/issues )`
 for bug reports and enhancement suggestions. You will need a GitHub account to
 be able to open a new issue there, and click on the **New issue** button.
 
@@ -208,7 +208,7 @@ There are two separate resources referred to as "documentation" in Pandemonium:
   This is the part you are reading now, which is distributed in the HTML format.
   Its contents are generated from plain text files in the reStructured Text
   (rst) format, to which you can contribute via pull requests on the
-  `pandemonium-docs ( https://github.com/pandemoniumengine/pandemonium-docs )` GitHub repository.
+  `pandemonium-docs ( https://github.com/Relintai/pandemonium_engine-docs )` GitHub repository.
   See `doc_contributing_to_the_documentation` for more details.
 
 Contributing translations

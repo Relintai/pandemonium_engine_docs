@@ -11,7 +11,7 @@ auto-formatting tools.
 Since the Pandemonium shader language is close to C-style languages and GLSL, this
 guide is inspired by Pandemonium's own GLSL formatting. You can view an example of a
 GLSL file in Pandemonium's source code
-`here ( https://github.com/pandemoniumengine/pandemonium/blob/master/drivers/gles2/shaders/copy.glsl )`.
+`here ( https://github.com/Relintai/pandemonium_engine/blob/master/drivers/gles2/shaders/copy.glsl )`.
 
 Style guides aren't meant as hard rulebooks. At times, you may not be able to
 apply some of the guidelines below. When that happens, use your best judgment,
@@ -30,7 +30,7 @@ Here is a complete shader example based on these guidelines:
     shader_type canvas_item;
     // Screen-space shader to adjust a 2D scene's brightness, contrast
     // and saturation. Taken from
-    // https://github.com/pandemoniumengine/pandemonium-demo-projects/blob/master/2d/screen_space_shaders/shaders/BCS.shader
+    // https://github.com/Relintai/pandemonium_engine-demo-projects/blob/master/2d/screen_space_shaders/shaders/BCS.shader
 
     uniform float brightness = 0.8;
     uniform float contrast = 1.5;

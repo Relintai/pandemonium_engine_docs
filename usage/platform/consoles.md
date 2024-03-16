@@ -75,5 +75,5 @@ Following is the list of providers:
 
 If your company offers porting, or porting *and* publishing services for Pandemonium games,
 feel free to
-`open an issue or pull request ( https://github.com/pandemoniumengine/pandemonium-docs )`
+`open an issue or pull request ( https://github.com/Relintai/pandemonium_engine-docs )`
 to add your company to the list above.

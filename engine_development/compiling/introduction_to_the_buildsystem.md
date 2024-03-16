@@ -332,7 +332,7 @@ directory to avoid conflicts. For instance, if you are building export templates
 for Pandemonium 3.1.1, `version.txt` should contain `3.1.1.stable` on the first
 line (and nothing else). This version identifier is based on the `major`,
 `minor`, `patch` (if present) and `status` lines of the
-`version.py file in the Pandemonium Git repository ( https://github.com/pandemoniumengine/pandemonium/blob/master/version.py )`.
+`version.py file in the Pandemonium Git repository ( https://github.com/Relintai/pandemonium_engine/blob/master/version.py )`.
 
 If you are developing for multiple platforms, macOS is definitely the most
 convenient host platform for cross-compilation, since you can cross-compile for

@@ -241,10 +241,10 @@ Note:
 See also:
 
 
-    See `core/error_macros.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/error_macros.h )`
+    See `core/error_macros.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/error_macros.h )`
     in Pandemonium's codebase for more information about each error macro.
 
     Some functions return an error code (materialized by a return type of
     `Error`). This value can be returned directly from an error macro.
     See the list of available error codes in
-    `core/error_list.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/error_list.h )`.
+    `core/error_list.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/error_list.h )`.

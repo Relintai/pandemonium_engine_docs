@@ -269,7 +269,7 @@ SpectrumAnalyzer
 
 This effect doesn't alter audio, instead, you add this effect to buses you want
 a spectrum analysis of. This would typically be used for audio visualization. A
-demo project using this can be found `here ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/audio/spectrum )`.
+demo project using this can be found `here ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/audio/spectrum )`.
 
 StereoEnhance
 ~~~~~~~~~~~~~

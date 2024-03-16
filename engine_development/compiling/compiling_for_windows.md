@@ -247,7 +247,7 @@ differ based on your system):
 ### Troubleshooting
 
 Cross-compiling from some Ubuntu versions may lead to
-`this bug ( https://github.com/pandemoniumengine/pandemonium/issues/9258 )`,
+`this bug ( https://github.com/Relintai/pandemonium_engine/issues/9258 )`,
 due to a default configuration lacking support for POSIX threading.
 
 You can change that configuration following those instructions,

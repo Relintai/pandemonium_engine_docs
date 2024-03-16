@@ -19,7 +19,7 @@ Some use-cases where customizing the default page is useful include:
 - Passing custom command line arguments, e.g. `-s` to start a `MainLoop` script.
 
 The default HTML page is available in the Pandemonium Engine repository at
-`/misc/dist/html/full-size.html ( https://github.com/pandemoniumengine/pandemonium/blob/master/misc/dist/html/full-size.html )`
+`/misc/dist/html/full-size.html ( https://github.com/Relintai/pandemonium_engine/blob/master/misc/dist/html/full-size.html )`
 but the following template can be used as a much simpler example:
 
 ```

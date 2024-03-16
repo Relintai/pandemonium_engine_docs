@@ -446,5 +446,5 @@ that it allows enable linear filtering. This makes scaled 3D viewports look
 better in many cases.
 
 See the
-`3D viewport scaling demo ( https://github.com/pandemoniumengine/pandemonium-demo-projects/tree/master/viewport/3d_scaling )`
+`3D viewport scaling demo ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/3d_scaling )`
 for examples.

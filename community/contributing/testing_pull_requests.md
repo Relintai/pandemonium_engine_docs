@@ -7,7 +7,7 @@ Many people are developing new features or fixing bugs on GitHub.
 To help with engine development, you may be asked to test those pull requests
 with a Pandemonium build that includes code from the pull request in question.
 
-Thanks to GitHub Actions, all `pull requests ( https://github.com/pandemoniumengine/pandemonium/pulls )`
+Thanks to GitHub Actions, all `pull requests ( https://github.com/Relintai/pandemonium_engine/pulls )`
 have continuous builds available. These builds let you try out pull requests
 without having to compile anything from source.
 

@@ -37,7 +37,7 @@ of C++ with little effort. Become a friend of Variant today.
 References:
 ~~~~~~~~~~~
 
--  `core/variant.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/variant.h )`
+-  `core/variant.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/variant.h )`
 
 Containers: Dictionary and Array
 --------------------------------
@@ -56,5 +56,5 @@ Copy-on-write (COW) mode support for containers was dropped with Pandemonium 3.0
 References:
 ~~~~~~~~~~~
 
--  `core/dictionary.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/dictionary.h )`
--  `core/array.h ( https://github.com/pandemoniumengine/pandemonium/blob/3.x/core/array.h )`
+-  `core/dictionary.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/dictionary.h )`
+-  `core/array.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/array.h )`

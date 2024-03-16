@@ -56,5 +56,5 @@ Official editor plugins
 
 We have official plugins for the following code editors:
 
-- `Visual Studio Code ( https://github.com/pandemoniumengine/pandemonium-vscode-plugin )`
+- `Visual Studio Code ( https://github.com/Relintai/pandemonium_engine-vscode-plugin )`
 - `Emacs ( https://github.com/pandemoniumengine/emacs-gdscript-mode )`

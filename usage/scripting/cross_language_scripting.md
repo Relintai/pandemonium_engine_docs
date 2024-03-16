@@ -179,5 +179,5 @@ Inheritance
 A GDScript file may not inherit from a C# script. Likewise, a C# script may not
 inherit from a GDScript file. Due to how complex this would be to implement,
 this limitation is unlikely to be lifted in the future. See
-`this GitHub issue ( https://github.com/pandemoniumengine/pandemonium/issues/38352 )`
+`this GitHub issue ( https://github.com/Relintai/pandemonium_engine/issues/38352 )`
 for more information.

@@ -54,7 +54,7 @@ A class reference's page tells you:
 Note:
  If the manual or class reference is missing or has insufficient
           information, please open an Issue in the official `pandemonium-docs
-          ( https://github.com/pandemoniumengine/pandemonium-docs/issues )` GitHub repository
+          ( https://github.com/Relintai/pandemonium_engine-docs/issues )` GitHub repository
           to report it.
 
 You can Ctrl-click any underlined text like the name of a class, property,

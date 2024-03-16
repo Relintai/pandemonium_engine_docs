@@ -9,12 +9,12 @@ documentation as a PDF, EPUB, or LaTeX file, for example.
 
 To get started, you need to:
 
-1. Clone the `pandemonium-docs repository ( https://github.com/pandemoniumengine/pandemonium-docs/ )`.
+1. Clone the `pandemonium-docs repository ( https://github.com/Relintai/pandemonium_engine-docs/ )`.
 2. Install `Sphinx ( https://www.sphinx-doc.org/ )`
 3. To build the docs as HTML files, install the `readthedocs.org theme
    ( https://github.com/snide/sphinx_rtd_theme )`.
 4. Install the Sphinx extensions defined in the `pandemonium-docs repository
-   ( https://github.com/pandemoniumengine/pandemonium-docs/ )` `requirements.txt` file.
+   ( https://github.com/Relintai/pandemonium_engine-docs/ )` `requirements.txt` file.
 
 We recommend using `pip ( https://pip.pypa.io )`, Python’s package manager to
 install all these tools. It comes pre-installed with `Python
@@ -26,7 +26,7 @@ Note:
           If both approaches fail, `check that you have pip3 installed ( https://pip.pypa.io/en/stable/installation/ )`.
 
 ```
-    git clone https://github.com/pandemoniumengine/pandemonium-docs.git
+    git clone https://github.com/Relintai/pandemonium_engine-docs.git
     pip3 install -r requirements.txt
 ```
 
@@ -73,7 +73,7 @@ Note:
  If you delete the `classes/` folder, do not use `git add .` when
           working on a pull request or the whole `classes/` folder will be
           removed when you commit. See `#3157
-          ( https://github.com/pandemoniumengine/pandemonium-docs/issues/3157 )` for more
+          ( https://github.com/Relintai/pandemonium_engine-docs/issues/3157 )` for more
           detail.
 
 Alternatively, you can build the documentation by running the sphinx-build

@@ -40,7 +40,7 @@ until you understood the game development process and how to use Pandemonium wel
 
 You can find a completed version of this project at this location:
 
-- https://github.com/pandemoniumengine/pandemonium-demo-projects
+- https://github.com/Relintai/pandemonium_engine-demo-projects
 
 Prerequisites
 -------------
@@ -50,7 +50,7 @@ This step-by-step tutorial is intended for beginners who followed the complete
 
 If you're an experienced programmer, you can find the complete demo's source
 code here: `Pandemonium demo projects
-( https://github.com/pandemoniumengine/pandemonium-demo-projects )`.
+( https://github.com/Relintai/pandemonium_engine-demo-projects )`.
 
 We prepared some game assets you'll need to download so we can jump straight to
 the code.

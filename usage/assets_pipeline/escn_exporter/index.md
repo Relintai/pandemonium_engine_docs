@@ -3,7 +3,7 @@ Blender ESCN exporter
 
 Note:
  This chapter relates to the Blender plugin called "Pandemonium Blender Exporter",
-          which can be downloaded here: https://github.com/pandemoniumengine/pandemonium-blender-exporter
+          which can be downloaded here: https://github.com/Relintai/pandemonium_engine-blender-exporter
 
 This plugin can be used to export Blender scenes in a Pandemonium-specific scene format
 called ESCN, which is similar to TSCN (text format) but will be imported as binary

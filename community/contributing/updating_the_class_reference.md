@@ -13,7 +13,7 @@ the entire reference on their own. Pandemonium needs you, and all of us, to
 contribute.
 
 **Important:** If you plan to make large changes, you should create an issue on
-the `pandemonium-docs repository ( https://github.com/pandemoniumengine/pandemonium-docs/ )`
+the `pandemonium-docs repository ( https://github.com/Relintai/pandemonium_engine-docs/ )`
 or comment on an existing issue. Doing so lets others know you're already
 taking care of a given class.
 
@@ -39,7 +39,7 @@ See also:
 
 You can find the source files for the class reference in Pandemonium's GitHub
 repository: `doc/classes/
-( https://github.com/pandemoniumengine/pandemonium/tree/master/doc/classes )`.
+( https://github.com/Relintai/pandemonium_engine/tree/master/doc/classes )`.
 
 Note:
  For some modules in the engine's source code, you'll find the XML
@@ -49,7 +49,7 @@ Warning:
  Always edit the API reference through these source XML files. Do
              not edit the generated `.rst` files `in the online documentation
              ( toc-class-ref )`, hosted in the `pandemonium-docs
-             ( https://github.com/pandemoniumengine/pandemonium-docs )` repository.
+             ( https://github.com/Relintai/pandemonium_engine-docs )` repository.
 
 Warning:
 

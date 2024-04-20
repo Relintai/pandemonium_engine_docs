@@ -1,7 +1,6 @@
 
 
-Setting up the project
-======================
+# Setting up the project
 
 In this short first part, we'll set up and organize the project.
 
@@ -12,7 +11,7 @@ Launch Pandemonium and create a new project.
 GDScript
 
 ```
-    Download :download:`dodge_assets.zip <files/dodge_assets.zip )`.
+    Download :download:`dodge_assets.zip ( files/dodge_assets.zip )`.
     The archive contains the images and sounds you'll be using
     to make the game. Extract the archive and move the `art/`
     and `fonts/` directories to your project's directory.

@@ -76,8 +76,8 @@ The 2D navigation meshes are defined with the following resources:
 .. seealso::
 
     You can see how 2D navigation works in action using the
-    `2D Navigation Polygon <https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d/navigation>`__
-    and `Grid-based Navigation with AStarGrid2D <https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d/navigation_astar>`__
+    `2D Navigation Polygon (https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d/navigation>`__
+    and `Grid-based Navigation with AStarGrid2D (https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d/navigation_astar>`__
     demo projects.
 
 Setup for 2D scene

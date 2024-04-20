@@ -1,7 +1,6 @@
 
 
-Creating instances
-==================
+# Creating instances
 
 In the previous part, we saw that a scene is a collection of nodes organized in
 a tree structure, with a single node as its root. You can split your project
@@ -35,12 +34,11 @@ as `Ball.tscn`. However, you can modify each independently, such as changing
 how they bounce, how heavy they are, or any property exposed by the source
 scene.
 
-In practice
------------
+## In practice
 
 Let's use instancing in practice to see how it works in Pandemonium. We invite
 you to download the ball's sample project we prepared for you:
-:download:`instancing.zip <files/instancing.zip )`.
+:download:`instancing.zip (files/instancing.zip )`.
 
 Extract the archive on your computer. Then, open Pandemonium, and in the project
 manager, click the Import button to import the project.
@@ -100,8 +98,7 @@ Play the game again. You should now see every ball fall independently from one
 another. This is what instances do. Each is an independent reproduction of a
 template scene.
 
-Editing scenes and instances
-----------------------------
+## Editing scenes and instances
 
 There is more to instances. With this feature, you can:
 
@@ -160,8 +157,7 @@ Note:
           Resources are another essential building block of Pandemonium games we will
           cover in a later lesson.
 
-Scene instances as a design language
-------------------------------------
+## Scene instances as a design language
 
 Instances and scenes in Pandemonium offer an excellent design language, setting the
 engine apart from others out there. We designed Pandemonium around this concept from
@@ -210,8 +206,7 @@ to programmers, designers, and artists alike. A typical team development process
 can involve 2D or 3D artists, level designers, game designers, and animators,
 all working with the Pandemonium editor.
 
-Summary
--------
+## Summary
 
 Instancing, the process of producing an object from a blueprint has many handy
 uses. With scenes, it gives you:

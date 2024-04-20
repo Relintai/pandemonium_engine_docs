@@ -1,18 +1,11 @@
-.. Keep this page short and sweet! We want users to read it to the end, so they
-   know where to find information, how to get help, and how to maximize chances
-   of getting answers.
 
-
-
-Learning new features
-=====================
+# Learning new features
 
 Pandemonium is a feature-rich game engine. There is a lot to learn about it. This page
 explains how you can use the online manual, built-in code reference, and join
 online communities to learn new features and techniques.
 
-Making the most of this manual
-------------------------------
+## Making the most of this manual
 
 What you are reading now is the user manual. It documents each of the engine's
 concepts and available features. When learning a new topic, you can start by
@@ -29,11 +22,11 @@ general features, concepts, and how to use the editor, the reference is all
 about using Pandemonium's scripting API (Application Programming Interface). You can
 access it both online and offline. We recommend browsing the reference offline,
 from within the Pandemonium editor. To do so, go to Help -> Search or press
-:kbd:`F1`.
+`F1`.
 
 ![](img/manual_class_reference_search.png)
 
-To browse it online, head to the manual's `Class Reference <toc-class-ref )`
+To browse it online, head to the manual's `Class Reference`
 section.
 
 A class reference's page tells you:
@@ -52,16 +45,16 @@ A class reference's page tells you:
 4. Links to manual pages further detailing the class.
 
 Note:
- If the manual or class reference is missing or has insufficient
-          information, please open an Issue in the official `pandemonium-docs
-          ( https://github.com/Relintai/pandemonium_engine-docs/issues )` GitHub repository
-          to report it.
+
+  - If the manual or class reference is missing or has insufficient
+    information, please open an Issue in the official 
+    [pandemonium-docs](https://github.com/Relintai/pandemonium_engine-docs/issues) GitHub repository
+    to report it.
 
 You can Ctrl-click any underlined text like the name of a class, property,
 method, signal, or constant to jump to it.
 
-Learning to think like a programmer
------------------------------------
+## Learning to think like a programmer
 
 Teaching programming foundations and how to think like a game developer is
 beyond the scope of Pandemonium's documentation. If you're new to programming, we
@@ -77,8 +70,7 @@ recommend two excellent free resources to get you started:
 2. If you prefer books, check out the free ebook `Automate The Boring Stuff With
    Python ( https://automatetheboringstuff.com/ )` by Al Sweigart.
 
-Learning with the community
----------------------------
+## Learning with the community
 
 Pandemonium has a growing community of users. If you're stuck on a problem or need
 help to better understand how to achieve something, you can ask other users for
@@ -142,8 +134,7 @@ information:
 Following these guidelines will maximize your chances of getting the answer
 you're looking for. They will save time both to you and the persons helping you.
 
-Community tutorials
--------------------
+## Community tutorials
 
 This manual aims to provide a comprehensive reference of Pandemonium's features. Aside
 from the 2D and 3D getting started series, it does not contain tutorials to

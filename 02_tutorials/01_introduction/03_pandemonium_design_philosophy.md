@@ -1,7 +1,6 @@
 
 
-Pandemonium's design philosophy
-=========================
+# Pandemonium's design philosophy
 
 Now that you've gotten your feet wet, let's talk about Pandemonium's design.
 
@@ -20,8 +19,7 @@ Please watch
 `Pandemonium explained in 5 minutes ( https://www.youtube.com/watch?v=KjX5llYZ5eQ )`
 if you're looking for an overview of the engine's features.
 
-Object-oriented design and composition
---------------------------------------
+## Object-oriented design and composition
 
 Pandemonium embraces object-oriented design at its core with its flexible
 scene system and Node hierarchy. It tries to stay away from strict
@@ -47,7 +45,7 @@ that extends your Character. Modify the Character in the editor and the Magician
 will update as well. It helps you build your projects so that their
 structure matches the game's design.
 
-|image0|
+![](img/engine_design_01.png)
 
 Also note that Pandemonium offers many different types of objects called
 nodes, each with a specific purpose. Nodes are part of a tree and always
@@ -58,26 +56,25 @@ body will use, most nodes work independently from one another.
 In other words, Pandemonium's nodes do not work like components in some
 other game engines.
 
-|image1|
+![](img/engine_design_02.png)
 
 Sprite is a Node2D, a CanvasItem and a Node. It has all the properties
 and features of its three parent classes, like transforms or the ability
 to draw custom shapes and render with a custom shader.
 
-All-inclusive package
----------------------
+## All-inclusive package
 
 Pandemonium tries to provide its own tools to answer most common
 needs. It has a dedicated scripting workspace, an animation editor, a
 tilemap editor, a shader editor, a debugger, a profiler,
 the ability to hot-reload locally and on remote devices, etc.
 
-|image2|
+![](img/engine_design_03.png)
 
 The goal is to offer a full package to create games and a continuous
 user experience. You can still work with external programs as long as
-there is an import plugin for it. Or you can create one, like the `Tiled
-Map Importer ( https://github.com/vnen/pandemonium-tiled-importer )`.
+there is an import plugin for it. Or you can create one, like the 
+[Tiled Map Importer](https://github.com/vnen/pandemonium-tiled-importer).
 
 That is also partly why Pandemonium offers its own programming languages
 GDScript and VisualScript, along with C#. They're designed for the needs
@@ -92,7 +89,7 @@ Note that with GDNative, you can write high-performance code using compiled
 languages like C, C++, Rust, or Python (using the Cython compiler)
 without recompiling the engine.
 
-|image3|
+![](img/engine_design_visual_script.png)
 
 *VisualScript is a node-based programming language that integrates well
 in the editor. You can drag and drop nodes or resources into the graph
@@ -103,25 +100,12 @@ You'll need external programs or add-ons to edit terrains, animate complex chara
 Pandemonium provides a complete API to extend the editor's functionality using
 game code. See `The Pandemonium editor is a Pandemonium game` below.
 
-|image4|
+![](img/engine_design_fsm_plugin.png)
 
 *A State Machine editor plugin in Pandemonium 2 by kubecz3k. It lets you
 manage states and transitions visually.*
 
-
-Warning:
-
-
-    `Pandemonium 4.0 will remove VisualScript from core entirely. ( https://pandemoniumengine.org/article/pandemonium-4-will-discontinue-visual-scripting )`
-    As a result, creating new projects using visual scripting in Pandemonium is not recommended.
-    Future Pandemonium 4.x releases may have VisualScript reimplemented as an extension.
-
-    While Pandemonium 3.x will keep VisualScript supported, we recommend
-    `trying out GDScript <toc-learn-scripting-gdscript )` instead,
-    especially if you intend to migrate your project to Pandemonium 4.
-
-Open source
------------
+## Open source
 
 Pandemonium offers a fully open source codebase under the **MIT license**.
 This means all the technologies that ship with it have to be Free
@@ -139,12 +123,10 @@ as Pandemonium will print errors with a stack trace, even if they come from the 
 
 Note:
 
+  - This **does not affect the work you do with Pandemonium** in any way: there's
+    no strings attached to the engine or anything you make with it.
 
-   This **does not affect the work you do with Pandemonium** in any way: there's
-   no strings attached to the engine or anything you make with it.
-
-Community-driven
-----------------
+## Community-driven
 
 **Pandemonium is made by its community, for the community, and for all game
 creators out there.** It's the needs of the users and open discussions
@@ -157,8 +139,7 @@ programmers work on features they may need themselves, so you'll see
 improvements in all corners of the engine at the same time in every
 major release.
 
-The Pandemonium editor is a Pandemonium game
---------------------------------
+## The Pandemonium editor is a Pandemonium game
 
 The Pandemonium editor runs on the game engine. It uses the engine's own UI
 system, it can hot-reload code and scenes when you test your projects,
@@ -168,7 +149,7 @@ and scenes for your games, or **build plugins and extend the editor.**
 This leads to a reliable and flexible UI system, as it powers the editor
 itself. With the `tool` keyword, you can run any game code in the editor.
 
-|image5|
+![](img/engine_design_rpg_in_a_box.png)
 
 *RPG in a Box is a voxel RPG editor made with Pandemonium 2. It uses Pandemonium's
 UI tools for its node-based programming system and for the rest of the
@@ -181,22 +162,13 @@ you use in your projects.
 
 Note:
 
+  - The editor is fully written in C++ and is statically compiled into the
+    binary. This means you can't import it as a typical project that would have a
+    `project.pandemonium` file.
 
-   The editor is fully written in C++ and is statically compiled into the
-   binary. This means you can't import it as a typical project that would have a
-   `project.pandemonium` file.
-
-Separate 2D and 3D engines
---------------------------
+## Separate 2D and 3D engines
 
 Pandemonium offers dedicated 2D and 3D rendering engines. As a result, **the
 base unit for 2D scenes is pixels.** Even though the engines are
 separate, you can render 2D in 3D, 3D in 2D, and overlay 2D sprites and
 interfaces over your 3D world.
-
-.. |image0| image:: img/engine_design_01.png)
-.. |image1| image:: img/engine_design_02.png)
-.. |image2| image:: img/engine_design_03.png)
-.. |image3| image:: img/engine_design_visual_script.png)
-.. |image4| image:: img/engine_design_fsm_plugin.png)
-.. |image5| image:: img/engine_design_rpg_in_a_box.png)

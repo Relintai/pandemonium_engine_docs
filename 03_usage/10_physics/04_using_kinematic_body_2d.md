@@ -188,7 +188,7 @@ Examples
 --------
 
 To see these examples in action, download the sample project:
-:download:`using_kinematic2d.zip <files/using_kinematic2d.zip )`.
+:download:`using_kinematic2d.zip (files/using_kinematic2d.zip )`.
 
 Movement and walls
 ~~~~~~~~~~~~~~~~~~

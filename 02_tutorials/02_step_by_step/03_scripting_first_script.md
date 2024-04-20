@@ -1,26 +1,10 @@
-..
-    Intention:
-
-    - Giving a *short* and sweet hands-on intro to GDScript. The page should
-      focus on working in the code editor.
-    - We assume the reader has programming foundations, as explained in
-    getting_started/introduction.
-
-    Techniques:
-
-    - Creating a sprite.
-    - Creating a script.
-    - _init() and _process().
-    - Moving an object on screen.
 
 
-
-Creating your first script
-==========================
+# Creating your first script
 
 In this lesson, you will code your first script to make the Pandemonium icon turn in
 circles using GDScript. As we mentioned `in the introduction
-<toc-learn-introduction )`, we assume you have programming foundations.
+(toc-learn-introduction )`, we assume you have programming foundations.
 The equivalent C# code has been included in another tab for convenience.
 
 ![](img/scripting_first_script_rotating_pandemonium.gif)
@@ -32,8 +16,7 @@ See also:
 See also:
  To learn more about C#, head to the `C# basics ( doc_c_sharp )` page.
 
-Project setup
--------------
+## Project setup
 
 Please create a new project to start with a clean slate. Your project should
 contain one picture: the Pandemonium icon, which we often use for prototyping in the
@@ -73,8 +56,7 @@ Then, click and drag the icon in the viewport to center it in the game view.
 
 ![](img/scripting_first_script_centering_sprite.png)
 
-Creating a new script
----------------------
+## Creating a new script
 
 To create and attach a new script to our node, right-click on Sprite in the
 scene dock and select "Attach Script".
@@ -122,8 +104,7 @@ Note:
     You can hover any property's name in the Inspector to see a description and
     its identifier in code.
 
-Hello, world!
--------------
+## Hello, world!
 
 Our script currently doesn't do anything. Let's make it print the text "Hello,
 world!" to the Output bottom panel to get started.
@@ -158,8 +139,7 @@ It should display "Hello, world!".
 Delete the `init()` function, so you're only left with the line `extends
 Sprite`.
 
-Turning around
---------------
+## Turning around
 
 It's time to make our node move and rotate. To do so, we're going to add two
 member variables to our script: the movement speed in pixels per second and the
@@ -236,8 +216,7 @@ Run the scene to see the Pandemonium icon turn in-place.
 
 ![](img/scripting_first_script_pandemonium_turning_in_place.gif)
 
-Moving forward
-~~~~~~~~~~~~~~
+### Moving forward
 
 Let's now make the node move. Add the following two lines to the `process()`
 function, ensuring the new lines are indented the same way as the one before
@@ -278,8 +257,7 @@ Note:
 Our node currently moves by itself. In the next part
 `doc_scripting_player_input`, we'll use player input to control it.
 
-Complete script
----------------
+## Complete script
 
 Here is the complete `Sprite.gd` file for reference.
 

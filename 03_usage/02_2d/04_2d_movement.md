@@ -221,4 +221,4 @@ You may find these code samples useful as starting points for your own projects.
 Feel free to use them and experiment with them to see what you can make.
 
 You can download this sample project here:
-:download:`2D_movement_demo.zip <files/2D_movement_demo.zip )`
+:download:`2D_movement_demo.zip (files/2D_movement_demo.zip )`

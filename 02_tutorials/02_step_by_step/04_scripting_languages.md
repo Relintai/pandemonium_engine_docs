@@ -1,10 +1,5 @@
-.. Intention: only introduce what a script does in general and options for
-   scripting languages.
 
-
-
-Scripting languages
-===================
+# Scripting languages
 
 This lesson will give you an overview of the available scripting languages in
 Pandemonium. You will learn the pros and cons of each option. In the next part, you
@@ -20,8 +15,7 @@ to the Camera2D node and code the shake.
 
 ![](img/scripting_camera_shake.gif)
 
-Available scripting languages
------------------------------
+## Available scripting languages
 
 Pandemonium offers **five gameplay programming languages**: GDScript, C#,
 VisualScript, and, via its GDNative technology, C and C++. There are more
@@ -45,11 +39,10 @@ Warning:
     Future Pandemonium 4.x releases may have VisualScript reimplemented as an extension.
 
     While Pandemonium 3.x will keep VisualScript supported, we recommend
-    `trying out GDScript <toc-learn-scripting-gdscript )` instead,
+    `trying out GDScript ( toc-learn-scripting-gdscript )` instead,
     especially if you intend to migrate your project to Pandemonium 4.
 
-Which language should I use?
-----------------------------
+## Which language should I use?
 
 If you're a beginner, we recommend to **start with GDScript**. We made this
 language specifically for Pandemonium and the needs of game developers. It has a
@@ -66,8 +59,7 @@ with the language.
 
 Let's look at each language's features, as well as its pros and cons.
 
-GDScript
-~~~~~~~~
+### GDScript
 
 `GDScript( doc_gdscript )` is an
 `object-oriented ( https://en.wikipedia.org/wiki/Object-oriented_programming )` and
@@ -109,8 +101,7 @@ Note:
     and features that would've been difficult to offer with third-party
     languages.
 
-.NET / C#
-~~~~~~~~~
+### .NET / C#
 
 As Microsoft's `C#
 ( https://en.wikipedia.org/wiki/C_Sharp_(programming_language) )` is a favorite
@@ -140,42 +131,7 @@ Note:
           in GDScript, C#, or C++ won't have a significant impact on
           performance.
 
-VisualScript
-~~~~~~~~~~~~
-
-Warning:
-
-
-    `Pandemonium 4.0 will remove VisualScript from core entirely. ( https://pandemoniumengine.org/article/pandemonium-4-will-discontinue-visual-scripting )`
-    As a result, creating new projects using visual scripting in Pandemonium is not recommended.
-    Future Pandemonium 4.x releases may have VisualScript reimplemented as an extension.
-
-    While Pandemonium 3.x will keep VisualScript supported, we recommend
-    `trying out GDScript <toc-learn-scripting-gdscript )` instead,
-    especially if you intend to migrate your project to Pandemonium 4.
-
-`Visual Scripting( doc_what_is_visual_script )` is a graph-based visual
-programming language where you connect blocks. It can be a great tool for
-non-programmers like game designers and artists.
-
-![](img/scripting_visualscript.png)
-
-You can use other languages to create custom blocks that are specific to your
-game, for example, to script AIs, quests, or dialogues. That's where the
-strength of VisualScript lies.
-
-While it provides all the basic building blocks you need to code complete games,
-we do not recommend to use VisualScript this way. Programming everything with it
-is slow compared to using other programming languages.
-
-See also:
-
-
-    For more information, see
-    `Getting started with VisualScript ( doc_getting_started_visual_script )`.
-
-C and C++ via GDNative
-~~~~~~~~~~~~~~~~~~~~~~
+### C and C++ via GDNative
 
 GDNative allows you to write game code in C or C++ without needing to recompile
 or even restart Pandemonium.
@@ -192,8 +148,7 @@ VisualScript.
 When working with GDNative, the available types, functions, and properties
 closely resemble Pandemonium's actual C++ API.
 
-Summary
--------
+## Summary
 
 Scripts are files containing code that you attach to a node to extend its
 functionality.

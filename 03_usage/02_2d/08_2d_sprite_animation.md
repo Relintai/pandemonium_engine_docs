@@ -30,7 +30,7 @@ animation:
 ![](img/2d_animation_run_preview.gif)
 
 You can download the images here:
-:download:`run_animation.zip <files/run_animation.zip )`
+:download:`run_animation.zip (files/run_animation.zip )`
 
 Unzip the images and place them in your project folder. Set up your scene tree
 with the following nodes:

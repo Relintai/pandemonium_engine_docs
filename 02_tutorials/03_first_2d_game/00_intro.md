@@ -1,7 +1,6 @@
 
 
-Your first 2D game
-==================
+# Your first 2D game
 
 In this step-by-step tutorial series, you will create your first complete 2D
 game with Pandemonium. By the end of the series, you will have a simple yet complete
@@ -42,11 +41,10 @@ You can find a completed version of this project at this location:
 
 - https://github.com/Relintai/pandemonium_engine-demo-projects
 
-Prerequisites
--------------
+## Prerequisites
 
 This step-by-step tutorial is intended for beginners who followed the complete
-`Getting Started <toc-learn-step_by_step )`.
+`Getting Started (toc-learn-step_by_step )`.
 
 If you're an experienced programmer, you can find the complete demo's source
 code here: `Pandemonium demo projects
@@ -57,10 +55,9 @@ the code.
 
 You can download them by clicking the link below.
 
-:download:`dodge_assets.zip <files/dodge_assets.zip )`.
+:download:`dodge_assets.zip (files/dodge_assets.zip )`.
 
-Contents
---------
+## Contents
 
 .. toctree::
    :maxdepth: 1

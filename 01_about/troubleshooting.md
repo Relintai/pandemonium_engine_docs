@@ -1,18 +1,15 @@
 
 
-Troubleshooting
-===============
+# Troubleshooting
 
 This page lists common issues encountered when using Pandemonium and possible solutions.
 
 See also:
 
-
     See `doc_using_the_web_editor` for caveats specific to the HTML5 version
     of the Pandemonium editor.
 
-Everything I do in the editor or project manager appears delayed by one frame.
-------------------------------------------------------------------------------
+## Everything I do in the editor or project manager appears delayed by one frame.
 
 This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/23069 )` on
 Intel graphics drivers on Windows. Updating to the latest graphics driver
@@ -22,8 +19,7 @@ You should use the graphics driver provided by Intel rather than the one
 provided by your desktop or laptop's manufacturer because their version is often
 outdated.
 
-The grid disappears and meshes turn black when I rotate the 3D camera in the editor.
-------------------------------------------------------------------------------------
+## The grid disappears and meshes turn black when I rotate the 3D camera in the editor.
 
 This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/30330 )` on
 Intel graphics drivers on Windows.
@@ -34,8 +30,7 @@ the renderer in the top-right corner of the editor or the Project Settings.
 If you use a computer allowing you to switch your graphics card, like NVIDIA
 Optimus, you can use the dedicated graphics card to run Pandemonium.
 
-The editor or project takes a very long time to start.
-------------------------------------------------------
+## The editor or project takes a very long time to start.
 
 This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/20566 )` on
 Windows when you have specific USB peripherals connected. In particular,
@@ -44,15 +39,13 @@ peripherals' drivers to their latest version. If the bug persists, you need to
 disconnect the faulty peripherals before opening the editor. You can then
 connect the peripheral again.
 
-Editor tooltips in the Inspector and Node docks blink when they're displayed.
------------------------------------------------------------------------------
+## Editor tooltips in the Inspector and Node docks blink when they're displayed.
 
 This is a `known issue ( https://github.com/Relintai/pandemonium_engine/issues/32990 )`
 caused by the third-party Stardock Fences application on Windows.
 The only known workaround is to disable Stardock Fences while using Pandemonium.
 
-The Pandemonium editor appears frozen after clicking the system console.
-------------------------------------------------------------------
+## The Pandemonium editor appears frozen after clicking the system console.
 
 When running Pandemonium on Windows with the system console enabled, you can
 accidentally enable *selection mode* by clicking inside the command window. This
@@ -62,8 +55,7 @@ the system console. Pandemonium cannot override this system-specific behavior.
 To solve this, select the system console window and press Enter to leave
 selection mode.
 
-Some text such as "NO DC" appears in the top-left corner of the project manager and editor window.
---------------------------------------------------------------------------------------------------
+## Some text such as "NO DC" appears in the top-left corner of the project manager and editor window.
 
 This is caused by the NVIDIA graphics driver injecting an overlay to display information.
 
@@ -73,8 +65,7 @@ default values in the NVIDIA Control Panel.
 To disable this overlay on Linux, open `nvidia-settings`, go to **X Screen 0 >
 OpenGL Settings** then uncheck **Enable Graphics API Visual Indicator**.
 
-The project window appears blurry, unlike the editor.
------------------------------------------------------
+## The project window appears blurry, unlike the editor.
 
 Unlike the editor, the project isn't marked as DPI-aware by default. This is
 done to improve performance, especially on integrated graphics, where rendering
@@ -84,16 +75,14 @@ To resolve this, open **Project > Project Settings** and enable **Display >
 Window > Dpi > Allow Hidpi**. On top of that, make sure your project is
 configured to support `multiple resolutions ( doc_multiple_resolutions )`.
 
-The project window doesn't appear centered when I run the project.
-------------------------------------------------------------------
+## The project window doesn't appear centered when I run the project.
 
 This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/13017 )`. To
 resolve this, open **Project > Project Settings** and enable **Display > Window
 > Dpi > Allow Hidpi**. On top of that, make sure your project is configured to
 support `multiple resolutions ( doc_multiple_resolutions )`.
 
-The project works when run from the editor, but fails to load some files when running from an exported copy.
-------------------------------------------------------------------------------------------------------------
+## The project works when run from the editor, but fails to load some files when running from an exported copy.
 
 This is usually caused by forgetting to specify a filter for non-resource files
 in the Export dialog. By default, Pandemonium will only include actual *resources*

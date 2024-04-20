@@ -1,7 +1,6 @@
 
 
-Introduction
-============
+# Introduction
 
 ```
     func _ready():
@@ -17,8 +16,7 @@ This page gives a broad presentation of the engine and of the contents
 of this documentation, so that you know where to start if you are a beginner or
 where to look if you need info on a specific feature.
 
-Before you start
-----------------
+## Before you start
 
 The `Tutorials and resources ( doc_community_tutorials )` page lists
 video tutorials contributed by the community. If you prefer video to text,
@@ -28,8 +26,7 @@ In case you have trouble with one of the tutorials or your project,
 you can find help on the various `Community channels ( doc_community_channels )`,
 especially the Pandemonium Discord community, Q&A, and IRC.
 
-About Pandemonium Engine
-------------------
+## About Pandemonium Engine
 
 A game engine is a complex tool, and it is therefore difficult to present Pandemonium
 in a few words. Here's a quick synopsis, which you are free to reuse
@@ -53,8 +50,7 @@ For a more in-depth view of the engine, you are encouraged to read this
 documentation further, especially the `Step by step
 ( toc-learn-step_by_step )` tutorial.
 
-About the documentation
------------------------
+## About the documentation
 
 This documentation is continuously written, corrected, edited, and revamped by
 members of the Pandemonium Engine community. It is edited via text files in the
@@ -74,8 +70,7 @@ All the contents are under the permissive Creative Commons Attribution 3.0
 (`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`) license, with
 attribution to "Péter Magyar and the Pandemonium community, and Juan Linietsky, Ariel Manzur and the Godot community".
 
-Organization of the documentation
----------------------------------
+## Organization of the documentation
 
 This documentation is organized in five sections with an impressively
 unbalanced distribution of contents – but the way it is split up should be

@@ -1,10 +1,8 @@
 
 
-Complying with licenses
-=======================
+# Complying with licenses
 
-What are licenses?
-------------------
+## What are licenses?
 
 Pandemonium is created and distributed under the `MIT License ( https://opensource.org/licenses/MIT )`.
 It doesn't have a sole owner either, as every contributor that submits code to
@@ -25,8 +23,7 @@ Warning:
     Free assets in particular often come with licenses that require attribution.
     Double-check their license before using those assets in a project.
 
-Requirements
-------------
+## Requirements
 
 In the case of the MIT license, the only requirement is to include the license
 text somewhere in your game or derivative project.
@@ -64,52 +61,44 @@ Note:
     your Pandemonium projects under any license and to create commercial games with
     the engine.
 
-Inclusion
----------
+## Inclusion
 
 The license does not specify how it has to be included, so anything is valid as
 long as it can be displayed under some condition. These are the most common
 approaches (only need to implement one of them, not all).
 
-Credits screen
-^^^^^^^^^^^^^^
+### Credits screen
 
 Include the above license text somewhere in the credits screen. It can be at the
 bottom after showing the rest of the credits. Most large studios use this
 approach with open source licenses.
 
-Licenses screen
-^^^^^^^^^^^^^^^
+### Licenses screen
 
 Some games have a special menu (often in the settings) to display licenses.
 
-Output log
-^^^^^^^^^^
+### Output log
 
 Just printing the licensing text using the `print()`
 function may be enough on platforms where a global output log is readable.
 This is the case on desktop platforms, Android and HTML5 (but not iOS and UWP).
 
-Accompanying file
-^^^^^^^^^^^^^^^^^
+### Accompanying file
 
 If the game is distributed on desktop platforms, a file containing the license
 can be added to the software that is installed to the user PC.
 
-Printed manual
-^^^^^^^^^^^^^^
+### Printed manual
 
 If the game includes printed manuals, license text can be included there.
 
-Link to the license
-^^^^^^^^^^^^^^^^^^^
+### Link to the license
 
 The Pandemonium Engine developers consider that a link to `pandemoniumengine.org/license`
 in your game documentation or credits would be an acceptable way to satisfy
 the license terms.
 
-Third-party licenses
---------------------
+## Third-party licenses
 
 Pandemonium itself contains software written by
 `third parties ( https://github.com/Relintai/pandemonium_engine/blob/master/COPYRIGHT.txt )`.
@@ -120,8 +109,7 @@ means you need to provide attribution for all the libraries listed below.
 
 Here's a list of libraries requiring attribution:
 
-FreeType
-^^^^^^^^
+### FreeType
 
 Pandemonium uses `FreeType ( https://www.freetype.org/ )` to render fonts. Its license
 requires attribution, so the following text must be included together with the
@@ -137,8 +125,7 @@ Note:
     the **Help > About** dialog and going to the **Third-party Licenses**
     tab.
 
-ENet
-^^^^
+### ENet
 
 Pandemonium includes the `ENet ( http://enet.bespin.org/ )` library to handle
 high-level multiplayer. ENet has similar licensing terms as Pandemonium:
@@ -152,8 +139,7 @@ high-level multiplayer. ENet has similar licensing terms as Pandemonium:
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-mbed TLS
-^^^^^^^^
+### mbed TLS
 
 If the project is exported with Pandemonium 3.1 or later, it includes `mbed TLS ( https://tls.mbed.org )`.
 The Apache license needs to be complied to by including the following text:
@@ -177,7 +163,6 @@ instead. This old OpenSSL version used the OpenSSL license, not the Apache 2 lic
 as the latest version of OpenSSL currently uses (as of April 2022).
 
 Note:
-
 
     If you exported your project using a
     `custom build with specific modules disabled ( doc_optimizing_for_size )`,

@@ -1,7 +1,6 @@
 
 
-List of features
-================
+# List of features
 
 This page aims to list all features currently supported by Pandemonium.
 
@@ -12,11 +11,9 @@ Note:
     Pandemonium (3.5). `More features ( https://docs.pandemoniumengine.org/en/latest/about/list_of_features.html )`
     are available in the latest development version (4.0).
 
-Features
---------
+## Features
 
-Platforms
-^^^^^^^^^
+### Platforms
 
 **Can run both the editor and exported projects:**
 
@@ -40,8 +37,7 @@ Platforms
 Pandemonium aims to be as platform-independent as possible and can be ported to new
 platforms with relative ease.
 
-Editor
-^^^^^^
+### Editor
 
 **Features:**
 
@@ -78,8 +74,7 @@ Editor
 - `Download projects from the asset library ( doc_using_assetlib_editor )`
   in the project manager and import them directly.
 
-2D graphics
-^^^^^^^^^^^
+### 2D graphics
 
 **Two renderers available:**
 
@@ -117,8 +112,7 @@ Editor
 - GPU-based particles with support for custom particle shaders.
 - CPU-based particles.
 
-2D tools
-^^^^^^^^
+### 2D tools
 
 - 2D camera with built-in smoothing and drag margins.
 - Path2D node to represent a path in 2D space.
@@ -129,8 +123,7 @@ Editor
 - 2D geometry helper class.
 - Line2D node to draw textured 2D lines.
 
-2D physics
-^^^^^^^^^^
+### 2D physics
 
 **Physics bodies:**
 
@@ -145,8 +138,7 @@ Editor
 - Built-in shapes: line, box, circle, capsule.
 - Collision polygons (can be drawn manually or generated from a sprite in the editor).
 
-3D graphics
-^^^^^^^^^^^
+### 3D graphics
 
 **Two renderers available:**
 
@@ -284,13 +276,11 @@ Editor
 
 Note:
 
-
     Most of the effects listed above can be adjusted for better performance or
     to further improve quality. This can be helpful when using Pandemonium for
     offline rendering.
 
-3D tools
-^^^^^^^^
+### 3D tools
 
 - Built-in meshes: cube, cylinder/cone, (hemi)sphere, prism, plane, quad.
 - Tools for `procedural geometry generation ( doc_procedural_geometry )`.
@@ -303,8 +293,7 @@ Note:
 - 3D geometry helper class.
 - Support for exporting the current scene as a glTF 2.0 file from the editor.
 
-3D physics
-^^^^^^^^^^
+### 3D physics
 
 **Physics bodies:**
 
@@ -323,8 +312,7 @@ Note:
 - Generate triangle collision shapes for any mesh from the editor.
 - Generate one or several convex collision shapes for any mesh from the editor.
 
-Shaders
-^^^^^^^
+### Shaders
 
 - *2D:* Custom vertex, fragment, and light shaders.
 - *3D:* Custom vertex, fragment, light, and sky shaders.
@@ -333,8 +321,7 @@ Shaders
 
    - Support for visual shader plugins.
 
-Scripting
-^^^^^^^^^
+### Scripting
 
 **General:**
 
@@ -392,8 +379,7 @@ Warning:
     `trying out GDScript ( toc-learn-scripting-gdscript )` instead,
     especially if you intend to migrate your project to Pandemonium 4.
 
-Audio
-^^^^^
+### Audio
 
 **Features:**
 
@@ -416,8 +402,7 @@ Audio
 - *macOS:* CoreAudio.
 - *Linux:* PulseAudio or ALSA.
 
-Import
-^^^^^^
+### Import
 
 - Support for `custom import plugins ( doc_import_plugins )`.
 
@@ -442,8 +427,7 @@ Import
 - 3D meshes use `Mikktspace ( http://www.mikktspace.com/ )` to generate tangents
   on import, which ensures consistency with other 3D applications such as Blender.
 
-Input
-^^^^^
+### Input
 
 - Input mapping system using hardcoded input events or remappable input actions.
 
@@ -464,15 +448,13 @@ Input
 - Pen/tablet input with pressure support.
 - Gamepad, keyboard and mouse input support are also available on Android.
 
-Navigation
-^^^^^^^^^^
+### Navigation
 
 - A* algorithm in 2D and 3D.
 - Navigation meshes with dynamic obstacle avoidance.
 - Generate navigation meshes from the editor or at run-time (including from an exported project).
 
-Networking
-^^^^^^^^^^
+### Networking
 
 - Low-level TCP networking using StreamPeer and TCP_Server.
 - Low-level UDP networking using PacketPeer and UDPServer.
@@ -491,8 +473,7 @@ Networking
 - Support for UPnP to sidestep the requirement to forward ports when hosting
   a server behind a NAT.
 
-Internationalization
-^^^^^^^^^^^^^^^^^^^^
+### Internationalization
 
 - Full support for Unicode including emoji.
 - Store localization strings using `CSV ( doc_internationalizing_games )`
@@ -501,8 +482,7 @@ Internationalization
   using the `tr()` function.
 - Support for right-to-left typesetting and text shaping planned in Pandemonium 4.0.
 
-Windowing and OS integration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### Windowing and OS integration
 
 - Move, resize, minimize, and maximize the window spawned by the project.
 - Change the window title and icon.
@@ -524,15 +504,13 @@ Windowing and OS integration
   Any binary can be used without a window using the `--no-window`
   `command line argument ( doc_command_line_tutorial )`.
 
-Mobile
-^^^^^^
+### Mobile
 
 - In-app purchases on Android and iOS.
 - Support for advertisements using third-party modules.
 - Support for subview embedding on Android.
 
-XR support (AR and VR)
-^^^^^^^^^^^^^^^^^^^^^^
+### XR support (AR and VR)
 
 - Support for ARKit on iOS out of the box.
 - Support for the OpenXR APIs.
@@ -541,8 +519,7 @@ XR support (AR and VR)
 
 - Support for the OpenVR APIs.
 
-GUI system
-^^^^^^^^^^
+### GUI system
 
 Pandemonium's GUI is built using the same Control nodes used to make games in Pandemonium.
 The editor UI can easily be extended in many ways using add-ons.
@@ -590,8 +567,7 @@ The editor UI can easily be extended in many ways using add-ons.
 Pandemonium's small distribution size can make it a suitable alternative to frameworks
 like Electron or Qt.
 
-Animation
-^^^^^^^^^
+### Animation
 
 - Direct kinematics and inverse kinematics.
 - `Tween` node to easily perform procedural animations by code.
@@ -600,8 +576,7 @@ Animation
 - Support for playing sounds in animation tracks.
 - Support for Bézier curves in animation.
 
-File formats
-^^^^^^^^^^^^
+### File formats
 
 - Scenes and resources can be saved in `text-based ( doc_tscn_file_format )` or binary formats.
 
@@ -623,8 +598,7 @@ File formats
 - `Export additional PCK files( doc_exporting_pcks )` that can be read
   by the engine to support mods and DLCs.
 
-Miscellaneous
-^^^^^^^^^^^^^
+### Miscellaneous
 
 - `Low-level access to servers ( doc_using_servers )` which allows bypassing
   the scene tree's overhead when needed.

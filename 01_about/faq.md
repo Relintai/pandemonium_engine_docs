@@ -1,9 +1,7 @@
 
-Frequently asked questions
-==========================
+# Frequently asked questions
 
-What can I do with Pandemonium? How much does it cost? What are the license terms?
-----------------------------------------------------------------------------
+## What can I do with Pandemonium? How much does it cost? What are the license terms?
 
 Pandemonium is `Free and Open-Source Software ( https://en.wikipedia.org/wiki/Free_and_open-source_software )` available under the `OSI-approved ( https://opensource.org/licenses/MIT )` MIT license. This means it is free as in "free speech" as well as in "free beer."
 
@@ -26,8 +24,7 @@ in the Pandemonium repository.
 
 Also, see `the license page on the Pandemonium website ( https://pandemoniumengine.org/license )`.
 
-Which platforms are supported by Pandemonium?
----------------------------------------
+## Which platforms are supported by Pandemonium?
 
 **For the editor:**
 
@@ -59,8 +56,7 @@ scripts or export templates at this time.
 For more on this, see the sections on `exporting ( toc-learn-workflow-export )`
 and `compiling Pandemonium yourself ( toc-devel-compiling )`.
 
-Which programming languages are supported in Pandemonium?
----------------------------------------------------
+## Which programming languages are supported in Pandemonium?
 
 The officially supported languages for Pandemonium are GDScript, Visual Scripting,
 C#, and C++. See the subcategories for each language in the
@@ -87,8 +83,7 @@ to `Python ( https://github.com/touilleMan/pandemonium-python )` and `Nim ( http
 
 
 
-What is GDScript and why should I use it?
------------------------------------------
+## What is GDScript and why should I use it?
 
 GDScript is Pandemonium's integrated scripting language. It was built from the ground
 up to maximize Pandemonium's potential in the least amount of code, affording both novice
@@ -121,8 +116,7 @@ will grow on you.
 More information about getting comfortable with GDScript or dynamically typed
 languages can be found in the `doc_gdscript_more_efficiently` tutorial.
 
-What were the motivations behind creating GDScript?
----------------------------------------------------
+## What were the motivations behind creating GDScript?
 
 In the early days, the engine used the `Lua ( https://www.lua.org )`
 scripting language. Lua is fast, but creating bindings to an object
@@ -150,8 +144,7 @@ The main reasons for creating a custom scripting language for Pandemonium were:
 
 GDScript was designed to curtail the issues above, and more.
 
-What type of 3D model formats does Pandemonium support?
--------------------------------------------------
+## What type of 3D model formats does Pandemonium support?
 
 Pandemonium supports Collada via the `OpenCollada ( https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools )` exporter (Maya, 3DSMax).
 If you are using Blender, take a look at our own `Better Collada Exporter ( https://pandemoniumengine.org/download )`.
@@ -161,8 +154,7 @@ As of Pandemonium 3.0, glTF is supported.
 FBX is supported via the Open Asset Import library. However, FBX is proprietary
 so we recommend using other formats listed above, if suitable for your workflow.
 
-Will [insert closed SDK such as FMOD, GameWorks, etc.] be supported in Pandemonium?
------------------------------------------------------------------------------
+## Will [insert closed SDK such as FMOD, GameWorks, etc.] be supported in Pandemonium?
 
 The aim of Pandemonium is to create a free and open-source MIT-licensed engine that
 is modular and extendable. There are no plans for the core engine development
@@ -181,8 +173,7 @@ free and open-source integration, consider starting the integration work yoursel
 Pandemonium is not owned by one person; it belongs to the community, and it grows along
 with ambitious community contributors like you.
 
-How do I install the Pandemonium editor on my system (for desktop integration)?
--------------------------------------------------------------------------
+## How do I install the Pandemonium editor on my system (for desktop integration)?
 
 Since you don't need to actually install Pandemonium on your system to run it,
 this means desktop integration is not performed automatically.
@@ -194,8 +185,7 @@ This will automatically perform the required steps for desktop integration.
 
 Alternatively, you can manually perform the steps that an installer would do for you:
 
-Windows
-^^^^^^^
+### Windows
 
 - Move the Pandemonium executable to a stable location (i.e. outside of your Downloads folder),
   so you don't accidentally move it and break the shortcut in the future.
@@ -205,15 +195,13 @@ Windows
   You can also pin Pandemonium in the task bar by right-clicking the executable and choosing
   **Pin to Task Bar**.
 
-macOS
-^^^^^
+### macOS
 
 Drag the extracted Pandemonium application to `/Applications/Pandemonium.app`, then drag it
 to the Dock if desired. Spotlight will be able to find Pandemonium as long as it's in
 `/Applications` or `~/Applications`.
 
-Linux
-^^^^^
+### Linux
 
 - Move the Pandemonium binary to a stable location (i.e. outside of your Downloads folder),
   so you don't accidentally move it and break the shortcut in the future.
@@ -233,8 +221,7 @@ Linux
   you can also save the `.desktop` file to `/usr/local/share/applications`
   to make the shortcut available for all users.
 
-Is the Pandemonium editor a portable application?
--------------------------------------------
+## Is the Pandemonium editor a portable application?
 
 In its default configuration, Pandemonium is *semi-portable*. Its executable can run
 from any location (including non-writable locations) and never requires
@@ -248,8 +235,7 @@ See `doc_data_paths` for more information.
 If *true* portable operation is desired (e.g. for use on an USB stick),
 follow the steps in `doc_data_paths_self_contained_mode`.
 
-Why does Pandemonium use Vulkan or OpenGL instead of Direct3D?
---------------------------------------------------------
+## Why does Pandemonium use Vulkan or OpenGL instead of Direct3D?
 
 Pandemonium aims for cross-platform compatibility and open standards first and
 foremost. OpenGL and Vulkan are the technologies that are both open and
@@ -266,8 +252,7 @@ In the long term, we may develop a Direct3D 12 renderer for Pandemonium (mainly 
 the Xbox's purposes), but Vulkan and OpenGL will remain the default rendering
 backends on all platforms, including Windows.
 
-Why does Pandemonium aim to keep its core feature set small?
-------------------------------------------------------
+## Why does Pandemonium aim to keep its core feature set small?
 
 Pandemonium intentionally does not include features that can be implemented by add-ons
 unless they are used very often. One example of this would be advanced
@@ -308,8 +293,7 @@ you actually use in your project. (In the meantime, you can
 `compile custom export templates with unused features disabled ( doc_optimizing_for_size )`
 to optimize the distribution size of your project.)
 
-How should assets be created to handle multiple resolutions and aspect ratios?
-------------------------------------------------------------------------------
+## How should assets be created to handle multiple resolutions and aspect ratios?
 
 This question pops up often and it's probably thanks to the misunderstanding
 created by Apple when they originally doubled the resolution of their devices.
@@ -351,8 +335,7 @@ devices with tiny screens (fewer than 300 pixels in width), you can use
 the export option to shrink images, and set that build to be used for
 certain screen sizes in the App Store or Google Play.
 
-How can I extend Pandemonium?
------------------------
+## How can I extend Pandemonium?
 
 For extending Pandemonium, like creating Pandemonium Editor plugins or adding support
 for additional languages, take a look at `EditorPlugins ( doc_making_plugins )`
@@ -368,14 +351,12 @@ as well as the `unofficial Python support ( https://github.com/touilleMan/pandem
 This would be a good starting point to see how another third-party library
 integrates with Pandemonium.
 
-When is the next release of Pandemonium out?
---------------------------------------
+## When is the next release of Pandemonium out?
 
 When it's ready! See `doc_release_policy_when_is_next_release_out` for more
 information.
 
-I would like to contribute! How can I get started?
---------------------------------------------------
+## I would like to contribute! How can I get started?
 
 Awesome! As an open-source project, Pandemonium thrives off of the innovation and
 ambition of developers like you.
@@ -384,8 +365,7 @@ The first place to get started is in the `issues ( https://github.com/Relintai/p
 Find an issue that resonates with you, then proceed to the `How to Contribute ( https://github.com/Relintai/pandemonium_engine/blob/master/CONTRIBUTING.md#contributing-pull-requests )`
 guide to learn how to fork, modify, and submit a Pull Request (PR) with your changes.
 
-I have a great idea for Pandemonium. How can I share it?
---------------------------------------------------
+## I have a great idea for Pandemonium. How can I share it?
 
 It might be tempting to want to bring ideas to Pandemonium, like ones that
 result in massive core changes, some sort of mimicry of what another
@@ -422,8 +402,7 @@ projects (if applicable).
 
 
 
-Is it possible to use Pandemonium to create non-game applications?
-------------------------------------------------------------
+## Is it possible to use Pandemonium to create non-game applications?
 
 Yes! Pandemonium features an extensive built-in UI system, and its small distribution
 size can make it a suitable alternative to frameworks like Electron or Qt.
@@ -441,8 +420,7 @@ open source applications made with Pandemonium.
 
 
 
-Is it possible to use Pandemonium as a library?
------------------------------------------
+## Is it possible to use Pandemonium as a library?
 
 Pandemonium is meant to be used with its editor. We recommend you give it a try, as it
 will most likely save you time in the long term. There are no plans to make
@@ -454,8 +432,7 @@ engine instead. Keep in mind rendering engines usually have smaller communities
 compared to Pandemonium. This will make it more difficult to find answers to your
 questions.
 
-What user interface toolkit does Pandemonium use?
--------------------------------------------
+## What user interface toolkit does Pandemonium use?
 
 Pandemonium does not use a standard :abbr:`GUI (Graphical User Interface)` toolkit
 like GTK, Qt or wxWidgets. Instead, Pandemonium uses its own user interface toolkit,
@@ -476,8 +453,7 @@ but you can still
 
 
 
-Why does Pandemonium not use STL (Standard Template Library)?
--------------------------------------------------------
+## Why does Pandemonium not use STL (Standard Template Library)?
 
 Like many other libraries (Qt as an example), Pandemonium does not make use of
 STL. We believe STL is a great general purpose library, but we had special
@@ -489,8 +465,7 @@ requirements for Pandemonium.
 * For large arrays, we use pooled memory, which can be mapped to either a preallocated buffer or virtual memory.
 * We use our custom String type, as the one provided by STL is too basic and lacks proper internationalization support.
 
-Why does Pandemonium not use exceptions?
-----------------------------------
+## Why does Pandemonium not use exceptions?
 
 We believe games should not crash, no matter what. If an unexpected
 situation happens, Pandemonium will print an error (which can be traced even to
@@ -500,15 +475,13 @@ going.
 Additionally, exceptions significantly increase binary size for the
 executable.
 
-Why does Pandemonium not enforce RTTI?
---------------------------------
+## Why does Pandemonium not enforce RTTI?
 
 Pandemonium provides its own type-casting system, which can optionally use RTTI
 internally. Disabling RTTI in Pandemonium means considerably smaller binary sizes can
 be achieved, at a little performance cost.
 
-Why does Pandemonium not force users to implement DoD (Data oriented Design)?
------------------------------------------------------------------------
+## Why does Pandemonium not force users to implement DoD (Data oriented Design)?
 
 While Pandemonium internally for a lot of the heavy performance tasks attempts
 to use cache coherency as well as possible, we believe most users don't
@@ -528,12 +501,10 @@ If a game that really needs to process such large amount of objects is
 needed, our recommendation is to use C++ and GDNative for the high
 performance parts and GDScript (or C#) for the rest of the game.
 
-How can I support Pandemonium development or contribute?
---------------------------------------------------
+## How can I support Pandemonium development or contribute?
 
 See `doc_ways_to_contribute`.
 
-Who is working on Pandemonium? How can I contact you?
------------------------------------------------
+## Who is working on Pandemonium? How can I contact you?
 
 See the corresponding page on the `Pandemonium website ( https://pandemoniumengine.org/contact )`.

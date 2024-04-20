@@ -1,15 +1,13 @@
 
 
-Pandemonium release policy
-====================
+# Pandemonium release policy
 
 Pandemonium's release policy is in constant evolution. What is described below is
 intended to give a general idea of what to expect, but what will actually
 happen depends on the choices of core contributors, and the needs of the
 community at a given time.
 
-Pandemonium versioning
-----------------
+## Pandemonium versioning
 
 Pandemonium loosely follows `Semantic Versioning ( https://semver.org/ )` with a
 `major.minor.patch` versioning system, albeit with an interpretation of each
@@ -69,8 +67,7 @@ Note:
     In particular, the 3.2 stable branch received a number of new features in
     3.2.2 which would have warranted a `minor` version increment.
 
-Release support timeline
-------------------------
+## Release support timeline
 
 Stable branches are supported *at minimum* until the next stable branch is
 released and has received its first patch update. In practice, we support
@@ -88,55 +85,17 @@ If you experience an issue using an older patch release, please upgrade to the
 latest patch release of that series and test again before reporting an issue
 on GitHub.
 
-+-------------+----------------------+--------------------------------------------------------------------------+
-| **Version** | **Release date**     | **Support level**                                                        |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 4.0   | Q4 2022              | |unstable| *Alpha.* Current focus of development (unstable).             |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 3.6   | Q4 2022              | |supported| *Beta.* Receives new features as well as bug fixes while     |
-|             |                      | under development.                                                       |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 3.5   | August 2022          | |supported| Receives fixes for bugs, security and platform support       |
-|             |                      | issues, as well as backwards-compatible usability enhancements.          |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 3.4   | November 2021        | |partial| Receives fixes for security and platform support issues only.  |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 3.3   | April 2021           | |eol| No longer supported as fully superseded by the compatible 3.4      |
-|             |                      | release (last update: 3.3.4).                                            |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 3.2   | January 2020         | |eol| No longer supported (last update: 3.2.3).                          |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 3.1   | March 2019           | |eol| No longer supported (last update: 3.1.2).                          |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 3.0   | January 2018         | |eol| No longer supported (last update: 3.0.6).                          |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 2.1   | July 2016            | |eol| No longer supported (last update: 2.1.6).                          |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 2.0   | February 2016        | |eol| No longer supported (last update: 2.0.4.1).                        |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 1.1   | May 2015             | |eol| No longer supported.                                               |
-+-------------+----------------------+--------------------------------------------------------------------------+
-| Pandemonium 1.0   | December 2014        | |eol| No longer supported.                                               |
-+-------------+----------------------+--------------------------------------------------------------------------+
-
-.. |supported| image:: img/supported.png)
-.. |partial| image:: img/partial.png)
-.. |eol| image:: img/eol.png)
-.. |unstable| image:: img/unstable.png)
-
 **Legend:**
-|supported| Full support –
-|partial| Partial support –
-|eol| No support (end of life) –
-|unstable| Development version
+![supported](img/supported.png) Full support –
+![partial](img/partial.png) Partial support –
+![eol](img/eol.png) No support (end of life) –
+![unstable](img/unstable.png) Development version
 
 Pre-release Pandemonium versions aren't intended to be used in production and are
 provided for testing purposes only.
 
 
-
-When is the next release out?
------------------------------
+## When is the next release out?
 
 While Pandemonium contributors aren't working under any deadlines, we strive to
 publish minor releases relatively frequently, with an average of two 3.x minor

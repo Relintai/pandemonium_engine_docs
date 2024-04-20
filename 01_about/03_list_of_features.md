@@ -6,7 +6,6 @@ This page aims to list all features currently supported by Pandemonium.
 
 Note:
 
-
     This page lists features supported by the current stable version of
     Pandemonium (3.5). `More features ( https://docs.pandemoniumengine.org/en/latest/about/list_of_features.html )`
     are available in the latest development version (4.0).

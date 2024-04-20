@@ -3,7 +3,8 @@
 
 ## What can I do with Pandemonium? How much does it cost? What are the license terms?
 
-Pandemonium is `Free and Open-Source Software ( https://en.wikipedia.org/wiki/Free_and_open-source_software )` available under the `OSI-approved ( https://opensource.org/licenses/MIT )` MIT license. This means it is free as in "free speech" as well as in "free beer."
+Pandemonium is [Free and Open-Source Software]( https://en.wikipedia.org/wiki/Free_and_open-source_software) available under the 
+[OSI-approved](https://opensource.org/licenses/MIT) MIT license. This means it is free as in "free speech" as well as in "free beer."
 
 In short:
 
@@ -11,18 +12,17 @@ In short:
 * You are free to modify, distribute, redistribute, and remix Pandemonium to your heart's content, for any reason, both non-commercially and commercially.
 
 All the contents of this accompanying documentation are published under
-the permissive Creative Commons Attribution 3.0 (`CC-BY 3.0 ( https://creativecommons.org/licenses/by/3.0/ )`) license, with attribution
+the permissive Creative Commons Attribution 3.0 ([CC-BY 3.0]( https://creativecommons.org/licenses/by/3.0/ )) license, with attribution
 to "Péter Magyar and the Pandemonium community, and Juan Linietsky, Ariel Manzur and the Godot community".
 
 Logos and icons are generally under the same Creative Commons license. Note
 that some third-party libraries included with Pandemonium's source code may have
 different licenses.
 
-For full details, look at the `COPYRIGHT.txt ( https://github.com/Relintai/pandemonium_engine/blob/master/COPYRIGHT.txt )` as well
-as the `LICENSE.txt ( https://github.com/Relintai/pandemonium_engine/blob/master/LICENSE.txt )` and `LOGO_LICENSE.txt ( https://github.com/Relintai/pandemonium_engine/blob/master/LOGO_LICENSE.md )` files
-in the Pandemonium repository.
+For full details, look at the [COPYRIGHT.txt](https://github.com/Relintai/pandemonium_engine/blob/master/COPYRIGHT.txt) as well
+as the [LICENSE.txt](https://github.com/Relintai/pandemonium_engine/blob/master/LICENSE.txt) and [LOGO_LICENSE.txt](https://github.com/Relintai/pandemonium_engine/blob/master/LOGO_LICENSE.md) files in the Pandemonium repository.
 
-Also, see `the license page on the Pandemonium website ( https://pandemoniumengine.org/license )`.
+Also, see [the license page on the Pandemonium website](https://pandemoniumengine.org/license).
 
 ## Which platforms are supported by Pandemonium?
 
@@ -31,7 +31,7 @@ Also, see `the license page on the Pandemonium website ( https://pandemoniumengi
 * Windows
 * macOS
 * X11 (Linux, \*BSD)
-* `Web ( doc_using_the_web_editor )`
+* [Web](doc_using_the_web_editor)
 * Android (experimental)
 
 **For exporting your games:**
@@ -53,14 +53,13 @@ Additionally, there is some unofficial third-party work being done on building
 for some consoles. However, none of this is included in the default build
 scripts or export templates at this time.
 
-For more on this, see the sections on `exporting ( toc-learn-workflow-export )`
-and `compiling Pandemonium yourself ( toc-devel-compiling )`.
+For more on this, see the sections on [exporting](toc-learn-workflow-export)
+and [compiling Pandemonium yourself](toc-devel-compiling).
 
 ## Which programming languages are supported in Pandemonium?
 
-The officially supported languages for Pandemonium are GDScript, Visual Scripting,
-C#, and C++. See the subcategories for each language in the
-`scripting ( toc-learn-scripting )` section.
+The officially supported languages for Pandemonium are GDScript, and C++. 
+See the subcategories for each language in the [scripting](toc-learn-scripting) section.
 
 If you are just starting out with either Pandemonium or game development in general,
 GDScript is the recommended language to learn and use since it is native to Pandemonium.
@@ -69,19 +68,11 @@ the long run, for prototyping, developing Minimum Viable Products (MVPs), and
 focusing on Time-To-Market (TTM), GDScript will provide a fast, friendly, and capable
 way of developing your games.
 
-Note that C# support is still relatively new, and as such, you may encounter some
-issues along the way. Our friendly and hard-working development community is always
-ready to tackle new problems as they arise, but since this is an open-source project,
-we recommend that you first do some due diligence yourself. Searching through
-discussions on `open issues ( https://github.com/Relintai/pandemonium_engine/issues )` is a
-great way to start your troubleshooting.
+[Python](https://github.com/Relintai/gdnative_python) and [C++ (GDNative)](https://github.com/Relintai/gdnative_cpp) 
+are available using GDNative.
 
-As for new languages, support is possible via third parties using the GDNative /
-NativeScript / PluginScript facilities. (See the question about plugins below.)
-Work is currently underway, for example, on unofficial bindings for Pandemonium
-to `Python ( https://github.com/touilleMan/pandemonium-python )` and `Nim ( https://github.com/pragmagic/pandemonium-nim )`.
-
-
+[C#](https://github.com/Relintai/mono) is available as an engine module.
+(You need to add it to the engine and recompile it to have it.)
 
 ## What is GDScript and why should I use it?
 
@@ -90,7 +81,7 @@ up to maximize Pandemonium's potential in the least amount of code, affording bo
 and expert developers alike to capitalize on Pandemonium's strengths as fast as possible.
 If you've ever written anything in a language like Python before then you'll feel
 right at home. For examples, history, and a complete overview of the power GDScript
-offers you, check out the `GDScript scripting guide ( doc_gdscript )`.
+offers you, check out the [GDScript scripting guide](doc_gdscript).
 
 There are several reasons to use GDScript--especially when you are prototyping, in
 alpha/beta stages of your project, or are not creating the next AAA title--but the
@@ -118,18 +109,18 @@ languages can be found in the `doc_gdscript_more_efficiently` tutorial.
 
 ## What were the motivations behind creating GDScript?
 
-In the early days, the engine used the `Lua ( https://www.lua.org )`
+In the early days, the engine used the [Lua](https://www.lua.org)
 scripting language. Lua is fast, but creating bindings to an object
 oriented system (by using fallbacks) was complex and slow and took an
 enormous amount of code. After some experiments with
-`Python ( https://www.python.org )`, it also proved difficult to embed.
+[Python](https://www.python.org), it also proved difficult to embed.
 
-The main reasons for creating a custom scripting language for Pandemonium were:
+The main reasons for creating a custom scripting language for Godot were:
 
-1. Poor threading support in most script VMs, and Pandemonium uses threads
+1. Poor threading support in most script VMs, and Godot uses threads
    (Lua, Python, Squirrel, JavaScript, ActionScript, etc.).
 2. Poor class-extending support in most script VMs, and adapting to
-   the way Pandemonium works is highly inefficient (Lua, Python, JavaScript).
+   the way Godot works is highly inefficient (Lua, Python, JavaScript).
 3. Many existing languages have horrible interfaces for binding to C++, resulting in large amount of
    code, bugs, bottlenecks, and general inefficiency (Lua, Python,
    Squirrel, JavaScript, etc.) We wanted to focus on a great engine, not a great amount of integrations.
@@ -146,13 +137,13 @@ GDScript was designed to curtail the issues above, and more.
 
 ## What type of 3D model formats does Pandemonium support?
 
-Pandemonium supports Collada via the `OpenCollada ( https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools )` exporter (Maya, 3DSMax).
-If you are using Blender, take a look at our own `Better Collada Exporter ( https://pandemoniumengine.org/download )`.
+Currently Pandemonium supports glTF and OBJ.
 
-As of Pandemonium 3.0, glTF is supported.
+FBX support was removed to reduce engine bloat, because glTF turned out to be easier to 
+use most of the time. Also FBX is proprietary format. The FBX2glTF tool can easily convert it.
 
-FBX is supported via the Open Asset Import library. However, FBX is proprietary
-so we recommend using other formats listed above, if suitable for your workflow.
+However note that FBX support can be added back relatively easily from 
+[Godot](https://github.com/godotengine/godot/tree/3.x/modules/fbx) if needed.
 
 ## Will [insert closed SDK such as FMOD, GameWorks, etc.] be supported in Pandemonium?
 
@@ -177,13 +168,8 @@ with ambitious community contributors like you.
 
 Since you don't need to actually install Pandemonium on your system to run it,
 this means desktop integration is not performed automatically.
-There are two ways to overcome this. You can install Pandemonium from
-`Steam ( https://store.steampowered.com/app/404790/Pandemonium_Engine/ )` (all platforms),
-`Scoop ( https://scoop.sh/ )` (Windows), `Homebrew ( https://brew.sh/ )` (macOS)
-or `Flathub ( https://flathub.org/apps/details/org.pandemoniumengine.Pandemonium )` (Linux).
-This will automatically perform the required steps for desktop integration.
 
-Alternatively, you can manually perform the steps that an installer would do for you:
+You can manually perform the steps that an installer would do for you:
 
 ### Windows
 
@@ -216,7 +202,7 @@ to the Dock if desired. Spotlight will be able to find Pandemonium as long as it
     line in the `.desktop` file linked below to contain the full *absolute* path
     to the Pandemonium binary.
 
-- Save `this .desktop file ( https://raw.githubusercontent.com/pandemoniumengine/pandemonium/3.x/misc/dist/linux/org.pandemoniumengine.Pandemonium.desktop )`
+- Save [this .desktop file](https://raw.githubusercontent.com/Relintai/pandemonium_engine/master/misc/dist/linux/org.pandemonium.Pandemonium.desktop)
   to `$HOME/.local/share/applications/`. If you have administrator privileges,
   you can also save the `.desktop` file to `/usr/local/share/applications`
   to make the shortcut available for all users.
@@ -338,16 +324,16 @@ certain screen sizes in the App Store or Google Play.
 ## How can I extend Pandemonium?
 
 For extending Pandemonium, like creating Pandemonium Editor plugins or adding support
-for additional languages, take a look at `EditorPlugins ( doc_making_plugins )`
+for additional languages, take a look at [EditorPlugins](doc_making_plugins)
 and tool scripts.
 
 Also, see the official blog posts on these topics:
 
-* `A look at the GDNative architecture ( https://pandemoniumengine.org/article/look-gdnative-architecture )`
-* `GDNative is here! ( https://pandemoniumengine.org/article/dlscript-here )`
+* [A look at the GDNative architecture]( https://pandemoniumengine.org/article/look-gdnative-architecture )`
+* [GDNative is here!]( https://pandemoniumengine.org/article/dlscript-here )`
 
 You can also take a look at the GDScript implementation, the Pandemonium modules,
-as well as the `unofficial Python support ( https://github.com/touilleMan/pandemonium-python )` for Pandemonium.
+as well as the [unofficial Python support]( https://github.com/touilleMan/pandemonium-python ) for Pandemonium.
 This would be a good starting point to see how another third-party library
 integrates with Pandemonium.
 
@@ -418,7 +404,9 @@ Check out `Material Maker ( https://github.com/RodZill4/material-maker )` and
 `Pixelorama ( https://github.com/Orama-Interactive/Pixelorama )` for examples of
 open source applications made with Pandemonium.
 
+https://github.com/Relintai/pandemonium_cms
 
+https://github.com/Relintai/uml_generator
 
 ## Is it possible to use Pandemonium as a library?
 
@@ -507,4 +495,4 @@ See `doc_ways_to_contribute`.
 
 ## Who is working on Pandemonium? How can I contact you?
 
-See the corresponding page on the `Pandemonium website ( https://pandemoniumengine.org/contact )`.
+See the corresponding page on the [Pandemonium website]( https://pandemoniumengine.org/contact ).

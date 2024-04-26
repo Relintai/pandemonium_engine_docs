@@ -1,7 +1,6 @@
 
 
-Coding the player
-=================
+# Coding the player
 
 In this lesson, we'll add player movement, animation, and set it up to detect
 collisions.
@@ -15,22 +14,19 @@ Script" button:
 In the script settings window, you can leave the default settings alone. Just
 click "Create":
 
-Note:
- If you're creating a C# script or other languages, select the language
-          from the `language` drop down menu before hitting create.
-
 ![](img/attach_node_window.png)
 
 Note:
- If this is your first time encountering GDScript, please read
-          `doc_scripting` before continuing.
+
+  - If this is your first time encountering GDScript, please read
+    `doc_scripting` before continuing.
 
 Start by declaring the member variables this object will need:
 
 gdscript GDScript
 
 ```
-    extends Area2D
+extends Area2D
 
     export var speed = 400 # How fast the player will move (pixels/sec).
     var screen_size # Size of the game window.
@@ -49,8 +45,8 @@ The `ready()` function is called when a node enters the scene tree, which is
 a good time to find the size of the game window:
 
 ```
-    func _ready():
-        screen_size = get_viewport_rect().size
+func _ready():
+    screen_size = get_viewport_rect().size
 ```
 
 Now we can use the `process()` function to define what the player will do.
@@ -94,31 +90,30 @@ Click the "Close" button to close the project settings.
 
 Note:
 
-
-   We only mapped one key to each input action, but you can map multiple keys,
-   joystick buttons, or mouse buttons to the same input action.
+  - We only mapped one key to each input action, but you can map multiple keys,
+    joystick buttons, or mouse buttons to the same input action.
 
 You can detect whether a key is pressed using `Input.is_action_pressed()`,
 which returns `true` if it's pressed or `false` if it isn't.
 
 gdscript GDScript
 ```
-    func _process(delta):
-        var velocity = Vector2.ZERO # The player's movement vector.
-        if Input.is_action_pressed("move_right"):
-            velocity.x += 1
-        if Input.is_action_pressed("move_left"):
-            velocity.x -= 1
-        if Input.is_action_pressed("move_down"):
-            velocity.y += 1
-        if Input.is_action_pressed("move_up"):
-            velocity.y -= 1
+func _process(delta):
+    var velocity = Vector2.ZERO # The player's movement vector.
+    if Input.is_action_pressed("move_right"):
+        velocity.x += 1
+    if Input.is_action_pressed("move_left"):
+        velocity.x -= 1
+    if Input.is_action_pressed("move_down"):
+        velocity.y += 1
+    if Input.is_action_pressed("move_up"):
+        velocity.y -= 1
 
-        if velocity.length() > 0:
-            velocity = velocity.normalized() * speed
-            $AnimatedSprite.play()
-        else:
-            $AnimatedSprite.stop()
+    if velocity.length() > 0:
+        velocity = velocity.normalized() * speed
+        $AnimatedSprite.play()
+    else:
+        $AnimatedSprite.stop()
 ```
 
 We start by setting the `velocity` to `(0, 0)` - by default, the player
@@ -133,22 +128,21 @@ We can prevent that if we *normalize* the velocity, which means we set its
 diagonal movement.
 
 Tip:
- If you've never used vector math before, or need a refresher, you can
-         see an explanation of vector usage in Pandemonium at `doc_vector_math`.
-         It's good to know but won't be necessary for the rest of this tutorial.
+
+  - If you've never used vector math before, or need a refresher, you can
+    see an explanation of vector usage in Pandemonium at `doc_vector_math`.
+    It's good to know but won't be necessary for the rest of this tutorial.
 
 We also check whether the player is moving so we can call `play()` or
 `stop()` on the AnimatedSprite.
 
 Tip:
- `$` is shorthand for `get_node()`. So in the code above,
-         `$AnimatedSprite.play()` is the same as
-         `get_node("AnimatedSprite").play()`.
 
-         In GDScript, `$` returns the node at the relative path from the
-         current node, or returns `null` if the node is not found. Since
-         AnimatedSprite is a child of the current node, we can use
-         `$AnimatedSprite`.
+  - `$` is shorthand for `get_node()`. So in the code above, `$AnimatedSprite.play()` is the same as
+    `get_node("AnimatedSprite").play()`.
+
+  - In GDScript, `$` returns the node at the relative path from the current node, or returns `null` if the node is not found. Since
+    AnimatedSprite is a child of the current node, we can use`$AnimatedSprite`.
 
 Now that we have a movement direction, we can update the player's position. We
 can also use `clamp()` to prevent it from leaving the screen. *Clamping* a
@@ -158,32 +152,29 @@ the `process` function (make sure it's not indented under the `else`):
 gdscript GDScript
 
 ```
-        position += velocity * delta
-        position.x = clamp(position.x, 0, screen_size.x)
-        position.y = clamp(position.y, 0, screen_size.y)
+    position += velocity * delta
+    position.x = clamp(position.x, 0, screen_size.x)
+    position.y = clamp(position.y, 0, screen_size.y)
 ```
 
 Tip:
- The `delta` parameter in the `process()` function refers to the *frame
-        length* - the amount of time that the previous frame took to complete.
-        Using this value ensures that your movement will remain consistent even
-        if the frame rate changes.
+
+  - The `delta` parameter in the `process()` function refers to the *frame length* - the amount of time that the previous frame took to complete.
+    Using this value ensures that your movement will remain consistent evenif the frame rate changes.
 
 Click "Play Scene" (:kbd:`F6`, :kbd:`Cmd + R` on macOS) and confirm you can move
 the player around the screen in all directions.
 
 Warning:
- If you get an error in the "Debugger" panel that says
 
-            `Attempt to call function 'play' in base 'null instance' on a null
-            instance`
+If you get an error in the "Debugger" panel that says
 
-            this likely means you spelled the name of the AnimatedSprite node
-            wrong. Node names are case-sensitive and `$NodeName` must match
-            the name you see in the scene tree.
+  - `Attempt to call function 'play' in base 'null instance' on a null instance`
 
-Choosing animations
-~~~~~~~~~~~~~~~~~~~
+  - this likely means you spelled the name of the AnimatedSprite node wrong. Node names are case-sensitive and `$NodeName` must match
+    the name you see in the scene tree.
+
+## Choosing animations
 
 Now that the player can move, we need to change which animation the
 AnimatedSprite is playing based on its direction. We have the "walk" animation,
@@ -195,30 +186,27 @@ movement. Let's place this code at the end of the `process()` function:
 gdscript GDScript
 
 ```
-        if velocity.x != 0:
-            $AnimatedSprite.animation = "walk"
-            $AnimatedSprite.flip_v = false
-            # See the note below about boolean assignment.
-            $AnimatedSprite.flip_h = velocity.x < 0
-        elif velocity.y != 0:
-            $AnimatedSprite.animation = "up"
-            $AnimatedSprite.flip_v = velocity.y > 0
+    if velocity.x != 0:
+        $AnimatedSprite.animation = "walk"
+        $AnimatedSprite.flip_v = false
+        # See the note below about boolean assignment.
+        $AnimatedSprite.flip_h = velocity.x < 0
+    elif velocity.y != 0:
+        $AnimatedSprite.animation = "up"
+        $AnimatedSprite.flip_v = velocity.y > 0
 ```
 
 Note:
- The boolean assignments in the code above are a common shorthand for
-          programmers. Since we're doing a comparison test (boolean) and also
-          *assigning* a boolean value, we can do both at the same time. Consider
-          this code versus the one-line boolean assignment above:
 
-          ```
+  - The boolean assignments in the code above are a common shorthand for programmers. Since we're doing a comparison test (boolean) and also
+    *assigning* a boolean value, we can do both at the same time. Consider this code versus the one-line boolean assignment above:
 
-             if velocity.x < 0:
-                 $AnimatedSprite.flip_h = true
-             else:
-                 $AnimatedSprite.flip_h = false
-
-          ```
+```
+    if velocity.x < 0:
+        $AnimatedSprite.flip_h = true
+    else:
+        $AnimatedSprite.flip_h = false
+```
 
 Play the scene again and check that the animations are correct in each of the
 directions.
@@ -238,8 +226,7 @@ gdscript GDScript
     hide()
 ```
 
-Preparing for collisions
-~~~~~~~~~~~~~~~~~~~~~~~~
+## Preparing for collisions
 
 We want `Player` to detect when it's hit by an enemy, but we haven't made any
 enemies yet! That's OK, because we're going to use Pandemonium's *signal*

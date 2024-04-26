@@ -1,12 +1,11 @@
 
 
-Spawning monsters
-=================
+# Spawning monsters
 
 In this part, we're going to spawn monsters along a path randomly. By the end,
 you will have monsters roaming the game board.
 
-|image0|
+![](img/05.spawning_mobs/01.monsters_path_preview.png)
 
 Double-click on `Main.tscn` in the *FileSystem* dock to open the *Main* scene.
 
@@ -16,15 +15,14 @@ nice little box.
 
 Go to *Project -> Project Settings*.
 
-|image1|
+![](img/05.spawning_mobs/02.project_settings.png)
 
 In the left menu, navigate down to *Display -> Window*. On the right, set the
 *Width* to `720` and the *Height* to `540`.
 
-|image2|
+![](img/05.spawning_mobs/03.window_settings.png)
 
-Creating the spawn path
------------------------
+## Creating the spawn path
 
 Like you did in the 2D game tutorial, you're going to design a path and use a
 *PathFollow* node to sample random locations on it.
@@ -39,41 +37,40 @@ that isn't the case, press :kbd:`Ctrl + 2` (:kbd:`Cmd + 2` on macOS) to split th
 Select the *Camera* node and click the *Preview* checkbox in the bottom
 viewport.
 
-|image3|
+![](img/05.spawning_mobs/04.camera_preview.png)
 
-Adding placeholder cylinders
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Adding placeholder cylinders
 
 Let's add the placeholder meshes. Add a new *Spatial* node as a child of the
 *Main* node and name it *Cylinders*. We'll use it to group the cylinders. As a
 child of it, add a *MeshInstance* node.
 
-|image4|
+![](img/05.spawning_mobs/05.cylinders_node.png)
 
 In the *Inspector*, assign a *CylinderMesh* to the *Mesh* property.
 
-|image5|
+![](img/05.spawning_mobs/06.cylinder_mesh.png)
 
 Set the top viewport to the top orthogonal view using the menu in the viewport's
 top-left corner. Alternatively, you can press the keypad's 7 key.
 
-|image6|
+![](img/05.spawning_mobs/07.top_view.png)
 
 The grid is a bit distracting for me. You can toggle it by going to the *View*
 menu in the toolbar and clicking *View Grid*.
 
-|image7|
+![](img/05.spawning_mobs/08.toggle_view_grid.png)
 
 You now want to move the cylinder along the ground plane, looking at the camera
 preview in the bottom viewport. I recommend using grid snap to do so. You can
 toggle it by clicking the magnet icon in the toolbar or pressing Y.
 
-|image8|
+![](img/05.spawning_mobs/09.toggle_grid_snap.png)
 
 Place the cylinder so it's right outside the camera's view in the top-left
 corner.
 
-|image9|
+![](img/05.spawning_mobs/10.place_first_cylinder.png)
 
 We're going to create copies of the mesh and place them around the game area.
 Press :kbd:`Ctrl + D` (:kbd:`Cmd + D` on macOS) to duplicate the node. You can also right-click
@@ -83,11 +80,11 @@ the blue Z axis until it's right outside the camera's preview.
 Select both cylinders by pressing the :kbd:`Shift` key and clicking on the unselected
 one and duplicate them.
 
-|image10|
+![](img/05.spawning_mobs/11.both_cylinders_selected.png)
 
 Move them to the right by dragging the red X axis.
 
-|image11|
+![](img/05.spawning_mobs/12.four_cylinders.png)
 
 They're a bit hard to see in white, aren't they? Let's make them stand out by
 giving them a new material.
@@ -99,12 +96,12 @@ We can update all four cylinders at once. Select all the mesh instances in the
 *Scene* dock. To do so, you can click on the first one and Shift click on the
 last one.
 
-|image12|
+![](img/05.spawning_mobs/13.selecting_all_cylinders.png)
 
 In the *Inspector*, expand the *Material* section and assign a *SpatialMaterial*
 to slot *0*.
 
-|image13|
+![](img/05.spawning_mobs/14.spatial_material.png)
 
 Click the sphere icon to open the material resource. You get a preview of the
 material and a long list of sections filled with properties. You can use these
@@ -113,18 +110,18 @@ to create all sorts of surfaces, from metal to rock or water.
 Expand the *Albedo* section and set the color to something that contrasts with
 the background, like a bright orange.
 
-|image14|
+![](img/05.spawning_mobs/15.bright-cylinders.png)
 
 We can now use the cylinders as guides. Fold them in the *Scene* dock by
 clicking the grey arrow next to them. Moving forward, you can also toggle their
 visibility by clicking the eye icon next to *Cylinders*.
 
-|image15|
+![](img/05.spawning_mobs/16.cylinders_fold.png)
 
 Add a *Path* node as a child of *Main*. In the toolbar, four icons appear. Click
 the *Add Point* tool, the icon with the green "+" sign.
 
-|image16|
+![](img/05.spawning_mobs/17.points_options.png)
 
 Note:
  You can hover any icon to see a tooltip describing the tool.
@@ -133,22 +130,21 @@ Click in the center of each cylinder to create a point. Then, click the *Close
 Curve* icon in the toolbar to close the path. If any point is a bit off, you can
 click and drag on it to reposition it.
 
-|image17|
+![](img/05.spawning_mobs/18.close_path.png)
 
 Your path should look like this.
 
-|image18|
+![](img/05.spawning_mobs/19.path_result.png)
 
 To sample random positions on it, we need a *PathFollow* node. Add a
 *PathFollow* as a child of the *Path*. Rename the two nodes to *SpawnPath* and
 *SpawnLocation*, respectively. It's more descriptive of what we'll use them for.
 
-|image19|
+![](img/05.spawning_mobs/20.spawn_nodes.png)
 
 With that, we're ready to code the spawn mechanism.
 
-Spawning monsters randomly
---------------------------
+## Spawning monsters randomly
 
 Right-click on the *Main* node and attach a new script to it.
 
@@ -178,16 +174,16 @@ to the scene and add a timer. Before that, though, we need to assign the
 Head back to the 3D screen and select the *Main* node. Drag `Mob.tscn` from
 the *FileSystem* dock to the *Mob Scene* slot in the *Inspector*.
 
-|image20|
+![](img/05.spawning_mobs/20.mob_scene_property.png)
 
 Add a new *Timer* node as a child of *Main*. Name it *MobTimer*.
 
-|image21|
+![](img/05.spawning_mobs/21.mob_timer.png)
 
 In the *Inspector*, set its *Wait Time* to `0.5` seconds and turn on
 *Autostart* so it automatically starts when we run the game.
 
-|image22|
+![](img/05.spawning_mobs/22.mob_timer_properties.png)
 
 Timers emit a `timeout` signal every time they reach the end of their *Wait
 Time*. By default, they restart automatically, emitting the signal in a cycle.
@@ -197,11 +193,11 @@ We can connect to this signal from the *Main* node to spawn monsters every
 With the *MobTimer* still selected, head to the *Node* dock on the right and
 double-click the `timeout` signal.
 
-|image23|
+![](img/05.spawning_mobs/23.timeout_signal.png)
 
 Connect it to the *Main* node.
 
-|image24|
+![](img/05.spawning_mobs/24.connect_timer_to_main.png)
 
 This will take you back to the script, with a new empty
 `on_MobTimer_timeout()` function.
@@ -264,34 +260,8 @@ gdscript GDScript
 You can test the scene by pressing :kbd:`F6`. You should see the monsters spawn and
 move in a straight line.
 
-|image25|
+![](img/05.spawning_mobs/25.spawn_result.png)
 
 For now, they bump and slide against one another when their paths cross. We'll
 address this in the next part.
 
-.. |image0| image:: img/05.spawning_mobs/01.monsters_path_preview.png)
-.. |image1| image:: img/05.spawning_mobs/02.project_settings.png)
-.. |image2| image:: img/05.spawning_mobs/03.window_settings.png)
-.. |image3| image:: img/05.spawning_mobs/04.camera_preview.png)
-.. |image4| image:: img/05.spawning_mobs/05.cylinders_node.png)
-.. |image5| image:: img/05.spawning_mobs/06.cylinder_mesh.png)
-.. |image6| image:: img/05.spawning_mobs/07.top_view.png)
-.. |image7| image:: img/05.spawning_mobs/08.toggle_view_grid.png)
-.. |image8| image:: img/05.spawning_mobs/09.toggle_grid_snap.png)
-.. |image9| image:: img/05.spawning_mobs/10.place_first_cylinder.png)
-.. |image10| image:: img/05.spawning_mobs/11.both_cylinders_selected.png)
-.. |image11| image:: img/05.spawning_mobs/12.four_cylinders.png)
-.. |image12| image:: img/05.spawning_mobs/13.selecting_all_cylinders.png)
-.. |image13| image:: img/05.spawning_mobs/14.spatial_material.png)
-.. |image14| image:: img/05.spawning_mobs/15.bright-cylinders.png)
-.. |image15| image:: img/05.spawning_mobs/16.cylinders_fold.png)
-.. |image16| image:: img/05.spawning_mobs/17.points_options.png)
-.. |image17| image:: img/05.spawning_mobs/18.close_path.png)
-.. |image18| image:: img/05.spawning_mobs/19.path_result.png)
-.. |image19| image:: img/05.spawning_mobs/20.spawn_nodes.png)
-.. |image20| image:: img/05.spawning_mobs/20.mob_scene_property.png)
-.. |image21| image:: img/05.spawning_mobs/21.mob_timer.png)
-.. |image22| image:: img/05.spawning_mobs/22.mob_timer_properties.png)
-.. |image23| image:: img/05.spawning_mobs/23.timeout_signal.png)
-.. |image24| image:: img/05.spawning_mobs/24.connect_timer_to_main.png)
-.. |image25| image:: img/05.spawning_mobs/25.spawn_result.png)

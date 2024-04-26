@@ -1,15 +1,13 @@
 
 
-Finishing up
-============
+# Finishing up
 
 We have now completed all the functionality for our game. Below are some
 remaining steps to add a bit more "juice" to improve the game experience.
 
 Feel free to expand the gameplay with your own ideas.
 
-Background
-~~~~~~~~~~
+## Background
 
 The default gray background is not very appealing, so let's change its color.
 One way to do this is to use a `ColorRect` node. Make it
@@ -20,8 +18,7 @@ select "Layout" -> "Full Rect" so that it covers the screen.
 You could also add a background image, if you have one, by using a
 `TextureRect` node instead.
 
-Sound effects
-~~~~~~~~~~~~~
+## Sound effects
 
 Sound and music can be the single most effective way to add appeal to the game
 experience. In your game assets folder, you have two sound files: "House In a
@@ -38,8 +35,7 @@ To play the music, add `$Music.play()` in the `new_game()` function and
 
 Finally, add `$DeathSound.play()` in the `game_over()` function.
 
-Keyboard shortcut
-~~~~~~~~~~~~~~~~~
+## Keyboard shortcut
 
 Since the game is played with keyboard controls, it would be convenient if we
 could also start the game by pressing a key on the keyboard. We can do this with

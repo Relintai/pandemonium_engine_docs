@@ -1,7 +1,6 @@
 
 
-Setting up the game area
-========================
+# Setting up the game area
 
 In this first part, we're going to set up the game area. Let's get started by
 importing the start assets and setting up the game scene.
@@ -14,36 +13,35 @@ the archive here: `Squash the Creeps assets
 Once you downloaded it, extract the .zip archive on your computer. Open the
 Pandemonium project manager and click the *Import* button.
 
-|image1|
+![](img/01.game_setup/01.import_button.png)
 
 In the import popup, enter the full path to the freshly created directory
 `squash_the_creeps_start/`. You can click the *Browse* button on the right to
 open a file browser and navigate to the `project.pandemonium` file the folder
 contains.
 
-|image2|
+![](img/01.game_setup/02.browse_to_project_folder.png)
 
 Click *Import & Edit* to open the project in the editor.
 
-|image3|
+![](img/01.game_setup/03.import_and_edit.png)
 
 The start project contains an icon and two folders: `art/` and `fonts/`.
 There, you will find the art assets and music we'll use in the game.
 
-|image4|
+![](img/01.game_setup/04.start_assets.png)
 
 There are two 3D models, `player.glb` and `mob.glb`, some materials that
 belong to these models, and a music track.
 
-Setting up the playable area
-----------------------------
+## Setting up the playable area
 
 We're going to create our main scene with a plain *Node* as its root. In the
 *Scene* dock, click the *Add Node* button represented by a "+" icon in the
 top-left and double-click on *Node*. Name the node "Main". Alternatively, to add
 a node to the scene, you can press :kbd:`Ctrl + a` (or :kbd:`Cmd + a` on macOS).
 
-|image5|
+![](img/01.game_setup/05.main_node.png)
 
 Save the scene as `Main.tscn` by pressing :kbd:`Ctrl + s` (:kbd:`Cmd + s` on macOS).
 
@@ -53,18 +51,18 @@ create static colliders like the floor, walls, or ceilings, you can use
 define the collision area. With the *Main* node selected, add a *StaticBody*
 node, then a *CollisionShape*. Rename the *StaticBody* as *Ground*.
 
-|image6|
+![](img/01.game_setup/06.staticbody_node.png)
 
 A warning sign next to the *CollisionShape* appears because we haven't defined
 its shape. If you click the icon, a popup appears to give you more information.
 
-|image7|
+![](img/01.game_setup/07.collision_shape_warning.png)
 
 To create a shape, with the *CollisionShape* selected, head to the *Inspector*
 and click the *[empty]* field next to the *Shape* property. Create a new *Box
 Shape*.
 
-|image8|
+![](img/01.game_setup/08.create_box_shape.png)
 
 The box shape is perfect for flat ground and walls. Its thickness makes it
 reliable to block even fast-moving objects.
@@ -75,7 +73,7 @@ set the size in the inspector. Click on the *BoxShape* to expand the resource.
 Set its *Extents* to `30` on the X axis, `1` for the Y axis, and `30` for
 the Z axis.
 
-|image9|
+![](img/01.game_setup/09.box_extents.png)
 
 Note:
 
@@ -88,19 +86,19 @@ Note:
 Collision shapes are invisible. We need to add a visual floor that goes along
 with it. Select the *Ground* node and add a *MeshInstance* as its child.
 
-|image10|
+![](img/01.game_setup/10.mesh_instance.png)
 
 In the *Inspector*, click on the field next to *Mesh* and create a *CubeMesh*
 resource to create a visible cube.
 
-|image11|
+![](img/01.game_setup/11.cube_mesh.png)
 
 Once again, it's too small by default. Click the cube icon to expand the
 resource and set its *Size* to `60`, `2`, and `60`. As the cube
 resource works with a size rather than extents, we need to use these values so
 it matches our collision shape.
 
-|image12|
+![](img/01.game_setup/12.cube_resized.png)
 
 You should see a wide grey slab that covers the grid and blue and red axes in
 the viewport.
@@ -109,7 +107,7 @@ We're going to move the ground down so we can see the floor grid. Select the
 *Ground* node, hold the :kbd:`Ctrl` key down to turn on grid snapping (:kbd:`Cmd` on macOS),
 and click and drag down on the Y axis. It's the green arrow in the move gizmo.
 
-|image13|
+![](img/01.game_setup/13.move_gizmo_y_axis.png)
 
 Note:
 
@@ -117,12 +115,12 @@ Note:
     If you can't see the 3D object manipulator like on the image above, ensure
     the *Select Mode* is active in the toolbar above the view.
 
-|image14|
+![](img/01.game_setup/14.select_mode_icon.png)
 
 Move the ground down `1` meter. A label in the bottom-left corner of the
 viewport tells you how much you're translating the node.
 
-|image15|
+![](img/01.game_setup/15.translation_amount.png)
 
 Note:
 
@@ -139,29 +137,13 @@ ground is lit.
 
 In the *Inspector*, turn on *Shadow -> Enabled* by clicking the checkbox.
 
-|image16|
+![](img/01.game_setup/16.turn_on_shadows.png)
 
 At this point, your project should look like this.
 
-|image17|
+![](img/01.game_setup/17.project_with_light.png)
 
 That's our starting point. In the next part, we will work on the player scene
 and base movement.
 
-.. |image1| image:: img/01.game_setup/01.import_button.png)
-.. |image2| image:: img/01.game_setup/02.browse_to_project_folder.png)
-.. |image3| image:: img/01.game_setup/03.import_and_edit.png)
-.. |image4| image:: img/01.game_setup/04.start_assets.png)
-.. |image5| image:: img/01.game_setup/05.main_node.png)
-.. |image6| image:: img/01.game_setup/06.staticbody_node.png)
-.. |image7| image:: img/01.game_setup/07.collision_shape_warning.png)
-.. |image8| image:: img/01.game_setup/08.create_box_shape.png)
-.. |image9| image:: img/01.game_setup/09.box_extents.png)
-.. |image10| image:: img/01.game_setup/10.mesh_instance.png)
-.. |image11| image:: img/01.game_setup/11.cube_mesh.png)
-.. |image12| image:: img/01.game_setup/12.cube_resized.png)
-.. |image13| image:: img/01.game_setup/13.move_gizmo_y_axis.png)
-.. |image14| image:: img/01.game_setup/14.select_mode_icon.png)
-.. |image15| image:: img/01.game_setup/15.translation_amount.png)
-.. |image16| image:: img/01.game_setup/16.turn_on_shadows.png)
-.. |image17| image:: img/01.game_setup/17.project_with_light.png)
+

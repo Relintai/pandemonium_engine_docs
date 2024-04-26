@@ -1,7 +1,6 @@
 
 
-Creating the enemy
-==================
+# Creating the enemy
 
 Now it's time to make the enemies our player will have to dodge. Their behavior
 will not be very complex: mobs will spawn randomly at the edges of the screen,
@@ -10,16 +9,14 @@ choose a random direction, and move in a straight line.
 We'll create a `Mob` scene, which we can then *instance* to create any number
 of independent mobs in the game.
 
-Node setup
-~~~~~~~~~~
+## Node setup
 
 Click Scene -> New Scene and add the following nodes:
 
 - `RigidBody2D` (named `Mob`)
-
-   - `AnimatedSprite`
-   - `CollisionShape2D`
-   - `VisibilityNotifier2D`
+- `AnimatedSprite`
+- `CollisionShape2D`
+- `VisibilityNotifier2D`
 
 Don't forget to set the children so they can't be selected, like you did with
 the Player scene.
@@ -53,8 +50,7 @@ to `90` (under "Transform" in the Inspector).
 
 Save the scene.
 
-Enemy script
-~~~~~~~~~~~~
+## Enemy script
 
 Add a script to the `Mob` like this:
 

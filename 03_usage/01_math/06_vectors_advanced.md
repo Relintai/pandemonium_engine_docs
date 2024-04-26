@@ -1,10 +1,8 @@
 
 
-Advanced vector math
-====================
+# Advanced vector math
 
-Planes
-~~~~~~
+### Planes
 
 The dot product has another interesting property with unit vectors.
 Imagine that perpendicular to that vector (and through the origin)
@@ -29,8 +27,7 @@ except that the plane is an infinite surface (imagine an infinite, flat
 sheet of paper that you can orient and is pinned to the origin) instead
 of a line.
 
-Distance to plane
------------------
+## Distance to plane
 
 Now that it's clear what a plane is, let's go back to the dot product.
 The dot product between a **unit vector** and any **point in space**
@@ -50,8 +47,7 @@ space the distance will be negative, too:
 
 This allows us to tell which side of the plane a point is.
 
-Away from the origin
---------------------
+## Away from the origin
 
 I know what you are thinking! So far this is nice, but *real* planes are
 everywhere in space, not only passing through the origin. You want real
@@ -130,8 +126,7 @@ calculating the distance to it. So, why is it useful to calculate the
 distance from a point to a plane? It's extremely useful! Let's see some
 simple examples..
 
-Constructing a plane in 2D
---------------------------
+## Constructing a plane in 2D
 
 Planes clearly don't come out of nowhere, so they must be built.
 Constructing them in 2D is easy, this can be done from either a normal
@@ -180,8 +175,7 @@ gdscript GDScript
 Doing the same in 3D is a little more complex and will be explained
 further down.
 
-Some examples of planes
------------------------
+## Some examples of planes
 
 Here is a simple example of what planes are useful for. Imagine you have
 a `convex ( https://www.mathsisfun.com/definitions/convex.html )`
@@ -269,8 +263,7 @@ This is usually just handled by splitting the concave polygon into
 smaller convex polygons, or using a technique such as BSP (which is not
 used much nowadays).
 
-Collision detection in 3D
-~~~~~~~~~~~~~~~~~~~~~~~~~
+### Collision detection in 3D
 
 This is another bonus bit, a reward for being patient and keeping up
 with this long tutorial. Here is another piece of wisdom. This might
@@ -377,8 +370,7 @@ gdscript GDScript
        print("Polygons collided!")
 ```
 
-More information
-~~~~~~~~~~~~~~~~
+### More information
 
 For more information on using vector math in Pandemonium, see the following article:
 

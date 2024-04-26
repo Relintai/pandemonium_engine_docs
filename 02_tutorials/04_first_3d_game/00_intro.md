@@ -1,7 +1,6 @@
 
 
-Your first 3D game
-==================
+# Your first 3D game
 
 In this step-by-step tutorial series, you will create your first complete 3D
 game with Pandemonium. By the end of the series, you will have a simple yet finished
@@ -50,8 +49,7 @@ add the monsters that we'll spawn randomly around the screen. After that, we'll
 implement the jump and squashing mechanic before refining the game with some
 nice animation. We'll wrap up with the score and the retry screen.
 
-Contents
---------
+## Contents
 
 .. toctree::
    :maxdepth: 1

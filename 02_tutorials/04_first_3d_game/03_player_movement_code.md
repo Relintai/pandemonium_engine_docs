@@ -1,7 +1,6 @@
 
 
-Moving the player with code
-===========================
+# Moving the player with code
 
 It's time to code! We're going to use the input actions we created in the last
 part to move the character.
@@ -10,7 +9,7 @@ Right-click the *Player* node and select *Attach Script* to add a new script to
 it. In the popup, set the *Template* to *Empty* before pressing the *Create*
 button.
 
-|image0|
+![](img/03.player_movement_code/01.attach_script_to_player.png)
 
 Let's start with the class's properties. We're going to define a movement speed,
 a fall acceleration representing gravity, and a velocity we'll use to move the
@@ -19,7 +18,7 @@ character.
 gdscript GDScript
 
 ```
-   extends KinematicBody
+    extends KinematicBody
 
    # How fast the player moves in meters per second.
    export var speed = 14
@@ -35,7 +34,6 @@ combining a speed with a direction. Here, we define it as a property because
 we want to update and reuse its value across frames.
 
 Note:
-
 
     The values are quite different from 2D code because distances are in meters.
     While in 2D, a thousand units (pixels) may only correspond to half of your
@@ -200,8 +198,7 @@ gdscript GDScript
        velocity = move_and_slide(velocity, Vector3.UP)
 ```
 
-Testing our player's movement
------------------------------
+## Testing our player's movement
 
 We're going to put our player in the *Main* scene to test it. To do so, we need
 to instantiate the player and then add a camera. Unlike in 2D, in 3D, you won't
@@ -210,7 +207,7 @@ see anything if your viewport doesn't have a camera pointing at something.
 Save your *Player* scene and open the *Main* scene. You can click on the *Main*
 tab at the top of the editor to do so.
 
-|image1|
+![](img/03.player_movement_code/02.clicking_main_tab.png)
 
 If you closed the scene before, head to the *FileSystem* dock and double-click
 `Main.tscn` to re-open it.
@@ -218,25 +215,24 @@ If you closed the scene before, head to the *FileSystem* dock and double-click
 To instantiate the *Player*, right-click on the *Main* node and select *Instance
 Child Scene*.
 
-|image2|
+![](img/03.player_movement_code/03.instance_child_scene.png)
 
 In the popup, double-click *Player.tscn*. The character should appear in the
 center of the viewport.
 
-Adding a camera
-~~~~~~~~~~~~~~~
+## Adding a camera
 
 Let's add the camera next. Like we did with our *Player*\ 's *Pivot*, we're
 going to create a basic rig. Right-click on the *Main* node again and select
 *Add Child Node* this time. Create a new *Position3D*, name it *CameraPivot*,
 and add a *Camera* node as a child of it. Your scene tree should look like this.
 
-|image3|
+![](img/03.player_movement_code/04.scene_tree_with_camera.png)
 
 Notice the *Preview* checkbox that appears in the top-left when you have the
 *Camera* selected. You can click it to preview the in-game camera projection.
 
-|image4|
+![](img/03.player_movement_code/05.camera_preview_checkbox.png)
 
 We're going to use the *Pivot* to rotate the camera as if it was on a crane.
 Let's first split the 3D view to be able to freely navigate the scene and see
@@ -245,28 +241,28 @@ what the camera sees.
 In the toolbar right above the viewport, click on *View*, then *2 Viewports*.
 You can also press :kbd:`Ctrl + 2` (:kbd:`Cmd + 2` on macOS).
 
-|image5|
+![](img/03.player_movement_code/06.two_viewports.png)
 
 On the bottom view, select the *Camera* and turn on camera preview by clicking
 the checkbox.
 
-|image6|
+![](img/03.player_movement_code/07.camera_preview_checkbox.png)
 
 In the top view, move the camera about `19` units on the Z axis (the blue
 one).
 
-|image7|
+![](img/03.player_movement_code/08.camera_moved.png)
 
 Here's where the magic happens. Select the *CameraPivot* and rotate it `45`
 degrees around the X axis (using the red circle). You'll see the camera move as
 if it was attached to a crane.
 
-|image8|
+![](img/03.player_movement_code/09.camera_rotated.png)
 
 You can run the scene by pressing :kbd:`F6` and press the arrow keys to move the
 character.
 
-|image9|
+![](img/03.player_movement_code/10.camera_perspective.png)
 
 We can see some empty space around the character due to the perspective
 projection. In this game, we're going to use an orthographic projection instead
@@ -277,19 +273,7 @@ Select the *Camera* again and in the *Inspector*, set the *Projection* to
 *Orthogonal* and the *Size* to `19`. The character should now look flatter and
 the ground should fill the background.
 
-|image10|
+![](img/03.player_movement_code/11.camera_orthographic.png)
 
 With that, we have both player movement and the view in place. Next, we will
 work on the monsters.
-
-.. |image0| image:: img/03.player_movement_code/01.attach_script_to_player.png)
-.. |image1| image:: img/03.player_movement_code/02.clicking_main_tab.png)
-.. |image2| image:: img/03.player_movement_code/03.instance_child_scene.png)
-.. |image3| image:: img/03.player_movement_code/04.scene_tree_with_camera.png)
-.. |image4| image:: img/03.player_movement_code/05.camera_preview_checkbox.png)
-.. |image5| image:: img/03.player_movement_code/06.two_viewports.png)
-.. |image6| image:: img/03.player_movement_code/07.camera_preview_checkbox.png)
-.. |image7| image:: img/03.player_movement_code/08.camera_moved.png)
-.. |image8| image:: img/03.player_movement_code/09.camera_rotated.png)
-.. |image9| image:: img/03.player_movement_code/10.camera_perspective.png)
-.. |image10| image:: img/03.player_movement_code/11.camera_orthographic.png)

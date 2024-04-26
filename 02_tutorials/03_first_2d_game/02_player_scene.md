@@ -1,7 +1,6 @@
 
 
-Creating the player scene
-=========================
+# Creating the player scene
 
 With the project settings in place, we can start working on the
 player-controlled character.
@@ -10,8 +9,7 @@ The first scene will define the `Player` object. One of the benefits of
 creating a separate Player scene is that we can test it separately, even before
 we've created other parts of the game.
 
-Node structure
-~~~~~~~~~~~~~~
+## Node structure
 
 To begin, we need to choose a root node for the player object. As a general
 rule, a scene's root node should reflect the object's desired functionality -
@@ -39,20 +37,15 @@ Save the scene. Click Scene -> Save, or press :kbd:`Ctrl + S` on Windows/Linux
 or :kbd:`Cmd + S` on macOS.
 
 Note:
- For this project, we will be following the Pandemonium naming conventions.
 
-          - **GDScript**: Classes (nodes) use PascalCase, variables and
-            functions use snake_case, and constants use ALL_CAPS (See
-            `doc_gdscript_styleguide`).
+For this project, we will be following the Pandemonium naming conventions.
 
-          - **C#**: Classes, export variables and methods use PascalCase,
-            private fields use _camelCase, local variables and parameters use
-            camelCase (See `doc_c_sharp_styleguide`). Be careful to type
-            the method names precisely when connecting signals.
+  - **GDScript**: Classes (nodes) use PascalCase, variables and
+    functions use snake_case, and constants use ALL_CAPS (See
+    `doc_gdscript_styleguide`).
 
 
-Sprite animation
-~~~~~~~~~~~~~~~~
+## Sprite animation
 
 Click on the `Player` node and add an `AnimatedSprite
 ( AnimatedSprite )` node as a child. The `AnimatedSprite` will handle the

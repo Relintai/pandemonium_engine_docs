@@ -1,18 +1,16 @@
 
 
-Character animation
-===================
+# Character animation
 
 In this final lesson, we'll use Pandemonium's built-in animation tools to make our
 characters float and flap. You'll learn to design animations in the editor and
 use code to make your game feel alive.
 
-|image0|
+![](img/squash-the-creeps-final.gif)
 
 We'll start with an introduction to using the animation editor.
 
-Using the animation editor
---------------------------
+## Using the animation editor
 
 The engine comes with tools to author animations in the editor. You can then use
 the code to play and control them at runtime.
@@ -21,7 +19,7 @@ Open the player scene, select the player node, and add an *AnimationPlayer* node
 
 The *Animation* dock appears in the bottom panel.
 
-|image1|
+![](img/09.adding_animations/01.animation_player_dock.png)
 
 It features a toolbar and the animation drop-down menu at the top, a track
 editor in the middle that's currently empty, and filter, snap, and zoom options
@@ -29,16 +27,16 @@ at the bottom.
 
 Let's create an animation. Click on *Animation -> New*.
 
-|image2|
+![](img/09.adding_animations/02.new_animation.png)
 
 Name the animation "float".
 
-|image3|
+![](img/09.adding_animations/03.float_name.png)
 
 Once you created the animation, the timeline appears with numbers representing
 time in seconds.
 
-|image4|
+![](img/09.adding_animations/03.timeline.png)
 
 We want the animation to start playback automatically at the start of the game.
 Also, it should loop.
@@ -46,30 +44,29 @@ Also, it should loop.
 To do so, you can click the button with an "A+" icon in the animation toolbar
 and the looping arrows, respectively.
 
-|image5|
+![](img/09.adding_animations/04.autoplay_and_loop.png)
 
 You can also pin the animation editor by clicking the pin icon in the top-right.
 This prevents it from folding when you click on the viewport and deselect the
 nodes.
 
-|image6|
+![](img/09.adding_animations/05.pin_icon.png)
 
 Set the animation duration to `1.2` seconds in the top-right of the dock.
 
-|image7|
+![](img/09.adding_animations/06.animation_duration.png)
 
 You should see the gray ribbon widen a bit. It shows you the start and end of
 your animation and the vertical blue line is your time cursor.
 
-|image8|
+![](img/09.adding_animations/07.editable_timeline.png)
 
 You can click and drag the slider in the bottom-right to zoom in and out of the
 timeline.
 
-|image9|
+![](img/09.adding_animations/08.zoom_slider.png)
 
-The float animation
--------------------
+## The float animation
 
 With the animation player node, you can animate most properties on as many nodes
 as you need. Notice the key icon next to properties in the *Inspector*. You can
@@ -83,27 +80,27 @@ rotation of the *Character* node.
 Select the *Character* and click the key icon next to *Translation* in the
 *Inspector*. Do the same for *Rotation Degrees*.
 
-|image10|
+![](img/09.adding_animations/09.creating_first_keyframe.png)
 
 Two tracks appear in the editor with a diamond icon representing each keyframe.
 
-|image11|
+![](img/09.adding_animations/10.initial_keys.png)
 
 You can click and drag on the diamonds to move them in time. Move the
 translation key to `0.2` seconds and the rotation key to `0.1` seconds.
 
-|image12|
+![](img/09.adding_animations/11.moving_keys.png)
 
 Move the time cursor to `0.5` seconds by clicking and dragging on the gray
 timeline. In the *Inspector*, set the *Translation*'s *Y* axis to about
 `0.65` meters and the *Rotation Degrees*' *X* axis to `8`.
 
-|image13|
+![](img/09.adding_animations/12.second_keys_values.png)
 
 Create a keyframe for both properties and shift the translation key to `0.7`
 seconds by dragging it on the timeline.
 
-|image14|
+![](img/09.adding_animations/13.second_keys.png)
 
 Note:
 
@@ -121,7 +118,7 @@ create a key for both properties.
 You can preview the result by clicking the play button or pressing :kbd:`Shift + D`.
 Click the stop button or press :kbd:`S` to stop playback.
 
-|image15|
+![](img/09.adding_animations/14.play_button.png)
 
 You can see that the engine interpolates between your keyframes to produce a
 continuous animation. At the moment, though, the motion feels very robotic. This
@@ -132,33 +129,33 @@ We can control the transition between keyframes using easing curves.
 
 Click and drag around the first two keys in the timeline to box select them.
 
-|image16|
+![](img/09.adding_animations/15.box_select.png)
 
 You can edit the properties of both keys simultaneously in the *Inspector*,
 where you can see an *Easing* property.
 
-|image17|
+![](img/09.adding_animations/16.easing_property.png)
 
 Click and drag on the curve, pulling it towards the left. This will make it
 ease-out, that is to say, transition fast initially and slow down as the time
 cursor reaches the next keyframe.
 
-|image18|
+![](img/09.adding_animations/17.ease_out.png)
 
 Play the animation again to see the difference. The first half should already
 feel a bit bouncier.
 
 Apply an ease-out to the second keyframe in the rotation track.
 
-|image19|
+![](img/09.adding_animations/18.ease_out_second_rotation_key.png)
 
 Do the opposite for the second translation keyframe, dragging it to the right.
 
-|image20|
+![](img/09.adding_animations/19.ease_in_second_translation_key.png)
 
 Your animation should look something like this.
 
-|image21|
+![](img/09.adding_animations/20.float_animation.gif)
 
 Note:
 
@@ -175,15 +172,14 @@ If you play the game, the player's creature will now float!
 If the creature is a little too close to the floor, you can move the *Pivot* up
 to offset it.
 
-Controlling the animation in code
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Controlling the animation in code
 
 We can use code to control the animation playback based on the player's input.
 Let's change the animation speed when the character is moving.
 
 Open the *Player*'s script by clicking the script icon next to it.
 
-|image22|
+![](img/09.adding_animations/21.script_icon.png)
 
 In `physics_process()`, after the line where we check the `direction`
 vector, add the following code.
@@ -215,8 +211,7 @@ gdscript GDScript
        $Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 ```
 
-Animating the mobs
-------------------
+## Animating the mobs
 
 Here's another nice trick with animations in Pandemonium: as long as you use a similar
 node structure, you can copy them to different scenes.
@@ -362,26 +357,3 @@ gdscript GDScript
        queue_free()
 ```
 
-.. |image0| image:: img/squash-the-creeps-final.gif)
-.. |image1| image:: img/09.adding_animations/01.animation_player_dock.png)
-.. |image2| image:: img/09.adding_animations/02.new_animation.png)
-.. |image3| image:: img/09.adding_animations/03.float_name.png)
-.. |image4| image:: img/09.adding_animations/03.timeline.png)
-.. |image5| image:: img/09.adding_animations/04.autoplay_and_loop.png)
-.. |image6| image:: img/09.adding_animations/05.pin_icon.png)
-.. |image7| image:: img/09.adding_animations/06.animation_duration.png)
-.. |image8| image:: img/09.adding_animations/07.editable_timeline.png)
-.. |image9| image:: img/09.adding_animations/08.zoom_slider.png)
-.. |image10| image:: img/09.adding_animations/09.creating_first_keyframe.png)
-.. |image11| image:: img/09.adding_animations/10.initial_keys.png)
-.. |image12| image:: img/09.adding_animations/11.moving_keys.png)
-.. |image13| image:: img/09.adding_animations/12.second_keys_values.png)
-.. |image14| image:: img/09.adding_animations/13.second_keys.png)
-.. |image15| image:: img/09.adding_animations/14.play_button.png)
-.. |image16| image:: img/09.adding_animations/15.box_select.png)
-.. |image17| image:: img/09.adding_animations/16.easing_property.png)
-.. |image18| image:: img/09.adding_animations/17.ease_out.png)
-.. |image19| image:: img/09.adding_animations/18.ease_out_second_rotation_key.png)
-.. |image20| image:: img/09.adding_animations/19.ease_in_second_translation_key.png)
-.. |image21| image:: img/09.adding_animations/20.float_animation.gif)
-.. |image22| image:: img/09.adding_animations/21.script_icon.png)

@@ -1,7 +1,6 @@
 
 
-Jumping and squashing monsters
-==============================
+# Jumping and squashing monsters
 
 In this part, we'll add the ability to jump, to squash the monsters. In the next
 lesson, we'll make the player die when a monster hits them on the ground.
@@ -10,8 +9,7 @@ First, we have to change a few settings related to physics interactions. Enter
 the world of `physics layers
 ( doc_physics_introduction_collision_layers_and_masks )`.
 
-Controlling physics interactions
---------------------------------
+## Controlling physics interactions
 
 Physics bodies have access to two complementary properties: layers and masks.
 Layers define on which physics layer(s) an object is.
@@ -32,36 +30,34 @@ This means they all collide with each other.
 Physics layers are represented by numbers, but we can give them names to keep
 track of what's what.
 
-Setting layer names
-~~~~~~~~~~~~~~~~~~~
+### Setting layer names
 
 Let's give our physics layers a name. Go to *Project -> Project Settings*.
 
-|image0|
+![](img/06.jump_and_squash/02.project_settings.png)
 
 In the left menu, navigate down to *Layer Names -> 3D Physics*. You can see a
 list of layers with a field next to each of them on the right. You can set their
 names there. Name the first three layers *player*, *enemies*, and *world*,
 respectively.
 
-|image1|
+![](img/06.jump_and_squash/03.physics_layers.png)
 
 Now, we can assign them to our physics nodes.
 
-Assigning layers and masks
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Assigning layers and masks
 
 In the *Main* scene, select the *Ground* node. In the *Inspector*, expand the
 *Collision* section. There, you can see the node's layers and masks as a grid of
 buttons.
 
-|image2|
+![](img/06.jump_and_squash/04.default_physics_properties.png)
 
 The ground is part of the world, so we want it to be part of the third layer.
 Click the lit button to toggle off the first *Layer* and toggle on the third
 one. Then, toggle off the *Mask* by clicking on it.
 
-|image3|
+![](img/06.jump_and_squash/05.toggle_layer_and_mask.png)
 
 As I mentioned above, the *Mask* property allows a node to listen to interaction
 with other physics objects, but we don't need it to have collisions. The
@@ -71,7 +67,7 @@ creatures from falling.
 Note that you can click the "..." button on the right side of the properties to
 see a list of named checkboxes.
 
-|image4|
+![](img/06.jump_and_squash/06.named_checkboxes.png)
 
 Next up are the *Player* and the *Mob*. Open `Player.tscn` by double-clicking
 the file in the *FileSystem* dock.
@@ -80,7 +76,7 @@ Select the *Player* node and set its *Collision -> Mask* to both "enemies" and
 "world". You can leave the default *Layer* property as the first layer is the
 "player" one.
 
-|image5|
+![](img/06.jump_and_squash/07.player_physics_mask.png)
 
 Then, open the *Mob* scene by double-clicking on `Mob.tscn` and select the
 *Mob* node.
@@ -88,7 +84,7 @@ Then, open the *Mob* scene by double-clicking on `Mob.tscn` and select the
 Set its *Collision -> Layer* to "enemies" and unset its *Collision -> Mask*,
 leaving the mask empty.
 
-|image6|
+![](img/06.jump_and_squash/08.mob_physics_mask.png)
 
 These settings mean the monsters will move through one another. If you want the
 monsters to collide with and slide against each other, turn on the "enemies"
@@ -96,12 +92,10 @@ mask.
 
 Note:
 
-
     The mobs don't need to mask the "world" layer because they only move
     on the XZ plane. We don't apply any gravity to them by design.
 
-Jumping
--------
+## Jumping
 
 The jumping mechanic itself requires only two lines of code. Open the *Player*
 script. We need a value to control the jump's strength and update
@@ -149,8 +143,7 @@ great.
 Notice that the Y axis is positive upwards. That's unlike 2D, where the Y axis
 is positive downward.
 
-Squashing monsters
-------------------
+## Squashing monsters
 
 Let's add the squash mechanic next. We're going to make the character bounce
 over monsters and kill them at the same time.
@@ -167,18 +160,17 @@ tags to nodes.
 Click on it to reveal a field where you can write a tag name. Enter "mob" in the
 field and click the *Add* button.
 
-|image7|
+![](img/06.jump_and_squash/09.groups_tab.png)
 
 An icon appears in the *Scene* dock to indicate the node is part of at least one
 group.
 
-|image8|
+![](img/06.jump_and_squash/10.group_scene_icon.png)
 
 We can now use the group from the code to distinguish collisions with monsters
 from collisions with the floor.
 
-Coding the squash mechanic
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Coding the squash mechanic
 
 Head back to the *Player* script to code the squash and bounce.
 
@@ -277,12 +269,3 @@ With that, you should be able to kill monsters by jumping on them. You can press
 
 However, the player won't die yet. We'll work on that in the next part.
 
-.. |image0| image:: img/06.jump_and_squash/02.project_settings.png)
-.. |image1| image:: img/06.jump_and_squash/03.physics_layers.png)
-.. |image2| image:: img/06.jump_and_squash/04.default_physics_properties.png)
-.. |image3| image:: img/06.jump_and_squash/05.toggle_layer_and_mask.png)
-.. |image4| image:: img/06.jump_and_squash/06.named_checkboxes.png)
-.. |image5| image:: img/06.jump_and_squash/07.player_physics_mask.png)
-.. |image6| image:: img/06.jump_and_squash/08.mob_physics_mask.png)
-.. |image7| image:: img/06.jump_and_squash/09.groups_tab.png)
-.. |image8| image:: img/06.jump_and_squash/10.group_scene_icon.png)

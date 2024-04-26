@@ -1,7 +1,6 @@
 
 
-Score and replay
-================
+# Score and replay
 
 In this part, we'll add the score, music playback, and the ability to restart
 the game.
@@ -15,11 +14,11 @@ edit your User Interface (UI).
 
 Add a *Label* node and rename it to *ScoreLabel*.
 
-|image0|
+![](img/08.score_and_replay/01.label_node.png)
 
 In the *Inspector*, set the *Label*'s *Text* to a placeholder like "Score: 0".
 
-|image1|
+![](img/08.score_and_replay/02.score_placeholder.png)
 
 Also, the text is white by default, like our game's background. We need to
 change its color to see it at runtime.
@@ -27,38 +26,36 @@ change its color to see it at runtime.
 Scroll down to *Theme Overrides*, and expand *Colors* and click the black box next to *Font Color* to
 tint the text.
 
-|image2|
+![](img/08.score_and_replay/02.score_custom_color.png)
 
 Pick a dark tone so it contrasts well with the 3D scene.
 
-|image3|
+![](img/08.score_and_replay/02.score_color_picker.png)
 
 Finally, click and drag on the text in the viewport to move it away from the
 top-left corner.
 
-|image4|
+![](img/08.score_and_replay/02.score_label_moved.png)
 
 The *UserInterface* node allows us to group our UI in a branch of the scene tree
 and use a theme resource that will propagate to all its children. We'll use it
 to set our game's font.
 
-Creating a UI theme
--------------------
+## Creating a UI theme
 
 Once again, select the *UserInterface* node. In the *Inspector*, create a new
 theme resource in *Theme -> Theme*.
 
-|image5|
+![](img/08.score_and_replay/03.creating_theme.png)
 
 Click on it to open the theme editor In the bottom panel. It gives you a preview
 of how all the built-in UI widgets will look with your theme resource.
 
-|image6|
+![](img/08.score_and_replay/04.theme_preview.png)
 
 By default, a theme only has one property, the *Default Font*.
 
 See also:
-
 
     You can add more properties to the theme resource to design complex user
     interfaces, but that is beyond the scope of this series. To learn more about
@@ -66,12 +63,12 @@ See also:
 
 Click the *Default Font* property and create a new *DynamicFont*.
 
-|image7|
+![](img/08.score_and_replay/05.dynamic_font.png)
 
 Expand the *DynamicFont* by clicking on it and expand its *Font* section. There,
 you will see an empty *Font Data* field.
 
-|image8|
+![](img/08.score_and_replay/06.font_data.png)
 
 This one expects a font file like the ones you have on your computer.
 DynamicFont supports the following formats:
@@ -88,10 +85,9 @@ The text will reappear in the theme preview.
 The text is a bit small. Set the *Settings -> Size* to `22` pixels to increase
 the text's size.
 
-|image9|
+![](img/08.score_and_replay/07.font_size.png)
 
-Keeping track of the score
---------------------------
+## Keeping track of the score
 
 Let's work on the score next. Attach a new script to the *ScoreLabel* and define
 the `score` variable.
@@ -114,7 +110,7 @@ monster.
 Open the script `Main.gd`. If it's still open, you can click on its name in
 the script editor's left column.
 
-|image10|
+![](img/08.score_and_replay/08.open_main_script.png)
 
 Alternatively, you can double-click the `Main.gd` file in the *FileSystem*
 dock.
@@ -154,13 +150,12 @@ function.
 
 See also:
 
-
     You can learn more about string formatting here: `doc_gdscript_printf`.
 
 You can now play the game and squash a few enemies to see the score
 increase.
 
-|image11|
+![](img/08.score_and_replay/09.score_in_game.png)
 
 Note:
 
@@ -171,8 +166,7 @@ Note:
     object. But when prototyping or when your project is simple, it is fine to
     keep your code simple. Programming is always a balancing act.
 
-Retrying the game
------------------
+## Retrying the game
 
 We'll now add the ability to play again after dying. When the player dies, we'll
 display a message on the screen and wait for input.
@@ -185,16 +179,16 @@ screen.
 To make it span over the whole viewport, you can use the *Layout* menu in the
 toolbar.
 
-|image12|
+![](img/08.score_and_replay/10.layout_icon.png)
 
 Open it and apply the *Full Rect* command.
 
-|image13|
+![](img/08.score_and_replay/11.full_rect_option.png)
 
 Nothing happens. Well, almost nothing: only the four green pins move to the
 corners of the selection box.
 
-|image14|
+![](img/08.score_and_replay/12.anchors_updated.png)
 
 This is because UI nodes (all the ones with a green icon) work with anchors and
 margins relative to their parent's bounding box. Here, the *UserInterface* node
@@ -208,20 +202,19 @@ Let's change its color so it darkens the game area. Select *Retry* and in the
 in the color picker, drag the *A* slider to the left. It controls the color's
 alpha channel, that is to say, its opacity.
 
-|image15|
+![](img/08.score_and_replay/13.retry_color_picker.png)
 
 Next, add a *Label* as a child of *Retry* and give it the *Text* "Press Enter to
 retry."
 
-|image16|
+![](img/08.score_and_replay/14.retry_node.png)
 
 To move it and anchor it in the center of the screen, apply *Layout -> Center*
 to it.
 
-|image17|
+![](img/08.score_and_replay/15.layout_center.png)
 
-Coding the retry option
-~~~~~~~~~~~~~~~~~~~~~~~
+### Coding the retry option
 
 We can now head to the code to show and hide the *Retry* node when the player
 dies and plays again.
@@ -268,8 +261,7 @@ The function `get_tree()` gives us access to the global `SceneTree
 ( SceneTree )` object, which allows us to reload and restart the current
 scene.
 
-Adding music
-------------
+## Adding music
 
 To add music that plays continuously in the background, we're going to use
 another feature in Pandemonium: `autoloads ( doc_singletons_autoload )`.
@@ -285,19 +277,19 @@ use it to create globally accessible objects.
 
 Create a new scene by going to the *Scene* menu and clicking *New Scene*.
 
-|image18|
+![](img/08.score_and_replay/16.new_scene.png)
 
 Click the *Other Node* button to create an *AudioStreamPlayer* and rename it to
 *MusicPlayer*.
 
-|image19|
+![](img/08.score_and_replay/17.music_player_node.png)
 
 We included a music soundtrack in the `art/` directory, `House In a Forest
 Loop.ogg`. Click and drag it onto the *Stream* property in the *Inspector*.
 Also, turn on *Autoplay* so the music plays automatically at the start of the
 game.
 
-|image20|
+![](img/08.score_and_replay/18.music_node_properties.png)
 
 Save the scene as `MusicPlayer.tscn`.
 
@@ -308,7 +300,7 @@ In the *Path* field, you want to enter the path to your scene. Click the folder
 icon to open the file browser and double-click on `MusicPlayer.tscn`. Then,
 click the *Add* button on the right to register the node.
 
-|image21|
+![](img/08.score_and_replay/19.register_autoload.png)
 
 If you run the game now, the music will play automatically. And even when you
 lose and retry, it keeps going.
@@ -317,13 +309,13 @@ Before we wrap up this lesson, here's a quick look at how it works under the
 hood. When you run the game, your *Scene* dock changes to give you two tabs:
 *Remote* and *Local*.
 
-|image22|
+![](img/08.score_and_replay/20.scene_dock_tabs.png)
 
 The *Remote* tab allows you to visualize the node tree of your running game.
 There, you will see the *Main* node and everything the scene contains and the
 instantiated mobs at the bottom.
 
-|image23|
+![](img/08.score_and_replay/21.remote_scene_tree.png)
 
 At the top are the autoloaded *MusicPlayer* and a *root* node, which is your
 game's viewport.
@@ -369,27 +361,3 @@ gdscript GDScript
        $UserInterface/Retry.show()
 ```
 
-.. |image0| image:: img/08.score_and_replay/01.label_node.png)
-.. |image1| image:: img/08.score_and_replay/02.score_placeholder.png)
-.. |image2| image:: img/08.score_and_replay/02.score_custom_color.png)
-.. |image3| image:: img/08.score_and_replay/02.score_color_picker.png)
-.. |image4| image:: img/08.score_and_replay/02.score_label_moved.png)
-.. |image5| image:: img/08.score_and_replay/03.creating_theme.png)
-.. |image6| image:: img/08.score_and_replay/04.theme_preview.png)
-.. |image7| image:: img/08.score_and_replay/05.dynamic_font.png)
-.. |image8| image:: img/08.score_and_replay/06.font_data.png)
-.. |image9| image:: img/08.score_and_replay/07.font_size.png)
-.. |image10| image:: img/08.score_and_replay/08.open_main_script.png)
-.. |image11| image:: img/08.score_and_replay/09.score_in_game.png)
-.. |image12| image:: img/08.score_and_replay/10.layout_icon.png)
-.. |image13| image:: img/08.score_and_replay/11.full_rect_option.png)
-.. |image14| image:: img/08.score_and_replay/12.anchors_updated.png)
-.. |image15| image:: img/08.score_and_replay/13.retry_color_picker.png)
-.. |image16| image:: img/08.score_and_replay/14.retry_node.png)
-.. |image17| image:: img/08.score_and_replay/15.layout_center.png)
-.. |image18| image:: img/08.score_and_replay/16.new_scene.png)
-.. |image19| image:: img/08.score_and_replay/17.music_player_node.png)
-.. |image20| image:: img/08.score_and_replay/18.music_node_properties.png)
-.. |image21| image:: img/08.score_and_replay/19.register_autoload.png)
-.. |image22| image:: img/08.score_and_replay/20.scene_dock_tabs.png)
-.. |image23| image:: img/08.score_and_replay/21.remote_scene_tree.png)

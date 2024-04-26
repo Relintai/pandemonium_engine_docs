@@ -1,7 +1,6 @@
 
 
-The main game scene
-===================
+# The main game scene
 
 Now it's time to bring everything we did together into a playable game scene.
 
@@ -35,8 +34,7 @@ Set the `Wait Time` property of each of the `Timer` nodes as follows:
 In addition, set the `One Shot` property of `StartTimer` to "On" and set
 `Position` of the `StartPosition` node to `(240, 450)`.
 
-Spawning mobs
-~~~~~~~~~~~~~
+## Spawning mobs
 
 The Main node will be spawning new mobs, and we want them to appear at a random
 location on the edge of the screen. Add a `Path2D` node
@@ -70,8 +68,7 @@ Your scene should look like this:
 
 ![](img/main_scene_nodes.png)
 
-Main script
-~~~~~~~~~~~
+## Main script
 
 Add a script to `Main`. At the top of the script, we use `export
 (PackedScene)` to allow us to choose the Mob scene we want to instance.
@@ -190,8 +187,7 @@ gdscript GDScript
                use the `deg2rad()` and `rad2deg()` functions to convert
                between the two.
 
-Testing the scene
-~~~~~~~~~~~~~~~~~
+## Testing the scene
 
 Let's test the scene to make sure everything is working. Add this `new_game`
 call to `ready()`:

@@ -1,7 +1,6 @@
 
 
-Killing the player
-==================
+# Killing the player
 
 We can kill enemies by jumping on them, but the player still can't die.
 Let's fix this.
@@ -12,17 +11,16 @@ they're in the air. We could use vector math to distinguish the two
 kinds of collisions. Instead, though, we will use an *Area* node, which
 works well for hitboxes.
 
-Hitbox with the Area node
--------------------------
+## Hitbox with the Area node
 
 Head back to the *Player* scene and add a new *Area* node. Name it
 *MobDetector*. Add a *CollisionShape* node as a child of it.
 
-|image0|
+![](img/07.killing_player/01.adding_area_node.png)
 
 In the *Inspector*, assign a cylinder shape to it.
 
-|image1|
+![](img/07.killing_player/02.cylinder_shape.png)
 
 Here is a trick you can use to make the collisions only happen when the
 player is on the ground or close to it. You can reduce the cylinder's
@@ -30,7 +28,7 @@ height and move it up to the top of the character. This way, when the
 player jumps, the shape will be too high up for the enemies to collide
 with it.
 
-|image2|
+![](img/07.killing_player/03.cylinder_in_editor.png)
 
 You also want the cylinder to be wider than the sphere. This way, the
 player gets hit before colliding and being pushed on top of the
@@ -44,13 +42,13 @@ cannot detect the area. The complementary *Monitoring* property allows
 it to detect collisions. Then, remove the *Collision -> Layer* and set
 the mask to the "enemies" layer.
 
-|image3|
+![](img/07.killing_player/04.mob_detector_properties.png)
 
 When areas detect a collision, they emit signals. We're going to connect
 one to the *Player* node. In the *Node* tab, double-click the
 `body_entered` signal and connect it to the *Player*.
 
-|image4|
+![](img/07.killing_player/05.body_entered_signal.png)
 
 The *MobDetector* will emit `body_entered` when a *KinematicBody* or a
 *RigidBody* node enters it. As it only masks the "enemies" physics
@@ -85,8 +83,7 @@ However, note that this depends entirely on the size and position of the
 *Player* and the *Mob*\ 's collision shapes. You may need to move them
 and resize them to achieve a tight game feel.
 
-Ending the game
----------------
+## Ending the game
 
 We can use the *Player*\ 's `hit` signal to end the game. All we need
 to do is connect it to the *Main* node and stop the *MobTimer* in
@@ -95,7 +92,7 @@ reaction.
 Open `Main.tscn`, select the *Player* node, and in the *Node* dock,
 connect its `hit` signal to the *Main* node.
 
-|image5|
+![](img/07.killing_player/06.player_hit_signal.png)
 
 Get and stop the timer in the `on_Player_hit()` function.
 
@@ -116,8 +113,7 @@ From there, we'll add a score, the option to retry the game, and you'll
 see how you can make the game feel much more alive with minimalistic
 animations.
 
-Code checkpoint
----------------
+## Code checkpoint
 
 Here are the complete scripts for the *Main*, *Mob*, and *Player* nodes,
 for reference. You can use them to compare and check your code.
@@ -265,9 +261,4 @@ gdscript GDScript
 
 See you in the next lesson to add the score and the retry option.
 
-.. |image0| image:: img/07.killing_player/01.adding_area_node.png)
-.. |image1| image:: img/07.killing_player/02.cylinder_shape.png)
-.. |image2| image:: img/07.killing_player/03.cylinder_in_editor.png)
-.. |image3| image:: img/07.killing_player/04.mob_detector_properties.png)
-.. |image4| image:: img/07.killing_player/05.body_entered_signal.png)
-.. |image5| image:: img/07.killing_player/06.player_hit_signal.png)
+

@@ -1,10 +1,8 @@
 
 
-Matrices and transforms
-=======================
+# Matrices and transforms
 
-Introduction
-------------
+## Introduction
 
 Before reading this tutorial, we recommend that you thoroughly read
 and understand the `doc_vector_math` tutorial, as this tutorial
@@ -30,8 +28,7 @@ Note:
           to match these conventions, but we will also represent
           the origin vector with a blue color.
 
-Matrix components and the Identity matrix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Matrix components and the Identity matrix
 
 The identity matrix represents a transform with no translation,
 no rotation, and no scale. Let's start by looking at the identity
@@ -57,8 +54,7 @@ the X column vector. In other words, the bottom-left of the matrix.
 Similarly, `t.x.x` is top-left, `t.y.x` is top-right, and `t.y.y`
 is bottom-right, where `t` is the Transform2D.
 
-Scaling the transformation matrix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Scaling the transformation matrix
 
 Applying a scale is one of the easiest operations to understand.
 Let's start by placing the Pandemonium logo underneath our vectors
@@ -95,8 +91,7 @@ Note:
  In actual projects, you can use the `scaled()`
           method to perform scaling.
 
-Rotating the transformation matrix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Rotating the transformation matrix
 
 We'll start the same way as earlier, with the Pandemonium logo underneath
 the identity matrix:
@@ -172,8 +167,7 @@ Note:
  In actual projects, you can use the `rotated()`
           method to perform rotations.
 
-Basis of the transformation matrix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Basis of the transformation matrix
 
 So far we have only been working with the `x` and `y`, vectors, which
 are in charge of representing rotation, scale, and/or shearing
@@ -195,8 +189,7 @@ since the code can get complex and it makes sense to separate
 it from `Transform` (which is composed of one
 `Basis` and one extra `Vector3` for the origin).
 
-Translating the transformation matrix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Translating the transformation matrix
 
 Changing the `origin` vector is called a *translating* the transformation
 matrix. Translating is basically a technical term for "moving" the
@@ -223,8 +216,7 @@ Note:
  Pandemonium's 2D uses coordinates based on pixels, so in actual
           projects you will want to translate by hundreds of units.
 
-Putting it all together
-~~~~~~~~~~~~~~~~~~~~~~~
+### Putting it all together
 
 We're going to apply everything we mentioned so far onto one transform.
 To follow along, create a simple project with a Sprite node and use the
@@ -254,8 +246,7 @@ gdscript GDScript
     transform = t # Change the node's transform to what we just calculated.
 ```
 
-Shearing the transformation matrix (advanced)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Shearing the transformation matrix (advanced)
 
 Note:
  If you are only looking for how to *use* transformation matrices,
@@ -336,8 +327,7 @@ If you would like additional explanation, you should check out
 3Blue1Brown's excellent video about linear transformations:
 https://www.youtube.com/watch?v=kYB8IZa5AuE
 
-Practical applications of transforms
-------------------------------------
+## Practical applications of transforms
 
 In actual projects, you will usually be working with transforms inside
 transforms by having multiple `Node2D` or `Spatial`
@@ -347,8 +337,7 @@ However, sometimes it's very useful to manually calculate the values we
 need. We will go over how you could use `Transform2D` or
 `Transform` to manually calculate transforms of nodes.
 
-Converting positions between transforms
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Converting positions between transforms
 
 There are many cases where you'd want to convert a position in and out of
 a transform. For example, if you have a position relative to the player
@@ -380,8 +369,7 @@ Note:
           (0, 0), you can use the "basis_xform" or "basis_xform_inv"
           methods instead, which skip dealing with translation.
 
-Moving an object relative to itself
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Moving an object relative to itself
 
 A common operation, especially in 3D games, is to move an object relative
 to itself. For example, in first-person shooter games, you would want the
@@ -405,8 +393,7 @@ Note:
  In actual projects, you can use `translate_object_local` in 3D
           or `move_local_x` and `move_local_y` in 2D to do this.
 
-Applying transforms onto transforms
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Applying transforms onto transforms
 
 One of the most important things to know about transforms is how you
 can use several of them together. A parent node's transform affects
@@ -478,8 +465,7 @@ If you would like additional explanation, you should check out
 3Blue1Brown's excellent video about matrix composition:
 https://www.youtube.com/watch?v=XkY2DOUCWMU
 
-Inverting a transformation matrix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Inverting a transformation matrix
 
 The "affine_inverse" function returns a transform that "undoes" the
 previous transform. This can be useful in some situations, but it's
@@ -508,8 +494,7 @@ gdscript GDScript
     # The position is the same as before.
 ```
 
-How does it all work in 3D?
----------------------------
+## How does it all work in 3D?
 
 One of the great things about transformation matrices is that they
 work very similarly between 2D and 3D transformations.
@@ -548,8 +533,7 @@ If you would like additional explanation, you should check out
 3Blue1Brown's excellent video about 3D linear transformations:
 https://www.youtube.com/watch?v=rHLEWRxRGiM
 
-Representing rotation in 3D (advanced)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Representing rotation in 3D (advanced)
 
 The biggest difference between 2D and 3D transformation matrices is
 how you represent rotation by itself without the basis vectors.

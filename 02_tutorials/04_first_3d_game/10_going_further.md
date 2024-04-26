@@ -1,7 +1,6 @@
 
 
-Going further
-=============
+# Going further
 
 You can pat yourself on the back for having completed your first 3D game with
 Pandemonium.
@@ -19,8 +18,7 @@ build upon what you’ve learned so far.
 But before that, here’s a link to download a completed version of the project:
 `( https://github.com/GDQuest/pandemonium-3d-dodge-the-creeps )`.
 
-Exploring the manual
---------------------
+## Exploring the manual
 
 The manual is your ally whenever you have a doubt or you’re curious about a
 feature. It does not contain tutorials about specific game genres or mechanics.

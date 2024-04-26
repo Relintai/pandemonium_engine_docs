@@ -1,7 +1,6 @@
 
 
-Designing the mob scene
-=======================
+# Designing the mob scene
 
 In this part, you're going to code the monsters, which we'll call mobs. In the
 next lesson, we'll spawn them randomly around the playable area.
@@ -15,20 +14,20 @@ the file `mob.glb` from the *FileSystem* dock onto the *Pivot* to add the
 monster's 3D model to the scene. You can rename the newly created *mob* node
 into *Character*.
 
-|image0|
+![](img/04.mob_scene/01.initial_three_nodes.png)
 
 We need a collision shape for our body to work. Right-click on the *Mob* node,
 the scene's root, and click *Add Child Node*.
 
-|image1|
+![](img/04.mob_scene/02.add_child_node.png)
 
 Add a *CollisionShape*.
 
-|image2|
+![](img/04.mob_scene/03.scene_with_collision_shape.png)
 
 In the *Inspector*, assign a *BoxShape* to the *Shape* property.
 
-|image3|
+![](img/04.mob_scene/04.create_box_shape.png)
 
 We should change its size to fit the 3D model better. You can do so
 interactively by clicking and dragging on the orange dots.
@@ -39,15 +38,14 @@ corner, a collision will occur. If the box is a little too big compared to the
 3D model, you may die at a distance from the monster, and the game will feel
 unfair to the players.
 
-|image4|
+![](img/04.mob_scene/05.box_final_size.png)
 
 Notice that my box is taller than the monster. It is okay in this game because
 we're looking at the scene from above and using a fixed perspective. Collision
 shapes don't have to match the model exactly. It's the way the game feels when
 you test it that should dictate their form and size.
 
-Removing monsters off-screen
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Removing monsters off-screen
 
 We're going to spawn monsters at regular time intervals in the game level. If
 we're not careful, their count could increase to infinity, and we don't want
@@ -76,14 +74,13 @@ Select the *Mob* node and add a *VisibilityNotifier* as a child of it. Another
 box, pink this time, appears. When this box completely leaves the screen, the
 node will emit a signal.
 
-|image5|
+![](img/04.mob_scene/06.visibility_notifier.png)
 
 Resize it using the orange dots until it covers the entire 3D model.
 
-|image6|
+![](img/04.mob_scene/07.visibility_notifier_bbox_resized.png)
 
-Coding the mob's movement
--------------------------
+## Coding the mob's movement
 
 Let's implement the monster's motion. We're going to do this in two steps.
 First, we'll write a script on the *Mob* that defines a function to initialize
@@ -92,7 +89,7 @@ and call the function from there.
 
 Attach a script to the *Mob*.
 
-|image7|
+![](img/04.mob_scene/08.mob_attach_script.png)
 
 Here's the movement code to start with. We define two properties, `min_speed`
 and `max_speed`, to define a random speed range. We then define and initialize
@@ -171,8 +168,7 @@ gdscript GDScript
        velocity = velocity.rotated(Vector3.UP, rotation.y)
 ```
 
-Leaving the screen
-------------------
+## Leaving the screen
 
 We still have to destroy the mobs when they leave the screen. To do so, we'll
 connect our *VisibilityNotifier* node's `screen_exited` signal to the *Mob*.
@@ -180,16 +176,16 @@ connect our *VisibilityNotifier* node's `screen_exited` signal to the *Mob*.
 Head back to the 3D viewport by clicking on the *3D* label at the top of the
 editor. You can also press :kbd:`Ctrl + F2` (:kbd:`Alt + 2` on macOS).
 
-|image8|
+![](img/04.mob_scene/09.switch_to_3d_workspace.png)
 
 Select the *VisibilityNotifier* node and on the right side of the interface,
 navigate to the *Node* dock. Double-click the *screen_exited()* signal.
 
-|image9|
+![](img/04.mob_scene/10.node_dock.png)
 
 Connect the signal to the *Mob*.
 
-|image10|
+![](img/04.mob_scene/11.connect_signal.png)
 
 This will take you back to the script editor and add a new function for you,
 `on_VisibilityNotifier_screen_exited()`. From it, call the `queue_free()`
@@ -236,15 +232,3 @@ gdscript GDScript
    func _on_VisibilityNotifier_screen_exited():
        queue_free()
 ```
-
-.. |image0| image:: img/04.mob_scene/01.initial_three_nodes.png)
-.. |image1| image:: img/04.mob_scene/02.add_child_node.png)
-.. |image2| image:: img/04.mob_scene/03.scene_with_collision_shape.png)
-.. |image3| image:: img/04.mob_scene/04.create_box_shape.png)
-.. |image4| image:: img/04.mob_scene/05.box_final_size.png)
-.. |image5| image:: img/04.mob_scene/06.visibility_notifier.png)
-.. |image6| image:: img/04.mob_scene/07.visibility_notifier_bbox_resized.png)
-.. |image7| image:: img/04.mob_scene/08.mob_attach_script.png)
-.. |image8| image:: img/04.mob_scene/09.switch_to_3d_workspace.png)
-.. |image9| image:: img/04.mob_scene/10.node_dock.png)
-.. |image10| image:: img/04.mob_scene/11.connect_signal.png)

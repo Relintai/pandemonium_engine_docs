@@ -1,7 +1,6 @@
 
 
-Interpolation
-=============
+# Interpolation
 
 Interpolation is a very basic operation in graphics programming. It's good to become familiar with it in order to expand your horizons as a graphics developer.
 
@@ -25,8 +24,7 @@ The name of this type of interpolation, which transforms a value into another at
 
 There are other types of interpolations, which will not be covered here. A recommended read afterwards is the `Bezier ( doc_beziers_and_curves )` page.
 
-Vector interpolation
---------------------
+## Vector interpolation
 
 Vector types (`Vector2`) can also be interpolated, they come with handy functions to do it
 `Vector2.linear_interpolate()`.
@@ -50,8 +48,7 @@ It will produce the following motion:
 
 ![](img/interpolation_vector.gif)
 
-Transform interpolation
------------------------
+## Transform interpolation
 
 It is also possible to interpolate whole transforms (make sure they have either uniform scale or, at least, the same non-uniform scale).
 For this, the function `Transform.interpolate_with()` can be used.
@@ -78,8 +75,7 @@ And again, it will produce the following motion:
 ![](img/interpolation_monkey.gif)
 
 
-Smoothing motion
-----------------
+## Smoothing motion
 
 Interpolation can be used to smooth movement, rotation, etc. Here is an example of a circle following the mouse using smoothed motion:
 

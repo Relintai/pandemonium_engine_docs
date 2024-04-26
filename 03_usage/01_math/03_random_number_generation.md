@@ -1,7 +1,6 @@
 
 
-Random number generation
-========================
+# Random number generation
 
 Many games rely on randomness to implement core game mechanics. This page
 guides you through common types of randomness and how to implement them in
@@ -13,13 +12,11 @@ and how to use a noise generator in GDScript.
 
 Note:
 
-
     Computers cannot generate "true" random numbers. Instead, they rely on
     `pseudorandom number generators
     ( https://en.wikipedia.org/wiki/Pseudorandom_number_generator )` (PRNGs).
 
-Global scope versus RandomNumberGenerator class
------------------------------------------------
+## Global scope versus RandomNumberGenerator class
 
 Pandemonium exposes two ways to generate random numbers: via *global scope* methods or
 using the `RandomNumberGenerator` class.
@@ -35,8 +32,7 @@ multiple instances each with their own seed.
 This tutorial uses global scope methods, except when the method only exists in
 the RandomNumberGenerator class.
 
-The randomize() method
-----------------------
+## The randomize() method
 
 In global scope, you can find a `randomize()
 ( @GDScript_method_randomize )` method. **This method should be called only
@@ -76,8 +72,7 @@ gdscript GDScript
 ```
 
 
-Getting a random number
------------------------
+## Getting a random number
 
 Let's look at some of the most commonly used functions and methods to generate
 random numbers in Pandemonium.
@@ -142,8 +137,7 @@ gdscript GDScript
     print(random.randi_range(-10, 10))
 ```
 
-Get a random array element
---------------------------
+## Get a random array element
 
 We can use random integer generation to get a random element from an array:
 
@@ -206,8 +200,7 @@ repetitive. Still, it doesn't prevent results from "ping-ponging" between a
 limited set of values. To prevent this, use the `shuffle bag
 ( doc_random_number_generation_shuffle_bags )` pattern instead.
 
-Get a random dictionary value
------------------------------
+## Get a random dictionary value
 
 We can apply similar logic from arrays to dictionaries as well:
 
@@ -235,10 +228,7 @@ gdscript GDScript
         return random_metal
 ```
 
-
-
-Weighted random probability
----------------------------
+## Weighted random probability
 
 The `randf()` method returns a
 floating-point number between 0.0 and 1.0. We can use this to create a
@@ -268,10 +258,7 @@ gdscript GDScript
             return "Rare"
 ```
 
-
-
-"Better" randomness using shuffle bags
---------------------------------------
+## "Better" randomness using shuffle bags
 
 Taking the same example as above, we would like to pick fruits at random.
 However, relying on random number generation every time a fruit is selected can
@@ -315,8 +302,7 @@ row. Once we picked a fruit, it will no longer be a possible return value unless
 the array is now empty. When the array is empty, we reset it back to its default
 value, making it possible to have the same fruit again, but only once.
 
-Random noise
-------------
+## Random noise
 
 The random number generation shown above can show its limits when you need a
 value that *slowly* changes depending on the input. The input can be a position,

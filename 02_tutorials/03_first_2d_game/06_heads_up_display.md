@@ -1,7 +1,6 @@
 
 
-Heads up display
-================
+# Heads up display
 
 The final piece our game needs is a User Interface (UI) to display things like
 score, a "game over" message, and a restart button.
@@ -68,23 +67,20 @@ node's layout:
 You can drag the nodes to place them manually, or for more precise placement,
 use the following settings:
 
-ScoreLabel
-~~~~~~~~~~
+## ScoreLabel
 
 -  *Layout* : "Top Wide"
 -  *Text* : `0`
 -  *Align* : "Center"
 
-Message
-~~~~~~~~~~~~
+## Message
 
 -  *Layout* : "HCenter Wide"
 -  *Text* : `Dodge the Creeps!`
 -  *Align* : "Center"
 -  *Autowrap* : "On"
 
-StartButton
-~~~~~~~~~~~
+## StartButton
 
 -  *Text* : `Start`
 -  *Layout* : "Center Bottom"
@@ -169,8 +165,7 @@ gdscript GDScript
         $Message.hide()
 ```
 
-Connecting HUD to Main
-~~~~~~~~~~~~~~~~~~~~~~
+## Connecting HUD to Main
 
 Now that we're done creating the `HUD` scene, go back to `Main`. Instance
 the `HUD` scene in `Main` like you did the `Player` scene. The scene tree
@@ -215,8 +210,7 @@ gdscript GDScript
 Now you're ready to play! Click the "Play the Project" button. You will be asked
 to select a main scene, so choose `Main.tscn`.
 
-Removing old creeps
-~~~~~~~~~~~~~~~~~~~
+## Removing old creeps
 
 If you play until "Game Over" and then start a new game right away, the creeps
 from the previous game may still be on the screen. It would be better if they

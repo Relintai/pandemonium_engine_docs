@@ -1,10 +1,8 @@
 
 
-Vector math
-===========
+# Vector math
 
-Introduction
-~~~~~~~~~~~~
+### Introduction
 
 This tutorial is a short and practical introduction to linear algebra as
 it applies to game development. Linear algebra is the study of vectors and
@@ -18,8 +16,7 @@ Note:
           For a broader look at the mathematics,
           see https://www.khanacademy.org/math/linear-algebra
 
-Coordinate systems (2D)
-~~~~~~~~~~~~~~~~~~~~~~~
+### Coordinate systems (2D)
 
 In 2D space, coordinates are defined using a horizontal axis (`x`) and
 a vertical axis (`y`). A particular position in 2D space is written
@@ -56,8 +53,7 @@ Both vectors represent a point 4 units to the right and 3 units below some
 starting point. It does not matter where on the plane you draw the vector,
 it always represents a relative direction and magnitude.
 
-Vector operations
-~~~~~~~~~~~~~~~~~
+### Vector operations
 
 You can use either method (x and y coordinates or angle and magnitude) to
 refer to a vector, but for convenience, programmers typically use the
@@ -75,8 +71,7 @@ Pandemonium supports both `Vector2` and
 `Vector3` for 2D and 3D usage, respectively. The same
 mathematical rules discussed in this article apply to both types.
 
-Member access
--------------
+## Member access
 
 The individual components of the vector can be accessed directly by name.
 
@@ -91,8 +86,7 @@ gdscript GDScript
     b.y = 1
 ```
 
-Adding vectors
---------------
+## Adding vectors
 
 When adding or subtracting two vectors, the corresponding components are added:
 
@@ -109,8 +103,7 @@ the first:
 
 Note that adding `a + b` gives the same result as `b + a`.
 
-Scalar multiplication
----------------------
+## Scalar multiplication
 
 Note:
  Vectors represent both direction and magnitude. A value
@@ -131,13 +124,11 @@ Note:
  Multiplying a vector by a scalar does not change its direction,
           only its magnitude. This is how you **scale** a vector.
 
-Practical applications
-~~~~~~~~~~~~~~~~~~~~~~
+### Practical applications
 
 Let's look at two common uses for vector addition and subtraction.
 
-Movement
---------
+## Movement
 
 A vector can represent **any** quantity with a magnitude and direction. Typical examples are: position, velocity, acceleration, and force. In
 this image, the spaceship at step 1 has a position vector of `(1,3)` and
@@ -151,8 +142,7 @@ Tip:
  Velocity measures the **change** in position per unit of time. The
          new position is found by adding velocity to the previous position.
 
-Pointing toward a target
-------------------------
+## Pointing toward a target
 
 In this scenario, you have a tank that wishes to point its turret at a
 robot. Subtracting the tank's position from the robot's position gives the
@@ -163,15 +153,13 @@ vector pointing from the tank to the robot.
 Tip:
  To find a vector pointing from `A` to `B` use `B - A`.
 
-Unit vectors
-~~~~~~~~~~~~
+### Unit vectors
 
 A vector with **magnitude** of `1` is called a **unit vector**. They are
 also sometimes referred to as **direction vectors** or **normals**. Unit
 vectors are helpful when you need to keep track of a direction.
 
-Normalization
--------------
+## Normalization
 
 **Normalizing** a vector means reducing its length to `1` while
 preserving its direction. This is done by dividing each of its components
@@ -184,14 +172,13 @@ gdscript GDScript
     a = a.normalized()
 ```
 
-
 Warning:
+
  Because normalization involves dividing by the vector's length,
              you cannot normalize a vector of length `0`. Attempting to
              do so will result in an error.
 
-Reflection
-----------
+## Reflection
 
 A common use of unit vectors is to indicate **normals**. Normal
 vectors are unit vectors aligned perpendicularly to a surface, defining
@@ -222,8 +209,7 @@ gdscript GDScript
         move_and_collide(reflect)
 ```
 
-Dot product
-~~~~~~~~~~~
+### Dot product
 
 The **dot product** is one of the most important concepts in vector math,
 but is often misunderstood. Dot product is an operation on two vectors that
@@ -257,8 +243,7 @@ product to tell us something about the angle between two vectors:
 When using unit vectors, the result will always be between `-1` (180°)
 and `1` (0°).
 
-Facing
-------
+## Facing
 
 We can use this fact to detect whether an object is facing toward another
 object. In the diagram below, the player `P` is trying to avoid the
@@ -284,8 +269,7 @@ gdscript GDScript
         print("A sees P!")
 ```
 
-Cross product
-~~~~~~~~~~~~~
+### Cross product
 
 Like the dot product, the **cross product** is an operation on two vectors.
 However, the result of the cross product is a vector with a direction
@@ -320,8 +304,7 @@ Note:
           give the same result as `b.cross(a)`. The resulting vectors
           point in **opposite** directions.
 
-Calculating normals
--------------------
+## Calculating normals
 
 One common use of cross products is to find the surface normal of a plane
 or surface in 3D space. If we have the triangle `ABC` we can use vector
@@ -341,8 +324,7 @@ gdscript GDScript
         return normal
 ```
 
-Pointing to a target
---------------------
+## Pointing to a target
 
 In the dot product section above, we saw how it could be used to find the
 angle between two vectors. However, in 3D, this is not enough information.
@@ -351,8 +333,7 @@ calculating the cross product of the current facing direction and the
 target direction. The resulting perpendicular vector is the axis of
 rotation.
 
-More information
-~~~~~~~~~~~~~~~~
+### More information
 
 For more information on using vector math in Pandemonium, see the following articles:
 

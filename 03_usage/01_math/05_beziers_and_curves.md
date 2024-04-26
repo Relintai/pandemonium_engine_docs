@@ -1,7 +1,5 @@
 
-
-Beziers, curves and paths
-=========================
+# Beziers, curves and paths
 
 Bezier curves are a mathematical approximation of natural geometric shapes. We
 use them to represent a curve with as little information as possible and with a
@@ -15,8 +13,7 @@ previous article, combining multiple steps to create smooth curves. To better
 understand how Bezier curves work, let's start from its simplest form: Quadratic
 Bezier.
 
-Quadratic Bezier
-----------------
+## Quadratic Bezier
 
 Take three points, the minimum required for Quadratic Bezier to work:
 
@@ -51,8 +48,7 @@ This type of curve is called a *Quadratic Bezier* curve.
 
 *(Image credit: Wikipedia)*
 
-Cubic Bezier
-------------
+## Cubic Bezier
 
 Building upon the previous example, we can get more control by interpolating
 between four points.
@@ -124,8 +120,7 @@ Note:
  Cubic Bezier interpolation works the same in 3D, just use `Vector3`
           instead of `Vector2`.
 
-Adding control points
----------------------
+## Adding control points
 
 Building upon Cubic Bezier, we can change the way two of the points work to
 control the shape of our curve freely. Instead of having `p0`, `p1`, `p2`
@@ -145,8 +140,7 @@ this might look familiar:
 This is how graphics software presents Bezier curves to the users, and how they
 work and look in Pandemonium.
 
-Curve2D, Curve3D, Path and Path2D
----------------------------------
+## Curve2D, Curve3D, Path and Path2D
 
 There are two objects that contain curves: `Curve3D` (for 3D and 2D respectively).
 
@@ -156,8 +150,7 @@ They can contain several points, allowing for longer paths. It is also possible 
 
 Using them, however, may not be completely obvious, so following is a description of the most common use cases for Bezier curves.
 
-Evaluating
-----------
+## Evaluating
 
 Just evaluating them may be an option, but in most cases it's not very useful. The big drawback with Bezier curves is that if you traverse them at constant speed, from `t = 0` to `t = 1`, the actual interpolation will *not* move at constant speed. The speed is also an interpolation between the distances between points `p0`, `p1`, `p2` and `p3` and there is not a mathematically simple way to traverse the curve at constant speed.
 
@@ -177,8 +170,7 @@ gdscript GDScript
 
 As you can see, the speed (in pixels per second) of the circle varies, even though `t` is increased at constant speed. This makes beziers difficult to use for anything practical out of the box.
 
-Drawing
--------
+## Drawing
 
 Drawing beziers (or objects based on the curve) is a very common use case, but it's also not easy. For pretty much any case, Bezier curves need to be converted to some sort of segments. This is normally difficult, however, without creating a very high amount of them.
 
@@ -193,8 +185,7 @@ Before drawing Bezier curves, *tessellation* is required. This is often done wit
 The *Curve* classes provide this via the
 `Curve2D.tessellate()` function (which receives optional `stages` of recursion and angle `tolerance` arguments). This way, drawing something based on a curve is easier.
 
-Traversal
----------
+## Traversal
 
 The last common use case for the curves is to traverse them. Because of what was mentioned before regarding constant speed, this is also difficult.
 

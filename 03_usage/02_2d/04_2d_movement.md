@@ -1,10 +1,8 @@
 
 
-2D movement overview
-====================
+# 2D movement overview
 
-Introduction
-------------
+## Introduction
 
 Every beginner has been there: "How do I move my character?" Depending on the
 style of game you're making, you may have special requirements, but in general
@@ -15,8 +13,7 @@ but the principles will apply to other node types (Area2D, RigidBody2D) as well.
 
 
 
-Setup
------
+## Setup
 
 Each example below uses the same scene setup. Start with a `KinematicBody2D` with two
 children: `Sprite` and `CollisionShape2D`. You can use the Pandemonium icon ("icon.png)")
@@ -27,8 +24,7 @@ input actions (see `InputEvent ( doc_inputevent )` for details):
 
 ![](img/movement_inputs.png)
 
-8-way movement
---------------
+## 8-way movement
 
 In this scenario, you want the user to press the four directional keys (up/left/down/right
 or W/A/S/D) and move in the selected direction. The name "8-way movement" comes from the
@@ -83,8 +79,7 @@ Note:
     you've set up input actions correctly as described in the
     `doc_2d_movement_setup` part of this tutorial.
 
-Rotation + movement
--------------------
+## Rotation + movement
 
 This type of movement is sometimes called "Asteroids-style" because it resembles
 how that classic arcade game worked. Pressing left/right rotates the character,
@@ -130,8 +125,7 @@ in the same direction as the body. `rotated()` is a useful vector function
 that you can use in many circumstances where you would otherwise need to apply
 trigonometric functions.
 
-Rotation + movement (mouse)
----------------------------
+## Rotation + movement (mouse)
 
 This style of movement is a variation of the previous one. This time, the direction
 is set by the mouse position instead of the keyboard. The character will always
@@ -172,8 +166,7 @@ gdscript GDScript
 ```
 
 
-Click-and-move
---------------
+## Click-and-move
 
 This last example uses only the mouse to control the character. Clicking
 on the screen will cause the player to move to the target location.
@@ -214,8 +207,7 @@ Tip:
  This technique can also be used as the basis of a "following" character.
          The `target` position can be that of any object you want to move to.
 
-Summary
--------
+## Summary
 
 You may find these code samples useful as starting points for your own projects.
 Feel free to use them and experiment with them to see what you can make.

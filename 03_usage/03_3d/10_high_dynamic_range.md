@@ -1,10 +1,8 @@
 
 
-High dynamic range lighting
-===========================
+# High dynamic range lighting
 
-Introduction
-------------
+## Introduction
 
 Normally, an artist does all the 3D modelling, then all the texturing,
 looks at their awesome looking model in the 3D DCC and says "looks
@@ -41,8 +39,7 @@ Note:
     For advanced users, it is still possible to get a non-tonemapped image
     of the viewport with full HDR data, which can then be saved to an OpenEXR file.
 
-Computer displays
------------------
+## Computer displays
 
 Almost all displays require a nonlinear encoding for the code values sent
 to them. The display in turn, using its unique transfer characteristic,
@@ -72,8 +69,7 @@ the wider dynamic range of the game engine's scene output using the simple
 transfer function of the display. A more complex approach to encoding
 is required.
 
-Scene linear & asset pipelines
-------------------------------
+## Scene linear & asset pipelines
 
 Working in scene-linear sRGB is not as simple as just pressing a switch. First,
 imported image assets must be converted to linear light ratios on import. Even
@@ -82,23 +78,20 @@ as textures, depending on how they were generated.
 
 There are two ways to do this:
 
-sRGB transfer function to display linear ratios on image import
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### sRGB transfer function to display linear ratios on image import
 
 This is the easiest method of using sRGB assets, but it's not the most ideal.
 One issue with this is loss of quality. Using 8 bits per channel to represent
 linear light ratios is not sufficient to quantize the values correctly.
 These textures may also be compressed later, which can exacerbate the problem.
 
-Hardware sRGB transfer function to display linear conversion
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Hardware sRGB transfer function to display linear conversion
 
 The GPU will do the conversion after reading the texel using floating-point.
 This works fine on PC and consoles, but most mobile devices don't support it,
 or they don't support it on compressed texture formats (iOS for example).
 
-Scene linear to display-referred nonlinear
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Scene linear to display-referred nonlinear
 
 After all the rendering is done, the scene linear render requires transforming
 to a suitable output such as an sRGB display. To do this, enable sRGB conversion
@@ -109,8 +102,7 @@ conversions must always be **both** enabled. Failing to enable one of them will
 result in horrible visuals suitable only for avant-garde experimental
 indie games.
 
-Parameters of HDR
------------------
+## Parameters of HDR
 
 HDR settings can be found in the `Environment`
 resource. Most of the time, these are found inside a

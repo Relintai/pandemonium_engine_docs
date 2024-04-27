@@ -1,7 +1,6 @@
 
 
-Using the ArrayMesh
-===================
+# Using the ArrayMesh
 
 This tutorial will present the basics of using an `ArrayMesh`.
 
@@ -20,52 +19,17 @@ The possible elements of `arrays` are listed below, together with the position t
 See also `Mesh.ArrayType (enum_Mesh_ArrayType )`.
 
 
-.. list-table::
-    :class: wrap-normal
-    :width: 100%
-    :widths: auto
-    :header-rows: 1
-
-    * - Index
-      - Mesh.ArrayType Enum
-      - Array type
-
-    * - 0
-      - `ARRAY_VERTEX`
-      - `PoolVector3Array`
-
-    * - 1
-      - `ARRAY_NORMAL`
-      - `PoolVector3Array`
-
-    * - 2
-      - `ARRAY_TANGENT`
-      - `PoolRealArray` of groups of 4 floats. First 3 floats determine the tangent, and
-        the last the binormal direction as -1 or 1.
-
-    * - 3
-      - `ARRAY_COLOR`
-      - `PoolColorArray`
-
-    * - 4
-      - `ARRAY_TEX_UV`
-      - `PoolVector2Array`
-
-    * - 5
-      - `ARRAY_TEX_UV2`
-      - `PoolVector2Array`
-
-    * - 6
-      - `ARRAY_BONES`
-      - `PoolRealArray` of groups of 4 ints. Each group lists indexes of 4 bones that affects a given vertex.
-
-    * - 7
-      - `ARRAY_WEIGHTS`
-      - `PoolRealArray` of groups of 4 floats. Each float lists the amount of weight an determined bone on `ARRAY_BONES` has on a given vertex.
-
-    * - 8
-      - `ARRAY_INDEX`
-      - `PoolIntArray`
+| Index | Mesh.ArrayType Enum |  Array type        |
+|-------|---------------------|--------------------|
+| 0     | `ARRAY_VERTEX`      | `PoolVector3Array` |
+| 1     | `ARRAY_NORMAL`      | `PoolVector3Array` |
+| 2     | `ARRAY_TANGENT`     | `PoolRealArray` of groups of 4 floats. First 3 floats determine the tangent, and the last the binormal direction as -1 or 1. |
+| 3     | `ARRAY_COLOR`       | `PoolColorArray`   |
+| 4     | `ARRAY_TEX_UV`      | `PoolVector2Array` |
+| 5     | `ARRAY_TEX_UV2`     | `PoolVector2Array` |
+| 6     | `ARRAY_BONES`       | `PoolRealArray` of groups of 4 ints. Each group lists indexes of 4 bones that affects a given vertex. |
+| 7     | `ARRAY_WEIGHTS`     | `PoolRealArray` of groups of 4 floats. Each float lists the amount of weight an determined bone on `ARRAY_BONES` has on a given vertex. |
+| 8     | `ARRAY_INDEX`       | `PoolIntArray`     |
 
 The array of vertices (at index 0) is always required. The index array is optional and will only be used if included. We won't use it in this tutorial.
 
@@ -75,8 +39,7 @@ four entries to describe a single vertex. These must be exactly four times large
 
 For normal usage, the last two parameters in `add_surface_from_arrays()` are typically left empty.
 
-ArrayMesh
----------
+## ArrayMesh
 
 In the editor, create a `MeshInstance` to it in the Inspector.
 Normally, adding an ArrayMesh in the editor is not useful, but in this case it allows us to access the ArrayMesh
@@ -166,8 +129,7 @@ gdscript GDScript
 The code that goes in the middle can be whatever you want. Below we will present some example code
 for generating a sphere.
 
-Generating geometry
--------------------
+## Generating geometry
 
 Here is sample code for generating a sphere. Although the code is presented in
 GDScript, there is nothing Pandemonium specific about the approach to generating it.
@@ -237,8 +199,7 @@ gdscript GDScript
       # Insert committing to the ArrayMesh here.
 ```
 
-Saving
-------
+## Saving
 
 Finally, we can use the `ResourceSaver` class to save the ArrayMesh.
 This is useful when you want to generate a mesh and then use it later without having to re-generate it.

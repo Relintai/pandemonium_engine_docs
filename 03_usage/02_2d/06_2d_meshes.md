@@ -1,10 +1,8 @@
 
 
-2D meshes
-=========
+# 2D meshes
 
-Introduction
-------------
+## Introduction
 
 In 3D, meshes are used to display the world. In 2D, they are rare as images are used more often.
 Pandemonium's 2D engine is a pure two-dimensional engine, so it can't really display 3D meshes directly (although it can be done
@@ -18,8 +16,7 @@ You can experiment creating them yourself using `SurfaceTool` from code and disp
 
 Currently, the only way to generate a 2D mesh within the editor is by either importing an OBJ file as a mesh, or converting it from a Sprite.
 
-Optimizing pixels drawn
------------------------
+## Optimizing pixels drawn
 
 This workflow is useful for optimizing 2D drawing in some situations. When drawing large images with transparency, Pandemonium will draw the whole quad to the screen. The large transparent areas will still be drawn.
 
@@ -28,8 +25,7 @@ or layering multiple images on top of each other with large transparent areas (f
 
 Converting to a mesh will ensure that only the opaque parts will be drawn and the rest will be ignored.
 
-Converting Sprites to 2D meshes
--------------------------------
+## Converting Sprites to 2D meshes
 
 You can take advantage of this optimization by converting a `Sprite` to a `MeshInstance2D`.
 Start with an image that contains large amounts of transparency on the edges, like this tree:

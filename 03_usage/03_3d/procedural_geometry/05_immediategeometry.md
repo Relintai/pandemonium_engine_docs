@@ -1,7 +1,6 @@
 
 
-Using ImmediateGeometry
-=======================
+# Using ImmediateGeometry
 
 Unlike the SurfaceTool or ArrayMesh, `ImmediateGeometry` is an actual
 node. Being a node makes it quick to add to a scene and get visual output. It uses an OpenGL 1.x-style

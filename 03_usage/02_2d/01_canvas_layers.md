@@ -1,10 +1,8 @@
 
 
-Canvas layers
-=============
+# Canvas layers
 
-Viewport and Canvas items
--------------------------
+## Viewport and Canvas items
 
 `CanvasItem` is the base for all 2D nodes, be it regular
 2D nodes, such as `Node2D`.
@@ -34,8 +32,7 @@ transform. For example:
 
 How can these problems be solved in a single scene tree?
 
-CanvasLayers
-------------
+## CanvasLayers
 
 The answer is `CanvasLayer`,
 which is a node that adds a separate 2D rendering layer for all its
@@ -58,6 +55,7 @@ CanvasLayers are independent of tree order, and they only depend on
 their layer number, so they can be instantiated when needed.
 
 Note:
+
    CanvasLayers aren't necessary to control the drawing order of nodes.
             The standard way to ensuring that a node is  correctly drawn 'in front' or 'behind' others is to manipulate the
             order of the nodes in the scene panel. Perhaps counterintuitively, the topmost nodes in the scene panel are drawn

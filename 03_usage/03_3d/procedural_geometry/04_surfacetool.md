@@ -1,7 +1,5 @@
 
-
-Using the SurfaceTool
-=====================
+# Using the SurfaceTool
 
 The `SurfaceTool` provides a useful interface for constructing geometry.
 The interface is similar to the `ImmediateGeometry` node. You

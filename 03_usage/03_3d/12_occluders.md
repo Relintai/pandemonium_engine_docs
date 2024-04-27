@@ -1,7 +1,6 @@
 
 
-Occluder Nodes
-==============
+# Occluder Nodes
 
 In addition to occlusion via `doc_rooms_and_portals`, Pandemonium also has the ability to provide basic occlusion using simple geometric `Occluder` nodes. These are geometric shapes that are shown in the editor using gizmos, but are invisible at runtime.
 
@@ -19,8 +18,7 @@ The Occluder node itself is a holder for an OccluderShape resource, which determ
 Tip:
  You will see a yellow warning triangle that lets you know that you must set an OccluderShape from the inspector before the `Occluder` becomes functional.
 
-OccluderShapeSphere
--------------------
+## OccluderShapeSphere
 
 The sphere is one of the simplest and fastest occluders, and is easy to setup and position. The downside is that the sphere only tends to make sense in certain game level designs, and is more suited to terrain or organic background geometry.
 
@@ -45,8 +43,7 @@ At runtime the spheres can be switched on and off changing the Occluder node vis
 
 A common use case for occluder spheres is providing occlusion on mountainous / hilly terrain. By placing spheres inside mountains you can prevent trees, plants, building and objects rendering behind mountains. With some creativity they can also be used for moving objects such as large spacecraft, planets etc.
 
-OccluderShapePolygon
---------------------
+## OccluderShapePolygon
 
 The polygon is a generalist occluder. It can be made to work well in almost all situations, and can quickly provide a degree of occlusion culling to most scenes.
 
@@ -55,8 +52,7 @@ As with all geometric occluders, the key to success is to make them large. They 
 Note:
  Like all occluders, polygons **can** overlap, and in many cases they will work better if you overlap them (they are more likely to cull objects on boundaries).
 
-Editing and details
-~~~~~~~~~~~~~~~~~~~
+### Editing and details
 
 Occluder polygons are edited as a list of points which define a *convex* polygon, on a single plane. In order to confine the polygon to a single plane, the points are defined in 2D space rather than 3D. The orientation, position and scale of the polygon is taken instead from the transform of the `Occluder` Node.
 
@@ -73,8 +69,7 @@ You are not restricted to 4 points, you can add and remove points in the Inspect
 
 ![](img/occluder_shape_polygon2.png)
 
-Holes
-~~~~~
+### Holes
 
 Real world game levels don't always have large continuous areas that should be occluded. Often walls will have a door or windows, caves will have an entrance, etc. In some cases we have to make do by placing several OccluderShapePolygons around such an opening, but Occluder polygons have one more trick up their sleeve - they can have "holes".
 
@@ -89,8 +84,7 @@ The hole can be totally within the polygon (such as a window), abutting the edge
 Note:
  Placing holes is usually far more convenient, and works faster and better at runtime, than creating lots of smaller OccluderShapePolygons.
 
-Hole Limits
-^^^^^^^^^^^
+#### Hole Limits
 
 The main limitation of holes is that there can only be one per polygon. If you have a situation which requires two or more holes, you have a choice:
 
@@ -100,14 +94,12 @@ The main limitation of holes is that there can only be one per polygon. If you h
 Tip:
  Remember that if you are using more than one polygon, they can overlap, and you should use this to your advantage.
 
-How many Occluder polys are needed?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### How many Occluder polys are needed?
 
 This very much depends on your scene, but generally you can start getting a good benefit from 3 or 4 well placed polygons. After that it is totally up to you how much time you want to spend.
 Placing occluders is a bit of an art form, and you will get better at it and learn new tricks the more you work with them.
 
-Some ideas:
-^^^^^^^^^^^
+#### Some ideas:
 
 -  Build your levels to take advantage of occlusion.
 
@@ -116,8 +108,7 @@ This is one of the secrets of the pros. A good level design is not just about wh
 -  When in a building with multiple floors, try placing an occluder polygon between each floor, with a hole for where the staircase transitions between them. This can potentially cull out entire floors and greatly improve performance.
 -  Don't be afraid to extend your occluder polygons far past the edges of visible geometry to cull more objects - for instance far into the ground or sky.
 
-Using polygons dynamically
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Using polygons dynamically
 
 Like all geometric occluders, polygons are not confined to static (non-moving) geometry. You can place them on moving objects. You can even change the relative position of the points in realtime.
 

@@ -1,7 +1,6 @@
 
 
-Introduction to 3D
-==================
+# Introduction to 3D
 
 Creating a 3D game can be challenging. That extra Z coordinate makes
 many of the common techniques that helped to make 2D games simple no
@@ -16,8 +15,7 @@ In 3D, math is a little more complex than in 2D, so also checking the
 developers, not mathematicians or engineers) will help pave the way for you
 to develop 3D games efficiently.
 
-Spatial node
-~~~~~~~~~~~~
+### Spatial node
 
 `Node2D` is the base node for 2D.
 `Control` is the base node for everything GUI.
@@ -35,8 +33,7 @@ scale.
 
 ![](img/tuto_3d2.png)
 
-3D content
-~~~~~~~~~~
+### 3D content
 
 Unlike 2D, where loading image content and drawing is straightforward,
 3D is a little more difficult. The content needs to be created with
@@ -44,8 +41,7 @@ special 3D tools (usually referred to as Digital Content Creation tools, or
 DCCs) and exported to an exchange file format to be imported in
 Pandemonium. This is required since 3D formats are not as standardized as images.
 
-DCC-created models
-------------------
+## DCC-created models
 
 .. FIXME: Needs update to properly description Pandemonium 3.x workflow
    (used to reference a non existing doc_importing_3d_meshes importer).
@@ -59,8 +55,7 @@ The second pipeline is by importing simple .OBJ files as mesh resources,
 which can be then put inside a `MeshInstance`
 node for display.
 
-Generated geometry
-------------------
+## Generated geometry
 
 It is possible to create custom geometry by using the
 `ArrayMesh` resource directly. Simply create your arrays
@@ -73,8 +68,7 @@ In any case, this method is meant for generating static geometry (models
 that will not be updated often), as creating vertex arrays and
 submitting them to the 3D API has a significant performance cost.
 
-Immediate geometry
-------------------
+## Immediate geometry
 
 If, instead, there is a requirement to generate simple geometry that
 will be updated often, Pandemonium provides a special node,
@@ -82,8 +76,7 @@ will be updated often, Pandemonium provides a special node,
 which provides an OpenGL 1.x style immediate-mode API to create points,
 lines, triangles, etc.
 
-2D in 3D
---------
+## 2D in 3D
 
 While Pandemonium packs a powerful 2D engine, many types of games use 2D in a
 3D environment. By using a fixed camera (either orthogonal or
@@ -97,8 +90,7 @@ The disadvantage is, of course, that added complexity and reduced
 performance in comparison to plain 2D, as well as the lack of reference
 of working in pixels.
 
-Environment
-~~~~~~~~~~~
+### Environment
 
 Besides editing a scene, it is often common to edit the environment.
 Pandemonium provides a `WorldEnvironment`
@@ -106,8 +98,7 @@ node that allows changing the background color, mode (as in, put a
 skybox), and applying several types of built-in post-processing effects.
 Environments can also be overridden in the Camera.
 
-3D viewport
-~~~~~~~~~~~
+### 3D viewport
 
 Editing 3D scenes is done in the 3D tab. This tab can be selected
 manually, but it will be automatically enabled when a Spatial node is
@@ -122,8 +113,7 @@ similar to other tools in the Editor Settings:
 
 ![](img/tuto_3d4.png)
 
-Coordinate system
------------------
+## Coordinate system
 
 Pandemonium uses the `metric ( https://en.wikipedia.org/wiki/Metric_system )`
 system for everything in 3D, with 1 unit being equal to 1 meter.
@@ -146,8 +136,7 @@ means that:
 -  **Y** is up/down
 -  **Z** is front/back
 
-Space and manipulation gizmos
------------------------------
+## Space and manipulation gizmos
 
 Moving objects in the 3D view is done through the manipulator gizmos.
 Each axis is represented by a color: Red, Green, Blue represent X, Y, Z
@@ -163,8 +152,7 @@ Some useful keybindings:
    or rotating.
 -  To center the view on the selected object, press :kbd:`F`.
 
-View menu
----------
+## View menu
 
 The view options are controlled by the "View" menu in the viewport's toolbar.
 
@@ -178,8 +166,7 @@ To hide a specific type of gizmos, you can toggle them off in the "View" menu.
 
 ![](img/tuto_3d6_2.png)
 
-Default environment
--------------------
+## Default environment
 
 When created from the Project Manager, the 3D environment has a default sky.
 
@@ -189,8 +176,7 @@ Given how physically based rendering works, it is advised to always try to
 work with a default environment in order to provide indirect and reflected
 light to your objects.
 
-Cameras
--------
+## Cameras
 
 No matter how many objects are placed in the 3D space, nothing will be
 displayed unless a `Camera` is
@@ -219,8 +205,7 @@ each viewport:
 -  If an active camera leaves the scene tree, the first camera in
    tree-order will take its place.
 
-Lights
-------
+## Lights
 
 Pandemonium has a limit of up to 8 lights per mesh. Aside from that, there
 is no limitation on the number of lights, nor of types of lights, in

@@ -1,10 +1,8 @@
 
 
-Custom drawing in 2D
-====================
+# Custom drawing in 2D
 
-Introduction
-------------
+## Introduction
 
 Pandemonium has nodes to draw sprites, polygons, particles, and all sorts of
 stuff. For most cases, this is enough; but not always. Before crying in fear,
@@ -27,8 +25,7 @@ Custom drawing in a 2D node is *really* useful. Here are some use cases:
    but when you have unusual needs, you will likely need a custom
    control.
 
-Drawing
--------
+## Drawing
 
 Add a script to any `CanvasItem`
 derived node, like `Control` or
@@ -47,8 +44,7 @@ gdscript GDScript
 Draw commands are described in the `CanvasItem`
 class reference. There are plenty of them.
 
-Updating
---------
+## Updating
 
 The `draw()` function is only called once, and then the draw commands
 are cached and remembered, so further calls are unnecessary.
@@ -94,16 +90,14 @@ gdscript GDScript
 ```
 
 
-An example: drawing circular arcs
-----------------------------------
+## An example: drawing circular arcs
 
 We will now use the custom drawing functionality of the Pandemonium Engine to draw
 something that Pandemonium doesn't provide functions for. As an example, Pandemonium provides
 a `draw_circle()` function that draws a whole circle. However, what about drawing a
 portion of a circle? You will have to code a function to perform this and draw it yourself.
 
-Arc function
-^^^^^^^^^^^^
+#### Arc function
 
 An arc is defined by its support circle parameters, that is, the center position
 and the radius. The arc itself is then defined by the angle it starts from
@@ -166,8 +160,7 @@ support circle is big, the length of each line between a pair of points will
 never be long enough to see them. If that were to happen, we would simply need to
 increase the number of points.
 
-Draw the arc on the screen
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Draw the arc on the screen
 
 We now have a function that draws stuff on the screen;
 it is time to call it inside the `draw()` function:
@@ -188,8 +181,7 @@ Result:
 
 ![](img/result_drawarc.png)
 
-Arc polygon function
-^^^^^^^^^^^^^^^^^^^^
+#### Arc polygon function
 
 We can take this a step further and not only write a function that draws the plain
 portion of the disc defined by the arc, but also its shape. The method is exactly
@@ -212,8 +204,7 @@ gdscript GDScript
 
 ![](img/result_drawarc_poly.png)
 
-Dynamic custom drawing
-^^^^^^^^^^^^^^^^^^^^^^
+#### Dynamic custom drawing
 
 All right, we are now able to draw custom stuff on the screen. However, it is static;
 let's make this shape turn around the center. The solution to do this is simply
@@ -305,8 +296,7 @@ gdscript GDScript
 
 Let's run again! This time, the rotation displays fine!
 
-Antialiased drawing
-^^^^^^^^^^^^^^^^^^^
+#### Antialiased drawing
 
 Pandemonium offers method parameters in `draw_line( CanvasItem_method_draw_line )`
 to enable antialiasing, but it doesn't work reliably in all situations
@@ -319,8 +309,7 @@ As a workaround, install and use the
 (which also supports antialiased Polygon2D drawing). Note that this add-on relies
 on high-level nodes, rather than low-level `draw()` functions.
 
-Tools
------
+## Tools
 
 Drawing your own nodes might also be desired while running them in the
 editor. This can be used as a preview or visualization of some feature or

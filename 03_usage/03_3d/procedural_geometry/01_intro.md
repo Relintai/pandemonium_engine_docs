@@ -1,29 +1,25 @@
 
 
-Procedural geometry
-===================
+# Procedural geometry
 
 There are many ways to procedurally generate geometry in Pandemonium. In this tutorial series
 we will explore a few of them. Each technique has its own benefits and drawbacks, so
 it is best to understand each one and how it can be useful in a given situation.
 
-.. toctree::
-   :maxdepth: 1
-   :name: toc-procedural_geometry
+[Array Mesh](02_arraymesh.md)
 
-   arraymesh
-   meshdatatool
-   surfacetool
-   immediategeometry
+[Mesh Data Tool](03_meshdatatool.md)
 
-What is geometry?
------------------
+[Surface Tool](04_surfacetool.md)
+
+[Immediate Geometry](05_immediategeometry.md)
+
+## What is geometry?
 
 Geometry is a fancy way of saying shape. In computer graphics, geometry is typically represented
 by an array of positions called "vertices". In Pandemonium, geometry is represented by Meshes.
 
-What is a Mesh?
----------------
+## What is a Mesh?
 
 Many things in Pandemonium have mesh in their name: the `Mesh`,
 the `MeshInstance`, and
@@ -42,22 +38,19 @@ using a MultiMeshInstance is that each of your mesh's surfaces are limited to on
 all instances. It uses an instance array to store different colors and transformations for each
 instance, but all the instances of each surface use the same material.
 
-What a Mesh is
---------------
+## What a Mesh is
 
 A Mesh is composed of one or more surfaces. A surface is an array composed of multiple sub-arrays
 containing vertices, normals, UVs, etc. Normally the process of constructing surfaces and meshes is
 hidden from the user in the `VisualServer`, but with ArrayMeshes, the user can construct a Mesh
 manually by passing in an array containing the surface information.
 
-Surfaces
-^^^^^^^^
+### Surfaces
 
 Each surface has its own material. Alternatively, you can override the material for all surfaces
 in the Mesh when you use a MeshInstance using the `material_override` property.
 
-Surface array
-^^^^^^^^^^^^^
+### Surface array
 
 The surface array is an array of length `ArrayMesh.ARRAY_MAX`. Each position in the array is
 filled with a sub-array containing per-vertex information. For example, the array located at
@@ -72,37 +65,32 @@ of indices which maps out how to construct the triangles from the vertex array. 
 array is faster, but it means you have to share vertex data between triangles, which is not always desired
 (e.g. when you want per-face normals).
 
-Tools
------
+## Tools
 
 Pandemonium provides different ways of accessing and working with geometry. More information on each will
 be provided in the following tutorials.
 
-ArrayMesh
-^^^^^^^^^
+### ArrayMesh
 
 The ArrayMesh resource extends Mesh to add a few different quality of life functions and, most
 importantly, the ability to construct a Mesh surface through scripting.
 
 For more information about the ArrayMesh, please see the `ArrayMesh tutorial ( doc_arraymesh )`.
 
-MeshDataTool
-^^^^^^^^^^^^
+### MeshDataTool
 
 The MeshDataTool is a resource that converts Mesh data into arrays of vertices, faces, and edges that can
 be modified at runtime.
 
 For more information about the MeshDataTool, please see the `MeshDataTool tutorial ( doc_meshdatatool )`.
 
-SurfaceTool
-^^^^^^^^^^^
+### SurfaceTool
 
 The SurfaceTool allows the creation of Meshes using an OpenGL 1.x immediate mode style interface.
 
 For more information about the SurfaceTool, please see the `SurfaceTool tutorial ( doc_surfacetool )`.
 
-ImmediateGeometry
-^^^^^^^^^^^^^^^^^
+### ImmediateGeometry
 
 ImmediateGeometry is a node that uses an immediate mode style interface (like SurfaceTool) to draw objects. The
 difference between ImmediateGeometry and the SurfaceTool is that ImmediateGeometry is a node itself that can be
@@ -115,8 +103,7 @@ visualize physics raycasts etc.).
 
 For more information about ImmediateGeometry, please see the `ImmediateGeometry tutorial ( doc_immediategeometry )`.
 
-Which one should I use?
------------------------
+## Which one should I use?
 
 Which approach you use depends on what you are trying to do and what kind of procedure you are comfortable with.
 

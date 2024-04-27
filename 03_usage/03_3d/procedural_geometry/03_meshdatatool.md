@@ -1,7 +1,6 @@
 
 
-Using the MeshDataTool
-======================
+# Using the MeshDataTool
 
 The `MeshDataTool` is not used to generate geometry. But it is helpful for dynamically altering geometry, for example
 if you want to write a script to tessellate, simplify, or deform meshes.

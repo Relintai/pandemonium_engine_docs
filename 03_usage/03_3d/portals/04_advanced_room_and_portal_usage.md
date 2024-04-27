@@ -1,8 +1,7 @@
-Advanced Room and Portal usage
-==============================
 
-Gameplay callbacks
-~~~~~~~~~~~~~~~~~~
+# Advanced Room and Portal usage
+
+## Gameplay callbacks
 
 Although occlusion culling greatly reduces the number of objects that need to be rendered, there are other costs to maintaining objects in a game besides the final rendering. For instance, in Pandemonium, animated objects will still be animated whether they appear on screen or not. This can take up a lot of processing power, especially for objects that use software skinning (where skinning is calculated on the CPU).
 
@@ -14,8 +13,7 @@ The gameplay area is not confined to just the objects you can see in front of yo
 
 This works because if a monster is in an area that is completely out of view for yourself or the monster, you are less likely to care what it is doing.
 
-How does a monster know whether it is within the gameplay area?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### How does a monster know whether it is within the gameplay area?
 
 This problem is solved because the portal system contains a subsystem called the **Gameplay Monitor** that can be turned on and off from the `RoomManager( RoomManager )`. When switched on, any roaming objects that move inside or outside the gameplay area (whether by moving themselves, or the camera moving) will receive callbacks to let them know of this change.
 
@@ -36,8 +34,7 @@ Signals are sent just as any other signal. They can be attached to functions usi
 
 In fact, you don't just receive these callbacks for `ROAMING` objects. In addition Rooms and RoomGroups (which can be used to form groups of rooms) can also receive callbacks. For example, you can use this to trigger AI behaviour when the player reaches certain points in a level.
 
-VisbilityNotifiers / VisibilityEnablers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## VisbilityNotifiers / VisibilityEnablers
 
 Gameplay callbacks have one more useful function. By default in Pandemonium, animation and physics are still processed regardless of whether an object is within view. This can sap performance, especially when using software skinning.
 
@@ -47,10 +44,7 @@ The engine's solution to this problem is the `VisibilityNotifier( VisibilityNoti
 
 What if the VisibilityEnabler could turn off objects when they were occlusion culled? Well it turns out VisibilityEnabler can. All you have to do is enable the **Gameplay Monitor** in the RoomManager and the rest happens automatically.
 
-
-
-RoomGroups
-~~~~~~~~~~
+## RoomGroups
 
 A `RoomGroup( RoomGroup )` is a special node which allows you to deal with a group of rooms at once, instead of having write code for them individually. This is especially useful in conjunction with gameplay callbacks. The most important use for RoomGroups is to delineate between "inside" and "outside" areas.
 
@@ -65,15 +59,11 @@ This is an example of a simple RoomGroup script to turn on and off a Directional
 Tip:
  You can apply the same technique for switching on and off weather effects, skyboxes and much more.
 
-
-
-Internal Rooms
-~~~~~~~~~~~~~~
+## Internal Rooms
 
 There is one more trick that RoomGroups have up their sleeve. A very common desire is to have a game level with a mixed outdoor and indoor environment. We have already mentioned that rooms can be used to represent both rooms in a building, and areas of landscape, such as a canyon.
 
-What happens if you wish to have a house in a terrain 'room'?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### What happens if you wish to have a house in a terrain 'room'?
 
 With the functionality described so far you *can* do it - you would need to place portals around the exterior of the house though, forming needless rooms above the house. This has been done in many games. But what if there was a simpler way?
 
@@ -91,8 +81,7 @@ The only differences:
 - Portals of internal rooms are not considered as part of the bound of outer rooms.
 - `STATIC` and `DYNAMIC` objects from outer rooms will not sprawl into internal rooms. If you want objects to cross these portals, place them in the internal room. This is to prevent large objects like terrain sections sprawling into entire buildings, and rendering when not necessary.
 
-Internal room example
-^^^^^^^^^^^^^^^^^^^^^
+### Internal room example
 
 The tent is a simple room inside a terrain room (which contains the ground, the trees etc).
 
@@ -107,8 +96,7 @@ This is perfect for improving performance in open world games. Often your buildi
 
 *Scene is 'Diorama Eco scene' by Odo, with slight changes for illustration purposes.* `CC Attribution ( https://creativecommons.org/licenses/by/4.0/ )`
 
-Internal room scenes
-^^^^^^^^^^^^^^^^^^^^
+### Internal room scenes
 
 Let us look in detail at another practical example for an open world. We want to place houses (as internal rooms) on an island, but have each house as a self-contained scene containing both the interior *and* the external mesh of the house.
 

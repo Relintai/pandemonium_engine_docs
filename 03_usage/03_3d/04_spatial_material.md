@@ -1,10 +1,8 @@
 
 
-Spatial Material
-================
+# Spatial Material
 
-Introduction
-------------
+## Introduction
 
 `SpatialMaterial` is a default 3D material that aims to provide most of the features
 artists look for in a material, without the need for writing shader code. However,
@@ -29,15 +27,13 @@ the mesh.
 The *Material Overlay* property will render a material **over** the current one being used by the
 mesh. As an example, this can be used to put a transparent shield effect on a mesh.
 
-Flags
------
+## Flags
 
 Spatial materials have many flags determining the general usage of a material.
 
 ![](img/spatial_material1.png)
 
-Transparent
-~~~~~~~~~~~
+### Transparent
 
 In Pandemonium, materials are not transparent unless specifically configured to be.
 The main reason behind this is that transparent materials are rendered
@@ -54,14 +50,12 @@ specified otherwise. The main settings that enable transparency are:
 * Blend mode set to other than "Mix"
 * Enabling distance or proximity fade
 
-Use Shadow to Opacity
-~~~~~~~~~~~~~~~~~~~~~
+### Use Shadow to Opacity
 
 Lighting modifies the alpha so shadowed areas are opaque and non-shadowed
 areas are transparent. Useful for overlaying shadows onto a camera feed in AR.
 
-Unshaded
-~~~~~~~~
+### Unshaded
 
 In most cases it is common for materials to be affected by lighting (shaded).
 
@@ -71,8 +65,7 @@ pure, unlit color.
 
 ![](img/spatial_material26.png)
 
-Vertex Lighting
-~~~~~~~~~~~~~~~
+### Vertex Lighting
 
 Pandemonium has a more or less uniform cost per pixel thanks to depth pre-pass. All
 lighting calculations are made by running the lighting shader on every pixel.
@@ -90,8 +83,7 @@ can considerably increase rendering performance.
 Keep in mind that when vertex lighting is enabled, only directional lighting
 can produce shadows (for performance reasons).
 
-No Depth Test
-~~~~~~~~~~~~~
+### No Depth Test
 
 In order for close objects to appear over far away objects, depth testing
 is performed. Disabling it has the result of objects appearing over
@@ -103,73 +95,62 @@ and works very well with the *Render Priority* property of Material
 
 ![](img/spatial_material3.png)
 
-Use Point Size
-~~~~~~~~~~~~~~~
+### Use Point Size
 
 This option is only effective when the geometry rendered is made of points
 (generally it's made of triangles when imported from 3D DCCs). If so, then
 those points can be resized (see below).
 
-World Triplanar
-~~~~~~~~~~~~~~~
+### World Triplanar
 
 When using triplanar mapping (see below, in the UV1 and UV2 settings),
 triplanar is computed in object local space. This option makes triplanar work
 in world space.
 
-Fixed Size
-~~~~~~~~~~
+### Fixed Size
 
 This causes the object to be rendered at the same size no matter the distance.
 This is useful mostly for indicators (no depth test and high render priority)
 and some types of billboards.
 
-Do Not Receive Shadows
-~~~~~~~~~~~~~~~~~~~~~~
+### Do Not Receive Shadows
 
 Makes the object not receive any kind of shadow that would otherwise
 be cast onto it.
 
-Disable Ambient Light
-~~~~~~~~~~~~~~~~~~~~~
+### Disable Ambient Light
 
 Makes the object not receive any kind of ambient lighting that would
 otherwise light it.
 
-Ensure Correct Normals
-~~~~~~~~~~~~~~~~~~~~~~
+### Ensure Correct Normals
 
 Fixes normals when non-uniform scaling is used.
 
-Vertex Color
-------------
+## Vertex Color
 
 This setting allows choosing what is done by default to vertex colors that come
 from your 3D modelling application. By default, they are ignored.
 
 ![](img/spatial_material4.png)
 
-Use as Albedo
-~~~~~~~~~~~~~
+### Use as Albedo
 
 Choosing this option means vertex color is used as albedo color.
 
-Is sRGB
-~~~~~~~
+### Is sRGB
 
 Most 3D DCCs will likely export vertex colors as sRGB, so toggling this
 option on will help them look correct.
 
-Parameters
------------
+## Parameters
 
 `SpatialMaterial` also has several configurable parameters to tweak
 many aspects of the rendering:
 
 ![](img/spatial_material5.png)
 
-Diffuse Mode
-~~~~~~~~~~~~
+### Diffuse Mode
 
 Specifies the algorithm used by diffuse scattering of light when hitting
 the object. The default is *Burley*. Other modes are also available:
@@ -188,8 +169,7 @@ the object. The default is *Burley*. Other modes are also available:
 
 ![](img/spatial_material6.png)
 
-Specular Mode
-~~~~~~~~~~~~~
+### Specular Mode
 
 Specifies how the specular blob will be rendered. The specular blob
 represents the shape of a light source reflected in the object.
@@ -203,8 +183,7 @@ represents the shape of a light source reflected in the object.
 
 ![](img/spatial_material7.png)
 
-Blend Mode
-~~~~~~~~~~
+### Blend Mode
 
 Controls the blend mode for the material. Keep in mind that any mode
 other than *Mix* forces the object to go through the transparent pipeline.
@@ -217,8 +196,7 @@ other than *Mix* forces the object to go through the transparent pipeline.
 
 ![](img/spatial_material8.png)
 
-Cull Mode
-~~~~~~~~~
+### Cull Mode
 
 Determines which side of the object is not drawn when backfaces are rendered:
 
@@ -236,8 +214,7 @@ Note:
     being culled by other faces. To resolve this, enable **Backface Culling** in
     Blender's Materials tab, then export the scene to glTF again.
 
-Depth Draw Mode
-~~~~~~~~~~~~~~~
+### Depth Draw Mode
 
 Specifies when depth rendering must take place.
 
@@ -251,19 +228,16 @@ Specifies when depth rendering must take place.
 
 ![](img/material_depth_draw.png)
 
-Line Width
-~~~~~~~~~~
+### Line Width
 
 When drawing lines, specify the width of the lines being drawn.
 This option is not available on most modern hardware.
 
-Point Size
-~~~~~~~~~~
+### Point Size
 
 When drawing points, specify the point size in pixels.
 
-Billboard Mode
-~~~~~~~~~~~~~~
+### Billboard Mode
 
 Enables billboard mode for drawing materials. This controls how the object
 faces the camera:
@@ -279,13 +253,11 @@ faces the camera:
 
 The above options are only enabled for Particle Billboard.
 
-Billboard Keep Scale
-~~~~~~~~~~~~~~~~~~~~
+### Billboard Keep Scale
 
 Enables scaling a mesh in billboard mode.
 
-Grow
-~~~~
+### Grow
 
 Grows the object vertices in the direction pointed by their normals:
 
@@ -297,8 +269,7 @@ make it black and unshaded, reverse culling (Cull Front), and add some grow:
 ![](img/spatial_material11.png)
 
 
-Use Alpha Scissor
-~~~~~~~~~~~~~~~~~
+### Use Alpha Scissor
 
 When transparency other than `0` or `1` is not needed, it's possible to
 set a threshold to prevent the object from rendering semi-transparent pixels.
@@ -308,15 +279,13 @@ set a threshold to prevent the object from rendering semi-transparent pixels.
 This renders the object via the opaque pipeline, which is faster and allows it
 to use mid- and post-process effects such as SSAO, SSR, etc.
 
-Material colors, maps and channels
-----------------------------------
+## Material colors, maps and channels
 
 Besides the parameters, what defines materials themselves are the colors,
 textures, and channels. Pandemonium supports an extensive list of them. They are
 described in detail below:
 
-Albedo
-~~~~~~
+## Albedo
 
 *Albedo* is the base color for the material, on which all the other settings
 operate. When set to *Unshaded*, this is the only color that is visible. In
@@ -330,8 +299,7 @@ Albedo color and texture can be used together as they are multiplied.
 object transparency. If you use a color or texture with *alpha channel*,
 make sure to either enable transparency or *alpha scissoring* for it to work.
 
-Metallic
-~~~~~~~~
+### Metallic
 
 Pandemonium uses a metallic model over competing models due to its simplicity.
 This parameter defines how reflective the material is. The more reflective, the
@@ -347,8 +315,7 @@ material completely unreflective, just like in real life.
 
 ![](img/spatial_material13.png)
 
-Roughness
-~~~~~~~~~
+### Roughness
 
 *Roughness* affects the way reflection happens. A value of `0` makes it a
 perfect mirror while a value of `1` completely blurs the reflection (simulating
@@ -357,8 +324,7 @@ the right combination of *Metallic* and *Roughness*.
 
 ![](img/spatial_material14.png)
 
-Emission
-~~~~~~~~
+### Emission
 
 *Emission* specifies how much light is emitted by the material (keep in mind this
 does not include light surrounding geometry unless `doc_gi_probes` are used).
@@ -367,8 +333,7 @@ lighting in the scene.
 
 ![](img/spatial_material15.png)
 
-Normal map
-~~~~~~~~~~
+### Normal map
 
 Normal mapping allows you to set a texture that represents finer shape detail.
 This does not modify geometry, only the incident angle for light. In Pandemonium,
@@ -389,8 +354,7 @@ Note:
   popular engines) can be found
   `here ( http://wiki.polycount.com/wiki/Normal_Map_Technical_Details )`.
 
-Rim
-~~~
+### Rim
 
 Some fabrics have small micro-fur that causes light to scatter around it. Pandemonium
 emulates this with the *Rim* parameter. Unlike other rim lighting implementations,
@@ -404,8 +368,7 @@ it must be colored. If *Tint* is `0`, the color of the light is used for the
 rim. If *Tint* is `1`, then the albedo of the material is used. Using
 intermediate values generally works best.
 
-Clearcoat
-~~~~~~~~~
+### Clearcoat
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -423,8 +386,7 @@ right.
 Note:
  The effect will be more noticeable in Pandemonium 4.
 
-Anisotropy
-~~~~~~~~~~
+### Anisotropy
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -434,8 +396,7 @@ aluminum more realistic. It works especially well when combined with flowmaps.
 
 ![](img/spatial_material18.png)
 
-Ambient Occlusion
-~~~~~~~~~~~~~~~~~~
+### Ambient Occlusion
 
 It is possible to specify a baked ambient occlusion map. This map affects how
 much ambient light reaches each surface of the object (it does not affect direct
@@ -445,8 +406,7 @@ AO map. It is recommended to bake ambient occlusion whenever possible.
 
 ![](img/spatial_material19.png)
 
-Depth
-~~~~~
+### Depth
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -458,8 +418,7 @@ but it produces a realistic depth effect for textures. For best results,
 
 ![](img/spatial_material20.png)
 
-Subsurface Scattering
-~~~~~~~~~~~~~~~~~~~~~
+### Subsurface Scattering
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -469,8 +428,7 @@ liquids, etc.
 
 ![](img/spatial_material21.png)
 
-Transmission
-~~~~~~~~~~~~
+### Transmission
 
 This controls how much light from the lit side (visible to light) is transferred
 to the dark side (opposite from the light). This works well for thin objects
@@ -478,8 +436,7 @@ such as plant leaves, grass, human ears, etc.
 
 ![](img/spatial_material22.png)
 
-Refraction
-~~~~~~~~~~~
+### Refraction
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -489,8 +446,7 @@ distorting the transparency in a way similar to refraction in real life.
 
 ![](img/spatial_material23.png)
 
-Detail
-~~~~~~
+### Detail
 
 Pandemonium allows using secondary albedo and normal maps to generate a detail
 texture, which can be blended in many ways. By combining this with secondary
@@ -530,15 +486,13 @@ Normal: This is where you put a normal texture you want to blend. If nothing is
 in this slot it will be interpreted as a flat normal map. This can still be used
 even if the material does not have normal map enabled.
 
-UV1 and UV2
-~~~~~~~~~~~~
+### UV1 and UV2
 
 Pandemonium supports two UV channels per material. Secondary UV is often useful for
 ambient occlusion or emission (baked light). UVs can be scaled and offset,
 which is useful when using repeating textures.
 
-Triplanar Mapping
-~~~~~~~~~~~~~~~~~
+### Triplanar Mapping
 
 Triplanar mapping is supported for both UV1 and UV2. This is an alternative way
 to obtain texture coordinates, sometimes called "Autotexture". Textures are
@@ -550,8 +504,7 @@ world triplanar, so the brick texture continues smoothly between them.
 
 ![](img/spatial_material25.png)
 
-Proximity and distance fade
-----------------------------
+## Proximity and distance fade
 
 Pandemonium allows materials to fade by proximity to each other as well as depending
 on the distance from the viewer. Proximity fade is useful for effects such as
@@ -564,8 +517,7 @@ entire scene is usually not a good idea.
 
 ![](img/spatial_material_proxfade.gif)
 
-Render priority
----------------
+## Render priority
 
 The rendering order of objects can be changed, although this is mostly
 useful for transparent objects (or opaque objects that perform depth draw

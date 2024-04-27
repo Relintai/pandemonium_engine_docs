@@ -1,10 +1,8 @@
 
 
-Baked lightmaps
-===============
+# Baked lightmaps
 
-Introduction
-------------
+## Introduction
 
 Baked lightmaps are an alternative workflow for adding indirect (or fully baked)
 lighting to a scene. Unlike the `doc_gi_probes` approach, baked lightmaps
@@ -33,8 +31,7 @@ use case. In general, GIProbe is easier to set up and works better with dynamic
 objects. For mobile or low-end compatibility, though, baked lightmaps are your
 only choice.
 
-Visual comparison
------------------
+## Visual comparison
 
 Here are some comparisons of how BakedLightmap vs. GIProbe look. Notice that
 lightmaps are more accurate, but also suffer from the fact
@@ -44,8 +41,7 @@ smoother overall.
 
 ![](img/baked_light_comparison.png)
 
-Setting up
-----------
+## Setting up
 
 First of all, before the lightmapper can do anything, the objects to be baked need
 an UV2 layer and a texture size. An UV2 layer is a set of secondary texture coordinates
@@ -54,8 +50,7 @@ not share pixels in the texture.
 
 There are a few ways to ensure your object has a unique UV2 layer and texture size:
 
-Unwrap on scene import
-~~~~~~~~~~~~~~~~~~~~~~
+### Unwrap on scene import
 
 This is probably the best approach overall. The only downside is that, on large
 models, unwrapping can take a while on import. Nonetheless, Pandemonium will cache the UV2
@@ -86,8 +81,7 @@ Warning:
     as these files guarantee that UV2 reimports are consistent across platforms
     and engine versions.
 
-Unwrap from within Pandemonium
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Unwrap from within Pandemonium
 
 Pandemonium has an option to unwrap meshes and visualize the UV channels.
 It can be found in the Mesh menu:
@@ -97,8 +91,7 @@ It can be found in the Mesh menu:
 This will generate a second set of UV2 coordinates which can be used for baking,
 and it will also set the texture size automatically.
 
-Unwrap from your 3D DCC
-~~~~~~~~~~~~~~~~~~~~~~~
+### Unwrap from your 3D DCC
 
 The last option is to do it from your favorite 3D app. This approach is generally
 not recommended, but it's explained first so that you know it exists.
@@ -120,16 +113,14 @@ Be wary that most unwrappers in 3D DCCs are not quality oriented, as they are
 meant to work quickly. You will mostly need to use seams or other techniques to
 create better unwrapping.
 
-Checking UV2
-~~~~~~~~~~~~
+### Checking UV2
 
 In the mesh menu mentioned before, the UV2 texture coordinates can be visualized.
 Make sure, if something is failing, to check that the meshes have these UV2 coordinates:
 
 ![](img/baked_light_uvchannel.png)
 
-Setting up the scene
---------------------
+## Setting up the scene
 
 Before anything is done, a **BakedLightmap** node needs to be added to a scene.
 This will enable light baking on all nodes (and sub-nodes) in that scene, even
@@ -141,8 +132,7 @@ A sub-scene can be instanced several times, as this is supported by the baker, a
 each will be assigned a lightmap of its own (just make sure to respect the rule
 about scaling mentioned before):
 
-Configure bounds
-~~~~~~~~~~~~~~~~
+### Configure bounds
 
 Lightmap needs an approximate volume of the area affected because it uses it to
 transfer light to dynamic objects inside it (more on that later). Just
@@ -150,8 +140,7 @@ cover the scene with the volume as you do with `GIProbe`:
 
 ![](img/baked_light_bounds.png)
 
-Setting up meshes
-~~~~~~~~~~~~~~~~~
+### Setting up meshes
 
 For a **MeshInstance** node to take part in the baking process, it needs to have
 the **Use in Baked Light** property enabled.
@@ -160,8 +149,7 @@ the **Use in Baked Light** property enabled.
 
 When auto-generating lightmaps on scene import, this is enabled automatically.
 
-Setting up lights
-~~~~~~~~~~~~~~~~~
+### Setting up lights
 
 Lights are baked with indirect light by default. This means that shadowmapping
 and lighting are still dynamic and affect moving objects, but light bounces from
@@ -174,16 +162,14 @@ can be controlled from the **Bake Mode** menu in lights:
 
 The modes are:
 
-Disabled
-^^^^^^^^
+#### Disabled
 
 The light is ignored when baking lightmaps. Keep in mind hiding a light will have
 no effect for baking, so this must be used instead of hiding the Light node.
 
 This is the mode to use for dynamic lighting effects such as explosions and weapon effects.
 
-Indirect
-^^^^^^^^
+#### Indirect
 
 This is the default mode, and is a compromise between performance and real-time
 friendliness. Only indirect lighting will be baked. Direct light and shadows are
@@ -193,8 +179,7 @@ This mode allows performing *subtle* changes to a light's color, energy and
 position while still looking fairly correct. For example, you can use this
 to create flickering static torches that have their indirect light baked.
 
-All
-^^^
+#### All
 
 Both indirect and direct lighting will be baked. Since static surfaces can skip
 lighting and shadow computations entirely, this mode provides the best
@@ -227,8 +212,7 @@ The light's **Size** property is ignored for real-time shadows; it will only aff
 shadows. When the **Size** property is changed, lightmaps must be baked again to
 make changes visible.
 
-Baking
-------
+## Baking
 
 To begin the bake process, just push the **Bake Lightmaps** button on top
 when selecting the BakedLightmap node:
@@ -238,8 +222,8 @@ when selecting the BakedLightmap node:
 This can take from seconds to minutes (or hours) depending on scene size, bake
 method and quality selected.
 
-Balancing bake times with quality
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Balancing bake times with quality
+
 
 Since high-quality bakes can take very long (up to several hours for large complex scenes),
 it is recommended to use lower quality settings at first. Then, once you are confident
@@ -264,8 +248,7 @@ Note:
     For example, on a system with 8 logical CPU cores, adjusting the setting to
     `-1` will use 7 CPU threads for lightmap baking.
 
-Configuring bake
-~~~~~~~~~~~~~~~~
+### Configuring bake
 
 Several more options are present for baking:
 
@@ -274,8 +257,7 @@ Several more options are present for baking:
   is *touching* the bake extents will have lightmaps baked for it, but dynamic
   object capture will only work within the extents.
 
-Tweaks
-^^^^^^
+#### Tweaks
 
 - **Quality:** Four bake quality modes are provided: Low, Medium, High, and Ultra.
   Higher quality takes more time, but result in a better-looking lightmap with
@@ -310,8 +292,7 @@ Tweaks
   *lower-resolution* lightmaps, which result in faster bake times and lower file
   sizes at the cost of blurrier indirect lighting and shadows.
 
-Atlas
-^^^^^
+#### Atlas
 
 - **Generate:** If enabled, a texture atlas will be generated for the lightmap.
   This results in more efficient rendering, but is only compatible with the
@@ -323,8 +304,7 @@ Atlas
   in a more efficient atlas, but are less compatible with old/low-end hardware.
   If in doubt, leave this setting on its default value (4096).
 
-Capture
-^^^^^^^
+#### Capture
 
 - **Enabled:** This enables probe capture so that dynamic objects can *receive* indirect lighting.
   Regardless of this setting's value, dynamic objects will not be able to
@@ -340,8 +320,7 @@ Capture
   dynamic objects. Adjust this value depending on your scene to make dynamic
   objects better fit with static baked lighting.
 
-Data
-^^^^
+#### Data
 
 - **Light Data**: Contains the light baked data after baking. Textures are saved
   to disk, but this also contains the capture data for dynamic objects, which can
@@ -365,8 +344,7 @@ Tip:
     to perform post-processing if needed. However, keep in mind that changes to
     the EXR file will be lost when baking lightmaps again.
 
-Dynamic objects
----------------
+## Dynamic objects
 
 In other engines or lightmapper implementations, you are generally required to
 manually place small objects called "lightprobes" all around the level to

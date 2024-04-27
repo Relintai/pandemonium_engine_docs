@@ -1,10 +1,8 @@
 
 
-3D lights and shadows
-=====================
+# 3D lights and shadows
 
-Introduction
-------------
+## Introduction
 
 Light sources emit light that mixes with the materials and produces a visible
 result. Light can come from several types of sources in a scene:
@@ -19,8 +17,7 @@ result. Light can come from several types of sources in a scene:
 The emission color is a material property. You can read more about it
 in the `doc_spatial_material` tutorial.
 
-Light nodes
------------
+## Light nodes
 
 There are three types of light nodes: `Directional light`,
 `Omni light` and `Spot light`. Let's take a look at the common
@@ -41,8 +38,7 @@ Each one has a specific function:
    If you don't want disabled objects to cast shadows, adjust the `cast_shadow` property on the
    GeometryInstance to the desired value.
 
-Shadow mapping
-^^^^^^^^^^^^^^
+#### Shadow mapping
 
 Lights can optionally cast shadows. This gives them greater realism (light does
 not reach occluded areas), but it can incur a bigger performance cost.
@@ -68,7 +64,6 @@ although that may lead to decreased performance.
 
 Tip:
 
-
     If shadow biasing is a problem in your scene, the following settings are a good starting point:
 
     - Enable **Reverse Cull Face**. This reduces shadow peter-panning significantly
@@ -88,8 +83,7 @@ Tip:
     If shadow acne is still visible after performing the above tweaks,
     try subdividing your meshes further in your 3D modeling software.
 
-Directional light
-~~~~~~~~~~~~~~~~~
+### Directional light
 
 This is the most common type of light and represents a light source
 very far away (such as the sun). It is also the cheapest light to compute and should be used whenever possible
@@ -105,8 +99,7 @@ does not affect the lighting at all and can be anywhere.
 Every face whose front-side is hit by the light rays is lit, while the others stay dark. Most light types
 have specific parameters, but directional lights are pretty simple in nature, so they don't.
 
-Directional shadow mapping
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Directional shadow mapping
 
 To compute shadow maps, the scene is rendered (only depth) from an orthogonal point of view that covers
 the whole scene (or up to the max distance). There is, however, a problem with this approach because objects
@@ -164,8 +157,7 @@ Shadowmap size for directional lights can be changed in Project Settings -> Rend
 
 Increasing it can solve bias problems, but decrease performance. Shadow mapping is an art of tweaking.
 
-Omni light
-~~~~~~~~~~
+### Omni light
 
 Omni light is a point source that emits light spherically in all directions up to a given
 radius.
@@ -184,8 +176,7 @@ These two parameters allow tweaking how this works visually in order to find aes
 ![](img/light_attenuation.png)
 
 
-Omni shadow mapping
-^^^^^^^^^^^^^^^^^^^
+#### Omni shadow mapping
 
 Omni light shadow mapping is relatively straightforward. The main issue that needs to be
 considered is the algorithm used to render it.
@@ -200,8 +191,7 @@ If the objects being rendered are mostly irregular, Dual Paraboloid is usually
 enough. In any case, as these shadows are cached in a shadow atlas (more on that at the end), it
 may not make a difference in performance for most scenes.
 
-Spot light
-~~~~~~~~~~
+### Spot light
 
 Spot lights are similar to omni lights, except they emit light only into a cone
 (or "cutoff"). They are useful to simulate flashlights,
@@ -215,14 +205,12 @@ Spot lights share the same **Range** and **Attenuation** as **OmniLight**, and a
 - **Angle**: The aperture angle of the light
 - **Angle Attenuation**: The cone attenuation, which helps soften the cone borders.
 
-Spot shadow mapping
-^^^^^^^^^^^^^^^^^^^
+#### Spot shadow mapping
 
 Spots don't need any parameters for shadow mapping. Keep in mind that, at more than 89 degrees of aperture, shadows
 stop functioning for spots, and you should consider using an Omni light instead.
 
-Shadow atlas
-~~~~~~~~~~~~
+### Shadow atlas
 
 Unlike Directional lights, which have their own shadow texture, Omni and Spot lights are assigned to slots of a shadow atlas.
 This atlas can be configured in Project Settings -> Rendering -> Quality -> Shadow Atlas.
@@ -253,8 +241,7 @@ If the slots in a quadrant are full, lights are pushed back to smaller slots, de
 This allocation strategy works for most games, but you may want to use a separate one in some cases (for example, a top-down game where
 all lights are around the same size and quadrants may all have the same subdivision).
 
-Shadow filter quality
-~~~~~~~~~~~~~~~~~~~~~
+### Shadow filter quality
 
 The filter quality of shadows can be tweaked. This can be found in
 Project Settings -> Rendering -> Quality -> Shadows.

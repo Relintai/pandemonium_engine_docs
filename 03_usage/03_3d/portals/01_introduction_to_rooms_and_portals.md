@@ -1,7 +1,6 @@
 
 
-Introduction to Rooms and Portals
-=================================
+# Introduction to Rooms and Portals
 
 The rooms and portals system is an optional component of Pandemonium that allows you to partition your 3D game levels into a series of `Room( Room )` s (*aka cells*), and `Portal( Portal )` s. Portals are openings between the rooms that the `Camera( Camera )` (and lights) can see through.
  
@@ -16,8 +15,7 @@ The trade off for these features is that we have to manually partition our level
 Note:
  Pandemonium portals should not be confused with those in the `game of the same name ( https://en.wikipedia.org/wiki/Portal_(video_game) )`. They do not warp space, they simply represent a window that the camera (or lights) can see through.
 
-Minimizing manual labour
-^^^^^^^^^^^^^^^^^^^^^^^^
+### Minimizing manual labour
 
 Although the effort involved in creating rooms for a large level may seem daunting, there are several factors which can make this much easier:
 
@@ -29,8 +27,7 @@ The performance benefits (especially in terms of occlusion) follow an L-shaped c
 
 In general, when it comes to medium and large-sized levels, it is better to do a little portalling than none at all.
 
-Some caveats
-^^^^^^^^^^^^
+### Some caveats
 
 Note:
  The portal system should be considered an **advanced feature** of Pandemonium. You should not attempt to use rooms and portals until you are familiar with the Pandemonium editor, and have successfully made at least a couple of test games.

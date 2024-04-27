@@ -1,10 +1,8 @@
 
 
-Reflection probes
-=================
+# Reflection probes
 
-Introduction
-------------
+## Introduction
 
 As stated in the `doc_spatial_material`, objects can show reflected or diffuse light.
 Reflection probes are used as a source of reflected and ambient light for objects inside their area of influence.
@@ -17,8 +15,7 @@ While these probes are an efficient way of storing reflections, they have a few 
 * They are efficient to render, but expensive to compute. This leads to a default behavior where they only capture on scene load.
 * They work best for rectangular shaped rooms or places, otherwise the reflections shown are not as faithful (especially when roughness is 0).
 
-Setting up
-----------
+## Setting up
 
 Create a ReflectionProbe node and wrap it around the area where you want to have reflections:
 
@@ -61,8 +58,7 @@ use the *Cull Mask* setting:
 
 ![](img/refprobe_cullmask.png)
 
-Interior vs exterior
---------------------
+## Interior vs exterior
 
 If you are using reflection probes in an interior setting, it is recommended
 that the **Interior** property be enabled. This stops
@@ -77,8 +73,7 @@ Optionally, you can blend this ambient light with the probe diffuse capture by
 tweaking the **Ambient Contribution** property (0.0 means pure ambient color,
 while 1.0 means pure diffuse capture).
 
-Blending
---------
+## Blending
 
 Multiple reflection probes can be used, and Pandemonium will blend them where they overlap using a smart algorithm:
 
@@ -100,8 +95,7 @@ Finally, blending interior and exterior probes is the recommended approach when 
 levels that combine both interiors and exteriors. Near the door, a probe can
 be marked as *exterior* (so it will get sky reflections) while on the inside, it can be interior.
 
-Reflection atlas
-----------------
+## Reflection atlas
 
 In the current renderer implementation, all probes are the same size and
 are fit into a Reflection Atlas. The size and amount of probes can be

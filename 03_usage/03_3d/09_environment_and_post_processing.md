@@ -1,21 +1,18 @@
 
 
-Environment and post-processing
-===============================
+# Environment and post-processing
 
 Pandemonium 3 provides a redesigned Environment resource, as well as a new
 post-processing system with many available effects right out of the box.
 
-Environment
------------
+## Environment
 
 The Environment resource stores all the information required for controlling
 rendering environment. This includes sky, ambient lighting, tone mapping,
 effects, and adjustments. By itself it does nothing, but it becomes enabled once
 used in one of the following locations in order of priority:
 
-Camera node
-^^^^^^^^^^^
+#### Camera node
 
 An Environment can be set to a camera. It will have priority over any other setting.
 
@@ -24,8 +21,7 @@ An Environment can be set to a camera. It will have priority over any other sett
 This is mostly useful when wanting to override an existing environment,
 but in general it's a better idea to use the option below.
 
-WorldEnvironment node
-^^^^^^^^^^^^^^^^^^^^^
+#### WorldEnvironment node
 
 The WorldEnvironment node can be added to any scene, but only one can exist per
 active scene tree. Adding more than one will result in a warning.
@@ -36,8 +32,7 @@ Any Environment added has higher priority than the default Environment
 (explained below). This means it can be overridden on a per-scene basis,
 which makes it quite useful.
 
-Default environment
-^^^^^^^^^^^^^^^^^^^
+#### Default environment
 
 A default environment can be set, which acts as a fallback when no Environment
 was set to a Camera or WorldEnvironment.
@@ -49,14 +44,12 @@ New projects created from the Project Manager come with a default environment
 (`default_env.tres`). If one needs to be created, save it to disk before
 referencing it here.
 
-Environment options
--------------------
+## Environment options
 
 Following is a detailed description of all environment options and how they
 are intended to be used.
 
-Background
-^^^^^^^^^^
+#### Background
 
 The Background section contains settings on how to fill the background (parts of
 the screen where objects were not drawn). In Pandemonium 3.0, the background not only
@@ -72,8 +65,7 @@ There are many ways to set the background:
 - **Sky** lets you define a panorama sky (a 360 degree sphere texture) or a procedural sky (a simple sky featuring a gradient and an optional sun). Objects will reflect it and absorb ambient light from it.
 - **Color+Sky** lets you define a sky (as above), but uses a constant color value for drawing the background. The sky will only be used for reflection and ambient light.
 
-Ambient Light
-^^^^^^^^^^^^^
+#### Ambient Light
 
 Ambient (as defined here) is a type of light that affects every piece of geometry
 with the same intensity. It is global and independent of lights that might be
@@ -109,8 +101,7 @@ flat ambient color and a GIProbe:
 Using one of the methods described above, objects get constant ambient lighting
 replaced by ambient light from the probes.
 
-Fog
-^^^
+#### Fog
 
 Fog, as in real life, makes distant objects fade away into an uniform color. The
 physical effect is actually pretty complex, but Pandemonium provides a good approximation.
@@ -134,8 +125,7 @@ In practice, it makes light stand out more across the fog.
 
 ![](img/environment_fog_transmission.png)
 
-Tonemap
-^^^^^^^
+#### Tonemap
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -175,8 +165,7 @@ The tone mapping options are:
   between `6.0` and `8.0`. Higher values result in less blown out highlights,
   but make the scene appear slightly darker as a whole.
 
-Auto Exposure (HDR)
-^^^^^^^^^^^^^^^^^^^
+#### Auto Exposure (HDR)
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -211,14 +200,12 @@ defaults, but you can still tweak them:
 - **Max Luma:** Maximum luminance that auto exposure will aim to adjust for.
 - **Speed:** Speed at which luminance corrects itself. The higher the value, the faster correction happens.
 
-Mid- and post-processing effects
---------------------------------
+## Mid- and post-processing effects
 
 A large amount of widely-used mid- and post-processing effects are supported
 in the Environment.
 
-Screen-Space Reflections (SSR)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Screen-Space Reflections (SSR)
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -243,8 +230,7 @@ A few user-controlled parameters are available to better tweak the technique:
 
 Keep in mind that screen-space-reflections only work for reflecting opaque geometry. Transparent objects can't be reflected.
 
-Screen-Space Ambient Occlusion (SSAO)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Screen-Space Ambient Occlusion (SSAO)
 
 *This feature is only available when using the GLES3 backend.*
 
@@ -289,8 +275,7 @@ Tweaking SSAO is possible with several parameters:
 - **Blur:** Type of blur kernel used. The 1x1 kernel is a simple blur that preserves local detail better, but is not as efficient (generally works better with the high quality setting above), while 3x3 will soften the image better (with a bit of dithering-like effect), but does not preserve local detail as well.
 - **Edge Sharpness**: This can be used to preserve the sharpness of edges (avoids areas without AO on creases).
 
-Depth of Field / Far Blur
-^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Depth of Field / Far Blur
 
 This effect simulates focal distance on high end cameras. It blurs objects behind
 a given range. It has an initial **Distance** with a **Transition** region
@@ -301,8 +286,7 @@ a given range. It has an initial **Distance** with a **Transition** region
 The **Amount** parameter controls the amount of blur. For larger blurs, tweaking
 the **Quality** may be needed in order to avoid artifacts.
 
-Depth of Field / Near Blur
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Depth of Field / Near Blur
 
 This effect simulates focal distance on high end cameras. It blurs objects close
 to the camera (acts in the opposite direction as far blur).
@@ -318,8 +302,7 @@ given object:
 
 ![](img/environment_mixed_blur.png)
 
-Glow
-^^^^
+#### Glow
 
 In photography and film, when light amount exceeds the maximum supported by the
 media (be it analog or digital), it generally bleeds outwards to darker regions
@@ -370,8 +353,7 @@ gets rids of it, at a minimal performance cost.
 
 ![](img/environment_glow_bicubic.png)
 
-Adjustments
-^^^^^^^^^^^
+#### Adjustments
 
 At the end of processing, Pandemonium offers the possibility to do some standard
 image adjustments.

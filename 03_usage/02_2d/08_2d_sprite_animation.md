@@ -1,10 +1,8 @@
 
 
-2D Sprite animation
-===================
+# 2D Sprite animation
 
-Introduction
-------------
+## Introduction
 
 In this tutorial, you'll learn how to create 2D animated
 characters with the AnimatedSprite class and the AnimationPlayer. Typically, when you create or download an animated character, it
@@ -20,8 +18,7 @@ Note:
  Art for the following examples by https://opengameart.org/users/ansimuz and by
                                            https://opengameart.org/users/tgfcoder
 
-Individual images with AnimatedSprite
--------------------------------------
+## Individual images with AnimatedSprite
 
 In this scenario, you have a collection of images, each containing one of your
 character's animation frames. For this example, we'll use the following
@@ -68,8 +65,7 @@ fix this, change the *Speed (FPS)* setting in the SpriteFrames panel to 10.
 You can add additional animations by clicking the "New Animation" button and
 adding additional images.
 
-Controlling the animation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+### Controlling the animation
 
 Once the animation is complete, you can control the animation via code using
 the `play()` and `stop()` methods. Here is a brief example to play the
@@ -91,8 +87,7 @@ gdscript GDScript
 ```
 
 
-Sprite sheet with AnimatedSprite
---------------------------------
+## Sprite sheet with AnimatedSprite
 
 You can also easily animate from a sprite sheet with the class `AnimatedSprite`. We will use this public domain sprite sheet:
 
@@ -126,8 +121,7 @@ Finally, check Playing on the AnimatedSprite in the inspector to see your frog j
 ![](img/2d_animation_play_spritesheet_animation.png)
 
 
-Sprite sheet with AnimationPlayer
----------------------------------
+## Sprite sheet with AnimationPlayer
 
 Another way that you can animate when using a sprite sheet is to use a standard
 `Sprite` node to display the texture, and then animating the
@@ -185,8 +179,7 @@ Press "Play" on the animation to see how it looks.
 
 ![](img/2d_animation_running.gif)
 
-Controlling an AnimationPlayer animation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Controlling an AnimationPlayer animation
 
 Like with AnimatedSprite, you can control the animation via code using
 the `play()` and `stop()` methods. Again, here is an example to play the
@@ -218,8 +211,7 @@ Note:
           If this turns out to be a problem, after calling `play()`, you can call `advance(0)`
           to update the animation immediately.
 
-Summary
--------
+## Summary
 
 These examples illustrate the two classes you can use in Pandemonium for
 2D animation. `AnimationPlayer` is

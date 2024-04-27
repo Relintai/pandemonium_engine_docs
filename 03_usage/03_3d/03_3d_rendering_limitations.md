@@ -1,7 +1,6 @@
 
 
-3D rendering limitations
-========================
+# 3D rendering limitations
 
 See also:
 
@@ -10,15 +9,13 @@ See also:
     limitations on 3D rendering compared to desktop platforms.
     See `doc_mobile_rendering_limitations` for more information.
 
-Introduction
-------------
+## Introduction
 
 Due to their focus on performance, real-time rendering engines have many
 limitations. Pandemonium's renderer is no exception. To work effectively with those
 limitations, you need to understand them.
 
-Texture size limits
--------------------
+## Texture size limits
 
 On desktops and laptops, textures larger than 8192×8192 may not be supported on
 older devices. You can check your target GPU's limitations on
@@ -30,8 +27,7 @@ your texture to display correctly on all platforms, you should avoid using
 textures larger than 4096×4096 and use a power of two size if the texture needs
 to repeat.
 
-Color banding
--------------
+## Color banding
 
 When using the GLES3 or Vulkan renderers, Pandemonium's 3D engine renders internally
 in HDR. However, the rendering output will be tonemapped to a low dynamic range
@@ -57,8 +53,7 @@ See also:
     See `Banding in Games: A Noisy Rant ( http://loopit.dk/banding_in_games.pdf )`
     for more details about banding and ways to combat it.
 
-Depth buffer precision
-----------------------
+## Depth buffer precision
 
 To sort objects in 3D space, rendering engines rely on a *depth buffer* (also
 called *Z-buffer*). This buffer has a finite precision: 24-bit on desktop
@@ -86,8 +81,7 @@ player.
 
 
 
-Transparency sorting
---------------------
+## Transparency sorting
 
 In Pandemonium, transparent materials are drawn after opaque materials. Transparent
 objects are sorted back to front before being drawn based on the Spatial's
@@ -123,8 +117,7 @@ this feature. There are still several ways to avoid this problem:
   **PixelAlpha**. This will make the material opaque. This way, it can also
   cast shadows.
 
-Multi-sample antialiasing
--------------------------
+## Multi-sample antialiasing
 
 Multi-sample antialiasing (MSAA) takes multiple *coverage* samples at the edges
 of polygons when rendering objects. It does not increase the number of *color*

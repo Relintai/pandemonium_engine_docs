@@ -1,13 +1,11 @@
-First steps with Rooms and Portals
-==================================
 
-The RoomManager
-~~~~~~~~~~~~~~~
+# First steps with Rooms and Portals
+
+## The RoomManager
 
 Anytime you want to use the portal system, you need to include a special node in your scene tree, called the `RoomManager( RoomManager )`. The RoomManager is responsible for the runtime maintenance of the system, especially converting the objects in your rooms into a *room graph* which is used at runtime to perform occlusion culling and other tasks.
 
-Room Conversion
-^^^^^^^^^^^^^^^
+### Room Conversion
 
 This conversion must take place every time you want to activate the system. It does not store the *room graph* in your project (for flexibility and to save memory). You can either trigger it by pressing the **Convert Rooms** button in the editor toolbar (which also has a keyboard shortcut) or by calling the `rooms_convert()` method in the RoomManager. The latter method will be what you use in-game. Note that for safety, best practice is to call `rooms_clear()` before unloading or changing levels.
 
@@ -20,8 +18,7 @@ Note:
 
 ![](img/room_manager.png)
 
-The RoomList
-^^^^^^^^^^^^
+### The RoomList
 
 Before we create any rooms, we must first create a node to be the parent of all the static objects, rooms, roomgroups, and so on in our level. This node is referred to as the the `RoomList`.
 
@@ -36,18 +33,15 @@ Why do we use a specific branch of the scene tree and not the scene root? The an
 
 Often you will end up completely replacing the roomlist branch at runtime in your game as you load and unload levels.
 
-Rooms
-~~~~~
+## Rooms
 
-What is a room?
-^^^^^^^^^^^^^^^
+### What is a room?
 
 `Room( Room )`\ s are a way of spatially partitioning your level into areas that make sense in terms of level design. Rooms often quite literally *are* rooms (like in a building). Ultimately though, as far as the engine is concerned, a room represents a **non-overlapping** convex volume in which you typically place most of your objects that fall within that area.
 
 A room doesn't need to correspond to a literal room. It could, for example, also be a canyon in an outdoor area or a smaller part of a concave room. With a little imagination, you can use the system in almost any scenario.
 
-Why convex?
-^^^^^^^^^^^
+### Why convex?
 
 Rooms are defined as convex volumes (or *convex hulls*) because it's trivial to mathematically determine whether a point is within a convex hull. A simple plane check will tell you the distance of a point from a plane. If a point is behind all the planes bounding the convex hull, then by definition it is inside the room. This makes all kinds of things easier in the internals of the system, such as checking which room a camera is within.
 
@@ -55,8 +49,7 @@ Rooms are defined as convex volumes (or *convex hulls*) because it's trivial to 
 
 ![](img/convex_hull.png)
 
-Why non-overlapping?
-^^^^^^^^^^^^^^^^^^^^
+### Why non-overlapping?
 
 If two rooms overlap, and a camera or player is in this overlapping zone, then there is no way to tell which room the object should be in (and hence render from), or be rendered in. This requirement for non-overlapping rooms does have implications for level design.
 
@@ -68,13 +61,11 @@ The system does attempt to cope with overlapping rooms as best as possible by ma
 
 There is one exception, however, for `internal rooms( doc_rooms_and_portals_internal_rooms )`. You do not have to worry about these to start with.
 
-How do I create a room?
-^^^^^^^^^^^^^^^^^^^^^^^
+### How do I create a room?
 
 A `Room( Room )` is a node type that can be added to the scene tree like any other. You can place objects within the room by making them children and grand-children of the Room node.
 
-How do I define the shape and position of my room convex hull?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### How do I define the shape and position of my room convex hull?
 
 Because defining the room bound is the most important aspect of the system, there are THREE methods available to define the shape of a room in Pandemonium:
 
@@ -90,8 +81,7 @@ The automatic method is used whenever a manual bound is not supplied.
 
 ![](img/simple_room.png)
 
-Portals
-~~~~~~~
+## Portals
 
 If you create some rooms, place objects within them, then convert the level in the editor, you will see the objects in the rooms appearing and showing as you move between rooms. There is one problem, however! Although you can see the objects within the room that the camera is in, you can't see to any neighbouring rooms! For that we need portals.
 
@@ -105,8 +95,7 @@ You should therefore place a portal in only one of each pair of neighbouring roo
 
 Do not be confused by the arrow. Although the arrow shows which direction the portal faces, most portals will be *two-way*, and can be seen through from both directions. The arrow is more important for ensuring that the portal links to the correct neighbouring room.
 
-Portal linking
-^^^^^^^^^^^^^^
+### Portal linking
 
 There are two ways to specify which room the portal should link to:
 
@@ -116,8 +105,7 @@ There are two ways to specify which room the portal should link to:
 Note:
  Portals are defined as a set of 2D points. This ensures that the polygon formed is in a single plane. The transform determines the portal orientation. The points must also form a *convex* polygon. This is enforced by validating the points you specify, ignoring any that do not form a convex shape. This makes editing easier while making it difficult to break the system.
 
-Trying it out
-~~~~~~~~~~~~~
+## Trying it out
 
 By now you should be able to create a couple of rooms, add some nodes such as MeshInstances within the rooms, and add a portal between the rooms. Try converting the rooms in the editor and see if you can now view the objects in neighbouring rooms through the portal.
 

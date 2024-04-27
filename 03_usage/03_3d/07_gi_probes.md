@@ -1,10 +1,8 @@
 
 
-Using GIProbe
-=============
+# Using GIProbe
 
-Introduction
-------------
+## Introduction
 
 Note:
  This feature is only available when using the GLES3 backend.
@@ -33,8 +31,7 @@ The main downsides of `GIProbe` are:
 - Reflections are voxelized, so they don't look as sharp as with `ReflectionProbe`. However, in exchange they are volumetric, so any room size or shape works for them. Mixing them with Screen Space Reflection also works well.
 - They consume considerably more video memory than Reflection Probes, so they must be used with care in the right subdivision sizes.
 
-Setting up
-----------
+## Setting up
 
 Just like a `ReflectionProbe`, simply set up the `GIProbe` by wrapping it around
 the geometry that will be affected.
@@ -59,8 +56,7 @@ Warning:
     one-sided walls). For interior levels, enclose your level geometry in a
     sufficiently large box and bridge the loops to close the mesh.
 
-Adding lights
--------------
+## Adding lights
 
 Unless there are materials with emission, `GIProbe` does nothing by default.
 Lights need to be added to the scene to have an effect.
@@ -79,8 +75,7 @@ And, as `GIProbe` lighting updates in real-time, this effect is immediate:
 
 ![](img/giprobe_indirect_energy_result.png)
 
-Reflections
------------
+## Reflections
 
 For very metallic materials with low roughness, it's possible to appreciate
 voxel reflections. Keep in mind that these have far less detail than Reflection
@@ -93,8 +88,7 @@ as a full 3-stage fallback-chain. This allows to have precise reflections where 
 
 ![](img/giprobe_ref_blending.png)
 
-Interior vs exterior
---------------------
+## Interior vs exterior
 
 GI Probes normally allow mixing with lighting from the sky. This can be disabled
 when turning on the *Interior* setting.
@@ -109,8 +103,7 @@ from spreading inside to being ignored.
 As complex buildings may mix interiors with exteriors, combining GIProbes
 for both parts works well.
 
-Tweaking
---------
+## Tweaking
 
 GI Probes support a few parameters for tweaking:
 
@@ -127,8 +120,7 @@ GI Probes support a few parameters for tweaking:
 - **Compress** Currently broken. Do not use.
 - **Data** Contains the light baked data after baking. If you are saving the data it should be saved as a .res file.
 
-Quality
--------
+## Quality
 
 `GIProbe`\ s are quite demanding. It is possible to use lower quality voxel cone
 tracing in exchange for more performance.

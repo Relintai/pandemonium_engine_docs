@@ -1,10 +1,8 @@
 
 
-2D lights and shadows
-=====================
+# 2D lights and shadows
 
-Introduction
-------------
+## Introduction
 
 This tutorial explains how the 2D lighting works in the
 `lights and shadows ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d/lights_and_shadows )` demo project.
@@ -18,8 +16,7 @@ on GitHub. I suggest you download it before starting. Alternatively,
 it can be downloaded from the Project Manager. Launch Pandemonium and in the top
 bar select "Templates" and search for "2D Lights and Shadows Demo".
 
-Setup
------
+## Setup
 
 For this demo we use four textures: two for the lights, one for the shadow casters,
 and one for the background. I've included links to them all here if you want to download them
@@ -42,8 +39,7 @@ The demo uses a blob to show where the light is and the larger light
 image to show the effect of the light upon the rest of the scene.
 
 
-Nodes
------
+## Nodes
 
 The demo uses four different nodes:
   * `CanvasModulate`
@@ -64,8 +60,7 @@ used in other ways, for example masking out parts of the scene.
 the scene cast shadows. The shadows appear only on areas covered by the `Light2D` and
 their direction is based on the center of the `Light`.
 
-Lights
-------
+## Lights
 
 `Lights` cover the entire extent of their respective Texture. They use additive
 blending to add the color of their texture to the scene.
@@ -91,8 +86,7 @@ location of the light source. A child `Sprite` is not necessary to make a
 
 ![](img/light_shadow_light_blob.png)
 
-Shadows
--------
+## Shadows
 
 Shadows are made by intersecting a `Light`.
 
@@ -104,8 +98,7 @@ but in reality all you need is a couple of `LightOccluder2Ds`. By itself
 the `LightOccluder2D` is
 just a black square.
 
-Step by step
-------------
+## Step by step
 
 Now that we have covered the basics of the nodes being used, we can now walk step by step through
 the process of making a scene like the one found in the demo.

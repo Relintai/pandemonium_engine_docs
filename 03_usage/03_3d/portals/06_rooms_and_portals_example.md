@@ -1,17 +1,15 @@
-Rooms and Portals example
-=========================
+
+# Rooms and Portals example
 
 Download this tutorial project:
 `Simple Portals Example ( https://github.com/lawnjelly/pandemonium-demo-projects/tree/portals_simple_demo/3d/portals/room_and_portals_simple_example )`
 .
 
-Introduction
-~~~~~~~~~~~~
+## Introduction
 
 This tutorial will introduce you to building a "Hello World" room system with two rooms, and a portal in between.
 
-Step 1
-~~~~~~
+## Step 1
 
 ![](tutorial_simple/img/tutorial_simple_1.png)
 
@@ -25,8 +23,7 @@ Step 1
 - Create a `MeshInstance( MeshInstance )` for the floor. Create a box by adding a CubeMesh resource to the MeshInstance. Scale and position it to form a floor.
 - Create MeshInstances for the walls. Create more box meshes for this, then scale and position them. Be sure to leave an opening on one side. You will need to create two wall segments to do this on that side.
 
-Step 2
-~~~~~~
+## Step 2
 
 ![](tutorial_simple/img/tutorial_simple_2.png)
 
@@ -35,8 +32,7 @@ Step 2
 - Rotate and position the second room so that the openings line up.
 - Rename the second room to `Lounge`.
 
-Step 3
-~~~~~~
+## Step 3
 
 ![](tutorial_simple/img/tutorial_simple_3.png)
 
@@ -45,8 +41,7 @@ Step 3
 - Scale and position the portal using the node `Transform` in the inspector, so it fits within the opening between the two rooms.
 - The portal plane should face *outward* from the source room, i.e. towards the lounge. This direction is indicated by the arrow in the editor gizmo, and portal gizmo's color.
 
-Step 4
-~~~~~~
+## Step 4
 
 ![](tutorial_simple/img/tutorial_simple_4.png)
 
@@ -56,8 +51,7 @@ Step 4
 - Boxes also have a green SpatialMaterial assigned to them to make them stand out more from the rest of the room.
 - Let's also create an `OmniLight( OmniLight )` so it will be autoplaced in one of the rooms.
 
-Step 5
-~~~~~~
+## Step 5
 
 ![](tutorial_simple/img/tutorial_simple_5.png)
 
@@ -65,8 +59,7 @@ Step 5
 - Select the RoomManager and look in the Inspector window in the **Paths** section.
 - You need to assign the **Room List** to point to the RoomList node we created earlier (which is the parent of all the rooms).
 
-Step 6
-~~~~~~
+## Step 6
 
 ![](tutorial_simple/img/tutorial_simple_6.png)
 
@@ -76,13 +69,11 @@ Step 6
 - You can see a log of the conversion process in the output window. This is helpful for finding problems.
 - If you now move the editor camera inside the rooms, you should see the meshes in the opposite room being culled depending on what you can see through the portal.
 
-Conclusion
-~~~~~~~~~~
+## Conclusion
 
 This concludes this simple tutorial. Don't be afraid to experiment with the new room system you have created.
 
-Some things to try
-^^^^^^^^^^^^^^^^^^
+### Some things to try
 
 - Create different types of geometry. CSG nodes, Particle systems, and Multimeshes are all supported by the portal system.
 - Try creating a Camera and adding it to the scene. If you run the scene you will notice that the portal culling is not active. This is because the `room graph` must be created each time you load a level, by converting the rooms. Instead of using a button in the editor, in real games you call a function in the RoomManager to convert the level, called `rooms_convert()`. Try this out with a script, perhaps running within a `ready()` function.

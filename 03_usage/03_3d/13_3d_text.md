@@ -1,10 +1,8 @@
 
 
-3D text
-=======
+# 3D text
 
-Introduction
-------------
+## Introduction
 
 In a project, there may be times when text needs to be created as
 part of a 3D scene and not just in the HUD. Pandemonium provides two
@@ -15,8 +13,7 @@ This page does **not** cover how to display a GUI scene in a 3D
 environment. For information on how to do that see `this ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/2d_in_3d )`
 demo project.
 
-Label3D
--------
+## Label3D
 
 ![](img/label_3d.png)
 
@@ -33,8 +30,7 @@ GeometryInstance3D settings. This is because the node is a quad mesh
 as Sprite3D. See `this page ( doc_3d_rendering_limitations_transparency_sorting )`
 for more information.
 
-Text mesh
----------
+## Text mesh
 
 ![](img/text_mesh.png)
 

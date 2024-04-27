@@ -1,15 +1,13 @@
 
 
-Theme type variations
-=====================
+# Theme type variations
 
 When designing a user interface there may be times when a `Control` node
 needs to have a different look than what is normally defined by a `Theme`.
 Every control node has theme property overrides, which allow you to redefine the styling for
 each individual UI element.
 
-.. figure:: img/themecheck.png)
-   :align: center
+![](img/themecheck.png)
 
 This approach quickly becomes hard to manage, if you need to share the same custom look
 between several controls. Imagine that you use gray, blue, and red variants of `Button`
@@ -37,8 +35,7 @@ Note:
    theme is better described in the `Customizing a project doc_gui_theme_in_project )`
    section of the "Introduction to GUI skinning" article.
 
-Creating a type variation
--------------------------
+## Creating a type variation
 
 To create a type variation open the theme editor, then click the plus icon
 next to the **Type** dropdown on the right side of the editor. Type in what
@@ -47,8 +44,7 @@ you want to name your theme type variation in the text box, then click **Add Typ
 Below the **Type** dropdown are the property tabs. Switch to the tab with a wrench
 and screwdriver icon.
 
-.. figure:: img/base_type.png)
-   :align: center
+![](img/base_type.png)
 
 Click on the plus icon next to the **Base Type** field. You can select the base type
 there, which would typically be the name of a control node class (e.g., `Button`, `Label`, etc).
@@ -59,8 +55,7 @@ inherits styles from `Button` because corresponding node types extend each other
 After you select the base type, you should now be able to see its properties on the other
 tabs in the theme editor. You can edit them as usual.
 
-Using a type variation
-----------------------
+## Using a type variation
 
 Now that a type variation has been created you can apply it to your nodes.
 In the inspector dock, under the **Theme** property of a control node,

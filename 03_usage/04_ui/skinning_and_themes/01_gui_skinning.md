@@ -1,7 +1,6 @@
 
 
-Introduction to GUI skinning
-============================
+# Introduction to GUI skinning
 
 It is essential for a game to provide clear, informative, and yet visually
 pleasing user interface to its players. While `Control`
@@ -13,10 +12,9 @@ the look of every control in your user interface, including your custom controls
 Here is an example of this system in action — a game with the GUI that is
 radically different from the default UI theme of the engine:
 
-.. figure:: img/tank-kings-by-winterpixel-games.png)
-   :align: center
+![](img/tank-kings-by-winterpixel-games.png)
 
-   A "Gear Up!" screen in Tank Kings, courtesy of Winterpixel Games
+A "Gear Up!" screen in Tank Kings, courtesy of Winterpixel Games
 
 Beyond achieving a unique look for your game, this system also enables developers
 to provide customization options to the end users, including accessibility settings.
@@ -27,8 +25,7 @@ Of course this system can also be used for gameplay purposes: your hero-based ga
 can change its style for the selected player character, or you can give different
 flavors to the sides in your team-based project.
 
-Basics of themes
-----------------
+## Basics of themes
 
 The skinning system is driven by the `Theme` resource. Every
 Pandemonium project has an inherent default theme that contains the settings used by
@@ -45,8 +42,7 @@ Note:
    of the default one. In principle, this works exactly like it would in your game
    as explained `below doc_gui_theme_in_project )`.
 
-Theme items
-~~~~~~~~~~~
+### Theme items
 
 The configuration that is stored in a theme consists of theme items. Each item has
 a unique name and must be one of the following data types:
@@ -82,8 +78,7 @@ a unique name and must be one of the following data types:
    not limited to the `Panel` control, as styleboxes
    are used by many controls for their backgrounds and overlays.
 
-Theme types
-~~~~~~~~~~~
+### Theme types
 
 To help with the organization of its items each theme is separated into types,
 and each item must belong to a single type. In other words, each theme item
@@ -144,8 +139,7 @@ Warning:
 You can learn more about creating and using theme type variations in a
 `dedicated article doc_gui_theme_type_variations )`.
 
-Customizing a control
----------------------
+## Customizing a control
 
 Each control node can be customized directly without the use of themes. This
 is called local overrides. Every theme property from the control's class
@@ -154,8 +148,7 @@ the Inspector dock, or scripts. This allows to make granular changes to a
 particular part of the UI, while not affecting anything else in the project,
 including this control's children.
 
-.. figure:: img/themecheck.png)
-   :align: center
+![](img/themecheck.png)
 
 Local overrides are less useful for the visual flair of your user interface,
 especially if you aim for consistency. However, for layout nodes these are
@@ -169,8 +162,7 @@ it uses. Values provided by the theme are ignored.
 
 
 
-Customizing a project
----------------------
+## Customizing a project
 
 Out of the box each project adopts the default project theme provided by Pandemonium. The
 default theme itself is constant and cannot be changed, but its items can be overridden
@@ -224,8 +216,7 @@ like this:
 Even if the item doesn't exist in any theme, a corresponding default value for that
 data type will be returned.
 
-Beyond controls
----------------
+## Beyond controls
 
 Naturally, themes are an ideal type of resource for storing configuration for
 something visual. While the support for theming is built into control nodes,

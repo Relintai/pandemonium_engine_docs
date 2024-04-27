@@ -1,7 +1,6 @@
 
 
-Using Containers
-================
+# Using Containers
 
 `Anchors doc_size_and_anchors )` are an efficient way to handle
 different aspect ratios for basic multiple resolution handling in GUIs,
@@ -14,8 +13,7 @@ common case where more advanced layout features may be required is in-game tools
 All these situations require a more capable OS-like user interface, with advanced layout and formatting.
 For that, `Containers` are more useful.
 
-Container layout
-----------------
+## Container layout
 
 Containers provide a huge amount of layout power (as an example, the Pandemonium editor user interface is entirely done using them):
 
@@ -34,8 +32,7 @@ Example of *HBoxContainer* resizing children buttons.
 
 The real strength of containers is that they can be nested (as nodes), allowing the creation of very complex layouts that resize effortlessly.
 
-Size flags
-----------
+## Size flags
 
 When adding a node to a container, the way the container treats each child depends mainly on their *size flags*. These flags
 can be found by inspecting any control that is a child of a *Container*.
@@ -56,13 +53,11 @@ Size flags are independent for vertical and horizontal sizing and not all contai
 
 Experimenting with these flags and different containers is recommended to get a better grasp on how they work.
 
-Container types
----------------
+## Container types
 
 Pandemonium provides several container types out of the box as they serve different purposes:
 
-Box Containers
-^^^^^^^^^^^^^^
+### Box Containers
 
 Arranges child controls vertically or horizontally (via `HBoxContainer` and
 `VBoxContainer`). In the opposite of the designated direction
@@ -72,16 +67,14 @@ Arranges child controls vertically or horizontally (via `HBoxContainer` and
 
 These containers make use of the *Ratio* property for children with the *Expand* flag set.
 
-Grid Container
-^^^^^^^^^^^^^^
+### Grid Container
 
 Arranges child controls in a grid layout (via `GridContainer`, amount
 of columns must be specified). Uses both the vertical and horizontal expand flags.
 
    ![](img/containers_grid.png)
 
-Margin Container
-^^^^^^^^^^^^^^^^
+### Margin Container
 
 Child controls are expanded towards the bounds of this control (via
 `MarginContainer`). Padding will be added on the margins
@@ -94,8 +87,7 @@ constants overrides section of each control:
 
    ![](img/containers_margin_constants.png)
 
-Tab Container
-^^^^^^^^^^^^^
+### Tab Container
 
 Allows you to place several child controls stacked on top of each other (via
 `TabContainer`), with only the *current* one visible.
@@ -110,8 +102,7 @@ The titles are generated from the node names by default (although they can be ov
 
 Settings such as tab placement and *StyleBox* can be modified in the *TabContainer* theme overrides.
 
-Split Container
-^^^^^^^^^^^^^^^
+### Split Container
 
 Accepts only one or two children controls, then places them side to side with a divisor
 (via `HSplitContainer`).
@@ -124,8 +115,7 @@ The divisor can be dragged around to change the size relation between both child
    ![](img/containers_split_drag.gif)
 
 
-PanelContainer
-^^^^^^^^^^^^^^
+### PanelContainer
 
 Simple container that draws a *StyleBox*, then expands children to cover its whole area
 (via `PanelContainer`, respecting the *StyleBox* margins).
@@ -135,8 +125,7 @@ It respects both the horizontal and vertical size flags.
 
 This container is useful as top-level, or just to add custom backgrounds to sections of a layout.
 
-ScrollContainer
-^^^^^^^^^^^^^^^
+### ScrollContainer
 
 Accepts a single child node. If this node is bigger than the container, scrollbars will be added
 to allow panning the node around (via `ScrollContainer`). Both
@@ -152,14 +141,12 @@ Mouse wheel and touch drag (when touch is available) are also valid ways to pan 
 As in the example above, one of the most common ways to use this container is together with a *VBoxContainer* as child.
 
 
-ViewportContainer
-^^^^^^^^^^^^^^^^^
+### ViewportContainer
 
 This is a special control that will only accept a single *Viewport* node as child, and it will display
 it as if it was an image (via `ViewportContainer`).
 
-Creating custom Containers
---------------------------
+## Creating custom Containers
 
 It is possible to easily create a custom container using script. Here is an example of a simple container that fits children
 to its rect size:

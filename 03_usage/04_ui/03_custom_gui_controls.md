@@ -1,10 +1,8 @@
 
 
-Custom GUI controls
-===================
+# Custom GUI controls
 
-So many controls...
--------------------
+## So many controls...
 
 Yet there are never enough. Creating your own custom controls that act
 just the way you want them to is an obsession of almost every GUI
@@ -13,15 +11,13 @@ the way you want. Before contacting the developers with a pull-request
 to support diagonal scrollbars, at least it will be good to know how to
 create these controls easily from script.
 
-Drawing
--------
+## Drawing
 
 For drawing, it is recommended to check the `doc_custom_drawing_in_2d` tutorial.
 The same applies. Some functions are worth mentioning due to their
 usefulness when drawing, so they will be detailed next:
 
-Checking control size
-~~~~~~~~~~~~~~~~~~~~~
+### Checking control size
 
 Unlike 2D nodes, "size" is important with controls, as it helps to
 organize them in proper layouts. For this, the
@@ -29,8 +25,7 @@ organize them in proper layouts. For this, the
 property is provided. Checking it during `draw()` is vital to ensure
 everything is kept in-bounds.
 
-Checking focus
-~~~~~~~~~~~~~~
+### Checking focus
 
 Some controls (such as buttons or text editors) might provide input
 focus for keyboard or joypad input. Examples of this are entering text
@@ -52,8 +47,7 @@ gdscript GDScript
              draw_normal()
 ```
 
-Sizing
-------
+## Sizing
 
 As mentioned before, size is important to controls. This allows
 them to lay out properly, when set into grids, containers, or anchored.
@@ -83,14 +77,12 @@ gdscript GDScript
         set_custom_minimum_size(Vector2(30, 30))
 ```
 
-Input
------
+## Input
 
 Controls provide a few helpers to make managing input events much easier
 than regular nodes.
 
-Input events
-~~~~~~~~~~~~
+### Input events
 
 There are a few tutorials about input before this one, but it's worth
 mentioning that controls have a special input method that only works
@@ -119,8 +111,7 @@ gdscript GDScript
 For more information about events themselves, check the `doc_inputevent`
 tutorial.
 
-Notifications
-~~~~~~~~~~~~~
+### Notifications
 
 Controls also have many useful notifications for which no dedicated callback
 exists, but which can be checked with the _notification callback:

@@ -1,7 +1,6 @@
 
 
-Size and anchors
-================
+# Size and anchors
 
 If a game was always going to be run on the same device and at the same
 resolution, positioning controls would be a simple matter of setting the
@@ -38,8 +37,7 @@ it, leaving a 20 pixel margin:
 
 ![](img/marginaround.png)
 
-Centering a control
--------------------
+## Centering a control
 
 To center a control in its parent, set its anchors to 0.5 and each margin
 to half of its relevant dimension. For example, the code below shows how
@@ -64,8 +62,7 @@ Setting each anchor to 0.5 moves the reference point for the margins to
 the center of its parent. From there, we set negative margins so that
 the control gets its natural size.
 
-Layout Presets
---------------
+## Layout Presets
 
 Instead of manually adjusting the margin and anchor values, you can use the
 toolbar's Layout menu, above the viewport. Besides centering, it gives you many

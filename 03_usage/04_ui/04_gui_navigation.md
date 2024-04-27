@@ -1,7 +1,5 @@
 
-
-Keyboard/Controller Navigation and Focus
-========================================
+# Keyboard/Controller Navigation and Focus
 
 It is a common requirement for a user interface to have full keyboard
 and controller support for navigation and interaction. There are two main
@@ -23,8 +21,7 @@ Warning:
     Because these actions are used for focus they should not be used for any
     gameplay code.
 
-Node settings
--------------
+## Node settings
 
 In addition to the built-in logic, you can define what is known as focus neighbors
 for each individual control node. This allows to finely tune the path the UI focus
@@ -57,8 +54,7 @@ no focus neighbor configured, the engine will try to guess the next control auto
 This may result in unintended behavior, especially in a complex user interface that doesn't
 have well-defined vertical or horizontal navigation flow.
 
-Necessary code
---------------
+## Necessary code
 
 For keyboard and controller navigation to work correctly, any node must be focused on
 using code when the scene starts. Without doing this, pressing buttons or keys won't

@@ -1,7 +1,6 @@
 
 
-Recording with microphone
-=========================
+# Recording with microphone
 
 Pandemonium supports in-game audio recording for Windows, macOS, Linux, Android and
 iOS.
@@ -12,8 +11,7 @@ support for this tutorial:
 
 You will need to enable audio input in the project settings, or you'll just get empty audio files.
 
-The structure of the demo
--------------------------
+## The structure of the demo
 
 The demo consists of a single scene. This scene includes two major parts: the
 GUI and the audio.

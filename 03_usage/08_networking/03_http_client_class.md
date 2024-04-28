@@ -1,7 +1,6 @@
 
 
-HTTP client class
-=================
+# HTTP client class
 
 `HTTPClient` provides low-level access to HTTP communication.
 For a higher-level interface, you may want to take a look at `HTTPRequest` first,

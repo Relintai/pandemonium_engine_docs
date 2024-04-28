@@ -1,7 +1,6 @@
 
 
-Making HTTP requests
-====================
+# Making HTTP requests
 
 The `HTTPRequest` node is the easiest way to make HTTP requests in Pandemonium.
 It is backed by the more low-level `HTTPClient`.
@@ -16,8 +15,7 @@ Warning:
     using one-click deploy. Otherwise, network communication of any kind will be
     blocked by Android.
 
-Preparing scene
----------------
+## Preparing scene
 
 Create a new empty scene, add a CanvasLayer as the root node and add a script to it. Then add two child nodes to it: a Button and an HTTPRequest node. You will need to connect the following signals to the CanvasLayer script:
 
@@ -26,8 +24,7 @@ Create a new empty scene, add a CanvasLayer as the root node and add a script to
 
 ![](img/rest_api_scene.png)
 
-Scripting
----------
+## Scripting
 
 Below is all the code we need to make it work. The URL points to an online API mocker; it returns a pre-defined JSON string, which we will then parse to get access to the data.
 
@@ -67,8 +64,7 @@ Please note that, for SSL/TLS encryption and thus HTTPS URLs to work, you may ne
 Also, when calling APIs using authorization, be aware that someone might analyse and decompile your released application and thus may gain access to any embedded authorization information like tokens, usernames or passwords.
 That means it is usually not a good idea to embed things such as database access credentials inside your game. Avoid providing information useful to an attacker whenever possible.
 
-Sending data to server
-----------------------
+## Sending data to server
 
 Until now, we have limited ourselves to requesting data from a server. But what if you need to send data to the server? Here is a common way of doing it:
 

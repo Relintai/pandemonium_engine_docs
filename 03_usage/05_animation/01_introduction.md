@@ -1,7 +1,6 @@
 
 
-Introduction to the animation features
-======================================
+# Introduction to the animation features
 
 The `AnimationPlayer` node allows you to create anything
 from simple to complex animations.
@@ -18,8 +17,7 @@ Node transforms, sprites, UI elements, particles, visibility and color
 of materials, and so on. You can also modify values of script variables
 and call any function.
 
-Create an AnimationPlayer node
-------------------------------
+## Create an AnimationPlayer node
 
 To use the animation tools we first have to create an
 `AnimationPlayer` node.
@@ -28,25 +26,22 @@ The AnimationPlayer node type is the data container for your animations.
 One AnimationPlayer node can hold multiple animations, that can
 automatically transition to one another.
 
-.. figure:: img/animation_create_animationplayer.png)
-   :alt: The AnimationPlayer node
+![The AnimationPlayer node](img/animation_create_animationplayer.png)
 
-   The AnimationPlayer node
+The AnimationPlayer node
 
 After creating one click on the AnimationPlayer node in the Node tab to
 open the Animation Panel at the bottom of the viewport.
 
-.. figure:: img/animation_animation_panel.png)
-   :alt: The animation panel position
+![The animation panel position](img/animation_animation_panel.png)
 
-   The animation panel position
+The animation panel position
 
 It consists of four parts:
 
-.. figure:: img/animation_animation_panel_overview.png)
-   :alt: The animation panel
+![The animation panel](img/animation_animation_panel_overview.png)
 
-   The animation panel
+The animation panel
 
 -  Animation controls (i.e. add, load, save, and delete animations)
 -  The tracks listing
@@ -54,68 +49,58 @@ It consists of four parts:
 -  The timeline and track controls, where you can zoom the timeline and
    edit tracks for example.
 
-Computer animation relies on keyframes
---------------------------------------
+## Computer animation relies on keyframes
 
 A keyframe defines the value of a property at a certain point in time.
 
 Diamond shapes represent keyframes in the timeline. A line between two
 keyframes indicates that the value hasn't changed.
 
-.. figure:: img/animation_keyframes.png)
-   :alt: Keyframes in Pandemonium
+![Keyframes in Pandemonium](img/animation_keyframes.png)
 
-   Keyframes in Pandemonium
+Keyframes in Pandemonium
 
 The engine interpolates values between keyframes, resulting in a gradual
 change in values over time.
 
-.. figure:: img/animation_illustration.png)
-   :alt: Two keyframes are all it takes to obtain a smooth motion
+![Two keyframes are all it takes to obtain a smooth motion](img/animation_illustration.png)
 
-   Two keyframes are all it takes to obtain a smooth motion
+Two keyframes are all it takes to obtain a smooth motion
 
 The timeline lets you insert keyframes and change their timing. It also
 defines how long the animation is.
 
-.. figure:: img/animation_timeline.png)
-   :alt: The timeline in the animation panel
+![The timeline in the animation panel](img/animation_timeline.png)
 
-   The timeline in the animation panel
+The timeline in the animation panel
 
 Each line of the Animation Panel is an animation track. Normal and
 Transform tracks reference node properties. Their name or id is a path
 to the node and the affected property.
 
-.. figure:: img/animation_normal_track.png)
-   :alt: Example of Normal animation tracks
+![Example of Normal animation tracks](img/animation_normal_track.png)
 
-   Example of Normal animation tracks
+Example of Normal animation tracks
 
 Tip:
-
 
    If you animate the wrong property, you can edit a track's path anytime.
    Double click on it and type the new path. Play the animation using the
    "Play from beginning" button |Play from beginning| (or pressing
    :kbd:`Shift + D` on keyboard) to see the changes instantly.
 
-Tutorial: Creating a simple animation
--------------------------------------
+## Tutorial: Creating a simple animation
 
-Scene setup
-~~~~~~~~~~~
+### Scene setup
 
 For this tutorial, we'll create a Sprite node with an AnimationPlayer as
 its child. We will animate the sprite to move between two points on the screen.
 
-.. figure:: img/animation_animation_player_tree.png)
-   :alt: Our scene setup
+![Our scene setup](img/animation_animation_player_tree.png)
 
-   Our scene setup
+Our scene setup
 
 Warning:
-
 
    AnimationPlayer inherits from Node instead of Node2D or Spatial, which means
    that the child nodes will not inherit the transform from the parent nodes
@@ -134,21 +119,18 @@ animation editor. From the list select "New" (|Add
 Animation|) to add a new animation. And Enter a name for the animation in the
 dialog box.
 
-.. figure:: img/animation_create_new_animation.png)
-   :alt: Add a new animation
+![Add a new animation](img/animation_create_new_animation.png)
 
-   Add a new animation
+Add a new animation
 
-Adding a track
-~~~~~~~~~~~~~~
+### Adding a track
 
 To add a new track for our sprite, select it and take a look in the
 toolbar:
 
-.. figure:: img/animation_convenience_buttons.png)
-   :alt: Convenience buttons
+![Convenience buttons](img/animation_convenience_buttons.png)
 
-   Convenience buttons
+Convenience buttons
 
 These switches and buttons allow you to add keyframes for the selected
 node's location, rotation, and scale respectively.
@@ -162,13 +144,11 @@ property, Pandemonium asks whether it should set it up for us. Click **Create**.
 This creates a new track and our first keyframe at the beginning of
 the timeline:
 
-.. figure:: img/animation_track.png)
-   :alt: The sprite track
+![The sprite track](img/animation_track.png)
 
-   The sprite track
+The sprite track
 
-The second keyframe
-~~~~~~~~~~~~~~~~~~~
+### The second keyframe
 
 Now we need to set the destination where our sprite should be headed and
 how much time it takes to get there.
@@ -177,10 +157,9 @@ Let's say, we want it to take 2 seconds to go to the other point. By
 default the animation is set to last only 1 second, so change this in
 the timeline controls in animation panel's lower panel to 2.
 
-.. figure:: img/animation_set_length.png)
-   :alt: Animation length
+![Animation length](img/animation_set_length.png)
 
-   Animation length
+Animation length
 
 Click on the timeline header near the 2-second mark and move the sprite
 to the target destination on the right side.
@@ -188,45 +167,39 @@ to the target destination on the right side.
 Again, click the key button in the toolbar. This creates our second
 keyframe.
 
-Run the animation
-~~~~~~~~~~~~~~~~~
+### Run the animation
 
 Click on the "Play from beginning" (|Play from beginning|) button.
 
 Yay! Our animation runs:
 
-.. figure:: img/animation_simple.gif)
-   :alt: The animation
+![The animation](img/animation_simple.gif)
 
-   The animation
+The animation
 
-Back and forth
-~~~~~~~~~~~~~~
+### Back and forth
 
 Pandemonium has an additional feature here. Like said before,
 Pandemonium always calculates the frames between two keyframes. In a loop, the
 first keyframe is also the last keyframe, if no keyframe is specified at
 the end.
 
-.. figure:: img/animation_loop.png)
-   :alt: Animation loop
+![Animation loop](img/animation_loop.png)
 
-   Animation loop
+Animation loop
 
 If you set the animation length to 4 seconds now, the animation moves
 back and forth. You can change this behavior if you change the track's
 loop mode. This is covered in the next chapter.
 
-Track settings
-~~~~~~~~~~~~~~
+### Track settings
 
 Each track has a settings panel at the end, where you can set the update
 mode, the track interpolation, and the loop mode.
 
-.. figure:: img/animation_track_settings.png)
-   :alt: Track settings
+![Track settings](img/animation_track_settings.png)
 
-   Track settings
+Track settings
 
 The update mode of a track tells Pandemonium when to update the property
 values. This can be:
@@ -243,10 +216,9 @@ values. This can be:
    could use the Capture mode to move a node that's located anywhere
    to a specific location.
 
-.. figure:: img/animation_track_rate.png)
-   :alt: Track mode
+![Track mode](img/animation_track_rate.png)
 
-   Track mode
+Track mode
 
 In normal animations, you usually use "Continuous". The other types are
 used to script complex animations.
@@ -260,10 +232,9 @@ the keyframes. These interpolation modes are supported:
 -  Cubic: Set the value based on a cubic function calculation between
    the two keyframes
 
-.. figure:: img/animation_track_interpolation.png)
-   :alt: Track interpolation
+![Track interpolation](img/animation_track_interpolation.png)
 
-   Track interpolation
+Track interpolation
 
 Cubic interpolation leads to a more natural movement, where the
 animation is slower at a keyframe and faster between keyframes. This is
@@ -273,10 +244,9 @@ of a robotic movement.
 Pandemonium supports two loop modes, which affect the animation if it's set to
 loop:
 
-.. figure:: img/animation_track_loop_modes.png)
-   :alt: Loop modes
+![Loop modes](img/animation_track_loop_modes.png)
 
-   Loop modes
+Loop modes
 
 -  Clamp loop interpolation: When this is selected, the animation stops
    after the last keyframe for this track. When the first keyframe is
@@ -285,8 +255,7 @@ loop:
    animation after the last keyframe to reach the values of the first
    keyframe again.
 
-Keyframes for other properties
-------------------------------
+## Keyframes for other properties
 
 Pandemonium doesn't restrict you to only edit transform properties. Every
 property can be used as a track where you can set keyframes.
@@ -296,22 +265,19 @@ a small keyframe button for all the sprite's properties. Click on
 this button and Pandemonium automatically adds a track and keyframe to the
 current animation.
 
-.. figure:: img/animation_properties_keyframe.png)
-   :alt: Keyframes for other properties
+![Keyframes for other properties](img/animation_properties_keyframe.png)
 
-   Keyframes for other properties
+Keyframes for other properties
 
-Edit keyframes
---------------
+## Edit keyframes
 
 For advanced use and to edit keyframes in detail, You can click on them
 to bring up the keyframe editor in the inspector. You can use this to
 directly edit its values.
 
-.. figure:: img/animation_keyframe_editor_key.png)
-   :alt: Keyframe editor editing a key
+![Keyframe editor editing a key](img/animation_keyframe_editor_key.png)
 
-   Keyframe editor editing a key
+Keyframe editor editing a key
 
 Additionally, you can also edit the easing value for this keyframe by
 clicking and dragging the easing setting. This tells Pandemonium, how to change
@@ -320,8 +286,7 @@ the property values when it reaches this keyframe.
 You usually tweak your animations this way, when the movement doesn't
 "look right".
 
-Advanced: Call Method tracks
-----------------------------
+## Advanced: Call Method tracks
 
 Pandemonium's animation engine doesn't stop here. If you're already
 comfortable with Pandemonium's scripting language
@@ -350,18 +315,16 @@ controls.
 
 Select "Add Call Method Track" from the list of possible track types.
 
-.. figure:: img/animation_add_call_method_track.png)
-   :alt: Add Call Method Track
+![Add Call Method Track](img/animation_add_call_method_track.png)
 
-   Add Call Method Track
+Add Call Method Track
 
 Select the `AudioStreamPlayer` node in the selection
 window. Pandemonium adds the track with the reference to the node.
 
-.. figure:: img/animation_select_audiostreamplayer.png)
-   :alt: Select AudioStreamPlayer
+![Select AudioStreamPlayer](img/animation_select_audiostreamplayer.png)
 
-   Select AudioStreamPlayer
+Select AudioStreamPlayer
 
 Right click the timeline where Pandemonium should play the sample and
 click the "Insert Key" option. This will bring up a list of methods
@@ -379,12 +342,17 @@ click on the keyframe and use the keyframe settings in the inspector.
 
 ![](img/animation_call_method_keyframe.png)
 
-.. |Play from beginning| image:: img/animation_play_from_beginning.png)
-.. |Add Animation| image:: img/animation_add.png)
-.. |Add track| image:: img/animation_add_track.png)
+![Play from beginning](img/animation_play_from_beginning.png)
 
-Using RESET tracks
-------------------
+Play from beginning
+
+![Add Animation](img/animation_add.png)
+
+Add Animation
+
+![Add track](img/animation_add_track.png)
+
+## Using RESET tracks
 
 You can set up a special *RESET* animation to contain the "default pose".
 This is used to ensure that the default pose is restored when you save

@@ -1,10 +1,8 @@
 
 
-Cutout animation
-================
+# Cutout animation
 
-What is it?
-~~~~~~~~~~~
+### What is it?
 
 Traditionally, `cutout animation ( https://en.wikipedia.org/wiki/Cutout_animation )`
 is a type of `stop motion animation ( https://en.wikipedia.org/wiki/Stop_motion )`
@@ -23,8 +21,7 @@ In video games, this technique has also become popular. Examples of
 this are `Paper Mario ( https://en.wikipedia.org/wiki/Super_Paper_Mario )` or
 `Rayman Origins ( https://en.wikipedia.org/wiki/Rayman_Origins )` .
 
-Cutout animation in Pandemonium
-~~~~~~~~~~~~~~~~~~~~~~~~~
+### Cutout animation in Pandemonium
 
 Pandemonium provides tools for working with cutout rigs, and is ideal for the workflow:
 
@@ -50,8 +47,7 @@ Pandemonium provides tools for working with cutout rigs, and is ideal for the wo
 
 And much more!
 
-Making of GBot
-~~~~~~~~~~~~~~
+### Making of GBot
 
 For this tutorial, we will use as demo content the pieces of the
 `GBot ( https://www.youtube.com/watch?v=S13FrWuBMx4&list=UUckpus81gNin1aV8WSffRKw )`
@@ -61,8 +57,7 @@ character, created by Andreas Esau.
 
 Get your assets: :download:`gbot_resources.zip (files/gbot_resources.zip )`.
 
-Setting up the rig
-~~~~~~~~~~~~~~~~~~
+### Setting up the rig
 
 Create an empty Node2D as root of the scene, we will work under it:
 
@@ -92,8 +87,7 @@ the rotation pivot:
 
 ![](img/tuto_cutout4.png)
 
-Adjusting the pivot
-~~~~~~~~~~~~~~~~~~~
+### Adjusting the pivot
 
 The pivot can be adjusted by changing the *offset* property in the
 Sprite:
@@ -128,8 +122,7 @@ Note:
  You can also fix depth ordering problems by adjusting the Z property
    of any node inheriting from Node2D.
 
-RemoteTransform2D node
-~~~~~~~~~~~~~~~~~~~~~~
+### RemoteTransform2D node
 
 The `RemoteTransform2D` node transforms nodes
 somewhere else in the hierarchy. This node applies its own transform (including
@@ -150,8 +143,7 @@ animations by adjusting the `RemoteTransform2D` transforms:
 
 ![](img/tutovec_torso4.gif)
 
-Completing the skeleton
-~~~~~~~~~~~~~~~~~~~~~~~
+### Completing the skeleton
 
 Complete the skeleton by following the same steps for the rest of the
 parts. The resulting scene should look similar to this:
@@ -170,8 +162,7 @@ For simple objects and rigs this is fine, but there are limitations:
 
 To solve these problems we'll use Pandemonium's skeletons.
 
-Skeletons
-~~~~~~~~~
+### Skeletons
 
 In Pandemonium there is a helper to create "bones" between nodes. The bone-linked
 nodes are called skeletons.
@@ -229,8 +220,7 @@ sense soon.
 Now that the whole figure is rigged, the next step is setting up the IK
 chains. IK chains allow for more natural control of extremities.
 
-IK chains
-~~~~~~~~~
+### IK chains
 
 IK stands for inverse kinematics. It's a convenient technique for animating the
 position of hands, feet and other extremities of rigs like the one we've made.
@@ -261,15 +251,13 @@ adjust its position.
 
 ![](img/tutovec_torso5.gif)
 
-Animation tips
-~~~~~~~~~~~~~~
+### Animation tips
 
 The following section will be a collection of tips for creating animation for
 your cutout rigs. For more information on how the animation system in Pandemonium
 works, see `doc_introduction_animation`.
 
-Setting keyframes and excluding properties
-------------------------------------------
+## Setting keyframes and excluding properties
 
 Special contextual elements appear in the top toolbar when the animation editor
 window is open:
@@ -291,8 +279,7 @@ You can use the toggle buttons to have only rotation information added when you
 add a new keyframe. This way, you can avoid adding unwanted scale keyframes
 which would disrupt the existing scale animation.
 
-Creating a rest pose
-~~~~~~~~~~~~~~~~~~~~
+## Creating a rest pose
 
 Think of a rest pose as a default pose that your cutout rig should be set to
 when no other pose is active in your game. Create a rest pose as follows:
@@ -313,8 +300,7 @@ your game by playing the "rest" animation you've created.
 
 ![](img/tuto_cutout21.png)
 
-Modifying rotation only
-~~~~~~~~~~~~~~~~~~~~~~~
+### Modifying rotation only
 
 When animating a cutout rig, often it's only the rotation of the nodes that
 needs to change.
@@ -328,15 +314,13 @@ toggle active most of the time:
 This will avoid the creation of unwanted animation tracks for position
 and scale.
 
-Keyframing IK chains
-~~~~~~~~~~~~~~~~~~~~
+### Keyframing IK chains
 
 When editing IK chains, it's not necessary to select the whole chain to
 add keyframes. Selecting the endpoint of the chain and inserting a
 keyframe will automatically insert keyframes for all other parts of the chain too.
 
-Visually move a sprite behind its parent
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Visually move a sprite behind its parent
 
 Sometimes it is necessary to have a node change its visual depth relative to
 its parent node during an animation. Think of a character facing the camera,
@@ -351,8 +335,7 @@ and/or RemoteTransform2D nodes. They provide overlapping functionality.
 
 ![](img/tuto_cutout23.png)
 
-Setting easing curves for multiple keys
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Setting easing curves for multiple keys
 
 To apply the same easing curve to multiple keyframes at once:
 
@@ -363,8 +346,7 @@ To apply the same easing curve to multiple keyframes at once:
 
 ![](img/tuto_cutout24.png)
 
-2D Skeletal deform
-~~~~~~~~~~~~~~~~~~
+### 2D Skeletal deform
 
 Skeletal deform can be used to augment a cutout rig, allowing single pieces to
 deform organically (e.g. antennae that wobble as an insect character walks).

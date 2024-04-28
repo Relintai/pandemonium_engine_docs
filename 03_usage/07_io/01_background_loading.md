@@ -1,7 +1,6 @@
 
 
-Background loading
-==================
+# Background loading
 
 When switching the main scene of your game (e.g. going to a new
 level), you might want to show a loading screen with some indication
@@ -11,8 +10,7 @@ thread, making your game appear frozen and unresponsive while the resource is be
 document discusses the alternative of using the `ResourceInteractiveLoader` class for smoother
 load screens.
 
-ResourceInteractiveLoader
--------------------------
+## ResourceInteractiveLoader
 
 The `ResourceInteractiveLoader` class allows you to load a resource in
 stages. Every time the method `poll` is called, a new stage is loaded,
@@ -20,13 +18,11 @@ and control is returned to the caller. Each stage is generally a
 sub-resource that is loaded by the main resource. For example, if you're
 loading a scene that loads 10 images, each image will be one stage.
 
-Usage
------
+## Usage
 
 Usage is generally as follows
 
-Obtaining a ResourceInteractiveLoader
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Obtaining a ResourceInteractiveLoader
 
 ```
     Ref( ResourceInteractiveLoader> ResourceLoader::load_interactive(String p_path);
@@ -35,8 +31,7 @@ Obtaining a ResourceInteractiveLoader
 This method will give you a ResourceInteractiveLoader that you will use
 to manage the load operation.
 
-Polling
-~~~~~~~
+### Polling
 
 ```
     Error ResourceInteractiveLoader::poll();
@@ -50,8 +45,7 @@ so it will take several frames to load.
 Returns `OK` on no errors, `ERR_FILE_EOF` when loading is finished.
 Any other return value means there was an error and loading has stopped.
 
-Load progress (optional)
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Load progress (optional)
 
 To query the progress of the load, use the following methods:
 
@@ -63,8 +57,7 @@ To query the progress of the load, use the following methods:
 `get_stage_count` returns the total number of stages to load.
 `get_stage` returns the current stage being loaded.
 
-Forcing completion (optional)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Forcing completion (optional)
 
 ```
     Error ResourceInteractiveLoader::wait();
@@ -73,8 +66,7 @@ Forcing completion (optional)
 Use this method if you need to load the entire resource in the current
 frame, without any more steps.
 
-Obtaining the resource
-~~~~~~~~~~~~~~~~~~~~~~
+### Obtaining the resource
 
 ```
     Ref<Resource> ResourceInteractiveLoader::get_resource();
@@ -83,8 +75,7 @@ Obtaining the resource
 If everything goes well, use this method to retrieve your loaded
 resource.
 
-Example
--------
+## Example
 
 This example demonstrates how to load a new scene. Consider it in the
 context of the `doc_singletons_autoload` example.
@@ -195,20 +186,17 @@ loader.
         get_node("/root").add_child(current_scene)
 ```
 
-Using multiple threads
-----------------------
+## Using multiple threads
 
 ResourceInteractiveLoader can be used from multiple threads. A couple of
 things to keep in mind if you attempt it:
 
-Use a semaphore
-~~~~~~~~~~~~~~~
+### Use a semaphore
 
 While your thread waits for the main thread to request a new resource,
 use a `Semaphore` to sleep (instead of a busy loop or anything similar).
 
-Not blocking main thread during the polling
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Not blocking main thread during the polling
 
 If you have a mutex to allow calls from the main thread to your loader
 class, don't lock the main thread while you call `poll` on your loader class. When a
@@ -218,8 +206,7 @@ thread to acquire them. This might cause a deadlock if the main thread
 is waiting for your mutex while your thread is waiting to load a
 resource.
 
-Example class
--------------
+## Example class
 
 You can find an example class for loading resources in threads here:
 :download:`resource_queue.gd ( files/resource_queue.gd )`. Usage is as follows:
@@ -268,8 +255,7 @@ not fully loaded (`is_ready` returns `false`), it will block your thread
 and finish the load. If the resource is not on the queue, it will call
 `ResourceLoader::load` to load it normally and return it.
 
-Example:
-~~~~~~~~
+### Example:
 
 ```
     # Initialize.

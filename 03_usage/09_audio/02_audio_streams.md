@@ -1,17 +1,14 @@
 
 
-Audio streams
-=============
+# Audio streams
 
-Introduction
-------------
+## Introduction
 
 As you might have already read in `doc_audio_buses`, sound is sent to
 each bus via an AudioStreamPlayer node. There are different kinds
 of AudioStreamPlayers. Each one loads an AudioStream and plays it back.
 
-AudioStream
------------
+## AudioStream
 
 An audio stream is an abstract object that emits sound. The sound can come from
 many places, but is most commonly loaded from the filesystem. Audio files can be
@@ -23,16 +20,14 @@ This one makes a random adjustment to the sound's pitch every time it's
 played back. This can be helpful for adding variation to sounds that are
 played back often.
 
-AudioStreamPlayer
------------------
+## AudioStreamPlayer
 
 ![](img/audio_stream_player.png)
 
 This is the standard, non-positional stream player. It can play to any bus.
 In 5.1 sound setups, it can send audio to stereo mix or front speakers.
 
-AudioStreamPlayer2D
--------------------
+## AudioStreamPlayer2D
 
 ![](img/audio_stream_2d.png)
 
@@ -50,8 +45,7 @@ Note:
 
 ![](img/audio_stream_2d_area.png)
 
-AudioStreamPlayer3D
--------------------
+## AudioStreamPlayer3D
 
 ![](img/audio_stream_3d.png)
 
@@ -67,8 +61,7 @@ Unlike for 2D, the 3D version of AudioStreamPlayer has a few more advanced optio
 
 
 
-Reverb buses
-~~~~~~~~~~~~
+### Reverb buses
 
 Pandemonium allows for 3D audio streams that enter a specific Area node to send dry
 and wet audio to separate buses. This is useful when you have several reverb
@@ -89,8 +82,7 @@ reverberation can be heard almost uniformly across the room even though the
 source may be far away. Playing around with this parameter can simulate
 that effect.
 
-Doppler
-~~~~~~~
+### Doppler
 
 When the relative velocity between an emitter and listener changes, this is
 perceived as an increase or decrease in the pitch of the emitted sound.

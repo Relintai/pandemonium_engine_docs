@@ -1,10 +1,8 @@
 
 
-Using AnimationTree
-===================
+# Using AnimationTree
 
-Introduction
-------------
+## Introduction
 
 With `AnimationPlayer`, Pandemonium has one of the most flexible animation systems that you can find in any game engine.
 The ability to animate almost any property in any node or resource, as well as having dedicated transform, bezier,
@@ -15,8 +13,7 @@ However, the support for blending those animations via `AnimationPlayer` is rela
 `AnimationTree` is a new node introduced in Pandemonium 3.1 to deal with advanced transitions.
 It supersedes the ancient `AnimationTreePlayer`, while adding a huge amount of features and flexibility.
 
-Creating an AnimationTree
--------------------------
+## Creating an AnimationTree
 
 Before starting, it must be made clear that an `AnimationTree` node does not contain its own animations.
 Instead, it uses animations contained in an `AnimationPlayer` node. This way, you can edit your animations (or import them from a 3D scene)
@@ -36,8 +33,7 @@ This is how it's done in the `Third Person Shooter demo ( https://github.com/pan
 A new scene was created for the player with a `KinematicBody` as root. Inside this scene, the original `.dae` (Collada) file was instantiated
 and an `AnimationTree` node was created.
 
-Creating a tree
----------------
+## Creating a tree
 
 There are three main types of nodes that can be used in `AnimationTree`:
 
@@ -55,8 +51,7 @@ To set a root node in `AnimationTree`, a few types are available:
 * `AnimationNodeBlendSpace2D`: Allows placing root nodes in a 2D blend space. Control the blend position in 2D to mix between multiple animations.
 * `AnimationNodeBlendSpace1D`: Simplified version of the above (1D).
 
-Blend tree
-----------
+## Blend tree
 
 An `AnimationNodeBlendTree` can contain both root and regular nodes used for blending. Nodes are added to the graph from a menu:
 
@@ -72,8 +67,7 @@ This will simply play back the animation. Make sure that the `AnimationTree` is 
 
 Following is a short description of available nodes:
 
-Blend2 / Blend3
-^^^^^^^^^^^^^^^
+#### Blend2 / Blend3
 
 These nodes will blend between two or three inputs by a user-specified blend value:
 
@@ -86,15 +80,13 @@ This is very useful for layering animations on top of each other.
 
 ![](img/animtree6.png)
 
-OneShot
-^^^^^^^
+#### OneShot
 
 This node will execute a sub-animation and return once it finishes. Blend times for fading in and out can be customized, as well as filters.
 
 ![](img/animtree6b.gif)
 
-Seek
-^^^^
+#### Seek
 
 This node can be used to cause a seek command to happen to any sub-children of the animation graph. Use this node type to play an `Animation` from the start or a certain playback position inside the `AnimationNodeBlendTree`.
 
@@ -114,18 +106,15 @@ gdscript GDScript
     anim_tree["parameters/Seek/seek_position"] = 12.0
 ```
 
-TimeScale
-^^^^^^^^^
+#### TimeScale
 
 Allows scaling the speed of the animation (or reverse it) in any children nodes. Setting it to 0 will pause the animation.
 
-Transition
-^^^^^^^^^^
+#### Transition
 
 Very simple state machine (when you don't want to cope with a `StateMachine` node). Animations can be connected to the outputs and transition times can be specified.
 
-BlendSpace2D
-^^^^^^^^^^^^
+#### BlendSpace2D
 
 `BlendSpace2D` is a node to do advanced blending in two dimensions. Points are added to a two-dimensional space and then a position
 can be controlled to determine blending:
@@ -148,13 +137,11 @@ This mode can be changed in the *Blend* menu:
 
 ![](img/animtree10.png)
 
-BlendSpace1D
-^^^^^^^^^^^^
+#### BlendSpace1D
 
 This is similar to 2D blend spaces, but in one dimension (so triangles are not needed).
 
-StateMachine
-^^^^^^^^^^^^
+#### StateMachine
 
 This node acts as a state machine with root nodes as states. Root nodes can be created and connected via lines. States are connected via *Transitions*,
 which are connections with special properties. Transitions are uni-directional, but two can be used to connect in both directions.
@@ -182,8 +169,7 @@ Transitions also have a few properties. Click any transition and it will be disp
 * *Disabled* toggles disabling this transition (when disabled, it will not be used during travel or auto advance).
 
 
-Root motion
------------
+## Root motion
 
 When working with 3D animations, a popular technique is for animators to use the root skeleton bone to give motion to the rest of the skeleton.
 This allows animating characters in a way where steps actually match the floor below. It also allows precise interaction with objects during cinematics.
@@ -209,8 +195,7 @@ character and animations (this node is disabled by default during the game).
 ![](img/animtree15.gif)
 
 
-Controlling from code
----------------------
+## Controlling from code
 
 After building the tree and previewing it, the only question remaining is "How is all this controlled from code?".
 
@@ -242,8 +227,7 @@ gdscript GDScript
 ```
 
 
-State machine travel
---------------------
+## State machine travel
 
 One of the nice features in Pandemonium's `StateMachine` implementation is the ability to travel. The graph can be instructed to go from the
 current state to another one, while visiting all the intermediate ones. This is done via the A\* algorithm.

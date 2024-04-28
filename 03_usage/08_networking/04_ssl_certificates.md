@@ -1,10 +1,8 @@
 
 
-SSL certificates
-================
+# SSL certificates
 
-Introduction
-------------
+## Introduction
 
 It is often desired to use SSL connections for communications to avoid
 "man in the middle" attacks. Pandemonium has a connection wrapper,
@@ -28,8 +26,7 @@ this when exporting your project.
 
 There are two ways to obtain certificates:
 
-Approach 1: self signed cert
-----------------------------
+## Approach 1: self signed cert
 
 The first approach is the simplest: generate a private and public
 key pair and add the public key (in PEM format) to the .crt file.
@@ -41,8 +38,7 @@ this. This approach also **does not require domain validation** nor
 requires you to spend a considerable amount of money in purchasing
 certificates from a CA.
 
-Approach 2: CA cert
--------------------
+## Approach 2: CA cert
 
 The second approach consists of using a certificate authority (CA)
 such as Verisign, Geotrust, etc. This is a more cumbersome process,

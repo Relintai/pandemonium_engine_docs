@@ -1,10 +1,8 @@
 
 
-Saving games
-============
+# Saving games
 
-Introduction
-------------
+## Introduction
 
 Save games can be complicated. For example, it may be desirable
 to store information from multiple objects across multiple levels.
@@ -18,8 +16,7 @@ Note:
     If you're looking to save user configuration, you can use the
     `ConfigFile` class for this purpose.
 
-Identify persistent objects
----------------------------
+## Identify persistent objects
 
 Firstly, we should identify what objects we want to keep between game
 sessions and what information we want to keep from those objects. For
@@ -43,8 +40,7 @@ gdscript GDScript
         # Now, we can call our save function on each node.
 ```
 
-Serializing
------------
+## Serializing
 
 The next step is to serialize the data. This makes it much easier to
 read from and store to disk. In this case, we're assuming each member of
@@ -87,8 +83,7 @@ This gives us a dictionary with the style
 `{ "variable_name":value_of_variable }`, which will be useful when
 loading.
 
-Saving and reading data
------------------------
+## Saving and reading data
 
 As covered in the `doc_filesystem` tutorial, we'll need to open a file
 so we can write to it or read from it. Now that we have a way to
@@ -178,8 +173,7 @@ Now we can save and load an arbitrary number of objects laid out
 almost anywhere across the scene tree! Each object can store different
 data depending on what it needs to save.
 
-Some notes
-----------
+## Some notes
 
 We have glossed over setting up the game state for loading. It's ultimately up
 to the project creator where much of this logic goes.

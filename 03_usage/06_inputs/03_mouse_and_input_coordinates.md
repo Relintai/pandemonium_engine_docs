@@ -1,24 +1,20 @@
 
 
-Mouse and input coordinates
-===========================
+# Mouse and input coordinates
 
-About
------
+## About
 
 The reason for this small tutorial is to clear up many common mistakes
 about input coordinates, obtaining mouse position and screen resolution,
 etc.
 
-Hardware display coordinates
-----------------------------
+## Hardware display coordinates
 
 Using hardware coordinates makes sense in the case of writing complex
 UIs meant to run on PC, such as editors, MMOs, tools, etc. However, it does
 not make as much sense outside of that scope.
 
-Viewport display coordinates
-----------------------------
+## Viewport display coordinates
 
 Pandemonium uses viewports to display content, and viewports can be scaled by
 several options (see `doc_multiple_resolutions` tutorial). Use, then, the

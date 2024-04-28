@@ -1,7 +1,6 @@
 
 
-Controllers, gamepads, and joysticks
-====================================
+# Controllers, gamepads, and joysticks
 
 Pandemonium supports hundreds of controller models thanks to the community-sourced
 `SDL game controller database ( https://github.com/gabomdq/SDL_GameControllerDB )`.
@@ -21,8 +20,7 @@ In this guide, you will learn:
 - **How controllers can behave differently from keyboard/mouse input.**
 - **Troubleshooting issues with controllers in Pandemonium.**
 
-Supporting universal input
---------------------------
+## Supporting universal input
 
 Thanks to Pandemonium's input action system, Pandemonium makes it possible to support both
 keyboard and controller input without having to write separate code paths.
@@ -39,8 +37,7 @@ Note:
     action (such as looking around in a first-person game) will require
     different code paths since these have to be handled separately.
 
-Which Input singleton method should I use?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Which Input singleton method should I use?
 
 There are 3 ways to get input in an analog-aware way:
 
@@ -101,14 +98,12 @@ In Pandemonium versions before 3.4, such as 3.3, `Input.get_vector()` and
 `Input.get_axis()` aren't available. Only `Input.get_action_strength()`
 and `Input.is_action_pressed()` are available in Pandemonium 3.3.
 
-Differences between keyboard/mouse and controller input
--------------------------------------------------------
+## Differences between keyboard/mouse and controller input
 
 If you're used to handling keyboard and mouse input, you may be surprised by how
 controllers handle specific situations.
 
-Dead zone
-^^^^^^^^^
+#### Dead zone
 
 Unlike keyboards and mice, controllers offer axes with *analog* inputs. The
 upside of analog inputs is that they offer additional flexibility for actions.
@@ -135,8 +130,7 @@ in the Project Settings' Input Map tab.
 For `Input.get_vector()`, the deadzone can be specified, or otherwise it
 will calculate the average deadzone value from all of the actions in the vector.
 
-"Echo" events
-^^^^^^^^^^^^^
+#### "Echo" events
 
 Unlike keyboard input, holding down a controller button such as a D-pad
 direction will **not** generate repeated input events at fixed intervals (also
@@ -149,25 +143,21 @@ If you want controller buttons to send echo events, you will have to generate
 at regular intervals. This can be accomplished
 with the help of a `Timer` node.
 
-Troubleshooting
----------------
+## Troubleshooting
 
 See also:
-
 
     You can view a list of
     `known issues with controller support ( https://github.com/Relintai/pandemonium_engine/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad )`
     on GitHub.
 
-My controller isn't recognized by Pandemonium.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### My controller isn't recognized by Pandemonium.
 
 First, check that your controller is recognized by other applications. You can
 use the `Gamepad Tester ( https://gamepad-tester.com/ )` website to confirm that
 your controller is recognized.
 
-My controller has incorrectly mapped buttons or axes.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### My controller has incorrectly mapped buttons or axes.
 
 If buttons are incorrectly mapped, this may be due to an erroneous mapping from
 the `SDL game controller database ( https://github.com/gabomdq/SDL_GameControllerDB )`.
@@ -205,19 +195,16 @@ additional controller mappings, you can add them by calling
 `Input.add_joy_mapping()`
 as early as possible in a script's `ready()` function.
 
-My controller works on a given platform, but not on another platform.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### My controller works on a given platform, but not on another platform.
 
-Linux
-~~~~~
+### Linux
 
 Prior to Pandemonium 3.3, official Pandemonium binaries were compiled with udev support
 but self-compiled binaries were compiled *without* udev support unless
 `udev=yes` was passed on the SCons command line. This made controller
 hotplugging support unavailable in self-compiled binaries.
 
-HTML5
-~~~~~
+### HTML5
 
 HTML5 controller support is often less reliable compared to "native" platforms.
 The quality of controller support tends to vary wildly across browsers. As a

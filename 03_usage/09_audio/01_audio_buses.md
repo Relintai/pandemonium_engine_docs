@@ -1,10 +1,8 @@
 
 
-Audio buses
-===========
+# Audio buses
 
-Introduction
-------------
+## Introduction
 
 Pandemonium's audio processing code has been written with games in mind, with the aim
 of achieving an optimal balance between performance and sound quality.
@@ -14,8 +12,7 @@ number of effect processors can be added to each bus. Only the hardware of the
 device running your game will limit the number of buses and effects that can be
 used before performance starts to suffer.
 
-Decibel scale
--------------
+## Decibel scale
 
 Pandemonium's sound interface is designed to meet the expectations of sound design
 professionals. To this end, it primarily uses the decibel scale.
@@ -44,8 +41,7 @@ For those unfamiliar with it, it can be explained with a few facts:
 This can take a bit getting used to, but it's friendlier in the end
 and will allow you to communicate better with audio professionals.
 
-Audio buses
------------
+## Audio buses
 
 Audio buses can be found in the bottom panel of the Pandemonium editor:
 
@@ -69,8 +65,7 @@ to the left. This avoids infinite routing loops.
 
 In the above image, the output of *Bus 2* has been routed to the *Master* bus.
 
-Playback of audio through a bus
--------------------------------
+## Playback of audio through a bus
 
 To test passing audio to a bus, create an AudioStreamPlayer node, load an
 AudioStream and select a target bus for playback:
@@ -84,8 +79,7 @@ See also:
 
     You may also be interested in reading about `doc_audio_streams` now.
 
-Adding effects
---------------
+## Adding effects
 
 Audio buses can contain all sorts of effects. These effects modify the sound in
 one way or another and are applied in order.
@@ -95,15 +89,13 @@ one way or another and are applied in order.
 Try them all out to get a sense of how they alter sound. Here follows a short
 description of the available effects:
 
-Amplify
-~~~~~~~
+### Amplify
 
 Amplify changes the amplitude of the signal. Some care needs to be taken.
 Setting the level too high can make the sound clip, which is usually
 undesirable.
 
-BandLimit and BandPass
-~~~~~~~~~~~~~~~~~~~~~~
+### BandLimit and BandPass
 
 These are resonant filters which block frequencies around the *Cutoff* point.
 BandPass can be used to simulate sound passing through an old telephone line or
@@ -111,23 +103,20 @@ megaphone. Modulating the BandPass frequency can simulate the sound of a wah-wah
 guitar pedal, think of the guitar in Jimi Hendrix's *Voodoo Child (Slight
 Return)*.
 
-Capture
-~~~~~~~
+### Capture
 
 The Capture effect copies the audio frames of the audio bus that it is on into
 an internal buffer. This can be used to capture data from the microphone
 or to transmit audio over the network in real-time.
 
-Chorus
-~~~~~~
+### Chorus
 
 The Chorus effect duplicates the incoming audio, delays the duplicate slightly
 and uses an LFO to continuously modulate the pitch of the duplicated signal
 before mixing the duplicated signal(s) and the original together again. This
 creates a shimmering effect and adds stereo width to the sound.
 
-Compressor
-~~~~~~~~~~
+### Compressor
 
 A dynamic range compressor automatically attenuates the level of the incoming
 signal when its amplitude exceeds a certain threshold. The level of attenuation
@@ -157,106 +146,88 @@ Note:
     than a compressor.
 
 
-Delay
-~~~~~
+### Delay
 
 Adds an "echo" effect with a feedback loop. It can be used together
 with *Reverb* to simulate wide rooms, canyons, etc. where sound bounces
 are far apart.
 
-Distortion
-~~~~~~~~~~
+### Distortion
 
 Makes the sound distorted. Pandemonium offers several types of distortion: *overdrive*,
 *tan* and *bit crushing*. Distortion can be used to simulate sound coming through
 a low-quality speaker or device.
 
-EQ
-~~
+### EQ
 
 EQ is what all other equalizers inherit from. It can be extended with with Custom
 scripts to create an equalizer with a custom number of bands.
 
-EQ6, EQ10, EQ21
-~~~~~~~~~~~~~~~
+### EQ6, EQ10, EQ21
 
 Pandemonium provides three equalizers with different numbers of bands. An equalizer on
 the Master bus can be useful to cut frequencies that the device's speakers can't
 reproduce well (e.g. a mobile phone's speakers won't reproduce bass content
 well). The equalizer effect can be disabled when headphones are plugged in.
 
-Filter
-~~~~~~
+### Filter
 
 Filter is what all other filters inherit from and should not be used directly.
 
-HighPassFilter
-~~~~~~~~~~~~~~
+### HighPassFilter
 
 Cuts frequencies below a specific *Cutoff* frequency.
 HighPassFilter is used to reduce the bass content of a
 signal.
 
-HighShelfFilter
-~~~~~~~~~~~~~~~
+### HighShelfFilter
 
 Reduces all frequencies above a specific *Cutoff* frequency.
 
-
-
-Limiter
-~~~~~~~
+### Limiter
 
 A limiter is similar to a compressor, but it's less flexible and designed to
 prevent a signal's amplitude exceeding a given dB threshold. Adding a limiter to
 the Master bus is a safeguard against clipping.
 
-LowPassFilter
-~~~~~~~~~~~~~
+### LowPassFilter
 
 Cuts frequencies above a specific *Cutoff* frequency and can also resonate
 (boost frequencies close to the *Cutoff* frequency). Low pass filters can be
 used to simulate "muffled" sound. For instance, underwater sounds, sounds
 blocked by walls, or distant sounds.
 
-LowShelfFilter
-~~~~~~~~~~~~~~
+### LowShelfFilter
 
 Reduces all frequencies below a specific *Cutoff* frequency.
 
-NotchFilter
-~~~~~~~~~~~
+### NotchFilter
 
 The opposite of the BandPassFilter, it removes a band of sound from the
 frequency spectrum at a given *Cutoff* frequency.
 
-Panner
-~~~~~~
+### Panner
 
 The Panner allows the stereo balance of a signal to be adjusted between
 the left and right channels (wear headphones to audition this effect).
 
-Phaser
-~~~~~~
+### Phaser
 
 It probably does not make much sense to explain that this effect is formed by
 two signals being dephased and cancelling each other out. You can make a Darth
 Vader voice with it, or jet-like sounds.
 
-PitchShift
-~~~~~~~~~~
+### PitchShift
 
 This effect allows the adjustment of the signal's pitch independently of its
 speed. All frequencies can be increased/decreased with minimal effect on
 transients. PitchShift can be useful to create unusually high or deep voices.
 
-Record
-~~~~~~
+### Record
 
 The Record effect allows the user to record sound from a microphone.
 
-Reverb
-~~~~~~
+### Reverb
 
 Reverb simulates rooms of different sizes. It has adjustable parameters that can
 be tweaked to obtain the sound of a specific room. Reverb is commonly outputted
@@ -264,31 +235,27 @@ from `Areas`
 (see `Reverb buses ( doc_audio_streams_reverb_buses )`), or to apply
 a "chamber" feel to all sounds.
 
-SpectrumAnalyzer
-~~~~~~~~~~~~~~~~
+### SpectrumAnalyzer
 
 This effect doesn't alter audio, instead, you add this effect to buses you want
 a spectrum analysis of. This would typically be used for audio visualization. A
 demo project using this can be found `here ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/audio/spectrum )`.
 
-StereoEnhance
-~~~~~~~~~~~~~
+### StereoEnhance
 
 This effect uses a few algorithms to enhance a signal's stereo spectrum.
 
-Automatic bus disabling
------------------------
+## Automatic bus disabling
 
 There is no need to disable buses manually when not in use. Pandemonium detects
 that the bus has been silent for a few seconds and disables it (including
 all effects).
 
-.. figure:: img/audio_buses5.png)
+![](img/audio_buses5.png)
 
-   Disabled buses have a blue VU meter instead of a red-green one.
+Disabled buses have a blue VU meter instead of a red-green one.
 
-Bus rearrangement
------------------
+## Bus rearrangement
 
 Stream Players use bus names to identify a bus, which allows adding, removing
 and moving buses around while the reference to them is kept. However, if a bus
@@ -296,8 +263,7 @@ is renamed, the reference will be lost and the Stream Player will output
 to Master. This system was chosen because rearranging buses is a more common
 process than renaming them.
 
-Default bus layout
-------------------
+## Default bus layout
 
 The default bus layout is automatically saved to the
 `res://default_bus_layout.tres` file. Custom bus arrangements can be saved

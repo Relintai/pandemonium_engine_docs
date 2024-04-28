@@ -1,14 +1,12 @@
 
 
-File paths in Pandemonium projects
-============================
+# File paths in Pandemonium projects
 
 This page explains how file paths work inside Pandemonium projects. You will learn how
 to access paths in your projects using the `res://` and `user://` notations,
 and where Pandemonium stores project and editor files on your and your users' systems.
 
-Path separators
----------------
+## Path separators
 
 To make supporting multiple platforms easier, Pandemonium uses **UNIX-style path
 separators** (forward slash `/`). These work on all platforms, **including
@@ -25,8 +23,7 @@ This makes it possible to work with paths returned by other Windows
 applications. We still recommend using only forward slashes in your own code to
 guarantee that everything will work as intended.
 
-Accessing files in the project folder (`res://`)
---------------------------------------------------
+## Accessing files in the project folder (`res://`)
 
 Pandemonium considers that a project exists in any folder that contains a
 `project.pandemonium` text file, even if the file is empty. The folder that contains
@@ -37,8 +34,7 @@ You can access any file relative to it by writing paths starting with
 file `character.png)` located in the project's root folder in code with the
 following path: `res://character.png)`.
 
-Accessing persistent user data (`user://`)
---------------------------------------------
+## Accessing persistent user data (`user://`)
 
 To store persistent data files, like the player's save or settings, you want to
 use `user://` instead of `res://` as your path's prefix. This is because
@@ -68,21 +64,17 @@ Project Settings:
 
 On desktop platforms, the actual directory paths for `user://` are:
 
-+---------------------+------------------------------------------------------------------------------+
-| Type                | Location                                                                     |
-+=====================+==============================================================================+
-| Default             | | Windows: `%APPDATA%\Pandemonium\app_userdata\[project_name]`                   |
-|                     | | macOS: `~/Library/Application Support/Pandemonium/app_userdata/[project_name]` |
-|                     | | Linux: `~/.local/share/pandemonium/app_userdata/[project_name]`                |
-+---------------------+------------------------------------------------------------------------------+
-| Custom dir          | | Windows: `%APPDATA%\[project_name]`                                      |
-|                     | | macOS: `~/Library/Application Support/[project_name]`                    |
-|                     | | Linux: `~/.local/share/[project_name]`                                   |
-+---------------------+------------------------------------------------------------------------------+
-| Custom dir and name | | Windows: `%APPDATA%\[custom_user_dir_name]`                              |
-|                     | | macOS: `~/Library/Application Support/[custom_user_dir_name]`            |
-|                     | | Linux: `~/.local/share/[custom_user_dir_name]`                           |
-+---------------------+------------------------------------------------------------------------------+
+| Type                | Location                                                                       |
+|---------------------|--------------------------------------------------------------------------------|
+| Default             | Windows: `%APPDATA%\Pandemonium\app_userdata\[project_name]`                   |
+|                     | macOS: `~/Library/Application Support/Pandemonium/app_userdata/[project_name]` |
+|                     | Linux: `~/.local/share/pandemonium/app_userdata/[project_name]`                |
+| Custom dir          | Windows: `%APPDATA%\[project_name]`                                            |
+|                     | macOS: `~/Library/Application Support/[project_name]`                          |
+|                     | Linux: `~/.local/share/[project_name]`                                         |
+| Custom dir and name | Windows: `%APPDATA%\[custom_user_dir_name]`                                    |
+|                     | macOS: `~/Library/Application Support/[custom_user_dir_name]`                  |
+|                     | Linux: `~/.local/share/[custom_user_dir_name]`                                 |
 
 `[project_name]` is based on the application name defined in the Project Settings, but
 you can override it on a per-platform basis using `feature tags ( doc_feature_tags )`.
@@ -94,8 +86,7 @@ On HTML5 exports, `user://` will refer to a virtual filesystem stored on the
 device via IndexedDB. (Interaction with the main filesystem can still be performed
 through the `JavaScript` singleton.)
 
-Converting paths to absolute paths or "local" paths
----------------------------------------------------
+## Converting paths to absolute paths or "local" paths
 
 You can use `ProjectSettings.globalize_path()`
 to convert a "local" path like `res://path/to/file.txt` to an absolute OS path.
@@ -111,27 +102,22 @@ project's root or `user://` folders.
 
 
 
-Editor data paths
------------------
+## Editor data paths
 
 The editor uses different paths for editor data, editor settings, and cache,
 depending on the platform. By default, these paths are:
 
-+-----------------+---------------------------------------------------+
-| Type            | Location                                          |
-+=================+===================================================+
-| Editor data     | | Windows: `%APPDATA%\Pandemonium\`                   |
-|                 | | macOS: `~/Library/Application Support/Pandemonium/` |
-|                 | | Linux: `~/.local/share/pandemonium/`                |
-+-----------------+---------------------------------------------------+
-| Editor settings | | Windows: `%APPDATA%\Pandemonium\`                   |
-|                 | | macOS: `~/Library/Application Support/Pandemonium/` |
-|                 | | Linux: `~/.config/pandemonium/`                     |
-+-----------------+---------------------------------------------------+
-| Cache           | | Windows: `%TEMP%\Pandemonium\`                      |
-|                 | | macOS: `~/Library/Caches/Pandemonium/`              |
-|                 | | Linux: `~/.cache/pandemonium/`                      |
-+-----------------+---------------------------------------------------+
+| Type            | Location                                            |
+|-----------------|-----------------------------------------------------|
+| Editor data     | Windows: `%APPDATA%\Pandemonium\`                   |
+|                 | macOS: `~/Library/Application Support/Pandemonium/` |
+|                 | Linux: `~/.local/share/pandemonium/`                |
+| Editor settings | Windows: `%APPDATA%\Pandemonium\`                   |
+|                 | macOS: `~/Library/Application Support/Pandemonium/` |
+|                 | Linux: `~/.config/pandemonium/`                     |
+| Cache           | Windows: `%TEMP%\Pandemonium\`                      |
+|                 | macOS: `~/Library/Caches/Pandemonium/`              |
+|                 | Linux: `~/.cache/pandemonium/`                      |
 
 - **Editor data** contains export templates and project-specific data.
 - **Editor settings** contains the main editor settings configuration file as
@@ -153,8 +139,7 @@ Note:
 
 
 
-Self-contained mode
-~~~~~~~~~~~~~~~~~~~
+### Self-contained mode
 
 If you create a file called `._sc_` or `sc_` in the same directory as the
 editor binary (or in `MacOS/Contents/` for a macOS editor .app bundle), Pandemonium

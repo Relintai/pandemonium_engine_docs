@@ -1,10 +1,8 @@
 
 
-WebSocket
-=========
+# WebSocket
 
-HTML5 and WebSocket
--------------------
+## HTML5 and WebSocket
 
 The WebSocket protocol was standardized in 2011 with the original goal of allowing browsers to create stable and bidirectional connections with a server.
 Before that, browsers used to only support HTTPRequests, which is not well-suited for bidirectional communication.
@@ -15,8 +13,7 @@ Due to its simplicity, its wide compatibility, and being easier to use than a ra
 
 Pandemonium supports WebSocket in both native and HTML5 exports.
 
-Using WebSocket in Pandemonium
-------------------------
+## Using WebSocket in Pandemonium
 
 WebSocket is implemented in Pandemonium via three main classes `WebSocketClient` for more details.
 
@@ -28,8 +25,7 @@ Warning:
     using one-click deploy. Otherwise, network communication of any kind will be
     blocked by Android.
 
-Minimal client example
-^^^^^^^^^^^^^^^^^^^^^^
+#### Minimal client example
 
 This example will show you how to create a WebSocket connection to a remote server, and how to send and receive data.
 
@@ -93,8 +89,7 @@ This will print:
     Got data from server: Test packet
 ```
 
-Minimal server example
-^^^^^^^^^^^^^^^^^^^^^^
+#### Minimal server example
 
 This example will show you how to create a WebSocket server that listens for remote connections, and how to send and receive data.
 
@@ -161,7 +156,6 @@ This will print (when a client connects) something similar to this:
     Got data from client 1348090059: Test packet ... echoing
 ```
 
-Advanced chat demo
-^^^^^^^^^^^^^^^^^^
+#### Advanced chat demo
 
 A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer demo are available in the `pandemonium demo projects ( https://github.com/Relintai/pandemonium_engine-demo-projects )` under `networking/websocket_chat` and `networking/websocket_multiplayer`.

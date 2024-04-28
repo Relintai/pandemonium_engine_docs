@@ -1,10 +1,8 @@
 
 
-Sync the gameplay with audio and music
-=======================================
+# Sync the gameplay with audio and music
 
-Introduction
-------------
+## Introduction
 
 In any application or game, sound and music playback will have a slight delay. For games, this delay is often so small that it is negligible. Sound effects will come out a few milliseconds after any play() function is called. For music this does not matter as in most games it does not interact with the gameplay.
 
@@ -23,8 +21,7 @@ This is a common tradeoff, so Pandemonium ships with sensible defaults that shou
 
 The problem, in the end, is not this slight delay but synchronizing graphics and audio for games that require it. Beginning with Pandemonium 3.2, some helpers were added to obtain more precise playback timing.
 
-Using the system clock to sync
-------------------------------
+## Using the system clock to sync
 
 As mentioned before, If you call `AudioStreamPlayer.play()( AudioStreamPlayer_method_play )`, sound will not begin immediately, but when the audio thread processes the next chunk.
 
@@ -62,8 +59,7 @@ In the long run, though, as the sound hardware clock is never exactly in sync wi
 
 For a rhythm game where a song begins and ends after a few minutes, this approach is fine (and it's the recommended approach). For a game where playback can last a much longer time, the game will eventually go out of sync and a different approach is needed.
 
-Using the sound hardware clock to sync
---------------------------------------
+## Using the sound hardware clock to sync
 
 Using `AudioStreamPlayer.get_playback_position()( AudioStreamPlayer_method_get_playback_position )` to obtain the current position for the song sounds ideal, but it's not that useful as-is. This value will increment in chunks (every time the audio callback mixed a block of sound), so many calls can return the same value. Added to this, the value will be out of sync with the speakers too because of the previously mentioned reasons.
 

@@ -1,10 +1,8 @@
 
 
-Input examples
-==============
+# Input examples
 
-Introduction
-------------
+## Introduction
 
 In this tutorial, you'll learn how to use Pandemonium's `InputEvent`
 system to capture player input. There are many different types of input your
@@ -17,8 +15,7 @@ Note:
  For a detailed overview of how Pandemonium's input event system works,
           see `doc_inputevent`.
 
-Events versus polling
----------------------
+## Events versus polling
 
 Sometimes you want your game to respond to a certain input event - pressing
 the "jump" button, for example. For other situations, you might want something
@@ -49,8 +46,7 @@ you do.
 For the remainder of this tutorial, we'll focus on capturing individual
 events in `input()`.
 
-Input events
-------------
+## Input events
 
 Input events are objects that inherit from `InputEvent`.
 Depending on the event type, the object will contain specific properties
@@ -108,8 +104,7 @@ gdscript GDScript
             print("mouse button event at ", event.position)
 ```
 
-InputMap
---------
+## InputMap
 
 The `InputMap` is the most flexible way to handle a
 variety of inputs. You use this by creating named input *actions*, to which
@@ -120,8 +115,7 @@ the InputMap tab:
 
 ![](img/inputs_inputmap.png)
 
-Capturing actions
-~~~~~~~~~~~~~~~~~
+### Capturing actions
 
 Once you've defined your actions, you can process them in your scripts using
 `is_action_pressed()` and `is_action_released()` by passing the name of
@@ -135,8 +129,7 @@ gdscript GDScript
             print("my_action occurred!")
 ```
 
-Keyboard events
----------------
+## Keyboard events
 
 Keyboard events are captured in `InputEventKey`.
 While it's recommended to use input actions instead, there may be cases where
@@ -170,8 +163,7 @@ Warning:
     `this Gamedev Stack Exchange question ( https://gamedev.stackexchange.com/a/109002 )`
     for more information.
 
-Keyboard modifiers
-~~~~~~~~~~~~~~~~~~
+### Keyboard modifiers
 
 Modifier properties are inherited from
 `InputEventWithModifiers`. This allows
@@ -195,16 +187,14 @@ Tip:
  See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
         constants.
 
-Mouse events
-------------
+## Mouse events
 
 Mouse events stem from the `InputEventMouse` class, and
 are separated into two types: `InputEventMouseButton`
 and `InputEventMouseMotion`. Note that this
 means that all mouse events will contain a `position` property.
 
-Mouse buttons
-~~~~~~~~~~~~~
+### Mouse buttons
 
 Capturing mouse buttons is very similar to handling key events. `@GlobalScope_ButtonList ( enum_@GlobalScope_ButtonList )`
 contains a list of `BUTTON_*` constants for each possible button, which will
@@ -223,8 +213,7 @@ gdscript GDScript
                 print("Wheel up")
 ```
 
-Mouse motion
-~~~~~~~~~~~~
+### Mouse motion
 
 `InputEventMouseMotion` events occur whenever
 the mouse moves. You can find the move's distance with the `relative`
@@ -258,8 +247,7 @@ gdscript GDScript
             $Sprite.position = event.position
 ```
 
-Touch events
-------------
+## Touch events
 
 If you are using a touchscreen device, you can generate touch events.
 `InputEventScreenTouch` is equivalent to

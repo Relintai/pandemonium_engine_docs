@@ -1,12 +1,10 @@
 
 
-Playing videos
-==============
+# Playing videos
 
 Pandemonium supports video playback with the `VideoPlayer` node.
 
-Supported playback formats
---------------------------
+## Supported playback formats
 
 The only supported format in core is **Ogg Theora** (not to be confused with Ogg
 Vorbis audio). It's possible for extensions to bring support for additional
@@ -31,8 +29,7 @@ Note:
     imported in Pandemonium. However, not all files with `.ogg` or `.ogx`
     extensions are videos - some of them may only contain audio.
 
-Setting up VideoPlayer
-----------------------------
+## Setting up VideoPlayer
 
 1. Create a VideoPlayer node using the Create New Node dialog.
 2. Select the VideoPlayer node in the scene tree dock, go to the inspector
@@ -46,8 +43,7 @@ Setting up VideoPlayer
    `play()` on the VideoPlayer node in a script to start playback when
    desired.
 
-Handling resizing and different aspect ratios
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Handling resizing and different aspect ratios
 
 By default in Pandemonium 4.0, the VideoPlayer will automatically be resized to match
 the video's resolution. You can make it follow usual `Control` sizing
@@ -86,8 +82,7 @@ See also:
     See `doc_multiple_resolutions` for more tips on supporting multiple
     aspect ratios in your project.
 
-Displaying a video on a 3D surface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Displaying a video on a 3D surface
 
 Using a VideoPlayer node as a child of a `Viewport` node,
 it's possible to display any 2D node on a 3D surface. For example, this can be
@@ -118,8 +113,7 @@ See `doc_viewports` and the
 `GUI in 3D demo ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/gui_in_3d )`
 for more information on setting this up.
 
-Video decoding conditions and recommended resolutions
------------------------------------------------------
+## Video decoding conditions and recommended resolutions
 
 Video decoding is performed on the CPU, as GPUs don't have hardware acceleration
 for decoding Theora videos. Modern desktop CPUs can decode Ogg Theora videos at
@@ -137,8 +131,7 @@ To ensure your videos decode smoothly on varied hardware:
   between 720p and 1080p videos on a mobile device is usually not that
   noticeable.
 
-Playback limitations
---------------------
+## Playback limitations
 
 There are several limitations with the current implementation of video playback in Pandemonium:
 
@@ -156,8 +149,7 @@ There are several limitations with the current implementation of video playback 
 
 
 
-Recommended Theora encoding settings
-------------------------------------
+## Recommended Theora encoding settings
 
 A word of advice is to **avoid relying on built-in Ogg Theora exporters** (most of the time).
 There are 2 reasons you may want to favor using an external program to encode your video:
@@ -193,8 +185,7 @@ Note:
    You can check this by running `ffmpeg` without any arguments, then looking
    at the `configuration:` line in the command output.
 
-Balancing quality and file size
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Balancing quality and file size
 
 The **video quality** level (`-q:v`) must be between `1` and `10`. Quality
 `6` is a good compromise between quality and file size. If encoding at a high
@@ -213,8 +204,7 @@ valuable if your input file already uses lossy audio compression. See
 for a table listing Ogg Vorbis audio quality presets and their respective
 variable bitrates.
 
-FFmpeg: Convert while preserving original video resolution
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### FFmpeg: Convert while preserving original video resolution
 
 The following command converts the video while keeping its original resolution.
 The video and audio's bitrate will be variable to maximize quality while saving
@@ -225,8 +215,7 @@ static scenes).
     ffmpeg -i input.mp4 -q:v 6 -q:a 6 output.ogv
 ```
 
-FFmpeg: Resize the video then convert it
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### FFmpeg: Resize the video then convert it
 
 The following command resizes a video to be 720 pixels tall (720p), while
 preserving its existing aspect ratio. This helps decrease the file size

@@ -1,10 +1,8 @@
 
 
-2D skeletons
-============
+# 2D skeletons
 
-Introduction
-------------
+## Introduction
 
 When working with 3D, skeletal deforms are common for characters and creatures
 and most 3D modelling applications support it. For 2D, as this function is not
@@ -26,8 +24,7 @@ that there are many advantages to it:
 
 The following tutorial will, then, explain 2D skeletal deformations.
 
-Setup
------
+## Setup
 
 See also:
 
@@ -48,8 +45,7 @@ for putting the different pieces together.
 
 ![](img/gBot_complete.png)
 
-Creating the polygons
----------------------
+## reating the polygons
 
 Create a new scene for your model (if it's going to be an animated character,
 you may want to use a `KinematicBody2D`). For ease of use, an empty 2D node is
@@ -108,8 +104,7 @@ wrong pieces. Rearrange the order of the nodes to fix this:
 
 And there you go! It was definitely much easier than in the cutout tutorial.
 
-Creating the skeleton
----------------------
+## Creating the skeleton
 
 Create a `Skeleton2D` node as a child of the root node. This will be the base
 of our skeleton:
@@ -151,8 +146,7 @@ want (which is very handy for animating):
 The warnings will go away. If you modify the skeleton (add/remove bones) you
 will need to set the rest pose again.
 
-Deforming the polygons
-----------------------
+## Deforming the polygons
 
 Select the previously created polygons and assign the skeleton node to their
 `Skeleton` property. This will ensure that they can eventually be deformed by
@@ -205,8 +199,7 @@ when drawing the polygon. They don't always bend the way you would expect. To
 solve this, you need to set hints in the geometry to clarify how you expect it
 to deform.
 
-Internal vertices
------------------
+## Internal vertices
 
 Open the UV menu for each bone again and go to the *Points* section. Add some
 internal vertices in the regions where you expect the geometry to bend:

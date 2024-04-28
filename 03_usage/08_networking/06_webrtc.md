@@ -1,24 +1,20 @@
 
 
-WebRTC
-======
+# WebRTC
 
-HTML5, WebSocket, WebRTC
-------------------------
+## HTML5, WebSocket, WebRTC
 
 One of Pandemonium's great features is its ability to export to the HTML5/WebAssembly platform, allowing your game to run directly in the browser when a user visit your webpage.
 
 This is a great opportunity for both demos and full games, but used to come with some limitations. In the area of networking, browsers used to support only HTTPRequests until recently, when first WebSocket and then WebRTC were proposed as standards.
 
-WebSocket
-^^^^^^^^^
+#### WebSocket
 
 When the WebSocket protocol was standardized in December 2011, it allowed browsers to create stable and bidirectional connections to a WebSocket server. The protocol is quite simple, but a very powerful tool to send push notifications to browsers, and has been used to implement chats, turn-based games, etc.
 
 WebSockets, though, still use a TCP connection, which is good for reliability but not for latency, so not good for real-time applications like VoIP and fast-paced games.
 
-WebRTC
-^^^^^^
+#### WebRTC
 
 For this reason, since 2010, Google started working on a new technology called WebRTC, which later on, in 2017, became a W3C candidate recommendation. WebRTC is a much more complex set of specifications, and relies on many other technologies behind the scenes (ICE, DTLS, SDP) to provide fast, real-time, and secure communication between two peers.
 
@@ -30,8 +26,7 @@ However, this comes at a price, which is that some media information must be exc
 
 Peers connect to a signaling server (for example a WebSocket server) and send their media information. The server then relays this information to other peers, allowing them to establish the desired direct communication. Once this step is done, peers can disconnect from the signaling server and keep the direct Peer-to-Peer (P2P) connection open.
 
-Using WebRTC in Pandemonium
----------------------
+## Using WebRTC in Pandemonium
 
 WebRTC is implemented in Pandemonium via two main classes `WebRTCPeerConnection` for more details.
 
@@ -46,8 +41,7 @@ Warning:
     using one-click deploy. Otherwise, network communication of any kind will be
     blocked by Android.
 
-Minimal connection example
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Minimal connection example
 
 This example will show you how to create a WebRTC connection between two peers in the same application.
 This is not very useful in real life, but will give you a good overview of how a WebRTC connection is set up.
@@ -104,8 +98,7 @@ This will print:
     P2 received: Hi from P2
 ```
 
-Local signaling example
-^^^^^^^^^^^^^^^^^^^^^^^
+#### Local signaling example
 
 This example expands on the previous one, separating the peers in two different scenes, and using a `singleton ( doc_singletons_autoload )` as a signaling server.
 
@@ -212,7 +205,6 @@ This will print something similar to this:
     /root/main/@@2 received: Hi from /root/main/@@3
 ```
 
-Remote signaling with WebSocket
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Remote signaling with WebSocket
 
 A more advanced demo using WebSocket for signaling peers and `WebRTCMultiplayer` under `networking/webrtc_signaling`.

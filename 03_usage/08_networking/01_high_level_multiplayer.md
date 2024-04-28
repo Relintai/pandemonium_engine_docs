@@ -1,10 +1,8 @@
 
 
-High-level multiplayer
-======================
+# High-level multiplayer
 
-High-level vs low-level API
----------------------------
+## High-level vs low-level API
 
 The following explains the differences of high- and low-level networking in Pandemonium as well as some fundamentals. If you want to jump in head-first and add networking to your first nodes, skip to `Initializing the network` below. But make sure to read the rest later on!
 
@@ -54,8 +52,7 @@ Warning:
              You can of course experiment, but when you release a networked application,
              always take care of any possible security concerns.
 
-Mid level abstraction
----------------------
+## Mid level abstraction
 
 Before going into how we would like to synchronize a game across the network, it can be helpful to understand how the base network API for synchronization works.
 
@@ -73,8 +70,7 @@ mobile APIs (for ad hoc WiFi, Bluetooth) or custom device/console-specific netwo
 For most common cases, using this object directly is discouraged, as Pandemonium provides even higher level networking facilities.
 Yet it is made available in case a game has specific needs for a lower level API.
 
-Initializing the network
-------------------------
+## Initializing the network
 
 The object that controls networking in Pandemonium is the same one that controls everything tree-related: `SceneTree`.
 
@@ -126,8 +122,7 @@ Warning:
     using one-click deploy. Otherwise, network communication of any kind will be
     blocked by Android.
 
-Managing connections
---------------------
+## Managing connections
 
 Some games accept connections at any time, others during the lobby phase. Pandemonium can be requested to no longer accept
 connections at any point (see `set_refuse_new_network_connections(bool)` and related methods on `SceneTree`). To manage who connects, Pandemonium provides the following signals in SceneTree:
@@ -156,8 +151,7 @@ player information about other already connected players (e.g. their names, stat
 Lobbies can be implemented any way you want, but the most common way is to use a node with the same name across scenes in all peers.
 Generally, an autoloaded node/singleton is a great fit for this, to always have access to, e.g. "/root/lobby".
 
-RPC
----
+## RPC
 
 To communicate between peers, the easiest way is to use RPCs (remote procedure calls). This is implemented as a set of functions
 in `Node`:
@@ -184,8 +178,7 @@ and if a packet is lost, it's not that bad because a new one will eventually arr
 
 There is also `SceneTree.get_rpc_sender_id()`, which can be used to check which peer (or peer ID) sent an RPC.
 
-Back to lobby
--------------
+## Back to lobby
 
 Let's get back to the lobby. Imagine that each player that connects to the server will tell everyone about it.
 
@@ -274,14 +267,12 @@ With this, lobby management should be more or less explained. Once you have your
 extra security to make sure clients don't do anything funny (just validate the info they send from time to time, or before
 game start). For the sake of simplicity and because each game will share different information, this is not shown here.
 
-Starting the game
------------------
+## Starting the game
 
 Once enough players have gathered in the lobby, the server should probably start the game. This is nothing
 special in itself, but we'll explain a few nice tricks that can be done at this point to make your life much easier.
 
-Player scenes
-^^^^^^^^^^^^^
+#### Player scenes
 
 In most games, each player will likely have its own scene. Remember that this is a multiplayer game, so in every peer
 you need to instance **one scene for each player connected to it**. For a 4 player game, each peer needs to instance 4 player nodes.
@@ -322,8 +313,7 @@ Note:
  Depending on when you execute pre_configure_game(), you may need to change any calls to `add_child()`
           to be deferred via `call_deferred()`, as the SceneTree is locked while the scene is being created (e.g. when `ready()` is being called).
 
-Synchronizing game start
-^^^^^^^^^^^^^^^^^^^^^^^^
+#### Synchronizing game start
 
 Setting up players might take different amounts of time for every peer due to lag, different hardware, or other reasons.
 To make sure the game will actually start when everyone is ready, pausing the game until all players are ready can be useful:
@@ -358,14 +348,12 @@ When the server gets the OK from all the peers, it can tell them to start, as fo
 
 ```
 
-Synchronizing the game
-----------------------
+## Synchronizing the game
 
 In most games, the goal of multiplayer networking is that the game runs synchronized on all the peers playing it.
 Besides supplying an RPC and remote member variable set implementation, Pandemonium adds the concept of network masters.
 
-Network master
-^^^^^^^^^^^^^^
+#### Network master
 
 The network master of a node is the peer that has the ultimate authority over it.
 
@@ -403,8 +391,7 @@ To clarify, here is an example of how this looks in the
 ![](img/nmms.png)
 
 
-Master and puppet keywords
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Master and puppet keywords
 
 .. FIXME: Clarify the equivalents to the GDScript keywords in C# and Visual Script.
 
@@ -473,8 +460,7 @@ This may not make much sense for an area-of-effect case like the bomb, but might
     rpc_id(TARGET_PEER_ID, "stun") # Only stun the target peer
 ```
 
-Exporting for dedicated servers
--------------------------------
+## Exporting for dedicated servers
 
 Once you've made a multiplayer game, you may want to export it to run it on
 a dedicated server with no GPU available. See

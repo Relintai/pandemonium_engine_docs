@@ -1,18 +1,14 @@
 
+# Handling quit requests
 
-Handling quit requests
-======================
-
-Quitting
---------
+## Quitting
 
 Most platforms have the option to request the application to quit. On
 desktops, this is usually done with the "x" icon on the window title bar.
 On Android, the back button is used to quit when on the main screen (and
 to go back otherwise).
 
-Handling the notification
--------------------------
+## Handling the notification
 
 On desktop platforms, the `MainLoop`
 has a special `MainLoop.NOTIFICATION_WM_QUIT_REQUEST` notification that is
@@ -51,8 +47,7 @@ gdscript GDScript
     get_tree().set_auto_accept_quit(false)
 ```
 
-Sending your own quit notification
-----------------------------------
+## Sending your own quit notification
 
 While forcing the application to close can be done by calling `SceneTree.quit`,
 doing so will not send the quit *notification*. This means the function

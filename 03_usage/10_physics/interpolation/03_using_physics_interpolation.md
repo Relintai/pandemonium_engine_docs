@@ -1,13 +1,13 @@
 
 
-Using physics interpolation
-===========================
+# Using physics interpolation
+
+
 How do we incorporate physics interpolation into a Pandemonium game? Are there any caveats?
 
 We have tried to make the system as easy to use as possible, and many existing games will work with few changes. That said there are some situations which require special treatment, and these will be described.
 
-Turn on the physics interpolation setting
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Turn on the physics interpolation setting
 
 The first step is to turn on physics interpolation in `ProjectSettings.physics/common/physics_interpolation( ProjectSettings_property_physics/common/physics_interpolation )`. You can now run your game.
 
@@ -18,8 +18,7 @@ Tip:
 
 	To convert an existing game to use interpolation, it is highly recommended that you temporarily set `ProjectSettings.physics/common/physics_fps( ProjectSettings_property_physics/common/physics_fps )` to a low value such as 10, which will make interpolation problems more obvious.
 
-Move (almost) all game logic from _process to _physics_process
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Move (almost) all game logic from _process to _physics_process
 
 The most fundamental requirement for physics interpolation (which you may be doing already) is that you should be moving and performing game logic on your objects within `physics_process` (which runs at a physics tick) rather than `process` (which runs on a rendered frame). This means your scripts should typically be doing the bulk of their processing within `physics_process`, including responding to input and AI.
 
@@ -32,16 +31,14 @@ Tip:
  This is only a *soft-rule*. There are some occasions where you might want to teleport objects outside of the physics tick (for instance when starting a level, or respawning objects). Still, in general, you should be applying transforms from the physics tick.
 
 
-Ensure that all indirect movement happens during physics ticks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Ensure that all indirect movement happens during physics ticks
 
 Consider that in Pandemonium, Nodes can be moved not just directly in your own scripts, but also by automatic methods such as tweening, animation, and navigation. All these methods should also have their timing set to operate on the physics tick rather than each frame ("idle"), **if** you are using them to move objects (*these methods can also be used to control properties that are not interpolated*).
 
 Note:
  Also consider that nodes can be moved not just by moving themselves, but also by moving parent nodes in the `SceneTree( SceneTree )`. The movement of parents should therefore also only occur during physics ticks.
 
-Choose a physics tick rate
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Choose a physics tick rate
 
 When using physics interpolation, the rendering is decoupled from physics, and you can choose any value that makes sense for your game. You are no longer limited to values that are multiples of the user's monitor refresh rate (for stutter-free gameplay if the target FPS is reached).
 
@@ -58,8 +55,7 @@ As a rough guide:
 Note:
  You can always change the tick rate as you develop, it is as simple as changing the project setting.
 
-Call reset_physics_interpolation() when teleporting objects
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Call reset_physics_interpolation() when teleporting objects
 
 Most of the time, interpolation is what you want between two physics ticks. However, there is one situation in which it may *not* be what you want. That is when you are initially placing objects, or moving them to a new location. Here, you don't want a smooth motion between the two - you want an instantaneous move.
 
@@ -69,8 +65,7 @@ Even if you forget to call this, it is not usually a problem in most situations 
 
 .. important:: You should call `reset_physics_interpolation()` *after* setting the new position, rather than before. Otherwise, you will still see the unwanted streaking motion.
 
-Testing and debugging tips
---------------------------
+## Testing and debugging tips
 
 Even if you intend to run physics at 60 TPS, in order to thoroughly test your interpolation and get the smoothest gameplay, it is highly recommended to temporarily set the physics tick rate to a low value such as 10 TPS.
 

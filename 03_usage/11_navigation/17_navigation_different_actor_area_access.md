@@ -1,9 +1,7 @@
-.. _doc_navigation_different_actor_area_access:
 
-Support different actor area access
-===================================
+# Support different actor area access
 
-.. image:: img/nav_actor_doors.png
+![](img/nav_actor_doors.png)
 
 A typical example for different area access in gameplay are doors that connect rooms 
 with different navigation meshes and are not accessible by all actors all the time.
@@ -17,13 +15,13 @@ The bitmask can act as a set of door keys or abilities and only actors with at l
 one matching and enabled bit layer in their pathfinding query will find a path through this region.
 See :ref:`doc_navigation_advanced_using_navigationlayers` for more information on how to work with navigation layers and the bitmask.
 
-.. image:: img/nav_actor_doorbitmask.png
+![](img/nav_actor_doorbitmask.png)
 
 The entire "door" region can also be enabled / disable if required but if disabled will block access for all path queries.
 
 Prefer working with navigation layers in path queries whenever possible as enabling or disabling 
 navigation layers on a region triggers a performance costly recalculation of the navigation map connections.
 
-.. warning::
+Warning:
 
     Changing navigation layers will only affect new path queries but not automatically update existing paths.

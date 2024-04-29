@@ -1,10 +1,8 @@
 
 
-Kinematic character (2D)
-========================
+# Kinematic character (2D)
 
-Introduction
-~~~~~~~~~~~~
+### Introduction
 
 Yes, the name sounds strange. "Kinematic Character". What is that?
 The reason for the name is that, when physics engines came out, they were called
@@ -44,8 +42,7 @@ Basically, the old-school way of handling collisions (which is not
 necessarily simpler under the hood, but well hidden and presented as a
 nice and simple API).
 
-Physics process
-~~~~~~~~~~~~~~~
+### Physics process
 
 To manage the logic of a kinematic body or character, it is always
 advised to use physics process, because it's called before physics step and its execution is
@@ -64,8 +61,7 @@ gdscript GDScript
 ```
 
 
-Scene setup
-~~~~~~~~~~~
+### Scene setup
 
 To have something to test, here's the scene (from the tilemap tutorial):
 :download:`kbscene.zip (files/kbscene.zip )`. We'll be creating a new scene
@@ -95,8 +91,7 @@ map scene the main one, so it runs when pressing play.
 
 ![](img/kbinstance.png)
 
-Moving the kinematic character
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Moving the kinematic character
 
 Go back to the character scene, and open the script, the magic begins
 now! Kinematic body will do nothing by default, but it has a

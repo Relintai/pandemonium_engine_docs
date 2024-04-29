@@ -1,16 +1,13 @@
 
 
-Using RigidBody
-===============
+# Using RigidBody
 
-What is a rigid body?
----------------------
+## What is a rigid body?
 
 A rigid body is one that is directly controlled by the physics engine in order to simulate the behavior of physical objects.
 In order to define the shape of the body, it must have one or more `Shape` objects assigned. Note that setting the position of these shapes will affect the body's center of mass.
 
-How to control a rigid body
----------------------------
+## How to control a rigid body
 
 A rigid body's behavior can be altered by setting its properties, such as mass and weight.
 A physics material needs to be added to the rigid body to adjust its friction and bounce,
@@ -25,8 +22,7 @@ As an example, consider a rigid body that you want to rotate so that it points t
 
 The fact that you can't use `set_global_transform()` or `look_at()` methods doesn't mean that you can't have full control of a rigid body. Instead, you can control it by using the `integrate_forces()` callback. In this method, you can add *forces*, apply *impulses*, or set the *velocity* in order to achieve any movement you desire.
 
-The "look at" method
---------------------
+## The "look at" method
 
 As described above, using the Spatial node's `look_at()` method can't be used each frame to follow a target.
 Here is a custom `look_at()` method that will work reliably with rigid bodies:

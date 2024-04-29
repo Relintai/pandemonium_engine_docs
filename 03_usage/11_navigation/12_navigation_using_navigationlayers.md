@@ -1,30 +1,28 @@
-.. _doc_navigation_advanced_using_navigationlayers:
 
-Using NavigationLayers
-======================
+# Using NavigationLayers
 
 NavigationLayers are an optional feature to further control which navigation meshes are considered in a path query and which regions can be connected.
 They work similar to how physics layers control collision between collision objects or how visual layers control what is rendered to the Viewport.
 
-NavigationLayers can be named in the ``ProjectSettings`` the same as PhysicsLayers or VisualLayers.
+NavigationLayers can be named in the `ProjectSettings` the same as PhysicsLayers or VisualLayers.
 
-.. image:: img/navigationlayers_naming.png
+![](img/navigationlayers_naming.png)
 
-If two regions have not a single compatible layer they will not be merged by the NavigationServer. See :ref:`doc_navigation_connecting_navmesh` for more information on merging navmesh.
+If two regions have not a single compatible layer they will not be merged by the NavigationServer. See `doc_navigation_connecting_navmesh` for more information on merging navmesh.
 
-If a region has not a single compatible navigation layer with the ``navigation_layers`` parameter of a path query this regions navigation mesh will be skipped in pathfinding.
-See :ref:`doc_navigation_using_navigationpaths` for more information on querying the NavigationServer for paths.
+If a region has not a single compatible navigation layer with the `navigation_layers` parameter of a path query this regions navigation mesh will be skipped in pathfinding.
+See `doc_navigation_using_navigationpaths` for more information on querying the NavigationServer for paths.
 
-NavigationLayers are a single ``int`` value that is used as a ``bitmask``.
-Many navigation related nodes have ``set_navigation_layer_value()`` and
-``get_navigation_layer_value()`` functions to set and get a layer number directly
+NavigationLayers are a single `int` value that is used as a `bitmask`.
+Many navigation related nodes have `set_navigation_layer_value()` and
+`get_navigation_layer_value()` functions to set and get a layer number directly
 without the need for more complex bitwise operations.
 
 In scripts the following helper functions can be used to work with the navigation_layers bitmask.
 
-.. tabs::
- .. code-tab:: gdscript GDScript
+GDScript
 
+```
     func change_layers():
         var region: NavigationRegion3D = get_node("NavigationRegion3D")
         # enables 4-th layer for this region
@@ -55,6 +53,7 @@ In scripts the following helper functions can be used to work with the navigatio
 
     static func disable_bitmask_inx(_bitmask: int, _index: int) -> int:
         return _bitmask & ~(1 << _index)
+```
 
 Changing navigation layers for path queries is a performance friendly alternative to
 enabling / disabling entire navigation regions. Compared to region changes a

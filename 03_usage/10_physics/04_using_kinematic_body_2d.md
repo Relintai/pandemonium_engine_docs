@@ -1,10 +1,8 @@
 
 
-Using KinematicBody2D
-=====================
+# Using KinematicBody2D
 
-Introduction
-------------
+## Introduction
 
 Pandemonium offers several collision objects to provide both collision detection
 and response. Trying to decide which one to use for your project can be confusing.
@@ -17,8 +15,7 @@ Note:
  This document assumes you're familiar with Pandemonium's various physics
           bodies. Please read `doc_physics_introduction` first.
 
-What is a kinematic body?
--------------------------
+## What is a kinematic body?
 
 `KinematicBody2D` is for implementing bodies that are controlled via code.
 Kinematic bodies detect collisions with other bodies when moving, but are not affected by
@@ -31,8 +28,7 @@ Tip:
         but you must calculate the movement in code. The physics engine will
         not move a `KinematicBody2D`.
 
-Movement and collision
-----------------------
+## Movement and collision
 
 When moving a `KinematicBody2D`, you should not set its `position` property
 directly. Instead, you use the `move_and_collide()` or `move_and_slide()` methods.
@@ -46,8 +42,7 @@ Warning:
 The two movement methods serve different purposes, and later in this tutorial, you'll
 see examples of how they work.
 
-`move_and_collide`
-~~~~~~~~~~~~~~~~~~~~
+### `move_and_collide`
 
 This method takes one parameter: a `Vector2` indicating the body's
 relative movement. Typically, this is your velocity vector multiplied by the
@@ -59,8 +54,7 @@ method will return a `KinematicCollision2D` object.
 and the colliding object. Using this data, you can calculate your collision
 response.
 
-`move_and_slide`
-~~~~~~~~~~~~~~~~~~
+### `move_and_slide`
 
 The `move_and_slide()` method is intended to simplify the collision
 response in the common case where you want one body to slide along the other.
@@ -100,8 +94,7 @@ When this parameter is `true`, the body can push `RigidBody2D`
 nodes, ignoring their mass, but won't detect collisions with them. If it's `false`
 the body will collide with rigid bodies and stop.
 
-`move_and_slide_with_snap`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### `move_and_slide_with_snap`
 
 This method adds some additional functionality to `move_and_slide()` by adding
 the `snap` parameter. As long as this vector is in contact with the ground, the
@@ -110,8 +103,7 @@ snapping when jumping, for example. You can do this either by setting `snap`
 to `Vector2.ZERO` or by using `move_and_slide()` instead.
 
 
-Detecting collisions
---------------------
+## Detecting collisions
 
 When using `move_and_collide()` the function returns a `KinematicCollision2D`
 directly, and you can use this in your code.
@@ -141,8 +133,7 @@ Note:
 See `KinematicCollision2D` for details on what
 collision data is returned.
 
-Which movement method to use?
------------------------------
+## Which movement method to use?
 
 A common question from new Pandemonium users is: "How do you decide which movement
 function to use?" Often, the response is to use `move_and_slide()` because
@@ -184,14 +175,12 @@ collides up to five times by default. At the end of the process, the function
 returns the character's new velocity that we can store in our `velocity`
 variable, and use on the next frame.
 
-Examples
---------
+## Examples
 
 To see these examples in action, download the sample project:
 :download:`using_kinematic2d.zip (files/using_kinematic2d.zip )`.
 
-Movement and walls
-~~~~~~~~~~~~~~~~~~
+### Movement and walls
 
 If you've downloaded the sample project, this example is in "BasicMovement.tscn".
 
@@ -254,8 +243,7 @@ Note that we removed `delta` from the velocity calculation.
 collision object. This is useful for a great many game types, and may be all you need
 to get the behavior you want.
 
-Bouncing/reflecting
-~~~~~~~~~~~~~~~~~~~
+### Bouncing/reflecting
 
 What if you don't want a sliding collision response? For this example ("BounceandCollide.tscn"
 in the sample project), we have a character shooting bullets and we want the bullets to
@@ -341,8 +329,7 @@ the Wall to demonstrate this.
 
 ![](img/k2d_bullet_bounce.gif)
 
-Platformer movement
-~~~~~~~~~~~~~~~~~~~
+### Platformer movement
 
 Let's try one more popular example: the 2D platformer. `move_and_slide()`
 is ideal for quickly getting a functional character controller up and running.

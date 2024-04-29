@@ -1,7 +1,6 @@
 
 
-Collision shapes (3D)
-=====================
+# Collision shapes (3D)
 
 This guide explains:
 
@@ -23,8 +22,7 @@ Note:
     When you add multiple collision shapes to a single PhysicsBody, you don't
     have to worry about them overlapping. They won't "collide" with each other.
 
-Primitive collision shapes
---------------------------
+## Primitive collision shapes
 
 Pandemonium provides the following primitive collision shape types:
 
@@ -41,8 +39,7 @@ We recommend favoring primitive shapes for dynamic objects such as RigidBodies
 and KinematicBodies as their behavior is the most reliable. They often provide
 better performance as well.
 
-Convex collision shapes
------------------------
+## Convex collision shapes
 
 `Convex collision shapes` are a compromise
 between primitive collision shapes and concave collision shapes. They can
@@ -73,8 +70,7 @@ viewport. The editor exposes two generation modes:
   of performance. For objects with medium complexity, it will likely be faster
   than using a single concave collision shape.
 
-Concave or trimesh collision shapes
------------------------------------
+## Concave or trimesh collision shapes
 
 `Concave collision shapes`, also called trimesh
 collision shapes, can take any form, from a few triangles to thousands of
@@ -128,8 +124,7 @@ See also:
     automatically. See `doc_importing_scenes_import_hints` in the
     documentation for more information.
 
-Performance caveats
--------------------
+## Performance caveats
 
 You aren't limited to a single collision shape per PhysicsBody. Still, we
 recommend keeping the number of shapes as low as possible to improve

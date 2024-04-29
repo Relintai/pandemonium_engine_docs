@@ -1,13 +1,11 @@
 
 
-Using SoftBody
-==============
+# Using SoftBody
 
 Soft bodies (or *soft-body dynamics*) simulate movement, changing shape and other physical properties of deformable objects.
 This can for example be used to simulate cloth or to create more realistic characters.
 
-Basic set-up
-~~~~~~~~~~~~
+### Basic set-up
 
 A `SoftBody` node is used for soft body simulations.
 
@@ -29,8 +27,7 @@ Play the scene to view the simulation.
 Tip:
  To improve the simulation's result, increase the `Simulation Precision`, this will give significant improvement at the cost of performance.
 
-Cloak simulation
-~~~~~~~~~~~~~~~~
+### Cloak simulation
 
 Let's make a cloak in the Platformer3D demo.
 

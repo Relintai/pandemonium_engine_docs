@@ -1,10 +1,8 @@
 
 
-Real Time Navigation (3D)
-=========================
+# Real Time Navigation (3D)
 
-Introduction
-------------
+## Introduction
 
 Pathfinding in a 3D environment is crucial for many games, it's commonly
 how non directly controlled characters or entities find their way around
@@ -15,8 +13,7 @@ an environment. Pandemonium provides several nodes for this purpose:
 -  `NavigationAgent( NavigationAgent )`
 -  `NavigationObstacle( NavigationObstacle )`
 
-The map and navigation regions
-------------------------------
+## The map and navigation regions
 
 The "map" is the entire world for navigation, it's similar to "space" for
 the physics engine. It's comprised of navigation regions, these regions
@@ -37,7 +34,6 @@ button at the top of the inspector to generate it.
 
 Note:
 
-
     It can also be generated at runtime using the `bake_navigation_region()`
     method of the navigation region node.
 
@@ -56,8 +52,7 @@ to each other. Additionally a baked navmesh can be moved at runtime and
 agents will still be able to navigate onto it from another region.
 For example, navigating onto a moving platform that has stopped will work.
 
-NavigationAgent3D
------------------
+## NavigationAgent3D
 
 Navigation agent nodes are what actually does the pathfinding in a scene,
 one can be attached to the root node of an entity that needs to navigate.
@@ -66,8 +61,7 @@ To have it pathfind use its `set_target_location` method. Once the target
 has been set a path will be generated to the node using navigation regions,
 with several points on the way to the final destination.
 
-RVO processing
---------------
+## RVO processing
 
 RVO stands for reciprocal velocity obstacle. RVO processing is a way to
 pathfind while taking into account other agents and physics bodies that
@@ -84,8 +78,7 @@ agents, this is the `max neighbors( NavigationAgent_property_max_neighbors )`
 property of an agent and can be adjusted. This is **not** a limit for
 how many agents can use a navigation region at the same time.
 
-NavigationObstacle3D
---------------------
+## NavigationObstacle3D
 
 This node is used to mark physics bodies that move around a navigation area
 that agents need to avoid (this will only work if you use RVO processing).
@@ -93,8 +86,7 @@ For example, this node would be useful for pieces of debris in a destructible
 environment. Add it as the child of a physics body and navigation agent
 nodes will avoid it while pathfinding.
 
-Generating a path (old method)
-------------------------------
+## Generating a path (old method)
 
 This is the old method for generating a navigation path, it will be
 removed in Pandemonium 4. First, add a navigation node to the scene, then

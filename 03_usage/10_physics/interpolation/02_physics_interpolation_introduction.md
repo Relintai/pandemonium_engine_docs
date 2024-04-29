@@ -1,10 +1,8 @@
 
 
-Introduction
-============
+# Introduction
 
-Physics ticks and rendered frames
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Physics ticks and rendered frames
 
 One key concept to understand in Pandemonium is the distinction between physics ticks (sometimes referred to as iterations or physics frames), and rendered frames. The physics proceeds at a fixed tick rate (set in `ProjectSettings.physics/common/physics_fps( ProjectSettings_property_physics/common/physics_fps )`), which defaults to 60 ticks per second.
 
@@ -18,18 +16,15 @@ This problem is easier to understand if we consider an extreme scenario. If you 
 
 This jump can be seen in other combinations of tick / frame rate as glitches, or jitter, caused by this staircasing effect due to the discrepancy between physics tick time and rendered frame time.
 
-What can we do about frames and ticks being out of sync?
---------------------------------------------------------
+## What can we do about frames and ticks being out of sync?
 
-Lock the tick / frame rate together?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Lock the tick / frame rate together?
 
 The most obvious solution is to get rid of the problem, by ensuring there is a physics tick that coincides with every frame. This used to be the approach on old consoles and fixed hardware computers. If you know that every player will be using the same hardware, you can ensure it is fast enough to calculate ticks and frames at e.g. 50 FPS, and you will be sure it will work great for everybody.
 
 However, modern games are often no longer made for fixed hardware. You will often be planning to release on desktop computers, mobiles and more, all of which have huge variations in performance, as well as different monitor refresh rates. We need to come up with a better way of dealing with the problem.
 
-Adapt the tick rate?
-^^^^^^^^^^^^^^^^^^^^
+#### Adapt the tick rate?
 
 Instead of designing the game at a fixed physics tick rate, we could allow the tick rate to scale according to the end users hardware. We could for example use a fixed tick rate that works for that hardware, or even vary the duration of each physics tick to match a particular frame duration.
 
@@ -37,8 +32,7 @@ This works, but there is a problem. Physics (*and game logic*, which is often al
 
 This can make quality assurance difficult with hard to reproduce bugs, especially in AAA games where problems of this sort can be very costly. This can also be problematic for multiplayer games for competitive integrity, as running the game at certain tick rates may be more advantageous than others.
 
-Lock the tick rate, but use interpolation to smooth frames in between physics ticks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Lock the tick rate, but use interpolation to smooth frames in between physics ticks
 
 This has become one of the most popular approaches to dealing with the problem. It is supported by Pandemonium 3.5 and later in 3D (although it is optional and disabled by default).
 
@@ -52,8 +46,7 @@ Why do we need the previous position *(in fact the entire transform, including r
 
 ![](img/fti_graph_interpolated.png)
 
-Linear interpolation
-^^^^^^^^^^^^^^^^^^^^
+#### Linear interpolation
 
 The simplest way to achieve this is linear interpolation, or lerping, which you may have used before.
 
@@ -62,8 +55,7 @@ Let us consider only the position, and a situation where we know that the previo
 Note:
  Although the maths is explained here, you do not have to worry about the details, as this step will be performed for you. Under the hood, Pandemonium may use more complex forms of interpolation, but linear interpolation is the easiest in terms of explanation.
 
-The physics interpolation fraction
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### The physics interpolation fraction
 
 If our physics ticks are happening 10 times per second (for this example), what happens if our rendered frame takes place at time 0.12 seconds? We can do some math to figure out where the object would be to obtain a smooth motion between the two ticks.
 
@@ -76,8 +68,7 @@ First of all, we have to calculate how far through the physics tick we want the 
 
 This is called the **physics interpolation fraction**, and is handily calculated for you by Pandemonium. It can be retrieved on any frame by calling `Engine.get_physics_interpolation_fraction( Engine_method_get_physics_interpolation_fraction )`.
 
-Calculating the interpolated position
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Calculating the interpolated position
 
 Once we have the interpolation fraction, we can insert it into a standard linear interpolation equation. The X coordinate would thus be:
 
@@ -102,22 +93,19 @@ Let's break that down:
 Note:
  Although this example interpolates the position, the same thing can be done with the rotation and scale of objects. It is not necessary to know the details as Pandemonium will do all this for you.
 
-Smoothed transformations between physics ticks?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Smoothed transformations between physics ticks?
 
 Putting all this together shows that it should be possible to have a nice smooth estimation of the transform of objects between the current and previous physics tick.
 
 But wait, you may have noticed something. If we are interpolating between the current and previous ticks, we are not estimating the position of the object *now*, we are estimating the position of the object in the past. To be exact, we are estimating the position of the object *between 1 and 2 ticks* into the past.
 
-In the past
-^^^^^^^^^^^
+#### In the past
 
 What does this mean? This scheme does work, but it does mean we are effectively introducing a delay between what we see on the screen, and where the objects *should* be.
 
 In practice, most people won't notice this delay, or rather, it is typically not *objectionable*. There are already significant delays involved in games, we just don't typically notice them. The most significant effect is there can be a slight delay to input, which can be a factor in fast twitch games. In some of these fast input situations, you may wish to turn off physics interpolation and use a different scheme, or use a high tick rate, which mitigates these delays.
 
-Why look into the past? Why not predict the future?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Why look into the past? Why not predict the future?
 
 There is an alternative to this scheme, which is: instead of interpolating between the previous and current tick, we use maths to *extrapolate* into the future. We try to predict where the object *will be*, rather than show it where it was. This can be done and may be offered as an option in future, but there are some significant downsides:
 
@@ -126,8 +114,7 @@ There is an alternative to this scheme, which is: instead of interpolating betwe
 - Providing the movement speed is slow, these incorrect predictions may not be too much of a problem.
 - When a prediction was incorrect, the object may have to jump or snap back onto the corrected path. This can be visually jarring.
 
-Fixed timestep interpolation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Fixed timestep interpolation
 
 In Pandemonium this whole system is referred to as physics interpolation, but you may also hear it referred to as **"fixed timestep interpolation"**, as it is interpolating between objects moved with a fixed timestep (physics ticks per second). In some ways the second term is more accurate, because it can also be used to interpolate objects that are not driven by physics.
 

@@ -1,7 +1,6 @@
 
 
-Quick start guide
-=================
+# Quick start guide
 
 - Turn on physics interpolation: `ProjectSettings.physics/common/physics_interpolation( ProjectSettings_property_physics/common/physics_interpolation )`
 - Make sure you move objects and run your game logic in `physics_process()` rather than `process()`. This includes moving objects directly *and indirectly* (by e.g. moving a parent, or using another mechanism to automatically move nodes).

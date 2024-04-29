@@ -1,10 +1,8 @@
 
 
-Using Area2D
-============
+# Using Area2D
 
-Introduction
-------------
+## Introduction
 
 Pandemonium offers a number of collision objects to provide both collision detection
 and response. Trying to decide which one to use for your project can be confusing.
@@ -16,16 +14,14 @@ Note:
  This document assumes you're familiar with Pandemonium's various physics
           bodies. Please read `doc_physics_introduction` first.
 
-What is an area?
-----------------
+## What is an area?
 
 An Area2D defines a region of 2D space. In this space you can detect other
 `CollisionObject2D` nodes overlapping, entering,
 and exiting. Areas also allow for overriding local physics properties. We'll
 explore each of these functions below.
 
-Area properties
----------------
+## Area properties
 
 Areas have many properties you can use to customize their behavior.
 
@@ -45,8 +41,7 @@ apply an audio effect when the player moves through.
 Note that Area2D extends `CollisionObject2D`, so it
 also provides properties inherited from that class, such as `input_pickable`.
 
-Overlap detection
------------------
+## Overlap detection
 
 Perhaps the most common use of Area2D nodes is for contact and overlap detection.
 When you need to know that two objects have touched, but don't need physical
@@ -89,8 +84,7 @@ Some other usage examples:
 
 See the `doc_your_first_2d_game` for an example of using Area2D in a game.
 
-Area influence
---------------
+## Area influence
 
 The second major use for area nodes is to alter physics. By default, the area
 won't do this, but you can enable this with the *Space Override* property. When
@@ -112,16 +106,14 @@ The physics properties that can be overridden are:
 - *Linear Damp* - How quickly objects stop moving - linear velocity lost per second.
 - *Angular Damp* - How quickly objects stop spinning - angular velocity lost per second.
 
-Point gravity
-~~~~~~~~~~~~~
+### Point gravity
 
 The *Gravity Point* property allows you to create an "attractor". Gravity in the
 area will be calculated towards a point, given by the *Gravity Vec* property.
 Values are relative to the Area2D, so for example using `(0, 0)` will attract
 objects to the center of the area.
 
-Examples
-~~~~~~~~
+### Examples
 
 The example project attached below has three areas demonstrating physics
 override.

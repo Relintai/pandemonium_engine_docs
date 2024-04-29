@@ -1,7 +1,6 @@
 
 
-Physics introduction
-====================
+# Physics introduction
 
 In game development, you often need to know when two objects in the game
 intersect or come into contact. This is known as **collision detection**.
@@ -24,8 +23,7 @@ Note:
           and collision shape has a direct equivalent in 3D and in most cases
           they work in much the same way.
 
-Collision objects
------------------
+## Collision objects
 
 Pandemonium offers four kinds of physics bodies, extending `CollisionObject2D`:
 
@@ -52,15 +50,13 @@ The other three bodies extend `PhysicsBody2D`:
     A body that provides collision detection, but no physics. All movement and
     collision response must be implemented in code.
 
-Physics material
-~~~~~~~~~~~~~~~~
+### Physics material
 
 Static bodies and rigid bodies can be configured to use a `physics material
 ( PhysicsMaterial )`. This allows adjusting the friction and bounce of an object,
 and set if it's absorbent and/or rough.
 
-Collision shapes
-~~~~~~~~~~~~~~~~
+### Collision shapes
 
 A physics body can hold any number of `Shape2D` objects
 as children. These shapes are used to define the object's collision bounds
@@ -82,8 +78,7 @@ These nodes allow you to draw the shape directly in the editor workspace.
 
 ![](img/player_coll_shape.png)
 
-Physics process callback
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Physics process callback
 
 The physics engine may spawn multiple threads to improve performance, so
 it can use up to a full frame to process physics. Because of this, the value
@@ -107,8 +102,7 @@ Note:
 
 
 
-Collision layers and masks
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Collision layers and masks
 
 One of the most powerful, but frequently misunderstood, collision features
 is the collision layer system. This system allows you to build up complex
@@ -135,8 +129,7 @@ be assigned in Project Settings -> Layer Names.
 
 ![](img/physics_layer_names.png)
 
-GUI example
-^^^^^^^^^^^
+#### GUI example
 
 You have four node types in your game: Walls, Player, Enemy, and Coin. Both
 Player and Enemy should collide with Walls. The Player node should detect
@@ -153,8 +146,7 @@ interact with. For example, the Player's settings would look like this:
 
 
 
-Code example
-^^^^^^^^^^^^
+#### Code example
 
 In function calls, layers are specified as a bitmask. Where a function enables
 all layers by default, the layer mask will be given as `0x7fffffff`. Your code
@@ -182,8 +174,7 @@ would be as follows:
 ```
 
 
-Area2D
-------
+## Area2D
 
 Area nodes provide **detection** and **influence**. They can detect when
 objects overlap and emit signals when bodies enter or exit. Areas can also
@@ -200,8 +191,7 @@ There are three main uses for `Area2D`:
 
 By default, areas also receive mouse and touchscreen input.
 
-StaticBody2D
-------------
+## StaticBody2D
 
 A static body is one that is not moved by the physics engine. It participates
 in collision detection, but does not move in response to the collision. However,
@@ -217,8 +207,7 @@ Example uses for `StaticBody2D`:
 -   Conveyor belts
 -   Walls and other obstacles
 
-RigidBody2D
------------
+## RigidBody2D
 
 This is the node that implements simulated 2D physics. You do not control a
 `RigidBody2D` directly. Instead, you apply forces
@@ -238,8 +227,7 @@ A sleeping body acts like a static body, and its forces are not calculated by
 the physics engine. The body will wake up when forces are applied, either by
 a collision or via code.
 
-Rigid body modes
-~~~~~~~~~~~~~~~~
+### Rigid body modes
 
 A rigid body can be set to one of four modes:
 
@@ -248,8 +236,7 @@ A rigid body can be set to one of four modes:
 -   **Character** - Similar to "Rigid" mode, but the body cannot rotate.
 -   **Kinematic** - The body behaves like a `KinematicBody2D` and must be moved by code.
 
-Using RigidBody2D
-~~~~~~~~~~~~~~~~~
+### Using RigidBody2D
 
 One of the benefits of using a rigid body is that a lot of behavior can be had
 "for free" without writing any code. For example, if you were making an
@@ -300,8 +287,7 @@ Note:
           force to it, or by disabling the `can_sleep`
           property. Be aware that this can have a negative effect on performance.
 
-Contact reporting
-~~~~~~~~~~~~~~~~~
+### Contact reporting
 
 By default, rigid bodies do not keep track of contacts, because this can
 require a huge amount of memory if many bodies are in the scene. To enable
@@ -314,8 +300,7 @@ Contact monitoring via signals can be enabled via the `contact_monitor`
 property. See `RigidBody2D` for the list of available
 signals.
 
-KinematicBody2D
----------------
+## KinematicBody2D
 
 `KinematicBody2D` bodies detect collisions with
 other bodies, but are not affected by physics properties like gravity or friction.
@@ -328,15 +313,13 @@ These methods move the body along a given vector, and it will instantly stop
 if a collision is detected with another body. After the body has collided,
 any collision response must be coded manually.
 
-Kinematic collision response
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Kinematic collision response
 
 After a collision, you may want the body to bounce, to slide along a wall,
 or to alter the properties of the object it hit. The way you handle collision
 response depends on which method you used to move the KinematicBody2D.
 
-`move_and_collide`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `move_and_collide`
 
 When using `move_and_collide()`, the function returns a
 `KinematicCollision2D` object, which contains
@@ -374,8 +357,7 @@ gdscript GDScript
             velocity = velocity.bounce(collision_info.normal)
 ```
 
-`move_and_slide`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `move_and_slide`
 
 Sliding is a common collision response; imagine a player moving along walls
 in a top-down game or running up and down slopes in a platformer. While it's

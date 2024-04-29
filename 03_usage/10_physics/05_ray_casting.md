@@ -1,10 +1,8 @@
 
 
-Ray-casting
-===========
+# Ray-casting
 
-Introduction
-------------
+## Introduction
 
 One of the most common tasks in game development is casting a ray (or
 custom shaped object) and checking what it hits. This enables complex
@@ -21,8 +19,7 @@ is.
 Many times, though, ray-casting needs to be a more interactive process
 so a way to do this by code must exist.
 
-Space
------
+## Space
 
 In the physics world, Pandemonium stores all the low level collision and
 physics information in a *space*. The current 2d space (for 2D Physics)
@@ -34,8 +31,7 @@ The resulting space `RID` can be used in
 `PhysicsServer` and
 `Physics2DServer` respectively for 3D and 2D.
 
-Accessing space
----------------
+## Accessing space
 
 Pandemonium physics runs by default in the same thread as game logic, but may
 be set to run on a separate thread to work more efficiently. Due to
@@ -77,8 +73,7 @@ gdscript GDScript
         var space_state = get_world().direct_space_state
 ```
 
-Raycast query
--------------
+## Raycast query
 
 For performing a 2D raycast query, the method
 `Physics2DDirectSpaceState.intersect_ray()`
@@ -120,8 +115,7 @@ data:
 
 The data is similar in 3D space, using Vector3 coordinates.
 
-Collision exceptions
---------------------
+## Collision exceptions
 
 A common use case for ray casting is to enable a character to gather data
 about the world around it. One problem with this is that the same character
@@ -147,8 +141,7 @@ gdscript GDScript
 
 The exceptions array can contain objects or RIDs.
 
-Collision Mask
---------------
+## Collision Mask
 
 While the exceptions method works fine for excluding the parent body, it becomes
 very inconvenient if you need a large and/or dynamic list of exceptions. In
@@ -171,8 +164,7 @@ gdscript GDScript
 
 See `doc_physics_introduction_collision_layer_code_example` for details on how to set the collision mask.
 
-3D ray casting from screen
---------------------------
+## 3D ray casting from screen
 
 Casting a ray from screen to 3D physics space is useful for object
 picking. There is not much need to do this because

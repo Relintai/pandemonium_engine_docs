@@ -1,9 +1,7 @@
-.. _doc_navigation_optimizing_performance:
 
-Optimizing Navigation Performance
-=================================
+# Optimizing Navigation Performance
 
-.. image:: img/nav_optimization.webp
+![](img/nav_optimization.webp)
 
 Common Navigation related performance problems can be categorized into the following topics:
 
@@ -15,10 +13,9 @@ Common Navigation related performance problems can be categorized into the follo
 
 In the following sections information can be found on how to identify and fix or at least mitigate their impact on framerates.
 
-Performance problems with parsing SceneTree nodes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Performance problems with parsing SceneTree nodes
 
-.. tip::
+Tip:
 
     Prefer using simple shapes with as few edges as possible e.g. nothing rounded like a circle, sphere or torus.
     
@@ -34,18 +31,18 @@ On top, to gain access to visual mesh data the parser needs to request the mesh 
 This requires locking the RenderingServer thread and can severely impact framerate at runtime while the rendering runs multi-threaded.
 If the rendering runs single-threaded, the framerate impact might be even worse and the mesh parsing might freeze the entire game for a few seconds on complex meshes.
 
-Performance problems with navigation mesh baking
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Performance problems with navigation mesh baking
 
-.. tip::
+Tip:
 
     At runtime, always prefer to use a background thread for baking navigation meshes.
     
-    Increase NavigationMesh ``cell_size`` and ``cell_height`` to create less voxels.
+    Increase NavigationMesh `cell_size` and `cell_height` to create less voxels.
     
-    Change the ``SamplePartitionType`` from watershed to monotone or layers to gain baking performance.
+    Change the `SamplePartitionType` from watershed to monotone or layers to gain baking performance.
 
-.. warning::
+Warning:
+
     NEVER scale source geometry with nodes to avoid precision errors. Most scale applies only visually and shapes that are very large at their base scale require still a lot of extra processing even while downscaled.
 
 Baking navigation meshes at runtime should always be done in a background thread if possible. Even small sized navigation meshes can take far longer to bake than what is possible to squeeze into a single frame, at least if the framerate should stay at a bearable level.
@@ -60,10 +57,9 @@ E.g. games with mostly flat surfaces with blocky geometry can get away with the 
 Never scale source geometry with nodes. Not only can it result in a lot of precision errors with wrongly matched vertices and edges but also some scaling only exists as visuals and not in the actual parsed data.
 E.g. if a mesh is downscaled visually in the Editor, e.g. the scale set to 0.001 on a MeshInstance, the mesh still requires a gigantic and very complex voxel grid to be processed for the baking.
 
-Performance problems with NavigationAgent path queries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Performance problems with NavigationAgent path queries
 
-.. tip::
+Tip:
 
     Avoid unnecessary path resets and queries every frame in NavigationAgent scripts.
     
@@ -82,10 +78,9 @@ This avoids doing the equivalent of two full path queries every frame for the sa
 
 Divide the total number of NavigationAgents into update groups or use random timers so that they do not all request new paths in the same frame.
 
-Performance problems with the actual path search
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Performance problems with the actual path search
 
-.. tip::
+Tip:
 
     Optimize overdetailed navigation meshes by reducing the amount of polygons and edges.
 
@@ -98,10 +93,9 @@ This performance drop is "normal" and the result of a too large, too unoptimized
 In normal path searches where the target position can be reached quickly the pathfinding will do an early exit as soon as the position is reached which can hide this lack of optimization for a while.
 If the target position can not be reached the pathfinding has to do a far longer search through the available polygons to confirm that the position is absolutely not reachable.
 
-Performance problems with navigation map synchronization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Performance problems with navigation map synchronization
 
-.. tip::
+Tip:
 
     Merge navigation meshes polygons by vertex instead of by edge connection wherever possible.
 

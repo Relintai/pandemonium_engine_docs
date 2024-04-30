@@ -1,7 +1,6 @@
 
 
-Android in-app purchases
-========================
+# Android in-app purchases
 
 Pandemonium offers a first-party `PandemoniumGooglePlayBilling` Android plugin since Pandemonium 3.2.2.
 The new plugin uses the `Google Play Billing library ( https://developer.android.com/google/play/billing )`
@@ -11,13 +10,11 @@ If you learn better by looking at an example, you can find the demo project
 `here ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/mobile/android_iap )`.
 
 
-Migrating from Pandemonium 3.2.1 and lower (PandemoniumPaymentsV3)
-------------------------------------------------------
+## Migrating from Pandemonium 3.2.1 and lower (PandemoniumPaymentsV3)
 
 The new `PandemoniumGooglePlayBilling` API is not compatible with its predecessor `PandemoniumPaymentsV3`.
 
-Changes
-*******
+#### Changes
 
 - You need to enable the Custom Build option in your Android export settings and install
   the `PandemoniumGooglePlayBilling` plugin manually (see below for details)
@@ -28,11 +25,9 @@ Changes
 - Signals (no polling or callback objects)
 
 
-Usage
------
+## Usage
 
-Getting started
-***************
+#### Getting started
 
 If not already done, make sure you have enabled and successfully set up `Android Custom Builds ( doc_android_custom_build )`.
 Grab the`PandemoniumGooglePlayBilling` plugin binary and config from the `releases page ( https://github.com/Relintai/pandemonium_engine-google-play-billing/releases )`
@@ -40,8 +35,7 @@ and put both into `res://android/plugins`.
 The plugin should now show up in the Android export settings, where you can enable it.
 
 
-Getting started
-***************
+#### Getting started
 
 To use the `PandemoniumGooglePlayBilling` API you first have to get the `PandemoniumGooglePlayBilling`
 singleton and start the connection:
@@ -75,8 +69,7 @@ singleton and start the connection:
 All API methods only work if the API is connected. You can use `payment.isReady()` to check the connection status.
 
 
-Querying available items
-************************
+#### Querying available items
 
 As soon as the API is connected, you can query SKUs using `querySkuDetails`.
 
@@ -92,8 +85,7 @@ Full example:
 ```
 
 
-Purchase an item
-****************
+#### Purchase an item
 
 To initiate the purchase flow for an item, call `purchase`.
 You **must** query the SKU details for an item before you can
@@ -117,8 +109,7 @@ Then, wait for the `on_purchases_updated` callback and handle the purchase resul
 ```
 
 
-Check if the user purchased an item
-***********************************
+#### Check if the user purchased an item
 
 To get all purchases, call `queryPurchases`. Unlike most of the other functions, `queryPurchases` is
 a synchronous operation and returns a `Dictionary` with a status code
@@ -138,8 +129,7 @@ Full example:
 ```
 
 
-Consumables
-***********
+#### Consumables
 
 If your in-app item is not a one-time purchase but a consumable item (e.g. coins) which can be purchased
 multiple times, you can consume an item by calling `consumePurchase` with a purchase token.
@@ -157,8 +147,7 @@ Consuming a product allows the user to purchase it again, and removes it from ap
                 # Or wait for the _on_purchase_consumed callback before giving the user what they bought
 ```
 
-Subscriptions
-*************
+#### Subscriptions
 
 Subscriptions don't work much different from regular in-app items. Just use `"subs"` as second
 argument to `querySkuDetails` to get subscription details.

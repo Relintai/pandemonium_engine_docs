@@ -1,10 +1,8 @@
 
 
-Internationalizing games
-========================
+# Internationalizing games
 
-Introduction
-------------
+## Introduction
 
 Sería excelente que el mundo hablara solo un idioma (It would be great if the
 world spoke only one language). Unfortunately for
@@ -26,8 +24,7 @@ Note:
  We will be using the official demo as an example; you can
           `download it from the Asset Library ( https://pandemoniumengine.org/asset-library/asset/134 )`.
 
-Configuring the imported translation
-------------------------------------
+## Configuring the imported translation
 
 Translations can get updated and re-imported when they change, but
 they still have to be added to the project. This is done in
@@ -37,8 +34,7 @@ they still have to be added to the project. This is done in
 
 The above dialog is used to add or remove translations project-wide.
 
-Localizing resources
---------------------
+## Localizing resources
 
 It is also possible to instruct Pandemonium to use alternate versions of
 assets (resources) depending on the current language. The **Remaps** tab
@@ -49,8 +45,7 @@ can be used for this:
 Select the resource to be remapped, then add some alternatives for each
 locale.
 
-Converting keys to text
------------------------
+## Converting keys to text
 
 Some controls, such as `Button`,
 will automatically fetch a translation if their text matches a translation key.
@@ -94,8 +89,7 @@ translations and convert it if found:
     status.set_text(tr("GAME_STATUS_" + str(status_index)))
 ```
 
-Making controls resizable
---------------------------
+### Making controls resizable
 
 The same text in different languages can vary greatly in length. For
 this, make sure to read the tutorial on `doc_size_and_anchors`, as
@@ -103,16 +97,14 @@ dynamically adjusting control sizes may help.
 `Container` can be useful, as well as the text wrapping
 options available in `Label`.
 
-TranslationServer
------------------
+## TranslationServer
 
 Pandemonium has a server handling low-level translation management
 called the `TranslationServer`.
 Translations can be added or removed during run-time;
 the current language can also be changed at run-time.
 
-Testing translations
---------------------
+## Testing translations
 
 You may want to test a project's translation before releasing it. Pandemonium provides two ways
 to do this.
@@ -136,8 +128,7 @@ supplied:
    pandemonium --language fr
 ```
 
-Translating the project name
-----------------------------
+## Translating the project name
 
 The project name becomes the app name when exporting to different
 operating systems and platforms. To specify the project name in more

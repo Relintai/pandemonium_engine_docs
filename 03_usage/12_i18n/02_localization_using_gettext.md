@@ -1,7 +1,5 @@
 
-
-Localization using gettext
-==========================
+# Localization using gettext
 
 In addition to `doc_importing_translations` in CSV format, Pandemonium
 also supports loading translation files written in the GNU gettext
@@ -13,8 +11,7 @@ Note:
           It's written with C projects in mind, but much of the advice
           also applies to Pandemonium (with the exception of `xgettext`).
 
-Advantages
-----------
+## Advantages
 
 - gettext is a standard format, which can be edited using any text editor
   or GUI editors such as `Poedit ( https://poedit.net/ )`.
@@ -26,8 +23,7 @@ Advantages
 - Multiline strings are more convenient to edit in gettext files compared
   to CSV files.
 
-Disadvantages
--------------
+## Disadvantages
 
 - gettext is a more complex format than CSV and can be harder to grasp for
   people new to software localization.
@@ -35,15 +31,13 @@ Disadvantages
   on their system. However, as Pandemonium supports using text-based message files
   (`.po`), translators can test their work without having to install gettext tools.
 
-Caveats
--------
+## Caveats
 
 - As Pandemonium uses its own PO file parser behind the scenes
   (which is more limited than the reference GNU gettext implementation),
   some features such as pluralization aren't supported.
 
-Installing gettext tools
-------------------------
+## Installing gettext tools
 
 The command line gettext tools are required to perform maintenance operations,
 such as updating message files. Therefore, it's strongly recommended to
@@ -60,8 +54,7 @@ install them.
 - **Linux:** On most distributions, install the `gettext` package from
   your distribution's package manager.
 
-Creating the PO template (POT) manually
----------------------------------------
+## Creating the PO template (POT) manually
 
 Pandemonium currently doesn't support extracting source strings using `xgettext`,
 so the `.pot` file must be created manually. This file can be placed anywhere
@@ -87,8 +80,7 @@ the translated string.
 The `msgstr` value in PO template files (`.pot`) should **always** be empty.
 Localization will be done in the generated `.po` files instead.
 
-Creating the PO template (POT) using pybabel
---------------------------------------------
+## Creating the PO template (POT) using pybabel
 
 The Python tool pybabel has support for Pandemonium and can be used to automatically
 create and update the POT file from your scene files and scripts.
@@ -122,8 +114,7 @@ arguments to `tr()` will be translated, as well
 as properties named "text" (commonly used by Control nodes) and LineEdit's
 "placeholder_text" property.
 
-Creating a messages file from a PO template
--------------------------------------------
+## Creating a messages file from a PO template
 
 The `msginit` command is used to turn a PO template into a messages file.
 For instance, to create a French localization file, use the following command
@@ -139,8 +130,7 @@ as the PO template.
 Alternatively, you can do that graphically using Poedit, or by uploading the
 POT file to your web platform of choice.
 
-Loading a messages file in Pandemonium
---------------------------------
+## Loading a messages file in Pandemonium
 
 To register a messages file as a translation in a project, open the
 **Project Settings**, then go to the **Localization** tab.
@@ -152,8 +142,7 @@ Note:
  See `doc_internationalizing_games` for more information on
           importing and testing translations in Pandemonium.
 
-Updating message files to follow the PO template
-------------------------------------------------
+## Updating message files to follow the PO template
 
 After updating the PO template, you will have to update message files so
 that they contain new strings, while removing strings that are no longer
@@ -179,8 +168,7 @@ Note:
     Strings with "fuzzy" comments will **not** be read by Pandemonium until the
     translation is updated and the "fuzzy" comment is removed.
 
-Checking the validity of a PO file or template
-----------------------------------------------
+## Checking the validity of a PO file or template
 
 It is possible to check whether a gettext file's syntax is valid by running
 the command below:
@@ -192,8 +180,7 @@ the command below:
 If there are syntax errors or warnings, they will be displayed in the console.
 Otherwise, `msgfmt` won't output anything.
 
-Using binary MO files (useful for large projects only)
-------------------------------------------------------
+## Using binary MO files (useful for large projects only)
 
 For large projects with several thousands of strings to translate or more,
 it can be worth it to use binary (compiled) MO message files instead of text-based

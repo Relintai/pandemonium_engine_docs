@@ -1,14 +1,12 @@
 
 
-Creating iOS plugins
-====================
+# Creating iOS plugins
 
 This page explains what iOS plugins can do for you, how to use an existing plugin, and the steps to code a new one.
 
 iOS plugins allow you to use third-party libraries and support iOS-specific features like In-App Purchases, GameCenter integration, ARKit support, and more.
 
-Loading and using an existing plugin
-------------------------------------
+## Loading and using an existing plugin
 
 An iOS plugin requires a `.gdip` configuration file, a binary file which can be either `.a` static library or `.xcframework` containing `.a` static libraries, and possibly other dependencies. To use it, you need to:
 
@@ -28,8 +26,7 @@ When a plugin is active, you can access it in your using `Engine.get_singleton()
         print(singleton.foo())
 ```
 
-Creating an iOS plugin
-----------------------
+#### Creating an iOS plugin
 
 At its core, a Pandemonium iOS plugin is an iOS library (*.a* archive file or *.xcframework* containing static libraries) with the following requirements:
 

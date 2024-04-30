@@ -1,10 +1,8 @@
 
 
-Creating Android plugins
-========================
+# Creating Android plugins
 
-Introduction
-------------
+## Introduction
 
 Android plugins are powerful tools to extend the capabilities of the Pandemonium engine
 by tapping into the functionality provided by the Android platform and ecosystem.
@@ -29,8 +27,7 @@ and capabilities that don't belong to the core feature set of a game engine:
 - Posting to Facebook, Twitter, etc.
 - Push notifications
 
-Android plugin
---------------
+## Android plugin
 
 While introduced in Pandemonium 3.2, the Android plugin system got a significant architecture update starting with Pandemonium 3.2.2.
 The new plugin system is backward-incompatible with the previous one, but both systems are kept functional in future releases of the 3.2.x branch.
@@ -46,8 +43,7 @@ with the following caveats:
 - The library must have a dependency on the Pandemonium engine library (`pandemonium-lib.<version>.<status>.aar`). A stable version is made available for each Pandemonium release on the `Pandemonium download page ( https://pandemoniumengine.org/download )`.
 - The library must include a specifically configured `<meta-data )` tag in its manifest file.
 
-Building an Android plugin
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Building an Android plugin
 
 **Prerequisite:** `Android Studio ( https://developer.android.com/studio )` is strongly recommended as the IDE to use to create Android plugins.
 The instructions below assumes that you're using Android Studio.
@@ -122,8 +118,7 @@ The instructions below assumes that you're using Android Studio.
     - **remote**: contains a list of remote binary gradle dependencies for the plugin.
     - **custom_maven_repos**: contains a list of URLs specifying the custom maven repositories required for the plugin's dependencies.
 
-Loading and using an Android plugin
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Loading and using an Android plugin
 
 Move the plugin configuration file (e.g.: `MyPlugin.gdap`) and, if any, its local binary (e.g.: `MyPlugin.aar`) and dependencies to the Pandemonium project's `res://android/plugins` directory.
 
@@ -140,8 +135,7 @@ From your script:
 ```
 
 
-Bundling GDNative resources
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Bundling GDNative resources
 
 An Android plugin can define and provide C/C++ GDNative resources, either to provide and/or access functionality from the game logic.
 The GDNative resources can be bundled within the plugin `aar` file which simplifies the distribution and deployment process:
@@ -154,19 +148,16 @@ For GDNative libraries, the plugin singleton object must override the `org.pande
 and return the paths to the bundled GDNative libraries config files (`*.gdnlib`). The paths must be relative to the `assets` directory.
 At runtime, the plugin will provide these paths to Pandemonium core which will use them to load and initialize the bundled GDNative libraries.
 
-Reference implementations
-^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Reference implementations
 
 - `Pandemonium Oculus Mobile plugin ( https://github.com/PandemoniumVR/pandemonium_oculus_mobile )`
   - `Bundled gdnative resources ( https://github.com/PandemoniumVR/pandemonium_oculus_mobile/tree/master/plugin/src/main/assets/addons/pandemonium_ovrmobile )`
 - `Pandemonium Google Play Billing plugin ( https://github.com/Relintai/pandemonium_engine-google-play-billing )`
 
 
-Troubleshooting
----------------
+## Troubleshooting
 
-Pandemonium crashes upon load
-^^^^^^^^^^^^^^^^^^^^^^^
+#### Pandemonium crashes upon load
 
 Check `adb logcat` for possible problems, then:
 

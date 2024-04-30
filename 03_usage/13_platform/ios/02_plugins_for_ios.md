@@ -1,7 +1,6 @@
 
 
-Plugins for iOS
-===============
+# Plugins for iOS
 
 Pandemonium provides StoreKit, GameCenter, iCloud services and other plugins.
 They are using same model of asynchronous calls explained below.
@@ -10,8 +9,7 @@ ARKit and Camera access are also provided as plugins.
 
 Latest updates, documentation and source code can be found at `Pandemonium iOS plugins repository ( https://github.com/Relintai/pandemonium_engine-ios-plugins )`
 
-Accessing plugin singletons
----------------------------
+## Accessing plugin singletons
 
 To access plugin functionality, you first need to check that the plugin is
 exported and available by calling the `Engine.has_singleton()` function, which
@@ -36,8 +34,7 @@ Here's an example of how to do this in GDScript:
 ```
 
 
-Asynchronous methods
---------------------
+## Asynchronous methods
 
 When requesting an asynchronous operation, the method will look like
 this:
@@ -87,8 +84,7 @@ The pending event interface consists of two methods:
 -  `Variant pop_pending_event()`
    Pops the first event from the queue and returns it.
 
-Store Kit
----------
+## Store Kit
 
 Implemented in `Pandemonium iOS InAppStore plugin ( https://github.com/Relintai/pandemonium_engine-ios-plugins/blob/master/plugins/inappstore/in_app_store.mm )`.
 
@@ -112,15 +108,13 @@ The following methods are available and documented below:
     Variant pop_pending_event()
 ```
 
-`purchase`
-~~~~~~~~~~~~
+### `purchase`
 
 Purchases a product ID through the Store Kit API. You have to call `finish_transaction(product_id)` once you
 receive a successful response or call `set_auto_finish_transaction(true)` prior to calling `purchase()`.
 These two methods ensure the transaction is completed.
 
-Parameters
-^^^^^^^^^^
+#### Parameters
 
 Takes a dictionary as a parameter, with one field, `product_id`, a
 string with your product ID. Example:
@@ -129,8 +123,7 @@ string with your product ID. Example:
     var result = in_app_store.purchase({ "product_id": "my_product" })
 ```
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -154,13 +147,11 @@ On success:
     }
 ```
 
-`request_product_info`
-~~~~~~~~~~~~~~~~~~~~~~~~
+### `request_product_info`
 
 Requests the product info on a list of product IDs.
 
-Parameters
-^^^^^^^^^^
+#### Parameters
 
 Takes a dictionary as a parameter, with a single `product_ids` key to which a
 string array of product IDs is assigned. Example:
@@ -169,8 +160,7 @@ string array of product IDs is assigned. Example:
     var result = in_app_store.request_product_info({ "product_ids": ["my_product1", "my_product2"] })
 ```
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -187,14 +177,12 @@ The response event will be a dictionary with the following fields:
     }
 ```
 
-`restore_purchases`
-~~~~~~~~~~~~~~~~~~~~~
+### `restore_purchases`
 
 Restores previously made purchases on user's account. This will create
 response events for each previously purchased product ID.
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response events will be dictionaries with the following fields:
 
@@ -206,14 +194,12 @@ The response events will be dictionaries with the following fields:
     }
 ```
 
-`set_auto_finish_transaction`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### `set_auto_finish_transaction`
 
 If set to `true`, once a purchase is successful, your purchase will be
 finalized automatically. Call this method prior to calling `purchase()`.
 
-Parameters
-^^^^^^^^^^
+#### Parameters
 
 Takes a boolean as a parameter which specifies if purchases should be
 automatically finalized. Example:
@@ -222,15 +208,13 @@ automatically finalized. Example:
     in_app_store.set_auto_finish_transaction(true)
 ```
 
-`finish_transaction`
-~~~~~~~~~~~~~~~~~~~~~~
+### `finish_transaction`
 
 If you don't want transactions to be automatically finalized, call this
 method after you receive a successful purchase response.
 
 
-Parameters
-^^^^^^^^^^
+#### Parameters
 
 Takes a string `product_id` as an argument. `product_id` specifies what product to
 finalize the purchase on. Example:
@@ -239,8 +223,7 @@ finalize the purchase on. Example:
     in_app_store.finish_transaction("my_product1")
 ```
 
-Game Center
------------
+## Game Center
 
 Implemented in `Pandemonium iOS GameCenter plugin ( https://github.com/Relintai/pandemonium_engine-ios-plugins/blob/master/plugins/gamecenter/game_center.mm )`.
 
@@ -266,13 +249,11 @@ and the pending events interface:
     Variant pop_pending_event()
 ```
 
-`authenticate`
-~~~~~~~~~~~~~~~~
+### `authenticate`
 
 Authenticates a user in Game Center.
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -297,13 +278,11 @@ On success:
     }
 ```
 
-`post_score`
-~~~~~~~~~~~~~~
+### `post_score`
 
 Posts a score to a Game Center leaderboard.
 
-Parameters
-^^^^^^^^^^
+#### Parameters
 
 Takes a dictionary as a parameter, with two fields:
 
@@ -316,8 +295,7 @@ Example:
     var result = game_center.post_score({ "score": 100, "category": "my_leaderboard", })
 ```
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -341,13 +319,11 @@ On success:
     }
 ```
 
-`award_achievement`
-~~~~~~~~~~~~~~~~~~~~~
+### `award_achievement`
 
 Modifies the progress of a Game Center achievement.
 
-Parameters
-^^^^^^^^^^
+#### Parameters
 
 Takes a Dictionary as a parameter, with 3 fields:
 
@@ -363,8 +339,7 @@ Example:
     var result = award_achievement({ "name": "hard_mode_completed", "progress": 6.1 })
 ```
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -387,13 +362,11 @@ On success:
     }
 ```
 
-`reset_achievements`
-~~~~~~~~~~~~~~~~~~~~~~
+### `reset_achievements`
 
 Clears all Game Center achievements. The function takes no parameters.
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -416,14 +389,12 @@ On success:
     }
 ```
 
-`request_achievements`
-~~~~~~~~~~~~~~~~~~~~~~~~
+### `request_achievements`
 
 Request all the Game Center achievements the player has made progress
 on. The function takes no parameters.
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -448,14 +419,12 @@ On success:
     }
 ```
 
-`request_achievement_descriptions`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### `request_achievement_descriptions`
 
 Request the descriptions of all existing Game Center achievements
 regardless of progress. The function takes no parameters.
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -485,14 +454,12 @@ On success:
     }
 ```
 
-`show_game_center`
-~~~~~~~~~~~~~~~~~~~~
+### `show_game_center`
 
 Displays the built in Game Center overlay showing leaderboards,
 achievements, and challenges.
 
-Parameters
-^^^^^^^^^^
+#### Parameters
 
 Takes a Dictionary as a parameter, with two fields:
 
@@ -511,8 +478,7 @@ Examples:
     var result = show_game_center({ "view": "achievements" })
 ```
 
-Response event
-^^^^^^^^^^^^^^
+#### Response event
 
 The response event will be a dictionary with the following fields:
 
@@ -525,8 +491,7 @@ On close:
     }
 ```
 
-Multi-platform games
---------------------
+### Multi-platform games
 
 When working on a multi-platform game, you won't always have the
 "GameCenter" singleton available (for example when running on PC or

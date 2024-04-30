@@ -1,7 +1,6 @@
 
 
-Your first 3D shader
-====================
+# Your first 3D shader
 
 You have decided to start writing your own custom Spatial shader. Maybe you saw
 a cool trick online that was done with shaders, or you have found that the
@@ -25,14 +24,14 @@ are going to take the concepts from this tutorial and walk through how to set up
 custom materials in a fragment shader by writing an ocean water shader.
 
 Note:
+
  This tutorial assumes some basic shader knowledge such as types
           (`vec2`, `float`, `sampler2D`), and functions. If you are
           uncomfortable with these concepts it is best to get a gentle
           introduction from `The Book of Shaders
           ( https://thebookofshaders.com )` before completing this tutorial.
 
-Where to assign my material
----------------------------
+## Where to assign my material
 
 In 3D, objects are drawn using `Meshes`. Meshes are a resource
 type that store geometry (the shape of your object) and materials (the color and
@@ -59,8 +58,7 @@ instance then you should set the material on the Meshinstance.
 For this tutorial we will set our material on the mesh itself rather than taking
 advantage of the MeshInstance's ability to override materials.
 
-Setting up
-----------
+## Setting up
 
 Add a new `MeshInstance` node to your scene.
 
@@ -97,8 +95,7 @@ Now click beside "Shader" where it says "[empty]" and select "New Shader".
 The shader editor should now pop up and you are ready to begin writing your
 first Spatial shader!
 
-Shader magic
-------------
+## Shader magic
 
 ![](img/shader-error.png)
 
@@ -157,8 +154,7 @@ What we want to achieve is the look of little hills; after all. `cos` and
 This looks better, but it is still too spiky and repetitive, let's make it a
 little more interesting.
 
-Noise heightmap
----------------
+## Noise heightmap
 
 Noise is a very popular tool for faking the look of terrain. Think of it as
 similar to the cosine function where you have repeating hills except, with
@@ -218,8 +214,7 @@ Right now it is too spiky, we want to soften the hills a bit. To do that, we
 will use a uniform. You already used a uniform above to pass in the noise
 texture, now let's learn how they work.
 
-Uniforms
---------
+## Uniforms
 
 Uniform variables allow you to pass data from the game into the shader. They are
 very useful for controlling shader effects. Uniforms can be almost any datatype
@@ -269,8 +264,7 @@ Using uniforms, we can even change the value every frame to animate the height
 of the terrain. Combined with `Tweens`, this can be
 especially useful for simple animations.
 
-Interacting with light
-----------------------
+## Interacting with light
 
 First, turn wireframe off. To do so, click in the upper-left of the Viewport
 again, where it says "Perspective", and select "Display Normal".

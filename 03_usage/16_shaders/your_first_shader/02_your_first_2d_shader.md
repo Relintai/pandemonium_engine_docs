@@ -1,10 +1,8 @@
 
 
-Your first 2D shader
-====================
+# Your first 2D shader
 
-Introduction
-------------
+## Introduction
 
 Shaders are special programs that execute on the GPU and are used for rendering
 graphics. All modern rendering is done with shaders. For a more detailed
@@ -16,12 +14,12 @@ walking you through the process of writing a shader with both vertex and
 fragment functions. This tutorial targets absolute beginners to shaders.
 
 Note:
+
  If you have experience writing shaders and are just looking for an
           overview of how shaders work in Pandemonium, see the `Shading Reference
-          <toc-shading-reference )`.
+          ( toc-shading-reference )`.
 
-Setup
------
+## Setup
 
 `CanvasItem ( doc_canvas_item_shader )` shaders are used to draw all 2D
      objects in Pandemonium, while `Spatial ( doc_spatial_shader )` shaders are
@@ -43,7 +41,7 @@ To begin, create a Sprite node. You can use any CanvasItem, but for this
 tutorial we will use a Sprite.
 
 In the Inspector, click beside "Texture" where it says "[empty]" and select
-"Load", then select "Icon.png)". For new projects, this is the Pandemonium icon. You
+"Load", then select "Icon.png". For new projects, this is the Pandemonium icon. You
 should now see the icon in the viewport.
 
 Next, look down in the Inspector, under the CanvasItem section, click beside
@@ -57,8 +55,7 @@ Click beside "Shader" and select "New Shader". Finally, click on the new shader
 resource and the shader editor will open. You are now ready to begin writing
 your first shader.
 
-Your first CanvasItem shader
-----------------------------
+## Your first CanvasItem shader
 
 In Pandemonium, all shaders start with a line specifying what type of shader they are.
 It uses the following format:
@@ -79,8 +76,7 @@ writing a shader with both vertex and fragment functions. Light functions are
 significantly more complex than vertex and fragment functions and so will not be
 covered here.
 
-Your first fragment function
-----------------------------
+## Your first fragment function
 
 The fragment function runs for every pixel in a Sprite and determines what color
 that pixel should be.
@@ -129,8 +125,7 @@ other functions or to assign values to `COLOR` directly.
 
 ![](img/UV.png)
 
-Using `TEXTURE` built-in
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Using `TEXTURE` built-in
 
 When you want to adjust a color in a Sprite you cannot just adjust the color
 from the texture manually like in the code below.
@@ -158,8 +153,7 @@ can be accessed in the shader using `TEXTURE`. Use it together with `UV` and
 
 ![](img/blue-tex.png)
 
-Uniform input
-^^^^^^^^^^^^^
+#### Uniform input
 
 Uniform input is used to pass data into a shader that will be the same across
 the entire shader.
@@ -190,8 +184,7 @@ called "Shader Param". Unfold that section and you will see the uniform you just
 declared. If you change the value in the editor, it will overwrite the default
 value you provided in the shader.
 
-Interacting with shaders from code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Interacting with shaders from code
 
 You can change uniforms from code using the function `set_shader_param()`
 which is called on the node's material resource. With a Sprite node, the
@@ -205,8 +198,7 @@ following code can be used to set the `blue` uniform.
 Note that the name of the uniform is a string. The string must match exactly
 with how it is written in the shader, including spelling and case.
 
-Your first vertex function
---------------------------
+## Your first vertex function
 
 Now that we have a fragment function, let's write a vertex function.
 
@@ -237,8 +229,7 @@ animation.
   }
 ```
 
-Conclusion
-----------
+## Conclusion
 
 At their core, shaders do what you have seen so far, they compute `VERTEX` and
 `COLOR`. It is up to you to dream up more complex mathematical strategies for

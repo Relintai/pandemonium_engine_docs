@@ -1,7 +1,6 @@
 
 
-Your second 3D shader
-=====================
+# Your second 3D shader
 
 From a high-level, what Pandemonium does is give the user a bunch of parameters that
 can be optionally set (`AO`, `SSS_Strength`, `RIM`, etc.). These
@@ -20,8 +19,7 @@ vertex function runs per vertex and sets properties such as `VERTEX`
 (position) and `NORMAL`, while the fragment shader runs per pixel and, most
 importantly, sets the `ALBEDO` color of the `Mesh( MeshInstance )`.
 
-Your first spatial fragment function
-------------------------------------
+## Your first spatial fragment function
 
 As mentioned in the previous part of this tutorial. The standard use of the
 fragment function in Pandemonium is to set up different material properties and let
@@ -179,8 +177,7 @@ Let's set them to `vec3(0.01, 0.03, 0.05)`.
 
 ![](img/dark-water.png)
 
-Animating with `TIME`
------------------------
+## Animating with `TIME`
 
 Going back to the vertex function, we can animate the waves using the built-in
 variable `TIME`.
@@ -240,8 +237,7 @@ This results in waves that move slowly, but not in a very natural way. The next
 section will dig deeper into using shaders to create more complex effects, in
 this case realistic waves, by adding a few more mathematical functions.
 
-Advanced effects: waves
------------------------
+## Advanced effects: waves
 
 What makes shaders so powerful is that you can achieve complex effects by using
 math. To illustrate this, we are going to take our waves to the next level by
@@ -347,5 +343,5 @@ to do was add a bit of math!
 For more information about Spatial shaders read the `Shading Language
 ( doc_shading_language )` doc and the `Spatial Shaders ( doc_spatial_shader )`
 doc. Also look at more advanced tutorials in the `Shading section
-<toc-learn-features-shading )` and the `3D <toc-learn-features-3d )`
+( toc-learn-features-shading )` and the `3D ( toc-learn-features-3d )`
 sections.

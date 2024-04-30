@@ -1,10 +1,8 @@
 
 
-Shading language
-================
+# Shading language
 
-Introduction
-------------
+## Introduction
 
 Pandemonium uses a shading language similar to GLSL ES 3.0. Most datatypes and functions are supported,
 and the few remaining ones will likely be added over time.
@@ -12,77 +10,45 @@ and the few remaining ones will likely be added over time.
 If you are already familiar with GLSL, the `Pandemonium Shader Migration Guide( doc_converting_glsl_to_pandemonium_shaders )`
 is a resource that will help you transition from regular GLSL to Pandemonium's shading language.
 
-Data types
-----------
+## Data types
 
 Most GLSL ES 3.0 datatypes are supported:
 
-+---------------------+---------------------------------------------------------------------------------+
-| Type                | Description                                                                     |
-+=====================+=================================================================================+
-| **void**            | Void datatype, useful only for functions that return nothing.                   |
-+---------------------+---------------------------------------------------------------------------------+
-| **bool**            | Boolean datatype, can only contain `true` or `false`.                       |
-+---------------------+---------------------------------------------------------------------------------+
-| **bvec2**           | Two-component vector of booleans.                                               |
-+---------------------+---------------------------------------------------------------------------------+
-| **bvec3**           | Three-component vector of booleans.                                             |
-+---------------------+---------------------------------------------------------------------------------+
-| **bvec4**           | Four-component vector of booleans.                                              |
-+---------------------+---------------------------------------------------------------------------------+
-| **int**             | Signed scalar integer.                                                          |
-+---------------------+---------------------------------------------------------------------------------+
-| **ivec2**           | Two-component vector of signed integers.                                        |
-+---------------------+---------------------------------------------------------------------------------+
-| **ivec3**           | Three-component vector of signed integers.                                      |
-+---------------------+---------------------------------------------------------------------------------+
-| **ivec4**           | Four-component vector of signed integers.                                       |
-+---------------------+---------------------------------------------------------------------------------+
-| **uint**            | Unsigned scalar integer; can't contain negative numbers.                        |
-+---------------------+---------------------------------------------------------------------------------+
-| **uvec2**           | Two-component vector of unsigned integers.                                      |
-+---------------------+---------------------------------------------------------------------------------+
-| **uvec3**           | Three-component vector of unsigned integers.                                    |
-+---------------------+---------------------------------------------------------------------------------+
-| **uvec4**           | Four-component vector of unsigned integers.                                     |
-+---------------------+---------------------------------------------------------------------------------+
-| **float**           | Floating-point scalar.                                                          |
-+---------------------+---------------------------------------------------------------------------------+
-| **vec2**            | Two-component vector of floating-point values.                                  |
-+---------------------+---------------------------------------------------------------------------------+
-| **vec3**            | Three-component vector of floating-point values.                                |
-+---------------------+---------------------------------------------------------------------------------+
-| **vec4**            | Four-component vector of floating-point values.                                 |
-+---------------------+---------------------------------------------------------------------------------+
-| **mat2**            | 2x2 matrix, in column major order.                                              |
-+---------------------+---------------------------------------------------------------------------------+
-| **mat3**            | 3x3 matrix, in column major order.                                              |
-+---------------------+---------------------------------------------------------------------------------+
-| **mat4**            | 4x4 matrix, in column major order.                                              |
-+---------------------+---------------------------------------------------------------------------------+
-| **sampler2D**       | Sampler type for binding 2D textures, which are read as float.                  |
-+---------------------+---------------------------------------------------------------------------------+
-| **isampler2D**      | Sampler type for binding 2D textures, which are read as signed integer.         |
-+---------------------+---------------------------------------------------------------------------------+
-| **usampler2D**      | Sampler type for binding 2D textures, which are read as unsigned integer.       |
-+---------------------+---------------------------------------------------------------------------------+
-| **sampler2DArray**  | Sampler type for binding 2D texture arrays, which are read as float.            |
-+---------------------+---------------------------------------------------------------------------------+
-| **isampler2DArray** | Sampler type for binding 2D texture arrays, which are read as signed integer.   |
-+---------------------+---------------------------------------------------------------------------------+
-| **usampler2DArray** | Sampler type for binding 2D texture arrays, which are read as unsigned integer. |
-+---------------------+---------------------------------------------------------------------------------+
-| **sampler3D**       | Sampler type for binding 3D textures, which are read as float.                  |
-+---------------------+---------------------------------------------------------------------------------+
-| **isampler3D**      | Sampler type for binding 3D textures, which are read as signed integer.         |
-+---------------------+---------------------------------------------------------------------------------+
-| **usampler3D**      | Sampler type for binding 3D textures, which are read as unsigned integer.       |
-+---------------------+---------------------------------------------------------------------------------+
-| **samplerCube**     | Sampler type for binding Cubemaps, which are read as floats.                    |
-+---------------------+---------------------------------------------------------------------------------+
 
-Casting
-~~~~~~~
+| Type                | Description                                                                     |
+|---------------------|---------------------------------------------------------------------------------|
+| **void**            | Void datatype, useful only for functions that return nothing.                   |
+| **bool**            | Boolean datatype, can only contain `true` or `false`.                           |
+| **bvec2**           | Two-component vector of booleans.                                               |
+| **bvec3**           | Three-component vector of booleans.                                             |
+| **bvec4**           | Four-component vector of booleans.                                              |
+| **int**             | Signed scalar integer.                                                          |
+| **ivec2**           | Two-component vector of signed integers.                                        |
+| **ivec3**           | Three-component vector of signed integers.                                      |
+| **ivec4**           | Four-component vector of signed integers.                                       |
+| **uint**            | Unsigned scalar integer; can't contain negative numbers.                        |
+| **uvec2**           | Two-component vector of unsigned integers.                                      |
+| **uvec3**           | Three-component vector of unsigned integers.                                    |
+| **uvec4**           | Four-component vector of unsigned integers.                                     |
+| **float**           | Floating-point scalar.                                                          |
+| **vec2**            | Two-component vector of floating-point values.                                  |
+| **vec3**            | Three-component vector of floating-point values.                                |
+| **vec4**            | Four-component vector of floating-point values.                                 |
+| **mat2**            | 2x2 matrix, in column major order.                                              |
+| **mat3**            | 3x3 matrix, in column major order.                                              |
+| **mat4**            | 4x4 matrix, in column major order.                                              |
+| **sampler2D**       | Sampler type for binding 2D textures, which are read as float.                  |
+| **isampler2D**      | Sampler type for binding 2D textures, which are read as signed integer.         |
+| **usampler2D**      | Sampler type for binding 2D textures, which are read as unsigned integer.       |
+| **sampler2DArray**  | Sampler type for binding 2D texture arrays, which are read as float.            |
+| **isampler2DArray** | Sampler type for binding 2D texture arrays, which are read as signed integer.   |
+| **usampler2DArray** | Sampler type for binding 2D texture arrays, which are read as unsigned integer. |
+| **sampler3D**       | Sampler type for binding 3D textures, which are read as float.                  |
+| **isampler3D**      | Sampler type for binding 3D textures, which are read as signed integer.         |
+| **usampler3D**      | Sampler type for binding 3D textures, which are read as unsigned integer.       |
+| **samplerCube**     | Sampler type for binding Cubemaps, which are read as floats.                    |
+
+### Casting
 
 Just like GLSL ES 3.0, implicit casting between scalars and vectors of the same size but different type is not allowed.
 Casting of types of different size is also not allowed. Conversion must be done explicitly via constructors.
@@ -103,8 +69,7 @@ Default integer constants are signed, so casting is always needed to convert to 
     uint a = uint(2); // valid
 ```
 
-Members
-~~~~~~~
+### Members
 
 Individual scalar members of vector types are accessed via the "x", "y", "z" and "w" members.
 Alternatively, using "r", "g", "b" and "a" also works and is equivalent. Use whatever fits
@@ -114,8 +79,7 @@ For matrices, use the `m[column][row]` indexing syntax to access each scalar,
 or `m[idx]` to access a vector by row index. For example, for accessing the y
 position of an object in a mat4 you use `m[3][1]`.
 
-Constructing
-~~~~~~~~~~~~
+### Constructing
 
 Construction of vector types must always pass:
 
@@ -151,8 +115,7 @@ from a larger matrix, the top, left submatrix of the larger matrix is used.
 	mat2 m2 = mat2(m4);
 ```
 
-Swizzling
-~~~~~~~~~
+### Swizzling
 
 It is possible to obtain any combination of components in any order, as long as the result
 is another vector type (or scalar). This is easier shown than explained:
@@ -170,8 +133,7 @@ is another vector type (or scalar). This is easier shown than explained:
     b.bgr = a.rgb; // Valid assignment. "b"'s "blue" component will be "a"'s "red" and vice versa.
 ```
 
-Precision
-~~~~~~~~~
+### Precision
 
 It is possible to add precision modifiers to datatypes; use them for uniforms, variables, arguments and varyings:
 
@@ -192,14 +154,12 @@ precisions. Refer to the documentation of the target architecture for further
 information. In many cases, mobile drivers cause inconsistent or unexpected
 behavior and it is best to avoid specifying precision unless necessary.
 
-Arrays
-------
+## Arrays
 
 Arrays are containers for multiple variables of a similar type.
 Note: As of Pandemonium 3.2, only local and varying arrays have been implemented.
 
-Local arrays
-~~~~~~~~~~~~
+### Local arrays
 
 Local arrays are declared in functions. They can use all of the allowed datatypes, except samplers.
 The array declaration follows a C-style syntax: `[const] + [precision] + typename + identifier + [array size]`.
@@ -256,8 +216,7 @@ Note:
 
     If you use an index below 0 or greater than array size - the shader will crash and break rendering. To prevent this, use `length()`, `if`, or `clamp()` functions to ensure the index is between 0 and the array's length. Always carefully test and check your code. If you pass a constant expression or a simple number, the editor will check its bounds to prevent this crash.
 
-Constants
----------
+## Constants
 
 Use the `const` keyword before the variable declaration to make that variable immutable, which means that it cannot be modified. All basic types, except samplers can be declared as constants. Accessing and using a constant value is slightly faster than using a uniform. Constants must be initialized at their declaration.
 
@@ -294,41 +253,28 @@ Global constants are useful when you want to have access to a value throughout y
     const float PI = 3.14159265358979323846;
 ```
 
-Operators
----------
+## Operators
 
 Pandemonium shading language supports the same set of operators as GLSL ES 3.0. Below is the list of them in precedence order:
 
-+-------------+------------------------+------------------+
-| Precedence  | Class                  | Operator         |
-+-------------+------------------------+------------------+
-| 1 (highest) | parenthetical grouping | **()**           |
-+-------------+------------------------+------------------+
-| 2           | unary                  | **+, -, !, ~**   |
-+-------------+------------------------+------------------+
-| 3           | multiplicative         | **/, \*, %**     |
-+-------------+------------------------+------------------+
-| 4           | additive               | **+, -**         |
-+-------------+------------------------+------------------+
-| 5           | bit-wise shift         | **<<, >>**       |
-+-------------+------------------------+------------------+
-| 6           | relational             | **<, >, <=, >=** |
-+-------------+------------------------+------------------+
-| 7           | equality               | **==, !=**       |
-+-------------+------------------------+------------------+
-| 8           | bit-wise AND           | **&**            |
-+-------------+------------------------+------------------+
-| 9           | bit-wise exclusive OR  | **^**            |
-+-------------+------------------------+------------------+
-| 10          | bit-wise inclusive OR  | **|**            |
-+-------------+------------------------+------------------+
-| 11          | logical AND            | **&&**           |
-+-------------+------------------------+------------------+
-| 12 (lowest) | logical inclusive OR   | **||**           |
-+-------------+------------------------+------------------+
 
-Flow control
-------------
+| Precedence  | Class                  | Operator         |
+|-------------|------------------------|------------------|
+| 1 (highest) | parenthetical grouping | **()**           |
+| 2           | unary                  | **+, -, !, ~**   |
+| 3           | multiplicative         | **/, \*, %**     |
+| 4           | additive               | **+, -**         |
+| 5           | bit-wise shift         | **<<, >>**       |
+| 6           | relational             | **<, >, <=, >=** |
+| 7           | equality               | **==, !=**       |
+| 8           | bit-wise AND           | **&**            |
+| 9           | bit-wise exclusive OR  | **^**            |
+| 10          | bit-wise inclusive OR  | **|**            |
+| 11          | logical AND            | **&&**           |
+| 12 (lowest) | logical inclusive OR   | **||**           |
+
+
+## Flow control
 
 Pandemonium Shading language supports the most common types of flow control:
 
@@ -375,17 +321,14 @@ Pandemonium can't protect you from this, so be careful not to make this mistake!
 
 Warning:
 
-
     When exporting a GLES2 project to HTML5, WebGL 1.0 will be used. WebGL 1.0
     doesn't support dynamic loops, so shaders using those won't work there.
 
-Discarding
-----------
+## Discarding
 
 Fragment and light functions can use the **discard** keyword. If used, the fragment is discarded and nothing is written.
 
-Functions
----------
+## Functions
 
 It is possible to define functions in a Pandemonium shader. They use the following syntax:
 
@@ -419,8 +362,7 @@ Example below:
     }
 ```
 
-Varyings
-~~~~~~~~
+### Varyings
 
 To send data from the vertex to the fragment (or light) processor function, *varyings* are
 used. They are set for every primitive vertex in the *vertex processor*, and the
@@ -499,8 +441,7 @@ Note that varying may not be assigned in custom functions or a *light processor*
 
 This limitation was introduced to prevent incorrect usage before initialization.
 
-Interpolation qualifiers
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Interpolation qualifiers
 
 Certain values are interpolated during the shading pipeline. You can modify how these interpolations
 are done by using *interpolation qualifiers*.
@@ -521,17 +462,15 @@ are done by using *interpolation qualifiers*.
 
 There are two possible interpolation qualifiers:
 
-+-------------------+---------------------------------------------------------------------------------+
-| Qualifier         | Description                                                                     |
-+===================+=================================================================================+
-| **flat**          | The value is not interpolated.                                                  |
-+-------------------+---------------------------------------------------------------------------------+
-| **smooth**        | The value is interpolated in a perspective-correct fashion. This is the default.|
-+-------------------+---------------------------------------------------------------------------------+
+
+| Qualifier         | Description                                                                      |
+|-------------------|----------------------------------------------------------------------------------|
+| **flat**          | The value is not interpolated.                                                   |
+| **smooth**        | The value is interpolated in a perspective-correct fashion. This is the default. |
 
 
-Uniforms
-~~~~~~~~
+
+### Uniforms
 
 Passing values to shaders is possible. These are global to the whole shader and are called *uniforms*.
 When a shader is later assigned to a material, the uniforms will appear as editable parameters in it.
@@ -569,48 +508,33 @@ It's important to understand that textures that are supplied as color require hi
 
 Full list of hints below:
 
-+----------------+------------------------------+------------------------------------------------------+
+
 | Type           | Hint                         | Description                                          |
-+================+==============================+======================================================+
+|----------------|------------------------------|------------------------------------------------------|
 | **vec4**       | hint_color                   | Used as color.                                       |
-+----------------+------------------------------+------------------------------------------------------+
 | **int, float** | hint_range(min, max[, step]) | Restricted to values in a range (with min/max/step). |
-+----------------+------------------------------+------------------------------------------------------+
 | **sampler2D**  | hint_albedo                  | Used as albedo color, default white.                 |
-+----------------+------------------------------+------------------------------------------------------+
 | **sampler2D**  | hint_black_albedo            | Used as albedo color, default black.                 |
-+----------------+------------------------------+------------------------------------------------------+
 | **sampler2D**  | hint_normal                  | Used as normalmap.                                   |
-+----------------+------------------------------+------------------------------------------------------+
 | **sampler2D**  | hint_white                   | As value, default to white.                          |
-+----------------+------------------------------+------------------------------------------------------+
 | **sampler2D**  | hint_black                   | As value, default to black                           |
-+----------------+------------------------------+------------------------------------------------------+
 | **sampler2D**  | hint_aniso                   | As flowmap, default to right.                        |
-+----------------+------------------------------+------------------------------------------------------+
 
 GDScript uses different variable types than GLSL does, so when passing variables from GDScript
 to shaders, Pandemonium converts the type automatically. Below is a table of the corresponding types:
 
-+-----------------+-----------+
+
 | GDScript type   | GLSL type |
-+=================+===========+
+|-----------------|-----------|
 | **bool**        | **bool**  |
-+-----------------+-----------+
 | **int**         | **int**   |
-+-----------------+-----------+
 | **float**       | **float** |
-+-----------------+-----------+
 | **Vector2**     | **vec2**  |
-+-----------------+-----------+
 | **Vector3**     | **vec3**  |
-+-----------------+-----------+
 | **Color**       | **vec4**  |
-+-----------------+-----------+
 | **Transform**   | **mat4**  |
-+-----------------+-----------+
 | **Transform2D** | **mat4**  |
-+-----------------+-----------+
+
 
 Note:
  Be careful when setting shader uniforms from GDScript, no error will be thrown if the
@@ -625,8 +549,7 @@ Uniforms can also be assigned default values:
     uniform vec4 some_color : hint_color = vec4(1.0);
 ```
 
-Built-in variables
-------------------
+## Built-in variables
 
 A large number of built-in variables are available, like `UV`, `COLOR` and `VERTEX`. What variables are available depends on the type of shader (`spatial`, `canvas_item` or `particle`) and the function used (`vertex`, `fragment` or `light`).
 For a list of the build-in variables that are available, please see the corresponding pages:
@@ -635,8 +558,7 @@ For a list of the build-in variables that are available, please see the correspo
 - `Canvas item shaders ( doc_canvas_item_shader )`
 - `Particle shaders ( doc_particle_shader )`
 
-Built-in functions
-------------------
+## Built-in functions
 
 A large number of built-in functions are supported, conforming to GLSL ES 3.0.
 When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature is used, it can be scalar or vector.
@@ -645,202 +567,105 @@ Note:
  For a list of the functions that are not available in the GLES2 backend, please see the
           `Differences between GLES2 and GLES3 doc ( doc_gles2_gles3_differences )`.
 
-+------------------------------------------------------------------------+---------------------------------------------------------------+
+
 | Function                                                               | Description                                                   |
-+========================================================================+===============================================================+
+|------------------------------------------------------------------------|---------------------------------------------------------------|
 | vec_type **radians** (vec_type degrees)                                | Convert degrees to radians                                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **degrees** (vec_type radians)                                | Convert radians to degrees                                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **sin** (vec_type x)                                          | Sine                                                          |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **cos** (vec_type x)                                          | Cosine                                                        |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **tan** (vec_type x)                                          | Tangent                                                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **asin** (vec_type x)                                         | Arcsine                                                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **acos** (vec_type x)                                         | Arccosine                                                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **atan** (vec_type y_over_x)                                  | Arctangent                                                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **atan** (vec_type y, vec_type x)                             | Arctangent to convert vector to angle                         |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **sinh** (vec_type x)                                         | Hyperbolic sine                                               |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **cosh** (vec_type x)                                         | Hyperbolic cosine                                             |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **tanh** (vec_type x)                                         | Hyperbolic tangent                                            |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **asinh** (vec_type x)                                        | Inverse hyperbolic sine                                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **acosh** (vec_type x)                                        | Inverse hyperbolic cosine                                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **atanh** (vec_type x)                                        | Inverse hyperbolic tangent                                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **pow** (vec_type x, vec_type y)                              | Power (undefined if `x` < 0 or if `x` = 0 and `y` <= 0) |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
+| vec_type **pow** (vec_type x, vec_type y)                              | Power (undefined if `x` < 0 or if `x` = 0 and `y` <= 0)       |
 | vec_type **exp** (vec_type x)                                          | Base-e exponential                                            |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **exp2** (vec_type x)                                         | Base-2 exponential                                            |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **log** (vec_type x)                                          | Natural logarithm                                             |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **log2** (vec_type x)                                         | Base-2 logarithm                                              |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **sqrt** (vec_type x)                                         | Square root                                                   |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **inversesqrt** (vec_type x)                                  | Inverse square root                                           |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **abs** (vec_type x)                                          | Absolute                                                      |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | ivec_type **abs** (ivec_type x)                                        | Absolute                                                      |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **sign** (vec_type x)                                         | Sign                                                          |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | ivec_type **sign** (ivec_type x)                                       | Sign                                                          |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **floor** (vec_type x)                                        | Floor                                                         |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **round** (vec_type x)                                        | Round                                                         |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **roundEven** (vec_type x)                                    | Round to the nearest even number                              |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **trunc** (vec_type x)                                        | Truncation                                                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **ceil** (vec_type x)                                         | Ceil                                                          |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **fract** (vec_type x)                                        | Fractional                                                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **mod** (vec_type x, vec_type y)                              | Remainder                                                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **mod** (vec_type x , float y)                                | Remainder                                                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **modf** (vec_type x, out vec_type i)                         | Fractional of `x`, with `i` as integer part               |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type  **min** (vec_type a, vec_type b)                             | Minimum                                                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type  **max** (vec_type a, vec_type b)                             | Maximum                                                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **clamp** (vec_type x, vec_type min, vec_type max)            | Clamp to `min..max`                                         |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | float **mix** (float a, float b, float c)                              | Linear interpolate                                            |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **mix** (vec_type a, vec_type b, float c)                     | Linear interpolate (scalar coefficient)                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **mix** (vec_type a, vec_type b, vec_type c)                  | Linear interpolate (vector coefficient)                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **mix** (vec_type a, vec_type b, bvec_type c)                 | Linear interpolate (boolean-vector selection)                 |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **step** (vec_type a, vec_type b)                             | `b[i] < a[i] ? 0.0 : 1.0`                                   |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **step** (float a, vec_type b)                                | `b[i] < a ? 0.0 : 1.0`                                      |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **smoothstep** (vec_type a, vec_type b, vec_type c)           | Hermite interpolate                                           |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **smoothstep** (float a, float b, vec_type c)                 | Hermite interpolate                                           |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **isnan** (vec_type x)                                       | Returns `true` if scalar or vector component is `NaN`     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **isinf** (vec_type x)                                       | Returns `true` if scalar or vector component is `INF`     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | ivec_type **floatBitsToInt** (vec_type x)                              | Float->Int bit copying, no conversion                         |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | uvec_type **floatBitsToUint** (vec_type x)                             | Float->UInt bit copying, no conversion                        |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **intBitsToFloat** (ivec_type x)                              | Int->Float bit copying, no conversion                         |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **uintBitsToFloat** (uvec_type x)                             | UInt->Float bit copying, no conversion                        |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | float **length** (vec_type x)                                          | Vector length                                                 |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | float **distance** (vec_type a, vec_type b)                            | Distance between vectors i.e `length(a - b)`                |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | float **dot** (vec_type a, vec_type b)                                 | Dot product                                                   |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec3 **cross** (vec3 a, vec3 b)                                        | Cross product                                                 |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **normalize** (vec_type x)                                    | Normalize to unit length                                      |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec3 **reflect** (vec3 I, vec3 N)                                      | Reflect                                                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec3 **refract** (vec3 I, vec3 N, float eta)                           | Refract                                                       |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec_type **faceforward** (vec_type N, vec_type I, vec_type Nref)       | If `dot(Nref, I)` < 0, return N, otherwise –N               |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | mat_type **matrixCompMult** (mat_type x, mat_type y)                   | Matrix component multiplication                               |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | mat_type **outerProduct** (vec_type column, vec_type row)              | Matrix outer product                                          |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | mat_type **transpose** (mat_type m)                                    | Transpose matrix                                              |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | float **determinant** (mat_type m)                                     | Matrix determinant                                            |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | mat_type **inverse** (mat_type m)                                      | Inverse matrix                                                |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **lessThan** (vec_type x, vec_type y)                        | Bool vector comparison on < int/uint/float vectors            |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **greaterThan** (vec_type x, vec_type y)                     | Bool vector comparison on > int/uint/float vectors            |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **lessThanEqual** (vec_type x, vec_type y)                   | Bool vector comparison on <= int/uint/float vectors           |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **greaterThanEqual** (vec_type x, vec_type y)                | Bool vector comparison on >= int/uint/float vectors           |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **equal** (vec_type x, vec_type y)                           | Bool vector comparison on == int/uint/float vectors           |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **notEqual** (vec_type x, vec_type y)                        | Bool vector comparison on != int/uint/float vectors           |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bool **any** (bvec_type x)                                             | Any component is `true`                                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bool **all** (bvec_type x)                                             | All components are `true`                                   |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | bvec_type **not** (bvec_type x)                                        | Invert boolean vector                                         |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | ivec2 **textureSize** (sampler2D_type s, int lod)                      | Get the size of a 2D texture                                  |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | ivec3 **textureSize** (sampler2DArray_type s, int lod)                 | Get the size of a 2D texture array                            |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | ivec3 **textureSize** (sampler3D s, int lod)                           | Get the size of a 3D texture                                  |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | ivec2 **textureSize** (samplerCube s, int lod)                         | Get the size of a cubemap texture                             |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **texture** (sampler2D_type s, vec2 uv [, float bias])       | Perform a 2D texture read                                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type  **texture** (sampler2DArray_type s, vec3 uv [, float bias]) | Perform a 2D texture array read                               |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type  **texture** (sampler3D_type s, vec3 uv [, float bias])      | Perform a 3D texture read                                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4 **texture** (samplerCube s, vec3 uv [, float bias])               | Perform a cubemap texture read                                |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **textureProj** (sampler2D_type s, vec3 uv [, float bias])   | Perform a 2D texture read with projection                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **textureProj** (sampler2D_type s, vec4 uv [, float bias])   | Perform a 2D texture read with projection                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type  **textureProj** (sampler3D_type s, vec4 uv [, float bias])  | Perform a 3D texture read with projection                     |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **textureLod** (sampler2D_type s, vec2 uv, float lod)        | Perform a 2D texture read at custom mipmap                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **textureLod** (sampler2DArray_type s, vec3 uv, float lod)   | Perform a 2D texture array read at custom mipmap              |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **textureLod** (sampler3D_type s, vec3 uv, float lod)        | Perform a 3D texture read at custom mipmap                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4 **textureLod** (samplerCube s, vec3 uv, float lod)                | Perform a 3D texture read at custom mipmap                    |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **textureProjLod** (sampler2D_type s, vec3 uv, float lod)    | Perform a 2D texture read with projection/LOD                 |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **textureProjLod** (sampler2D_type s, vec4 uv, float lod)    | Perform a 2D texture read with projection/LOD                 |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **textureProjLod** (sampler3D_type s, vec4 uv, float lod)    | Perform a 3D texture read with projection/LOD                 |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **texelFetch** (sampler2D_type s, ivec2 uv, int lod)         | Fetch a single texel using integer coordinates                |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **texelFetch** (sampler2DArray_type s, ivec3 uv, int lod)    | Fetch a single texel using integer coordinates                |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
 | vec4_type **texelFetch** (sampler3D_type s, ivec3 uv, int lod)         | Fetch a single texel using integer coordinates                |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **dFdx** (vec_type p)                                         | Derivative in `x` using local differencing                  |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **dFdy** (vec_type p)                                         | Derivative in `y` using local differencing                  |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
-| vec_type **fwidth** (vec_type p)                                       | Sum of absolute derivative in `x` and `y`                 |
-+------------------------------------------------------------------------+---------------------------------------------------------------+
+| vec_type **dFdx** (vec_type p)                                         | Derivative in `x` using local differencing                    |
+| vec_type **dFdy** (vec_type p)                                         | Derivative in `y` using local differencing                    |
+| vec_type **fwidth** (vec_type p)                                       | Sum of absolute derivative in `x` and `y`                     |
+

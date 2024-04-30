@@ -1,10 +1,8 @@
 
 
-Using Viewports
-===============
+# Using Viewports
 
-Introduction
-------------
+## Introduction
 
 Think of a `Viewport` as a screen onto which the game is projected. In order
 to see the game, we need to have a surface on which to draw it; that surface is
@@ -34,8 +32,7 @@ What all these use cases have in common is that you are given the ability to
 draw objects to a texture as if it were another screen and can then choose
 what to do with the resulting texture.
 
-Input
------
+## Input
 
 `Viewports` are also responsible for delivering properly adjusted and
 scaled input events to all their children nodes. Typically, input is received by the
@@ -47,8 +44,7 @@ the input.
 
 For more information on how Pandemonium handles input, please read the `Input Event Tutorial( doc_inputevent )`.
 
-Listener
---------
+## Listener
 
 Pandemonium supports 3D sound (in both 2D and 3D nodes); more on this can be
 found in the `Audio Streams Tutorial( doc_audio_streams )`. For this type of sound to be
@@ -56,8 +52,7 @@ audible, the `Viewport` needs to be enabled as a listener (for 2D or 3D).
 If you are using a custom `Viewport`, don't forget
 to enable this!
 
-Cameras (2D & 3D)
------------------
+## Cameras (2D & 3D)
 
 When using a `Camera` /
 `Camera2D`, cameras will always display on the
@@ -85,8 +80,7 @@ By default, cameras will render all objects in their world. In 3D, cameras can u
 `VisualInstance's`
 property to restrict which objects are rendered.
 
-Scale & stretching
-------------------
+## Scale & stretching
 
 `Viewports`
 in pixels. For `Viewports`,
@@ -103,8 +97,7 @@ different from the one specified in size, by calling:
 The root `Viewport` uses this for the stretch options in the project
 settings. For more information on scaling and stretching visit the `Multiple Resolutions Tutorial ( doc_multiple_resolutions )`
 
-Worlds
-------
+## Worlds
 
 For 3D, a `Viewport`. This
 is basically the universe that links physics and rendering together.
@@ -129,8 +122,7 @@ is possible to do so by setting the `Viewport's` manually.
 
 For an example of how this works, see the demo projects `3D in 2D ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/3d_in_2d )` and `2D in 3D ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/2d_in_3d )` respectively.
 
-Capture
--------
+## Capture
 
 It is possible to query a capture of the `Viewport` contents. For the root
 `Viewport`, this is effectively a screen capture. This is done with the
@@ -159,8 +151,7 @@ it using (for example):
    # You can get the image after this.
 ```
 
-Viewport Container
-------------------
+## Viewport Container
 
 If the `Viewport`, it will become active and display anything it has inside. The layout looks like this:
 
@@ -170,8 +161,7 @@ The `Viewport` completely
 if `Stretch( viewportcontainer_property_stretch )` is set to `true` in `ViewportContainer`.
 Note: The size of the `ViewportContainer`.
 
-Rendering
----------
+## Rendering
 
 Due to the fact that the `Viewport` is an entryway into another rendering surface, it exposes a few
 rendering properties that can be different from the project settings. The first is MSAA; you can
@@ -217,8 +207,7 @@ Note:
 
     The effects of the Wireframe mode are only visible in the editor, not while the project is running.
 
-Render target
--------------
+## Render target
 
 When rendering to a `Viewport`, whatever is inside will not be
 visible in the scene editor. To display the contents, you have to draw the `Viewport's` somewhere.

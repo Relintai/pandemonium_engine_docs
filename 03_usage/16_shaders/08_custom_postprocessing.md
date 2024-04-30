@@ -1,10 +1,7 @@
 
+# Custom post-processing
 
-Custom post-processing
-======================
-
-Introduction
-------------
+## Introduction
 
 Pandemonium provides many post-processing effects out of the box, including Bloom, DOF, and SSAO. Sometimes you
 want to write your own custom effect. Here's how you can do so.
@@ -19,13 +16,11 @@ Tutorial ( doc_screen-reading_shaders )` first.
 
 Note:
 
-
     As of the time of writing, Pandemonium does not support rendering to multiple buffers at the same time. Your
     post-processing shader will not have access to normals or other render passes. You only have
     access to the rendered frame.
 
-Single pass post-processing
----------------------------
+## Single pass post-processing
 
 You will need a `Viewport` to render your scene to, and a scene to render your
 `Viewport` on the screen. You can use a `ViewportContainer
@@ -33,7 +28,6 @@ You will need a `Viewport` to render your scene to, and a scene to render your
 another `Control` node.
 
 Note:
-
 
     Rendering using a `Viewport` gives you control over
     how the scene render, including the framerate, and you can use the
@@ -54,7 +48,6 @@ shader resource to it. You can access your rendered `Viewport` with the built-in
 
 Note:
 
-
     You can choose not to use a `ViewportContainer`, but if you do so, you will
     need to create your own uniform in the shader and pass the `Viewport` texture in
     manually, like so:
@@ -62,7 +55,7 @@ Note:
     ```
       // Inside the Shader.
       uniform sampler2D ViewportTexture;
-```
+    ```
 
     And you can pass the texture into the shader from GDScript like so:
 
@@ -70,7 +63,7 @@ Note:
       # In GDScript.
       func _ready():
         $Sprite.material.set_shader_param("ViewportTexture", $Viewport.get_texture())
-```
+    ```
 
 Copy the following code to your shader. The above code is a single pass edge detection filter, a
 `Sobel filter ( https://en.wikipedia.org/wiki/Sobel_operator )`.
@@ -94,7 +87,6 @@ Copy the following code to your shader. The above code is a single pass edge det
 
 Note:
 
-
     The Sobel filter reads pixels in a 9x9 grid around the current pixel and adds them together, using weight.
     What makes it interesting is that it assigns weights to each pixel; +1 for each of the eight around the
     center and -8 for the center pixel. The choice of weights is called a "kernel". You can use different
@@ -102,8 +94,7 @@ Note:
 
     ![](img/post_outline.png)
 
-Multi-pass post-processing
---------------------------
+## Multi-pass post-processing
 
 Some post-processing effects like blur are resource intensive. If you break them down in multiple passes
 however, you can make them run a lot faster. In a multipass material, each pass takes the result from the
@@ -123,7 +114,6 @@ shaders, make sure that you assign the shader you want to apply first to the low
 the tree.
 
 Note:
-
 
     You can also render your Viewports separately without nesting them like this. You just
     need to use two Viewports and to render them one after the other.

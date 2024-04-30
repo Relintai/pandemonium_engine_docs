@@ -1,7 +1,6 @@
 
 
-Shaders style guide
-===================
+# Shaders style guide
 
 This style guide lists conventions to write elegant shaders. The goal is to
 encourage writing clean, readable code and promote consistency across projects,
@@ -47,19 +46,16 @@ Here is a complete shader example based on these guidelines:
     }
 ```
 
-Formatting
-----------
+## Formatting
 
-Encoding and special characters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Encoding and special characters
 
 * Use line feed (**LF**) characters to break lines, not CRLF or CR. *(editor default)*
 * Use one line feed character at the end of each file. *(editor default)*
 * Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`. *(editor default)*
 * Use **Tabs** instead of spaces for indentation. *(editor default)*
 
-Indentation
-~~~~~~~~~~~
+### Indentation
 
 Each indent level should be one tab greater than the block containing it.
 
@@ -99,8 +95,7 @@ regular code blocks.
 ```
 
 
-Line breaks and blank lines
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Line breaks and blank lines
 
 For a general indentation rule, follow
 `the "1TBS Style" ( https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS) )`
@@ -129,8 +124,7 @@ an `if` statement or similar.
     }
 ```
 
-Blank lines
-~~~~~~~~~~~
+### Blank lines
 
 Surround function definitions with one (and only one) blank line:
 
@@ -146,8 +140,7 @@ Surround function definitions with one (and only one) blank line:
 
 Use one (and only one) blank line inside functions to separate logical sections.
 
-Line length
-~~~~~~~~~~~
+### Line length
 
 Keep individual lines of code under 100 characters.
 
@@ -155,8 +148,7 @@ If you can, try to keep lines under 80 characters. This helps to read the code
 on small displays and with two shaders opened side-by-side in an external text
 editor. For example, when looking at a differential revision.
 
-One statement per line
-~~~~~~~~~~~~~~~~~~~~~~
+### One statement per line
 
 Never combine multiple statements on a single line.
 
@@ -186,8 +178,7 @@ The only exception to that rule is the ternary operator:
     }
 ```
 
-Comment spacing
-~~~~~~~~~~~~~~~
+### Comment spacing
 
 Regular comments should start with a space, but not code that you comment out.
 This helps differentiate text comments from disabled code.
@@ -219,8 +210,7 @@ Note:
    press :kbd:`Ctrl + K`. This feature adds or removes `//` at the start of
    the selected lines.
 
-Whitespace
-~~~~~~~~~~
+### Whitespace
 
 Always use one space around operators and after commas. Also, avoid extraneous spaces
 in function calls.
@@ -248,8 +238,7 @@ Don't use spaces to align expressions vertically:
     EMISSION.r = 1.0;
 ```
 
-Floating-point numbers
-~~~~~~~~~~~~~~~~~~~~~~
+### Floating-point numbers
 
 Always specify at least one digit for both the integer and fractional part. This
 makes it easier to distinguish floating-point numbers from integers, as well as
@@ -271,8 +260,7 @@ distinguishing numbers greater than 1 from those lower than 1.
     }
 ```
 
-Accessing vector members
-------------------------
+## Accessing vector members
 
 Use `r`, `g`, `b`, and `a` when accessing a vector's members if it
 contains a color. If the vector contains anything else than a color, use `x`,
@@ -291,15 +279,13 @@ understand what the underlying data represents.
     COLOR.xyz = vec3(5.0, 0.1, 0.2);
 ```
 
-Naming conventions
-------------------
+## Naming conventions
 
 These naming conventions follow the Pandemonium Engine style. Breaking these will make
 your code clash with the built-in naming conventions, leading to inconsistent
 code.
 
-Functions and variables
-~~~~~~~~~~~~~~~~~~~~~~~
+### Functions and variables
 
 Use snake\_case to name functions and variables:
 
@@ -309,8 +295,7 @@ Use snake\_case to name functions and variables:
    }
 ```
 
-Constants
-~~~~~~~~~
+### Constants
 
 Write constants with CONSTANT\_CASE, that is to say in all caps with an
 underscore (\_) to separate words:
@@ -319,8 +304,7 @@ underscore (\_) to separate words:
     const float GOLDEN_RATIO = 1.618;
 ```
 
-Code order
-----------
+## Code order
 
 We suggest to organize shader code this way:
 
@@ -349,8 +333,7 @@ This code order follows two rules of thumb:
 2. "Public" comes before "private". In a shader language's context, "public"
    refers to what's easily adjustable by the user (uniforms).
 
-Local variables
-~~~~~~~~~~~~~~~
+### Local variables
 
 Declare local variables as close as possible to their first use. This makes it
 easier to follow the code, without having to scroll too much to find where the

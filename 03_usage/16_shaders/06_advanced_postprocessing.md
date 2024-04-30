@@ -1,10 +1,8 @@
 
 
-Advanced post-processing
-========================
+# Advanced post-processing
 
-Introduction
-------------
+## Introduction
 
 This tutorial describes an advanced method for post-processing in Pandemonium.
 In particular, it will explain how to write a post-processing shader that
@@ -17,8 +15,7 @@ to the main scene. One limitation of this method is that we could not access the
 depth buffer because the depth buffer is only available in spatial shaders and
 Viewports do not maintain depth information.
 
-Full screen quad
-----------------
+## Full screen quad
 
 In the `custom post-processing tutorial ( doc_custom_postprocessing )`, we
 covered how to use a Viewport to make custom post-processing effects. There are
@@ -72,8 +69,7 @@ The second option ensures that the quad is visible in the editor, while the firs
 option guarantees that it will still be visible even if the camera moves outside the cull margin.
 You can also use both options.
 
-Depth texture
--------------
+## Depth texture
 
 To read from the depth texture, perform a texture lookup using `texture()` and
 the uniform variable `DEPTH_TEXTURE`.
@@ -143,8 +139,7 @@ it needs to be passed to the fragment shader with a varying.
   }
 ```
 
-An optimization
----------------
+## An optimization
 
 You can benefit from using a single large triangle rather than using a full
 screen quad. The reason for this is explained `here ( https://michaldrobot.com/2014/04/01/gcn-execution-patterns-in-full-screen-passes )`.

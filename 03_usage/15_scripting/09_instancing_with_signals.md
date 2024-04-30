@@ -1,10 +1,5 @@
-.. meta::
-    :keywords: Signal
 
-
-
-Instancing with signals
-=======================
+# Instancing with signals
 
 Signals provide a way to decouple game objects, allowing you to avoid forcing a
 fixed arrangement of nodes. One sign that a signal might be called for is when
@@ -15,8 +10,7 @@ and may want to place them in an arbitrary location in the running scene tree.
 
 Below we'll consider an example of such a situation: firing bullets.
 
-Shooting example
-----------------
+## Shooting example
 
 Consider a player character that can rotate and shoot towards the mouse. Every
 time the mouse button is clicked, we create an instance of the bullet at the

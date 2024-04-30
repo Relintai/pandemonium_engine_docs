@@ -1,7 +1,6 @@
 
 
-GDScript style guide
-====================
+# GDScript style guide
 
 This style guide lists conventions to write elegant GDScript. The goal is to
 encourage writing clean, readable code and promote consistency across projects,
@@ -24,6 +23,7 @@ Note:
           by default. Let it help you.
 
 Here is a complete class example based on these guidelines:
+
 
 ```
     class_name StateMachine
@@ -89,21 +89,16 @@ Here is a complete class example based on these guidelines:
         emit_signal("state_changed")
 ```
 
-.. _formatting:
+## Formatting
 
-Formatting
-----------
-
-Encoding and special characters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Encoding and special characters
 
 * Use line feed (**LF**) characters to break lines, not CRLF or CR. *(editor default)*
 * Use one line feed character at the end of each file. *(editor default)*
 * Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`. *(editor default)*
 * Use **Tabs** instead of spaces for indentation. *(editor default)*
 
-Indentation
-~~~~~~~~~~~
+### Indentation
 
 Each indent level should be one greater than the block containing it.
 
@@ -192,8 +187,7 @@ indentation level to distinguish continuation lines:
     }
 ```
 
-Trailing comma
-~~~~~~~~~~~~~~
+### Trailing comma
 
 Use a trailing comma on the last line in arrays, dictionaries, and enums. This
 results in easier refactoring and better diffs in version control as the last
@@ -235,8 +229,7 @@ Trailing commas are unnecessary in single-line lists, so don't add them in this 
     enum Tiles {TILE_BRICK, TILE_FLOOR, TILE_SPIKE, TILE_TELEPORT,}
 ```
 
-Blank lines
-~~~~~~~~~~~
+### Blank lines
 
 Surround functions and class definitions with two blank lines:
 
@@ -259,8 +252,7 @@ Note:
  We use a single line between classes and function definitions in the class reference and
           in short code snippets in this documentation.
 
-Line length
-~~~~~~~~~~~
+### Line length
 
 Keep individual lines of code under 100 characters.
 
@@ -268,8 +260,7 @@ If you can, try to keep lines under 80 characters. This helps to read the code
 on small displays and with two scripts opened side-by-side in an external text
 editor. For example, when looking at a differential revision.
 
-One statement per line
-~~~~~~~~~~~~~~~~~~~~~~
+### One statement per line
 
 Never combine multiple statements on a single line. No, C programmers,
 not even with a single line conditional statement.
@@ -298,8 +289,7 @@ The only exception to that rule is the ternary operator:
    next_state = "fall" if not is_on_floor() else "idle"
 ```
 
-Format multiline statements for readability
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Format multiline statements for readability
 
 When you have particularly long `if` statements or nested ternary expressions,
 wrapping them over multiple lines improves readability. Since continuation lines
@@ -345,8 +335,7 @@ end of the previous line.
         pass
 ```
 
-Avoid unnecessary parentheses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Avoid unnecessary parentheses
 
 Avoid parentheses in expressions and conditional statements. Unless
 necessary for order of operations or wrapping over multiple lines,
@@ -366,8 +355,7 @@ they only reduce readability.
         queue_free()
 ```
 
-Boolean operators
-~~~~~~~~~~~~~~~~~
+### Boolean operators
 
 Prefer the plain English versions of boolean operators, as they are the most accessible:
 
@@ -391,8 +379,7 @@ This can make long expressions easier to read.
         print("condition is true")
 ```
 
-Comment spacing
-~~~~~~~~~~~~~~~
+### Comment spacing
 
 Regular comments should start with a space, but not code that you comment out.
 This helps differentiate text comments from disabled code.
@@ -418,8 +405,7 @@ Note:
    :kbd:`Ctrl + K`. This feature adds a single # sign at the start
    of the selected lines.
 
-Whitespace
-~~~~~~~~~~
+### Whitespace
 
 Always use one space around operators and after commas. Also, avoid extra spaces
 in dictionary references and function calls.
@@ -452,8 +438,7 @@ Don't use spaces to align expressions vertically:
     velocity = 500
 ```
 
-Quotes
-~~~~~~
+### Quotes
 
 Use double quotes unless single quotes make it possible to escape fewer
 characters in a given string. See the examples below:
@@ -472,8 +457,7 @@ characters in a given string. See the examples below:
     print("'hello' \"world\"")
 ```
 
-Numbers
-~~~~~~~
+### Numbers
 
 Don't omit the leading or trailing zero in floating-point numbers. Otherwise,
 this makes them less readable and harder to distinguish from integers at a
@@ -527,15 +511,13 @@ readable.
 
 .. _naming_conventions:
 
-Naming conventions
-------------------
+## Naming conventions
 
 These naming conventions follow the Pandemonium Engine style. Breaking these will make
 your code clash with the built-in naming conventions, leading to inconsistent
 code.
 
-File names
-~~~~~~~~~~
+### File names
 
 Use snake_case for file names. For named classes, convert the PascalCase class
 name to snake_case:
@@ -555,8 +537,7 @@ This is consistent with how C++ files are named in Pandemonium's source code. Th
 also avoids case sensitivity issues that can crop up when exporting a project
 from Windows to other platforms.
 
-Classes and nodes
-~~~~~~~~~~~~~~~~~
+### Classes and nodes
 
 Use PascalCase for class and node names:
 
@@ -570,8 +551,7 @@ Also use PascalCase when loading a class into a constant or a variable:
     const Weapon = preload("res://weapon.gd")
 ```
 
-Functions and variables
-~~~~~~~~~~~~~~~~~~~~~~~
+### Functions and variables
 
 Use snake\_case to name functions and variables:
 
@@ -588,8 +568,7 @@ override, private functions, and private variables:
    func _recalculate_path():
 ```
 
-Signals
-~~~~~~~
+### Signals
 
 Use the past tense to name signals:
 
@@ -598,8 +577,7 @@ Use the past tense to name signals:
     signal score_changed
 ```
 
-Constants and enums
-~~~~~~~~~~~~~~~~~~~
+### Constants and enums
 
 Write constants with CONSTANT\_CASE, that is to say in all caps with an
 underscore (\_) to separate words:
@@ -621,8 +599,7 @@ are constants:
 ```
 
 
-Code order
-----------
+## Code order
 
 This first section focuses on code order. For formatting, see
 `formatting`. For naming conventions, see `naming_conventions`.
@@ -663,8 +640,8 @@ This code order follows four rules of thumb:
    `ready`, come before functions that modify the object at runtime.
 
 
-Class declaration
-~~~~~~~~~~~~~~~~~
+### Class declaration
+
 
 If the code is meant to run in the editor, place the `tool` keyword on the
 first line of the script.
@@ -686,8 +663,7 @@ and how other developers should use it, for example.
    # Longer description.
 ```
 
-Signals and properties
-~~~~~~~~~~~~~~~~~~~~~~
+### Signals and properties
 
 Write signal declarations, followed by properties, that is to say, member
 variables, after the docstring.
@@ -726,22 +702,19 @@ Note:
    child nodes in the scene that your class relies on. This is what the example
    above shows.
 
-Member variables
-~~~~~~~~~~~~~~~~
+### Member variables
 
 Don't declare member variables if they are only used locally in a method, as it
 makes the code more difficult to follow. Instead, declare them as local
 variables in the method's body.
 
-Local variables
-~~~~~~~~~~~~~~~
+### Local variables
 
 Declare local variables as close as possible to their first use. This makes it
 easier to follow the code, without having to scroll too much to find where the
 variable was declared.
 
-Methods and static functions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Methods and static functions
 
 After the class's properties come the methods.
 
@@ -792,28 +765,25 @@ in that order.
 ```
 
 
-Static typing
--------------
+## Static typing
 
 Since Pandemonium 3.1, GDScript supports `optional static typing( doc_gdscript_static_typing )`.
 
-Declared types
-~~~~~~~~~~~~~~
+### Declared types
 
-To declare a variable's type, use `<variable>: <type )`:
+To declare a variable's type, use `&lt;variable&gt;: &lt;type&gt;`:
 
 ```
    var health: int = 0
 ```
 
-To declare the return type of a function, use `-> <type )`:
+To declare the return type of a function, use `-> &lt;type&gt;`:
 
 ```
    func heal(amount: int) -> void:
 ```
 
-Inferred types
-~~~~~~~~~~~~~~
+### Inferred types
 
 In most cases you can let the compiler infer the type, using `:=`:
 

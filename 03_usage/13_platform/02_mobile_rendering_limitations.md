@@ -1,10 +1,8 @@
 
 
-Mobile rendering limitations
-============================
+# Mobile rendering limitations
 
 See also:
-
 
     The general `doc_3d_rendering_limitations` also apply to mobile platforms.
 
@@ -26,35 +24,23 @@ this has a significant performance cost and won't work on all devices.
 
 The following project settings have mobile-specific overrides:
 
-+---------------------------------------------------------------------------+-----------------+--------------------+
-| Setting                                                                   | Desktop default | Mobile default     |
-+---------------------------------------------------------------------------+-----------------+--------------------+
+
+| Setting                                                                 | Desktop default | Mobile default     |
+|-------------------------------------------------------------------------|-----------------|--------------------|
 | `rendering/quality/directional_shadow/size`                             | 4096            | 2048               |
-+---------------------------------------------------------------------------+-----------------+--------------------+
 | `rendering/quality/intended_usage/framebuffer_allocation`               | 3D              | 3D Without Effects |
-+---------------------------------------------------------------------------+-----------------+--------------------+
-| `rendering/quality/lightmapping/use_bicubic_sampling`                   | `true`        | `false`          |
-+---------------------------------------------------------------------------+-----------------+--------------------+
-| `rendering/quality/reflections/high_quality_ggx`                        | `true`        | `false`          |
-+---------------------------------------------------------------------------+-----------------+--------------------+
-| `rendering/quality/shading/force_blinn_over_ggx`                        | `false`       | `true`           |
-+---------------------------------------------------------------------------+-----------------+--------------------+
-| `rendering/quality/shading/force_lambert_over_burley`                   | `false`       | `true`           |
-+---------------------------------------------------------------------------+-----------------+--------------------+
-| `rendering/quality/shading/force_vertex_shading`                        | `false`       | `true`           |
-+---------------------------------------------------------------------------+-----------------+--------------------+
+| `rendering/quality/lightmapping/use_bicubic_sampling`                   | `true`          | `false`            |
+| `rendering/quality/reflections/high_quality_ggx`                        | `true`          | `false`            |
+| `rendering/quality/shading/force_blinn_over_ggx`                        | `false`         | `true`             |
+| `rendering/quality/shading/force_lambert_over_burley`                   | `false`         | `true`             |
+| `rendering/quality/shading/force_vertex_shading`                        | `false`         | `true`             |
 | `rendering/quality/shadow_atlas/size`                                   | 4096            | 2048               |
-+---------------------------------------------------------------------------+-----------------+--------------------+
 | `rendering/quality/shadows/filter_mode`                                 | PCF5            | Disabled           |
-+---------------------------------------------------------------------------+-----------------+--------------------+
 | *GLES3 only:* `rendering/gles3/shaders/max_simultaneous_compiles`       | 2               | 1                  |
-+---------------------------------------------------------------------------+-----------------+--------------------+
 | *GLES3 only:* `rendering/gles3/shaders/shader_cache_size_mb`            | 512             | 128                |
-+---------------------------------------------------------------------------+-----------------+--------------------+
-| *GLES3 only:* `rendering/quality/depth/hdr`                             | `true`        | `false`          |
-+---------------------------------------------------------------------------+-----------------+--------------------+
-| *GLES3 only:* `rendering/quality/reflections/texture_array_reflections` | `true`        | `false`          |
-+---------------------------------------------------------------------------+-----------------+--------------------+
+| *GLES3 only:* `rendering/quality/depth/hdr`                             | `true`          | `false`            |
+| *GLES3 only:* `rendering/quality/reflections/texture_array_reflections` | `true`          | `false`            |
+
 
 See the `ProjectSettings class documentation`
 for more information on those setting overrides.

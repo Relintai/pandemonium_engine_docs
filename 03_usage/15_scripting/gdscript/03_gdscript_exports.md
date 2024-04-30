@@ -1,10 +1,8 @@
 
 
-GDScript exports
-================
+# GDScript exports
 
-Introduction to exports
------------------------
+## Introduction to exports
 
 In Pandemonium, class members can be exported. This means their value gets saved along
 with the resource (such as the `scene`) they're
@@ -28,15 +26,13 @@ special export syntax is provided.
 
 Note:
 
-
     Exporting properties can also be done in other languages such as C#.
     The syntax varies depending on the language.
 
 ..
    See  ref `doc_c_sharp_exports` for information on C# exports.
 
-Examples
---------
+## Examples
 
 ```
     # If the exported value assigns a constant or constant expression,
@@ -143,8 +139,7 @@ It must be noted that even if the script is not being run while in the
 editor, the exported properties are still editable. This can be used
 in conjunction with a `script in "tool" mode ( doc_gdscript_tool_mode )`.
 
-Exporting bit flags
--------------------
+## Exporting bit flags
 
 Integers used as bit flags can store multiple `true`/`false` (boolean)
 values in one property. By using the export hint `int, FLAGS, ...`, they
@@ -172,8 +167,7 @@ Export hints are also provided for the physics and render layers defined in the 
 Using bit flags requires some understanding of bitwise operations.
 If in doubt, use boolean variables instead.
 
-Exporting arrays
-----------------
+## Exporting arrays
 
 Exported arrays can have initializers, but they must be constant expressions.
 
@@ -214,8 +208,7 @@ from the FileSystem dock at once.
     var c = [a, 2, 3]
 ```
 
-Setting exported variables from a tool script
----------------------------------------------
+## Setting exported variables from a tool script
 
 When changing an exported variable's value from a script in
 `doc_gdscript_tool_mode`, the value in the inspector won't be updated
@@ -223,8 +216,7 @@ automatically. To update it, call
 `property_list_changed_notify()`
 after setting the exported variable's value.
 
-Advanced exports
-----------------
+## Advanced exports
 
 Not every type of export can be provided on the level of the language itself to
 avoid unnecessary design complexity. The following describes some more or less
@@ -232,9 +224,7 @@ common exporting features which can be implemented with a low-level API.
 
 Before reading further, you should get familiar with the way properties are
 handled and how they can be customized with
-`set()`,
-`get()`, and
-`get_property_list()` methods as
+`set()`, `get()`, and `get_property_list()` methods as
 described in `doc_accessing_data_or_logic_from_object`.
 
 See also:
@@ -245,8 +235,7 @@ Warning:
  The script must operate in the `tool` mode so the above methods
              can work from within the editor.
 
-Properties
-~~~~~~~~~~
+### Properties
 
 To understand how to better use the sections below, you should understand
 how to make properties with advanced exports.
@@ -271,19 +260,18 @@ how to make properties with advanced exports.
 * `type` is the type of the property from `Variant.Type`.
 
 Note:
+
  The `float` type is called a real (`TYPE_REAL`) in the `Variant.Type` enum.
 
-Attaching variables to properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Attaching variables to properties
 
 To attach variables to properties (allowing the value of the property to be used
 in scripts), you need to create a variable with the exact same name as the
 property or else you may need to override the 
-`set()` and 
-`get()` methods. Attaching
+`set()` and `get()` methods. Attaching
 a variable to to a property also gives you the ability to give it a default state.
-```
 
+```
     # This variable is determined by the function below.
     # This variable acts just like a regular gdscript export.
     var my_property = 5
@@ -298,8 +286,7 @@ a variable to to a property also gives you the ability to give it a default stat
         return properties
 ```
 
-Adding default values for properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Adding default values for properties
 
 To define default values for advanced exports, you need to override the `property_can_revert()` and `property_get_revert()` methods.
 
@@ -326,12 +313,12 @@ To define default values for advanced exports, you need to override the `propert
             return 5
 ```
 
-Adding script categories
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Adding script categories
 
 For better visual distinguishing of properties, a special script category can be
 embedded into the inspector to act as a separator. `Script Variables` is one
 example of a built-in category.
+
 ```    
     func _get_property_list():
         var properties = []
@@ -358,10 +345,10 @@ example of a built-in category.
   script category specifically, so the type `TYPE_NIL` can be ignored as it
   won't be actually used for the scripting logic, yet it must be defined anyway.
 
-Grouping properties
-~~~~~~~~~~~~~~~~~~~
+### Grouping properties
 
 A list of properties with similar names can be grouped.
+
 ```    
     func _get_property_list():
         var properties = []

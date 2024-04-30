@@ -1,7 +1,6 @@
 
 
-Idle and Physics Processing
-===========================
+# Idle and Physics Processing
 
 Games run in a loop. Each frame, you need to update the state of your game world
 before drawing it on screen. Pandemonium provides two virtual methods in the Node

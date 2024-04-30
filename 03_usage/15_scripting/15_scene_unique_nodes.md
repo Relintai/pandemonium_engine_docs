@@ -1,10 +1,8 @@
 
 
-Scene Unique Nodes
-==================
+# Scene Unique Nodes
 
-Introduction
-------------
+## Introduction
 
 There are times in a project where a node needs to be called
 from a script. However, its position in the tree might change
@@ -15,8 +13,7 @@ In situations like this, a node can be turned into a scene
 unique node to avoid having to update a script every time
 its path is changed.
 
-Creating and using them
------------------------
+## Creating and using them
 
 In the Scene tree dock, right-click on a node and select
 **Access as Scene Unique Name** in the context menu.

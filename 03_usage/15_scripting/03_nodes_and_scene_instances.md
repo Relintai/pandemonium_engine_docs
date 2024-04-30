@@ -1,13 +1,11 @@
 
 
-Nodes and scene instances
-=========================
+# Nodes and scene instances
 
 This guide explains how to get nodes, create nodes, add them as a child, and
 instantiate scenes from code.
 
-Getting nodes
--------------
+## Getting nodes
 
 You can get a reference to a node by calling the `Node.get_node()
 ( Node_method_get_node )` method. For this to work, the child node must be
@@ -42,8 +40,7 @@ line that gets the node to `get_node("Skin")` in the script.
 
 ![](img/nodes_and_scene_instances_sprite_node_renamed.png)
 
-Node paths
-----------
+## Node paths
 
 When getting a reference to a node, you're not limited to getting a direct child. The `get_node()` function
 supports paths, a bit like when working with a file browser. Add a slash to
@@ -72,8 +69,7 @@ Note:
           slash to make it absolute, in which case your topmost node would be
           "/root", the application's predefined root viewport.
 
-Syntactic sugar
-~~~~~~~~~~~~~~~
+### Syntactic sugar
 
 You can use two shorthands to shorten your code in GDScript. Firstly, putting the
 `onready` keyword before a member variable makes it initialize right before
@@ -91,8 +87,7 @@ place it before the name or path of the node you want to get.
     onready var tween = $ShieldBar/Tween
 ```
 
-Creating nodes
---------------
+## Creating nodes
 
 To create a node from code, call its `new()` method like for any other
 class-based datatype.
@@ -139,8 +134,7 @@ When you free a node, it also frees all its children. Thanks to this, to delete
 an entire branch of the scene tree, you only have to free the topmost parent
 node.
 
-Instancing scenes
------------------
+## Instancing scenes
 
 Scenes are templates from which you can create as many reproductions as you'd
 like. This operation is called instancing, and doing it from code happens in two
@@ -164,7 +158,7 @@ gdscript GDScript
 
 ```
     var scene = preload("res://MyScene.tscn")
-    ```
+```
 
 At that point, `scene` is a packed scene resource, not a node. To create the
 actual node, you need to call `PackedScene.instance()

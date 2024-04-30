@@ -1,10 +1,8 @@
 
 
-GDScript: An introduction to dynamic languages
-==============================================
+# GDScript: An introduction to dynamic languages
 
-About
------
+## About
 
 This tutorial aims to be a quick reference for how to use GDScript more
 efficiently. It focuses on common cases specific to the language, but
@@ -13,11 +11,9 @@ also covers a lot of information on dynamically typed languages.
 It's meant to be especially useful for programmers with little or no previous
 experience with dynamically typed languages.
 
-Dynamic nature
---------------
+## Dynamic nature
 
-Pros & cons of dynamic typing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Pros & cons of dynamic typing
 
 GDScript is a Dynamically Typed language. As such, its main advantages
 are that:
@@ -48,8 +44,7 @@ possibility of using C++ is present too. This allows you to still create most of
 game in GDScript and add small bits of C++ in the areas that need
 a performance boost.
 
-Variables & assignment
-~~~~~~~~~~~~~~~~~~~~~~
+### Variables & assignment
 
 All variables in a dynamically typed language are "variant"-like. This
 means that their type is not fixed, and is only modified through
@@ -71,8 +66,7 @@ Dynamic:
     a = "Hi!" # Valid, 'a' changed to a string.
 ```
 
-As function arguments:
-~~~~~~~~~~~~~~~~~~~~~~
+### As function arguments:
 
 Functions are of dynamic nature too, which means they can be called with
 different arguments, for example:
@@ -103,8 +97,7 @@ Dynamic:
     print_value("Hello") # Valid.
 ```
 
-Pointers & referencing:
-~~~~~~~~~~~~~~~~~~~~~~~
+### Pointers & referencing:
 
 In static languages, such as C or C++ (and to some extent Java and C#),
 there is a distinction between a variable and a pointer/reference to a
@@ -172,7 +165,6 @@ if inheriting manually from `Object`.
 
 Note:
 
-
     A value is **passed by value** when it is copied every time it's specified
     as a function parameter. One consequence of this is that the function cannot
     modify the parameter in a way that is visible from outside the function:
@@ -222,8 +214,7 @@ Note:
     means that modifying them will *always* return a copy of the original value,
     rather than modifying the value in-place.
 
-Arrays
-------
+## Arrays
 
 Arrays in dynamically typed languages can contain many different mixed
 datatypes inside and are always dynamic (can be resized at any time).
@@ -279,8 +270,7 @@ Or unordered sets:
         print("We have a winner!")
 ```
 
-Dictionaries
-------------
+## Dictionaries
 
 Dictionaries are a powerful tool in dynamically typed languages.
 Most programmers that come from statically typed languages (such as C++
@@ -367,8 +357,7 @@ states and quick structs:
     d.mother = "Caroline" # This would work too to create a new key.
 ```
 
-For & while
------------
+## For & while
 
 Iterating in some statically typed languages can be quite complex:
 
@@ -456,8 +445,7 @@ Becomes:
         pass
 ```
 
-While
------
+## While
 
 while() loops are the same everywhere:
 
@@ -469,8 +457,8 @@ while() loops are the same everywhere:
         i += 1
 ```
 
-Custom iterators
-----------------
+## Custom iterators
+
 You can create custom iterators in case the default ones don't quite meet your
 needs by overriding the Variant class's `iter_init`, `iter_next`, and `iter_get`
 functions in your script. An example implementation of a forward iterator follows:
@@ -514,8 +502,7 @@ And it can be used like any other iterator:
 Make sure to reset the state of the iterator in `iter_init`, otherwise nested
 for-loops that use custom iterators will not work as expected.
 
-Duck typing
------------
+## Duck typing
 
 One of the most difficult concepts to grasp when moving from a
 statically typed language to a dynamic one is duck typing. Duck typing

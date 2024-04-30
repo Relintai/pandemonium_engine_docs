@@ -1,7 +1,6 @@
 
 
-Making trees
-============
+# Making trees
 
 This is a short tutorial on how to make trees and other types of vegetation from scratch.
 
@@ -9,8 +8,7 @@ The aim is to not focus on the modelling techniques (there are plenty of tutoria
 
 ![](img/tree_sway.gif)
 
-Start with a tree
------------------
+## Start with a tree
 
 I took this tree from SketchFab:
 
@@ -20,8 +18,7 @@ https://sketchfab.com/models/ea5e6ed7f9d6445ba69589d503e8cebf
 
 and opened it in Blender.
 
-Paint with vertex colors
-------------------------
+## Paint with vertex colors
 
 The first thing you may want to do is to use the vertex colors to paint how much the tree will sway when there is wind. Just use the vertex color painting tool of your favorite 3D modelling program and paint something like this:
 
@@ -31,8 +28,7 @@ This is a bit exaggerated, but the idea is that color indicates how much sway af
 
 ![](img/tree_gradient.png)
 
-Write a custom shader for the leaves
-------------------------------------
+## Write a custom shader for the leaves
 
 This is a simple example of a shader for leaves:
 
@@ -84,8 +80,7 @@ And this is pretty much it.
 
 The trunk shader is similar, except it does not write to the alpha channel (thus no alpha prepass is needed) and does not require transmission to work. Both shaders can be improved by adding normal mapping, AO and other maps.
 
-Improving the shader
---------------------
+## Improving the shader
 
 There are many more resources on how to do this that you can read. Now that you know the basics, a recommended read is the chapter from GPU Gems3 about how Crysis does this
 (focus mostly on the sway code, as many other techniques shown there are obsolete):

@@ -1,10 +1,8 @@
 
 
-GDScript basics
-===============
+# GDScript basics
 
-Introduction
-------------
+## Introduction
 
 *GDScript* is a high-level, dynamically typed programming language used to
 create content. It uses a syntax similar to
@@ -13,8 +11,7 @@ create content. It uses a syntax similar to
 to be optimized for and tightly integrated with Pandemonium Engine, allowing great
 flexibility for content creation and integration.
 
-History
-~~~~~~~
+### History
 
 Note:
 
@@ -22,8 +19,7 @@ Note:
     Documentation about GDScript's history has been moved to the
     `Frequently Asked Questions ( doc_faq_what_is_gdscript )`.
 
-Example of GDScript
-~~~~~~~~~~~~~~~~~~~
+### Example of GDScript
 
 Some people can learn better by taking a look at the syntax, so
 here's a simple example of how GDScript looks.
@@ -107,28 +103,26 @@ here's a simple example of how GDScript looks.
         print("Constructed!")
         var lv = Something.new()
         print(lv.a)
+```
 
 If you have previous experience with statically typed languages such as
 C, C++, or C# but never used a dynamically typed one before, it is advised you
 read this tutorial: `doc_gdscript_more_efficiently`.
 
-Language
---------
+## Language
 
 In the following, an overview is given to GDScript. Details, such as which
 methods are available to arrays or other objects, should be looked up in
 the linked class descriptions.
 
-Identifiers
-~~~~~~~~~~~
+### Identifiers
 
 Any string that restricts itself to alphabetic characters (`a` to
 `z` and `A` to `Z`), digits (`0` to `9`) and `` qualifies
 as an identifier. Additionally, identifiers must not begin with a digit.
 Identifiers are case-sensitive (`foo` is different from `FOO`).
 
-Keywords
-~~~~~~~~
+### Keywords
 
 The following is the list of keywords supported by the language. Since
 keywords are reserved words (tokens), they can't be used as identifiers.
@@ -138,111 +132,64 @@ as listed in the following sections are also reserved.
 Keywords are defined in the `GDScript tokenizer ( https://github.com/Relintai/pandemonium_engine/blob/master/modules/gdscript/gdscript_tokenizer.cpp )`
 in case you want to take a look under the hood.
 
-+------------+---------------------------------------------------------------------------------------------------------------+
-|  Keyword   | Description                                                                                                   |
-+============+===============================================================================================================+
-| if         | See `if/else/elif`.                                                                                          |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| elif       | See `if/else/elif`.                                                                                          |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| else       | See `if/else/elif`.                                                                                          |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| for        | See for_.                                                                                                     |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| while      | See while_.                                                                                                   |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| match      | See match_.                                                                                                   |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| break      | Exits the execution of the current `for` or `while` loop.                                                 |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| continue   | Immediately skips to the next iteration of the `for` or `while` loop.                                     |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| pass       | Used where a statement is required syntactically but execution of code is undesired, e.g. in empty functions. |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| return     | Returns a value from a function.                                                                              |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| class      | Defines an inner class.                                                                                       |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| class_name | Defines a class name and optional icon for your script.                                                       |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| extends    | Defines what class to extend with the current class.                                                          |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| is         | Tests whether a variable extends a given class, or is of a given built-in type.                               |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| as         | Cast the value to a given type if possible.                                                                   |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| self       | Refers to current class instance.                                                                             |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| tool       | Executes the script in the editor.                                                                            |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| signal     | Defines a signal.                                                                                             |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| func       | Defines a function.                                                                                           |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| static     | Defines a static function. Static member variables are not allowed.                                           |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| const      | Defines a constant.                                                                                           |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| enum       | Defines an enum.                                                                                              |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| var        | Defines a variable.                                                                                           |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| onready    | Initializes a variable once the Node the script is attached to and its children are part of the scene tree.   |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| export     | Saves a variable along with the resource it's attached to and makes it visible and modifiable in the editor.  |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| setget     | Defines setter and getter functions for a variable.                                                           |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| breakpoint | Editor helper for debugger breakpoints.                                                                       |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| preload    | Preloads a class or variable. See `Classes as resources`.                                                    |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| yield      | Coroutine support. See `Coroutines with yield`.                                                              |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`.               |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| remote     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| master     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| puppet     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| remotesync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| mastersync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| puppetsync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.               |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| PI         | PI constant.                                                                                                  |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| TAU        | TAU constant.                                                                                                 |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| INF        | Infinity constant. Used for comparisons.                                                                      |
-+------------+---------------------------------------------------------------------------------------------------------------+
-| NAN        | NAN (not a number) constant. Used for comparisons.                                                            |
-+------------+---------------------------------------------------------------------------------------------------------------+
 
-Operators
-~~~~~~~~~
+|  Keyword   | Description                                                                                                   |
+|------------|---------------------------------------------------------------------------------------------------------------|
+| if         | See `if/else/elif`.                                                                                           |
+| elif       | See `if/else/elif`.                                                                                           |
+| else       | See `if/else/elif`.                                                                                           |
+| for        | See for_.                                                                                                     |
+| while      | See while_.                                                                                                   |
+| match      | See match_.                                                                                                   |
+| break      | Exits the execution of the current `for` or `while` loop.                                                     |
+| continue   | Immediately skips to the next iteration of the `for` or `while` loop.                                         |
+| pass       | Used where a statement is required syntactically but execution of code is undesired, e.g. in empty functions. |
+| return     | Returns a value from a function.                                                                              |
+| class      | Defines an inner class.                                                                                       |
+| class_name | Defines a class name and optional icon for your script.                                                       |
+| extends    | Defines what class to extend with the current class.                                                          |
+| is         | Tests whether a variable extends a given class, or is of a given built-in type.                               |
+| as         | Cast the value to a given type if possible.                                                                   |
+| self       | Refers to current class instance.                                                                             |
+| tool       | Executes the script in the editor.                                                                            |
+| signal     | Defines a signal.                                                                                             |
+| func       | Defines a function.                                                                                           |
+| static     | Defines a static function. Static member variables are not allowed.                                           |
+| const      | Defines a constant.                                                                                           |
+| enum       | Defines an enum.                                                                                              |
+| var        | Defines a variable.                                                                                           |
+| onready    | Initializes a variable once the Node the script is attached to and its children are part of the scene tree.   |
+| export     | Saves a variable along with the resource it's attached to and makes it visible and modifiable in the editor.  |
+| setget     | Defines setter and getter functions for a variable.                                                           |
+| breakpoint | Editor helper for debugger breakpoints.                                                                       |
+| preload    | Preloads a class or variable. See `Classes as resources`.                                                     |
+| yield      | Coroutine support. See `Coroutines with yield`.                                                               |
+| assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`.                |
+| remote     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
+| master     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
+| puppet     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
+| remotesync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
+| mastersync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
+| puppetsync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
+| PI         | PI constant.                                                                                                  |
+| TAU        | TAU constant.                                                                                                 |
+| INF        | Infinity constant. Used for comparisons.                                                                      |
+| NAN        | NAN (not a number) constant. Used for comparisons.                                                            |
+
+### Operators
 
 The following is the list of supported operators and their precedence.
 
-+------------------------------------------------------------------------+-----------------------------------------+
+
 | **Operator**                                                           | **Description**                         |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `x[index]`                                                           | Subscription (highest priority)         |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `x.attribute`                                                        | Attribute reference                     |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `foo()`                                                              | Function call                           |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `is`                                                                 | Instance type checker                   |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `~`                                                                  | Bitwise NOT                             |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `-x`                                                                 | Negative / Unary negation               |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `*` `/` `%`                                                      | Multiplication / Division / Remainder   |
+|------------------------------------------------------------------------|-----------------------------------------|
+| `x[index]`                                                             | Subscription (highest priority)         |
+| `x.attribute`                                                          | Attribute reference                     |
+| `foo()`                                                                | Function call                           |
+| `is`                                                                   | Instance type checker                   |
+| `~`                                                                    | Bitwise NOT                             |
+| `-x`                                                                   | Negative / Unary negation               |
+| `*` `/` `%`                                                            | Multiplication / Division / Remainder   |
 |                                                                        |                                         |
 |                                                                        | These operators have the same behavior  |
 |                                                                        | as C++. Integer division is truncated   |
@@ -251,66 +198,44 @@ The following is the list of supported operators and their precedence.
 |                                                                        | available for ints ("fmod" for floats), |
 |                                                                        | and is additionally used for Format     |
 |                                                                        | Strings                                 |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `+`                                                                  | Addition / Concatenation of arrays      |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `-`                                                                  | Subtraction                             |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `<<` `> )`                                                          | Bit shifting                            |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `&`                                                                  | Bitwise AND                             |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `^`                                                                  | Bitwise XOR                             |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `|`                                                                  | Bitwise OR                              |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `<` ` )` `==` `!=` `>=` `<=`                                | Comparisons                             |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `in`                                                                 | When used with the `if` keyword it    |
+| `+`                                                                    | Addition / Concatenation of arrays      |
+| `-`                                                                    | Subtraction                             |
+| `&lt;&lt;` `&gt; )`                                                    | Bit shifting                            |
+| `&`                                                                    | Bitwise AND                             |
+| `^`                                                                    | Bitwise XOR                             |
+| `|`                                                                    | Bitwise OR                              |
+| `&lt;` ` )` `==` `!=` `&gt;=` `&lt;=`                                  | Comparisons                             |
+| `in`                                                                   | When used with the `if` keyword it      |
 |                                                                        | checks if a value is within a string,   |
 |                                                                        | list, range, dictionary, or node. When  |
-|                                                                        | used with the `for` keyword it is used|
+|                                                                        | used with the `for` keyword it is used  |
 |                                                                        | to iterate though the contents of a     |
 |                                                                        | string, list, range, dictionary or node.|
-+------------------------------------------------------------------------+-----------------------------------------+
-| `!` `not`                                                          | Boolean NOT                             |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `and` `&&`                                                         | Boolean AND                             |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `or` `||`                                                          | Boolean OR                              |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `if x else`                                                          | Ternary if/else                         |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `as`                                                                 | Type casting                            |
-+------------------------------------------------------------------------+-----------------------------------------+
-| `=` `+=` `-=` `*=` `/=` `%=` `&=` `|=` `<<=` `>>=` | Assignment (lowest priority)            |
-+------------------------------------------------------------------------+-----------------------------------------+
+| `!` `not`                                                              | Boolean NOT                             |
+| `and` `&&`                                                             | Boolean AND                             |
+| `or` `||`                                                              | Boolean OR                              |
+| `if x else`                                                            | Ternary if/else                         |
+| `as`                                                                   | Type casting                            |
+| `=` `+=` `-=` `*=` `/=` `%=` `&=` `|=` `&lt;&lt;=` `&gt;&gt;=`         | Assignment (lowest priority)            |
 
-Literals
-~~~~~~~~
 
-+--------------------------+----------------------------------------+
+### Literals
+
 | **Literal**              | **Type**                               |
-+--------------------------+----------------------------------------+
-| `45`                   | Base 10 integer                        |
-+--------------------------+----------------------------------------+
-| `0x8f51`               | Base 16 (hexadecimal) integer          |
-+--------------------------+----------------------------------------+
-| `0b101010`             | Base 2 (binary) integer                |
-+--------------------------+----------------------------------------+
-| `3.14`, `58.1e-10`   | Floating-point number (real)           |
-+--------------------------+----------------------------------------+
-| `"Hello"`, `"Hi"`    | Strings                                |
-+--------------------------+----------------------------------------+
-| `"""Hello"""`          | Multiline string                       |
-+--------------------------+----------------------------------------+
-| `@"Node/Label"`        | `NodePath` or StringName    |
-+--------------------------+----------------------------------------+
-| `$NodePath`            | Shorthand for `get_node("NodePath")` |
-+--------------------------+----------------------------------------+
+|--------------------------|----------------------------------------|
+| `45`                     | Base 10 integer                        |
+| `0x8f51`                 | Base 16 (hexadecimal) integer          |
+| `0b101010`               | Base 2 (binary) integer                |
+| `3.14`, `58.1e-10`       | Floating-point number (real)           |
+| `"Hello"`, `"Hi"`        | Strings                                |
+| `"""Hello"""`            | Multiline string                       |
+| `@"Node/Label"`          | `NodePath` or StringName               |
+| `$NodePath`              | Shorthand for `get_node("NodePath")`   |
 
-Integers and floats can have their numbers separated with `` to make them more readable.
+
+Integers and floats can have their numbers separated with `_` to make them more readable.
 The following ways to write numbers are all valid
+
 ```
     12_345_678  # Equal to 12345678.
     3.141_592_7  # Equal to 3.1415927.
@@ -318,8 +243,7 @@ The following ways to write numbers are all valid
     0b11_00_11_00  # Equal to 0b11001100.
 ```
 
-Comments
-~~~~~~~~
+### Comments
 
 Anything from a `#` to the end of the line is ignored and is
 considered a comment.
@@ -331,8 +255,7 @@ considered a comment.
 
 
 
-Built-in types
---------------
+## Built-in types
 
 Built-in types are stack-allocated. They are passed as values. This means a copy
 is created on each assignment or when passing them as arguments to functions.
@@ -340,159 +263,126 @@ The only exceptions are `Array`\ s and `Dictionaries`, which are passed by
 reference so they are shared. (Pooled arrays such as `PoolByteArray` are still
 passed as values.)
 
-Basic built-in types
-~~~~~~~~~~~~~~~~~~~~
+### Basic built-in types
 
 A variable in GDScript can be assigned to several built-in types.
 
-null
-^^^^
+#### null
 
 `null` is an empty data type that contains no information and can not
 be assigned any other value.
 
-`bool`
-^^^^^^^^^^^^^^^^^^^^^^^^
+#### `bool`
 
 Short for "boolean", it can only contain `true` or `false`.
 
-`int`
-^^^^^^^^^^^^^^^^^^^^^^
+#### `int`
 
 Short for "integer", it stores whole numbers (positive and negative).
 It is stored as a 64-bit value, equivalent to "int64_t" in C++.
 
-`float`
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `float`
 
 Stores real numbers, including decimals, using floating-point values.
 It is stored as a 64-bit value, equivalent to "double" in C++.
 Note: Currently, data structures such as Vector2, Vector3, and
 PoolRealArray store 32-bit single-precision "float" values.
 
-`String`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `String`
 
 A sequence of characters in `Unicode format ( https://en.wikipedia.org/wiki/Unicode )`.
 Strings can contain the following escape sequences:
 
-+---------------------+---------------------------------+
+
 | **Escape sequence** | **Expands to**                  |
-+---------------------+---------------------------------+
-| `\n`              | Newline (line feed)             |
-+---------------------+---------------------------------+
-| `\t`              | Horizontal tab character        |
-+---------------------+---------------------------------+
-| `\r`              | Carriage return                 |
-+---------------------+---------------------------------+
-| `\a`              | Alert (beep/bell)               |
-+---------------------+---------------------------------+
-| `\b`              | Backspace                       |
-+---------------------+---------------------------------+
-| `\f`              | Formfeed page break             |
-+---------------------+---------------------------------+
-| `\v`              | Vertical tab character          |
-+---------------------+---------------------------------+
-| `\"`              | Double quote                    |
-+---------------------+---------------------------------+
-| `\'`              | Single quote                    |
-+---------------------+---------------------------------+
-| `\\`              | Backslash                       |
-+---------------------+---------------------------------+
-| `\uXXXX`          | Unicode codepoint `XXXX`      |
+|---------------------|---------------------------------|
+| `\n`                | Newline (line feed)             |
+| `\t`                | Horizontal tab character        |
+| `\r`                | Carriage return                 |
+| `\a`                | Alert (beep/bell)               |
+| `\b`                | Backspace                       |
+| `\f`                | Formfeed page break             |
+| `\v`                | Vertical tab character          |
+| `\"`                | Double quote                    |
+| `\'`                | Single quote                    |
+| `\\ `               | Backslash                       |
+| `\uXXXX`            | Unicode codepoint `XXXX`        |
 |                     | (hexadecimal, case-insensitive) |
-+---------------------+---------------------------------+
+
 
 GDScript also supports `doc_gdscript_printf`.
 
-Vector built-in types
-~~~~~~~~~~~~~~~~~~~~~
+### Vector built-in types
 
-`Vector2`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Vector2`
 
 2D vector type containing `x` and `y` fields. Can also be
 accessed as an array.
 
-`Rect2`
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Rect2`
 
 2D Rectangle type containing two vectors fields: `position` and `size`.
 Also contains an `end` field which is `position + size`.
 
-`Vector3`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Vector3`
 
 3D vector type containing `x`, `y` and `z` fields. This can also
 be accessed as an array.
 
-`Transform2D`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Transform2D`
 
 3×2 matrix used for 2D transforms.
 
-`Plane`
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Plane`
 
 3D Plane type in normalized form that contains a `normal` vector field
 and a `d` scalar distance.
 
-`Quat`
-^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Quat`
 
 Quaternion is a datatype used for representing a 3D rotation. It's
 useful for interpolating rotations.
 
-`AABB`
-^^^^^^^^^^^^^^^^^^^^^^^^
+#### `AABB`
 
 Axis-aligned bounding box (or 3D box) contains 2 vectors fields: `position`
 and `size`. Also contains an `end` field which is
 `position + size`.
 
-`Basis`
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Basis`
 
 3x3 matrix used for 3D rotation and scale. It contains 3 vector fields
 (`x`, `y` and `z`) and can also be accessed as an array of 3D
 vectors.
 
-`Transform`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Transform`
 
 3D Transform contains a Basis field `basis` and a Vector3 field
 `origin`.
 
-Engine built-in types
-~~~~~~~~~~~~~~~~~~~~~
+### Engine built-in types
 
-`Color`
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Color`
 
 Color data type contains `r`, `g`, `b`, and `a` fields. It can
 also be accessed as `h`, `s`, and `v` for hue/saturation/value.
 
-`NodePath`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `NodePath`
 
 Compiled path to a node used mainly in the scene system. It can be
 easily assigned to, and from, a String.
 
-`RID`
-^^^^^^^^^^^^^^^^^^^^^^
+#### `RID`
 
 Resource ID (RID). Servers use generic RIDs to reference opaque data.
 
-`Object`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Object`
 
 Base class for anything that is not a built-in type.
 
-Container built-in types
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Container built-in types
 
-`Array`
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Array`
 
 Generic sequence of arbitrary object types, including other arrays or dictionaries (see below).
 The array can resize dynamically. Arrays are indexed starting from index `0`.
@@ -524,8 +414,7 @@ arrays. They are therefore only recommended to use for large data sets:
 - `PoolVector3Array` objects.
 - `PoolColorArray` objects.
 
-`Dictionary`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `Dictionary`
 
 Associative container which contains values referenced by unique keys.
 
@@ -558,6 +447,7 @@ identifier).
 
 To add a key to an existing dictionary, access it like an existing key and
 assign to it
+
 ```
     var d = {} # Create an empty Dictionary.
     d.waiting = 14 # Add String "waiting" as a key and assign the value 14 to it.
@@ -580,11 +470,9 @@ Note:
     this, use the `Object.get()` and
     `Object.set()` methods instead.
 
-Data
-----
+## Data
 
-Variables
-~~~~~~~~~
+### Variables
 
 Variables can exist as class members or local to functions. They are
 created with the `var` keyword and may, optionally, be assigned a
@@ -613,6 +501,7 @@ after the variable name, followed by the type.
 
 If the variable is initialized within the declaration, the type can be inferred, so
 it's possible to omit the type name
+
 ```
     var my_vector2 := Vector2() # 'my_vector2' is of type 'Vector2'.
     var my_node := Sprite.new() # 'my_node' is of type 'Sprite'.
@@ -629,8 +518,7 @@ Valid types are:
 - Other classes in the same script, respecting scope (`InnerClass.NestedClass` if you declared `class NestedClass` inside the `class InnerClass` in the same scope).
 - Script classes declared with the `name` keyword.
 
-Casting
-^^^^^^^
+#### Casting
 
 Values assigned to typed variables must have a compatible type. If it's needed to
 coerce a value to be of a certain type, in particular for object types, you can
@@ -665,6 +553,7 @@ engine will raise an error.
 
 Casting is also useful to have better type-safe variables when interacting with
 the scene tree
+
 ```
     # Will infer the variable to be of type Sprite.
     var my_sprite := $Character as Sprite
@@ -673,8 +562,7 @@ the scene tree
     ($AnimPlayer as AnimationPlayer).play("walk")
 ```
 
-Constants
-~~~~~~~~~
+### Constants
 
 Constants are values you cannot change when the game is running.
 Their value must be known at compile-time. Using the
@@ -697,6 +585,7 @@ We recommend using constants whenever a value is not meant to change.
 
 Although the type of constants is inferred from the assigned value, it's also
 possible to add explicit type specification
+
 ```
     const A: int = 5
     const B: Vector2 = Vector2()
@@ -711,8 +600,7 @@ Note:
     This means that if you declare a constant array or dictionary, it can still
     be modified afterwards. They can't be reassigned with another value though.
 
-Enums
-^^^^^
+#### Enums
 
 Enums are basically a shorthand for constants, and are pretty useful if you
 want to assign consecutive integers to some constant.
@@ -740,10 +628,9 @@ dictionary of that name.
 ```
 
 
-Functions
-~~~~~~~~~
+### Functions
 
-Functions always belong to a `class <Classes_ )`. The scope priority for
+Functions always belong to a `class`. The scope priority for
 variable look-up is: local → class member → global. The `self` variable is
 always available and is provided as an option for accessing class members, but
 is not always required (and should *not* be sent as the function's first
@@ -761,17 +648,20 @@ A function can `return` at any point. The default return value is `null`.
 
 Functions can also have type specification for the arguments and for the return
 value. Types for arguments can be added in a similar way to variables
+
 ```
     func my_function(a: int, b: String):
         pass
 
 If a function argument has a default value, it's possible to infer the type
+
 ```
     func my_function(int_arg := 42, String_arg := "string"):
         pass
 
 The return type of the function can be specified after the arguments list using
 the arrow token (`- )`)
+
 ```
     func my_int_function() -> int:
         return 0
@@ -788,6 +678,7 @@ return early with the `return` keyword, but they can't return any value.
 ```
 
 Note:
+
  Non-void functions must **always** return a value, so if your code has
           branching statements (such as an `if`/`else` construct), all the
           possible paths must have a return. E.g., if you have a `return`
@@ -795,8 +686,7 @@ Note:
           error because if the block is not executed, the function won't have a
           valid value to return.
 
-Referencing functions
-^^^^^^^^^^^^^^^^^^^^^
+#### Referencing functions
 
 Contrary to Python, functions are *not* first-class objects in GDScript. This
 means they cannot be stored in variables, passed as an argument to another
@@ -805,6 +695,7 @@ function or be returned from other functions. This is for performance reasons.
 To reference a function by name at run-time, (e.g. to store it in a variable, or
 pass it to another function as an argument) one must use the `call` or
 `funcref` helpers
+
 ```
     # Call a function by name in one step.
     my_node.call("my_function", args)
@@ -816,27 +707,25 @@ pass it to another function as an argument) one must use the `call` or
 ```
 
 
-Static functions
-^^^^^^^^^^^^^^^^
+#### Static functions
 
 A function can be declared static. When a function is static, it has no
 access to the instance member variables or `self`. This is mainly
 useful to make libraries of helper functions
+
 ```
     static func sum2(a, b):
         return a + b
 ```
 
 
-Statements and control flow
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Statements and control flow
 
 Statements are standard and can be assignments, function calls, control
 flow structures, etc (see below). `;` as a statement separator is
 entirely optional.
 
-if/else/elif
-^^^^^^^^^^^^
+#### if/else/elif
 
 Simple conditions are created by using the `if`/`else`/`elif` syntax.
 Parenthesis around conditions are allowed, but not required. Given the
@@ -903,8 +792,7 @@ use an `if` statement combined with the `in` operator to accomplish this
     if "varName" in get_parent(): print("varName is defined in parent!")
 ```
 
-while
-^^^^^
+#### while
 
 Simple loops are created by using `while` syntax. Loops can be broken
 using `break` or continued using `continue`:
@@ -915,8 +803,7 @@ using `break` or continued using `continue`:
         statement(s)
 ```
 
-for
-^^^
+#### for
 
 To iterate through a range, such as an array or table, a *for* loop is
 used. When iterating over an array, the current array element is stored in
@@ -951,8 +838,7 @@ in the loop variable.
         statement # Similar to range(ceil(2.2))
 ```
 
-match
-^^^^^
+#### match
 
 A `match` statement is used to branch execution of a program.
 It's the equivalent of the `switch` statement found in many other languages, but offers some additional features.
@@ -1102,8 +988,7 @@ There are 6 pattern types:
                 print("Yep, you've taken damage")
 ```
 
-Classes
-~~~~~~~
+### Classes
 
 By default, all script files are unnamed classes. In this case, you can only
 reference them using the file's path, using either a relative or an absolute
@@ -1121,8 +1006,7 @@ path. For example, if you name a script file `character.gd`
 ```
 
 
-Registering named classes
-~~~~~~~~~~~~~~~~~~~~~~~~~
+#### Registering named classes
 
 You can give your class a name to register it as a new type in Pandemonium's
 editor. For that, you use the `name` keyword. You can optionally add
@@ -1176,8 +1060,7 @@ Note:
           safety, since scripts can be initialized in separate threads without the user
           knowing.
 
-Inheritance
-^^^^^^^^^^^
+#### Inheritance
 
 A class (stored as a file) can inherit from:
 
@@ -1188,6 +1071,7 @@ A class (stored as a file) can inherit from:
 Multiple inheritance is not allowed.
 
 Inheritance uses the `extends` keyword
+
 ```
     # Inherit/extend a globally available class.
     extends SomeClass
@@ -1235,8 +1119,7 @@ Note:
           There is no need to call them explicitly when overloading them.
 
 
-Class constructor
-^^^^^^^^^^^^^^^^^
+#### Class constructor
 
 The class constructor, called on class instantiation, is named `init`. As
 mentioned earlier, the constructors of parent classes are called automatically
@@ -1293,8 +1176,7 @@ There are a few things to keep in mind here:
         pass
 ```
 
-Inner classes
-^^^^^^^^^^^^^
+#### Inner classes
 
 A class file can contain inner classes. Inner classes are defined using the
 `class` keyword. They are instanced using the `ClassName.new()`
@@ -1321,8 +1203,7 @@ function.
 ```
 
 
-Classes as resources
-^^^^^^^^^^^^^^^^^^^^
+#### Classes as resources
 
 Classes stored as files are treated as `resources`. They
 must be loaded from disk to access them in other classes. This is done using
@@ -1341,16 +1222,14 @@ class resource is done by calling the `new` function on the class object
         a.some_function()
 ```
 
-Exports
-~~~~~~~
+### Exports
 
 Note:
 
 
     Documentation about exports has been moved to `doc_gdscript_exports`.
 
-Setters/getters
-~~~~~~~~~~~~~~~
+### Setters/getters
 
 It is often useful to know when a class' member variable changes for
 whatever reason. It may also be desired to encapsulate its access in some way.
@@ -1368,6 +1247,7 @@ Whenever the value of `variable` is modified by an *external* source
 will be called. This happens *before* the value is changed. The *setter* must decide what to do
 with the new value. Vice versa, when `variable` is accessed, the *getter* function
 (`getterfunc` above) must `return` the desired value. Below is an example
+
 ```
     var my_var setget my_var_set, my_var_get
 
@@ -1381,6 +1261,7 @@ with the new value. Vice versa, when `variable` is accessed, the *getter* functi
 ```
 
 Either of the *setter* or *getter* functions can be omitted
+
 ```
     # Only a setter.
     var my_var = 5 setget my_var_set
@@ -1408,8 +1289,7 @@ illustration of this:
 ```
 
 
-Tool mode
-~~~~~~~~~
+### Tool mode
 
 By default, scripts don't run inside the editor and only the exported
 properties can be changed. In some cases, it is desired that they do run
@@ -1436,8 +1316,7 @@ Warning:
 
 
 
-Memory management
-~~~~~~~~~~~~~~~~~
+### Memory management
 
 If a class inherits from `Reference`, then instances will be
 freed when no longer in use. No garbage collector exists, just
@@ -1468,8 +1347,7 @@ freed.
 
 
 
-Signals
-~~~~~~~
+### Signals
 
 Signals are a tool to emit messages from an object that other objects can react
 to. To create custom signals for a class, use the `signal` keyword.
@@ -1499,6 +1377,7 @@ signals of nodes like `Button` or `RigidBody`.
 In the example below, we connect the `health_depleted` signal from a
 `Character` node to a `Game` node. When the `Character` node emits the
 signal, the game node's `on_Character_health_depleted` is called
+
 ```
     # Game.gd
 
@@ -1521,6 +1400,7 @@ In our `Character.gd` script, we define a `health_changed` signal and emit
 it with `Object.emit_signal()`, and from
 a `Game` node higher up our scene tree, we connect it to the `Lifebar` using
 the `Object.connect()` method
+
 ```
     # Character.gd
 
@@ -1584,6 +1464,7 @@ the `Character` node.
 
 You can write optional argument names in parentheses after the signal's
 definition
+
 ```
     # Defining a signal that forwards two arguments.
     signal health_changed(old_value, new_value)
@@ -1609,6 +1490,7 @@ taken by each character on the screen, like `Player1 took 22 damage.`. The
 `health_changed` signal doesn't give us the name of the character that took
 damage. So when we connect the signal to the in-game console, we can add the
 character's name in the binds array argument
+
 ```
     # Game.gd
 
@@ -1620,6 +1502,7 @@ character's name in the binds array argument
 ```
 
 Our `BattleLog` node receives each element in the binds array as an extra argument
+
 ```
     # BattleLog.gd
 
@@ -1632,8 +1515,7 @@ Our `BattleLog` node receives each element in the binds array as an extra argume
 
 ```
 
-Coroutines with yield
-~~~~~~~~~~~~~~~~~~~~~
+### Coroutines with yield
 
 GDScript offers support for `coroutines ( https://en.wikipedia.org/wiki/Coroutine )`
 via the `yield( @GDScript_method_yield )` built-in function. Calling `yield()` will
@@ -1642,6 +1524,7 @@ state of the same function as the return value. Calling `resume()` on
 this resulting object will continue execution and return whatever the
 function returns. Once resumed, the state object becomes invalid. Here is
 an example
+
 ```
     func my_func():
         print("Hello")
@@ -1658,6 +1541,7 @@ an example
 ```
 
 Will print
+
 ```
     Hello
     my dear
@@ -1666,6 +1550,7 @@ Will print
 
 It is also possible to pass values between `yield()` and `resume()`,
 for example
+
 ```
     func my_func():
         print("Hello")
@@ -1681,6 +1566,7 @@ for example
 ```
 
 Will print
+
 ```
     Hello
     world
@@ -1688,6 +1574,7 @@ Will print
 ```
 
 Remember to save the new function state, when using multiple `yield`\s
+
 ```
     func co_func():
         for i in range(1, 5):
@@ -1702,12 +1589,12 @@ Remember to save the new function state, when using multiple `yield`\s
 ```
 
 
-Coroutines & signals
-^^^^^^^^^^^^^^^^^^^^
+#### Coroutines & signals
 
 The real strength of using `yield` is when combined with signals.
 `yield` can accept two arguments, an object and a signal. When the
 signal is received, execution will recommence. Here are some examples
+
 ```
     # Resume execution the next frame.
     yield(get_tree(), "idle_frame")
@@ -1721,6 +1608,7 @@ signal is received, execution will recommence. Here are some examples
 
 Coroutines themselves use the `completed` signal when they transition
 into an invalid state, for example
+
 ```
     func my_func():
         yield(button_func(), "completed")
@@ -1744,6 +1632,7 @@ You can also get the signal's argument once it's emitted by an object:
 
 If there is more than one argument, `yield` returns an array containing
 the arguments
+
 ```
     signal done(input, processed)
 
@@ -1791,8 +1680,7 @@ when the function didn't yield anymore.
 
 
 
-`onready` keyword
-~~~~~~~~~~~~~~~~~
+### `onready` keyword
 
 When using nodes, it's common to desire to keep references to parts
 of the scene in a variable. As scenes are only warranted to be
@@ -1812,12 +1700,12 @@ This can get a little cumbersome, especially when nodes and external
 references pile up. For this, GDScript has the `onready` keyword, that
 defers initialization of a member variable until `ready()` is called. It
 can replace the above code with a single line
+
 ```
     onready var my_label = get_node("MyLabel")
 ```
 
-Assert keyword
-~~~~~~~~~~~~~~
+### Assert keyword
 
 The `assert` keyword can be used to check conditions in debug builds. These
 assertions are ignored in non-debug builds. This means that the expression

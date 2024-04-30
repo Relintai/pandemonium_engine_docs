@@ -1,7 +1,6 @@
 
 
-GDScript format strings
-=======================
+# GDScript format strings
 
 GDScript offers a feature called *format strings*, which allows reusing text
 templates to succinctly create different but similar strings.
@@ -16,8 +15,7 @@ the placeholder is in the middle of the string; modifying it without format
 strings could be cumbersome.
 
 
-Usage in GDScript
------------------
+## Usage in GDScript
 
 Examine this concrete GDScript example:
 
@@ -67,8 +65,7 @@ There are other `format specifiers`, but they are only applicable when using
 the `%` operator.
 
 
-Multiple placeholders
----------------------
+## Multiple placeholders
 
 Format strings may contain multiple placeholders. In such a case, the values
 are handed in the form of an array, one value per placeholder (unless using a
@@ -86,8 +83,7 @@ Note the values are inserted in order. Remember all placeholders must be
 replaced at once, so there must be an appropriate number of values.
 
 
-Format specifiers
------------------
+## Format specifiers
 
 There are format specifiers other than `s` that can be used in placeholders.
 They consist of one or more characters. Some of them work by themselves like
@@ -95,61 +91,51 @@ They consist of one or more characters. Some of them work by themselves like
 values or characters.
 
 
-Placeholder types
-~~~~~~~~~~~~~~~~~
+### Placeholder types
 
 One and only one of these must always appear as the last character in a format
 specifier. Apart from `s`, these require certain types of parameters.
 
-+-------+---------------------------------------------------------------------+
-| `s` | **Simple** conversion to String by the same method as implicit      |
+
+|       |                                                                     |
+|-------|---------------------------------------------------------------------|
+| `s`   | **Simple** conversion to String by the same method as implicit      |
 |       | String conversion.                                                  |
-+-------+---------------------------------------------------------------------+
-| `c` | A single **Unicode character**. Expects an unsigned 8-bit integer   |
+| `c`   | A single **Unicode character**. Expects an unsigned 8-bit integer   |
 |       | (0-255) for a code point or a single-character string.              |
-+-------+---------------------------------------------------------------------+
-| `d` | A **decimal integral** number. Expects an integral or real number   |
+| `d`   | A **decimal integral** number. Expects an integral or real number   |
 |       | (will be floored).                                                  |
-+-------+---------------------------------------------------------------------+
-| `o` | An **octal integral** number. Expects an integral or real number    |
+| `o`   | An **octal integral** number. Expects an integral or real number    |
 |       | (will be floored).                                                  |
-+-------+---------------------------------------------------------------------+
-| `x` | A **hexadecimal integral** number with **lower-case** letters.      |
+| `x`   | A **hexadecimal integral** number with **lower-case** letters.      |
 |       | Expects an integral or real number (will be floored).               |
-+-------+---------------------------------------------------------------------+
-| `X` | A **hexadecimal integral** number with **upper-case** letters.      |
+| `X`   | A **hexadecimal integral** number with **upper-case** letters.      |
 |       | Expects an integral or real number (will be floored).               |
-+-------+---------------------------------------------------------------------+
-| `f` | A **decimal real** number. Expects an integral or real number.      |
-+-------+---------------------------------------------------------------------+
+| `f`   | A **decimal real** number. Expects an integral or real number.      |
 
 
-Placeholder modifiers
-~~~~~~~~~~~~~~~~~~~~~
+
+### Placeholder modifiers
 
 These characters appear before the above. Some of them work only under certain
 conditions.
 
-+---------+-------------------------------------------------------------------+
-| `+`   | In number specifiers, **show + sign** if positive.                |
-+---------+-------------------------------------------------------------------+
+|         |                                                                   |
+|---------|-------------------------------------------------------------------|
+| `+`     | In number specifiers, **show + sign** if positive.                |
 | Integer | Set **padding**. Padded with spaces or with zeroes if integer     |
-|         | starts with `0` in an integer or real number placeholder.       |
-|         | The leading `0` is ignored if `-` is present.                 |
-|         | When used after `.`, see `.`.                                 |
-+---------+-------------------------------------------------------------------+
-| `.`   | Before `f`, set **precision** to 0 decimal places. Can be       |
+|         | starts with `0` in an integer or real number placeholder.         |
+|         | The leading `0` is ignored if `-` is present.                     |
+|         | When used after `.`, see `.`.                                     |
+| `.`     | Before `f`, set **precision** to 0 decimal places. Can be         |
 |         | followed up with numbers to change. Padded with zeroes.           |
-+---------+-------------------------------------------------------------------+
-| `-`   | **Pad to the right** rather than the left.                        |
-+---------+-------------------------------------------------------------------+
-| `*`   | **Dynamic padding**, expect additional integral parameter to set  |
-|         | padding or precision after `.`, see `dynamic padding`.         |
-+---------+-------------------------------------------------------------------+
+| `-`     | **Pad to the right** rather than the left.                        |
+| `*`     | **Dynamic padding**, expect additional integral parameter to set  |
+|         | padding or precision after `.`, see `dynamic padding`.            |
 
 
-Padding
--------
+
+## Padding
 
 The `.` (*dot*), `*` (*asterisk*), `-` (*minus sign*) and digit
 (`0`-`9`) characters are used for padding. This allows printing several
@@ -194,8 +180,7 @@ useful for right text alignment:
 ```
 
 
-Dynamic padding
-~~~~~~~~~~~~~~~
+### Dynamic padding
 
 By using the `*` (*asterisk*) character, the padding or precision can be set
 without modifying the format string. It is used in place of an integer in the
@@ -219,8 +204,7 @@ before `*`:
 ```
 
 
-Escape sequence
----------------
+## Escape sequence
 
 To insert a literal `%` character into a format string, it must be escaped to
 avoid reading it as a placeholder. This is done by doubling the character:
@@ -232,50 +216,39 @@ avoid reading it as a placeholder. This is done by doubling the character:
 ```
 
 
-Format method examples
-----------------------
+## Format method examples
 
 The following are some examples of how to use the various invocations of the
 `String.format`  method.
 
 
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
+
 | **Type**   | **Style** | **Example**                                                                  | **Result**        |
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
-| Dictionary | key       | `"Hi, {name} v{version}!".format({"name":"Godette", "version":"3.0"})`     | Hi, Godette v3.0! |
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
-| Dictionary | index     | `"Hi, {0} v{1}!".format({"0":"Godette", "1":"3.0"})`                       | Hi, Godette v3.0! |
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
-| Dictionary | mix       | `"Hi, {0} v{version}!".format({"0":"Godette", "version":"3.0"})`           | Hi, Godette v3.0! |
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
-| Array      | key       | `"Hi, {name} v{version}!".format([["version","3.0"], ["name","Godette"]])` | Hi, Godette v3.0! |
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
-| Array      | index     | `"Hi, {0} v{1}!".format(["Godette","3.0"])`                                | Hi, Godette v3.0! |
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
-| Array      | mix       | `"Hi, {name} v{0}!".format([3.0, ["name","Godette"]])`                     | Hi, Godette v3.0! |
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
-| Array      | no index  | `"Hi, {} v{}!".format(["Godette", 3.0], "{}")`                             | Hi, Godette v3.0! |
-+------------+-----------+------------------------------------------------------------------------------+-------------------+
+|------------|-----------|------------------------------------------------------------------------------|-------------------|
+| Dictionary | key       | `"Hi, {name} v{version}!".format({"name":"Godette", "version":"3.0"})`       | Hi, Godette v3.0! |
+| Dictionary | index     | `"Hi, {0} v{1}!".format({"0":"Godette", "1":"3.0"})`                         | Hi, Godette v3.0! |
+| Dictionary | mix       | `"Hi, {0} v{version}!".format({"0":"Godette", "version":"3.0"})`             | Hi, Godette v3.0! |
+| Array      | key       | `"Hi, {name} v{version}!".format([["version","3.0"], ["name","Godette"]])`   | Hi, Godette v3.0! |
+| Array      | index     | `"Hi, {0} v{1}!".format(["Godette","3.0"])`                                  | Hi, Godette v3.0! |
+| Array      | mix       | `"Hi, {name} v{0}!".format([3.0, ["name","Godette"]])`                       | Hi, Godette v3.0! |
+| Array      | no index  | `"Hi, {} v{}!".format(["Godette", 3.0], "{}")`                               | Hi, Godette v3.0! |
+
 
 Placeholders can also be customized when using `String.format`, here's some
 examples of that functionality.
 
 
-+-----------------+------------------------------------------------------+------------------+
+
 | **Type**        | **Example**                                          | **Result**       |
-+-----------------+------------------------------------------------------+------------------+
-| Infix (default) | `"Hi, {0} v{1}".format(["Godette", "3.0"], "{_}")` | Hi, Godette v3.0 |
-+-----------------+------------------------------------------------------+------------------+
-| Postfix         | `"Hi, 0% v1%".format(["Godette", "3.0"], "_%")`    | Hi, Godette v3.0 |
-+-----------------+------------------------------------------------------+------------------+
-| Prefix          | `"Hi, %0 v%1".format(["Godette", "3.0"], "%_")`    | Hi, Godette v3.0 |
-+-----------------+------------------------------------------------------+------------------+
+|-----------------|------------------------------------------------------|------------------|
+| Infix (default) | `"Hi, {0} v{1}".format(["Godette", "3.0"], "{_}")`   | Hi, Godette v3.0 |
+| Postfix         | `"Hi, 0% v1%".format(["Godette", "3.0"], "_%")`      | Hi, Godette v3.0 |
+| Prefix          | `"Hi, %0 v%1".format(["Godette", "3.0"], "%_")`      | Hi, Godette v3.0 |
+
 
 Combining both the `String.format` method and the `%` operator could be useful, as
 `String.format` does not have a way to manipulate the representation of numbers.
 
-+---------------------------------------------------------------------------+-------------------+
 | **Example**                                                               | **Result**        |
-+---------------------------------------------------------------------------+-------------------+
-| `"Hi, {0} v{version}".format({0:"Godette", "version":"%0.2f" % 3.114})` | Hi, Godette v3.11 |
-+---------------------------------------------------------------------------+-------------------+
+|---------------------------------------------------------------------------|-------------------|
+| `"Hi, {0} v{version}".format({0:"Godette", "version":"%0.2f" % 3.114})`   | Hi, Godette v3.11 |

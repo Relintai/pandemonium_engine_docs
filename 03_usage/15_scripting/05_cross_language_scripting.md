@@ -1,7 +1,6 @@
 
 
-Cross-language scripting
-========================
+# Cross-language scripting
 
 Pandemonium allows you to mix and match scripting languages to suit your needs.
 This means a single project can define nodes in both C# and GDScript.
@@ -33,14 +32,12 @@ gdscript GDScript
             print(msg)
 ```
 
-Instantiating nodes
--------------------
+## Instantiating nodes
 
 If you're not using nodes from the scene tree, you'll probably want to
 instantiate nodes directly from the code.
 
-Instantiating C# nodes from GDScript
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Instantiating C# nodes from GDScript
 
 Using C# from GDScript doesn't need much work. Once loaded
 (see `doc_gdscript_classes_as_resources`), the script can be instantiated
@@ -65,8 +62,7 @@ Warning:
     You also need to check your `.cs` file is referenced in the project's
     `.csproj` file. Otherwise, the same error will occur.
 
-Instantiating GDScript nodes from C#
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Instantiating GDScript nodes from C#
 
 From the C# side, everything work the same way. Once loaded, the GDScript can
 be instantiated with `GDScript.New()`.
@@ -79,11 +75,9 @@ be instantiated with `GDScript.New()`.
 Here we are using an `Object`, but you can use type conversion like
 explained in `doc_c_sharp_features_type_conversion_and_casting`.
 
-Accessing fields
-----------------
+## Accessing fields
 
-Accessing C# fields from GDScript
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Accessing C# fields from GDScript
 
 Accessing C# fields from GDScript is straightforward, you shouldn't have
 anything to worry about.
@@ -101,8 +95,7 @@ Note that it doesn't matter if the field is defined as a property or an
 attribute. However, trying to set a value on a property that does not define
 a setter will result in a crash.
 
-Accessing GDScript fields from C#
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Accessing GDScript fields from C#
 
 As C# is statically typed, accessing GDScript from C# is a bit more
 convoluted, you will have to use `Object.Get()`
@@ -121,11 +114,9 @@ Keep in mind that when setting a field value you should only use types the
 GDScript side knows about.
 Essentially, you want to work with built-in types as described in `doc_gdscript` or classes extending `Object`.
 
-Calling methods
----------------
+## Calling methods
 
-Calling C# methods from GDScript
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Calling C# methods from GDScript
 
 Again, calling C# methods from GDScript should be straightforward. The
 marshalling process will do its best to cast the arguments to match
@@ -142,8 +133,7 @@ If that's impossible, you'll see the following error: `Invalid call. Nonexistent
     my_csharp_node.PrintArray([1, 2, 3]) # 1, 2, 3
 ```
 
-Calling GDScript methods from C#
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Calling GDScript methods from C#
 
 To call GDScript methods from C# you'll need to use
 `Object.Call()`. The first argument is the
@@ -173,8 +163,7 @@ Warning:
     Otherwise, each element of your array will be treated as a single argument
     and the function signature won't match.
 
-Inheritance
------------
+## Inheritance
 
 A GDScript file may not inherit from a C# script. Likewise, a C# script may not
 inherit from a GDScript file. Due to how complex this would be to implement,

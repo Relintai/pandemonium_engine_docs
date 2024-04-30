@@ -1,7 +1,6 @@
 
 
-Creating script templates
-=========================
+# Creating script templates
 
 Pandemonium provides a way to use script templates as seen in the
 `Script Create Dialog` while creating a new script:
@@ -11,13 +10,11 @@ Pandemonium provides a way to use script templates as seen in the
 A set of default script templates is provided by default, but it's also possible
 to modify existing and create new ones, both per project and the editor.
 
-Locating the templates
-----------------------
+## Locating the templates
 
 There are two places where templates can be managed.
 
-Editor-defined templates
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Editor-defined templates
 
 These are available globally throughout any project. The location of these
 templates are determined per each OS:
@@ -30,8 +27,7 @@ If no `script_templates` is detected, Pandemonium will create a default set of
 built-in templates automatically, so this logic can be used to reset the default
 templates in case you've accidentally overwritten them.
 
-Project-defined templates
-~~~~~~~~~~~~~~~~~~~~~~~~~
+### Project-defined templates
 
 The default path to search for templates is the
 `res://script_templates/` directory. The path can be changed by configuring
@@ -41,8 +37,7 @@ the `editor/script_templates_search_path` setting in the
 If no `script_templates` directory is found within a project, it is simply
 ignored.
 
-Language support and overriding behavior
-----------------------------------------
+## Language support and overriding behavior
 
 Depending on whether a particular language implements a way to generate scripts
 out of templates, it's possible to create a template which can be recognized by
@@ -60,8 +55,7 @@ Note:
 The built-in editor templates are automatically shadowed by the project-specific
 templates given both scripts have the same filename.
 
-Default template
-----------------
+## Default template
 
 The `Default` template is always generated dynamically per language and cannot
 be configured nor overridden, but you can use these as the base for creating
@@ -89,45 +83,37 @@ gdscript GDScript
     #	pass
 ```
 
-List of template placeholders
------------------------------
+## List of template placeholders
 
 The following describes the complete list of built-in template placeholders
 which are currently implemented.
 
-Base placeholders
-~~~~~~~~~~~~~~~~~
+### Base placeholders
 
-+-------------+----------------------------------------------------------------+
+
 | Placeholder | Description                                                    |
-+=============+================================================================+
-| `%CLASS%` | The name of the new class (used in C# only).                   |
-+-------------+----------------------------------------------------------------+
-| `%BASE%`  | The base type a new script inherits from.                      |
-+-------------+----------------------------------------------------------------+
-| `%TS%`    | Indentation placeholder. The exact type and number of          |
+|-------------|----------------------------------------------------------------|
+| `%CLASS%`   | The name of the new class (used in C# only).                   |
+| `%BASE%`    | The base type a new script inherits from.                      |
+| `%TS%`      | Indentation placeholder. The exact type and number of          |
 |             | whitespace characters used for indentation is determined by    |
-|             | the `text_editor/indent/type` and `text_editor/indent/size`|
-|             | settings in the `EditorSettings`   |
+|             | the `text_editor/indent/type` and `text_editor/indent/size`    |
+|             | settings in the `EditorSettings`                               |
 |             | respectively.                                                  |
-+-------------+----------------------------------------------------------------+
 
-Type placeholders
-~~~~~~~~~~~~~~~~~
+
+### Type placeholders
 
 These are only relevant for GDScript with static typing. Whether these
 placeholders are actually replaced is determined by the
 `text_editor/completion/add_type_hints` setting in the
 `EditorSettings`.
 
-+-------------------+--------------+
+
 | Placeholder       | Value        |
-+===================+==============+
-| `%INT_TYPE%`    | `: int`    |
-+-------------------+--------------+
-| `%STRING_TYPE%` | `: String` |
-+-------------------+--------------+
-| `%FLOAT_TYPE%`  | `: float`  |
-+-------------------+--------------+
-| `%VOID_RETURN%` | `-> void`  |
-+-------------------+--------------+
+|-------------------|--------------|
+| `%INT_TYPE%`      | `: int`      |
+| `%STRING_TYPE%`   | `: String`   |
+| `%FLOAT_TYPE%`    | `: float`    |
+| `%VOID_RETURN%`   | `-> void`    |
+

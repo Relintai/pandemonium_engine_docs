@@ -1,10 +1,8 @@
 
 
-Console support in Pandemonium
-========================
+# Console support in Pandemonium
 
-Console publishing process
---------------------------
+## Console publishing process
 
 Regardless of the engine used to create the game, the process to publish a game
 to a console platform is as follows:
@@ -28,8 +26,7 @@ to a console platform is as follows:
 Due to the complexity of the process, the budget to publish a game by yourself on a
 single console often exceeds $1,000 (this is a rough figure).
 
-Official support
-----------------
+## Official support
 
 Pandemonium supports the Linux-based Steam Deck. The reason other consoles are not
 officially supported are:
@@ -55,8 +52,7 @@ Note:
     they are a licensed console developer. Doing so would violate the console
     manufacturer's NDA.
 
-Third-party support
--------------------
+## Third-party support
 
 Console ports of Pandemonium are offered by third-party companies (which have
 ported Pandemonium on their own). These companies also offer publishing of

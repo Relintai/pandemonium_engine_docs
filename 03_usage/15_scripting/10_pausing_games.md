@@ -1,10 +1,8 @@
 
 
-Pausing games and process mode
-==============================
+# Pausing games and process mode
 
-Introduction
-------------
+## Introduction
 
 In most games it is desirable to, at some point, interrupt the
 game to do something else, such as taking a break or changing options.
@@ -12,8 +10,7 @@ Implementing a fine-grained control for what can be paused (and what cannot)
 is a lot of work, so a simple framework for pausing is provided in
 Pandemonium.
 
-How pausing works
------------------
+## How pausing works
 
 To pause the game the pause state must be set. This is done by assigning
 `true` to the `SceneTree.paused` property:
@@ -32,8 +29,7 @@ Note:
  The physics servers can be made active while the game is
           paused by using their `set_active` methods.
 
-Process Modes
--------------
+## Process Modes
 
 Each node in Pandemonium has a "Pause Mode" that defines when it processes. It can
 be found and changed under a node's `Node` properties in the inspector.
@@ -78,8 +74,7 @@ paused physics will **NOT** work for it by default. As stated earlier this is
 because the physics servers are turned off. The physics servers can be made
 active while the game is paused by using their `set_active` methods.
 
-Pause Menu Example
-------------------
+## Pause Menu Example
 
 Here is an example of a pause menu. Create a popup or panel with controls
 inside, and set its pause mode to "Process" then hide it. By setting the

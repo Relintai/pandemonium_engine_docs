@@ -1,7 +1,6 @@
 
 
-Overview of debugging tools
-===========================
+# Overview of debugging tools
 
 This guide will give you an overview of the available debugging tools in the
 engine.
@@ -14,14 +13,12 @@ in the running game.
 Finally, you have options to debug the game running on a remote device
 and to reload changes to your scenes or your code while the game is running.
 
-Debugger Panel
---------------
+## Debugger Panel
 
 Many of Pandemonium's debugging tools are part of the Debugger panel, which you can
 find information about in `doc_debugger_panel`.
 
-Debug menu options
-------------------
+## Debug menu options
 
 There are a few common debug options you can toggle on or off when running
 your game in the editor, which can help you in debugging your game.
@@ -32,14 +29,12 @@ You can find these options in the **Debug** editor menu.
 
 Here are the descriptions of the options:
 
-Deploy with Remote Debug
-++++++++++++++++++++++++
+#### Deploy with Remote Debug
 
 When exporting and deploying, the resulting executable will attempt to connect
 to the IP of your computer for debugging.
 
-Small Deploy with Network FS
-++++++++++++++++++++++++++++
+#### Small Deploy with Network FS
 
 This option speeds up testing for games with a large footprint on remote devices.
 
@@ -49,31 +44,26 @@ from the project over the network.
 
 Also, on Android, the game is deployed using the USB cable to speed up deployment.
 
-Visible Collision Shapes
-++++++++++++++++++++++++
+#### Visible Collision Shapes
 
 This option makes collision shapes and raycast nodes visible in the running game.
 
-Visible Navigation
-++++++++++++++++++
+#### Visible Navigation
 
 Navigation meshes and polygons will be visible on the running game.
 
-Sync Scene Changes
-++++++++++++++++++
+#### Sync Scene Changes
 
 With this option, any change you make to a scene in the editor at runtime
 appears instantly. When used remotely on a device, this is more efficient
 with the network filesystem.
 
-Sync Script Changes
-+++++++++++++++++++
+#### Sync Script Changes
 
 Any script that is saved will be reloaded on the running game. When used
 remotely on a device, this is more efficient with the network filesystem.
 
-Script editor debug tools and options
--------------------------------------
+## Script editor debug tools and options
 
 The script editor has its own set of debug tools for use with breakpoints and
 two options. The breakpoint tools can also be found in the **Debugger** tab
@@ -97,33 +87,28 @@ Warning:
     `running in a thread ( doc_using_multiple_threads )`.
     This is a current limitation of the GDScript debugger.
 
-Debug project settings
-----------------------
+## Debug project settings
 
 In the project settings, there is a **Debug** category with three subcategories
 which control different things.
 
-Settings
-++++++++
+#### Settings
 
 These are some general settings such as printing the current FPS
 to the **Output** panel, the maximum amount of functions when profiling
 and others.
 
-GDScript
-++++++++
+#### GDScript
 
 These settings allow you to toggle specific GDScript warnings, such as for
 unused variables. You can also turn off warnings completely.
 
-Shapes
-++++++
+#### Shapes
 
 Shapes are where you can adjust the color of shapes that only appear for
 debugging purposes, such as collision and navigation shapes.
 
-Remote in scene dock
---------------------
+## Remote in scene dock
 
 When running a game in the editor two options appear at the top of the **Scene**
 dock, **Remote** and **Local**. While using **Remote** you can inspect or change

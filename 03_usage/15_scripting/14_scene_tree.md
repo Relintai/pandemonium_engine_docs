@@ -1,17 +1,14 @@
 
 
-Using SceneTree
-===============
+# Using SceneTree
 
-Introduction
-------------
+## Introduction
 
 In previous tutorials, everything revolved around the concept of
 nodes. Scenes are collections of nodes. They become active once
 they enter the *scene tree*.
 
-MainLoop
---------
+## MainLoop
 
 The way Pandemonium works internally is as follows. There is the
 `OS` class,
@@ -29,8 +26,7 @@ methods, for initialization, idle (frame-synchronized callback), fixed
 (physics-synchronized callback), and input. Again, this is low
 level and when making games in Pandemonium, writing your own MainLoop seldom makes sense.
 
-SceneTree
----------
+## SceneTree
 
 One of the ways to explain how Pandemonium works is that it's a high level
 game engine over a low level middleware.
@@ -59,8 +55,7 @@ When a node is part of the Scene Tree, the
 singleton can be obtained by calling
 `Node.get_tree()`.
 
-Root viewport
--------------
+## Root viewport
 
 The root `Viewport`
 is always at the top of the scene. From a node, it can be obtained in
@@ -82,8 +77,7 @@ While other viewports can be created in the scene (for split-screen
 effects and such), this one is the only one that is never created by the
 user. It's created automatically inside SceneTree.
 
-Scene tree
-----------
+## Scene tree
 
 When a node is connected, directly or indirectly, to the root
 viewport, it becomes part of the *scene tree*.
@@ -98,8 +92,7 @@ to everything they need to process, get input, display 2D and 3D visuals,
 receive and send notifications, play sounds, etc. When they are removed from the
 *scene tree*, they lose these abilities.
 
-Tree order
-----------
+## Tree order
 
 Most node operations in Pandemonium, such as drawing 2D, processing, or getting
 notifications are done in tree order. This means that parents and
@@ -108,25 +101,23 @@ the current node.
 
 ![](img/toptobottom.png)
 
-"Becoming active" by entering the *Scene Tree*
-----------------------------------------------
+## "Becoming active" by entering the *Scene Tree*
 
-#. A scene is loaded from disk or created by scripting.
-#. The root node of that scene (only one root, remember?) is added as
+1. A scene is loaded from disk or created by scripting.
+2. The root node of that scene (only one root, remember?) is added as
    either a child of the "root" Viewport (from SceneTree), or to any
    child or grandchild of it.
-#. Every node of the newly added scene, will receive the "enter_tree"
+3. Every node of the newly added scene, will receive the "enter_tree"
    notification ( _enter_tree() callback in GDScript) in top-to-bottom
    order.
-#. An extra notification, "ready" ( _ready() callback in GDScript) is
+4. An extra notification, "ready" ( _ready() callback in GDScript) is
    provided for convenience, when a node and all its children are
    inside the active scene.
-#. When a scene (or part of it) is removed, they receive the "exit
+5. When a scene (or part of it) is removed, they receive the "exit
    scene" notification ( _exit_tree() callback in GDScript) in
    bottom-to-top order
 
-Changing current scene
-----------------------
+## Changing current scene
 
 After a scene is loaded, it is often desired to change this scene for
 another one. The simple way to do this is to use the

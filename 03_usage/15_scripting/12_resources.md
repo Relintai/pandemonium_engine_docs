@@ -1,10 +1,8 @@
 
 
-Resources
-=========
+# Resources
 
-Nodes and resources
--------------------
+## Nodes and resources
 
 Up to this tutorial, we focused on the `Node`
 class in Pandemonium as that's the one you use to code behavior and
@@ -18,10 +16,8 @@ do anything on their own: instead, nodes use the data contained in resources.
 
 Anything Pandemonium saves or loads from disk is a resource. Be it a scene (a `.tscn`
 or an `.scn` file), an image, a script... Here are some `Resource` examples:
-`Texture`, `Mesh
-( Mesh )`, `Animation`, `AudioStream
-( AudioStream )`, `Font`, `Translation
-( Translation )`.
+`Texture`, `Mesh( Mesh )`, `Animation`, `AudioStream( AudioStream )`, `Font`, 
+`Translation( Translation )`.
 
 When the engine loads a resource from disk, **it only loads it once**. If a copy
 of that resource is already in memory, trying to load the resource again will
@@ -35,8 +31,7 @@ resources as properties:
 
 ![](img/nodes_resources.png)
 
-External vs built-in
---------------------
+## External vs built-in
 
 There are two ways to save resources. They can be:
 
@@ -63,12 +58,10 @@ save, Pandemonium will save the image inside the `.tscn` scene file.
 
 Note:
 
-
     Even if you save a built-in resource, when you instance a scene multiple
     times, the engine will only load one copy of it.
 
-Loading resources from code
----------------------------
+## Loading resources from code
 
 There are two ways to load resources from code. First, you can use the `load()` function anytime:
 
@@ -92,8 +85,7 @@ gdscript GDScript
             get_node("sprite").texture = res
 ```
 
-Loading scenes
---------------
+## Loading scenes
 
 Scenes are also resources, but there is a catch. Scenes saved to disk are
 resources of type `PackedScene`. The
@@ -120,15 +112,13 @@ enemies, bullets, effects, etc. without having to load them again from disk each
 time. Remember that, as always, images, meshes, etc. are all shared between the
 scene instances.
 
-Freeing resources
------------------
+## Freeing resources
 
 When a `Resource` is no longer in use, it will automatically free itself.
 Since, in most cases, Resources are contained in Nodes, when you free a node,
 the engine frees all the resources it owns as well if no other node uses them.
 
-Creating your own resources
----------------------------
+## Creating your own resources
 
 Like any Object in Pandemonium, users can also script Resources. Resource scripts
 inherit the ability to freely translate between object properties and serialized
@@ -272,4 +262,4 @@ Warning:
 
             # This will NOT serialize the 'value' property.
             ResourceSaver.save("res://my_res.tres", my_res)
-      ```
+    ```

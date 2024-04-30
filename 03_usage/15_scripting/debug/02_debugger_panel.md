@@ -1,7 +1,6 @@
 
 
-Debugger panel
-==============
+# Debugger panel
 
 Many of Pandemonium's debugging tools, including the debugger, can be found in the
 debugger panel at the bottom of the screen. Click on **Debugger** to open it.
@@ -10,8 +9,7 @@ debugger panel at the bottom of the screen. Click on **Debugger** to open it.
 
 The debugger panel is split into several tabs, each focusing on a specific task.
 
-Debugger
-++++++++
+#### Debugger
 
 The Debugger tab opens automatically when the GDScript compiler reaches
 a breakpoint in your code.
@@ -39,15 +37,13 @@ Warning:
     `running in a thread ( doc_using_multiple_threads )`.
     This is a current limitation of the GDScript debugger.
 
-Errors
-++++++
+#### Errors
 
 This is where error and warning messages are printed while running the game.
 
 You can disable specific warnings in **Project Settings > Debug > GDScript**.
 
-Profiler
-++++++++
+#### Profiler
 
 The debugger comes with three profilers for your processor, network operations,
 and video memory.
@@ -76,24 +72,21 @@ If you want to add something to your graph or think it looks too cluttered,
 you can check and uncheck the box next to an item to add or remove it
 from the graph.
 
-Network Profiler
-++++++++++++++++
+#### Network Profiler
 
 The Network Profiler contains a list of all the nodes that communicate over the
 multiplayer API and, for each one, some counters on the amount of incoming and
 outgoing network interactions. It also features a bandwidth meter that displays
 the total bandwidth usage at any given moment.
 
-Monitors
-++++++++
+#### Monitors
 
 The monitors are graphs of several aspects of the game while its running such as
 FPS, memory usage, how many nodes are in a scene and more. All monitors keep
 track of stats automatically, so even if one monitor isn't open while the game
 is running, you can open it later and see how the values changed.
 
-Video RAM
-+++++++++
+#### Video RAM
 
 The **Video RAM** tab shows the video RAM usage of the game while it is running.
 It provides a list of every resource using video RAM by resource path, the type
@@ -102,8 +95,7 @@ using. There is also a total video RAM usage number at the top right of the pane
 
 ![](img/video_ram.png)
 
-Misc
-++++
+#### Misc
 
 The **Misc** tab contains tools to identify the control nodes you are clicking
 at runtime:

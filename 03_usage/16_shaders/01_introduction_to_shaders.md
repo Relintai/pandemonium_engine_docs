@@ -1,7 +1,6 @@
 
 
-Introduction to shaders
-=======================
+# Introduction to shaders
 
 This page explains what shaders are and will give you an overview of how they
 work in Pandemonium. For a detailed reference of the engine's shading language, see
@@ -42,11 +41,9 @@ look like this.
 
 Note:
 
-
    The graphics card calls the `fragment()` function once or more for each pixel it has to draw. More on that below.
 
-Shaders in Pandemonium
-----------------
+## Shaders in Pandemonium
 
 Pandemonium provides a shading language based on the popular OpenGL Shading Language
 (GLSL) but simplified. The engine handles some of the lower-level initialization
@@ -73,8 +70,7 @@ Warning:
     enabled in the Project Settings. It's enabled by default on mobile
     platforms.
 
-Shader types
-------------
+## Shader types
 
 Instead of supplying a general-purpose configuration for all uses (2D, 3D,
 particles), you must specify the type of shader you're writing. Different types
@@ -92,8 +88,7 @@ Here are the available types:
 * `canvas_item ( doc_canvas_item_shader )` for 2D rendering.
 * `particles ( doc_particle_shader )` for particle systems.
 
-Render modes
-------------
+## Render modes
 
 Shaders have optional render modes you can specify on the second line, after the
 shader type, like so:
@@ -109,16 +104,14 @@ Render modes alter the way Pandemonium applies the shader. For example, the
 Each shader type has different render modes. See the reference for each shader
 type for a complete list of render modes.
 
-Processor functions
--------------------
+## Processor functions
 
 Depending on the shader type, you can override different processor functions.
 For `spatial` and `canvas_item`, you have access to `vertex()`,
 `fragment()`, and `light()`. For `particles`, you only have access to
 `vertex()`.
 
-Vertex processor
-^^^^^^^^^^^^^^^^
+#### Vertex processor
 
 The `vertex()` processing function is called once for every vertex in
 `spatial` and `canvas_item` shaders. For `particles` shaders, it is called
@@ -133,8 +126,7 @@ to project geometry onto the screen. You can use render modes to transform the
 data yourself; see the `Spatial shader doc ( doc_spatial_shader )` for an
 example.
 
-Fragment processor
-^^^^^^^^^^^^^^^^^^
+#### Fragment processor
 
 The `fragment()` processing function is used to set up the Pandemonium material
 parameters per pixel. This code runs on every visible pixel the object or
@@ -152,8 +144,7 @@ Pandemonium checks to see if `RIM` is used; if not, it cuts all the correspondin
 code out. Therefore, you will not waste calculations on the effects that you do
 not use.
 
-Light processor
-^^^^^^^^^^^^^^^
+#### Light processor
 
 The `light()` processor runs per pixel too, and it runs once for every light
 that affects the object. It does not run if no lights affect the object. It

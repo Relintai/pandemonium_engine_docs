@@ -1,10 +1,8 @@
 
 
-Multiple resolutions
-====================
+# Multiple resolutions
 
-The problem of multiple resolutions
------------------------------------
+## The problem of multiple resolutions
 
 Developers often have trouble understanding how to best support multiple
 resolutions in their games. For desktop and console games, this is more or less
@@ -33,8 +31,7 @@ Since layouts, aspect ratios, resolutions, and pixel densities can change so
 much, it is no longer possible to design UIs for every specific screen.
 Another method must be used.
 
-One size fits all
------------------
+## One size fits all
 
 The most common approach is to use a single *base* resolution and
 then fit it to everything else. This resolution is how most players are expected
@@ -48,8 +45,7 @@ handle scaling for different sizes and aspect ratios.
 
 Pandemonium provides several useful tools to do this easily.
 
-Base size
----------
+## Base size
 
 A base size for the window can be specified in the Project Settings under
 **Display → Window**.
@@ -85,8 +81,7 @@ Note:
    out of a game much slower since the monitor has to change resolutions every
    time this is done.
 
-Resizing
---------
+## Resizing
 
 There are several types of devices, with several types of screens, which
 in turn have different pixel density and resolutions. Handling all of
@@ -102,15 +97,13 @@ most flexible way to deal with the problem, it can be a lot of work,
 code and guessing, so Pandemonium provides a simple set of parameters in the
 project settings to handle multiple resolutions.
 
-Stretch settings
-----------------
+## Stretch settings
 
 Stretch settings are located in the project settings and provide several options:
 
 ![](img/stretchsettings.png)
 
-Stretch Mode
-^^^^^^^^^^^^
+#### Stretch Mode
 
 The **Stretch Mode** setting defines how the base size is stretched to fit
 the resolution of the window or screen.
@@ -152,8 +145,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
 
    ![](img/stretch_viewport_expand.gif)
 
-Stretch Aspect
-^^^^^^^^^^^^^^
+#### Stretch Aspect
 
 The second setting is the stretch aspect. Note that this only takes effect if
 **Stretch Mode** is set to something other than **Disabled**.
@@ -230,8 +222,7 @@ Tip:
     To allow the user to choose their preferred screen orientation at run-time,
     remember to set **Display > Window > Handheld > Orientation** to `sensor`.
 
-Stretch Shrink
-^^^^^^^^^^^^^^
+#### Stretch Shrink
 
 The **Shrink** setting allows you to add an extra scaling factor on top of
 what the **Stretch** options above already provide. The default value of 1
@@ -247,21 +238,18 @@ in the output are scaled up by the same amount. This is rarely useful for
 2D games, but can be used to increase performance in 3D games
 by rendering them at a lower resolution.
 
-From scripts
-^^^^^^^^^^^^
+#### From scripts
 
 To configure stretching at runtime from a script, use the
 `get_tree().set_screen_stretch()` method (see
 `SceneTree.set_screen_stretch()`).
 
-Common use case scenarios
--------------------------
+## Common use case scenarios
 
 The following settings are recommended to support multiple resolutions and aspect
 ratios well.
 
-Desktop game
-^^^^^^^^^^^^
+#### Desktop game
 
 **Non-pixel art:**
 
@@ -307,8 +295,7 @@ Note:
     final window size is not a multiple of the base window size.
     To fix this, use an add-on such as the `Integer Resolution Handler ( https://github.com/Yukitty/pandemonium-addon-integer_resolution_handler )`.
 
-Mobile game in landscape mode
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Mobile game in landscape mode
 
 Pandemonium is configured to use landscape mode by default. This means you don't need
 to change the display orientation project setting.
@@ -328,8 +315,7 @@ to change the display orientation project setting.
   and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
 - Configure Control nodes' anchors to snap to the correct corners using the **Layout** menu.
 
-Mobile game in portrait mode
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Mobile game in portrait mode
 
 - Set the base window width to `720` and window height to `1080`.
 - Alternatively, if you're targeting high-end devices primarily, set the base
@@ -347,8 +333,7 @@ Mobile game in portrait mode
   and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
 - Configure Control nodes' anchors to snap to the correct corners using the **Layout** menu.
 
-Non-game application
-^^^^^^^^^^^^^^^^^^^^
+#### Non-game application
 
 - Set the base window width and height to the smallest window size that you intend to target.
   This is not required, but this ensures that you design your UI with small window sizes in mind.
@@ -367,8 +352,7 @@ Note:
     is recommended to leave **Allow Hidpi** disabled in non-game applications to
     allow for the OS to use its low-DPI fallback.
 
-hiDPI support
--------------
+## hiDPI support
 
 By default, Pandemonium projects aren't considered DPI-aware by the operating system.
 This is done to improve performance on low-end systems, since the operating
@@ -392,8 +376,7 @@ Note:
 
 
 
-Reducing aliasing on downsampling
----------------------------------
+## Reducing aliasing on downsampling
 
 If the game has a very high base resolution (e.g. 3840×2160), aliasing might
 appear when downsampling to something considerably lower like 1280×720.
@@ -409,16 +392,14 @@ Alternatively, you can also enable mipmaps on all your 2D textures. However,
 enabling mipmaps will increase memory usage which may be problematic on low-end
 mobile devices.
 
-Handling aspect ratios
-----------------------
+## Handling aspect ratios
 
 Once scaling for different resolutions is accounted for, make sure that
 your *user interface* also scales for different aspect ratios. This can be
 done using `anchors ( doc_size_and_anchors )` and/or `containers
 ( doc_gui_containers )`.
 
-Field of view scaling
----------------------
+## Field of view scaling
 
 The 3D Camera node's **Keep Aspect** property defaults to the **Keep Height**
 scaling mode (also called *Hor+*). This is usually the best value for desktop
@@ -430,8 +411,7 @@ more sense to use **Keep Width** instead (also called *Vert-*). This way,
 smartphones with an aspect ratio taller than 16:9 (e.g. 19:9) will use a
 *taller* field of view, which is more logical here.
 
-Scaling 2D and 3D elements differently using Viewports
-------------------------------------------------------
+## Scaling 2D and 3D elements differently using Viewports
 
 Using multiple Viewport nodes, you can have different scales for various
 elements. For instance, you can use this to render the 3D world at a low

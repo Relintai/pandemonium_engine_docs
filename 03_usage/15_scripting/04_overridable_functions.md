@@ -1,7 +1,6 @@
 
 
-Overridable functions
-=====================
+# Overridable functions
 
 Pandemonium's Node class provides virtual functions you can override to update nodes
 every frame or on specific events, like when they enter the scene tree.
@@ -76,7 +75,7 @@ every key press, mouse click, etc. that have not been handled already in an
 gameplay input in general. The `input()` callback allows you to intercept and
 process input events before `unhandled_input()` gets them.
 
-To learn more about inputs in Pandemonium, see the `Input section <toc-learn-features-inputs )`.
+To learn more about inputs in Pandemonium, see the `Input section ( toc-learn-features-inputs )`.
 
 gdscript GDScript
 

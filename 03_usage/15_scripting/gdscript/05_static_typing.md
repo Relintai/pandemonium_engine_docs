@@ -1,7 +1,6 @@
 
 
-Static typing in GDScript
-=========================
+# Static typing in GDScript
 
 In this guide, you will learn:
 
@@ -17,11 +16,9 @@ and return types.
 
 Note:
 
-
     Typed GDScript is available since Pandemonium 3.1.
 
-A brief look at static typing
------------------------------
+## A brief look at static typing
 
 With typed GDScript, Pandemonium can detect even more errors as you write
 code! It gives you and your teammates more information as you're
@@ -60,15 +57,17 @@ options for a class called `PlayerController`.
 You've probably stored a node in a variable before, and typed a dot to
 be left with no autocomplete suggestions:
 
-.. figure:: img/typed_gdscript_code_completion_dynamic.png)
-   :alt: code completion options for dynamic
+![code completion options for dynamic](img/typed_gdscript_code_completion_dynamic.png)
+
+code completion options for dynamic
 
 This is due to dynamic code. Pandemonium cannot know what node or value type
 you're passing to the function. If you write the type explicitly
 however, you will get all public methods and variables from the node:
 
-.. figure:: img/typed_gdscript_code_completion_typed.png)
-   :alt: code completion options for typed
+![code completion options for typed](img/typed_gdscript_code_completion_typed.png)
+
+code completion options for typed
 
 In the future, typed GDScript will also increase code performance:
 Just-In-Time compilation and other compiler improvements are already
@@ -82,8 +81,7 @@ their time reading other people's code, or scripts they wrote in the
 past and forgot about. The clearer and the more structured the code, the
 faster it is to understand, the faster you can move forward.
 
-How to use static typing
-------------------------
+## How to use static typing
 
 To define the type of a variable or a constant, write a colon after the
 variable's name, followed by its type. E.g. `var health: int`. This
@@ -113,11 +111,9 @@ Currently you can use three types of… types:
 
 Note:
 
-
     You don't need to write type hints for constants, as Pandemonium sets it automatically from the assigned value. But you can still do so to make the intent of your code clearer.
 
-Custom variable types
-~~~~~~~~~~~~~~~~~~~~~
+### Custom variable types
 
 You can use any class, including your custom classes, as types. There
 are two ways to use them in scripts. The first method is to preload the
@@ -144,8 +140,7 @@ into a constant:
     var my_rifle: Rifle
 ```
 
-Variable casting
-~~~~~~~~~~~~~~~~
+### Variable casting
 
 Type casting is a key concept in typed languages.
 Casting is the conversion of a value from one type to another.
@@ -178,13 +173,11 @@ get full autocompletion on the player variable thanks to that cast.
 
 Note:
 
-
     If you try to cast with a built-in type and it fails, Pandemonium will throw an error.
 
 
 
-Safe lines
-^^^^^^^^^^
+#### Safe lines
 
 You can also use casting to ensure safe lines. Safe lines are a new
 tool in Pandemonium 3.1 to tell you when ambiguous lines of code are
@@ -205,18 +198,15 @@ node: `($Timer as Timer)`, `($Player as KinematicBody2D)`, etc.
 Pandemonium will ensure the type works and if so, the line number will turn
 green at the left of the script editor.
 
-.. figure:: img/typed_gdscript_safe_unsafe_line.png)
-   :alt: Unsafe vs Safe Line
+![Unsafe vs Safe Line](img/typed_gdscript_safe_unsafe_line.png)
 
-   Unsafe line (line 7) vs Safe Lines (line 6 and 8)
+Unsafe line (line 7) vs Safe Lines (line 6 and 8)
 
 Note:
 
-
     You can turn off safe lines or change their color in the editor settings.
 
-Define the return type of a function with the arrow ->
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#### Define the return type of a function with the arrow ->
 
 To define the return type of a function, write a dash and a right angle
 bracket `- )` after its declaration, followed by the return type:
@@ -250,8 +240,7 @@ You can also use your own nodes as return types:
         return item
 ```
 
-Typed or dynamic: stick to one style
-------------------------------------
+#### Typed or dynamic: stick to one style
 
 Typed GDScript and dynamic GDScript can coexist in the same project. But
 it's recommended to stick to either style for consistency in your codebase,
@@ -262,6 +251,7 @@ people's code.
 Typed code takes a little more writing, but you get the benefits we
 discussed above. Here's an example of the same, empty script, in a
 dynamic style:
+
 
 ```
     extends Node
@@ -321,17 +311,14 @@ we make sure it is our `Bullet`, a node we created for our project. If
 it's anything else, like an `Area2D`, or any node that doesn't extend
 `Bullet`, the `bullet` variable will be `null`.
 
-Warning system
---------------
+## Warning system
 
 Note:
-
 
     Documentation about the GDScript warning system has been moved to
     `doc_gdscript_warning_system`.
 
-Cases where you can't specify types
------------------------------------
+## Cases where you can't specify types
 
 To wrap up this introduction, let's cover a few cases where you can't
 use type hints. All the examples below **will trigger errors**.
@@ -382,8 +369,7 @@ Two scripts can't depend on each other in a cyclic fashion:
     var player: Player
 ```
 
-Summary
--------
+## Summary
 
 Typed GDScript is a powerful tool. Available as of version 3.1 of Pandemonium, it
 helps you write more structured code, avoid common errors, and

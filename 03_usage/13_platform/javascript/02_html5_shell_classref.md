@@ -1,7 +1,5 @@
 
-
-HTML5 shell class reference
-===========================
+# HTML5 shell class reference
 
 Projects exported for the Web expose the :js:class:`Engine` class to the JavaScript environment, that allows
 fine control over the engine's start-up process.
@@ -9,40 +7,32 @@ fine control over the engine's start-up process.
 This API is built in an asynchronous manner and requires basic understanding
 of `Promises ( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises )`.
 
-Engine
-------
+## Engine
 
 The `Engine` class provides methods for loading and starting exported projects on the Web. For default export
 settings, this is already part of the exported HTML page. To understand practical use of the `Engine` class,
 see `Custom HTML page for Web export ( doc_customizing_html5_shell )`.
 
-Static Methods
-^^^^^^^^^^^^^^
+#### Static Methods
 
-+---------+-----------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`load <Engine.load )` **(** string basePath **)**                                     |
-+---------+-----------------------------------------------------------------------------------------------+
-| void    | :js:attr:`unload <Engine.unload )` **(** **)**                                                 |
-+---------+-----------------------------------------------------------------------------------------------+
-| boolean | :js:attr:`isWebGLAvailable <Engine.isWebGLAvailable )` **(** *[ number majorVersion=1 ]* **)** |
-+---------+-----------------------------------------------------------------------------------------------+
+|         |                                                                                                |
+|---------|------------------------------------------------------------------------------------------------|
+| Promise | :js:attr:`load ( Engine.load )` **(** string basePath **)**                                     |
+| void    | :js:attr:`unload ( Engine.unload )` **(** **)**                                                 |
+| boolean | :js:attr:`isWebGLAvailable ( Engine.isWebGLAvailable )` **(** *[ number majorVersion=1 ]* **)** |
 
-Instance Methods
-^^^^^^^^^^^^^^^^
 
-+---------+---------------------------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`init <Engine.prototype.init )` **(** *[ string basePath ]* **)**                                     |
-+---------+---------------------------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`preloadFile <Engine.prototype.preloadFile )` **(** string\|ArrayBuffer file *[, string path ]* **)** |
-+---------+---------------------------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`start <Engine.prototype.start )` **(** EngineConfig override **)**                                   |
-+---------+---------------------------------------------------------------------------------------------------------------+
-| Promise | :js:attr:`startGame <Engine.prototype.startGame )` **(** EngineConfig override **)**                           |
-+---------+---------------------------------------------------------------------------------------------------------------+
-| void    | :js:attr:`copyToFS <Engine.prototype.copyToFS )` **(** string path, ArrayBuffer buffer **)**                   |
-+---------+---------------------------------------------------------------------------------------------------------------+
-| void    | :js:attr:`requestQuit <Engine.prototype.requestQuit )` **(** **)**                                             |
-+---------+---------------------------------------------------------------------------------------------------------------+
+#### Instance Methods
+
+|         |                                                                                                                |
+|---------|----------------------------------------------------------------------------------------------------------------|
+| Promise | :js:attr:`init ( Engine.prototype.init )` **(** *[ string basePath ]* **)**                                     |
+| Promise | :js:attr:`preloadFile ( Engine.prototype.preloadFile )` **(** string\|ArrayBuffer file *[, string path ]* **)** |
+| Promise | :js:attr:`start ( Engine.prototype.start )` **(** EngineConfig override **)**                                   |
+| Promise | :js:attr:`startGame ( Engine.prototype.startGame )` **(** EngineConfig override **)**                           |
+| void    | :js:attr:`copyToFS ( Engine.prototype.copyToFS )` **(** string path, ArrayBuffer buffer **)**                   |
+| void    | :js:attr:`requestQuit ( Engine.prototype.requestQuit )` **(** **)**                                             |
+
 
 .. js:class:: Engine( initConfig )
 
@@ -123,9 +113,9 @@ Instance Methods
    .. js:function:: prototype.start( override )
 
       Start the engine instance using the given override configuration (if any).
-      :js:meth:`startGame <Engine.prototype.startGame )` can be used in typical cases instead.
+      :js:meth:`startGame ( Engine.prototype.startGame )` can be used in typical cases instead.
 
-      This will initialize the instance if it is not initialized. For manual initialization, see :js:meth:`init <Engine.prototype.init )`.
+      This will initialize the instance if it is not initialized. For manual initialization, see :js:meth:`init ( Engine.prototype.init )`.
       The engine must be loaded beforehand.
 
       Fails if a canvas cannot be found on the page, or not specified in the configuration.
@@ -142,7 +132,7 @@ Instance Methods
 
       Start the game instance using the given configuration override (if any).
 
-      This will initialize the instance if it is not initialized. For manual initialization, see :js:meth:`init <Engine.prototype.init )`.
+      This will initialize the instance if it is not initialized. For manual initialization, see :js:meth:`init ( Engine.prototype.init )`.
 
       This will load the engine if it is not loaded, and preload the main pck.
 
@@ -174,42 +164,28 @@ Instance Methods
       This is akin the user pressing the close button in the window manager, and will
       have no effect if the engine has crashed, or is stuck in a loop.
 
-Engine configuration
---------------------
+## Engine configuration
 
 An object used to configure the Engine instance based on pandemonium export options, and to override those in custom HTML
 templates if needed.
 
-Properties
-^^^^^^^^^^
+#### Properties
 
-+-------------------+-------------------------------+
-| type              | name                          |
-+-------------------+-------------------------------+
-| boolean           | :js:attr:`unloadAfterInit`    |
-+-------------------+-------------------------------+
-| HTMLCanvasElement | :js:attr:`canvas`             |
-+-------------------+-------------------------------+
-| string            | :js:attr:`executable`         |
-+-------------------+-------------------------------+
-| string            | :js:attr:`mainPack`           |
-+-------------------+-------------------------------+
-| string            | :js:attr:`locale`             |
-+-------------------+-------------------------------+
-| number            | :js:attr:`canvasResizePolicy` |
-+-------------------+-------------------------------+
-| Array.<string>    | :js:attr:`args`               |
-+-------------------+-------------------------------+
-| function          | :js:attr:`onExecute`          |
-+-------------------+-------------------------------+
-| function          | :js:attr:`onExit`             |
-+-------------------+-------------------------------+
-| function          | :js:attr:`onProgress`         |
-+-------------------+-------------------------------+
-| function          | :js:attr:`onPrint`            |
-+-------------------+-------------------------------+
-| function          | :js:attr:`onPrintError`       |
-+-------------------+-------------------------------+
+| type                 | name                          |
+|----------------------|-------------------------------|
+| boolean              | :js:attr:`unloadAfterInit`    |
+| HTMLCanvasElement    | :js:attr:`canvas`             |
+| string               | :js:attr:`executable`         |
+| string               | :js:attr:`mainPack`           |
+| string               | :js:attr:`locale`             |
+| number               | :js:attr:`canvasResizePolicy` |
+| Array.&lt;string&gt; | :js:attr:`args`               |
+| function             | :js:attr:`onExecute`          |
+| function             | :js:attr:`onExit`             |
+| function             | :js:attr:`onProgress`         |
+| function             | :js:attr:`onPrint`            |
+| function             | :js:attr:`onPrintError`       |
+
 
 .. js:attribute:: EngineConfig
 
@@ -285,9 +261,9 @@ Properties
 
       See `command line tutorial ( doc_command_line_tutorial )`.
 
-      **Note**: :js:meth:`startGame <Engine.prototype.startGame )` will always add the `--main-pack` argument.
+      **Note**: :js:meth:`startGame ( Engine.prototype.startGame )` will always add the `--main-pack` argument.
 
-      :type: Array.<string>
+      :type: Array.&lt;string&gt;
 
       :value: `[]`
 
@@ -300,7 +276,7 @@ Properties
       :param string path:
          The path that Pandemonium's wants executed.
 
-      :param Array.<string> args:
+      :param Array.&lt;string&gt; args:
          The arguments of the "command" to execute.
 
    .. js:function:: onExit( status_code )

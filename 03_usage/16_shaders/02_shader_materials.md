@@ -1,10 +1,8 @@
 
 
-Shader materials
-================
+# Shader materials
 
-Introduction
-------------
+## Introduction
 
 For the most common cases, Pandemonium provides ready to use materials for
 most types of shaders, such as `SpatialMaterial`,
@@ -28,8 +26,7 @@ easier. Additionally, Pandemonium's shader editor will detect errors as you
 type, so you can see your edited shaders in real-time. It is also
 possible to edit shaders using a visual, node-based graph editor.
 
-Creating a ShaderMaterial
--------------------------
+## Creating a ShaderMaterial
 
 Create a new ShaderMaterial in some object of your choice. Go to the
 "Material" property and create a ShaderMaterial.
@@ -63,12 +60,9 @@ your visual shader to a text shader.
 ![](img/visual_shader_code.png)
 
 Note:
-
-
    To learn more about visual shaders, read `doc_visual_shaders`.
 
-Converting to ShaderMaterial
-----------------------------
+## Converting to ShaderMaterial
 
 It is possible to convert from SpatialMaterial, CanvasItemMaterial and
 ParticlesMaterial to ShaderMaterial. To do so, go to the material properties
@@ -77,7 +71,6 @@ and select the convert option.
 ![](img/shader_material_convert.png)
 
 Note:
-
 
    Using the convert option will turn the SpatialMaterial into a ShaderMaterial
    with a text shader, not a visual shader.

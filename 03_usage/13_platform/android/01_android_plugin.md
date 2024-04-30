@@ -40,8 +40,8 @@ As a prerequisite, make sure you understand how to set up a `custom build enviro
 At its core, a Pandemonium Android plugin is a `Android archive library ( https://developer.android.com/studio/projects/android-library#aar-contents )` (*aar* archive file)
 with the following caveats:
 
-- The library must have a dependency on the Pandemonium engine library (`pandemonium-lib.<version>.<status>.aar`). A stable version is made available for each Pandemonium release on the `Pandemonium download page ( https://pandemoniumengine.org/download )`.
-- The library must include a specifically configured `<meta-data )` tag in its manifest file.
+- The library must have a dependency on the Pandemonium engine library (`pandemonium-lib.&lt;version>.&lt;status>.aar`). A stable version is made available for each Pandemonium release on the `Pandemonium download page ( https://pandemoniumengine.org/download )`.
+- The library must include a specifically configured `&lt;meta-data&gt;` tag in its manifest file.
 
 #### Building an Android plugin
 
@@ -52,7 +52,7 @@ The instructions below assumes that you're using Android Studio.
 
 2. Add the Pandemonium engine library as a dependency to your plugin module:
 
-  - Download the Pandemonium engine library (`pandemonium-lib.<version>.<status>.aar`) from the `Pandemonium download page ( https://pandemoniumengine.org/download )` (e.g.: `pandemonium-lib.3.4.2.stable.release.aar`). 
+  - Download the Pandemonium engine library (`pandemonium-lib.&lt;version>.&lt;status>.aar`) from the `Pandemonium download page ( https://pandemoniumengine.org/download )` (e.g.: `pandemonium-lib.3.4.2.stable.release.aar`). 
   - Follow `these instructions ( https://developer.android.com/studio/projects/android-library#AddDependency )` to add
     the Pandemonium engine library as a dependency for your plugin.
   - In the plugin module's `build.gradle` file, replace `implementation` with `compileOnly` for the dependency line for the Pandemonium engine library.
@@ -63,8 +63,8 @@ The instructions below assumes that you're using Android Studio.
 4. Update the plugin `AndroidManifest.xml` file:
 
   - Open the plugin `AndroidManifest.xml` file.
-  - Add the `<application></application )` tag if it's missing.
-  - In the `<application )` tag, add a `<meta-data )` tag setup as follow:
+  - Add the `&lt;application>&lt;/application&gt;` tag if it's missing.
+  - In the `&lt;application&gt;` tag, add a `&lt;meta-data&gt;` tag setup as follow:
 
 ```
         <meta-data

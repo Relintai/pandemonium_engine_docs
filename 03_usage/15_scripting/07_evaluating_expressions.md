@@ -1,7 +1,6 @@
 
 
-Evaluating expressions
-======================
+# Evaluating expressions
 
 Pandemonium provides an `Expression` class you can use to evaluate expressions.
 
@@ -19,8 +18,7 @@ Note:
     The Expression class is independent from GDScript.
     It's available even if you compile Pandemonium with the GDScript module disabled.
 
-Basic usage
------------
+## Basic usage
 
 To evaluate a mathematical expression, use:
 
@@ -33,22 +31,18 @@ To evaluate a mathematical expression, use:
 
 The following operators are available:
 
-+------------------------+-------------------------------------------------------------------------------------+
+
 | Operator               | Notes                                                                               |
-+========================+=====================================================================================+
-| Addition `+`         | Can also be used to concatenate strings and arrays:                                 |
-|                        | - `"hello" + " world"` = `hello world`                                          |
-|                        | - `[1, 2] + [3, 4]` = `[1, 2, 3, 4]`                                            |
-+------------------------+-------------------------------------------------------------------------------------+
-| Subtraction (`-`)    |                                                                                     |
-+------------------------+-------------------------------------------------------------------------------------+
-| Multiplication (`*`) |                                                                                     |
-+------------------------+-------------------------------------------------------------------------------------+
-| Division (`/`)       | Performs and integer division if both operands are integers.                        |
+|------------------------|-------------------------------------------------------------------------------------|
+| Addition `+`           | Can also be used to concatenate strings and arrays:                                 |
+|                        | - `"hello" + " world"` = `hello world`                                              |
+|                        | - `[1, 2] + [3, 4]` = `[1, 2, 3, 4]`                                                |
+| Subtraction (`-`)      |                                                                                     |
+| Multiplication (`*`)   |                                                                                     |
+| Division (`/`)         | Performs and integer division if both operands are integers.                        |
 |                        | If at least one of them is a floating-point number, returns a floating-point value. |
-+------------------------+-------------------------------------------------------------------------------------+
-| Modulo (`%`)         | Returns the remainder of an integer division.                                       |
-+------------------------+-------------------------------------------------------------------------------------+
+| Modulo (`%`)           | Returns the remainder of an integer division.                                       |
+
 
 Spaces around operators are optional. Also, keep in mind the usual
 `order of operations ( https://en.wikipedia.org/wiki/Order_of_operations )`
@@ -75,8 +69,7 @@ Arrays and dictionaries can be indexed like in GDScript:
     Vector3(5, 6, 7).z
 ```
 
-Passing variables to an expression
-----------------------------------
+## Passing variables to an expression
 
 You can pass variables to an expression. These variables will then
 become available in the expression's "context" and will be substituted when used
@@ -96,8 +89,7 @@ in the expression:
 Both the variable names and variable values **must** be specified as an array,
 even if you only define one variable. Also, variable names are **case-sensitive**.
 
-Setting a base instance for the expression
-------------------------------------------
+## Setting a base instance for the expression
 
 By default, an expression has a base instance of `null`. This means the
 expression has no base instance associated to it.
@@ -140,8 +132,7 @@ Warning:
     cheating in your game, or may even introduce security vulnerabilities if you
     allow arbitrary clients to run expressions on other players' devices.
 
-Example script
---------------
+## Example script
 
 The script below demonstrates what the Expression class is capable of:
 
@@ -209,8 +200,7 @@ The output from the script will be:
     0
 ```
 
-Built-in functions
-------------------
+## Built-in functions
 
 Most methods available in the `@GDScript` scope are available in the
 Expression class, even if no base instance is bound to the expression.

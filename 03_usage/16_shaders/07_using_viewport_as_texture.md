@@ -1,10 +1,8 @@
 
 
-Using a Viewport as a texture
-=============================
+# Using a Viewport as a texture
 
-Introduction
-------------
+## Introduction
 
 This tutorial will introduce you to using the `Viewport` as a
 texture that can be applied to 3D objects. In order to do so, it will walk you through the process
@@ -28,8 +26,7 @@ In this tutorial, we'll cover the following topics:
 - Fragment shader techniques for procedural planets
 - Setting a Roughness map from a `Viewport Texture`
 
-Setting up the Viewport
------------------------
+## Setting up the Viewport
 
 First, add a `Viewport` to the scene.
 
@@ -74,8 +71,7 @@ The above code renders a gradient like the one below.
 Now we have the basics of a `Viewport` that we render to and we have a unique image that we can
 apply to the sphere.
 
-Applying the texture
---------------------
+## Applying the texture
 
 MeshInstance > GeometryInstance > Geometry > Material Override > `New SpatialMaterial`:
 
@@ -105,8 +101,7 @@ problem in 2D map projection. Game developers often have a 2-dimensional map the
 onto a sphere, but when it wraps around, it has large seams. There is an elegant workaround for this
 problem that we will illustrate in the next section.
 
-Making the planet texture
--------------------------
+## Making the planet texture
 
 So now, when we render to our `Viewport`, it appears magically on the sphere. But there is an ugly
 seam created by our texture coordinates. So how do we get a range of coordinates that wrap around
@@ -199,8 +194,7 @@ Note:
 You can see now that the noise indeed wraps seamlessly around the sphere. Although this
 looks nothing like the planet you were promised. So let's move onto something more colorful.
 
-Coloring the planet
--------------------
+## Coloring the planet
 
 Now to make the planet colors. While there are many ways to do this, for now, we will stick
 with a gradient between water and land.
@@ -259,8 +253,7 @@ And with shading turned back on, it looks like:
 
 ![](img/planet_noise_fbm_shaded.png)
 
-Making an ocean
----------------
+## Making an ocean
 
 One final thing to make this look more like a planet. The ocean and the land reflect light differently.
 So we want the ocean to shine a little more than the land. We can do this by passing a fourth value

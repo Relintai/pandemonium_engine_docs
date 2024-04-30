@@ -1,7 +1,6 @@
 
 
-Change scenes manually
-======================
+# Change scenes manually
 
 Sometimes it helps to have more control over how one swaps scenes around.
 As mentioned above, a `Viewport`'s child nodes
@@ -27,8 +26,7 @@ balancing operation speed and memory consumption as well as balancing data
 access and integrity.
 
 1. **We can delete the existing scene.**
-   `SceneTree.change_scene()` and
-   `SceneTree.change_scene_to()`
+   `SceneTree.change_scene()` and    `SceneTree.change_scene_to()`
    will delete the current scene immediately. Developers can also delete the
    main scene though. Assuming the root node's name is "Main", one could do
    `get_node("/root/Main").free()` to delete the whole scene.

@@ -1,10 +1,8 @@
 
 
-Singletons (AutoLoad)
-=====================
+# Singletons (AutoLoad)
 
-Introduction
-------------
+## Introduction
 
 Pandemonium's scene system, while powerful and flexible, has a drawback: there is no
 method for storing information (e.g. a player's score or inventory) that is
@@ -37,25 +35,21 @@ Autoloading nodes and scripts can give us these characteristics.
 
 Note:
 
-
     Pandemonium won't make an AutoLoad a "true" singleton as per the singleton design
     pattern. It may still be instanced more than once by the user if desired.
 
 Tip:
 
-
     If you're creating an autoload as part of an editor plugin, consider
     `registering it automatically in the Project Settings ( doc_making_plugins_autoload )`
     when the plugin is enabled.
 
-AutoLoad
---------
+## AutoLoad
 
 You can create an AutoLoad to load a scene or a script that inherits from
 `Node`.
 
 Note:
-
 
     When autoloading a script, a `Node` will be created and the script will be
     attached to it. This node will be added to the root viewport before any
@@ -106,8 +100,7 @@ Warning:
     Autoloads must **not** be removed using `free()` or `queue_free()` at
     runtime, or the engine will crash.
 
-Custom scene switcher
----------------------
+## Custom scene switcher
 
 This tutorial will demonstrate building a scene switcher using autoloads.
 For basic scene switching, you can use the
@@ -116,15 +109,14 @@ method (see `doc_scene_tree` for details). However, if you need more
 complex behavior when changing scenes, this method provides more functionality.
 
 To begin, download the template from here:
-:download:`autoload.zip <files/autoload.zip )` and open it in Pandemonium.
+:download:`autoload.zip ( files/autoload.zip )` and open it in Pandemonium.
 
 The project contains two scenes: `Scene1.tscn` and `Scene2.tscn`. Each
 scene contains a label displaying the scene name and a button with its
 `pressed()` signal connected. When you run the project, it starts in
 `Scene1.tscn`. However, pressing the button does nothing.
 
-Global.gd
-~~~~~~~~~
+### Global.gd
 
 Switch to the **Script** tab and create a new script called `Global.gd`.
 Make sure it inherits from `Node`:

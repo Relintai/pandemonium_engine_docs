@@ -1,10 +1,7 @@
 
+# Screen-reading shaders
 
-Screen-reading shaders
-======================
-
-Introduction
-~~~~~~~~~~~~
+### Introduction
 
 It is often desired to make a shader that reads from the same
 screen to which it's writing. 3D APIs, such as OpenGL or DirectX, make this very
@@ -17,8 +14,7 @@ The workaround is to make a copy of the screen, or a part of the screen,
 to a back-buffer and then read from it while drawing. Pandemonium provides a
 few tools that make this process easy.
 
-SCREEN_TEXTURE built-in texture
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### SCREEN_TEXTURE built-in texture
 
 Pandemonium `doc_shading_language` has a special texture, `SCREEN_TEXTURE` (and `DEPTH_TEXTURE` for depth, in the case of 3D).
 It takes as argument the UV of the screen and returns a vec3 RGB with the color. A
@@ -45,8 +41,7 @@ Note:
    Mipmaps are not generated in GLES2 due to poor performance and compatibility with older
    devices.
 
-SCREEN_TEXTURE example
-~~~~~~~~~~~~~~~~~~~~~~
+### SCREEN_TEXTURE example
 
 `SCREEN_TEXTURE` can be used for many things. There is a
 special demo for *Screen Space Shaders*, that you can download to see
@@ -71,8 +66,7 @@ and saturation:
     }
 ```
 
-Behind the scenes
-~~~~~~~~~~~~~~~~~
+### Behind the scenes
 
 While this seems magical, it's not. In 2D, the `SCREEN_TEXTURE` built-in, when
 first found in a node that is about to be drawn, does a full-screen
@@ -102,7 +96,7 @@ With correct back-buffer copying, the two spheres blend correctly:
 
 ![](img/texscreen_demo2.png)
 
-.. warning:
+Warning:
 
     Materials that use `SCREEN_TEXTURE` are considered transparent themselves and
     will not appear in the resulting `SCREEN_TEXTURE` of other materials.
@@ -118,8 +112,7 @@ You can reproduce the back-buffer logic in 3D by creating a `Viewport`
 with a camera in the same position as your object, and then use the
 `Viewport's` texture instead of `SCREEN_TEXTURE`.
 
-Back-buffer logic
-~~~~~~~~~~~~~~~~~
+### Back-buffer logic
 
 So, to make it clearer, here's how the backbuffer copying logic works in
 Pandemonium:
@@ -141,8 +134,7 @@ Pandemonium:
    and then use `SCREEN_TEXTURE` on a different region. Avoid this behavior!
 
 
-DEPTH_TEXTURE
-~~~~~~~~~~~~~
+### DEPTH_TEXTURE
 
 For 3D shaders, it's also possible to access the screen depth buffer. For this,
 the `DEPTH_TEXTURE` built-in is used. This texture is not linear; it must be

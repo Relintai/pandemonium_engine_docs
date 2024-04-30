@@ -1,7 +1,6 @@
 
 
-Groups
-======
+# Groups
 
 Groups in Pandemonium work like tags in other software. You can add a node to as many
 groups as you want. Then, in code, you can use the SceneTree to:
@@ -13,8 +12,7 @@ groups as you want. Then, in code, you can use the SceneTree to:
 This is a useful feature to organize large scenes and decouple code.
 
 
-Managing groups
----------------
+## Managing groups
 
 Groups are created by adding a node to a new group name, and likewise they are
 removed by removing all nodes from a given group.
@@ -26,8 +24,7 @@ There are two ways to add/remove nodes to groups:
   or `Node.remove_from_group()`.
 
 
-Using the Node dock
-~~~~~~~~~~~~~~~~~~~
+### Using the Node dock
 
 You can add nodes in the current scene to groups using the Groups tab in the
 Node dock.
@@ -68,8 +65,7 @@ Note:
           in a different scene and you cannot edit it here. This happens on
           scene instances in particular.
 
-Using code
-~~~~~~~~~~
+### Using code
 
 You can also manage groups from scripts. The following code adds the node to
 which you attach the script to the `guards` group as soon as it enters the

@@ -1,7 +1,6 @@
 
 
-Optimization using MultiMeshes
-==============================
+# Optimization using MultiMeshes
 
 For large amount of instances (in the thousands), that need to be constantly processed
 (and certain amount of control needs to be retained),
@@ -11,8 +10,7 @@ When the amount of objects reach the hundreds of thousands or millions,
 none of these approaches are efficient anymore. Still, depending on the requirements, there
 is one more optimization possible.
 
-MultiMeshes
------------
+## MultiMeshes
 
 A `MultiMesh( MultiMesh )` is a single draw primitive that can draw up to millions
 of objects in one go. It's extremely efficient because it uses the GPU hardware to do this
@@ -44,8 +42,7 @@ controlled with the `MultiMesh.visible_instance_count`
 property. The typical workflow is to allocate the maximum amount of instances that will be used,
 then change the amount visible depending on how many are currently needed.
 
-Multimesh example
------------------
+## Multimesh example
 
 Here is an example of using a MultiMesh from code. Languages other than GDScript may be more
 efficient for millions of objects, but for a few thousands, GDScript should be fine.

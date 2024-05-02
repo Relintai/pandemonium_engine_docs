@@ -1,10 +1,8 @@
 
 
-CPU optimization
-================
+# CPU optimization
 
-Measuring performance
-=====================
+# Measuring performance
 
 We have to know where the "bottlenecks" are to know how to speed up our program.
 Bottlenecks are the slowest parts of the program that limit the rate that
@@ -15,8 +13,7 @@ lead to small performance improvements.
 
 For the CPU, the easiest way to identify bottlenecks is to use a profiler.
 
-CPU profilers
-=============
+# CPU profilers
 
 Profilers run alongside your program and take timing measurements to work out
 what proportion of time is spent in each function.
@@ -28,11 +25,9 @@ slow down your project significantly.
 
 After profiling, you can look back at the results for a frame.
 
-.. figure:: img/pandemonium_profiler.png)
-.. figure:: img/pandemonium_profiler.png)
-   :alt: Screenshot of the Pandemonium profiler
+![Screenshot of the Pandemonium profiler](img/pandemonium_profiler.png)
 
-   Results of a profile of one of the demo projects.
+Results of a profile of one of the demo projects.
 
 Note:
  We can see the cost of built-in processes such as physics and audio,
@@ -49,8 +44,7 @@ you can usually increase speed by optimizing this area.
 For more info about using Pandemonium's built-in profiler, see
 `doc_debugger_panel`.
 
-External profilers
-~~~~~~~~~~~~~~~~~~
+### External profilers
 
 Although the Pandemonium IDE profiler is very convenient and useful, sometimes you
 need more power, and the ability to profile the Pandemonium engine source code itself.
@@ -70,10 +64,9 @@ Note:
           optimized. Bottlenecks are often in a different place in debug builds,
           so you should profile release builds whenever possible.
 
-.. figure:: img/valgrind.png)
-   :alt: Screenshot of Callgrind
+![Screenshot of Callgrind](img/valgrind.png)
 
-   Example results from Callgrind, which is part of Valgrind.
+Example results from Callgrind, which is part of Valgrind.
 
 From the left, Callgrind is listing the percentage of time within a function and
 its children (Inclusive), the percentage of time spent within the function
@@ -97,8 +90,7 @@ done in the graphics API. This specific profiling led to the development of 2D
 batching, which greatly speeds up 2D rendering by reducing bottlenecks in this
 area.
 
-Manually timing functions
-=========================
+# Manually timing functions
 
 Another handy technique, especially once you have identified the bottleneck
 using a profiler, is to manually time the function or area under test.
@@ -125,8 +117,7 @@ As you attempt to optimize functions, be sure to either repeatedly profile or
 time them as you go. This will give you crucial feedback as to whether the
 optimization is working (or not).
 
-Caches
-======
+# Caches
 
 CPU caches are something else to be particularly aware of, especially when
 comparing timing results of two different versions of a function. The results
@@ -156,10 +147,9 @@ will be able to work as fast as possible.
 Pandemonium usually takes care of such low-level details for you. For example, the
 Server APIs make sure data is optimized for caching already for things like
 rendering and physics. Still, you should be especially aware of caching when
-using `GDNative <toc-tutorials-gdnative )`.
+using `GDNative ( toc-tutorials-gdnative )`.
 
-Languages
-=========
+# Languages
 
 Pandemonium supports a number of different languages, and it is worth bearing in mind
 that there are trade-offs involved. Some languages are designed for ease of use
@@ -169,42 +159,37 @@ Built-in engine functions run at the same speed regardless of the scripting
 language you choose. If your project is making a lot of calculations in its own
 code, consider moving those calculations to a faster language.
 
-GDScript
-~~~~~~~~
+### GDScript
 
-`GDScript <toc-learn-scripting-gdscript )` is designed to be easy to use and iterate,
+`GDScript (toc-learn-scripting-gdscript )` is designed to be easy to use and iterate,
 and is ideal for making many types of games. However, in this language, ease of
 use is considered more important than performance. If you need to make heavy
 calculations, consider moving some of your project to one of the other
 languages.
 
-C#
-~~
+### C#
 
-`C# <toc-learn-scripting-C# )` is popular and has first-class support in Pandemonium.It
+`C# (toc-learn-scripting-C# )` is popular and has first-class support in Pandemonium.It
 offers a good compromise between speed and ease of use. Beware of possible
 garbage collection pauses and leaks that can occur during gameplay, though. A
 common approach to workaround issues with garbage collection is to use *object
 pooling*, which is outside the scope of this guide.
 
-Other languages
-~~~~~~~~~~~~~~~
+### Other languages
 
 Third parties provide support for several other languages, including `Rust
 ( https://github.com/pandemonium-rust/pandemonium-rust )` and `Javascript
 ( https://github.com/PandemoniumExplorer/ECMAScript )`.
 
-C++
-~~~
+### C++
 
 Pandemonium is written in C++. Using C++ will usually result in the fastest code.
 However, on a practical level, it is the most difficult to deploy to end users'
 machines on different platforms. Options for using C++ include
-`GDNative <toc-tutorials-gdnative )` and
+`GDNative (toc-tutorials-gdnative )` and
 `custom modules ( doc_custom_modules_in_c++ )`.
 
-Threads
-=======
+# Threads
 
 Consider using threads when making a lot of calculations that can run in
 parallel to each other. Modern CPUs have multiple cores, each one capable of
@@ -222,8 +207,7 @@ debugger doesn't support setting up breakpoints in threads yet.
 
 For more information on threads, see `doc_using_multiple_threads`.
 
-SceneTree
-=========
+# SceneTree
 
 Although Nodes are an incredibly powerful and versatile concept, be aware that
 every node has a cost. Built-in functions such as `process()` and
@@ -244,8 +228,7 @@ This can be very useful for adding and removing areas from a game, for example.
 You can avoid the SceneTree altogether by using Server APIs. For more
 information, see `doc_using_servers`.
 
-Physics
-=======
+# Physics
 
 In some situations, physics can end up becoming a bottleneck. This is
 particularly the case with complex worlds and large numbers of physics objects.

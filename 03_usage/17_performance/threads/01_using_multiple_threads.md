@@ -1,10 +1,8 @@
 
 
-Using multiple threads
-======================
+# Using multiple threads
 
-Threads
--------
+## Threads
 
 Threads allow simultaneous execution of code. It allows off-loading work
 from the main thread.
@@ -21,8 +19,7 @@ Warning:
     Before using a built-in class in a thread, read `doc_thread_safe_apis`
     first to check whether it can be safely used in a thread.
 
-Creating a Thread
------------------
+## Creating a Thread
 
 Creating a thread is very simple, just use the following code:
 
@@ -56,8 +53,7 @@ Even if the function has returned already, the thread must collect it, so call
 `Thread.wait_to_finish()( Thread_method_wait_to_finish )`, which will
 wait until the thread is done (if not done yet), then properly dispose of it.
 
-Mutexes
--------
+## Mutexes
 
 Accessing objects or data from multiple threads is not always supported (if you
 do it, it will cause unexpected behaviors or crashes). Read the
@@ -111,8 +107,7 @@ gdscript GDScript
         print("Counter is: ", counter) # Should be 2.
 ```
 
-Semaphores
-----------
+## Semaphores
 
 Sometimes you want your thread to work *"on demand"*. In other words, tell it
 when to work and let it suspend when it isn't doing anything.

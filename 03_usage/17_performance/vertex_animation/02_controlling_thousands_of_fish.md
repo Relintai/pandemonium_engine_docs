@@ -1,7 +1,6 @@
 
 
-Controlling thousands of fish with Particles
-============================================
+# Controlling thousands of fish with Particles
 
 The problem with `MeshInstances` is that it is expensive to
 update their transform array. It is great for placing many static objects around the

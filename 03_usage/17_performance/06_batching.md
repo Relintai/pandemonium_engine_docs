@@ -1,10 +1,7 @@
 
+# Optimization using batching
 
-Optimization using batching
-===========================
-
-Introduction
-~~~~~~~~~~~~
+### Introduction
 
 Game engines have to send a set of instructions to the GPU to tell the GPU what
 and where to draw. These instructions are sent using common instructions called
@@ -16,8 +13,7 @@ of work for the user in the GPU driver at the cost of more expensive draw calls.
 As a result, applications can often be sped up by reducing the number of draw
 calls.
 
-Draw calls
-^^^^^^^^^^
+#### Draw calls
 
 In 2D, we need to tell the GPU to render a series of primitives (rectangles,
 lines, polygons etc). The most obvious technique is to tell the GPU to render
@@ -41,8 +37,7 @@ automatically group together primitives wherever possible and send these batches
 on to the GPU. This can give an increase in rendering performance while
 requiring few (if any) changes to your Pandemonium project.
 
-How it works
-~~~~~~~~~~~~
+### How it works
 
 Instructions come into the renderer from your game in the form of a series of
 items, each of which can contain one or more commands. The items correspond to
@@ -56,8 +51,7 @@ The batcher uses two main techniques to group together primitives:
 - Consecutive items can be joined together.
 - Consecutive commands within an item can be joined to form a batch.
 
-Breaking batching
-^^^^^^^^^^^^^^^^^
+#### Breaking batching
 
 Batching can only take place if the items or commands are similar enough to be
 rendered in one draw call. Certain changes (or techniques), by necessity, prevent
@@ -75,8 +69,7 @@ Note:
     For example, if you draw a series of sprites each with a different texture,
     there is no way they can be batched.
 
-Determining the rendering order
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Determining the rendering order
 
 The question arises, if only similar items can be drawn together in a batch, why
 don't we look through all the items in a scene, group together all the similar
@@ -104,8 +97,7 @@ Note:
     can improve performance in some cases. See the
     `doc_batching_diagnostics` section to help you make this decision.
 
-A trick
-^^^^^^^
+#### A trick
 
 And now, a sleight of hand. Even though the idea of painter's order is that
 objects are rendered from back to front, consider 3 objects `A`, `B` and
@@ -129,8 +121,7 @@ drawn *on top* of each other. If we relax that assumption, i.e. if none of these
 3 objects are overlapping, there is *no need* to preserve painter's order. The
 rendered result will be the same. What if we could take advantage of this?
 
-Item reordering
-^^^^^^^^^^^^^^^
+#### Item reordering
 
 ![](img/overlap2.png)
 
@@ -152,8 +143,7 @@ balance the costs and benefits in your project.
 Since the texture only changes once, we can render the above in only 2 draw
 calls.
 
-Lights
-~~~~~~
+### Lights
 
 Although the batching system's job is normally quite straightforward, it becomes
 considerably more complex when 2D lights are used. This is because lights are
@@ -207,8 +197,7 @@ that in a real game, you might be drawing closer to 1,000 sprites.
 That is a 1000× decrease in draw calls, and should give a huge increase in
 performance.
 
-Overlap test
-^^^^^^^^^^^^
+#### Overlap test
 
 However, as with the item reordering, things are not that simple. We must first
 perform the overlap test to determine whether we can join these primitives. This
@@ -222,8 +211,7 @@ therefore shouldn't be joined). In practice, the decrease in draw calls may be
 less dramatic than in a perfect situation with no overlapping at all. However,
 performance is usually far higher than without this lighting optimization.
 
-Light scissoring
-~~~~~~~~~~~~~~~~
+### Light scissoring
 
 Batching can make it more difficult to cull out objects that are not affected or
 partially affected by a light. This can increase the fill rate requirements
@@ -257,14 +245,12 @@ The exact relationship is probably not necessary for users to worry about, but
 is included in the appendix out of interest:
 `doc_batching_light_scissoring_threshold_calculation`
 
-.. figure:: img/scissoring.png)
-   :alt: Light scissoring example diagram
+![Light scissoring example diagram](img/scissoring.png) 
 
    Bottom right is a light, the red area is the pixels saved by the scissoring
    operation. Only the intersection needs to be rendered.
 
-Vertex baking
-~~~~~~~~~~~~~
+### Vertex baking
 
 The GPU shader receives instructions on what to draw in 2 main ways:
 
@@ -290,8 +276,7 @@ In most cases, this works fine, but this shortcut breaks down if a shader expect
 these values to be available individually rather than combined. This can happen
 in custom shaders.
 
-Custom shaders
-^^^^^^^^^^^^^^
+#### Custom shaders
 
 As a result of the limitation described above, certain operations in custom
 shaders will prevent vertex baking and therefore decrease the potential for
@@ -301,8 +286,7 @@ currently apply:
 - Reading or writing `COLOR` or `MODULATE` disables vertex color baking.
 - Reading `VERTEX`  disables vertex position baking.
 
-Project Settings
-~~~~~~~~~~~~~~~~
+### Project Settings
 
 To fine-tune batching, a number of project settings are available. You can
 usually leave these at default during development, but it's a good idea to
@@ -311,8 +295,7 @@ tweaking parameters can often give considerable performance gains for very
 little effort. See the on-hover tooltips in the Project Settings for more
 information.
 
-rendering/batching/options
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### rendering/batching/options
 
 - `use_batching
  ` -
@@ -328,8 +311,7 @@ rendering/batching/options
   This is a faster way of drawing unbatchable rectangles. However, it may lead
   to flicker on some hardware so it's not recommended.
 
-rendering/batching/parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### rendering/batching/parameters
 
 - `max_join_item_commands` -
   One of the most important ways of achieving batching is to join suitable
@@ -358,8 +340,7 @@ rendering/batching/parameters
   textures. The lookahead for the overlap test has a small cost, so the best
   value may change per project.
 
-rendering/batching/lights
-^^^^^^^^^^^^^^^^^^^^^^^^^
+#### rendering/batching/lights
 
 - `scissor_area_threshold
  ` -
@@ -372,8 +353,7 @@ rendering/batching/lights
   costs and benefits may be project dependent, and hence the best value to use
   here.
 
-rendering/batching/debug
-^^^^^^^^^^^^^^^^^^^^^^^^
+#### rendering/batching/debug
 
 - `flash_batching
  ` -
@@ -387,8 +367,7 @@ rendering/batching/debug
   This will periodically print a diagnostic batching log to
   the Pandemonium IDE / console.
 
-rendering/batching/precision
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### rendering/batching/precision
 
 - `uv_contract
  ` -
@@ -405,8 +384,7 @@ rendering/batching/precision
 
 
 
-Diagnostics
-~~~~~~~~~~~
+### Diagnostics
 
 Although you can change parameters and examine the effect on frame rate, this
 can feel like working blindly, with no idea of what is going on under the hood.
@@ -415,8 +393,7 @@ print out (to the IDE or console) a list of the batches that are being
 processed. This can help pinpoint situations where batching isn't occurring
 as intended, and help you fix these situations to get the best possible performance.
 
-Reading a diagnostic
-^^^^^^^^^^^^^^^^^^^^
+#### Reading a diagnostic
 
 ```
     canvas_begin FRAME 2604
@@ -456,8 +433,7 @@ This is a typical diagnostic.
 - **batch D:** A default batch, containing everything else that is not currently
   batched.
 
-Default batches
-^^^^^^^^^^^^^^^
+#### Default batches
 
 The second number following default batches is the number of commands in the
 batch, and it is followed by a brief summary of the contents:
@@ -479,19 +455,16 @@ batch, and it is followed by a brief summary of the contents:
 
 You may see "dummy" default batches containing no commands; you can ignore those.
 
-Frequently asked questions
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Frequently asked questions
 
-I don't get a large performance increase when enabling batching.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### I don't get a large performance increase when enabling batching.
 
 - Try the diagnostics, see how much batching is occurring, and whether it can be
   improved
 - Try changing batching parameters in the Project Settings.
 - Consider that batching may not be your bottleneck (see bottlenecks).
 
-I get a decrease in performance with batching.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### I get a decrease in performance with batching.
 
 - Try the steps described above to increase the number of batching opportunities.
 - Try enabling `single_rect_fallback
@@ -502,29 +475,24 @@ I get a decrease in performance with batching.
 - After trying the above, if your scene is still performing worse, consider
   turning off batching.
 
-I use custom shaders and the items are not batching.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### I use custom shaders and the items are not batching.
 
 - Custom shaders can be problematic for batching, see the custom shaders section
 
-I am seeing line artifacts appear on certain hardware.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### I am seeing line artifacts appear on certain hardware.
 
 - See the `uv_contract
  `
   project setting which can be used to solve this problem.
 
-I use a large number of textures, so few items are being batched.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### I use a large number of textures, so few items are being batched.
 
 - Consider using texture atlases. As well as allowing batching, these
   reduce the need for state changes associated with changing textures.
 
-Appendix
-~~~~~~~~
+### Appendix
 
-Batched primitives
-^^^^^^^^^^^^^^^^^^
+#### Batched primitives
 
 Not all primitives can be batched. Batching is not guaranteed either,
 especially with primitives using an antialiased border. The following
@@ -541,8 +509,7 @@ See `doc_custom_drawing_in_2d` for more information.
 
 
 
-Light scissoring threshold calculation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Light scissoring threshold calculation
 
 The actual proportion of screen pixel area used as the threshold is the
 `scissor_area_threshold

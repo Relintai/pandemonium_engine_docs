@@ -1,10 +1,8 @@
 
 
-General optimization tips
-=========================
+# General optimization tips
 
-Introduction
-~~~~~~~~~~~~
+### Introduction
 
 In an ideal world, computers would run at infinite speed. The only limit to
 what we could achieve would be our imagination. However, in the real world, it's
@@ -22,16 +20,14 @@ To achieve the best results, we have two approaches:
 
 And preferably, we will use a blend of the two.
 
-Smoke and mirrors
-^^^^^^^^^^^^^^^^^
+#### Smoke and mirrors
 
 Part of working smarter is recognizing that, in games, we can often get the
 player to believe they're in a world that is far more complex, interactive, and
 graphically exciting than it really is. A good programmer is a magician, and
 should strive to learn the tricks of the trade while trying to invent new ones.
 
-The nature of slowness
-^^^^^^^^^^^^^^^^^^^^^^
+#### The nature of slowness
 
 To the outside observer, performance problems are often lumped together.
 But in reality, there are several different kinds of performance problems:
@@ -45,8 +41,7 @@ But in reality, there are several different kinds of performance problems:
 
 Each of these are annoying to the user, but in different ways.
 
-Measuring performance
-=====================
+# Measuring performance
 
 Probably the most important tool for optimization is the ability to measure
 performance - to identify where bottlenecks are, and to measure the success of
@@ -66,8 +61,7 @@ Be very aware that the relative performance of different areas can vary on
 different hardware. It's often a good idea to measure timings on more than one
 device. This is especially the case if you're targeting mobile devices.
 
-Limitations
-~~~~~~~~~~~
+### Limitations
 
 CPU profilers are often the go-to method for measuring performance. However,
 they don't always tell the whole story.
@@ -84,15 +78,13 @@ they don't always tell the whole story.
 As a result of these limitations, you often need to use detective work to find
 out where bottlenecks are.
 
-Detective work
-~~~~~~~~~~~~~~
+### Detective work
 
 Detective work is a crucial skill for developers (both in terms of performance,
 and also in terms of bug fixing). This can include hypothesis testing, and
 binary search.
 
-Hypothesis testing
-^^^^^^^^^^^^^^^^^^
+#### Hypothesis testing
 
 Say, for example, that you believe sprites are slowing down your game.
 You can test this hypothesis by:
@@ -105,8 +97,7 @@ the performance drop?
 - You can test this by keeping everything the same, but changing the sprite
   size, and measuring performance.
 
-Binary search
-^^^^^^^^^^^^^
+#### Binary search
 
 If you know that frames are taking much longer than they should, but you're
 not sure where the bottleneck lies. You could begin by commenting out
@@ -116,8 +107,7 @@ performance improved more or less than expected?
 Once you know which of the two halves contains the bottleneck, you can
 repeat this process until you've pinned down the problematic area.
 
-Profilers
-=========
+# Profilers
 
 Profilers allow you to time your program while running it. Profilers then
 provide results telling you what percentage of time was spent in different
@@ -130,8 +120,7 @@ and lead to slower performance.
 
 For more info about using Pandemonium's built-in profiler, see `doc_debugger_panel`.
 
-Principles
-==========
+# Principles
 
 `Donald Knuth ( https://en.wikipedia.org/wiki/Donald_Knuth )` said:
 
@@ -160,8 +149,7 @@ One misleading aspect of the quote is that people tend to focus on the subquote
 optimization is (by definition) undesirable, performant software is the result
 of performant design.
 
-Performant design
-~~~~~~~~~~~~~~~~~
+### Performant design
 
 The danger with encouraging people to ignore optimization until necessary, is
 that it conveniently ignores that the most important time to consider
@@ -175,8 +163,7 @@ general programming. A performant design, even without low-level optimization,
 will often run many times faster than a mediocre design with low-level
 optimization.
 
-Incremental design
-~~~~~~~~~~~~~~~~~~
+### Incremental design
 
 Of course, in practice, unless you have prior knowledge, you are unlikely to
 come up with the best design the first time. Instead, you'll often make a series
@@ -192,8 +179,7 @@ to a resurgence in data-oriented design, which involves designing data
 structures and algorithms for *cache locality* of data and linear access, rather
 than jumping around in memory.
 
-The optimization process
-~~~~~~~~~~~~~~~~~~~~~~~~
+### The optimization process
 
 Assuming we have a reasonable design, and taking our lessons from Knuth, our
 first step in optimization should be to identify the biggest bottlenecks - the
@@ -209,8 +195,7 @@ The process is thus:
 2. Optimize bottleneck.
 3. Return to step 1.
 
-Optimizing bottlenecks
-~~~~~~~~~~~~~~~~~~~~~~
+### Optimizing bottlenecks
 
 Some profilers will even tell you which part of a function (which data accesses,
 calculations) are slowing things down.
@@ -234,11 +219,9 @@ will increase speed, others may have a negative effect. Sometimes, a small
 positive effect will be outweighed by the negatives of more complex code, and
 you may choose to leave out that optimization.
 
-Appendix
-========
+# Appendix
 
-Bottleneck math
-~~~~~~~~~~~~~~~
+### Bottleneck math
 
 The proverb *"a chain is only as strong as its weakest link"* applies directly to
 performance optimization. If your project is spending 90% of the time in

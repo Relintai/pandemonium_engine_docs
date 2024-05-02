@@ -1,7 +1,6 @@
 
 
-Optimization using Servers
-==========================
+# Optimization using Servers
 
 Engines like Pandemonium provide increased ease of use thanks to their high level constructs and features.
 Most of them are accessed and used via the `Scene System( doc_scene_tree )`. Using nodes and
@@ -23,8 +22,7 @@ back to a more handcrafted, low level implementation of game code.
 
 Still, Pandemonium is designed to work around this problem.
 
-Servers
--------
+## Servers
 
 One of the most interesting design decisions for Pandemonium is the fact that the whole scene system is
 *optional*. While it is not currently possible to compile it out, it can be completely bypassed.
@@ -41,8 +39,7 @@ The most common servers are:
 Explore their APIs and you will realize that all the functions provided are low-level
 implementations of everything Pandemonium allows you to do.
 
-RIDs
-----
+## RIDs
 
 The key to using servers is understanding Resource ID (`RID`) objects. These are opaque
 handles to the server implementation. They are allocated and freed manually. Almost every
@@ -83,8 +80,7 @@ Try exploring the nodes and resources you are familiar with and find the functio
 It is not advised to control RIDs from objects that already have a node associated. Instead, server
 functions should always be used for creating and controlling new ones and interacting with the existing ones.
 
-Creating a sprite
------------------
+## Creating a sprite
 
 This is a simple example of how to create a sprite from code and move it using the low-level
 `CanvasItem` API.
@@ -127,8 +123,7 @@ gdscript GDScript
     VisualServer.canvas_item_clear(ci_rid)
 ```
 
-Instantiating a Mesh into 3D space
-----------------------------------
+## Instantiating a Mesh into 3D space
 
 The 3D APIs are different from the 2D ones, so the instantiation API must be used.
 
@@ -158,8 +153,7 @@ gdscript GDScript
         VisualServer.instance_set_transform(instance, xform)
 ```
 
-Creating a 2D RigidBody and moving a sprite with it
----------------------------------------------------
+## Creating a 2D RigidBody and moving a sprite with it
 
 This creates a `RigidBody2D` API,
 and moves a `CanvasItem` when the body moves.
@@ -200,8 +194,7 @@ gdscript GDScript
 The 3D version should be very similar, as 2D and 3D physics servers are identical (using
 `RigidBody` respectively).
 
-Getting data from the servers
------------------------------
+## Getting data from the servers
 
 Try to **never** request any information from `VisualServer`, `PhysicsServer` or `Physics2DServer`
 by calling functions unless you know what you are doing. These servers will often run asynchronously

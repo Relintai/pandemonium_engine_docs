@@ -1,7 +1,6 @@
 
 
-Animating thousands of fish with MultiMeshInstance
-==================================================
+# Animating thousands of fish with MultiMeshInstance
 
 This tutorial explores a technique used in the game `ABZU ( https://www.gdcvault.com/play/1024409/Creating-the-Art-of-ABZ )`
 for rendering and animating thousands of fish using vertex animation and
@@ -14,8 +13,7 @@ can render thousands of animated objects, even on low end hardware.
 We will start by animating one fish. Then, we will see how to extend that animation to
 thousands of fish.
 
-Animating one Fish
-------------------
+## Animating one Fish
 
 We will start with a single fish. Load your fish model into a `MeshInstance`
 and add a new `ShaderMaterial`.
@@ -179,8 +177,7 @@ Putting the four motions together gives us the final animation.
 Go ahead and play with the uniforms in order to alter the swim cycle of the fish. You will
 find that you can create a wide variety of swim styles using these four motions.
 
-Making a school of fish
------------------------
+## Making a school of fish
 
 Pandemonium makes it easy to render thousands of the same object using a MultiMeshInstance node.
 
@@ -235,8 +232,7 @@ Notice how all the fish are all in the same position in their swim cycle? It mak
 robotic. The next step is to give each fish a different position in the swim cycle so the entire
 school looks more organic.
 
-Animating a school of fish
---------------------------
+## Animating a school of fish
 
 One of the benefits of animating the fish using `cos` functions is that they are animated with
 one parameter, `time`. In order to give each fish a unique position in the
@@ -246,6 +242,7 @@ We do that by adding the per-instance custom value `INSTANCE_CUSTOM` to `time`.
 
 ```
   float time = (TIME * time_scale) + (6.28318 * INSTANCE_CUSTOM.x);
+```
 
 Next, we need to pass a value into `INSTANCE_CUSTOM`. We do that by adding one line into
 the `for` loop from above. In the `for` loop we assign each instance a set of four

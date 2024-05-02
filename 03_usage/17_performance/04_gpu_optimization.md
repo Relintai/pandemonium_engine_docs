@@ -1,10 +1,8 @@
 
 
-GPU optimization
-================
+# GPU optimization
 
-Introduction
-~~~~~~~~~~~~
+### Introduction
 
 The demand for new graphics features and progress almost guarantees that you
 will encounter graphics bottlenecks. Some of these can be on the CPU side, for
@@ -22,8 +20,7 @@ indirectly by changing the instructions you give to the GPU. Also, it may be
 more difficult to take measurements. In many cases, the only way of measuring
 performance is by examining changes in the time spent rendering each frame.
 
-Draw calls, state changes, and APIs
-===================================
+# Draw calls, state changes, and APIs
 
 Note:
  The following section is not relevant to end-users, but is useful to
@@ -42,8 +39,7 @@ reduce these instructions to a bare minimum and group together similar objects
 as much as possible so they can be rendered together, or with the minimum number
 of these expensive state changes.
 
-2D batching
-~~~~~~~~~~~
+### 2D batching
 
 In 2D, the costs of treating each item individually can be prohibitively high -
 there can easily be thousands of them on the screen. This is why 2D *batching*
@@ -54,8 +50,7 @@ to a minimum.
 
 For more information on 2D batching, see `doc_batching`.
 
-3D batching
-~~~~~~~~~~~
+### 3D batching
 
 In 3D, we still aim to minimize draw calls and state changes. However, it can be
 more difficult to batch together several objects into a single draw call. 3D
@@ -76,8 +71,7 @@ numbers of distant or low-poly objects.
 For more information on 3D specific optimizations, see
 `doc_optimizing_3d_performance`.
 
-Reuse Shaders and Materials
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Reuse Shaders and Materials
 
 The Pandemonium renderer is a little different to what is out there. It's designed to
 minimize GPU state changes as much as possible. `SpatialMaterial
@@ -99,8 +93,7 @@ If a scene has, for example, `20,000` objects with `20,000` different
 materials each, rendering will be slow. If the same scene has `20,000`
 objects, but only uses `100` materials, rendering will be much faster.
 
-Pixel cost versus vertex cost
-=============================
+# Pixel cost versus vertex cost
 
 You may have heard that the lower the number of polygons in a model, the faster
 it will be rendered. This is *really* relative and depends on many factors.
@@ -155,8 +148,7 @@ Pay attention to the additional vertex processing required when using:
 -  Morphs (shape keys)
 -  Vertex-lit objects (common on mobile)
 
-Pixel/fragment shaders and fill rate
-====================================
+# Pixel/fragment shaders and fill rate
 
 In contrast to vertex processing, the costs of fragment (per-pixel) shading have
 increased dramatically over the years. Screen resolutions have increased (the
@@ -182,8 +174,7 @@ amount of work the GPU has to do. You can do this by simplifying the shader
 **When targeting mobile devices, consider using the simplest possible shaders
 you can reasonably afford to use.**
 
-Reading textures
-~~~~~~~~~~~~~~~~
+### Reading textures
 
 The other factor in fragment shaders is the cost of reading textures. Reading
 textures is an expensive operation, especially when reading from several
@@ -195,8 +186,7 @@ mobiles.
 **If you use third-party shaders or write your own shaders, try to use
 algorithms that require as few texture reads as possible.**
 
-Texture compression
-~~~~~~~~~~~~~~~~~~~
+### Texture compression
 
 By default, Pandemonium compresses textures of 3D models when imported using video RAM
 (VRAM) compression. Video RAM compression isn't as efficient in size as PNG or
@@ -222,8 +212,7 @@ Note:
    significantly due to their low resolution.
 
 
-Post-processing and shadows
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Post-processing and shadows
 
 Post-processing effects and shadows can also be expensive in terms of fragment
 shading activity. Always test the impact of these on different hardware.
@@ -234,8 +223,7 @@ performance of shadows is to turn shadows off for as many lights and objects as
 possible. Smaller or distant OmniLights/SpotLights can often have their shadows
 disabled with only a small visual impact.
 
-Transparency and blending
-=========================
+# Transparency and blending
 
 Transparent objects present particular problems for rendering efficiency. Opaque
 objects (especially in 3D) can be essentially rendered in any order and the
@@ -259,8 +247,7 @@ minimize these fill rate requirements, especially on mobile, where fill rate is
 very expensive. Indeed, in many situations, rendering more complex opaque
 geometry can end up being faster than using transparency to "cheat".
 
-Multi-platform advice
-=====================
+# Multi-platform advice
 
 If you are aiming to release on multiple platforms, test *early* and test
 *often* on all your platforms, especially mobile. Developing a game on desktop
@@ -271,8 +258,7 @@ add optional enhancements for more powerful platforms. For example, you may want
 to use the GLES2 backend for both desktop and mobile platforms where you target
 both.
 
-Mobile/tiled renderers
-======================
+# Mobile/tiled renderers
 
 As described above, GPUs on mobile devices work in dramatically different ways
 from GPUs on desktop. Most mobile devices use tile renderers. Tile renderers

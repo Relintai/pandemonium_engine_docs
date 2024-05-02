@@ -1,21 +1,14 @@
-.. meta::
-    :keywords: optimization
 
+# Optimizing 3D performance
 
-
-Optimizing 3D performance
-=========================
-
-Culling
-=======
+# Culling
 
 Pandemonium will automatically perform view frustum culling in order to prevent
 rendering objects that are outside the viewport. This works well for games that
 take place in a small area, however things can quickly become problematic in
 larger levels.
 
-Occlusion culling
-~~~~~~~~~~~~~~~~~
+### Occlusion culling
 
 Walking around a town for example, you may only be able to see a few buildings
 in the street you are in, as well as the sky and a few birds flying overhead. As
@@ -44,8 +37,7 @@ It is a very powerful technique for speeding up rendering. You can also use it t
 restrict physics or AI to the local area, and speed these up as well as
 rendering.
 
-Portal Rendering
-~~~~~~~~~~~~~~~~
+### Portal Rendering
 
 However, there is a much easier way to take advantage of occlusion. Pandemonium features
 an advanced portal rendering system, which can perform occlusion culling from cameras and
@@ -62,15 +54,13 @@ Note:
     from seeing too far away, which would decrease performance due to the lost
     opportunies for occlusion culling.
 
-Other occlusion techniques
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Other occlusion techniques
 
 As well as the portal system and manual methods, there are various other occlusion
 techniques such as raster-based occlusion culling. Some of these may be available
 through add-ons or may be available in core Pandemonium in the future.
 
-Transparent objects
-~~~~~~~~~~~~~~~~~~~
+### Transparent objects
 
 Pandemonium sorts objects by `Material` and `Shader
 ( Shader )` to improve performance. This, however, can not be done with
@@ -83,8 +73,7 @@ with its own material.
 For more information, see the `GPU optimizations ( doc_gpu_optimization )`
 doc.
 
-Level of detail (LOD)
-=====================
+# Level of detail (LOD)
 
 In some situations, particularly at a distance, it can be a good idea to
 **replace complex geometry with simpler versions**. The end user will probably
@@ -93,8 +82,7 @@ in the far distance. There are several strategies for replacing models at
 varying distance. You could use lower poly models, or use transparency to
 simulate more complex geometry.
 
-Billboards and imposters
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Billboards and imposters
 
 The simplest version of using transparency to deal with LOD is billboards. For
 example, you can use a single transparent quad to represent a tree at distance.
@@ -113,8 +101,7 @@ the viewer a considerable distance for the angle of view to change
 significantly. This can be complex to get working, but may be worth it depending
 on the type of project you are making.
 
-Use instancing (MultiMesh)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Use instancing (MultiMesh)
 
 If several identical objects have to be drawn in the same place or nearby, try
 using `MultiMesh` instead. MultiMesh allows the drawing
@@ -124,8 +111,7 @@ identical objects.
 
 Also see the `Using MultiMesh ( doc_using_multimesh )` doc.
 
-Bake lighting
-=============
+# Bake lighting
 
 Lighting objects is one of the most costly rendering operations. Realtime
 lighting, shadows (especially multiple lights), and GI are especially expensive.
@@ -139,15 +125,13 @@ In general, if several lights need to affect a scene, it's best to use
 `doc_baked_lightmaps`. Baking can also improve the scene quality by adding
 indirect light bounces.
 
-Animation and skinning
-======================
+# Animation and skinning
 
 Animation and vertex animation such as skinning and morphing can be very
 expensive on some platforms. You may need to lower the polycount considerably
 for animated models or limit the number of them on screen at any one time.
 
-Large worlds
-============
+# Large worlds
 
 If you are making large worlds, there are different considerations than what you
 may be familiar with from smaller games.

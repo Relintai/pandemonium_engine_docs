@@ -1,13 +1,10 @@
 
-
-Exporting for dedicated servers
-===============================
+# Exporting for dedicated servers
 
 If you want to run a dedicated server for your project on a machine that doesn't
 have a GPU or display server available, you'll need to use a server build of Pandemonium.
 
-Platform support
-----------------
+## Platform support
 
 - **Linux:** `Download an official Linux server binary ( https://pandemoniumengine.org/download/server )`.
   To compile a server binary from source, follow instructions in
@@ -20,8 +17,7 @@ Platform support
 
 If your project uses C#, you'll have to use a Mono-enabled server binary.
 
-"Headless" versus "server" binaries
------------------------------------
+## "Headless" versus "server" binaries
 
 The `server download page ( https://pandemoniumengine.org/download/server )`
 offers two kinds of binaries with several differences.
@@ -33,8 +29,7 @@ offers two kinds of binaries with several differences.
   used for exporting projects. This binary *can* be used to run dedicated
   servers, but it's not recommended as it's larger and less optimized.
 
-Exporting a PCK file
---------------------
+## Exporting a PCK file
 
 There are two ways to export a project for a server:
 
@@ -72,8 +67,7 @@ Note:
     client and dedicated server build. This can be useful if you want to ship a
     single archive that can be used both as a client and dedicated server.
 
-Preparing the server distribution
----------------------------------
+## Preparing the server distribution
 
 After downloading or compiling a server binary, you should now place it in the
 same folder as the PCK file you've exported. The server binary should have the
@@ -86,8 +80,7 @@ different name, you can specify the path to the PCK file using the
     ./pandemonium-server --main-pack my_project.pck
 ```
 
-Starting the dedicated server
------------------------------
+## Starting the dedicated server
 
 If both your client and server are part of the same Pandemonium project, you will have
 to add a way to start the server directly using a command-line argument. This
@@ -118,8 +111,7 @@ If your client and server are separate Pandemonium projects, your server should 
 likely be configured in a way where running the main scene starts a server
 automatically.
 
-Next steps
-----------
+## Next steps
 
 On Linux, to make your dedicated server restart after a crash or system reboot,
 you can

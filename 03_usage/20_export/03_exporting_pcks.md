@@ -1,10 +1,8 @@
 
 
-Exporting packs, patches, and mods
-==================================
+# Exporting packs, patches, and mods
 
-Use cases
----------
+## Use cases
 
 Oftentimes one would like to add functionality to one's game after it has been
 deployed.
@@ -18,8 +16,7 @@ Examples of this include...
 These tools help developers to extend their development beyond the initial
 release.
 
-Overview of PCK files
----------------------
+## Overview of PCK files
 
 Pandemonium enables this via a feature called **resource packs** (PCK files,
 with extension `.pck`).
@@ -51,8 +48,7 @@ PCK files usually contain, but are not limited to:
 The PCK files can even be an entirely different Pandemonium project, which the
 original game loads in at runtime.
 
-Generating PCK files
---------------------
+## Generating PCK files
 
 In order to pack all resources of a project into a PCK file open the project
 and go to Project/Export and click on “Export PCK/Zip”. Also make sure to have
@@ -87,8 +83,7 @@ Note:
        use a tool-build of the engine (for security), so it's best to keep
        the modding tool and game separate.
 
-Opening PCK files at runtime
-----------------------------
+## Opening PCK files at runtime
 
 To import a PCK file, one uses the ProjectSettings singleton. The following
 example expects a “mod.pck” file in the directory of the games executable.
@@ -124,8 +119,7 @@ Note:
     Then, before loading the resource pack, you need to load its DLL as follows:
     `Assembly.LoadFile("mod.dll")`
 
-Summary
--------
+## Summary
 
 This tutorial should illustrate how easy adding mods, patches or DLC to a game
 is. The most important thing is to identify how one plans to distribute future

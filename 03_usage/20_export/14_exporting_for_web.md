@@ -1,10 +1,8 @@
 
 
-Exporting for the Web
-=====================
+# Exporting for the Web
 
 See also:
-
 
     This page describes how to export a Pandemonium project to HTML5.
     If you're looking to compile editor or export template binaries from source instead,
@@ -15,18 +13,21 @@ This requires support for `WebAssembly
 ( https://webassembly.org/ )` and `WebGL ( https://www.khronos.org/webgl/ )`
 in the user's browser.
 
-.. important:: Use the browser-integrated developer console, usually opened
+Important:
+
+    Use the browser-integrated developer console, usually opened
                with :kbd:`F12`, to view **debug information** like JavaScript,
                engine, and WebGL errors.
 
-.. attention:: `There are significant bugs when running HTML5 projects on iOS
+Attention: 
+
+    `There are significant bugs when running HTML5 projects on iOS
                ( https://github.com/Relintai/pandemonium_engine/issues?q=is:issue+is:open+label:platform:html5+ios )`
                (regardless of the browser). We recommend using
                `iOS' native export functionality ( doc_exporting_for_ios )`
                instead, as it will also result in better performance.
 
-WebGL version
--------------
+## WebGL version
 
 Depending on your choice of renderer, Pandemonium can target WebGL 1.0 (*GLES2*) or
 WebGL 2.0 (*GLES3*).
@@ -43,10 +44,7 @@ for **Safari**. WebGL 2.0 support is coming in Safari 15 for macOS, and is not
 available yet for any **iOS** browser (all WebKit-based like Safari).
 See `Can I use WebGL 2.0 ( https://caniuse.com/webgl2 )` for details.
 
-
-
-Export options
---------------
+## Export options
 
 If a runnable web export template is available, a button appears between the
 *Stop scene* and *Play edited Scene* buttons in the editor to quickly open the
@@ -75,7 +73,9 @@ the default HTML page. See `doc_customizing_html5_shell`.
 HTML page. This allows to, for example, load webfonts and third-party
 JavaScript APIs, include CSS, or run JavaScript code.
 
-.. important:: Each project must generate their own HTML file. On export,
+Important: 
+
+    Each project must generate their own HTML file. On export,
                several text placeholders are replaced in the generated HTML
                file specifically for the given export options. Any direct
                modifications to that HTML file will be lost in future exports.
@@ -86,16 +86,15 @@ Warning:
  **Export types** other then *Regular* are not yet supported by the
              C# version.
 
-Limitations
------------
+## Limitations
 
 For security and privacy reasons, many features that work effortlessly on
 native platforms are more complicated on the web platform. Following is a list
 of limitations you should be aware of when porting a Pandemonium game to the web.
 
+Important:
 
-
-.. important:: Browser vendors are making more and more functionalities only
+     Browser vendors are making more and more functionalities only
                available in `secure contexts ( https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts )`,
                this means that such features are only be available if the web
                page is served via a secure HTTPS connection (localhost is
@@ -107,8 +106,7 @@ Tip:
          to see if the functionality you're interested in has an issue yet. If
          not, open one to communicate your interest.
 
-Using cookies for data persistence
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Using cookies for data persistence
 
 Users must **allow cookies** (specifically IndexedDB) if persistence of the
 `user://` file system is desired. When playing a game presented in an
@@ -119,8 +117,7 @@ The method `OS.is_userfs_persistent()` can be used to check if the
 `user://` file system is persistent, but can give false positives in some
 cases.
 
-Background processing
-~~~~~~~~~~~~~~~~~~~~~
+### Background processing
 
 The project will be paused by the browser when the tab is no longer the active
 tab in the user's browser. This means functions such as `process()` and
@@ -132,8 +129,7 @@ This limitation does not apply to unfocused browser *windows*. Therefore, on the
 user's side, this can be worked around by running the project in a separate
 *window* instead of a separate tab.
 
-Threads
-~~~~~~~
+### Threads
 
 As mentioned `above ( doc_javascript_export_options )` multi-threading is
 only available if the appropriate **Export Type** is set and support for it
@@ -144,8 +140,7 @@ Warning:
              Browsers also require that the web page is served with specific
              `cross-origin isolation headers ( https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy )`.
 
-GDNative
-~~~~~~~~
+### GDNative
 
 As mentioned `above ( doc_javascript_export_options )` GDNative is only
 available if the appropriate **Export Type** is set.
@@ -153,8 +148,7 @@ available if the appropriate **Export Type** is set.
 The export will also copy the required GDNative `.wasm` files to the output
 folder (and must be uploaded to your server along with your game).
 
-Full screen and mouse capture
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Full screen and mouse capture
 
 Browsers do not allow arbitrarily **entering full screen**. The same goes for
 **capturing the cursor**. Instead, these actions have to occur as a response to
@@ -167,8 +161,7 @@ For the same reason, the full screen project setting doesn't work unless the
 engine is started from within a valid input event handler. This requires
 `customization of the HTML page ( doc_customizing_html5_shell )`.
 
-Audio
-~~~~~
+### Audio
 
 Chrome restricts how websites may play audio. It may be necessary for the
 player to click or tap or press a key to enable audio.
@@ -181,8 +174,7 @@ Warning:
  Access to microphone requires a
              `secure context ( doc_javascript_secure_contexts )`.
 
-Networking
-~~~~~~~~~~
+### Networking
 
 Low level networking is not implemented due to lacking support in browsers.
 
@@ -200,8 +192,7 @@ The HTTP classes also have several restrictions on the HTML5 platform:
  -  Host verification cannot be disabled
  -  Subject to `same-origin policy ( https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy )`
 
-Clipboard
-~~~~~~~~~
+### Clipboard
 
 Clipboard synchronization between engine and the operating system requires a
 browser supporting the `Clipboard API ( https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API )`,
@@ -211,8 +202,7 @@ accessed from GDScript.
 Warning:
  Requires a `secure context ( doc_javascript_secure_contexts )`.
 
-Gamepads
-~~~~~~~~
+### Gamepads
 
 Gamepads will not be detected until one of their button is pressed. Gamepads
 might have the wrong mapping depending on the browser/OS/gamepad combination,
@@ -223,21 +213,18 @@ to remap them based on model/vendor/OS due to privacy considerations.
 Warning:
  Requires a `secure context ( doc_javascript_secure_contexts )`.
 
-Boot splash is not displayed
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Boot splash is not displayed
 
 The default HTML page does not display the boot splash while loading. However,
 the image is exported as a PNG file, so `custom HTML pages ( doc_customizing_html5_shell )`
 can display it.
 
-Shader language limitations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Shader language limitations
 
 When exporting a GLES2 project to HTML5, WebGL 1.0 will be used. WebGL 1.0
 doesn't support dynamic loops, so shaders using those won't work there.
 
-Serving the files
------------------
+## Serving the files
 
 Exporting for the web generates several files to be served from a web server,
 including a default HTML page for presentation. A custom HTML file can be
@@ -263,7 +250,9 @@ The `.pck` file is binary, usually delivered with the MIME-type
 :mimetype:`application/octet-stream`. The `.wasm` file is delivered as
 :mimetype:`application/wasm`.
 
-.. caution:: Delivering the WebAssembly module (`.wasm`) with a MIME-type
+Caution: 
+
+    Delivering the WebAssembly module (`.wasm`) with a MIME-type
              other than :mimetype:`application/wasm` can prevent some start-up
              optimizations.
 
@@ -277,10 +266,7 @@ of its original size with gzip compression.
 **Hosts that don't provide on-the-fly compression:** itch.io, GitLab Pages
 (`supports manual gzip precompression ( https://webd97.de/post/gitlab-pages-compression/ )`)
 
-
-
-Calling JavaScript from script
-------------------------------
+## Calling JavaScript from script
 
 In web builds, the `JavaScript` singleton is implemented. It offers a single
 method called `eval` that works similarly to the JavaScript function of the

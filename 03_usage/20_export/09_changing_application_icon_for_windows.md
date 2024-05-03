@@ -1,14 +1,11 @@
 
-
-Changing application icon for Windows
-=====================================
+# Changing application icon for Windows
 
 By default, the exported project's icon will be the Pandemonium icon.
 You will most likely want to change that for your project. There are two types
 of icons that can be changed on Windows: the file icon and the taskbar icon.
 
-Creating an ICO file
---------------------
+## Creating an ICO file
 
 Windows does not use formats such as png or jpg for application icons. Instead,
 it uses a Windows-only format called ICO. You can create your application icon
@@ -22,17 +19,16 @@ It is also possible to convert a PNG image to an hiDPI-friendly ICO file
 using this `ImageMagick ( https://www.imagemagick.org/ )` command:
 
 ```
-    magick convert icon.png) -define icon:auto-resize=256,128,64,48,32,16 icon.ico
+    magick convert icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
 ```
 
 Depending on which version of ImageMagick you installed, you might need to leave out the `magick` and run this command instead:
 
 ```
-    convert icon.png) -define icon:auto-resize=256,128,64,48,32,16 icon.ico
+    convert icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
 ```
 
 Warning:
-
 
     For the ICO file to effectively replace the default Pandemonium icon, it must
     contain *all* the sizes included in the default Pandemonium icon: 16×16, 32×32,
@@ -41,8 +37,7 @@ Warning:
 
     The above ImageMagick command takes this into account.
 
-Changing the taskbar icon
--------------------------
+## Changing the taskbar icon
 
 The taskbar icon is the icon that shows up on the taskbar when your project
 is running.
@@ -59,8 +54,7 @@ This setting only changes the icon for your exported game on Windows.
 To set the icon for macOS, use `Macos Native Icon`. And for any other platform,
 use the `Icon` setting.
 
-Changing the file icon
-----------------------
+## Changing the file icon
 
 In Pandemonium 3.5 and later, you can change the file icon without
 external tools using `pandemoniumicon ( https://github.com/pkowal1982/pandemoniumicon )`.
@@ -68,7 +62,6 @@ Changing the file icon this way should work for executables containing
 an embedded PCK.
 
 Warning:
-
 
     There are `known issues ( https://github.com/Relintai/pandemonium_engine/issues/33466 )`
     when changing the application icon in executables that embed a PCK file.
@@ -91,7 +84,6 @@ Click on the folder icon for the **rcedit** entry.
 Navigate to and select the rcedit executable.
 
 Note:
-
 
     Linux and macOS users will also need to install
     `WINE ( https://www.winehq.org/ )` to use rcedit.
@@ -118,15 +110,13 @@ Note:
     Once this is done, you can specify your export templates as custom export
     templates in your project's Windows export preset.
 
-Testing the result
-------------------
+## Testing the result
 
 You can now export the project. If it worked correctly, you should see this:
 
 ![](img/icon_result.png)
 
 Note:
-
 
     If your icon isn't showing up properly, on Windows 10, try clearing the icon
     cache. To do so, open the **Run** dialog and enter `ie4uinit.exe

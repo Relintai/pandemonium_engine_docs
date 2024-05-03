@@ -1,10 +1,7 @@
 
-
-Running Pandemonium apps on macOS
-===========================
+# Running Pandemonium apps on macOS
 
 See also:
-
 
     This page covers running Pandemonium projects on macOS.
     If you haven't exported your project yet, read `doc_exporting_for_macos` first.
@@ -13,21 +10,17 @@ By default, macOS will run only applications that are signed and notarized.
 
 Depending on the way a macOS app is signed and distributed, the following scenarios are possible:
 
-App is signed, notarized and distributed via App Store
-------------------------------------------------------
+## App is signed, notarized and distributed via App Store
 
 Note:
-
 
     App developers need to join the Apple Developer Program, and configure signing and notarization options during export, then upload the app to the App Store.
 
 The app should run out of the box, without extra user interaction required.
 
-App is signed, notarized and distributed outside App Store
-----------------------------------------------------------
+## App is signed, notarized and distributed outside App Store
 
 Note:
-
 
     App developers need to join the Apple Developer Program, and configure signing and notarization options during export, then distribute the app as ".DMG" or ".ZIP" archive.
 
@@ -45,11 +38,9 @@ To allow third-party apps, open `System Preferences`, click `Security & Privacy`
 
 ![](img/sys_pref_0.png)
 
-App is signed (including ad-hoc signatures) but not notarized
--------------------------------------------------------------
+## App is signed (including ad-hoc signatures) but not notarized
 
 Note:
-
 
     App developer used self-signed certificate or ad-hoc signing (default Pandemonium behavior for exported project).
 
@@ -73,11 +64,9 @@ To run this app, you can temporarily override Gatekeeper:
 
 * Enter your password if you're prompted.
 
-App is not-signed, executable is linker-signed
-----------------------------------------------
+## App is not-signed, executable is linker-signed
 
 Note:
-
 
     App is built using official export templates, but it is not signed.
 
@@ -95,11 +84,9 @@ To run this app, you should remove the quarantine extended file attribute manual
 
 * Run the command `xattr -dr com.apple.quarantine "Unsigned Game.app"` (including quotation marks and `.app` extension).
 
-Neither app nor executable is signed (relevant for Apple Silicon macs only)
----------------------------------------------------------------------------
+## Neither app nor executable is signed (relevant for Apple Silicon macs only)
 
 Note:
-
 
     App is built using custom export templates, compiled using OSXCross, and it is not signed at all.
 

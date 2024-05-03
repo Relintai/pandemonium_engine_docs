@@ -1,10 +1,8 @@
 
 
-Exporting projects
-==================
+# Exporting projects
 
-Why export?
------------
+## Why export?
 
 Originally, Pandemonium did not have any means to export projects. The
 developers would compile the proper binaries and build the packages for
@@ -14,8 +12,7 @@ When more developers (and even non-programmers) started using it, and
 when our company started taking more projects at the same time, it
 became evident that this was a bottleneck.
 
-On PC
-~~~~~
+### On PC
 
 Distributing a game project on PC with Pandemonium is rather easy. Drop
 the Pandemonium binary in the same directory as the `project.pandemonium` file,
@@ -32,8 +29,7 @@ tools like the editor and debugger.
 Finally, Pandemonium has a simple but efficient system for
 `creating DLCs as extra package files ( doc_exporting_pcks )`.
 
-On mobile
-~~~~~~~~~
+### On mobile
 
 The same scenario on mobile platforms is a little worse.
 To distribute a project on those devices, a binary for each of
@@ -52,8 +48,7 @@ that has been standardized for more than a decade, but mobile devices
 use different formats for texture compression, such as PVRTC (iOS) or
 ETC (Android).
 
-Export menu
------------
+## Export menu
 
 After many attempts at different export workflows, the current one has
 proven to work the best. At the time of this writing, not all platforms are
@@ -86,8 +81,7 @@ export for that platform until they resolve it:
 At that time, the user is expected to come back to the documentation and follow
 instructions on how to properly set up that platform.
 
-Export templates
-~~~~~~~~~~~~~~~~
+### Export templates
 
 Apart from setting up the platform, the export templates must be
 installed to be able to export projects. They can be obtained as a
@@ -100,9 +94,7 @@ option in the editor:
 ![](img/exptemp.png)
 
 
-
-Resource options
-~~~~~~~~~~~~~~~~
+### Resource options
 
 When exporting, Pandemonium makes a list of all the files to export and then
 creates the package. There are 3 different modes for exporting:
@@ -132,8 +124,7 @@ non resource files such as `.txt`,`.json` and `.csv` to be exported with
 the project. The second filter can be used to exclude every file of a certain
 type without manually deselecting every one. For example, `.png)` files.
 
-Exporting from the command line
--------------------------------
+## Exporting from the command line
 
 In production, it is useful to automate builds, and Pandemonium supports this
 with the `--export` and `--export-debug` command line parameters.
@@ -182,8 +173,7 @@ See also:
     See `doc_command_line_tutorial` for more information about using Pandemonium
     from the command line.
 
-PCK versus ZIP pack file formats
---------------------------------
+## PCK versus ZIP pack file formats
 
 Each format has its upsides and downsides. PCK is the default and recommended
 format for most use cases, but you may want to use a ZIP archive instead

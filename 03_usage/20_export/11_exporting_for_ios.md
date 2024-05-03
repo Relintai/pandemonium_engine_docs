@@ -1,10 +1,7 @@
 
-
-Exporting for iOS
-=================
+# Exporting for iOS
 
 See also:
-
 
     This page describes how to export a Pandemonium project to iOS.
     If you're looking to compile export template binaries from source instead,
@@ -14,14 +11,12 @@ These are the steps to load a Pandemonium project in Xcode. This allows you to
 build and deploy to an iOS device, build a release for the App Store, and
 do everything else you can normally do with Xcode.
 
-Requirements
-------------
+## Requirements
 
 -  You must export for iOS from a computer running macOS with Xcode installed.
 -  Download the Pandemonium export templates. Use the Pandemonium menu: Editor > Manage Export Templates
 
-Export a Pandemonium project to Xcode
--------------------------------
+## Export a Pandemonium project to Xcode
 
 In the Pandemonium editor, open the **Export** window from the **Project** menu. When the
 Export window opens, click **Add..** and select **iOS**.
@@ -52,8 +47,7 @@ When the export completes, the output folder should look like this:
 Opening **exported_xcode_project_name.xcodeproj** lets you build and deploy
 like any other iOS app.
 
-Active development considerations
----------------------------------
+## Active development considerations
 
 The above method creates an exported project that you can build for
 release, but you have to re-export every time you make a change in Pandemonium.
@@ -70,8 +64,7 @@ Note:
  **pandemonium_project_to_export** must not be the same as **exported_xcode_project_name**
           to prevent signing issues in Xcode.
 
-Steps to link a Pandemonium project folder to Xcode
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Steps to link a Pandemonium project folder to Xcode
 
 1. Start from an exported iOS project (follow the steps above).
 2. In Finder, drag the Pandemonium project folder into the Xcode file browser.
@@ -97,14 +90,12 @@ you will be able to continue to edit your Pandemonium project in its current loc
 That's it! You can now edit your project in the Pandemonium editor and build it
 in Xcode when you want to run it on a device.
 
-Plugins for iOS
----------------
+## Plugins for iOS
 
 Special iOS plugins can be used in Pandemonium. Check out the
 `doc_plugins_for_ios` page.
 
-Troubleshooting rendering issues
---------------------------------
+## Troubleshooting rendering issues
 
 To improve out-of-the-box performance on mobile devices, Pandemonium automatically
 uses low-end-friendly settings by default on both Android and iOS.

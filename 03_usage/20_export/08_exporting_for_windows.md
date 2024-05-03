@@ -1,10 +1,7 @@
 
-
-Exporting for Windows
-=====================
+# Exporting for Windows
 
 See also:
-
 
     This page describes how to export a Pandemonium project to Windows.
     If you're looking to compile editor or export template binaries from source instead,
@@ -19,14 +16,12 @@ system. When exporting for Windows, the exporter takes all the project files and
 creates a `data.pck` file. This file is bundled with a specially optimized
 binary that is smaller, faster and does not contain the editor and debugger.
 
-Requirements
-------------
+## Requirements
 
 -  To enable code signing, you must have the `Windows 10 SDK` (on Windows) or `osslsigncode ( https://github.com/mtrojnar/osslsigncode )` (on any other OS) installed.
 -  Download the Pandemonium export templates. Use the Pandemonium menu: `Editor > Manage Export Templates`.
 
 Warning:
-
 
     If you export for Windows with embedded PCK files, you will not be able to
     sign the program as it will break.

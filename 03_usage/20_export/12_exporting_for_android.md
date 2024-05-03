@@ -1,11 +1,7 @@
 
-
-Exporting for Android
-=====================
-
+# Exporting for Android
 
 See also:
-
 
     This page describes how to export a Pandemonium project to Android.
     If you're looking to compile export template binaries from source instead,
@@ -14,13 +10,11 @@ See also:
 Exporting for Android has fewer requirements than compiling Pandemonium for Android.
 The following steps detail what is needed to set up the Android SDK and the engine.
 
-Install OpenJDK 11
-------------------
+## Install OpenJDK 11
 
 Download and install  `OpenJDK 11 ( https://adoptium.net/?variant=openjdk11 )`.
 
-Download the Android SDK
-------------------------
+## Download the Android SDK
 
 Download and install the Android SDK.
 
@@ -51,8 +45,7 @@ Note:
     **do not use an Android SDK provided by your distribution's repositories as it will often be outdated**.
 
 
-Create a debug.keystore
------------------------
+## Create a debug.keystore
 
 Android needs a debug keystore file to install to devices and distribute
 non-release APKs. If you have used the SDK before and have built
@@ -68,8 +61,7 @@ the JDK can be used for this purpose:
 
 This will create a `debug.keystore` file in your current directory. You should move it to a memorable location such as `%USERPROFILE%\.android\`, because you will need its location in a later step. For more information on `keytool` usage, see `this Q&A article ( https://pandemoniumengine.org/qa/21349/jdk-android-file-missing )`.
 
-Setting it up in Pandemonium
-----------------------
+## Setting it up in Pandemonium
 
 Enter the Editor Settings screen. This screen contains the editor
 settings for the user account in the computer (it's independent of the
@@ -93,7 +85,6 @@ Once that is configured, everything is ready to export to Android!
 
 Note:
 
-
     If you get an error saying *"Could not install to device."*, make sure
     you do not have an application with the same Android package name already
     installed on the device (but signed with a different key).
@@ -103,8 +94,7 @@ Note:
     the application in question from the Android device before exporting to
     Android again.
 
-Providing launcher icons
-------------------------
+## Providing launcher icons
 
 Launcher icons are used by Android launcher apps to represent your application to users. Pandemonium only requires high-resolution icons (for `xxxhdpi` density screens) and will automatically generate lower-resolution variants.
 
@@ -127,8 +117,7 @@ If you don't provide some of the requested icons, Pandemonium will replace them 
 It's highly recommended to provide all the requested icons with their specified resolutions.
 This way, your application will look great on all Android devices and versions.
 
-Exporting for Google Play Store
--------------------------------
+## Exporting for Google Play Store
 
 Uploading an APK to Google's Play Store requires you to sign using a non-debug
 keystore file; such file can be generated like this:
@@ -156,8 +145,7 @@ Don't forget to uncheck the **Export With Debug** checkbox while exporting.
 
 ![](img/export-with-debug-button.png)
 
-Optimizing the APK size
------------------------
+## Optimizing the APK size
 
 By default, the APK will contain native libraries for both ARMv7 and ARMv8
 architectures. This increases its size significantly. To create a smaller APK,
@@ -177,8 +165,7 @@ You can optimize the size further by compiling an Android export template with
 only the features you need. See `doc_optimizing_for_size` for more
 information.
 
-Troubleshooting rendering issues
---------------------------------
+## Troubleshooting rendering issues
 
 To improve out-of-the-box performance on mobile devices, Pandemonium automatically
 uses low-end-friendly settings by default on both Android and iOS.

@@ -1,10 +1,7 @@
 
-
-Exporting for Universal Windows Platform
-========================================
+# Exporting for Universal Windows Platform
 
 See also:
-
 
     This page describes how to export a Pandemonium project to UWP.
     If you're looking to compile export template binaries from source instead,
@@ -21,8 +18,7 @@ external tools.
 Also, make sure the Publisher Name you set when exporting the package matches
 the name used on the certificate.
 
-Limitations on Xbox One
------------------------
+## Limitations on Xbox One
 
 As described in the `UWP documentation ( https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/system-resource-allocation )`:
 
@@ -38,8 +34,7 @@ As described in the `UWP documentation ( https://docs.microsoft.com/en-us/window
 
 - Exceeding these memory limitations will cause allocation failures and the application will crash.
 
-Creating a signing certificate
-------------------------------
+## Creating a signing certificate
 
 This requires the `MakeCert.exe` and `Pvk2Pfx.exe` tools, which come with
 the Windows SDK. If you use Visual Studio, you can open one of its Developer
@@ -73,8 +68,7 @@ app. Open the Command Prompt as Administrator and run the following command:
     Certutil -addStore TrustedPeople MyKey.cer
 ```
 
-Setting up automatic signing
-----------------------------
+## Setting up automatic signing
 
 To setup automatic signing on export you need to go to Editor Settings > Export > Uwp.
 From there you need to click on the folder for `Signtool`, and navigate to
@@ -96,8 +90,7 @@ following command.
 
     SignTool sign /fd SHA256 /a /f MyKey.pfx /p pfxPassword package.appx
 
-Installing the package
-----------------------
+## Installing the package
 
 As of the Windows 10 Anniversary Update, you are able to install packages simply by
 double clicking the `.appx` file from Windows Explorer.

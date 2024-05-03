@@ -1,10 +1,7 @@
 
+# One-click deploy
 
-One-click deploy
-================
-
-What is one-click deploy?
--------------------------
+## What is one-click deploy?
 
 One-click deploy is a feature that is available once a platform is properly
 configured and a supported device is connected to the computer. Since things can
@@ -26,8 +23,7 @@ Note:
    runnable. If you mark a second preset in a given platform as runnable, the
    other preset will no longer be marked as runnable.
 
-Supported platforms
--------------------
+## Supported platforms
 
 - **Android:** Exports the project with debugging enabled and runs it on the
   connected device.
@@ -43,8 +39,7 @@ Supported platforms
 
 Support for more platforms such as iOS is planned.
 
-Using one-click deploy
-----------------------
+## Using one-click deploy
 
 - If deploying to Android, enable developer mode on your mobile device
   then enable USB debugging in the device's settings.
@@ -60,11 +55,9 @@ Using one-click deploy
 
 ![](img/oneclick.png)
 
-Troubleshooting
----------------
+## Troubleshooting
 
-Android
-^^^^^^^
+### Android
 
 If you can't see the device in the list of devices when running the
 `adb devices` command in a terminal, it will not be visible by Pandemonium either.

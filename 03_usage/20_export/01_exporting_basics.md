@@ -1,10 +1,8 @@
 
 
-Exporting
-=========
+# Exporting
 
-Overview
---------
+## Overview
 
 Now that you have a working game, you probably want to share your success with
 others. However, it's not practical to ask your friends to download Pandemonium
@@ -20,8 +18,7 @@ Note:
  If you haven't made "Dodge the Creeps" yourself yet, please read
           `doc_your_first_2d_game` before continuing with this tutorial.
 
-Preparing the project
----------------------
+## Preparing the project
 
 In *Dodge the Creeps*, we used keyboard controls to move the player's character.
 This is fine if your game is being played on a PC platform, but on a phone
@@ -127,16 +124,14 @@ gdscript GDScript
         $CollisionShape2D.set_deferred("disabled", true)
 ```
 
-Setting a main scene
---------------------
+## Setting a main scene
 
 The main scene is the one that your game will start in. For this
 *Dodge the Creeps* example, in
 **Project -> Project Settings -> Application -> Run**, set **Main Scene**
 to `Main.tscn` by clicking the folder icon and selecting it.
 
-Export templates
-----------------
+## Export templates
 
 To export the project, you need to download the *export templates* from the
 http://pandemoniumengine.org/download. These templates are optimized versions of the engine
@@ -164,8 +159,7 @@ Note:
     Export templates are bound to a specific Pandemonium version. If you upgrade
     Pandemonium, you must download templates that match the new version.
 
-Export presets
---------------
+## Export presets
 
 Next, you can configure the export settings by clicking on **Project -> Export**.
 
@@ -184,14 +178,12 @@ of your game, such as an `.apk` for Android or an `.exe` for Windows.
 In the **Resources** and **Features** tabs, you can customize how the game is
 exported for each platform. We can leave those settings alone for now.
 
-Exporting by platform
----------------------
+## Exporting by platform
 
 In this section, we'll walk through the process for each platform,
 including any additional software or requirements you'll need.
 
-PC (Linux/macOS/Windows)
-~~~~~~~~~~~~~~~~~~~~~~~~
+### PC (Linux/macOS/Windows)
 
 Exporting PC platforms works the same across the three supported operating
 systems. Open the export window and click **Add...** to create the preset(s) you
@@ -215,8 +207,7 @@ Note:
     than the default one, you need to change it manually. See
     `doc_changing_application_icon_for_windows`.
 
-Android
-~~~~~~~
+### Android
 
 Tip:
 
@@ -273,8 +264,7 @@ a **One-click Deploy** button to appear in Pandemonium's playtest button area:
 
 Clicking this button builds the APK and copies it onto your device in one step.
 
-iOS
-~~~
+### iOS
 
 Note:
 
@@ -302,8 +292,7 @@ The Xcode build procedure is beyond the scope of this tutorial.
 See https://help.apple.com/xcode/mac/current/#/devc8c2a6be1
 for more information.
 
-HTML5 (web)
-~~~~~~~~~~~
+### HTML5 (web)
 
 Click **Export Project** on the HTML5 preset. We don't need to change any
 of the default settings.

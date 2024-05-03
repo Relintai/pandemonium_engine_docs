@@ -1,10 +1,8 @@
 
 
-Exporting for Linux
-===================
+# Exporting for Linux
 
 See also:
-
 
     This page describes how to export a Pandemonium project to Linux.
     If you're looking to compile editor or export template binaries from source instead,

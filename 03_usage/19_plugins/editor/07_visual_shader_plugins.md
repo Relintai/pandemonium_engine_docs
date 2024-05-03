@@ -1,7 +1,6 @@
 
 
-Visual Shader plugins
-=====================
+# Visual Shader plugins
 
 Visual Shader plugins are used to create custom `VisualShader` nodes
 in GDScript.

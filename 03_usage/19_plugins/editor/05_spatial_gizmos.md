@@ -1,10 +1,8 @@
 
 
-Spatial gizmo plugins
-=====================
+# Spatial gizmo plugins
 
-Introduction
-------------
+## Introduction
 
 Spatial gizmo plugins are used by the editor and custom plugins to define the
 gizmos attached to any kind of Spatial node.
@@ -17,8 +15,7 @@ Note:
  This tutorial assumes you already know how to make generic plugins. If
           in doubt, refer to the `doc_making_plugins` page.
 
-The EditorSpatialGizmoPlugin
-----------------------------
+## The EditorSpatialGizmoPlugin
 
 Regardless of the approach we choose, we will need to create a new
 `EditorSpatialGizmoPlugin`. This will allow
@@ -62,8 +59,7 @@ is enough. If you want to store some per-gizmo data or you are porting a Pandemo
 to 3.1+, you should go with the second approach.
 
 
-Simple approach
----------------
+## Simple approach
 
 The first step is to, in our custom gizmo plugin, override the `has_gizmo()( EditorSpatialGizmoPlugin_method_has_gizmo )`
 method so that it returns `true` when the spatial parameter is of our target type.
@@ -163,8 +159,7 @@ Note that we just added some handles in the redraw method, but we still need to 
 the rest of handle-related callbacks in `EditorSpatialGizmoPlugin`
 to get properly working handles.
 
-Alternative approach
---------------------
+## Alternative approach
 
 In some cases we want to provide our own implementation of `EditorSpatialGizmo( EditorSpatialGizmo )`,
 maybe because we want to have some state stored in each gizmo or because we are porting

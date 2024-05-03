@@ -1,10 +1,8 @@
 
 
-Making main screen plugins
-==========================
+# Making main screen plugins
 
-What this tutorial covers
--------------------------
+## What this tutorial covers
 
 As seen in the `doc_making_plugins` page, making a basic plugin that
 extends the editor is fairly easy. Main screen plugins allow you to create
@@ -16,8 +14,7 @@ This tutorial leads you through the creation of a basic main screen plugin.
 For the sake of simplicity, our main screen plugin will contain a single
 button that prints text to the console.
 
-Initializing the plugin
------------------------
+## Initializing the plugin
 
 First create a new plugin from the Plugins menu. For this tutorial, we'll put
 it in a folder called `main_screen`, but you can use any name you'd like.
@@ -61,8 +58,7 @@ called by the editor on plugin activation, to tell it that this plugin
 adds a new center view to the editor. For now, we'll leave this script
 as-is and we'll come back to it later.
 
-Main screen scene
------------------
+## Main screen scene
 
 Create a new scene with a root node derived from `Control` (for this
 example plugin, we'll make the root node a `CenterContainer`).
@@ -89,8 +85,7 @@ see the `doc_signals` article.
 
 We are done with the main screen panel. Save the scene as `main_panel.tscn`.
 
-Update the plugin script
-------------------------
+## Update the plugin script
 
 We need to update the `main_screen_plugin.gd` script so the plugin
 instances our main panel scene and places it where it needs to be.
@@ -163,8 +158,7 @@ allows you to handle a node type, automatically focusing the main
 screen when the type is selected. This is similar to how clicking
 on a 3D node will automatically switch to the 3D viewport.
 
-Try the plugin
---------------
+## Try the plugin
 
 Activate the plugin in the Project Settings. You'll observe a new button next
 to 2D, 3D, Script above the main viewport. Clicking it will take you to your

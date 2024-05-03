@@ -1,7 +1,6 @@
 
 
-Inspector plugins
-=================
+# Inspector plugins
 
 The inspector dock allows you to create custom widgets to edit properties
 through plugins. This can be beneficial when working with custom datatypes and
@@ -14,14 +13,12 @@ This guide explains how to use the `EditorInspectorPlugin` and
 replacing the default behavior with a button that generates random values
 between 0 and 99.
 
-.. figure:: img/inspector_plugin_example.png)
-   :align: center
+![](img/inspector_plugin_example.png)
 
-   The default behavior on the left and the end result on the right.
+The default behavior on the left and the end result on the right.
 
 
-Setting up your plugin
-----------------------
+## Setting up your plugin
 
 Create a new empty plugin to get started.
 
@@ -63,8 +60,7 @@ gdscript GDScript
 ```
 
 
-Interacting with the inspector
-------------------------------
+## Interacting with the inspector
 
 To interact with the inspector dock, your `MyInspectorPlugin.gd` script must
 extend the `EditorInspectorPlugin` class. This class provides several
@@ -117,8 +113,7 @@ gdscript GDScript
 ```
 
 
-Adding an interface to edit properties
---------------------------------------
+## Adding an interface to edit properties
 
 The `EditorProperty` class is a special type of `Control`
 that can interact with the inspector dock's edited objects. It doesn't display

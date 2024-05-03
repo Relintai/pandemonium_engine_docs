@@ -1,15 +1,13 @@
 
 
-Import plugins
-==============
+# Import plugins
 
 Note:
  This tutorial assumes you already know how to make generic plugins. If
           in doubt, refer to the `doc_making_plugins` page. This also
           assumes you are acquainted with Pandemonium's import system.
 
-Introduction
-------------
+## Introduction
 
 An import plugin is a special type of editor tool that allows custom resources
 to be imported by Pandemonium and be treated as first-class resources. The editor
@@ -28,8 +26,7 @@ imported material. In this example it will contain the pure blue color
     0,0,255
 ```
 
-Configuration
--------------
+## Configuration
 
 First we need a generic plugin that will handle the initialization and
 destruction of our import plugin. Let's add the `plugin.cfg` file first:
@@ -79,8 +76,7 @@ Note that the import plugin is a reference type, so it doesn't need to be
 explicitly released from memory with the `free()` function. It will be
 released automatically by the engine when it goes out of scope.
 
-The EditorImportPlugin class
-----------------------------
+## The EditorImportPlugin class
 
 The main character of the show is the
 `EditorImportPlugin class`. It is responsible for
@@ -168,8 +164,7 @@ Note:
           have to create multiple import plugins. You can abstract the import
           code on another file to avoid duplication in this regard.
 
-Options and presets
--------------------
+## Options and presets
 
 Your plugin can provide different options to allow the user to control how the
 resource will be imported. If a set of selected options is common, you can also
@@ -246,19 +241,15 @@ an array of dictionaries, and each dictionary contains a few keys that are
 checked to customize the option as its shown to the user. The following table
 shows the possible keys:
 
-+-------------------+------------+----------------------------------------------------------------------------------------------------------+
+
 | Key               | Type       | Description                                                                                              |
-+===================+============+==========================================================================================================+
-| `name`          | String     | The name of the option. When showed, underscores become spaces and first letters are capitalized.        |
-+-------------------+------------+----------------------------------------------------------------------------------------------------------+
-| `default_value` | Any        | The default value of the option for this preset.                                                         |
-+-------------------+------------+----------------------------------------------------------------------------------------------------------+
-| `property_hint` | Enum value | One of the `PropertyHint <enum_@GlobalScope_PropertyHint )` values to use as hint.                   |
-+-------------------+------------+----------------------------------------------------------------------------------------------------------+
-| `hint_string`   | String     | The hint text of the property. The same as you'd add in the `export` statement in GDScript.            |
-+-------------------+------------+----------------------------------------------------------------------------------------------------------+
-| `usage`         | Enum value | One of the `PropertyUsageFlags <enum_@GlobalScope_PropertyUsageFlags )` values to define the usage.  |
-+-------------------+------------+----------------------------------------------------------------------------------------------------------+
+|-------------------|------------|----------------------------------------------------------------------------------------------------------|
+| `name`            | String     | The name of the option. When showed, underscores become spaces and first letters are capitalized.        |
+| `default_value`   | Any        | The default value of the option for this preset.                                                         |
+| `property_hint`   | Enum value | One of the `PropertyHint ( enum_@GlobalScope_PropertyHint )` values to use as hint.                       |
+| `hint_string`     | String     | The hint text of the property. The same as you'd add in the `export` statement in GDScript.              |
+| `usage`           | Enum value | One of the `PropertyUsageFlags ( enum_@GlobalScope_PropertyUsageFlags )` values to define the usage.      |
+
 
 The `name` and `default_value` keys are **mandatory**, the rest are optional.
 
@@ -287,8 +278,7 @@ one we defined) are visible all the time.
 If you need to make certain option visible only if another is set with a certain
 value, you can add the logic in this method.
 
-The `import` method
----------------------
+## The `import` method
 
 The heavy part of the process, responsible for converting the files into
 resources, is covered by the `import()`
@@ -357,8 +347,7 @@ We also return the result from the
 `ResourceSaver.save()` method, so if there's an
 error in this step, the editor will know about it.
 
-Platform variants and generated files
--------------------------------------
+## Platform variants and generated files
 
 You may have noticed that our plugin ignored two arguments of the `import`
 method. Those are *return arguments* (hence the `r` at the beginning of their
@@ -402,8 +391,7 @@ in a different file:
     r_gen_files.push_back(next_pass_path)
 ```
 
-Trying the plugin
------------------
+## Trying the plugin
 
 This has been theoretical, but now that the import plugin is done, let's
 test it. Make sure you created the sample file (with the contents described in

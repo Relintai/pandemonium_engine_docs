@@ -1,10 +1,8 @@
 
 
-Making plugins
-==============
+# Making plugins
 
-About plugins
-~~~~~~~~~~~~~
+### About plugins
 
 A plugin is a great way to extend the editor with useful tools. It can be made
 entirely with GDScript and standard scenes, without even reloading the editor.
@@ -18,8 +16,7 @@ you can understand how they work and be able to develop your own. The first
 will be a custom node that you can add to any scene in the project and the
 other will be a custom dock added to the editor.
 
-Creating a plugin
-~~~~~~~~~~~~~~~~~
+### Creating a plugin
 
 Before starting, create a new empty project wherever you want. This will serve
 as a base to develop and test the plugins.
@@ -76,8 +73,7 @@ if you are unsure on how to come up with the version number, check out `Semantic
 The main script file will instruct Pandemonium what your plugin does in the editor
 once it is active.
 
-The script file
-^^^^^^^^^^^^^^^
+#### The script file
 
 Upon creation of the plugin, the dialog will automatically open the
 EditorPlugin script for you. The script has two requirements that you cannot
@@ -119,8 +115,7 @@ gdscript GDScript
 
 This is a good template to use when creating new plugins.
 
-A custom node
-~~~~~~~~~~~~~
+## A custom node
 
 Sometimes you want a certain behavior in many nodes, such as a custom scene
 or control that can be reused. Instancing is helpful in a lot of cases, but
@@ -206,8 +201,7 @@ click the button, you can see some text in the console:
 
 ![](img/making_plugins-custom_node_console.png)
 
-A custom dock
-^^^^^^^^^^^^^
+#### A custom dock
 
 Sometimes, you need to extend the editor and add tools that are always available.
 An easy way to do it is to add a new dock with a plugin. Docks are just scenes
@@ -287,8 +281,7 @@ gdscript GDScript
 Note that, while the dock will initially appear at its specified position,
 the user can freely change its position and save the resulting layout.
 
-Checking the results
-^^^^^^^^^^^^^^^^^^^^
+#### Checking the results
 
 It's now time to check the results of your work. Open the **Project
 Settings** and click on the **Plugins** tab. Your plugin should be the only one
@@ -303,8 +296,7 @@ the settings window. You should now have a custom dock:
 
 ![](img/making_plugins-custom_dock.png)
 
-Going beyond
-~~~~~~~~~~~~
+#### Going beyond
 
 Now that you've learned how to make basic plugins, you can extend the editor in
 several ways. Lots of functionality can be added to the editor with GDScript;
@@ -316,9 +308,7 @@ You can make your own plugins to help yourself and share them in the
 can benefit from your work.
 
 
-
-Registering autoloads/singletons in plugins
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Registering autoloads/singletons in plugins
 
 It is possible for editor plugins to automatically register
 `autoloads ( doc_singletons_autoload )` when the plugin is enabled.

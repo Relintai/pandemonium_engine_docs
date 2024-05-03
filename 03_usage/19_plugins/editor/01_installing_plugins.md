@@ -1,14 +1,12 @@
 
 
-Installing plugins
-==================
+# Installing plugins
 
 Pandemonium features an editor plugin system with numerous plugins developed by the
 community. Plugins can extend the editor's functionality with new nodes,
 additional docks, convenience features, and more.
 
-Finding plugins
-~~~~~~~~~~~~~~~
+### Finding plugins
 
 The preferred way to find Pandemonium plugins is to use the
 `Asset Library ( https://pandemoniumengine.org/asset-library/ )`. While it can be
@@ -32,8 +30,7 @@ Note:
     repository contains a `plugin.cfg` file in a folder placed in the
     `addons/` folder, then it is an editor plugin.
 
-Installing a plugin
-~~~~~~~~~~~~~~~~~~~
+### Installing a plugin
 
 To install a plugin, download it as a ZIP archive. On the Asset Library, this
 can be done using the **Download** button, either from the editor or using the
@@ -54,8 +51,7 @@ plugin's `addons/` folder into your project folder to merge the new folder
 contents with the existing one. Your file manager may ask you whether to write
 into the folder; answer **Yes**. No files will be overwritten in the process.
 
-Enabling a plugin
-~~~~~~~~~~~~~~~~~
+### Enabling a plugin
 
 To enable the freshly installed plugin, open **Project > Project Settings** at
 the top of the editor then go the **Plugins** tab. If the plugin was packaged

@@ -1,20 +1,17 @@
 
 
-Using the Web editor
-====================
+# Using the Web editor
 
 Since Pandemonium 3.3, there is a `Web editor ( https://editor.pandemoniumengine.org/ )`
 you can use to work on new or existing projects.
 
 Note:
 
-
     The web editor is in a preliminary stage. While its feature set may be
     sufficient for educational purposes, it is currently **not recommended for
     production work**. See `doc_using_the_web_editor_limitations` below.
 
-Browser support
----------------
+## Browser support
 
 The Web editor requires support for WebAssembly's SharedArrayBuffer. This
 is in turn required to support threading in the browser. The following desktop
@@ -34,15 +31,11 @@ recommended for better performance and compatibility with old/low-end hardware.
 
 Note:
 
-
     If you use Linux, due to
     `poor Firefox WebGL performance ( https://bugzilla.mozilla.org/show_bug.cgi?id=1010527 )`,
     it's recommended to use a Chromium-based browser instead of Firefox.
 
-
-
-Limitations
------------
+## Limitations
 
 Due to limitations on the Pandemonium or Web platform side, the following features
 are currently missing:
@@ -68,12 +61,10 @@ of the Web platform:
 
 See also:
 
-
     See the
     `list of open issues on GitHub related to the web editor ( https://github.com/Relintai/pandemonium_engine/issues?q=is%3Aopen+is%3Aissue+label%3Aplatform%3Ahtml5+label%3Atopic%3Aeditor )` for a list of known bugs.
 
-Importing a project
--------------------
+## Importing a project
 
 To import an existing project, the current process is as follows:
 
@@ -87,7 +78,7 @@ To import an existing project, the current process is as follows:
   (it doesn't have to match the ZIP archive's name).
 - Click **Install & Edit** and the project will open in the editor.
 
-.. attention::
+Attention:
 
     It's important to place the project folder somewhere in `/home/web_user/`.
     If your project folder is placed outside `/home/web_user/`, you will
@@ -96,8 +87,7 @@ To import an existing project, the current process is as follows:
     When you follow the steps described above, the project folder will always be
     located in `/home/web_user/projects`, keeping it safe.
 
-Editing and running a project
------------------------------
+## Editing and running a project
 
 Unlike the native version of Pandemonium, the web editor is constrained to a single
 window. Therefore, it cannot open a new window when running the project.
@@ -109,8 +99,7 @@ windows (which are now "tabs"). You can switch between the **Editor** and
 **Game** tabs using the buttons on the top. You can also close the running game
 or editor by clicking the **×** button next to those tabs.
 
-Where are my project files?
----------------------------
+## Where are my project files?
 
 Due to browser security limitations, the editor will save the project files to
 the browser's IndexedDB storage. This storage isn't accessible as a regular folder

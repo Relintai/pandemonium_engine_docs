@@ -1,19 +1,15 @@
 
-
-Contributing to the documentation
-=================================
+# Contributing to the documentation
 
 This guide explains how to contribute to Pandemonium's documentation, be it by
 writing or reviewing pages.
 
 See also:
 
-
    If you want to translate pages or the class reference from English to other
    languages, read `doc_editor_and_docs_localization`.
 
-Getting started
----------------
+## Getting started
 
 To modify or create pages in the reference manual, you need to edit `.rst`
 files in the `pandemonium-docs GitHub repository
@@ -34,8 +30,7 @@ Warning:
              methods, or properties, read
              `doc_updating_the_class_reference`.
 
-What is the Pandemonium documentation
--------------------------------
+## What is the Pandemonium documentation
 
 The Pandemonium documentation is intended as a comprehensive reference manual for the
 Pandemonium game engine. It is not meant to contain step-by-step tutorials, except for
@@ -49,8 +44,7 @@ contribute, you should also read:
 2. The content guidelines. They explain the principles we follow to write the
    documentation and the kind of content we accept.
 
-Contributing changes
---------------------
+## Contributing changes
 
 **Pull Requests should use the** `master` **branch by default.** Only make Pull
 Requests against other branches (e.g. `2.1` or `3.0`) if your changes only
@@ -60,8 +54,7 @@ Though less convenient to edit than a wiki, this Git repository is where we
 write the documentation. Having direct access to the source files in a revision
 control system is a plus to ensure our documentation quality.
 
-Editing existing pages
-~~~~~~~~~~~~~~~~~~~~~~
+### Editing existing pages
 
 To edit an existing page, locate its `.rst` source file and open it in your
 favorite text editor. You can then commit the changes, push them to your fork,
@@ -74,8 +67,7 @@ See also:
  To build the manual and test changes on your computer, see
              `doc_building_the_manual`.
 
-Editing pages online
---------------------
+## Editing pages online
 
 You can edit the documentation online by clicking the **Edit on GitHub** link in
 the top-right of every page.
@@ -102,8 +94,7 @@ and to log in to use it. Once logged in, you can propose change like so:
 Another contributor will review your changes and merge them into the docs if
 they're good. They may also make changes or ask you to do so before merging.
 
-Adding new pages
-----------------
+## Adding new pages
 
 Before adding a new page, please ensure that it fits in the documentation:
 
@@ -120,8 +111,7 @@ You should then add your page to the relevant "toctree" (table of contents,
 e.g. `tutorials/3d/index.rst`). Add your new filename to the list on a new
 line, using a relative path and no extension, e.g. here `light_baking`.
 
-Titles
-~~~~~~
+### Titles
 
 Always begin pages with their title and a Sphinx reference name:
 
@@ -144,8 +134,7 @@ Write your titles like plain sentences, without capitalizing each word:
 Only propers nouns, projects, people, and node class names should have their
 first letter capitalized.
 
-Sphinx and reStructuredText syntax
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Sphinx and reStructuredText syntax
 
 Check Sphinx’s `reST Primer ( https://www.sphinx-doc.org/en/stable/rest.html )`
 and the `official reference ( http://docutils.sourceforge.net/rst.html )` for
@@ -161,8 +150,7 @@ how to use Sphinx directives like `Note:
 the `Sphinx directives documentation
 ( https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html )`.
 
-Adding images and attachments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Adding images and attachments
 
 To add images, please put them in an `img/` folder next to the `.rst` file with
 a meaningful name and include them in your page with:
@@ -179,8 +167,7 @@ using this inline markup:
    :download:`myfilename.zip ( files/myfilename.zip )`
 ```
 
-License
--------
+## License
 
 This documentation and every page it contains is published under the terms of
 the `Creative Commons Attribution 3.0 license (CC-BY-3.0)

@@ -1,10 +1,8 @@
 
 
-Editor style guide
-==================
+# Editor style guide
 
-Introduction
-------------
+## Introduction
 
 Thanks for your interest in contributing to the Pandemonium editor!
 
@@ -12,8 +10,7 @@ This page describes the grammar and writing style used throughout the Pandemoniu
 editor. Following this style guide will help your contribution get merged faster
 since there will be fewer review steps required.
 
-Writing style
--------------
+## Writing style
 
 - **Write messages (errors, warnings, ...) as full sentences.** They should start
   with an uppercase letter and end with a period.
@@ -32,8 +29,7 @@ See also:
     Try to follow the `doc_docs_writing_guidelines` in addition to the
     guidelines outlined above.
 
-Button and menu texts
----------------------
+## Button and menu texts
 
 Capitalize text in buttons and menu actions:
 
@@ -45,8 +41,7 @@ If a menu action opens a modal dialog, suffix it with an ellipsis (`...`).
 - **Good:** *Editor Settings...*
 - **Bad:** *Editor Settings*
 
-Inspector sections
-------------------
+## Inspector sections
 
 In general, don't create sections that contain less than 3 items. Sections that
 contain few items make it difficult to navigate the inspector, while missing the
@@ -57,8 +52,7 @@ There are some valid exceptions for this, such as material features in
 
 This advice also applies to the Project Settings and Editor Settings.
 
-Inspector performance hints
----------------------------
+## Inspector performance hints
 
 Enum properties that noticeably impact performance should have a performance
 hint associated. The hint should refer to the *absolute* performance impact,
@@ -81,8 +75,7 @@ and "Slow" from the list above.
 If you're adding a new enum, its values should be ordered from the fastest
 option to the slowest option.
 
-Tooltips
---------
+## Tooltips
 
 Consider adding tooltips whenever the action performed by a button or menu
 action isn't obvious. You can also provide additional context or highlight

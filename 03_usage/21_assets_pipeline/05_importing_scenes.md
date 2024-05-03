@@ -1,10 +1,8 @@
 
 
-Importing 3D scenes
-===================
+# Importing 3D scenes
 
-Pandemonium scene importer
---------------------
+## Pandemonium scene importer
 
 When dealing with 3D assets, Pandemonium has a flexible and configurable importer.
 
@@ -25,8 +23,7 @@ Just copy the scene file together with the texture to the project repository, an
 It is important that the mesh is not deformed by bones when exporting. Make sure that the skeleton is reset to its T-pose
 or default rest pose before exporting with your favorite 3D editor.
 
-Exporting DAE files from Maya and 3DS Max
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Exporting DAE files from Maya and 3DS Max
 
 Autodesk added built-in COLLADA support to Maya and 3DS Max, but it's
 broken by default and should not be used. The best way to export this format
@@ -35,8 +32,7 @@ is by using the
 plugins. They work well, although they are not always up-to date
 with the latest version of the software.
 
-Exporting glTF 2.0 files from Blender
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Exporting glTF 2.0 files from Blender
 
 There are three ways to export glTF files from Blender. As a glTF binary (`.glb` file), glTF embedded (`.gltf` file),
 and with textures (`gltf` + `.bin` + textures).
@@ -54,11 +50,9 @@ either of those glTF binary files are fine.
 
 Warning:
 
-
     Blend shape animations cannot be imported - they require manual animation within Pandemonium.
 
 Note:
-
 
     Blender versions older than 3.2 do not export emissive textures with the
     glTF file. If your model uses one and you're using an older version of
@@ -71,8 +65,7 @@ Note:
     being culled by other faces. To resolve this, enable **Backface Culling** in
     Blender's Materials tab, then export the scene to glTF again.
 
-Exporting DAE files from Blender
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Exporting DAE files from Blender
 
 Blender has built-in COLLADA support, but it does not work properly for the needs of game engines
 and should not be used as is.
@@ -81,8 +74,7 @@ Pandemonium provides a `Blender plugin ( https://github.com/pandemoniumengine/co
 that will correctly export COLLADA scenes for use in Pandemonium. It does not work in Blender 2.8 or
 newer, but there are plans to update it in the future.
 
-Exporting ESCN files from Blender
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Exporting ESCN files from Blender
 
 The most powerful one, called `pandemonium-blender-exporter
 ( https://github.com/Relintai/pandemonium_engine-blender-exporter )`.
@@ -90,11 +82,10 @@ It uses a .escn file, which is kind of another name for a .tscn file (Pandemoniu
 it keeps as much information as possible from a Blender scene. However, it is considered
 experimental.
 
-The ESCN exporter has a detailed `document <escn_exporter/index.html )` describing
+The ESCN exporter has a detailed `document ( escn_exporter/index.html )` describing
 its functionality and usage.
 
-Exporting textures separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Exporting textures separately
 
 While textures can be exported with a model in certain file formats, such as glTF 2.0, you can also export them
 separately. Pandemonium uses PBR (physically based rendering) for its materials, so if a texturing program can export PBR
@@ -104,8 +95,7 @@ textures, they can work in Pandemonium. This includes the `Substance suite ( htt
 Note:
  For more information on Pandemonium's materials, see `doc_spatial_material`.
 
-Exporting considerations
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Exporting considerations
 
 Since GPUs can only render triangles, meshes that contain quads or N-gons have
 to be *triangulated* before they can be rendered. Pandemonium can triangulate meshes
@@ -124,8 +114,7 @@ in the export dialog.
 To avoid issues with 3D selection in the editor, it is recommended to apply the
 object transform in the 3D DCC before exporting the scene.
 
-Import workflows
-----------------
+## Import workflows
 
 Pandemonium scene importer allows different workflows regarding how data is imported. Depending on many options, it is possible to
 import a scene with:
@@ -140,33 +129,27 @@ import a scene with:
 
 As different developers have different needs, this import process is highly customizable.
 
-Import options
---------------
+## Import options
 
 The importer has several options, which will be discussed below:
 
 ![](img/scene_import2.png)
 
-Nodes
-~~~~~
+### Nodes
 
-Root Type
-^^^^^^^^^
+#### Root Type
 
 By default, the type of the root node in imported scenes is "Spatial", but this can be modified.
 
-Root Name
-^^^^^^^^^
+#### Root Name
 
 Allows setting a specific name to the generated root node.
 
-Root Scale
-^^^^^^^^^^
+#### Root Scale
 
 The scale of the root node.
 
-Custom Script
-^^^^^^^^^^^^^
+#### Custom Script
 
 A special script to process the whole scene after import can be provided.
 This is great for post processing, changing materials, doing funny stuff
@@ -188,8 +171,7 @@ The `post_import` function takes the imported scene as argument (the
 parameter is actually the root node of the scene). The scene that
 will finally be used must be returned. It can be a different one.
 
-Storage
-^^^^^^^
+#### Storage
 
 By default, Pandemonium imports a single scene. This option allows specifying
 that nodes below the root will each be a separate scene and instanced
@@ -197,18 +179,14 @@ into the imported one.
 
 Of course, instancing such imported scenes in other places manually works, too.
 
+### Materials
 
-Materials
-~~~~~~~~~
-
-Location
-^^^^^^^^
+#### Location
 
 Pandemonium supports materials in meshes or nodes. By default, materials will be put
 on each node.
 
-Storage
-^^^^^^^
+#### Storage
 
 Materials can be stored within the scene or in external files. By default,
 they are stored in external files so editing them is possible. This is because
@@ -228,18 +206,15 @@ Note:
     dock, going to the Import dock then setting **Material > Storage** to
     **Built-In** instead of **Files**.
 
-Keep On Reimport
-^^^^^^^^^^^^^^^^
+#### Keep On Reimport
 
 Once materials are edited to use Pandemonium features, the importer will keep the
 edited ones and ignore the ones coming from the source scene. This option
 is only present if materials are saved as files.
 
-Meshes
-~~~~~~
+### Meshes
 
-Compress
-^^^^^^^^
+#### Compress
 
 Makes meshes use less precise numbers for multiple aspects of the mesh in order
 to save space.
@@ -265,16 +240,14 @@ may be needed. For instance, if a mesh is very big or there are multiple meshes
 being imported that cover a large area, compressing the import of this mesh(es)
 may lead to gaps in geometry or vertices not being exactly where they should be.
 
-Ensure Tangents
-^^^^^^^^^^^^^^^
+#### Ensure Tangents
 
 If textures with normal mapping are to be used, meshes need to have tangent arrays.
 This option ensures that these are generated if not present in the source scene.
 Pandemonium uses `Mikktspace ( http://www.mikktspace.com/ )` for this,
 but it's always better to have them generated in the exporter.
 
-Storage
-^^^^^^^
+#### Storage
 
 Meshes can be stored in separate files (resources) instead of built-in. This does
 not have much practical use unless one wants to build objects with them directly.
@@ -282,8 +255,7 @@ not have much practical use unless one wants to build objects with them directly
 This option is provided to help those who prefer working directly with meshes
 instead of scenes.
 
-Light Baking
-^^^^^^^^^^^^
+#### Light Baking
 
 Whether or not the mesh is used in baked lightmaps.
 
@@ -294,14 +266,12 @@ Whether or not the mesh is used in baked lightmaps.
 Note:
  For more information on light baking see `doc_baked_lightmaps`.
 
-External Files
-~~~~~~~~~~~~~~
+### External Files
 
 Generated meshes and materials can be optionally stored in a subdirectory with the
 name of the scene.
 
-Animation options
------------------
+## Animation options
 
 Pandemonium provides many options regarding how animation data is dealt with. Some exporters
 (such as Blender) can generate many animations in a single file. Others, such as
@@ -312,21 +282,19 @@ each animation in a separate file.
 
 Import of animations is enabled by default.
 
-.. attention::
+Attention:
 
     To modify animations from an imported 3D scene, you need to change the animation
     storage option from **Built-In** to **Files** in the Import dock. Otherwise,
     changes made to animations from Pandemonium will be lost when the project is run.
 
-FPS
-~~~
+### FPS
 
 Most 3D export formats store animation timeline in seconds instead of frames. To ensure
 animations are imported as faithfully as possible, please specify the frames per second
 used to edit them. Failing to do this may result in shaky animations.
 
-Filter Script
-~~~~~~~~~~~~~
+### Filter Script
 
 It is possible to specify a filter script in a special syntax to decide which tracks from which
 animations should be kept.
@@ -378,31 +346,27 @@ as `"Skeleton:Head"` or `"Skeleton:Arm_Left_Control"` would be retained.
 
 Any track filter lines that do not begin with a `+` or `-` are ignored.
 
-Storage
-~~~~~~~
+### Storage
 
 By default, animations are saved as built-in. It is possible to save them to a file instead. This
 allows adding custom tracks to the animations and keeping them after a reimport.
 
-Optimizer
-~~~~~~~~~
+### Optimizer
 
 When animations are imported, an optimizer is run, which reduces the size of the animation considerably.
 In general, this should always be turned on unless you suspect that an animation might be broken due to it being enabled.
 
-Clips
-~~~~~
+### Clips
 
 It is possible to specify multiple animations from a single timeline as clips. For this to work, the model
 must have only one animation that is named `default`. To create clips, change the clip amount to something
 greater than zero. You can then name a clip, specify which frames it starts and stops on, and choose whether
 the animation loops or not.
 
-.. If this PR (https://github.com/Relintai/pandemonium_engine/pull/36709) is merged for Pandemonium 4.0 this section must
+If this PR (https://github.com/Relintai/pandemonium_engine/pull/36709) is merged for Pandemonium 4.0 this section must
    be updated to reflect that for the 4.0 documentation.
 
-Scene inheritance
------------------
+## Scene inheritance
 
 In many cases, it may be desired to make modifications to the imported scene. By default, this is not possible because
 if the source asset changes (source `.dae`, `.gltf`, `.obj` file re-exported from 3D modelling app), Pandemonium will re-import the whole scene.
@@ -421,8 +385,7 @@ Other than that, everything is allowed!
 
 
 
-Import hints
-------------
+## Import hints
 
 Many times, when editing a scene, there are common tasks that need to be done after exporting:
 
@@ -436,17 +399,14 @@ will detect suffixes in object names and will perform actions automatically.
 
 Note:
 
-
     All the suffixes described below are *case-sensitive*.
 
-Remove nodes (-noimp)
-~~~~~~~~~~~~~~~~~~~~~
+### Remove nodes (-noimp)
 
 Objects that have the `-noimp` suffix will be removed at import-time no matter
 what their type is. They will not appear in the imported scene.
 
-Create collisions (-col, -convcol, -colonly, -convcolonly)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Create collisions (-col, -convcol, -colonly, -convcolonly)
 
 The option `-col` will work only for Mesh objects. If it is detected, a child
 static collision node will be added, using the same geometry as the mesh. This
@@ -491,42 +451,35 @@ reliability.
 
 Note:
 
-
     For better visibility in Blender's editor, you can set the "X-Ray" option
     on collision empties and set some distinct color for them in Blender's
     **User Preferences > Themes > 3D View > Empty**.
 
 See also:
 
-
     See `doc_collision_shapes_3d` for a comprehensive overview of collision
     shapes.
 
-Create navigation (-navmesh)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Create navigation (-navmesh)
 
 A mesh node with the `-navmesh` suffix will be converted to a navigation mesh.
 The original Mesh object will be removed at import-time.
 
-Create a VehicleBody (-vehicle)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Create a VehicleBody (-vehicle)
 
 A mesh node with the `-vehicle` suffix will be imported as a child to a
 `VehicleBody` node.
 
-Create a VehicleWheel (-wheel)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Create a VehicleWheel (-wheel)
 
 A mesh node with the `-wheel` suffix will be imported as a child to a
 `VehicleWheel` node.
 
-Rigid Body (-rigid)
-~~~~~~~~~~~~~~~~~~~
+### Rigid Body (-rigid)
 
 A mesh node with the `-rigid` suffix will be imported as a `RigidBody`.
 
-Animation loop (-loop, -cycle)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Animation loop (-loop, -cycle)
 
 Animation clips in the COLLADA document that start or end with the token `loop` or `cycle`
 will be imported as a Pandemonium Animation with the loop flag set.

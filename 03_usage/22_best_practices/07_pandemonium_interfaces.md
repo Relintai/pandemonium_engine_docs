@@ -1,7 +1,6 @@
 
 
-Pandemonium interfaces
-================
+# Pandemonium interfaces
 
 Often one needs scripts that rely on other objects for features. There
 are 2 parts to this process:
@@ -12,8 +11,7 @@ are 2 parts to this process:
 
 The rest of this tutorial outlines the various ways of doing all this.
 
-Acquiring object references
----------------------------
+## Acquiring object references
 
 For all `Object`\s, the most basic way of referencing them
 is to get a reference to an existing object from another acquired instance.
@@ -131,10 +129,7 @@ gdscript GDScript
         print(globals.my_getter())
 ```
 
-
-
-Accessing data or logic from an object
---------------------------------------
+## Accessing data or logic from an object
 
 Pandemonium's scripting API is duck-typed. This means that if a script executes an
 operation, Pandemonium doesn't validate that it supports the operation by **type**.

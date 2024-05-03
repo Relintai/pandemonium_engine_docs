@@ -1,8 +1,6 @@
 
 
-When and how to avoid using nodes for everything
-================================================
-
+# When and how to avoid using nodes for everything
 
 Nodes are cheap to produce, but even they have their limits. A project may
 have tens of thousands of nodes all doing things. The more complex their

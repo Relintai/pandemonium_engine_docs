@@ -1,14 +1,11 @@
 
-
-Class reference writing guidelines
-==================================
+# Class reference writing guidelines
 
 This page explains how to write the class reference. You will learn where to
 write new descriptions for the classes, methods, and properties for Pandemonium's
 built-in node types.
 
 See also:
-
 
     To learn to submit your changes to the Pandemonium project using the Git version
     control system, see `doc_updating_the_class_reference`.
@@ -84,10 +81,7 @@ Write in a clear and simple language. Always follow the `writing guidelines
 **Do not leave empty lines** in the descriptions: each line in the XML file will
 result in a new paragraph, even if it is empty.
 
-
-
-How to edit class XML
----------------------
+## How to edit class XML
 
 Edit the file for your chosen class in `doc/classes/` to update the class
 reference. The folder contains an XML file for each class. The XML lists the
@@ -115,47 +109,30 @@ We recommend using a code editor that supports XML files like Vim, Atom, Visual 
 Notepad++, or another to comfortably edit the file. You can also use their
 search feature to find classes and properties quickly.
 
-
-
-Improve formatting with BBCode style tags
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Improve formatting with BBCode style tags
 
 Pandemonium's class reference supports BBCode-like tags. They add nice formatting to
 the text. Here's the list of available tags:
 
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
+
 | Tag                        | Effect                               | Usage                             | Result                                            |
-+============================+======================================+===================================+===================================================+
-| [Class]                    | Link a class                         | Move the [Sprite].                | Move the `Sprite`.                     |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [method methodname]        | Link to a method in this class       | Call [method hide].               | Call `hide`.     |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [method Class.methodname]  | Link to another class's method       | Call [method Spatial.hide].       | Call `hide`.     |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [member membername]        | Link to a member in this class       | Get [member scale].               | Get `scale`.   |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [member Class.membername]  | Link to another class's member       | Get [member Node2D.scale].        | Get `scale`.   |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [signal signalname]        | Link to a signal in this class       | Emit [signal renamed].            | Emit `renamed`.  |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [signal Class.signalname]  | Link to another class's signal       | Emit [signal Node.renamed].       | Emit `renamed`.  |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
+|----------------------------|--------------------------------------|-----------------------------------|---------------------------------------------------|
+| [Class]                    | Link a class                         | Move the [Sprite].                | Move the `Sprite`.                                |
+| [method methodname]        | Link to a method in this class       | Call [method hide].               | Call `hide`.                                      |
+| [method Class.methodname]  | Link to another class's method       | Call [method Spatial.hide].       | Call `hide`.                                      |
+| [member membername]        | Link to a member in this class       | Get [member scale].               | Get `scale`.                                      |
+| [member Class.membername]  | Link to another class's member       | Get [member Node2D.scale].        | Get `scale`.                                      |
+| [signal signalname]        | Link to a signal in this class       | Emit [signal renamed].            | Emit `renamed`.                                   |
+| [signal Class.signalname]  | Link to another class's signal       | Emit [signal Node.renamed].       | Emit `renamed`.                                   |
 | [b] [/b]                   | Bold                                 | Some [b]bold[/b] text.            | Some **bold** text.                               |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [i] [/i]                   | Italic                               | Some [i]italic[/i] text.          | Some *italic* text.                               |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
-| [code] [/code]             | Monospace                            | Some [code]monospace[/code] text. | Some `monospace` text.                          |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
+| [code] [/code]             | Monospace                            | Some [code]monospace[/code] text. | Some `monospace` text.                            |
 | [kbd] [/kbd]               | Keyboard/mouse shortcut              | Some [kbd]Ctrl + C[/kbd] key.     | Some :kbd:`Ctrl + C` key.                         |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [codeblock] [/codeblock]   | Multiline preformatted block         | *See below.*                      | *See below.*                                      |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [codeblocks] [/codeblocks] | [codeblock] for multiple languages   | *See below.*                      | *See below.*                                      |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [gdscript] [/gdscript]     | GDScript codeblock tab in codeblocks | *See below.*                      | *See below.*                                      |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
 | [csharp] [/csharp]         | C# codeblock tab in codeblocks       | *See below.*                      | *See below.*                                      |
-+----------------------------+--------------------------------------+-----------------------------------+---------------------------------------------------+
+
 
 Use `[codeblock]` for pre-formatted code blocks. Inside `[codeblock]`,
 always use **four spaces** for indentation. The parser will delete tabs. For
@@ -236,8 +213,7 @@ Notice the use of italics instead of bold:
 In all the paragraphs described above, make sure the punctuation is part of the
 BBCode tags for consistency.
 
-I don't know what this method does!
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### I don't know what this method does!
 
 No problem. Leave it behind, and list the methods you skipped when you request a
 pull of your changes. Another writer will take care of it.

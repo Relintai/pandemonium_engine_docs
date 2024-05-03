@@ -8,8 +8,7 @@ This will likely get reversed eventually.
 This page describes how to compile UWP export template binaries from source. If you're looking to export 
 your project to UWP instead, read `doc_exporting_for_uwp`.
 
-Requirements
-------------
+## Requirements
 
 -  SCons 3.0+ (see `doc_compiling_for_windows` for more details).
 -  Visual Studio 2017 or later. See `doc_compiling_for_windows` about the
@@ -37,8 +36,7 @@ See also:
              For a general overview of SCons usage for Pandemonium, see
              `doc_introduction_to_the_buildsystem`.
 
-Compiling
----------
+## Compiling
 
 You need to open a proper Visual Studio prompt for the target architecture
 you want to build. Check `doc_compiling_for_windows` to see how these
@@ -58,8 +56,7 @@ Once you're set, run the SCons command similarly to the other platforms:
     C:\pandemonium>scons platform=uwp
 ```
 
-Creating UWP export templates
------------------------------
+## Creating UWP export templates
 
 To export using the editor you need to properly build package the templates.
 You need all three architectures with `debug` and `release` templates to
@@ -103,8 +100,7 @@ the export templates for - e.g. `3.0.alpha` for the alpha version of Pandemonium
 If you don't want to replace the templates, you can set the "Custom Package"
 property in the export window.
 
-Running UWP apps with Visual Studio
------------------------------------
+## Running UWP apps with Visual Studio
 
 If you want to debug the UWP port or simply run your apps without packaging
 and signing, you can deploy and launch them using Visual Studio. It might be

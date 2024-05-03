@@ -1,7 +1,6 @@
 
 
-Bug triage guidelines
-=====================
+# Bug triage guidelines
 
 This page describes the typical workflow of the bug triage team aka
 bugsquad when handling issues and pull requests on Pandemonium's
@@ -9,8 +8,7 @@ bugsquad when handling issues and pull requests on Pandemonium's
 It is bound to evolve together with the bugsquad, so do not
 hesitate to propose modifications to the following guidelines.
 
-Issues management
------------------
+## Issues management
 
 GitHub proposes various features to manage issues:
 
@@ -31,8 +29,7 @@ For the time being, we do not use the project dashboard feature either.
 As far as possible, we try to assign labels (and milestones, when relevant)
 to both issues and pull requests.
 
-Labels
-~~~~~~
+### Labels
 
 The following labels are currently defined in the Pandemonium repository:
 
@@ -146,8 +143,7 @@ If one of the platform labels is used, it is then exclusive and the
 previous assumption doesn't stand anymore (so if it's a bug on e.g.
 Android and Linux exclusively, select those two platforms).
 
-Documentation labels
-~~~~~~~~~~~~~~~~~~~~
+### Documentation labels
 
 In the `documentation repository ( https://github.com/Relintai/pandemonium_engine-docs )`, we
 use the following labels:
@@ -174,8 +170,7 @@ use the following labels:
 -  *Topic:Website*: the issue relates to the Sphinx/Read the Docs frontend or backend,
    not the documentation contents.
 
-Milestones
-~~~~~~~~~~
+### Milestones
 
 `Milestones ( https://github.com/Relintai/pandemonium_engine/milestones )` correspond to
 planned future versions of Pandemonium for which there is an existing roadmap. Issues

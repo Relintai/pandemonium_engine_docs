@@ -1,7 +1,6 @@
 
 
-Editor and docs localization
-============================
+# Editor and docs localization
 
 Pandemonium aims to make game development available to everyone, including people who
 may not know or be comfortable with English. Therefore, we do our best to make
@@ -29,14 +28,13 @@ localization of images.
 
 Tip:
 
-
     Translating all the official Pandemonium content is a massive undertaking, so we
     advise prioritizing the resources as they are listed above: first the editor
     interface, then the online documentation, and eventually the class reference
     if there are enough translators to keep up with updates.
 
-Using Weblate for translations
-------------------------------
+## Using Weblate for translations
+
 
 While our translations eventually reside in the Git repositories of the Pandemonium
 engine and its documentation, all translation updates are handled through
@@ -60,8 +58,7 @@ See also:
     workflow ( https://docs.weblate.org/en/latest/user/translating.html )` for
     more details.
 
-Adding a new language
-^^^^^^^^^^^^^^^^^^^^^
+#### Adding a new language
 
 If your language is already listed, click on its name to access the overview,
 and skip the rest of this section.
@@ -72,7 +69,7 @@ to translate to:
 
 ![](img/l10n_02_new_translation.png)
 
-.. important::
+Important:
 
     If your language is spoken in several countries with only limited regional
     variations, please consider adding it with its generic variant (e.g. `fr`
@@ -93,8 +90,7 @@ to translate to:
     `es_ES`, `es_MX`, etc. if necessary) or Portuguese (`pt_BR` vs
     `pt_PT`).
 
-Translation interface
-^^^^^^^^^^^^^^^^^^^^^
+#### Translation interface
 
 Once a language has been selected, you will see an overview of the translation
 status, including how many strings are left to translate or review. Each item
@@ -139,8 +135,7 @@ On that page, you have:
    original string on GitHub. You may need to search for the string in the page
    to locate it and its surrounding context.
 
-Locating original content
--------------------------
+### Locating original content
 
 PO files are an ordered list of source strings (`msgid`) and their translation
 (`msgstr`), and by default, Weblate will present the strings in that order. It
@@ -148,7 +143,7 @@ can therefore be useful to understand how the content is organized in the PO
 files to help you locate the original content and use it as a reference when
 translating.
 
-.. important::
+Important:
 
     It is primordial to use the original context as reference when translating,
     as many words have several possible translations depending on the context.
@@ -192,7 +187,6 @@ used with the `location:` token, e.g. `location:nodes_and_scenes.rst`):
 
 Note:
 
-
     When a given source string is used in multiple source locations, they will
     all be concatenated into one. For example, the above
     `location:nodes_and_scenes.rst` query would land first on the
@@ -203,15 +197,13 @@ Note:
     So it may happen that a given paragraph or section title is not at the
     location you'd expect it when reading the online version of a page.
 
-Respecting the markup syntax
-----------------------------
+## Respecting the markup syntax
 
 Each translation resource originates from a different source code format, and
 having some notions on the markup language used for each resource is important
 to avoid creating syntax errors in your translations.
 
-Editor interface (C++)
-^^^^^^^^^^^^^^^^^^^^^^
+#### Editor interface (C++)
 
 The editor translations originate from C++ strings, and may use:
 
@@ -249,8 +241,7 @@ Note:
   Only logical order of the characters matters, in the right-to-left text, format
   specifiers may be displayed as `s%`.
 
-Online documentation (RST)
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Online documentation (RST)
 
 The documentation translations originate from reStructuredText (RST) files,
 which also use their own markup syntax to style text, create internal and
@@ -302,8 +293,7 @@ See also:
     You may encounter especially the inline markup (bold, italics, inline code)
     and the internal and external hyperlink markup.
 
-Class reference (BBCode)
-^^^^^^^^^^^^^^^^^^^^^^^^
+#### Class reference (BBCode)
 
 The class reference is documented in the main Pandemonium repository using XML files,
 and with BBCode-like markup for styling and internal references.
@@ -334,13 +324,11 @@ breaks if they are not part of the original translation.
 
 See also:
 
-
     See our documentation for class reference writers for the `list of
     BBCode-like tags ( doc_class_reference_writing_guidelines_bbcode )` which are used
     throughout the class reference.
 
-Offline translation and testing
--------------------------------
+## Offline translation and testing
 
 While we advise using the Weblate interface to write translations, you also have
 the possibility to download the PO file locally to translate it with your
@@ -357,7 +345,6 @@ that same menu and select your file. Choose "Add as translation" for the file
 upload mode.
 
 Note:
-
 
     If a significant amount of time has passed between your download of the PO
     file and the upload of the edited version, there is a risk to overwrite the
@@ -376,8 +363,7 @@ You can also test class reference changes the same way by renaming the PO file
 similarly and placing it in the `doc/translations/` folder
 (`GitHub ( https://github.com/Relintai/pandemonium_engine/tree/master/doc/translations )`).
 
-Localizing documentation images
--------------------------------
+## Localizing documentation images
 
 The online documentation includes many images, which can be screenshots of the
 Pandemonium editor, custom-made graphs, of any other kind of visual content. Some of
@@ -388,7 +374,6 @@ This part is not handled via Weblate, but directly on the `pandemonium-docs-l10n
 documentation translations are synced from Weblate.
 
 Note:
-
 
    The workflow is not the most straightforward and requires some knowledge of
    Git. We plan to work on a simplified Web tool which could be used to manage

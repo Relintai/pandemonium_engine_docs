@@ -1,7 +1,6 @@
 
 
-Building the manual with Sphinx
-===============================
+# Building the manual with Sphinx
 
 This page explains how to build a local copy of the Pandemonium manual using the
 Sphinx docs engine. This allows you to have local HTML files and build the
@@ -87,10 +86,11 @@ You can also specify a list of files to build, which can greatly speed up compil
 
 .. code:: sh
 
+```
   sphinx-build -b html ./ _build classes/class_node.rst classes/class_resource.rst
+```
 
-Building with Sphinx and virtualenv
------------------------------------
+## Building with Sphinx and virtualenv
 
 If you want your Sphinx installation scoped to the project, you can install
 sphinx-build using virtualenv. To do so, run this command from this repository's
@@ -98,8 +98,10 @@ root folder:
 
 .. code:: sh
 
+```
    virtualenv --system-site-packages env/
    . env/bin/activate
    pip3 install -r requirements.txt
+```
 
 Then, run `make html` as shown above.

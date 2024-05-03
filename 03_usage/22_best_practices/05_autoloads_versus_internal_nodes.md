@@ -1,7 +1,6 @@
 
 
-Autoloads versus regular nodes
-==============================
+# Autoloads versus regular nodes
 
 Pandemonium offers a feature to automatically load nodes at the root of your project,
 allowing you to access them globally, that can fulfill the role of a Singleton:
@@ -11,8 +10,7 @@ change the scene from code with `SceneTree.change_scene`.
 In this guide, you will learn when to use the Autoload feature, and techniques
 you can use to avoid it.
 
-The cutting audio issue
------------------------
+## The cutting audio issue
 
 Other engines can encourage the use of creating manager classes, singletons that
 organize a lot of functionality into a globally accessible object. Pandemonium offers
@@ -61,8 +59,7 @@ needs within itself and all these problems go away:
 
 3. Each scene allocates exactly the amount of resources it needs.
 
-Managing shared functionality or data
--------------------------------------
+## Managing shared functionality or data
 
 Another reason to use an Autoload can be that you want to reuse the same method
 or data across many scenes.
@@ -78,8 +75,7 @@ When it comes to data, you can either:
 2. Store the data in an object to which each node has access, for example using
    the `owner` property to access the scene's root node.
 
-When you should use an Autoload
--------------------------------
+## When you should use an Autoload
 
 Auto-loaded nodes can simplify your code in some cases:
 

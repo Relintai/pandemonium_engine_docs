@@ -1,8 +1,6 @@
 
 
-Pull request workflow
-=====================
-
+# Pull request workflow
 
 The so-called "PR workflow" used by Pandemonium is common to many projects using
 Git, and should be familiar to veteran free software contributors. The idea
@@ -22,8 +20,7 @@ We will go together through an example to show the typical workflow and
 associated Git commands. But first, let's have a quick look at the
 organization of Pandemonium's Git repository.
 
-Git source repository
----------------------
+## Git source repository
 
 The `repository on GitHub ( https://github.com/Relintai/pandemonium_engine )` is a
 `Git ( https://git-scm.com )` code repository together with an embedded
@@ -69,8 +66,7 @@ The branches on the Git repository are organized as follows:
 -  There might occasionally be feature branches, usually meant to be merged into
    the `master` branch at some time.
 
-Forking and cloning
--------------------
+## Forking and cloning
 
 The first step is to *fork* the `pandemoniumengine/pandemonium ( https://github.com/Relintai/pandemonium_engine )`
 repository on GitHub. To do so, you will need to have a GitHub account and to
@@ -143,8 +139,7 @@ In the following, we will assume as an example that you want to implement a feat
 Pandemonium's project manager, which is coded in the `editor/project_manager.cpp`
 file.
 
-Branching
----------
+## Branching
 
 By default, the `git clone` should have put you on the `master` branch of
 your fork (`origin`). To start your own feature development, we will create
@@ -189,8 +184,7 @@ you can specify a custom base branch after the new branch's name:
     $ git checkout -b my-new-feature master
 ```
 
-Updating your branch
---------------------
+## Updating your branch
 
 This would not be needed the first time (just after you forked the upstream
 repository). However, the next time you want to work on something, you will
@@ -254,8 +248,7 @@ Tip:
          to find the commit ID of the previous state that you would like to restore, and
          use it as argument of `git reset --hard` to go back to that state.
 
-Making changes
---------------
+## Making changes
 
 You would then do your changes to our example's
 `editor/project_manager.cpp` file with your usual development environment
@@ -333,8 +326,7 @@ With this, we should have two new commits in our `better-project-manager`
 branch which were not in the `master` branch. They are still only local
 though, the remote fork does not know about them, nor does the upstream repo.
 
-Pushing changes to a remote
----------------------------
+## Pushing changes to a remote
 
 That's where `git push` will come into play. In Git, a commit is always
 done in the local repository (unlike Subversion where a commit will modify
@@ -357,8 +349,7 @@ Git will ask you for your username and password, and the changes will be sent
 to your remote. If you check the fork's page on GitHub, you should see a new
 branch with your added commits.
 
-Issuing a pull request
-----------------------
+## Issuing a pull request
 
 When you load your fork's branch on GitHub, you should see a line saying
 *"This branch is 2 commits ahead of pandemoniumengine:master."* (and potentially some
@@ -379,8 +370,7 @@ area. You can drag and drop screenshots, GIFs or zipped projects if relevant,
 to showcase what your work implements. Click "Create a pull request", and
 tadaa!
 
-Modifying a pull request
-------------------------
+## Modifying a pull request
 
 While it is reviewed by other contributors, you will often need to make
 changes to your yet-unmerged PR, either because contributors requested them,
@@ -430,8 +420,7 @@ fixes. The above example would then become:
 
 
 
-The interactive rebase
-----------------------
+## The interactive rebase
 
 If you didn't follow the above steps closely to *amend* changes into a commit
 instead of creating fixup commits, or if you authored your changes without being
@@ -530,8 +519,7 @@ And tadaa! Git will happily *replace* your remote branch with what you had
 locally (so make sure that's what you wanted, using `git log`). This will
 also update the PR accordingly.
 
-Deleting a Git branch
----------------------
+## Deleting a Git branch
 
 After your pull request gets merged, there's one last thing you should do: delete your
 Git branch for the PR. There won't be issues if you don't delete your branch, but it's

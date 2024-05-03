@@ -1,10 +1,8 @@
 
 
-Best practices for engine contributors
-======================================
+# Best practices for engine contributors
 
-Introduction
-------------
+## Introduction
 
 Pandemonium has a large amount of users who have the ability to contribute, given the
 project itself is aimed mainly at users with the ability to do programming.
@@ -12,8 +10,7 @@ Despite this, not all of them have the same level of experience working in large
 projects or in software engineering, which can lead to common misunderstandings
 and bad practices during the process of contributing code to the project.
 
-Language
---------
+## Language
 
 The scope of this document is to be a list of best practices for contributors to
 follow, as well as to create a language they can use to refer to common
@@ -27,11 +24,9 @@ Contributions are most of the time categorized as bug fixes, enhancements or new
 features. To abstract this idea, we will call them *Solutions*, because they
 always seek to solve something that can be described as a *Problem*.
 
-Best Practices
---------------
+## Best Practices
 
-#1: The problem always comes first
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 1: The problem always comes first
 
 Many contributors are extremely creative and just enjoy the process of designing
 abstract data structures, creating nice user interfaces, or simply love
@@ -46,8 +41,7 @@ as source and binary and requires maintenance once it exists. Avoiding the
 addition of anything unnecessary is always considered a good practice in
 software development.
 
-#2: To solve the problem, it has to exist in the first place
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 2: To solve the problem, it has to exist in the first place
 
 This is a variation of the previous practice. Adding anything unnecessary is not
 a good idea, but what constitutes what is necessary and what isn't?
@@ -72,8 +66,7 @@ This is generally considered a bad habit because trying to solve problems that
 written but never used, or that is considerably more complex to use and maintain
 than it needs to be.
 
-#3: The problem has to be complex or frequent
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 3: The problem has to be complex or frequent
 
 Software is designed to solve problems, but we can't expect it to solve *every
 problem that exists under the sun*. As a game engine, Pandemonium will solve problems
@@ -101,8 +94,7 @@ In our experience, in most cases it's usually obvious to tell when a problem is
 complex or frequent, but cases may arise where drawing this line is difficult.
 This is why discussing with other developers (next point) is always advised.
 
-#4: The solution must be discussed with others
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 4: The solution must be discussed with others
 
 It is often the case that when users stumble upon problems, they are only
 immersed in their project, so they will naturally try to solve the problem
@@ -133,8 +125,7 @@ performance. Performance optimizations will be considered, but they may not
 be accepted if they make something too difficult to use or if they add too much
 complexity to the codebase.
 
-#5: To each problem, its own solution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 5: To each problem, its own solution
 
 For programmers, it is always a most enjoyable challenge to find the most
 optimal solutions to problems. Things, however, may go overboard sometimes and
@@ -160,8 +151,7 @@ Big and flexible solutions also have an additional drawback which is that, over
 time, they are rarely flexible enough for all users, who keep requesting more
 functions added (and making the API and codebase more and more complex).
 
-#6: Cater to common use cases, leave the door open for the rare ones
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 6: Cater to common use cases, leave the door open for the rare ones
 
 This is a continuation of the previous point, which further explains why this
 way of thinking and designing software is preferred.
@@ -191,8 +181,7 @@ In real-life scenarios, these use cases will be at most rare and uncommon
 anyway, so it makes sense a custom solution needs to be written. This is why
 it's important to still provide users the basic building blocks to do it.
 
-#7: Prefer local solutions
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 7: Prefer local solutions
 
 When looking for a solution to a problem, be it implementing a new feature or
 fixing a bug, sometimes the easiest path is to add data or a new function in the
@@ -219,8 +208,7 @@ should be closer to where the problem originates, even if it involves more code,
 duplicated, more complex or is less efficient. More creativity might be needed,
 but this path is always the advised one.
 
-#8: Don't use complex canned solutions for simple problems
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 8: Don't use complex canned solutions for simple problems
 
 Not every problem has a simple solution and, many times, the right choice is to
 use a third party library to solve the problem.

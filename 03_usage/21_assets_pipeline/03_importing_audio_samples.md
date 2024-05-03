@@ -1,10 +1,8 @@
 
 
-Importing audio samples
-=======================
+# Importing audio samples
 
-Supported files
----------------
+## Supported files
 
 Pandemonium provides three options to import your audio data: WAV, Ogg Vorbis
 and MP3.
@@ -27,27 +25,21 @@ Each has different advantages.
 
 Here is a comparative chart.
 
-+-----------------------------+-------------------+
+
 | Format                      | 1 second of audio |
-+=============================+===================+
+|-----------------------------|-------------------|
 | WAV 24-bit, 96 kHz, stereo  | 576 KB            |
-+-----------------------------+-------------------+
 | WAV 16-bit, 44 kHz, mono    | 88 KB             |
-+-----------------------------+-------------------+
 | WAV 16-bit, IMA-ADPCM, mono | 22 KB             |
-+-----------------------------+-------------------+
 | MP3 192 Kb/s, stereo        | 24 KB             |
-+-----------------------------+-------------------+
 | Ogg Vorbis 128 Kb/s, stereo | 16 KB             |
-+-----------------------------+-------------------+
 | Ogg Vorbis 96 Kb/s, stereo  | 12 KB             |
-+-----------------------------+-------------------+
+
 
 Consider using WAV for short and repetitive sound effects, and Ogg Vorbis
 for music, speech, and long sound effects.
 
-Best practices
---------------
+## Best practices
 
 Pandemonium has an `extensive bus system ( doc_audio_buses )` with built-in effects.
 This saves SFX artists the need to add reverb to the sound effects,
@@ -58,8 +50,7 @@ with baked reverb!
 
 As you can see above, sound effects become huge with reverb added.
 
-Trimming
-~~~~~~~~
+### Trimming
 
 One issue that happens often is that the waveform is exported with long
 silences at the beginning and at the end. These are inserted by
@@ -69,8 +60,7 @@ add latency to the moment they are played back.
 Importing as WAV with the **Trimming** option enabled solves
 this.
 
-Looping
-~~~~~~~
+### Looping
 
 Pandemonium supports looping in the samples (tools such as Sound Forge or
 Audition can add loop points to WAV files). This is useful for sound

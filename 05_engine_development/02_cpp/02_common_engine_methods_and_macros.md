@@ -1,14 +1,13 @@
 
 
-Common engine methods and macros
-================================
+# Common engine methods and macros
 
 Pandemonium's C++ codebase makes use of dozens of custom methods and macros which are
 used in almost every file. This page is geared towards beginner contributors,
 but it can also be useful for those writing custom C++ modules.
 
-Print text
-----------
+## Print text
+
 
 ```
     // Prints a message to standard output.
@@ -31,8 +30,7 @@ Print text
 If you need to add placeholders in your messages, use format strings as
 described below.
 
-Format a string
----------------
+## Format a string
 
 The `vformat()` function returns a formatted `String`. It behaves
 in a way similar to C's `sprintf()`:
@@ -51,8 +49,7 @@ in a way similar to C's `sprintf()`:
 In most cases, try to use `vformat()` instead of string concatenation as it
 makes for more readable code.
 
-Convert an integer or float to a string
----------------------------------------
+## Convert an integer or float to a string
 
 This is mainly useful when printing numbers directly.
 
@@ -64,8 +61,7 @@ This is mainly useful when printing numbers directly.
     print_line(rtos(123.45));
 ```
 
-Internationalize a string
--------------------------
+## Internationalize a string
 
 There are two types of internationalization in Pandemonium's codebase:
 
@@ -100,8 +96,7 @@ Note:
     string will never match the translation as it will have the placeholder
     already replaced when it's passed to TranslationServer.
 
-Clamp a value
--------------
+## Clamp a value
 
 Pandemonium provides macros for clamping a value with a lower bound (`MAX`), an
 upper bound (`MIN`) or both (`CLAMP`):
@@ -118,8 +113,7 @@ upper bound (`MIN`) or both (`CLAMP`):
 This works with any type that can be compared to other values (like `int` and
 `float`).
 
-Microbenchmarking
------------------
+## Microbenchmarking
 
 If you want to benchmark a piece of code but don't know how to use a profiler,
 use this snippet:
@@ -138,14 +132,12 @@ declaration.
 
 Note:
 
-
     You may have to `#include "core/os/os.h"` if it's not present already.
 
     When opening a pull request, make sure to remove this snippet as well as the
     include if it wasn't there previously.
 
-Get project/editor settings
----------------------------
+## Get project/editor settings
 
 There are four macros available for this:
 
@@ -172,8 +164,7 @@ repetition:
 It's recommended to use `GLOBAL_DEF`/`EDITOR_DEF` only once per setting and
 use `GLOBAL_GET`/`EDITOR_GET` in all other places where it's referenced.
 
-Error macros
-------------
+## Error macros
 
 Pandemonium features many error macros to make error reporting more convenient.
 

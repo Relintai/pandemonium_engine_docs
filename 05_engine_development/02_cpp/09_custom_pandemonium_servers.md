@@ -1,10 +1,8 @@
 
 
-Custom Pandemonium servers
-====================
+# Custom Pandemonium servers
 
-Introduction
-------------
+## Introduction
 
 Pandemonium implements multi-threading as servers. Servers are daemons which
 manage data, process it, and push the result. Servers implement the
@@ -15,15 +13,13 @@ its RID allocations.
 This guide assumes the reader knows how to create C++ modules and Pandemonium
 data types. If not, refer to `doc_custom_modules_in_c++`.
 
-References
-~~~~~~~~~~~
+### References
 
 - `Why does Pandemonium use servers and RIDs? ( https://pandemoniumengine.org/article/why-does-pandemonium-use-servers-and-rids )`
 - `Singleton pattern ( https://en.wikipedia.org/wiki/Singleton_pattern )`
 - `Mediator pattern ( https://en.wikipedia.org/wiki/Mediator_pattern )`
 
-What for?
----------
+## What for?
 
 - Adding artificial intelligence.
 - Adding custom asynchronous threads.
@@ -32,8 +28,7 @@ What for?
 - Adding a custom VoIP protocol.
 - And more...
 
-Creating a Pandemonium server
------------------------
+## Creating a Pandemonium server
 
 At minimum, a server must have a static instance, a sleep timer, a thread loop,
 an initialization state and a cleanup procedure.
@@ -270,11 +265,10 @@ an initialization state and a cleanup procedure.
 	};
 ```
 
-Custom managed resource data
-----------------------------
+## Custom managed resource data
 
 Pandemonium servers implement a mediator pattern. All data types inherit `RID_Data`.
-`RID_Owner<MyRID_Data )` owns the object when `make_rid` is called. During debug mode only,
+`RID_Owner) MyRID_Data )` owns the object when `make_rid` is called. During debug mode only,
 RID_Owner maintains a list of RIDs. In practice, RIDs are similar to writing
 object-oriented C code.
 
@@ -312,14 +306,12 @@ object-oriented C code.
 	}
 ```
 
-References
-~~~~~~~~~~~
+### References
 
 - `RID( rid )`
 - `core/rid.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/rid.h )`
 
-Registering the class in GDScript
----------------------------------
+## Registering the class in GDScript
 
 Servers are allocated in `register_types.cpp`. The constructor sets the static
 instance and `init()` creates the managed thread; `unregister_types.cpp`
@@ -375,8 +367,7 @@ is used to register the dummy class in GDScript.
 
 - `servers/register_server_types.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/servers/register_server_types.cpp )`
 
-Bind methods
-~~~~~~~~~~~~
+### Bind methods
 
 The dummy class binds singleton methods to GDScript. In most cases, the dummy class methods wraps around.
 
@@ -462,8 +453,7 @@ It is possible to emit signals to GDScript by calling the GDScript dummy object.
 	}
 ```
 
-MessageQueue
-------------
+## MessageQueue
 
 In order to send commands into SceneTree, MessageQueue is a thread-safe buffer
 to queue set and call methods for other threads. To queue a command, obtain
@@ -471,13 +461,11 @@ the target object RID and use either `push_call`, `push_set`, or `push_notificat
 to execute the desired behavior. The queue will be flushed whenever either
 `SceneTree::idle` or `SceneTree::iteration` is executed.
 
-References:
-~~~~~~~~~~~
+### References:
 
 - `core/message_queue.cpp ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/message_queue.cpp )`
 
-Summing it up
--------------
+## Summing it up
 
 Here is the GDScript sample code:
 
@@ -502,8 +490,7 @@ Here is the GDScript sample code:
         print(HilbertHotel.get_bus_info(r_id))
 ```
 
-Notes
-~~~~~
+### Notes
 
 - The actual `Hilbert Hotel ( https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel )` is impossible.
 - Connecting signal example code is pretty hacky.

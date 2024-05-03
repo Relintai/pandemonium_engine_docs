@@ -1,14 +1,12 @@
 
 
-Scene organization
-==================
+# Scene organization
 
 This article covers topics related to the effective organization of
 scene content. Which nodes should one use? Where should one place them?
 How should they interact?
 
-How to build relationships effectively
---------------------------------------
+## How to build relationships effectively
 
 When Pandemonium users begin crafting their own scenes, they often run into the
 following problem:
@@ -190,8 +188,7 @@ by *all* OOP principles. Examples include...
 - `KISS ( https://en.wikipedia.org/wiki/KISS_principle )`
 - `YAGNI ( https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it )`
 
-Choosing a node tree structure
-------------------------------
+## Choosing a node tree structure
 
 So, a developer starts work on a game only to stop at the vast possibilities
 before them. They might know what they want to do, what systems they want to

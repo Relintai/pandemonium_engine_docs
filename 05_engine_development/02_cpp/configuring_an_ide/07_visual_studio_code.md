@@ -1,13 +1,11 @@
 
 
-Visual Studio Code
-==================
+# Visual Studio Code
 
 `Visual Studio Code ( https://code.visualstudio.com )` is a free cross-platform code editor
 by `Microsoft ( https://microsoft.com )` (not to be confused with `doc_configuring_an_ide_vs`).
 
-Importing the project
----------------------
+## Importing the project
 
 - Make sure the C/C++ extension is installed. You can find instructions in
   the `official documentation ( https://code.visualstudio.com/docs/languages/cpp )`.
@@ -18,18 +16,15 @@ Importing the project
   **File > Open Folder...**.
 - Press :kbd:`Ctrl + Shift + P` to open the command prompt window and enter *Configure Task*.
 
-.. figure:: img/vscode_configure_task.png)
-   :align: center
+![](img/vscode_configure_task.png)
 
 - Select the **Create tasks.json file from template** option.
 
-.. figure:: img/vscode_create_tasksjson.png)
-   :align: center
+![](img/vscode_create_tasksjson.png)
 
 - Then select **Others**.
 
-.. figure:: img/vscode_create_tasksjson_others.png)
-   :align: center
+![](img/vscode_create_tasksjson_others.png)
 
 - Within the `tasks.json` file find the `"tasks"` array and add a new section to it:
 
@@ -66,25 +61,21 @@ js Windows
     }
 ```
 
-.. figure:: img/vscode_3_tasks.json.png)
-   :figclass: figure-w480
-   :align: center
+![](img/vscode_3_tasks.json.png)
 
-   An example of a filled out `tasks.json`.
+An example of a filled out `tasks.json`.
 
 Arguments can be different based on your own setup and needs. See
 `doc_introduction_to_the_buildsystem` for a full list of arguments.
 
-Debugging the project
----------------------
+## Debugging the project
 
 To run and debug the project you need to create a new configuration in the `launch.json` file.
 
 - Press :kbd:`Ctrl + Shift + D` to open the Run panel.
 - If `launch.json` file is missing you will be prompted to create a new one.
 
-.. figure:: img/vscode_1_create_launch.json.png)
-   :align: center
+![](img/vscode_1_create_launch.json.png)
 
 - Select **C++ (GDB/LLDB)**. There may be another platform specific option here. If selected,
   adjust the configuration example provided accordingly.
@@ -159,9 +150,7 @@ js Windows
     }
 ```
 
-.. figure:: img/vscode_2_launch.json.png)
-   :figclass: figure-w480
-   :align: center
+![](img/vscode_2_launch.json.png)
 
    An example of a filled out `launch.json`.
 

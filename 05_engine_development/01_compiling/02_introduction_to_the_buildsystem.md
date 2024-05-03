@@ -66,7 +66,7 @@ To list the available target platforms, use `scons platform=list`:
         windows
         x11
 
-    Please run SCons again and select a valid platform: platform=<string>
+    Please run SCons again and select a valid platform: platform=&lt;string&gt;
 ```
 
 To build for a platform (for example, x11), run with the `platform=` (or
@@ -77,7 +77,7 @@ To build for a platform (for example, x11), run with the `platform=` (or
 ```
 
 This will start the build process, which will take a while. If you want
-SCons to build faster, use the `-j <cores )` parameter to specify how many
+SCons to build faster, use the `-j &lt;cores&gt;` parameter to specify how many
 cores will be used for the build. Or leave it using one core, so you
 can use your computer for something else :)
 
@@ -94,7 +94,7 @@ The resulting binaries will be placed in the `bin/` subdirectory,
 generally with this naming convention:
 
 ```
-    pandemonium.<platform>.[opt].[tools/debug].<architecture>[extension]
+    pandemonium.&lt;platform&gt;.[opt].[tools/debug].&lt;architecture&gt;[extension]
 ```
 
 For the previous build attempt, the result would look like this:
@@ -132,7 +132,7 @@ run projects but that does not include the editor or the project
 manager.
 
 ```
-    scons platform=<platform> tools=yes/no
+    scons platform=&lt;platform&gt; tools=yes/no
 ```
 
 ## Target
@@ -150,7 +150,7 @@ Target controls optimization and debug flags. Each mode means:
    checks to run.
 
 ```
-    scons platform=<platform> target=debug/release_debug/release
+    scons platform=&lt;platform&gt; target=debug/release_debug/release
 ```
 
 This flag appends the `.debug` suffix (for debug), or `.tools` (for debug
@@ -168,7 +168,7 @@ else.
 -  **default**: Build for the architecture that matches the host platform.
 
 ```
-    scons platform=<platform> bits=default/32/64
+    scons platform=&lt;platform&gt; bits=default/32/64
 ```
 
 This flag appends `.32` or `.64` suffixes to resulting binaries when
@@ -207,7 +207,7 @@ See also:
 ## Cleaning generated files
 
 Sometimes, you may encounter an error due to generated files being present. You
-can remove them by using `scons --clean <options )`, where `<options )` is the
+can remove them by using `scons --clean &lt;options&gt;`, where `&lt;options&gt;` is the
 list of build options you've used to build Pandemonium previously.
 
 Alternatively, you can use `git clean -fixd` which will clean build artifacts

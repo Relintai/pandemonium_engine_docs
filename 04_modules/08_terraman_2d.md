@@ -8,18 +8,6 @@ I could have technically implemented all of this into voxelman, as having only h
 
 So I ended up creating this. Everything works the same as in voxelman, but the apis have been simplified to make UX a bit better.
 
-This is an engine module! Which means that you will need to compile it into Pandemonium! [See the compiling section here.](#compiling)
-
-You can grab pre-built binaries (even editor + export templates) from the [Broken Seals](https://github.com/Relintai/broken_seals/releases) repo.
-
-## Pandemonium Version Support
-
-3.2 - Will likely work, probably needs changes by now. (TODO check.)\
-3.3 - Will more likely work, might need smaller changes by now. (TODO check.)\
-3.4 - Should work without any issues. (TODO check.)\
-3.x - Works.\
-4.0 - Have been fixing support from time to time. Currently it won't build. Mostly done with the fix though.
-
 ## Optional Dependencies
 
 `https://github.com/Relintai/thread_pool`: Threaded chunk generation. Without this terraman is single threaded! \
@@ -181,42 +169,3 @@ If you want to implement your own meshing algorithm you can do so by overriding 
 
 TerraMesher works similarly to SurfaceTool, so first you need to set colors, uvs, etc and then call add_vertex.
 They won't get reset, so for example if you want all your vertices to have a certain color, you can get away with setting it only once.
-
-## Compiling
-
-First make sure that you can compile pandemonium. See the official docs: https://docs.pandemoniumengine.org/en/3.x/development/compiling/index.html
-
-1. Clone the engine if you haven't already:
-
-If you want Pandemonium 3.x:
-```git clone -b 3.x https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-If you want Pandemonium 4.0:
-```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-
-2. go into the modules folder inside the engine's directory:
-
-```cd pandemonium``` \
-```cd modules```
-
-3. clone this repository
-
-```git clone https://github.com/Relintai/terraman.git terraman```
-
-(the folder needs to be named terraman!)
-
-4. If you want the optional dependencies run these commands as well:
-
-```git clone https://github.com/Relintai/texture_packer.git texture_packer``` \
-```git clone https://github.com/Relintai/mesh_data_resource.git mesh_data_resource```
-
-5. Go up one folder
-
-```cd ..```
-
-6. Compile pandemonium.
-
-For example:
-
-```scons p=x11 t=release_debug tools=yes```

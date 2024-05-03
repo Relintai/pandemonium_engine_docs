@@ -1,10 +1,7 @@
 
+# C++ usage guidelines
 
-C++ usage guidelines
-====================
-
-Rationale
----------
+## Rationale
 
 Since Pandemonium 4.0, the C++ standard used throughout the codebase is a subset of
 **C++17**. While modern C++ brings a lot of opportunities to write faster, more
@@ -39,16 +36,14 @@ See also:
 
     See `doc_code_style_guidelines` for formatting guidelines.
 
-Disallowed features
--------------------
+## Disallowed features
 
 **Any feature not listed below is allowed.** Using features like `constexpr`
 variables and `nullptr` is encouraged when possible. Still, try to keep your
 use of modern C++ features conservative. Their use needs to serve a real
 purpose, such as improving code readability or performance.
 
-Standard Template Library
-^^^^^^^^^^^^^^^^^^^^^^^^^
+#### Standard Template Library
 
 We don't allow using the `STL ( https://en.wikipedia.org/wiki/Standard_Template_Library )`
 as Pandemonium provides its own data types (among other things).
@@ -64,13 +59,11 @@ This means that pull requests should **not** use `std::string`,
 
 Note:
 
-
     Pandemonium also has a List datatype (which is a linked list). While List is already used
     in the codebase, it typically performs worse than other datatypes like Vector
     and Array. Therefore, List should be avoided in new code unless necessary.
 
-`auto` keyword
-^^^^^^^^^^^^^^^^
+#### `auto` keyword
 
 Please don't use the `auto` keyword for type inference. While it can avoid
 repetition, it can also lead to confusing code:
@@ -90,21 +83,18 @@ pull requests.
 We chose to forbid `auto` instead of allowing it on a case-by-case basis to
 avoid having to decide on difficult edge cases. Thank you for your understanding.
 
-Lambdas
-^^^^^^^
+#### Lambdas
 
 Lambdas should be used conservatively when they make code effectively faster or
 simpler, and do not impede readability. Please ask before using lambdas in a
 pull request.
 
-`#pragma once` directive
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### `#pragma once` directive
 
 To follow the existing style, please use standard `#ifdef`-based include
 guards instead of `#pragma once` in new files.
 
 See also:
-
 
     See `doc_code_style_guidelines_header_includes` for guidelines on sorting
     includes in C++ and Objective-C files.

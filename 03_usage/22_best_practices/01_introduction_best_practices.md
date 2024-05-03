@@ -1,7 +1,6 @@
 
 
-Introduction
-============
+# Introduction
 
 This series is a collection of best practices to help you work efficiently with
 Pandemonium.
@@ -22,7 +21,6 @@ Pandemonium's nodes and scenes relate to classes and objects in other
 Object-Oriented programming languages. It will help you make sense of the rest of the series.
 
 Note:
-
 
    The best practices in Pandemonium rely on Object-Oriented design principles. We
    use tools like the `single responsibility

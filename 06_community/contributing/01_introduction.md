@@ -1,5 +1,5 @@
-Contributing
-============
+
+# Contributing
 
 Everyone is most welcome to contribute to Pandemonium. Here are some ways in which you
 can contribute to the project:
@@ -11,73 +11,30 @@ can contribute to the project:
 - Reporting issues or `writing detailed proposals
   ( https://github.com/Relintai/pandemonium_engine-proposals/ )`.
 
-Getting started
----------------
+## Getting started
 
 You would like to contribute but you don't know how or what to do? You can get
 answers below.
 
-.. toctree::
-   :maxdepth: 1
-   :name: toc-community-getting-started
-
-   ways_to_contribute
-
-
-
-Contributing to the engine
---------------------------
+## Contributing to the engine
 
 The guides below explain how to contribute to the engine's core. You will learn
 about the code style, the contribution workflow, and more.
 
-.. toctree::
-   :maxdepth: 1
-   :name: toc-community-contributing-to-the-engine
-
-   best_practices_for_engine_contributors
-   pr_workflow
-   testing_pull_requests
-   bisecting_regressions
-   bug_triage_guidelines
-   code_style_guidelines
-   cpp_usage_guidelines
-
-
-
-Writing documentation
----------------------
+## Writing documentation
 
 We always need help to improve the documentation, be it the class reference or
 the manual. Below, you can find our content and writing guidelines and
 concrete guides to make changes to the documentation.
 
-Guidelines
-~~~~~~~~~~
+### Guidelines
 
 Here are the principles and guidelines we strive to follow to write accessible
 documentation.
 
-.. toctree::
-   :maxdepth: 1
-   :name: toc-community-writing-guidelines
+### Writing the manual
 
-   content_guidelines
-   docs_writing_guidelines
-   documentation_guidelines
-
-Writing the manual
-~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-   :maxdepth: 1
-   :name: toc-community-documentation
-
-   contributing_to_the_documentation
-   building_the_manual
-
-Class reference guides
-~~~~~~~~~~~~~~~~~~~~~~
+### Class reference guides
 
 The pages below focus on the class reference.
 
@@ -86,24 +43,8 @@ the `pandemonium repository ( https://github.com/Relintai/pandemonium_engine )`.
 to write it, so the process to contribute to the class reference differs from
 writing the online manual.
 
-.. toctree::
-   :maxdepth: 1
-   :name: toc-community-class-reference
-
-   updating_the_class_reference
-   class_reference_writing_guidelines
-
-
-
-Translating the documentation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Translating the documentation
 
 The community is always working hard on making Pandemonium and its documentation
 available to more people. Localizing the documentation is a colossal and ongoing
 effort you can be part of.
-
-.. toctree::
-   :maxdepth: 1
-   :name: toc-community-localization
-
-   editor_and_docs_localization

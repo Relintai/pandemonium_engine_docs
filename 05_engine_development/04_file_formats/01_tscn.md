@@ -1,7 +1,6 @@
 
 
-TSCN file format
-================
+# TSCN file format
 
 The TSCN (text scene) file format represents a single scene tree inside
 Pandemonium. Unlike binary SCN files, TSCN files have the advantage of being mostly
@@ -19,8 +18,7 @@ For those looking for a complete description, the parsing is handled in the file
 `resource_format_text.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/scene/resources/resource_format_text.cpp )`
 in the `ResourceFormatLoaderText` class.
 
-File structure
---------------
+## File structure
 
 There are five main sections inside the TSCN file:
 
@@ -45,8 +43,7 @@ should start with `[ext_resource .....]`.
 A TSCN file may contain single-line comments starting with a semicolon (`;`).
 However, comments will be discarded when saving the file using the Pandemonium editor.
 
-Entries inside the file
-~~~~~~~~~~~~~~~~~~~~~~~
+### Entries inside the file
 
 A heading looks like
 `[<resource_type> key=value key=value key=value ...]`
@@ -66,8 +63,7 @@ so on. For example, a spatial node looks like:
     transform=Transform( 1.0, 0.0, 0.0 ,0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0 )
 ```
 
-The scene tree
---------------
+## The scene tree
 
 The scene tree is made up of… nodes! The heading of each node consists of
 its name, parent and (most of the time) a type. For example
@@ -133,8 +129,7 @@ save a file with that node in it. Some example nodes are:
     far = 100.0
 ```
 
-NodePath
-~~~~~~~~
+### NodePath
 
 A tree structure is not enough to represent the whole scene. Pandemonium uses a
 `NodePath(Path/To/Node)` structure to refer to another node or attribute of
@@ -158,8 +153,7 @@ the node anywhere in the scene tree. For instance, MeshInstance uses
     ...
 ```
 
-Skeleton
-~~~~~~~~
+### Skeleton
 
 The Skeleton node inherits the Spatial node, but also may have a list of bones
 described in key-value pairs in the format `bones/Id/Attribute=Value`. The
@@ -199,8 +193,7 @@ Here's an example of a skeleton node with two bones:
     bones/1/bound_children = [  ]
 ```
 
-BoneAttachment
-~~~~~~~~~~~~~~
+### BoneAttachment
 
 BoneAttachment node is an intermediate node to describe some node being parented
 to a single bone in a Skeleton node. The BoneAttachment has a
@@ -230,8 +223,7 @@ An example of one MeshInstance parented to a bone in Skeleton:
     transform = Transform(1.0, 0.0, 0.0, 0.0, 1.86265e-09, 1.0, 0.0, -1.0, 0.0, 0.0219986, -0.0343127, 2.25595)
 ```
 
-AnimationPlayer
-~~~~~~~~~~~~~~~
+### AnimationPlayer
 
 AnimationPlayer works as an animation library. It stores animations listed in
 the format `anim/Name=SubResource(ResourceId)`; each line refers to an
@@ -251,8 +243,7 @@ AnimationPlayer. The root node is stored as
     blend_times = [  ]
 ```
 
-Resources
----------
+## Resources
 
 Resources are components that make up the nodes. For example, a MeshInstance
 node will have an accompanying ArrayMesh resource. The ArrayMesh resource
@@ -267,8 +258,7 @@ the same ID for both an internal and external resource.
 For example, to refer to the resource `[ext_resource id=3 type="PackedScene"
 path=....]`, you would use `ExtResource(3)`.
 
-External resources
-~~~~~~~~~~~~~~~~~~
+### External resources
 
 External resources are links to resources not contained within the TSCN file
 itself. An external resource consists of a path, a type and an ID.
@@ -288,8 +278,7 @@ Like TSCN files, a TRES file may contain single-line comments starting with a
 semicolon (`;`). However, comments will be discarded when saving the resource
 using the Pandemonium editor.
 
-Internal resources
-~~~~~~~~~~~~~~~~~~
+### Internal resources
 
 A TSCN file can contain meshes, materials and other data. These are contained in
 the *internal resources* section of the file. The heading for an internal
@@ -313,8 +302,7 @@ Unfortunately, documentation on the formats for these subresources isn't
 complete. Some examples can be found by inspecting saved resource files, but
 others can only be found by looking through Pandemonium's source.
 
-ArrayMesh
-~~~~~~~~~
+### ArrayMesh
 
 ArrayMesh consists of several surfaces, each in the format `surface\Index={}`.
 Each surface is a set of vertices and a material.
@@ -367,8 +355,7 @@ An example of ArrayMesh:
     }
 ```
 
-Animation
-~~~~~~~~~
+### Animation
 
 An animation resource consists of tracks. Besides, it has `length`, `loop`
 and `step` applied to all the tracks.

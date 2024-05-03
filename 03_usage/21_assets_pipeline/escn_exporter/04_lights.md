@@ -1,5 +1,6 @@
-Lights
-======
+
+# Lights
+
 Warning:
 
     By default, lamps in Blender have shadows enabled. This can cause
@@ -13,7 +14,7 @@ Warning:
 Sun, point and spot lamps are all exported from Blender along with many of their
 properties:
 
-![](img/light_properties.jpg
+![](img/light_properties.jpg)
 
 There are some things to note:
 

@@ -6,18 +6,6 @@ vendors, interaction, targeting, equipment (+ visuals), loot, crafting, talents,
 
 The module supports networking. It is designed to be authoritative, so players shouldn't be able to cheat by design.
 
-It is a c++ engine module, which means you will need to compile it into pandemonium. (See compiling)
-
-## Pandemonium Version Support
-
-This module is developed with the 3.x branch of pandemonium, usually at the newest revisions.
-
-3.2 - Will likely work, probably needs changes by now. (TODO check.)\
-3.3 - Will more likely work, might need smaller changes by now. (TODO check.)\
-3.4 - Should work without any issues. (TODO check.)\
-3.x - Works.\
-4.0 - Have been fixing support from time to time. Currently it won't build on the latest master, and it will take considerable amount of work to get it to work again after the virtual method binding rework. It will be done eventually, but it will take time. [Here](https://github.com/Relintai/pandemonium_engine/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)'s the last know-to-work commit.
-
 ## Project setup tl;dr
 
 ### First
@@ -565,36 +553,3 @@ https://github.com/Relintai/broken_seals_roguelike
 
 2d:
 https://github.com/Relintai/broken_seals_2d.git
-
-## Compiling
-
-First make sure that you can compile pandemonium. See the official docs: https://docs.pandemoniumengine.org/en/3.x/development/compiling/index.html
-
-1. Clone the engine if you haven't already:
-
-If you want Pandemonium 3.x:
-```git clone -b 3.x https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-If you want Pandemonium 4.0:
-```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-2. go into the modules folder inside the engine's directory"
-
-```cd pandemonium```
-```cd modules```
-
-3. clone this repository
-
-```git clone https://github.com/Relintai/entity_spell_system.git entity_spell_system```
-
-(the folder needs to be named entity_spell_system!)
-
-4. Go up one folder
-
-```cd ..```
-
-5. Compile pandemonium.
-
-For example:
-
-```scons p=x11 t=release_debug tools=yes```

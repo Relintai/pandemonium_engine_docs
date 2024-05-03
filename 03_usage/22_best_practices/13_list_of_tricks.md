@@ -1,7 +1,7 @@
 
-From https://github.com/godotengine/godot-docs/issues/4377
+# Things that are not documented nor indicated anywhere
 
-Things that are not documented nor indicated anywhere
+From https://github.com/godotengine/godot-docs/issues/4377
 
     You can hold Shift when dragging a node in Scene Tree Dock to keep local transform
     If you hold Ctrl while dragging a script file onto a node in scene tree, it will be instantiated as a new node instead of attached

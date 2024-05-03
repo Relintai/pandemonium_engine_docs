@@ -1,7 +1,6 @@
 
 
-Bisecting regressions
-=====================
+# Bisecting regressions
 
 
 Bisecting is a way to find regressions in software. After reporting a bug on the
@@ -12,8 +11,7 @@ the regression. Your effort will be widely appreciated :)
 
 The guide below explains how to find a regression by bisecting.
 
-What is bisecting?
-------------------
+## What is bisecting?
 
 Pandemonium developers use the `Git ( https://git-scm.com/ )` version control system.
 In the context of Git, bisecting is the process of performing a manual
@@ -22,8 +20,7 @@ to determine when a regression appeared. While it's typically used for bugs,
 it can also be used to find other kinds of unexpected changes such as
 performance regressions.
 
-Using official builds to speed up bisecting
--------------------------------------------
+## Using official builds to speed up bisecting
 
 Before using Git's `bisect` command, we strongly recommend trying to reproduce
 the bug with an older (or newer) official release. This greatly reduces the
@@ -40,15 +37,13 @@ manage to reproduce the bug with Pandemonium 3.2 beta 1, then try older alpha bu
 
 Warning:
 
-
     For bisecting regressions, don't use patch releases such as Pandemonium 3.1.2.
     Instead, use the minor version's first release like Pandemonium 3.1. This is
     because patch releases are built from a separate *stable branch*. This kind
     of branch doesn't follow the rest of Pandemonium's development, which is done in
     the `master` branch.
 
-The Git bisect command
-----------------------
+## The Git bisect command
 
 If you've found a build that didn't exhibit the bug in the above testing
 process, you can now start bisecting the regression. The Git version control
@@ -57,7 +52,6 @@ process semi-automated as you only have to build the engine, run it and try to
 reproduce the bug.
 
 Note:
-
 
     Before bisecting a regression, you need to set up a build environment to
     compile Pandemonium from source. To do so, read the
@@ -141,7 +135,6 @@ you've bisected. This will help in solving the issue. Thanks again for
 contributing to Pandemonium :)
 
 Note:
-
 
     You can read the full documentation on `git bisect`
     `here ( https://git-scm.com/docs/git-bisect )`.

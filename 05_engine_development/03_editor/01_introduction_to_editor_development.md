@@ -1,7 +1,5 @@
 
-
-Introduction to editor development
-==================================
+# Introduction to editor development
 
 On this page, you will learn:
 
@@ -13,25 +11,22 @@ To create editor plugins in GDScript, see `doc_making_plugins` instead.
 
 See also:
 
-
     If you are new to Pandemonium, we recommended you to read
     `doc_pandemonium_design_philosophy` before continuing. Since the Pandemonium editor
     is a Pandemonium project written in C++, much of the engine's philosophy applies
     to the editor.
 
-Technical choices
------------------
+## Technical choices
 
 The Pandemonium editor is drawn using Pandemonium's renderer and
-`UI system <toc-gui-basics )`. It does *not* rely on a toolkit
+`UI system ( toc-gui-basics )`. It does *not* rely on a toolkit
 such as GTK or Qt. This is similar in spirit to software like Blender.
 While using toolkits makes it easier to achieve a "native" appearance, they are
 also quite heavy and their licensing is not compatible with Pandemonium's.
 
 The editor is fully written in C++. It can't contain any GDScript or C# code.
 
-Directory structure
--------------------
+## Directory structure
 
 The editor's code is fully self-contained in the
 `editor/ ( https://github.com/Relintai/pandemonium_engine/tree/master/editor )` folder
@@ -57,8 +52,7 @@ Some important files in the editor are:
   Where the 3D editor gizmos are defined and drawn.
   This file doesn't have a 2D counterpart as 2D gizmos are drawn by the nodes themselves.
 
-Editor dependencies in `scene/` files
----------------------------------------
+## Editor dependencies in `scene/` files
 
 When working on an editor feature, you may have to modify files in
 Pandemonium's GUI nodes, which you can find in the `scene/` folder.
@@ -80,8 +74,7 @@ Currently, there are some dependencies to `editor/` includes in `scene/`
 files, but
 `they are in the process of being removed ( https://github.com/Relintai/pandemonium_engine/issues/29730 )`.
 
-Development tips
-----------------
+## Development tips
 
 To iterate quickly on the editor, we recommend to set up a test project and
 `open it from the command line ( doc_command_line_tutorial )` after compiling

@@ -1,7 +1,6 @@
 
 
-Testing pull requests
-=====================
+# Testing pull requests
 
 Many people are developing new features or fixing bugs on GitHub.
 To help with engine development, you may be asked to test those pull requests
@@ -11,8 +10,7 @@ Thanks to GitHub Actions, all `pull requests ( https://github.com/Relintai/pande
 have continuous builds available. These builds let you try out pull requests
 without having to compile anything from source.
 
-Downloading a compiled build
-----------------------------
+## Downloading a compiled build
 
 You can download pull request builds from GitHub Actions. Since only signed in
 users may download builds directly from GitHub Actions, the procedure varies
@@ -27,8 +25,7 @@ Note:
     `compile the pull request branch from source ( doc_testing_pull_requests_compile )`
     instead.
 
-If you have a GitHub account
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### If you have a GitHub account
 
 - Open the pull request page. Click the **Checks** tab near the top of the page:
 
@@ -51,8 +48,7 @@ If you have a GitHub account
   If you frequently test pull request builds, it may be better to disable
   Windows SmartScreen or `disable macOS Gatekeeper ( https://disable-gatekeeper.github.io/ )` permanently.
 
-If you don't have a GitHub account
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#### If you don't have a GitHub account
 
 If you don't have a GitHub account and can't sign up for one,
 you can use the third-party `nightly.link ( https://nightly.link )` service
@@ -84,9 +80,7 @@ to generate a universal download link.
   Windows SmartScreen or `disable macOS Gatekeeper ( https://disable-gatekeeper.github.io/ )` permanently.
 
 
-
-Compiling a pull request branch from source
--------------------------------------------
+## Compiling a pull request branch from source
 
 This approach may be needed for pull requests that were last updated more than
 90 days ago, or to test on platforms and configurations that are not supported

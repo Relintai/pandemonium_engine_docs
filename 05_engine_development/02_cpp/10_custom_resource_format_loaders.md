@@ -1,10 +1,8 @@
 
 
-Custom resource format loaders
-==============================
+# Custom resource format loaders
 
-Introduction
-------------
+## Introduction
 
 ResourceFormatLoader is a factory interface for loading file assets.
 Resources are primary containers. When load is called on the same file
@@ -14,35 +12,29 @@ loaded resources must be stateless.
 This guide assumes the reader knows how to create C++ modules and Pandemonium
 data types. If not, refer to this guide `doc_custom_modules_in_c++`.
 
-References
-~~~~~~~~~~
+### References
 
 - `ResourceLoader( resourceloader )`
 - `core/io/resource_loader.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/resource_loader.cpp )`
 
-What for?
----------
+## What for?
 
 - Adding new support for many file formats
 - Audio formats
 - Video formats
 - Machine learning models
 
-What not?
----------
+## What not?
 
 - Raster images
 
 ImageFormatLoader should be used to load images.
 
-References
-~~~~~~~~~~
+### References
 
 - `core/io/image_loader.h ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/image_loader.h )`
 
-
-Creating a ResourceFormatLoader
--------------------------------
+## Creating a ResourceFormatLoader
 
 Each file format consist of a data container and a `ResourceFormatLoader`.
 
@@ -105,8 +97,7 @@ read and handle data serialization.
     }
 ```
 
-Creating a ResourceFormatSaver
-------------------------------
+## Creating a ResourceFormatSaver
 
 If you'd like to be able to edit and save a resource, you can implement a
 `ResourceFormatSaver`:
@@ -154,8 +145,7 @@ If you'd like to be able to edit and save a resource, you can implement a
     }
 ```
 
-Creating custom data types
---------------------------
+## Creating custom data types
 
 Pandemonium may not have a proper substitute within its `doc_core_types`
 or managed resources. Pandemonium needs a new registered data type to
@@ -258,8 +248,7 @@ Here is an example of creating a custom datatype:
     }
 ```
 
-Considerations
-~~~~~~~~~~~~~~
+### Considerations
 
 Some libraries may not define certain common routines such as IO handling.
 Therefore, Pandemonium call translations are required.
@@ -298,15 +287,13 @@ calls into `std::istream`.
     };
 ```
 
-References
-~~~~~~~~~~
+### References
 
 - `istream ( http://www.cplusplus.com/reference/istream/istream/ )`
 - `streambuf ( http://www.cplusplus.com/reference/streambuf/streambuf/?kw=streambuf )`
 - `core/io/fileaccess.h ( https://github.com/Relintai/pandemonium_engine/blob/master/core/os/file_access.h )`
 
-Registering the new file format
--------------------------------
+## Registering the new file format
 
 Pandemonium registers `ResourcesFormatLoader` with a `ResourceLoader`
 handler. The handler selects the proper loader automatically
@@ -351,13 +338,11 @@ when `load` is called.
     }
 ```
 
-References
-~~~~~~~~~~
+### References
 
 - `core/io/resource_loader.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/resource_loader.cpp )`
 
-Loading it on GDScript
-----------------------
+## Loading it on GDScript
 
 Save a file called `demo.json` with the following contents and place it in the
 project's root folder:

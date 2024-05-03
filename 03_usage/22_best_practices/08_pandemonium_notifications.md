@@ -1,7 +1,6 @@
 
 
-Pandemonium notifications
-===================
+# Pandemonium notifications
 
 Every Object in Pandemonium implements a
 `notification` method. Its purpose is to
@@ -70,8 +69,7 @@ Note:
 So, in which situation should one use each of these notifications or
 virtual functions?
 
-_process vs. _physics_process vs. \*_input
-------------------------------------------
+## _process vs. _physics_process vs. \*_input
 
 Use `process` when one needs a framerate-dependent deltatime between
 frames. If code that updates object data needs to update as often as
@@ -124,8 +122,7 @@ gdscript GDScript
 ```
 
 
-_init vs. initialization vs. export
------------------------------------
+## _init vs. initialization vs. export
 
 If the script initializes its own node subtree, without a scene,
 that code should execute here. Other property or SceneTree-independent
@@ -170,8 +167,7 @@ following sequence:
 As a result, instantiating a script versus a scene will affect both the
 initialization *and* the number of times the engine calls the setter.
 
-_ready vs. _enter_tree vs. NOTIFICATION_PARENTED
-------------------------------------------------
+## _ready vs. _enter_tree vs. NOTIFICATION_PARENTED
 
 When instantiating a scene connected to the first executed scene, Pandemonium will
 instantiate nodes down the tree (making `init` calls) and build the tree

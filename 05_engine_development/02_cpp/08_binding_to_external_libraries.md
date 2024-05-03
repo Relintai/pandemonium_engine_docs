@@ -1,10 +1,8 @@
 
 
-Binding to external libraries
-=============================
+# Binding to external libraries
 
-Modules
--------
+## Modules
 
 The Summator example in `doc_custom_modules_in_c++` is great for small,
 custom modules, but what if you want to use a larger, external library?
@@ -75,7 +73,8 @@ need to be created:
     register_types.cpp
 ```
 
-.. important::
+Important:
+
     These files must be in the top-level folder of your module (next to your
     `SCsub` and `config.py` files) for the module to be registered properly.
 
@@ -128,7 +127,8 @@ installation commands for Linux below, for reference.
     sudo apt-get install festvox-don festvox-rablpc16k festvox-kallpc16k festvox-kdlpc16k <-- Installs voices
 ```
 
-.. important::
+Important:
+
     The voices that Festival uses (and any other potential external/3rd-party
     resource) all have varying licenses and terms of use; some (if not most) of them may be
     be problematic with Pandemonium, even if the Festival Library itself is MIT License compatible.
@@ -152,7 +152,8 @@ can link to them instead by adding them as submodules (from within the modules/t
     git submodule add https://github.com/festvox/speech_tools
 ```
 
-.. important::
+Important:
+
     Please note that Git submodules are not used in the Pandemonium repository. If
     you are developing a module to be merged into the main Pandemonium repository, you should not
     use submodules. If your module doesn't get merged in, you can always try to implement
@@ -213,8 +214,7 @@ The final module should look like this:
     pandemonium/modules/tts/SCsub
 ```
 
-Using the module
-----------------
+## Using the module
 
 You can now use your newly created module from any script:
 

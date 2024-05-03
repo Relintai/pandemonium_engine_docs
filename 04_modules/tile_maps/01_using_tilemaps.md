@@ -1,10 +1,7 @@
 
+# Using TileMaps
 
-Using TileMaps
-==============
-
-Introduction
-------------
+## Introduction
 
 A tilemap is a grid of tiles used to create a game's layout. There are several
 benefits to using `TileMap` nodes to design your levels.
@@ -17,8 +14,7 @@ the TileMap.
 
 ![](img/tileset_draw_atlas.png)
 
-Project setup
--------------
+## Project setup
 
 This demo will use the following tiles taken from Kenney's "Abstract Platformer"
 art pack. You can find the complete set `here ( https://kenney.nl/assets/abstract-platformer )`
@@ -33,8 +29,7 @@ is to import 2D images using an interpolated "filter" mode, which will result in
 ugly borders between the tiles. Select the image and click the Import tab. Turn
 off `Filter` and click "Reimport". See `doc_import_images` for details.
 
-TileMap node
-------------
+## TileMap node
 
 Add a new `TileMap` node to the scene. By default, a TileMap
 uses a square grid of tiles. You can also use a perspective-based "Isometric" mode
@@ -67,8 +62,7 @@ customize your tilemap's behavior:
 
 All of these options can be left at their defaults for this demo.
 
-Creating a TileSet
-------------------
+## Creating a TileSet
 
 Once you've configured your tilemap, it's time to add a
 `TileSet`. A TileSet is a
@@ -106,8 +100,7 @@ the node's lock button:
 
 ![](img/tile_lock.png)
 
-Collision shapes
-----------------
+## Collision shapes
 
 If you're making a map that needs collisions - walls, floor, or other obstacles,
 for example - then you'll need to add collision shapes to any tiles that you
@@ -123,8 +116,7 @@ collision shape appears in light blue:
 
 You can add occlusion and navigation shapes to the tile in the same way.
 
-Atlas tiles
------------
+## Atlas tiles
 
 Rather than adding individual tiles one at a time, you can define a group of
 tiles all at once using an atlas. This also allows you to randomly generate
@@ -152,8 +144,7 @@ tiles it contains:
 In addition to saving time when defining the tiles, this can help by grouping
 similar tiles together when you're working with a large number of tiles.
 
-Random tile priorities
-~~~~~~~~~~~~~~~~~~~~~~
+### Random tile priorities
 
 When drawing with atlas tiles, enabling the "Use priority" option causes tiles
 to be selected at random. By default, each tile in the tileset has an equal
@@ -162,8 +153,7 @@ priorities for each tile. For example, a tile with priority 2 is twice as
 likely to be selected as a tile with priority 1, and a tile with priority 3 is
 50% more likely to be selected than a tile with priority 2.
 
-Autotiles
----------
+## Autotiles
 
 Autotiles allow you to define a group of tiles, then add rules to control which
 tile gets used for drawing based on the content of adjacent cells.
@@ -191,8 +181,7 @@ heading. Allowed values are "2x2", "3x3 (minimal)", and "3x3".
 All "on" and "off" bits must be satisfied for a bitmask to match, but "ignore"
 bits are ignored.
 
-2x2
-~~~
+### 2x2
 
 In 2x2 mode, each bitmask contains four bits, one for each corner.
 
@@ -223,8 +212,7 @@ Key:
 
 ![](img/autotile_template_2x2.png)
 
-3x3 (minimal)
-~~~~~~~~~~~~~
+### 3x3 (minimal)
 
 In 3x3 (minimal) mode, each bitmask contains 9 bits (4 corners, 4 edges,
 1 center). The 4 corner bits work the same as in 2x2 mode.
@@ -240,7 +228,6 @@ A total of 47 tiles would be needed to provide exactly one bitmask for each
 arrangement that this mode can test for.
 
 Note:
-
 
     Right-click an image and choose **Save image as…** to save it.
 
@@ -302,8 +289,7 @@ This means the texture offset should be `Vector2(0, -120)`:
 
 ![](img/autotile_template_3x3_minimal_topdown_walls_tall.png)
 
-3x3
-~~~
+### 3x3
 
 In 3x3 mode, each bitmask contains 9 bits (4 corners, 4 edges, 1 center)
 
@@ -314,15 +300,13 @@ A total of 256 tiles would be needed to provide exactly one bitmask for each
 arrangement that this mode can test for.
 
 
-Disabling autotile
-~~~~~~~~~~~~~~~~~~
+### Disabling autotile
 
 When using an autotile, it is possible to turn off the autotile behaviour and
 select tiles manually, by clicking "Disable Autotile" at the top of the tile
 selection window.
 
-Autotile binding
-~~~~~~~~~~~~~~~~
+### Autotile binding
 
 By default, autotile only checks for adjacent cells filled using the same
 autotile. This behaviour can be overridden in order to have autotiles bind to
@@ -338,8 +322,7 @@ Note that to use this in the editor, the script should start with a "tool"
 declaration, and you may need to close and reload the scene for these changes
 to take effect.
 
-Tips and tricks
----------------
+## Tips and tricks
 
 - If you're using a `Camera2D` to scroll your level, you
   may notice lines appearing between your tiles. To fix this, open Project

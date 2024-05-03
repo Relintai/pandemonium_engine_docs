@@ -1,7 +1,5 @@
 
-
-Applying object-oriented principles in Pandemonium
-============================================
+# Applying object-oriented principles in Pandemonium
 
 The engine offers two main ways to create reusable objects: scripts and scenes. Neither of these
 technically define classes under the hood.
@@ -13,8 +11,7 @@ think of them as classes.
 This guide briefly explains how scripts and scenes work in the engine's core to help you understand
 how they work under the hood.
 
-How scripts work in the engine
-------------------------------
+## How scripts work in the engine
 
 The engine provides built-in classes like `Node`. You can extend those to create
 derived types using a script.
@@ -46,8 +43,7 @@ Note:
     `extends` keyword from code. Since they extend `Reference` though, you cannot attach them to
     a `Node`.
 
-Scenes
-------
+## Scenes
 
 The behavior of scenes has many similarities to classes, so it can make sense to think of a scene as
 a class. Scenes are reusable, instantiable, and inheritable groups of nodes. Creating a scene is

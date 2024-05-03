@@ -1,10 +1,8 @@
 
 
-Custom AudioStreams
-===================
+# Custom AudioStreams
 
-Introduction
-------------
+## Introduction
 
 AudioStream is the base class of all audio emitting objects.
 AudioStreamPlayer binds onto an AudioStream to emit PCM data
@@ -19,21 +17,18 @@ AudioStream into PCM data.
 This guide assumes the reader knows how to create C++ modules. If not, refer to this guide
 `doc_custom_modules_in_c++`.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `servers/audio/audio_stream.h ( https://github.com/Relintai/pandemonium_engine/blob/master/servers/audio/audio_stream.h )`
 -  `scene/audio/audioplayer.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/scene/audio/audio_player.cpp )`
 
-What for?
----------
+## What for?
 
 - Binding external libraries (like Wwise, FMOD, etc).
 - Adding custom audio queues
 - Adding support for more audio formats
 
-Create an AudioStream
----------------------
+## Create an AudioStream
 
 An AudioStream consists of three components: data container, stream name,
 and an AudioStreamPlayback friend class generator. Audio data can be
@@ -113,14 +108,12 @@ Therefore, playback state must be self-contained in AudioStreamPlayback.
 	}
 ```
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `servers/audio/audio_stream.h ( https://github.com/Relintai/pandemonium_engine/blob/master/servers/audio/audio_stream.h )`
 
 
-Create an AudioStreamPlayback
------------------------------
+## Create an AudioStreamPlayback
 
 AudioStreamPlayer uses `mix` callback to obtain PCM data. The callback must match sample rate and fill the buffer.
 
@@ -228,8 +221,7 @@ Since AudioStreamPlayback is controlled by the audio thread, i/o and dynamic mem
 	}
 ```
 
-Resampling
-~~~~~~~~~~
+### Resampling
 
 Pandemonium's AudioServer currently uses 44100 Hz sample rate. When other sample rates are
 needed such as 48000, either provide one or use AudioStreamPlaybackResampled.
@@ -277,6 +269,7 @@ query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
 		AudioStreamPlaybackResampledMyTone();
 		~AudioStreamPlaybackResampledMyTone();
 	};
+```
 
 ```
 	#include "mytone_audiostream_resampled.h"
@@ -343,8 +336,8 @@ query AudioFrames and `get_stream_sampling_rate` to query current mix rate.
 	}
 ```
 
-References:
-~~~~~~~~~~~
+### References:
+
 -  `core/math/audio_frame.h ( https://github.com/Relintai/pandemonium_engine/blob/master/core/math/audio_frame.h )`
 -  `servers/audio/audio_stream.h ( https://github.com/Relintai/pandemonium_engine/blob/master/servers/audio/audio_stream.h )`
 -  `scene/audio/audioplayer.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/scene/audio/audio_player.cpp )`

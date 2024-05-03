@@ -1,7 +1,6 @@
 
 
-Docs writing guidelines
-=======================
+# Docs writing guidelines
 
 The Pandemonium community is rich and international. Users come from all
 around the world. Some of them are young, and many aren't native English
@@ -28,22 +27,18 @@ There are 3 rules to describe classes:
 
 Note:
 
-
     A technical writer's job is to pack as much information as possible into
     the smallest and clearest sentences possible. These guidelines will help
     you work towards that goal.
 
 See also:
 
-
     See the `content guidelines ( doc_content_guidelines )` for information
     on the types of documentation you can write in the official documentation.
 
-7 rules for clear English
--------------------------
+## 7 rules for clear English
 
-Use the active voice
-~~~~~~~~~~~~~~~~~~~~
+### Use the active voice
 
 Use the active voice when possible. Take the classes, methods, and
 constants you describe as the subject. It's natural to write using the
@@ -75,8 +70,7 @@ Active:
     [...] Only some Node2Ds **implement** this method.
 ```
 
-Use precise action verbs
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Use precise action verbs
 
 Favor precise yet common verbs over generic ones like `make`, `set`,
 and any expression you can replace with a single word.
@@ -97,8 +91,7 @@ like `place`, `position`, `rotate`, `fade`, etc.
     Position the node's pivot to the [code]pivot[/code] value. [...]
 ```
 
-Avoid verbs that end in -ing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Avoid verbs that end in -ing
 
 The progressive forms describe continuous actions. E.g. "is calling",
 "is moving".
@@ -130,8 +123,7 @@ Tip:
     conjugation, so you may use them: `the remaining movement`,
     `the missing file`, etc.
 
-Remove unnecessary adverbs and adjectives
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Remove unnecessary adverbs and adjectives
 
 Write as few adjectives and adverbs as possible. Only use them if they
 add key information to the description.
@@ -149,8 +141,7 @@ documentation but don't add any information:
     A big texture [...]
 ```
 
-Ban these 8 words
-~~~~~~~~~~~~~~~~~
+### Ban these 8 words
 
 **Don't** ever use these 8 banned words:
 
@@ -215,8 +206,7 @@ on the Timer node's page:
     Provides essential math functions to manipulate 3D vectors: cross product, normalize, rotate, etc.
 ```
 
-Use explicit references
-~~~~~~~~~~~~~~~~~~~~~~~
+### Use explicit references
 
 Favor explicit references over implicit ones.
 
@@ -236,8 +226,7 @@ the most common in English, and they require you to check the reference.
 If you need to repeat the same variable name 3 or 4 times, you probably
 need to rephrase your description.
 
-Use 's to show possession
-~~~~~~~~~~~~~~~~~~~~~~~~~
+### Use 's to show possession
 
 Avoid "The milk **of** the cow". It feels unnatural in English. Write "The cow's
 milk" instead.
@@ -255,8 +244,7 @@ sentence, and keep it short:
     The **AtlasTexture's** used region.
 ```
 
-Use the Oxford comma to enumerate anything
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Use the Oxford comma to enumerate anything
 
 From the Oxford dictionary:
 
@@ -279,11 +267,9 @@ element of a list with more than two elements.
     Create a KinematicBody2D node, a CollisionShape2D node, and a sprite node.
 ```
 
-How to write methods and classes
---------------------------------
+## How to write methods and classes
 
-Dynamic vs static typing
-~~~~~~~~~~~~~~~~~~~~~~~~
+### Dynamic vs static typing
 
 The code examples in the documentation should follow a consistent style not to
 confuse users. As static type hints are an optional feature of GDScript, we
@@ -332,8 +318,7 @@ The exception is topics that explain static typing concepts to users.
         return arguments[choice]
 ```
 
-Use real-world code examples where appropriate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Use real-world code examples where appropriate
 
 Real-world examples are more accessible to beginners than abstract `foos` and
 `bars`. You can also copy them directly from your game projects, ensuring that
@@ -370,8 +355,7 @@ Of course, there are times when using real-world examples is impractical. In
 those situations, you should still avoid using names such as `my_var`,
 `foo()` or `my_func()` and consider more meaningful names for your examples.
 
-Give an overview of the node in the brief description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Give an overview of the node in the brief description
 
 The brief description is the reference's most important sentence. It's
 the user's first contact with a node:
@@ -399,8 +383,7 @@ functionality, in up to 200 characters.
 Use the node's full description to provide more information, and a code
 example, if possible.
 
-Mention what methods return if it's useful
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Mention what methods return if it's useful
 
 Some methods return important values. Describe them at the end of the
 description, ideally on a new line. No need to mention the return values
@@ -424,8 +407,7 @@ Notice the exception to the "direct voice" rule: with the move method,
 an external collider can influence the method and the body that calls
 `move`. In this case, you can use the passive voice.
 
-Use "if true" to describe booleans
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Use "if true" to describe booleans
 
 For boolean member variables, always use `if true` and/or
 `if false`, to stay explicit. `Controls whether or not` may be
@@ -440,8 +422,7 @@ Also, surround boolean values, variable names and methods with `[code][/code]`.
     If [code]true[/code], the timer will automatically start when entering the scene tree.
 ```
 
-Use `[code]` around arguments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Use `[code]` around arguments
 
 In the class reference, always surround arguments with `[code][/code]`. In the
 documentation and in Pandemonium, it will display like `this`. When you edit XML
@@ -449,18 +430,16 @@ files in the Pandemonium repository, replace existing arguments written like 'th
 \`this\` with `[code]this[/code]`.
 
 
-Common vocabulary to use in Pandemonium's documentation
--------------------------------------------------
+## Common vocabulary to use in Pandemonium's documentation
 
 The developers chose some specific words to refer to areas of the
 interface. They're used in the sources, in the documentation, and you
 should always use them instead of synonyms, so the users know what
 you're talking about.
 
-.. figure:: img/editor-vocabulary-overview.png)
-   :alt: Overview of the interface and common vocabulary
+![](img/editor-vocabulary-overview.png)
 
-   Overview of the interface and common vocabulary
+Overview of the interface and common vocabulary
 
 In the top left corner of the editor lie the `main menus`. In the
 center, the buttons change the `workspace`. And together the buttons
@@ -483,8 +462,7 @@ class names, which you can't fold, are `Classes` e.g. the
 `properties`. E.g. `position` or `modulate color` are both
 `properties`.
 
-Keyboard shortcut guidelines
-----------------------------
+## Keyboard shortcut guidelines
 
 Keyboard and mouse shortcuts should make use of the `:kbd:` tag, which allows
 shortcuts to stand out from the rest of the text and inline code. Use the
@@ -498,12 +476,11 @@ On macOS, `Cmd` often replaces `Ctrl` in keyboard shortcuts.
 Try to integrate the shortcut into sentences the best you can. Here are some
 examples with the `:kbd:` tag left as-is for better visibility:
 
-- Press `:kbd:`Ctrl + Alt + T``` to toggle the panel (`:kbd:`Cmd + Alt + T``` on macOS).
-- Press `:kbd:`Space``` and hold the left mouse button to pan in the 2D editor.
-- Press `:kbd:`Shift + Up Arrow``` to move the node upwards by 8 pixels.
+- Press `:kbd:` `Ctrl + Alt + T` to toggle the panel (`:kbd:` `Cmd + Alt + T` on macOS).
+- Press `:kbd:` `Space` and hold the left mouse button to pan in the 2D editor.
+- Press `:kbd:` `Shift + Up Arrow` to move the node upwards by 8 pixels.
 
-Image contribution guidelines
------------------------------
+## Image contribution guidelines
 
 A significant part of the documentation is images, and there are several
 important guidelines to follow.

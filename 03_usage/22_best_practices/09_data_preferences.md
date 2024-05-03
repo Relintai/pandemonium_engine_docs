@@ -1,7 +1,6 @@
 
 
-Data preferences
-================
+# Data preferences
 
 Ever wondered whether one should approach problem X with data structure
 Y or Z? This article covers a variety of topics related to these dilemmas.
@@ -37,8 +36,7 @@ Note:
   algorithm / data structure for the job is part of what makes programmers'
   skills valuable.
 
-Array vs. Dictionary vs. Object
--------------------------------
+## Array vs. Dictionary vs. Object
 
 Pandemonium stores all variables in the scripting API in the
 `Variant ( https://docs.pandemoniumengine.org/en/latest/development/cpp/variant_class.html )`
@@ -46,7 +44,7 @@ class. Variants can store Variant-compatible data structures such as
 `Array` as well as
 `Object` s.
 
-Pandemonium implements Array as a `Vector<Variant )`. The engine stores the Array
+Pandemonium implements Array as a `Vector&lt;Variant&gt;`. The engine stores the Array
 contents in a contiguous section of memory, i.e. they are in a row adjacent
 to each other.
 
@@ -57,7 +55,7 @@ Note:
   type, meaning that its records can only contain a particular type (denoted
   by angled brackets). So, for example, a
   `PoolStringArray` would be something like
-  a `Vector<String )`.
+  a `Vector&lt;String&gt;`.
 
 Contiguous memory stores imply the following operation performance:
 
@@ -104,7 +102,7 @@ Contiguous memory stores imply the following operation performance:
       though. Done by re-sorting the Array after every edit and writing an
       ordered-aware search algorithm.
 
-Pandemonium implements Dictionary as an `OrderedHashMap<Variant, Variant )`. The engine
+Pandemonium implements Dictionary as an `OrderedHashMap&lt;Variant, Variant&gt;`. The engine
 stores a small array (initialized to 2^3 or 8 records) of key-value pairs. When
 one attempts to access a value, they provide it a key. It then *hashes* the
 key, i.e. converts it into a number. The "hash" is used to calculate the index
@@ -253,8 +251,7 @@ gdscript GDScript
 From here, one can then create their own structures with specific features,
 limited only by their imagination.
 
-Enumerations: int vs. string
-----------------------------
+## Enumerations: int vs. string
 
 Most languages offer an enumeration type option. GDScript is no different, but
 unlike most other languages, it allows one to use either integers or strings for
@@ -280,8 +277,7 @@ to group them together as related concepts, then it makes sense to use them as
 strings. That way, a separate data structure to execute on the printing is
 unnecessary.
 
-AnimatedTexture vs. AnimatedSprite vs. AnimationPlayer vs. AnimationTree
-------------------------------------------------------------------------
+## AnimatedTexture vs. AnimatedSprite vs. AnimationPlayer vs. AnimationTree
 
 Under what circumstances should one use each of Pandemonium's animation classes?
 The answer may not be immediately clear to new Pandemonium users.

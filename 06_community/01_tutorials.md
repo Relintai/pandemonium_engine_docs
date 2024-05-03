@@ -1,14 +1,12 @@
 
 
-Tutorials and resources
-=======================
+# Tutorials and resources
 
 This is a list of third-party tutorials and resources created by the Pandemonium community. For resources, remember that there is the official `Pandemonium Asset Library ( https://pandemoniumengine.org/asset-library/asset )` full of official and community resources too! Also, have a look at this `huge list over at Reddit ( https://www.reddit.com/r/pandemonium/comments/an0iq5/pandemonium_tutorials_list_of_video_and_written/ )`.
 
 Think there is something missing here? Feel free to submit a `Pull Request ( https://github.com/Relintai/pandemonium_engine-docs/blob/master/community/tutorials.rst )` as always.
 
-Where to start
---------------
+## Where to start
 
 The Pandemonium video tutorials by `GDQuest ( https://www.youtube.com/channel/UCxboW7x0jZqFdvMdCFKTMsQ/playlists )`, `Game from Scratch ( https://www.youtube.com/watch?v=iDEcP8Mc-7s&list=PLS9MbmO_ssyDk79j9ewONxV88fD5e_o5d )` and `KidsCanCode ( https://www.youtube.com/channel/UCNaPQ5uLX5iIEHUCLmfAgKg/playlists )` are well-regarded in the community and often recommended as a gentle introduction to beginners.
 
@@ -20,8 +18,7 @@ GDQuest's *Learn GDScript From Zero* is a free and open source interactive tutor
 
 Some tutorials mentioned below provide more advanced tutorials, e.g. on 3D or shaders.
 
-Video tutorials
----------------
+## Video tutorials
 
 - `Pandemonium Tutorials ( https://www.youtube.com/channel/UCnr9ojBEQGgwbcKsZC-2rIg )` (2D, GDScript, Programming Basics).
 - `Emilio ( https://www.youtube.com/channel/UC9DR22-qohBDtZ74R3FxOZg )` (2D, GDScript and VisualScript).
@@ -46,22 +43,19 @@ Video tutorials
 - `Garbaj ( https://www.youtube.com/c/Garbaj/ )` (3D, GDScript).
 - `Kasper Frandsen ( https://www.youtube.com/c/KasperFrandsen/ )` (3D, Shaders).
 
-Text tutorials
---------------
+## Text tutorials
 
 - `FinepointCGI website by Mitch ( http://finepointcgi.io/ )`
 - `GDScript website by Andrew Wilkes ( https://gdscript.com )`
 - `Pandemonium Recipes by KidsCanCode ( http://pandemoniumrecipes.com/ )`
 - `Steincodes ( https://steincodes.tumblr.com )`
 
-Devlogs
--------
+## Devlogs
 
 - `Andrea Catania (Physics & AI) ( https://www.youtube.com/channel/UCm4RuvYtgpgFDTCgaEUT5uQ/videos )`
 - `Bastiaan Olij (AR & VR) ( https://www.youtube.com/channel/UCrbLJYzJjDf2p-vJC011lYw/videos )`
 
-Resources
----------
+## Resources
 
 - `awesome-pandemonium: A curated list of free/libre plugins, scripts and add-ons ( https://github.com/pandemoniumengine/awesome-pandemonium )`
 - `Zeef Pandemonium Engine: A curated directory of resources by Andre Schmitz ( https://pandemonium-engine.zeef.com/andre.antonio.schmitz )`

@@ -1,8 +1,5 @@
 
-
-Code style guidelines
-=====================
-
+# Code style guidelines
 
 When contributing to Pandemonium's source code, you will be expected to follow the
 style guidelines outlined below. Some of them are checked via the Continuous
@@ -10,8 +7,7 @@ Integration process and reviewers will ask you to fix potential issues, so
 best setup your system as outlined below to ensure all your commits follow the
 guidelines.
 
-C++ and Objective-C
--------------------
+## C++ and Objective-C
 
 There are no written guidelines, but the code style agreed upon by the
 developers is enforced via the `clang-format ( http://clang.llvm.org/docs/ClangFormat.html )`
@@ -34,6 +30,7 @@ fine. If you plan to contribute regularly however, we strongly advise that you
 setup clang-format locally to check and automatically fix all your commits.
 
 Warning:
+
  Pandemonium's code style should *not* be applied to third-party code,
              i.e. that is included in Pandemonium's source tree but was not written
              specifically for our project. Such code usually come from
@@ -50,20 +47,17 @@ Warning:
 
 See also:
 
-
     These guidelines only cover code formatting. See `doc_cpp_usage_guidelines`
     for a list of language features that are permitted in pull requests.
 
-Using clang-format locally
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Using clang-format locally
 
 First of all, you will need to install clang-format. As of now, you need to use
 **clang-format 13** to be compatible with Pandemonium's format. Later versions might
 be suitable, but previous versions may not support all used options, or format
 some things differently, leading to style issues in pull requests.
 
-Installation
-^^^^^^^^^^^^
+#### Installation
 
 Here's how to install clang-format:
 
@@ -79,8 +73,7 @@ Here's how to install clang-format:
 
 You then have different possibilities to apply clang-format to your changes:
 
-Manual usage
-^^^^^^^^^^^^
+#### Manual usage
 
 You can apply clang-format manually one or more files with the following
 command:
@@ -96,8 +89,7 @@ command:
   you don't run clang-format on compiled objects (.o and .a files) that are
   in Pandemonium's tree. So better use `core/*.{cpp,h}` than `core/*`.
 
-Pre-commit hook
-^^^^^^^^^^^^^^^
+#### Pre-commit hook
 
 For ease of use, we provide a pre-commit hook for Git that will run
 clang-format automatically on all your commits to check them, and let you apply
@@ -111,8 +103,7 @@ If your clang-format is not in the `PATH`, you may have to edit the
 The hook was tested on Linux and macOS, but should also work in the Git Shell
 on Windows.
 
-IDE plugin
-^^^^^^^^^^
+#### IDE plugin
 
 Most IDEs or code editors have beautifier plugins that can be configured to run
 clang-format automatically, for example each time you save a file.
@@ -129,9 +120,7 @@ Here is a non-exhaustive list of beautifier plugins for some IDEs:
 (Pull requests welcome to extend this list with tested plugins.)
 
 
-
-Header includes
-~~~~~~~~~~~~~~~
+### Header includes
 
 When adding new C++ or Objective-C files or including new headers in existing
 ones, the following rules should be followed:
@@ -246,16 +235,14 @@ Example:
     #include <zstd.h>
 ```
 
-Java
-----
+## Java
 
 Pandemonium's Java code (mostly in `platform/android`) is also enforced via
 `clang-format`, so see the instructions above to set it up. Keep in mind that
 this style guide only applies to code written and maintained by Pandemonium, not
 third-party code such as the `java/src/com/google` subfolder.
 
-Python
-------
+## Python
 
 Pandemonium's SCons buildsystem is written in Python, and various scripts included
 in the source tree are also using Python.
@@ -263,14 +250,12 @@ in the source tree are also using Python.
 For those, we follow the `Black style guide ( https://github.com/psf/black#the-black-code-style )`.
 Blacken your Python changes using `Black ( https://pypi.org/project/black/ )`.
 
-Using black locally
-~~~~~~~~~~~~~~~~~~~
+### Using black locally
 
 First of all, you will need to install black. Black requires Python 3.6.0+
 to run.
 
-Installation
-^^^^^^^^^^^^
+#### Installation
 
 Here's how to install black:
 
@@ -280,8 +265,7 @@ Here's how to install black:
 
 You then have different possibilities to apply black to your changes:
 
-Manual usage
-^^^^^^^^^^^^
+#### Manual usage
 
 You can apply `black` manually to one or more files with the following
 command:
@@ -295,8 +279,7 @@ command:
 - The path can point to several files, either one after the other or using
   wildcards like in a typical Unix shell.
 
-Pre-commit hook
-^^^^^^^^^^^^^^^
+#### Pre-commit hook
 
 For ease of use, we provide a pre-commit hook for Git that will run
 black automatically on all your commits to check them, and let you apply
@@ -306,15 +289,13 @@ This "hook" is a script which can be found in `misc/hooks`. Refer to that
 folder's `README.md` for installation instructions.
 
 
-Editor integration
-^^^^^^^^^^^^^^^^^^
+#### Editor integration
 
 Many IDEs or code editors have beautifier plugins that can be configured to run
 black automatically, for example each time you save a file. For details you can
 check `Black editor integration ( https://github.com/psf/black#editor-integration )`.
 
-Comment style guide
--------------------
+## Comment style guide
 
 This comment style guide applies to all programming languages used within
 Pandemonium's codebase.

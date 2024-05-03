@@ -1,7 +1,6 @@
 
 
-When to use scenes versus scripts
-=================================
+# When to use scenes versus scripts
 
 We've already covered how scenes and scripts are different. Scripts
 define an engine class extension with imperative code, scenes with
@@ -12,8 +11,7 @@ Scenes can define how an extended class initializes, but not what its
 behavior actually is. Scenes are often used in conjunction with a script so
 that the scene acts as an extension of the scripts declarative code.
 
-Anonymous types
----------------
+## Anonymous types
 
 It *is* possible to completely define a scenes' contents using a script alone.
 This is, in essence, what the Pandemonium Editor does, only in the C++ constructor
@@ -38,8 +36,7 @@ Also, scripts will operate a little slower than scenes due to the
 speed differences between engine and script code. The larger and more complex
 the node, the more reason there is to build it as a scene.
 
-Named types
------------
+## Named types
 
 In some cases, a user can register a script as a new type within the editor
 itself. This displays it as a new type in the node or resource creation dialog
@@ -125,8 +122,7 @@ this way.
 
 On the downside, it also means having to use largely imperative programming.
 
-Performance of Script vs PackedScene
-------------------------------------
+## Performance of Script vs PackedScene
 
 One last aspect to consider when choosing scenes and scripts is execution speed.
 
@@ -161,8 +157,7 @@ Scenes help to avoid this performance issue. `PackedScene
 that use serialized data to create objects. The engine can process scenes in
 batches on the back-end and provide much better performance than scripts.
 
-Conclusion
-----------
+## Conclusion
 
 In the end, the best approach is to consider the following:
 

@@ -1,10 +1,7 @@
 
+# Importing translations
 
-Importing translations
-======================
-
-Games and internationalization
-------------------------------
+## Games and internationalization
 
 The world is full of different languages and cultures, so nowadays games
 are released in several languages. To handle this, internationalized text
@@ -34,8 +31,7 @@ Note:
           loading translations written in the gettext `.po` format. See
           `doc_localization_using_gettext` for details.
 
-Translation format
-------------------
+## Translation format
 
 To complete the picture and allow efficient support for translations,
 Pandemonium has a special importer that can read CSV files. Most spreadsheet
@@ -55,15 +51,13 @@ Warning:
 
 CSV files must be formatted as follows:
 
-+--------+----------+----------+----------+
+
 | keys   | <lang1>  | <lang2>  | <langN>  |
-+========+==========+==========+==========+
+|--------|----------|----------|----------|
 | KEY1   | string   | string   | string   |
-+--------+----------+----------+----------+
 | KEY2   | string   | string   | string   |
-+--------+----------+----------+----------+
 | KEYN   | string   | string   | string   |
-+--------+----------+----------+----------+
+
 
 The "lang" tags must represent a language, which must be one of the `valid
 locales ( doc_locales )` supported by the engine. The "KEY" tags must be
@@ -74,17 +68,14 @@ runtime by the matching translated string. Note that the case is important,
 The top-left cell is ignored and can be left empty or having any content.
 Here's an example:
 
-+-------+-----------------------+------------------------+------------------------------+
+
 | keys  | en                    | es                     | ja                           |
-+=======+=======================+========================+==============================+
+|-------|-----------------------|------------------------|------------------------------|
 | GREET | Hello, friend!        | Hola, amigo!           | こんにちは                   |
-+-------+-----------------------+------------------------+------------------------------+
 | ASK   | How are you?          | Cómo está?             | 元気ですか                   |
-+-------+-----------------------+------------------------+------------------------------+
 | BYE   | Goodbye               | Adiós                  | さようなら                   |
-+-------+-----------------------+------------------------+------------------------------+
 | QUOTE | "Hello" said the man. | "Hola" dijo el hombre. | 「こんにちは」男は言いました |
-+-------+-----------------------+------------------------+------------------------------+
+
 
 The same example is shown below as a comma-separated plain text file,
 which should be the result of editing the above in a spreadsheet.
@@ -104,8 +95,7 @@ comma in the import options.
     QUOTE,"""Hello"" said the man.","""Hola"" dijo el hombre.",「こんにちは」男は言いました
 ```
 
-CSV importer
-------------
+## CSV importer
 
 Pandemonium will treat CSV files as translations by default. It will import them
 and generate one or more compressed translation resource files next to it.

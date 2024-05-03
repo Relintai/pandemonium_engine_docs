@@ -1,5 +1,7 @@
 # Thread pool module
 
+Todo: was merged into core.
+
 A c++ Pandemonium engine module, that will help you with threading.
 
 It can also work if threads are not available (like on the javascript backend), in this case it runs jobs on the
@@ -7,11 +9,6 @@ main thread. Jobs themselves can also distribute their work onto multiple frames
 is allocated per frame.
 
 You can access it's setting from the `Project->Project Settings...` menu, in the `ThreadPool` category.
-
-# Pre-built binaries
-
-You can grab a pre-built editor binary from the [Broken Seals](https://github.com/Relintai/broken_seals/releases)
-repo, should you want to. It contains all my modules.
 
 # ThreadPoolJob
 
@@ -112,33 +109,3 @@ If you have a job, submit it using `add_job`:
 MyJob job = MyJob.new()
 ThreadPool.add_job(job)
 ```
-
-It's api is still a bit messy, it will be cleaned up (hopefully very soon).
-
-# Building
-
-1. Get the source code for the engine.
-
-If you want Pandemonium 3.2:
-```git clone -b 3.2 https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-If you want Pandemonium 4.0:
-```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-[last tested commit](https://github.com/Relintai/pandemonium_engine/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)
-
-2. Go into Pandemonium's modules directory.
-
-```
-cd ./pandemonium/modules/
-```
-
-3. Clone this repository
-
-```
-git clone https://github.com/Relintai/thread_pool thread_pool
-```
-
-4. Build Pandemonium. [Tutorial](https://docs.pandemoniumengine.org/en/latest/development/compiling/index.html)
-
-

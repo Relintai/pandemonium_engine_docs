@@ -1,10 +1,7 @@
 
+# Import process
 
-Import process
-==============
-
-Importing assets in Pandemonium 3.0+
-------------------------------
+## Importing assets in Pandemonium 3.0+
 
 Previously, importing assets in Pandemonium 2.x required manual maintenance
 of a separate directory with source assets. Without doing this, it was
@@ -26,8 +23,7 @@ it will work in the editor, but break in the exported project.
 However, the `Resource Loader( ResourceLoader )` cannot access
 non imported files, only the `File` class can.
 
-Changing import parameters
---------------------------
+## Changing import parameters
 
 To change the import parameters of an asset in Pandemonium (again, keep in mind
 import parameters are only present in non-native Pandemonium resource types)
@@ -42,8 +38,7 @@ Changing the import parameters of several assets at the same time is also
 possible. Simply select all of them together in the resources dock and the
 exposed parameters will apply to all of them when reimporting.
 
-Reimporting multiple assets
----------------------------
+## Reimporting multiple assets
 
 While working on a project you may find that several assets need to have
 the same parameters changed, such as enabling mipmaps, but you only want
@@ -58,15 +53,13 @@ assets, then change the parameters normally. Finally, click the reimport
 button and every selected asset will be reimported with only those
 parameters changed.
 
-Automatic reimport
-------------------
+## Automatic reimport
 
 When the MD5 checksum of the source asset changes, Pandemonium will perform an
 automatic reimport of it, applying the preset configured for that specific
 asset.
 
-Files generated
------------------
+## Files generated
 
 Importing will add an extra `<asset>.import` file, containing the import
 configuration. Make sure to commit these to your version control system!
@@ -83,8 +76,7 @@ to the version control system is optional. It can shorten
 reimporting time when checking out on another computer, but it takes considerably
 more space and transfer time. Pick your poison!
 
-Changing import resource type
------------------------------
+## Changing import resource type
 
 Some source assets can be imported as different types of resources.
 For this, select the relevant type of resource desired and
@@ -93,8 +85,7 @@ press "Reimport":
 ![](img/asset_workflow2.png)
 
 
-Changing default import parameters
------------------------------------
+## Changing default import parameters
 
 Different types of games might require different defaults.
 Changing the defaults per project can be achieved by using the
@@ -103,8 +94,7 @@ the default setting can be saved and cleared too:
 
 ![](img/asset_workflow3.png)
 
-Simplicity is key!
-------------------
+## Simplicity is key!
 
 This is a very simple workflow which should take very little time to get used to. It also enforces a more
 correct way to deal with resources.

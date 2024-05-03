@@ -1,10 +1,8 @@
 
 
-Importing images
-================
+# Importing images
 
-Supported image formats
------------------------
+## Supported image formats
 
 Pandemonium can import the following image formats:
 
@@ -37,8 +35,7 @@ Note:
     If you've compiled the Pandemonium editor from source with specific modules disabled,
     some formats may not be available.
 
-Importing textures
-------------------
+## Importing textures
 
 The default action in Pandemonium is to import images as textures. Textures are stored
 in video memory and can't be accessed directly. This is what makes drawing them
@@ -48,20 +45,17 @@ Import options are vast:
 
 ![](img/image_import1.png)
 
-Detect 3D
-~~~~~~~~~
+### Detect 3D
 
 This option makes Pandemonium be aware of when a texture (which is imported for 2D as default) is used in 3D. If this happens, setting are changed so the texture flags
 are friendlier to 3D (mipmaps, filter and repeat become enabled and compression is changed to VRAM). Texture is also reimported automatically.
 
-Compression
------------
+## Compression
 
 Images are one of the largest assets in a game. To handle them efficiently, they need to be compressed.
 Pandemonium offers several compression methods, depending on the use case.
 
-Compress Mode
-~~~~~~~~~~~~~
+### Compress Mode
 
 - **VRAM Compression:** This is the most common compression mode for 3D assets.
   Size on disk is reduced and video memory usage is also decreased considerably
@@ -79,40 +73,26 @@ Compress Mode
   raw float images).
 
 In this table, each of the four options are described together with their
-advantages and disadvantages (|good| = best, |bad| = worst):
+advantages and disadvantages (![](img/good.png) = best, ![](img/bad.png) = worst):
 
-+----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
 |                | Uncompressed           | Compress Lossless             | Compress Lossy          | Compress VRAM                                        |
-+================+========================+===============================+=========================+======================================================+
+|----------------|------------------------|-------------------------------|-------------------------|------------------------------------------------------|
 | Description    | Stored as raw pixels   | Stored as Lossless WebP / PNG | Stored as Lossy WebP    | Stored as S3TC/BC or PVRTC/ETC depending on platform |
-+----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
-| Size on Disk   | |bad| Large            | |regular| Small               | |good| Very Small       | |regular| Small                                      |
-+----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
-| Memory Usage   | |bad| Large            | |bad| Large                   | |bad| Large             | |good| Small                                         |
-+----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
-| Performance    | |regular| Normal       | |regular| Normal              | |regular| Normal        | |good| Fast                                          |
-+----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
-| Quality Loss   | |good| None            | |good| None                   | |regular| Slight        | |bad| Moderate                                       |
-+----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
-| Load Time      | |regular| Normal       | |bad| Slow                    | |bad| Slow              | |good| Fast                                          |
-+----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
+| Size on Disk   | ![](img/bad.png) Large            | ![](img/regular.png) Small               | ![](img/good.png) Very Small       | ![](img/regular.png) Small                                      |
+| Memory Usage   | ![](img/bad.png) Large            | ![](img/bad.png) Large                   | ![](img/bad.png) Large             | ![](img/good.png) Small                                         |
+| Performance    | ![](img/regular.png) Normal       | ![](img/regular.png) Normal              | ![](img/regular.png) Normal        | ![](img/good.png) Fast                                          |
+| Quality Loss   | ![](img/good.png) None            | ![](img/good.png) None                   | ![](img/regular.png) Slight        | ![](img/bad.png) Moderate                                       |
+| Load Time      | ![](img/regular.png) Normal       | ![](img/bad.png) Slow                    | ![](img/bad.png) Slow              | ![](img/good.png) Fast                                          |
 
-.. |bad| image:: img/bad.png)
 
-.. |good| image:: img/good.png)
-
-.. |regular| image:: img/regular.png)
-
-HDR Mode
-~~~~~~~~
+### HDR Mode
 
 Pandemonium supports high dynamic range textures (as .HDR or .EXR). These are mostly useful as high dynamic range equirectangular panorama skies (the internet
 has plenty if you search for them), which replace Cubemaps in Pandemonium 2.x. Modern PCs support the BC6H VRAM format, but there are still plenty that do not.
 
 If you want Pandemonium to ensure full compatibility in terms of the kind of textures, enable the "Force RGBE" option.
 
-Normal Map
-~~~~~~~~~~
+### Normal Map
 
 When using a texture as normal map, only the red and green channels are required. Given regular texture compression algorithms produce artifacts that don't
 look that nice in normal maps, the RGTC compression format is the best fit for this data. Forcing this option to "Enabled" will make Pandemonium import the
@@ -123,7 +103,6 @@ Note that RGTC compression affects the resulting normal map image. You will have
 
 Note:
 
-
   Pandemonium requires the normal map to use the X+, Y+ and Z+ coordinates, this is
   known as OpenGL style. If you've imported a material made to be used with
   another engine it may be DirectX style, in which case the normal map needs to
@@ -133,25 +112,21 @@ Note:
   popular engines) can be found
   `here ( http://wiki.polycount.com/wiki/Normal_Map_Technical_Details )`.
 
-Flags
------
+## Flags
 
 There are plenty of settings that can be toggled when importing an image as a texture, depending on the use case.
 
-Repeat
-~~~~~~
+### Repeat
 
 This setting is most commonly used in 3D, and is therefore generally disabled in 2D. It sets UV coordinates going beyond the 0,0 - 1,1 range to "loop".
 
 Repeating can optionally be set to mirrored mode.
 
-Filter
-~~~~~~
+### Filter
 
 When pixels become larger than the screen pixels, this option enables linear interpolation for them. The result is a smoother (less blocky) texture. This setting can be commonly used in 2D and 3D, but it's usually disabled when making pixel perfect games.
 
-Mipmaps
-~~~~~~~
+### Mipmaps
 
 When pixels become smaller than the screen, mipmaps kick in. This helps reduce the grainy effect when shrinking the textures. Keep in mind that, in older hardware
 (GLES2, mainly mobile), there are some requirements to use mipmaps:
@@ -163,13 +138,11 @@ Keep in mind the above when making phone games and applications, want to aim for
 
 When doing 3D, mipmap should be turned on, as this also improves performance (smaller versions of the texture are used for objects further away).
 
-Anisotropic
-~~~~~~~~~~~
+### Anisotropic
 
 When textures are near parallel to the view (like floors), this option makes them have more detail by reducing blurriness.
 
-sRGB
-~~~~
+### sRGB
 
 Pandemonium uses Linear colorspace when rendering 3D. Textures mapped to albedo or detail channels need to have this option turned on in order for colors to look correct.
 When set to **Detect** mode, the texture will be marked as sRGB when used in albedo channels.
@@ -185,13 +158,11 @@ Warning:
     sRGB on one of the copies only. Use the copy with sRGB enabled in 3D, and
     the copy with sRGB disabled in 2D.
 
-Process
--------
+## Process
 
 Some special processes can be applied to images when imported as textures.
 
-Fix Alpha Border
-~~~~~~~~~~~~~~~~
+### Fix Alpha Border
 
 This puts pixels of the same surrounding color in transition from transparency to non transparency. It helps mitigate the outline effect when exporting images
 from Photoshop and the like.
@@ -200,26 +171,21 @@ from Photoshop and the like.
 
 It's a good idea to leave it on by default, unless specific values are needed.
 
-Premultiplied Alpha
-~~~~~~~~~~~~~~~~~~~
+### Premultiplied Alpha
 
 An alternative to fix darkened borders is to use premultiplied alpha. By enabling this option, the texture will be converted to this format.
 Keep in mind that a material will need to be created that uses the PREMULT ALPHA blend mode on canvas items that need it.
 
-HDR as sRGB
-~~~~~~~~~~~
+### HDR as sRGB
 
 A few HDR files are broken and contain sRGB color data. It is advised not to use them, but, in the worst-case scenario, toggling this option on will make them look right.
 
-Invert Color
-~~~~~~~~~~~~
+### Invert Color
 
 Reverses the image's color. This is useful, for example, to convert a height map generated by external programs to depth map to use with `doc_spatial_material`.
 
-Svg
----
+## Svg
 
-Scale
-~~~~~
+### Scale
 
 This option only applies to SVG files. It controls the scale of the SVG image. The default scale (1.0) will make the imported SVG match its original design scale.

@@ -1,15 +1,13 @@
 
 
-Editor icons
-============
+# Editor icons
 
 When a new class is created and exposed to scripting, the editor's interface
 will display it with a default icon representing the base class it inherits
 from. In most cases, it's still recommended to create icons for new classes to
 improve the user experience.
 
-Creating icons
-~~~~~~~~~~~~~~
+### Creating icons
 
 To create new icons, you first need a vector graphics editor installed.
 For instance, you can use the open source `Inkscape ( https://inkscape.org/ )` editor.
@@ -33,8 +31,7 @@ repository's `editor/icons` folder. The icon name should match the intended
 name in a case-sensitive manner. For example, to create an icon for
 CPUParticles2D, name the file `CPUParticles2D.svg`.
 
-Color conversion for light editor themes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Color conversion for light editor themes
 
 If the user has configured their editor to use a light theme, Pandemonium will
 convert the icon's colors based on a
@@ -43,8 +40,7 @@ This is to ensure the icon always displays with a sufficient contrast rate.
 Try to restrict your icon's color palette to colors found in the list above.
 Otherwise, your icon may become difficult to read on a light background.
 
-Icon optimization
-~~~~~~~~~~~~~~~~~
+### Icon optimization
 
 Because the editor renders SVGs once at load time, they need to be small
 in size so they can be efficiently parsed. Editor icons must be first
@@ -74,8 +70,7 @@ Note:
     recommended to keep the source SVG around if you need to make further
     changes.
 
-Integrating and sharing the icons
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Integrating and sharing the icons
 
 If you're contributing to the engine itself, you should make a pull request to
 add optimized icons to `editor/icons` in the main repository. Recompile the
@@ -89,8 +84,7 @@ as they can be self-contained.
 For specific instructions on how to create module icons, refer to
 `Creating custom module icons( doc_custom_module_icons )`.
 
-Troubleshooting
-~~~~~~~~~~~~~~~
+### Troubleshooting
 
 If icons don't appear in the editor, make sure that:
 
@@ -99,7 +93,6 @@ If icons don't appear in the editor, make sure that:
 2. `modules/svg` is enabled (it should be enabled by default). Without it,
    icons won't appear in the editor at all.
 
-References
-~~~~~~~~~~
+### References
 
 -  `editor/icons ( https://github.com/Relintai/pandemonium_engine/tree/master/editor/icons )`

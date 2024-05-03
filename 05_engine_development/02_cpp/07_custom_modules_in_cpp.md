@@ -1,10 +1,7 @@
 
+# Custom modules in C++
 
-Custom modules in C++
-=====================
-
-Modules
--------
+## Modules
 
 Pandemonium allows extending the engine in a modular way. New modules can be
 created and then enabled/disabled. This allows for adding new engine
@@ -18,8 +15,7 @@ module, and others. As many new modules as desired can be
 created and combined. The SCons build system will take care of it
 transparently.
 
-What for?
----------
+## What for?
 
 While it's recommended that most of a game be written in scripting (as
 it is an enormous time saver), it's perfectly possible to use C++
@@ -31,11 +27,10 @@ instead. Adding C++ modules can be useful in the following scenarios:
 -  Porting an existing game.
 -  Write a whole, new game in C++ because you can't live without C++.
 
-Creating a new module
----------------------
+## Creating a new module
 
 Before creating a module, make sure to `download the source code of Pandemonium
-and compile it <toc-devel-compiling )`.
+and compile it ( toc-devel-compiling )`.
 
 To create a new module, the first step is creating a directory inside
 `modules/`. If you want to maintain the module separately, you can checkout
@@ -131,7 +126,7 @@ These files should contain the following:
     #include "summator.h"
 
     void register_summator_types() {
-        ClassDB::register_class<Summator>();
+        ClassDB::register_class&lt;Summator&gt;();
     }
 
     void unregister_summator_types() {
@@ -225,8 +220,7 @@ Note:
           as subclasses. This can be raised to 13 by including the header
           file `core/method_bind_ext.gen.inc`.
 
-Using the module
-----------------
+## Using the module
 
 You can now use your newly created module from any script:
 
@@ -253,11 +247,10 @@ Warning:
              template you plan to use, then specify the path to the custom
              template in each export preset. Otherwise, you'll get errors when
              running the project as the module isn't compiled in the export
-             template. See the `Compiling <toc-devel-compiling )` pages
+             template. See the `Compiling ( toc-devel-compiling )` pages
              for more information.
 
-Compiling a module externally
------------------------------
+## Compiling a module externally
 
 Compiling a module involves moving the module's sources directly under the
 engine's `modules/` directory. While this is the most straightforward way to
@@ -309,8 +302,7 @@ See also:
 
     `Introduction to the buildsystem - Custom modules build option ( doc_buildsystem_custom_modules )`.
 
-Improving the build system for development
-------------------------------------------
+## Improving the build system for development
 
 Warning:
 
@@ -426,8 +418,7 @@ shared module as target in the SCons command:
     scons summator_shared=yes platform=x11 bin/libsummator.x11.tools.64.so
 ```
 
-Writing custom documentation
-----------------------------
+## Writing custom documentation
 
 Writing documentation may seem like a boring task, but it is highly recommended
 to document your newly created module in order to make it easier for users to
@@ -477,7 +468,7 @@ Tip:
 
 ```
         Untracked files:
-            (use "git add <file>..." to include in what will be committed)
+            (use "git add &lt;file&gt;..." to include in what will be committed)
 
             doc/classes/MyClass2D.xml
             doc/classes/MyClass4D.xml
@@ -488,8 +479,8 @@ Tip:
 
 3. Now we can generate the documentation:
 
-We can do this via running Pandemonium's doctool i.e. `pandemonium --doctool <path )`,
-which will dump the engine API reference to the given `<path )` in XML format.
+We can do this via running Pandemonium's doctool i.e. `pandemonium --doctool &lt;path&gt;`,
+which will dump the engine API reference to the given `&lt;path&gt;` in XML format.
 
 In our case we'll point it to the root of the cloned repository. You can point it
 to an another folder, and just copy over the files that you need.
@@ -497,7 +488,7 @@ to an another folder, and just copy over the files that you need.
 Run command:
 
 ```
-      user@host:~/pandemonium/bin$ ./bin/<pandemonium_binary> --doctool .
+      user@host:~/pandemonium/bin$ ./bin/&lt;pandemonium_binary&gt; --doctool .
 ```
 
 Now if you go to the `pandemonium/modules/summator/doc_classes` folder, you will see
@@ -517,7 +508,7 @@ the things that you previously added. Of course if you point it to your pandemon
 folder, make sure you don't lose work by extracting older docs from an older engine build
 on top of the newer ones.
 
-Note that if you don't have write access rights to your supplied `<path )`,
+Note that if you don't have write access rights to your supplied `&lt;path&gt;`,
 you might encounter an error similar to the following:
 
 ```
@@ -525,10 +516,7 @@ you might encounter an error similar to the following:
        At: editor/doc/doc_data.cpp:956
 ```
 
-
-
-Adding custom editor icons
---------------------------
+## Adding custom editor icons
 
 Similarly to how you can write self-contained documentation within a module,
 you can also create your own custom icons for classes to appear in the editor.
@@ -554,8 +542,7 @@ add the following code snippet to `config.py` to override the default path:
            return "path/to/icons"
 ```
 
-Summing up
-----------
+## Summing up
 
 Remember to:
 

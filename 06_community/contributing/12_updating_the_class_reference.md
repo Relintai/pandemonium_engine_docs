@@ -1,7 +1,5 @@
 
-
-Contributing to the class reference
-===================================
+# Contributing to the class reference
 
 
 The class reference is available online in the `classes ( toc-class-ref )`
@@ -18,7 +16,6 @@ or comment on an existing issue. Doing so lets others know you're already
 taking care of a given class.
 
 See also:
-
 
     You can find the writing guidelines for the class reference `here ( doc_class_reference_writing_guidelines )`.
 
@@ -62,8 +59,7 @@ Warning:
     scripts as described in
     `doc_class_reference_writing_guidelines_editing_xml`.
 
-Updating the documentation template
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Updating the documentation template
 
 When you create a new class or modify the engine's API, you need to re-generate the XML files in `doc/classes/`.
 

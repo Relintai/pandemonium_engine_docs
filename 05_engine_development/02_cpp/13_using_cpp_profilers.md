@@ -1,20 +1,17 @@
 
 
-Using C++ profilers
-===================
+# Using C++ profilers
 
 To optimize Pandemonium's performance, you need to know what to optimize first.
 To this end, profilers are useful tools.
 
 Note:
 
-
     There is a built-in GDScript profiler in the editor, but using C++ profiler
     may be useful in cases where the GDScript profiler is not accurate enough
     or is missing information due to bugs in the profiler.
 
-Recommended profilers
----------------------
+## Recommended profilers
 
 - `VerySleepy ( http://www.codersnotes.com/sleepy/ )` (Windows only)
 - `HotSpot ( https://github.com/KDAB/hotspot )` (Linux only)
@@ -23,8 +20,7 @@ Recommended profilers
 These profilers may not be the most powerful or flexible options, but their
 standalone operation and limited feature set tends to make them easier to use.
 
-Setting up Pandemonium
-----------------
+## Setting up Pandemonium
 
 To get useful profiling information, it is **absolutely required** to use a Pandemonium
 build that includes debugging symbols. Official binaries do not include debugging
@@ -48,26 +44,22 @@ Warning:
     after compiling the binaries. Otherwise, you will no longer get useful
     profiling information when running a profiler.
 
-Benchmarking startup/shutdown times
------------------------------------
+## Benchmarking startup/shutdown times
 
 If you're looking into optimizing Pandemonium's startup/shutdown performance,
 you can tell the profiler to use the `--quit` command line option on the Pandemonium binary.
 This will exit Pandemonium just after it finished starting.
 The `--quit` option works with `--editor`, `--project-manager` or
-`--path <path to project directory )` (which runs a project directly).
+`--path &lt;path to project directory&gt;` (which runs a project directly).
 
 See also:
-
 
     See `doc_command_line_tutorial` for more command line arguments
     supported by Pandemonium.
 
-Profiler-specific instructions
-------------------------------
+## Profiler-specific instructions
 
-VerySleepy
-^^^^^^^^^^
+#### VerySleepy
 
 - Start the Pandemonium editor or your project first.
   If you start the project manager, make sure to edit or run a project first.
@@ -83,13 +75,12 @@ VerySleepy
 - Once the results window appears, filter the view to remove external modules (such as the graphics driver).
   You can filter by module by finding a line whose **Module** matches the Pandemonium
   executable name, right-clicking that line then choosing
-  **Filter Module to <Pandemonium executable name>** in the dropdown that appears.
+  **Filter Module to &lt;Pandemonium executable name&gt;** in the dropdown that appears.
 - Your results window should now look something like this:
 
 ![](img/cpp_profiler_verysleepy_results_filtered.png)
 
-HotSpot
-^^^^^^^
+#### HotSpot
 
 - Open HotSpot. Click **Record Data**:
 
@@ -136,8 +127,7 @@ Note:
 
     This process attachment-based workflow is similar to the one used by VerySleepy.
 
-Xcode Instruments
-^^^^^^^^^^^^^^^^^
+#### Xcode Instruments
 
 - Open Xcode. Select **Open Developer Tool** - **Instruments** from the **Xcode** app menu:
 - Double-click on **Time Profiler** in the **Instruments** window:

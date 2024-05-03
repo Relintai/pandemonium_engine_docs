@@ -6,17 +6,6 @@ This is an engine module! Which means that you will need to compile it into Pand
 
 You can find a demonstration project (with pre-built binaries) here: https://github.com/Relintai/the_tower
 
-## Pandemonium Version Support
-
-I'm currently mostly using [Terraman](https://github.com/Relintai/terraman) instead of this, so it might get temporarily a bit behind.\
-If compile breaks, and I don't notice please report.
-
-3.2 - Will likely work, probably needs changes by now. (TODO check.)\
-3.3 - Will more likely work, might need smaller changes by now. (TODO check.)\
-3.4 - Should work without any issues. (TODO check.)\
-3.x - Works. [last tested commit](6ea58db2d849d9ca0ccee5bc6a6d2b919d404bc1)\
-4.0 - Have been fixing support from time to time. Currently it won't build. Mostly done with the fix though.
-
 ## Optional Dependencies
 
 `https://github.com/Relintai/texture_packer`: You get access to [VoxelLibraryMerger](#voxellibrarymerger) and [VoxelLibraryMergerPCM](#voxellibrarymergerpcm). \
@@ -186,42 +175,3 @@ If you want to implement your own meshing algorithm you can do so by overriding 
 
 VoxelMesher works similarly to SurfaceTool, so first you need to set colors, uvs, etc and then call add_vertex.
 They won't get reset, so for example if you want all your vertices to have a certain color, you can get away with setting it only once.
-
-## Compiling
-
-First make sure that you can compile pandemonium. See the official docs: https://docs.pandemoniumengine.org/en/3.x/development/compiling/index.html
-
-1. Clone the engine if you haven't already:
-
-If you want Pandemonium 3.x:
-```git clone -b 3.x https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-If you want Pandemonium 4.0:
-```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-
-2. go into the modules folder inside the engine's directory:
-
-```cd pandemonium``` \
-```cd modules```
-
-3. clone this repository
-
-```git clone https://github.com/Relintai/voxelman.git voxelman```
-
-(the folder needs to be named voxelman!)
-
-4. If you want the optional dependencies run these commands as well:
-
-```git clone https://github.com/Relintai/texture_packer.git texture_packer``` \
-```git clone https://github.com/Relintai/mesh_data_resource.git mesh_data_resource```
-
-5. Go up one folder
-
-```cd ..```
-
-6. Compile pandemonium.
-
-For example:
-
-```scons p=x11 t=release_debug tools=yes```

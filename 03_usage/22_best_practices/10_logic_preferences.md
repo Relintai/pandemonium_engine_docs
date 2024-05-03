@@ -1,13 +1,11 @@
 
 
-Logic preferences
-=================
+# Logic preferences
 
 Ever wondered whether one should approach problem X with strategy Y or Z?
 This article covers a variety of topics related to these dilemmas.
 
-Loading vs. preloading
-----------------------
+## Loading vs. preloading
 
 In GDScript, there exists the global
 `preload` method. It loads resources as
@@ -98,8 +96,7 @@ consider:
       `Reference`-extending type, will cause the
       resources to delete themselves from memory).
 
-Large levels: static vs. dynamic
---------------------------------
+## Large levels: static vs. dynamic
 
 If one is creating a large level, which circumstances are most appropriate?
 Should they create the level as one static space? Or should they load the

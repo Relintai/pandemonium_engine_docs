@@ -1,23 +1,20 @@
 
 
-Introduction to Pandemonium development
-=================================
+# Introduction to Pandemonium development
 
 This page is meant to introduce the global organization of Pandemonium Engine's
 source code, and give useful tips for extending/fixing the engine on the
 C++ side.
 
-Architecture diagram
---------------------
+## Architecture diagram
 
 The following diagram describes the architecture used by Pandemonium, from the
 core components down to the abstracted drivers, via the scene
 structure and the servers.
 
-![](img/architecture_diagram.jpg
+![](img/architecture_diagram.jpg)
 
-Debugging the editor with gdb
------------------------------
+## Debugging the editor with gdb
 
 If you are writing or correcting bugs affecting Pandemonium Engine's editor,
 remember that the binary will by default run the project manager first,

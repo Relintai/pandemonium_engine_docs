@@ -9,11 +9,6 @@ The module also comes with importers (gltf, and collada for now), you can import
 `https://github.com/Relintai/props`: If present, you also get a prop importer for MeshDataInstances.
 `https://github.com/Relintai/mesh_utils`: If present, you get mesh simplification/optimization options at import.
 
-## Pre-built binaries
-
-You can grab a pre-built editor binary from the [Broken Seals](https://github.com/Relintai/broken_seals/releases)
-repo, should you want to. It contains all my modules.
-
 ## MeshDataResource
 
 The resource that holds mesh and collider data.
@@ -39,31 +34,3 @@ if you set it to multiple, you get a MeshDataResourceCollection as the main reso
 Since MeshDataResource can hold collider information, these importers can create this for you. There are quite a few options for it:
 
 ![Colliders](screenshots/import_2.png)
-
-## Building
-
-1. Get the source code for the engine.
-
-If you want Pandemonium 3.2:
-```git clone -b 3.2 https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-If you want Pandemonium 4.0:
-```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-[last tested commit for 4.0](https://github.com/Relintai/pandemonium_engine/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)
-
-2. Go into Pandemonium's modules directory.
-
-```
-cd ./pandemonium/modules/
-```
-
-3. Clone this repository
-
-```
-git clone https://github.com/Relintai/mesh_data_resource mesh_data_resource
-```
-
-4. Build Pandemonium. [Tutorial](https://docs.pandemoniumengine.org/en/latest/development/compiling/index.html)
-
-

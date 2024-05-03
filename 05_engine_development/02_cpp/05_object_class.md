@@ -1,16 +1,12 @@
 
-
-Object class
-============
+# Object class
 
 See also:
-
 
     This page describes the C++ implementation of objects in Pandemonium.
     Looking for the Object class reference? `Have a look here.`
 
-General definition
-------------------
+## General definition
 
 `Object` is the base class for almost everything. Most classes in Pandemonium
 inherit directly or indirectly from it. Objects provide reflection and
@@ -33,13 +29,11 @@ This makes Objects gain a lot of functionality, like for example
     obj2 = Object::cast_to<OtherClass>(obj); // converting between classes, this also works without RTTI enabled.
 ```
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/object.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/object.h )`
 
-Registering an Object
----------------------
+## Registering an Object
 
 ClassDB is a static class that holds the entire list of registered
 classes that inherit from Object, as well as dynamic bindings to all
@@ -91,13 +85,11 @@ If just adding modules and functionality that is not expected to be
 documented as thoroughly, the `D_METHOD()` macro can safely be ignored and a
 string passing the name can be passed for brevity.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/class_db.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/class_db.h )`
 
-Constants
----------
+## Constants
 
 Classes often have enums such as:
 
@@ -122,8 +114,7 @@ The constants can also be bound inside `bind_methods`, by using:
     BIND_CONSTANT(MODE_SECOND);
 ```
 
-Properties (set/get)
---------------------
+## Properties (set/get)
 
 Objects export properties, properties are useful for the following:
 
@@ -177,8 +168,7 @@ This creates the property using the setter and the getter.
 
 
 
-Binding properties using `set`/`get`/`get_property_list`
------------------------------------------------------------------
+## Binding properties using `set`/`get`/`get_property_list`
 
 An additional method of creating properties exists when more flexibility
 is desired (i.e. adding or removing properties on context).
@@ -198,8 +188,7 @@ call).
 This is also a little less efficient since `p_property` must be
 compared against the desired names in serial order.
 
-Dynamic casting
----------------
+## Dynamic casting
 
 Pandemonium provides dynamic casting between Object-derived classes, for
 example:
@@ -216,8 +205,7 @@ works fine (although a bit slower) when RTTI is disabled. This is useful
 on platforms where a small binary size is ideal, such as HTML5 or
 consoles (with low memory footprint).
 
-Signals
--------
+## Signals
 
 Objects can have a set of signals defined (similar to Delegates in other
 languages). Connecting to them is rather easy:
@@ -238,15 +226,13 @@ Adding signals to a class is done in `bind_methods`, using the
     ADD_SIGNAL(MethodInfo("been_killed"))
 ```
 
-Notifications
--------------
+## Notifications
 
 All objects in Pandemonium have a `notification`
 method that allows it to respond to engine level callbacks that may relate to it.
 More information can be found on the `doc_pandemonium_notifications` page.
 
-References
-----------
+## References
 
 `Reference` inherits from Object and holds a
 reference count. It is the base for reference counted object types.
@@ -263,13 +249,11 @@ Declaring them must be done using Ref<> template. For example:
 `myref` is reference counted. It will be freed when no more Ref<>
 templates point to it.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/reference.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/reference.h )`
 
-Resources:
-----------
+## Resources:
 
 `Resource` inherits from Reference, so all resources
 are reference counted. Resources can optionally contain a path, which
@@ -279,13 +263,11 @@ resources can have the same path, attempt to do so will result in an error.
 
 Resources without a path are fine too.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/resource.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/resource.h )`
 
-Resource loading
-----------------
+## Resource loading
 
 Resources can be loaded with the ResourceLoader API, like this:
 
@@ -300,13 +282,11 @@ the same time.
 
 -  resourceinteractiveloader (TODO)
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/io/resource_loader.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/io/resource_loader.h )`
 
-Resource saving
----------------
+## Resource saving
 
 Saving a resource can be done with the resource saver API:
 
@@ -319,7 +299,6 @@ saved as a reference to that resource. Sub resources without a path will
 be bundled with the saved resource and assigned sub-IDs, like
 `res://someresource.res::1`. This also helps to cache them when loaded.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/io/resource_saver.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/io/resource_saver.h )`

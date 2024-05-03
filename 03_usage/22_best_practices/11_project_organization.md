@@ -1,18 +1,15 @@
 
 
-Project organization
-====================
+# Project organization
 
-Introduction
-------------
+## Introduction
 
 Since Pandemonium has no restrictions on project structure or filesystem usage,
 organizing files when learning the engine can seem challenging. This
 tutorial suggests a workflow which should be a good starting point.
 We will also cover using version control with Pandemonium.
 
-Organization
-------------
+## Organization
 
 Pandemonium is scene-based in nature, and uses the filesystem as-is,
 without metadata or an asset database.
@@ -33,19 +30,18 @@ They can then use a separate folder to store built levels that use them.
     /docs/.gdignore  # See "Ignoring specific folders" below
     /docs/learning.html
     /models/town/house/house.dae
-    /models/town/house/window.png)
-    /models/town/house/door.png)
+    /models/town/house/window.png
+    /models/town/house/door.png
     /characters/player/cubio.dae
-    /characters/player/cubio.png)
+    /characters/player/cubio.png
     /characters/enemies/goblin/goblin.dae
-    /characters/enemies/goblin/goblin.png)
+    /characters/enemies/goblin/goblin.png
     /characters/npcs/suzanne/suzanne.dae
-    /characters/npcs/suzanne/suzanne.png)
+    /characters/npcs/suzanne/suzanne.png
     /levels/riverdale/riverdale.scn
 ```
 
-Style guide
------------
+## Style guide
 
 For consistency across projects, we recommend following these guidelines:
 
@@ -61,8 +57,7 @@ For consistency across projects, we recommend following these guidelines:
   third-party game assets for a character, it makes more sense to include them
   within the same folder as the character scenes and scripts.
 
-Importing
----------
+## Importing
 
 Pandemonium versions prior to 3.0 did the import process from files outside
 the project. While this can be useful in large projects, it
@@ -71,15 +66,13 @@ resulted in an organization hassle for most developers.
 Because of this, assets are now transparently imported from within the project
 folder.
 
-Ignoring specific folders
-~~~~~~~~~~~~~~~~~~~~~~~~~
+### Ignoring specific folders
 
 To prevent Pandemonium from importing files contained in a specific folder, create
 an empty file called `.gdignore` in the folder (the leading `.` is required).
 This can be useful to speed up the initial project importing.
 
 Note:
-
 
     To create a file whose name starts with a dot on Windows, you can use a
     text editor such as Notepad++ or use the following command in a
@@ -94,7 +87,7 @@ should be empty. It does not support patterns like `.gitignore` files do.
 
 
 
-Case sensitivity
+## Case sensitivity
 ----------------
 
 Windows and recent macOS versions use case-insensitive filesystems by default,

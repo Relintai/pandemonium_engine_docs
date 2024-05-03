@@ -1,7 +1,6 @@
 
 
-Ways to contribute
-==================
+# Ways to contribute
 
 Pandemonium Engine is a non-profit, community-driven free and open source project.
 Almost all (but our lead dev Juan, more on that below) developers are working
@@ -50,8 +49,7 @@ positive to the engine, regardless of their skill set:
    some money to the project, check `our website ( https://pandemoniumengine.org/donate )`
    for details.
 
-Contributing code
------------------
+## Contributing code
 
 The possibility to study, use, modify and redistribute modifications of the
 engine's source code are the fundamental rights that
@@ -113,16 +111,14 @@ Note:
  Proposals are only required when working on an enhancement or a new feature.
           Bug reports are sufficient for fixing issues.
 
-Testing and reporting issues
-----------------------------
+## Testing and reporting issues
 
 Another great way of contributing to the engine is to test development releases
 or the development branch and to report issues. It is also helpful to report
 issues discovered in stable releases, so that they can be fixed in
 the development branch and in future maintenance releases.
 
-Testing development versions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Testing development versions
 
 To help with the testing, you have several possibilities:
 
@@ -142,8 +138,7 @@ potential bugs that might still be present in the stable releases, especially
 when using some niche features of the engine which might get less testing by
 the developers.
 
-Filing an issue on GitHub
-~~~~~~~~~~~~~~~~~~~~~~~~~
+### Filing an issue on GitHub
 
 Pandemonium uses `GitHub's issue tracker ( https://github.com/Relintai/pandemonium_engine/issues )`
 for bug reports and enhancement suggestions. You will need a GitHub account to
@@ -191,8 +186,7 @@ When you click the **New issue** button, you should be presented with a text are
 prefilled with our issue template. Please try to follow it so that all issues
 are consistent and provide the required information.
 
-Contributing to the documentation
----------------------------------
+## Contributing to the documentation
 
 There are two separate resources referred to as "documentation" in Pandemonium:
 
@@ -211,8 +205,7 @@ There are two separate resources referred to as "documentation" in Pandemonium:
   `pandemonium-docs ( https://github.com/Relintai/pandemonium_engine-docs )` GitHub repository.
   See `doc_contributing_to_the_documentation` for more details.
 
-Contributing translations
--------------------------
+## Contributing translations
 
 To make Pandemonium accessible to everyone, including users who may prefer resources
 in their native language instead of English, our community helps translate both

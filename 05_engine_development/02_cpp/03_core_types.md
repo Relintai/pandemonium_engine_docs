@@ -1,7 +1,6 @@
 
 
-Core types
-==========
+# Core types
 
 Pandemonium has a rich set of classes and templates that compose its core,
 and everything is built upon them.
@@ -9,8 +8,7 @@ and everything is built upon them.
 This reference will try to list them in order for their better
 understanding.
 
-Definitions
------------
+## Definitions
 
 Pandemonium uses the standard C99 datatypes, such as `uint8_t`,
 `uint32_t`, `int64_t`, etc. which are nowadays supported by every
@@ -31,13 +29,11 @@ many architectures have 4 bytes long wchar_t, where 2 bytes might be
 desired. However, by default, this has not been forced and CharType maps
 directly to wchar_t.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/typedefs.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/typedefs.h )`
 
-Memory model
-------------
+## Memory model
 
 PC is a wonderful architecture. Computers often have gigabytes of RAM,
 terabytes of storage and gigahertz of CPU, and when an application needs
@@ -70,8 +66,7 @@ be locked to be accessed, and if an allocation runs out of memory, the
 pool will be rearranged and compacted on demand. Depending on the need
 of the game, the programmer can configure the dynamic memory pool size.
 
-Allocating memory
------------------
+## Allocating memory
 
 Pandemonium has many tools for tracking memory usage in a game, especially
 during debug. Because of this, the regular C and C++ library calls
@@ -128,14 +123,12 @@ locked until they go out of scope. However, PoolVectors should be used
 for small, dynamic memory operations, as read() and write() are too slow for a
 large amount of accesses.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/os/memory.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/os/memory.h )`
 -  `core/pool_vector.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/pool_vector.cpp )`
 
-Containers
-----------
+## Containers
 
 Pandemonium provides also a set of common containers:
 
@@ -162,29 +155,25 @@ The Vector<> class also has a few nice features:
 -  It supports multi-threading, by using atomic operations on the
    reference counter.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/vector.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/vector.h )`
 -  `core/list.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/list.h )`
 -  `core/set.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/set.h )`
 -  `core/map.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/map.h )`
 
-String
-------
+## String
 
 Pandemonium also provides a String class. This class has a huge amount of
 features, full Unicode support in all the functions (like case
 operations) and utf8 parsing/extracting, as well as helpers for
 conversion and visualization.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/ustring.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/ustring.h )`
 
-StringName
-----------
+## StringName
 
 StringNames are like a String, but they are unique. Creating a
 StringName from a string results in a unique internal pointer for all
@@ -194,42 +183,35 @@ identifier, as comparing them is basically comparing a pointer.
 Creation of a StringName (especially a new one) is slow, but comparison
 is fast.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/string_name.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/string_name.h )`
 
-Math types
-----------
+## Math types
 
 There are several linear math types available in the core/math
 directory.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/math ( https://github.com/Relintai/pandemonium_engine/tree/3.x/core/math )`
 
-NodePath
---------
+## NodePath
 
 This is a special datatype used for storing paths in a scene tree and
 referencing them fast.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/node_path.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/node_path.h )`
 
-RID
----
+## RID
 
 RIDs are resource IDs. Servers use these to reference data stored in
 them. RIDs are opaque, meaning that the data they reference can't be
 accessed directly. RIDs are unique, even for different types of
 referenced data.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/rid.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/rid.h )`

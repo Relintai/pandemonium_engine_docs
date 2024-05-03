@@ -1,13 +1,11 @@
 
 
-CLion
-=====
+# CLion
 
 `CLion ( https://www.jetbrains.com/clion/ )` is a commercial 
 `JetBrains ( https://www.jetbrains.com/ )` IDE for C++.
 
-Importing the project
----------------------
+## Importing the project
 
 CLion requires a `CMakeLists.txt` file as a project file, which is problematic
 for Pandemonium because it uses the SCons buildsystem instead of CMake. However, 
@@ -21,21 +19,18 @@ which can also be used by CLion.
   `CMakeLists.txt` file is located there) and select it (but *not* the
   `CMakeLists.txt` file itself), then click **OK**.
 
-.. figure:: img/clion_1_open.png)
-   :align: center
+![](img/clion_1_open.png)
 
-   The folder containing the `CMakeLists.txt` file.
+The folder containing the `CMakeLists.txt` file.
 
 - If this popup window appears, select **This Window** to open the project:
 
-.. figure:: img/clion_2_this_window.png)
-   :align: center
+![](img/clion_2_this_window.png)
 
 - Choose **Tools > CMake > Change Project Root** from the top menu and select 
   the Pandemonium root folder.
 
-.. figure:: img/clion_3_change_project_root.png)
-   :align: center
+![](img/clion_3_change_project_root.png)
 
 - You should be now be able to see all the project files. Autocomplete should
   work once the project has finished indexing.
@@ -43,8 +38,7 @@ which can also be used by CLion.
 If you run into any issues, ask for help in one of
 `Pandemonium's community channels ( https://pandemoniumengine.org/community )`.
 
-Debugging the project
----------------------
+## Debugging the project
 
 Since CLion does not support SCons, you won't be able to compile, launch, and debug Pandemonium from CLion in one step.
 You will first need to `compile pandemonium yourself ( https://docs.pandemoniumengine.org/en/stable/development/compiling/index.html )` and run the binary without CLion. You will then be able to debug Pandemonium by using the `Attach to process ( https://www.jetbrains.com/help/clion/attaching-to-local-process.html )` feature.
@@ -55,18 +49,15 @@ You will first need to `compile pandemonium yourself ( https://docs.pandemoniume
 
 - In CLion, go to **Run > Attach to Process...**
 
-.. figure:: img/clion_4_select_attach_to_process.png)
-   :align: center
+![](img/clion_4_select_attach_to_process.png)
 
 - Find and Select pandemonium in the list (or type the binary name/Process ID)
 
-.. figure:: img/clion_5_select_pandemonium_process.png)
-   :align: center
+![](img/clion_5_select_pandemonium_process.png)
 
 You can now use the debugging tools from CLion.
 
 Note:
-
 
     If you run the binary without any arguments, you will only debug the project manager window.
     Don't forget to add the `--path path/to/your/pandemonium/project` argument to debug a project.

@@ -1,15 +1,13 @@
 
 
-Visual Studio
-=============
+# Visual Studio
 
 `Visual Studio Community ( https://visualstudio.microsoft.com )` is a Windows-only IDE 
 by `Microsoft ( https://microsoft.com )` that's free for non-commercial use.
 It has many useful features, such as memory view, performance view, source
 control and more.
 
-Importing the project
----------------------
+## Importing the project
 
 Visual Studio requires a solution file to work on a project. While Pandemonium does not come
 with the solution file, it can be generated using SCons.
@@ -21,14 +19,13 @@ with the solution file, it can be generated using SCons.
 - Use the **Build** top menu to build the project.
 
 Warning:
+
  Visual Studio must be configured with the C++ package. It can be selected
              in the intaller:
 
-             .. figure:: img/vs_1_install_cpp_package.png)
-                :align: center
+![](img/vs_1_install_cpp_package.png)
 
-Debugging the project
----------------------
+## Debugging the project
 
 Visual Studio features a powerful debugger. This allows the user to examine Pandemonium's
 source code, stop at specific points in the code, inspect the current execution context,
@@ -42,16 +39,14 @@ project manager opens a project, the initial process is terminated and the debug
 - To configure the launch options to use with the debugger use **Project > Properties**
   from the top menu:
 
-.. figure:: img/vs_2_project_properties.png)
-   :align: center
+![](img/vs_2_project_properties.png)
 
 - Open the **Debugging** section and under **Command Arguments** add two new arguments: 
   the `-e` flag opens the editor instead of the project manager, and the `--path` argument
   tells the executable to open the specified project (must be provided as an *absolute* path 
   to the project root, not the `project.pandemonium` file).
 
-.. figure:: img/vs_3_debug_command_line.png)
-   :align: center
+![](img/vs_3_debug_command_line.png)
 
 To learn more about command line arguments, refer to the
 `command line tutorial ( doc_command_line_tutorial )`.
@@ -62,8 +57,7 @@ process using **Debug > Attach to Process...** menu.
 To check that everything is working, put a breakpoint in `main.cpp` and press :kbd:`F5` to
 start debugging.
 
-.. figure:: img/vs_4_debugging_main.png)
-   :align: center
+![](img/vs_4_debugging_main.png)
 
 If you run into any issues, ask for help in one of
 `Pandemonium's community channels ( https://pandemoniumengine.org/community )`.

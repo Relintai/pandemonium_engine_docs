@@ -1,10 +1,8 @@
 
 
-Version Control Systems
-=======================
+# Version Control Systems
 
-Introduction
-------------
+## Introduction
 
 Pandemonium aims to be VCS friendly and generate mostly readable and mergeable files.
 Pandemonium also supports the use of version control systems in the editor itself.
@@ -13,8 +11,7 @@ VCS can be setup or shut down in the editor under **Project > Version Control**.
 
 ![](img/version_control_menu.png)
 
-Official Git plugin
--------------------
+## Official Git plugin
 
 Using Git from inside the editor is supported with an official plugin.
 You can find the latest releases
@@ -22,8 +19,7 @@ You can find the latest releases
 plugin can be found
 `here ( https://github.com/Relintai/pandemonium_engine-git-plugin/wiki )`.
 
-Files to exclude from VCS
--------------------------
+## Files to exclude from VCS
 
 There are some folders Pandemonium creates you should have your VCS ignore:
 
@@ -35,8 +31,7 @@ There are some folders Pandemonium creates you should have your VCS ignore:
 - `.mono/`: This folder stores automatically-generated Mono files. It only exists
   in projects that use the Mono version of Pandemonium.
 
-Working with Git on Windows
----------------------------
+## Working with Git on Windows
 
 Most Git for Windows clients are configured with the `core.autocrlf` set to `true`.
 This can lead to files unnecessarily being marked as modified by Git due to their line endings being converted automatically.

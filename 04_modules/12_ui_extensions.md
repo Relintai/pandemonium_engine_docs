@@ -2,14 +2,6 @@
 
 This is a c++ engine module for the Pandemonium engine, containing smaller utilities.
 
-It supports both pandemonium 3.2 and 4.0 (master [last tested commit](https://github.com/Relintai/pandemonium_engine/commit/b7e10141197fdd9b0dbc4cfa7890329510d36540)). Note that since 4.0 is still in very early stages I only
-check whether it works from time to time.
-
-# Pre-built binaries
-
-You can grab a pre-built editor binary from the [Broken Seals](https://github.com/Relintai/broken_seals/releases)
-repo, should you want to. It contains all my modules.
-
 # TouchButton
 
 A `Control` based button, that handles multitouch properly.
@@ -48,31 +40,6 @@ func _ready():
 ```
 
 I recommend putting this code into a singleton.
-
-# Building
-
-1. Get the source code for the engine.
-
-If you want Pandemonium 3.2:
-```git clone -b 3.2 https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-If you want Pandemonium 4.0:
-```git clone https://github.com/Relintai/pandemonium_engine.git pandemonium```
-
-
-2. Go into Pandemonium's modules directory.
-
-```
-cd ./pandemonium/modules/
-```
-
-3. Clone this repository
-
-```
-git clone https://github.com/Relintai/ui_extensions ui_extensions
-```
-
-4. Build Pandemonium. [Tutorial](https://docs.pandemoniumengine.org/en/latest/development/compiling/index.html)
 
 
 

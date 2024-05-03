@@ -1,7 +1,6 @@
 
 
-Documentation guidelines
-========================
+# Documentation guidelines
 
 This page describes the rules to follow if you want to contribute to Pandemonium
 Engine by writing or reviewing documentation, or by translating existing
@@ -10,8 +9,7 @@ documentation. Also, have a look at README of the
 and the `docs front page ( https://docs.pandemoniumengine.org )`
 on what steps to follow and how to contact the docs team.
 
-How to contribute
------------------
+## How to contribute
 
 Creating or modifying documentation pages is mainly done via the
 `pandemonium-docs GitHub repository ( https://github.com/Relintai/pandemonium_engine-docs )`.
@@ -41,8 +39,7 @@ Warning:
              in-editor documentation as well as the API reference of the
              online docs. Read more here: `doc_updating_the_class_reference`.
 
-The 'Edit on GitHub' link
--------------------------
+## The 'Edit on GitHub' link
 
 If you're reading documentation on `docs.pandemoniumengine.org ( https://docs.pandemoniumengine.org )`,
 you'll see an **Edit on GitHub** hyperlink at the top right of the page.
@@ -68,8 +65,7 @@ reading as follows:
    they're acceptable. You might also be asked to make
    modifications to your changes before they're included.
 
-What makes good documentation?
-------------------------------
+## What makes good documentation?
 
 Documentation should be well written in plain English, using well-formed
 sentences and various levels of sections and subsections. It should be clear
@@ -89,8 +85,7 @@ definitions:
 You are free to write the kind of documentation you wish, as long as you
 respect the following rules (and the ones on the repo).
 
-Titles
-------
+## Titles
 
 Always begin pages with their title and a Sphinx reference name:
 
@@ -116,8 +111,7 @@ And this is a bad example:
 Only project, people and node class names should have capitalized first
 letter.
 
-Translating existing pages
---------------------------
+## Translating existing pages
 
 You can help to translate the official Pandemonium documentation on our `Hosted Weblate ( https://hosted.weblate.org/engage/pandemonium-engine/ )`.
 
@@ -132,8 +126,7 @@ There also is the official
 `Pandemonium i18n repository ( https://github.com/Relintai/pandemonium_engine-docs-l10n )`
 where you can see when the data was last synchronized.
 
-License
--------
+## License
 
 This documentation and every page it contains is published under the terms of
 the `Creative Commons Attribution 3.0 license (CC-BY-3.0) ( https://tldrlegal.com/license/creative-commons-attribution-(cc) )`, with attribution to "Péter Magyar and the Pandemonium community, and Juan Linietsky, Ariel Manzur and the Godot community".

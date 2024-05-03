@@ -1,10 +1,8 @@
 
 
-Variant class
-=============
+# Variant class
 
-About
------
+## About
 
 Variant is the most important datatype of Pandemonium, it's the most important
 class in the engine. A Variant takes up only 20 bytes and can store
@@ -34,13 +32,11 @@ Basically, thanks to the Variant class, writing Pandemonium itself was a much,
 much easier task, as it allows for highly dynamic constructs not common
 of C++ with little effort. Become a friend of Variant today.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/variant.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/variant.h )`
 
-Containers: Dictionary and Array
---------------------------------
+## Containers: Dictionary and Array
 
 Both are implemented using variants. A Dictionary can match any datatype
 used as key to any other datatype. An Array just holds an array of
@@ -53,8 +49,7 @@ desired.
 
 Copy-on-write (COW) mode support for containers was dropped with Pandemonium 3.0.
 
-References:
-~~~~~~~~~~~
+### References:
 
 -  `core/dictionary.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/dictionary.h )`
 -  `core/array.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/array.h )`

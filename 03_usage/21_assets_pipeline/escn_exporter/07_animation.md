@@ -1,5 +1,6 @@
-Animation
-=========
+
+# Animation
+
 Animation supported:
  - transform animation of all types of objects
  - transform animation of pose bones
@@ -7,8 +8,8 @@ Animation supported:
  - light animation
  - camera animation
 
-Multiple Actions For Single Object
-----------------------------------
+## Multiple Actions For Single Object
+
 In most games, one object would have several animations to switch between.
 This add-on has support for exporting multiple actions all at once into
 a single AnimationPlayer and makes it easy to switch actions.
@@ -22,13 +23,13 @@ New created action is always an active action bound to object. There are
 several ways to place an active action into NLA track,
 one is of course doing it in `NLA Editor`
 
-![](img/nla_editor.jpg
-![](img/nla_pushdown.jpg
+![](img/nla_editor.jpg)
+![](img/nla_pushdown.jpg)
 
 Or it can be done stashing the action in `Dope Sheet`
 
-![](img/dope_sheet.jpg
-![](img/stash_action.jpg
+![](img/dope_sheet.jpg)
+![](img/stash_action.jpg)
 
 **2. Check mute status of NLA tracks**
 
@@ -36,30 +37,30 @@ An NLA track can be `mute` or `unmute`, the exporter will export all
 the `mute` NLA track as a separate action, while blends all the `unmute`
 NLA tracks into every action (including the action action) being exported.
 
-![](img/nla_strip.jpg
+![](img/nla_strip.jpg)
 
 **3. Export the scene**
 
 Make sure the `Export Stashed Actions` option has been turned on.
 
-![](img/stash_action_option.jpg
+![](img/stash_action_option.jpg)
 
 Then all the stashed actions, as well as the active action, are exported
 to an AnimationPlayer.
 
-![](img/in_pandemonium.jpg
+![](img/in_pandemonium.jpg)
 
 
-Constraints
------------
+## Constraints
+
 Sometimes complicated animation is built with object constraint; a usual
 example is inverse kinematics. The add-on would automatically check if an
 object has some constraint; if it does, all the constraints are baked into
 actions and then exported along with the object.
 
 
-Animation Mode
----------------------------
+## Animation Mode
+
 Pandemonium and Blender have different structure to store animation data.
 In Pandemonium animation data is stored in an AnimationPlayer node, instead
 of in each animated node. In order to fix this inconsistence and still

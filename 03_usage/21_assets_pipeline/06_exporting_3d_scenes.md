@@ -1,10 +1,8 @@
 
 
-Exporting 3D scenes
-===================
+# Exporting 3D scenes
 
-Overview
---------
+## Overview
 
 In Pandemonium it is possible to export 3D scenes as a glTF 2.0 file. You can
 export as a glTF binary (`.glb` file) or glTF embedded with textures
@@ -21,8 +19,7 @@ To export a scene in the editor go to **Project > Tools > Export GLTF...**
 
 ![](img/gltf_pandemonium_export.png)
 
-Limitations
------------
+## Limitations
 
 There are several limitations with glTF export.
 

@@ -1,29 +1,24 @@
-Inheritance class tree
-======================
 
-Object
-------
+# Inheritance class tree
+
+## Object
 
 ![](img/Object.png)
 
-Reference
----------
+## OReference
 
 ![](img/Reference.png)
 
-Control
--------
+## OControl
 
 ![](img/Control.png)
 
-Node2D
-------
+## ONode2D
 
 ![](img/Node2D.png)
 
-Spatial
--------
+## OSpatial
 
 ![](img/Spatial.png)
 
-Source files: :download:`tree.zip <files/class_tree.zip )`.
+Source files: :download:`tree.zip ( files/class_tree.zip )`.

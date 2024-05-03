@@ -238,8 +238,7 @@ After the build is completed, a new binary with a `.llvm` suffix will be created
 It's still recommended to use GCC for production builds as they can be compiled using
 link-time optimization, making the resulting binaries smaller and faster.
 
-Using Pyston for faster development
------------------------------------
+## Using Pyston for faster development
 
 You can use `Pyston ( https://www.pyston.org/ )` to run SCons. Pyston is a JIT-enabled
 implementation of the Python language (which SCons is written in). It is currently

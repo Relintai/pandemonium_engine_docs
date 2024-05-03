@@ -1,7 +1,5 @@
 
-
-Content guidelines
-==================
+# Content guidelines
 
 This document is here to help us assess what we should include in the official
 documentation. Below, you will find a couple of principles and recommendations
@@ -15,22 +13,19 @@ We want to achieve two goals:
    programming foundations. Instead, we should provide a reference for how
    Pandemonium's features work.
 
-Guidelines and principles
--------------------------
+## Guidelines and principles
 
 Below are the guidelines we should strive to follow. They are not hard rules,
 though: exceptionally, a topic will require breaking one or more of these.
 Still, we should strive to achieve the two goals listed above.
 
-Writing complete and accessible documentation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Writing complete and accessible documentation
 
 **A feature doesn't exist unless it is documented**. If a user can't find
 information about a feature and how it works, it doesn't exist to them. We
 should ensure that we cover everything Pandemonium does.
 
 Note:
-
 
     When adding or updating an engine feature, the documentation team needs to
     know about it. Contributors should open an issue on the `pandemonium-docs` repository
@@ -49,7 +44,6 @@ second title makes it clear what the purpose of signals is.
 
 Note:
 
-
     Long section titles lead to long entries in the side menu, which can make
     navigation cumbersome. Try to keep headings five words long or less.
 
@@ -58,8 +52,7 @@ link it to the corresponding documentation. For instance, a page about physics
 may use signals, in which case we could note that the page that introduces
 signals is a pre-requisite.
 
-Limiting cognitive load
-~~~~~~~~~~~~~~~~~~~~~~~
+### Limiting cognitive load
 
 Limit the cognitive load required to read the documentation. The simpler and
 more explicit language we use, the more efficient it becomes for people to
@@ -86,7 +79,6 @@ hardest to grasp? You will want users to review your work, and we recommend you
 practice explaining the feature before writing about it.
 
 Note:
-
 
     Having programming foundations is a pre-requisite to use a complex engine
     like Pandemonium. Talking about variables, functions, or classes is acceptable.

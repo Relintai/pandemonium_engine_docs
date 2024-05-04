@@ -40,30 +40,30 @@ The example module will be called "summator" (`pandemonium/modules/summator`).
 Inside we will create a simple summator class:
 
 ```
-/* summator.h */
+    /* summator.h */
 
-#ifndef SUMMATOR_H
-#define SUMMATOR_H
+    #ifndef SUMMATOR_H
+    #define SUMMATOR_H
 
-#include "core/reference.h"
+    #include "core/reference.h"
 
-class Summator : public Reference {
-    GDCLASS(Summator, Reference);
+    class Summator : public Reference {
+        GDCLASS(Summator, Reference);
 
-    int count;
+        int count;
 
-protected:
-    static void _bind_methods();
+    protected:
+        static void _bind_methods();
 
-public:
-    void add(int p_value);
-    void reset();
-    int get_total() const;
+    public:
+        void add(int p_value);
+        void reset();
+        int get_total() const;
 
-    Summator();
-};
+        Summator();
+    };
 
-#endif // SUMMATOR_H
+    #endif // SUMMATOR_H
 ```
 
 And then the cpp file.
@@ -434,13 +434,13 @@ There are several steps in order to setup custom docs for the module:
 2. Now, we need to edit `config.py`, add the following snippet:
 
 ```
-        def get_doc_path():
-            return "doc_classes"
+    def get_doc_path():
+        return "doc_classes"
 
-        def get_doc_classes():
-            return [
-                "Summator",
-            ]
+    def get_doc_classes():
+        return [
+            "Summator",
+        ]
 ```
 
 The `get_doc_path()` function is used by the build system to determine
@@ -461,20 +461,20 @@ Tip:
     untracked files with `git status`. For example:
 
 ```
-        user@host:~/pandemonium$ git status
+    user@host:~/pandemonium$ git status
 ```
 
 Example output:
 
 ```
-        Untracked files:
-            (use "git add &lt;file&gt;..." to include in what will be committed)
+    Untracked files:
+        (use "git add &lt;file&gt;..." to include in what will be committed)
 
-            doc/classes/MyClass2D.xml
-            doc/classes/MyClass4D.xml
-            doc/classes/MyClass5D.xml
-            doc/classes/MyClass6D.xml
-            ...
+        doc/classes/MyClass2D.xml
+        doc/classes/MyClass4D.xml
+        doc/classes/MyClass5D.xml
+        doc/classes/MyClass6D.xml
+        ...
 ```
 
 3. Now we can generate the documentation:
@@ -488,7 +488,7 @@ to an another folder, and just copy over the files that you need.
 Run command:
 
 ```
-      user@host:~/pandemonium/bin$ ./bin/&lt;pandemonium_binary&gt; --doctool .
+    user@host:~/pandemonium/bin$ ./bin/&lt;pandemonium_binary&gt; --doctool .
 ```
 
 Now if you go to the `pandemonium/modules/summator/doc_classes` folder, you will see
@@ -538,8 +538,8 @@ If you'd like to store your icons somewhere else within your module,
 add the following code snippet to `config.py` to override the default path:
 
 ```
-       def get_icons_path():
-           return "path/to/icons"
+    def get_icons_path():
+        return "path/to/icons"
 ```
 
 ## Summing up
@@ -561,4 +561,3 @@ some (hopefully positive) surprises.
    saved/loaded.
 -  By this same logic, you can extend the Editor and almost any area of
    the engine.
-```

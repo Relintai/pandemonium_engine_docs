@@ -47,16 +47,16 @@ There are 3 ways to get input in an analog-aware way:
 gdscript GDScript
 
 ```
-    # `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
-    # This handles deadzone in a correct way for most use cases.
-    # The resulting deadzone will have a circular shape as it generally should.
-    var velocity = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+# `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
+# This handles deadzone in a correct way for most use cases.
+# The resulting deadzone will have a circular shape as it generally should.
+var velocity = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 
-    # The line below is similar to `get_vector()`, except that it handles
-    # the deadzone in a less optimal way. The resulting deadzone will have
-    # a square-ish shape when it should ideally have a circular shape.
-    var velocity = Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")).clamped(1)
+# The line below is similar to `get_vector()`, except that it handles
+# the deadzone in a less optimal way. The resulting deadzone will have
+# a square-ish shape when it should ideally have a circular shape.
+var velocity = Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")).clamped(1)
 ```
 
 - When you have one axis that can go both ways (such as a throttle on a

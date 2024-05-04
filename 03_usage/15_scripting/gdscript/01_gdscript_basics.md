@@ -652,12 +652,14 @@ value. Types for arguments can be added in a similar way to variables
 ```
     func my_function(a: int, b: String):
         pass
+```
 
 If a function argument has a default value, it's possible to infer the type
 
 ```
     func my_function(int_arg := 42, String_arg := "string"):
         pass
+```
 
 The return type of the function can be specified after the arguments list using
 the arrow token (`- )`)
@@ -743,6 +745,7 @@ else:
 ```
 
 Short statements can be written on the same line as the condition
+
 ```
 if 1 + 1 == 2: return 2 + 2
 else:
@@ -752,6 +755,7 @@ else:
 
 Sometimes, you might want to assign a different initial value based on a
 boolean expression. In this case, ternary-if expressions come in handy
+
 ```
 var x = [value] if [expression] else [value]
 y += 3 if y < 10 else -1
@@ -760,6 +764,7 @@ y += 3 if y < 10 else -1
 Ternary-if expressions can be nested to handle more than 2 cases. When nesting
 ternary-if expressions, it is recommended to wrap the complete expression over
 multiple lines to preserve readability
+
 ```
 var count = 0
 
@@ -783,6 +788,7 @@ print(fruit_alt)  # banana
 
 You may also wish to check if a value is contained within something. You can
 use an `if` statement combined with the `in` operator to accomplish this
+
 ```
 # Check if a letter is in a string.
 var text = "abc"
@@ -844,6 +850,7 @@ A `match` statement is used to branch execution of a program.
 It's the equivalent of the `switch` statement found in many other languages, but offers some additional features.
 
 Basic syntax
+
 ```
 match [expression]:
     [pattern](s):
@@ -873,6 +880,7 @@ There are 6 pattern types:
 
 - Constant pattern
     Constant primitives, like numbers and strings
+
 ```
 match x:
     1:
@@ -886,6 +894,7 @@ match x:
 
 - Variable pattern
     Matches the contents of a variable/enum
+
 ```
 match typeof(x):
     TYPE_REAL:
@@ -901,6 +910,7 @@ match typeof(x):
     This pattern matches everything. It's written as a single underscore.
 
     It can be used as the equivalent of the `default` in a `switch` statement in other languages
+
 ```
 match x:
     1:
@@ -915,6 +925,7 @@ match x:
 - Binding pattern
     A binding pattern introduces a new variable. Like the wildcard pattern, it matches everything - and also gives that value a name.
     It's especially useful in array and dictionary patterns
+
 ```
 match x:
     1:
@@ -993,6 +1004,7 @@ match x:
 By default, all script files are unnamed classes. In this case, you can only
 reference them using the file's path, using either a relative or an absolute
 path. For example, if you name a script file `character.gd`
+
 ```
 # Inherit from 'Character.gd'.
 
@@ -1012,6 +1024,7 @@ You can give your class a name to register it as a new type in Pandemonium's
 editor. For that, you use the `name` keyword. You can optionally add
 a comma followed by a path to an image, to use it as an icon. Your
 class will then appear with its new icon in the editor
+
 ```
 # Item.gd
 
@@ -1086,6 +1099,7 @@ extends "somefile.gd".SomeInnerClass
 
 To check if a given instance inherits from a given class,
 the `is` keyword can be used
+
 ```
 # Cache the enemy class.
 const Enemy = preload("enemy.gd")
@@ -1099,6 +1113,7 @@ if entity is Enemy:
 
 To call a function in a *parent class* (i.e. one `extend`-ed in your current
 class), prepend `.` to the function name
+
 ```
 .base_func(args)
 ```
@@ -1107,6 +1122,7 @@ This is especially useful because functions in extending classes replace
 functions with the same name in their parent classes. If you still want to
 call them, you can prefix them with `.` (like the `super` keyword
 in other languages)
+
 ```
 func some_func(x):
     .some_func(x) # Calls the same function on the parent class.
@@ -1129,12 +1145,14 @@ explicitly.
 Unlike the call of a regular function, like in the above example with
 `.some_func`, if the constructor from the inherited class takes arguments,
 they are passed like this
+
 ```
 func _init(args).(parent_args):
    pass
 ```
 
 This is better explained through examples. Consider this scenario
+
 ```
 # State.gd (inherited class)
 var entity = null
@@ -1169,6 +1187,7 @@ There are a few things to keep in mind here:
 4. If `Idle.gd`'s `init` constructor takes 0 arguments, it still needs to pass some value
    to the `State.gd` parent class, even if it does nothing. This brings us to the fact that you
    can pass literals in the base constructor as well, not just variables, e.g.
+
 ```
 # Idle.gd
 
@@ -1209,6 +1228,7 @@ Classes stored as files are treated as `resources`. They
 must be loaded from disk to access them in other classes. This is done using
 either the `load` or `preload` functions (see below). Instancing of a loaded
 class resource is done by calling the `new` function on the class object
+
 ```
 # Load the class resource when calling load().
 var MyClass = load("myclass.gd")
@@ -1296,6 +1316,7 @@ properties can be changed. In some cases, it is desired that they do run
 inside the editor (as long as they don't execute game code or manually
 avoid doing so). For this, the `tool` keyword exists and must be
 placed at the top of the file
+
 ```
 tool
 extends Button

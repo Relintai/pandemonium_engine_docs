@@ -18,14 +18,14 @@ character.
 gdscript GDScript
 
 ```
-    extends KinematicBody
+extends KinematicBody
 
-   # How fast the player moves in meters per second.
-   export var speed = 14
-   # The downward acceleration when in the air, in meters per second squared.
-   export var fall_acceleration = 75
+# How fast the player moves in meters per second.
+export var speed = 14
+# The downward acceleration when in the air, in meters per second squared.
+export var fall_acceleration = 75
 
-   var velocity = Vector3.ZERO
+var velocity = Vector3.ZERO
 ```
 
 
@@ -69,7 +69,6 @@ kinematic or rigid body.
 
 See also:
 
-
     To learn more about the difference between `process()` and
     `physics_process()`, see `doc_idle_and_physics_processing`.
 
@@ -104,7 +103,6 @@ This method takes a position in space to look at in global coordinates and the
 up direction. In this case, we can use the `Vector3.UP` constant.
 
 Note:
-
 
     A node's local coordinates, like `translation`, are relative to their
     parent. Global coordinates are relative to the world's main axes you can see

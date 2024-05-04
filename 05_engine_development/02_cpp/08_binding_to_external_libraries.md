@@ -184,17 +184,17 @@ If you want to add custom compiler flags when building your module, you need to 
 Example `SCsub` with custom flags:
 
 ```
-    # SCsub
+# SCsub
 
-    Import('env')
+Import('env')
 
-    env_tts = env.Clone()
-    env_tts.add_source_files(env.modules_sources, "*.cpp")
-	# Append CCFLAGS flags for both C and C++ code.
-    env_tts.Append(CCFLAGS=['-O2'])
-    # If you need to, you can:
-    # - Append CFLAGS for C code only.
-    # - Append CXXFLAGS for C++ code only.
+env_tts = env.Clone()
+env_tts.add_source_files(env.modules_sources, "*.cpp")
+# Append CCFLAGS flags for both C and C++ code.
+env_tts.Append(CCFLAGS=['-O2'])
+# If you need to, you can:
+# - Append CFLAGS for C code only.
+# - Append CXXFLAGS for C++ code only.
 ```
 
 The final module should look like this:

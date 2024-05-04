@@ -94,7 +94,7 @@ Insert your title here
 ======================
 ```
 
-The reference allows linking to this page using the ```format, e.g.
+The reference allows linking to this page using the \`\`\` format, e.g.
 ```doc_insert_your_title_here``` would link to the above example page
 (note the lack of leading underscore in the reference).
 

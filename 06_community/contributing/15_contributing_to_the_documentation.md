@@ -176,4 +176,3 @@ attribution to "Péter Magyar and the Pandemonium community, and Juan Linietsky,
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.
-``````

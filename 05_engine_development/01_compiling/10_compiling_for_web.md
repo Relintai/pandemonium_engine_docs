@@ -28,8 +28,8 @@ Then instruct SCons to build the JavaScript platform. Specify `target` as
 either `release` for a release build or `release_debug` for a debug build:
 
 ```
-    scons platform=javascript tools=no target=release
-    scons platform=javascript tools=no target=release_debug
+scons platform=javascript tools=no target=release
+scons platform=javascript tools=no target=release_debug
 ```
 
 By default, the `JavaScript singleton ( doc_javascript_eval )` will be built
@@ -38,8 +38,8 @@ enabled. Since `eval()` calls can be a security concern, the
 `javascript_eval` option can be used to build without the singleton:
 
 ```
-    scons platform=javascript tools=no target=release javascript_eval=no
-    scons platform=javascript tools=no target=release_debug javascript_eval=no
+scons platform=javascript tools=no target=release javascript_eval=no
+scons platform=javascript tools=no target=release_debug javascript_eval=no
 ```
 
 The engine will now be compiled to WebAssembly by Emscripten. Once finished,
@@ -51,13 +51,13 @@ Finally, rename the zip archive to `webassembly_release.zip` for the
 release template:
 
 ```
-    mv bin/pandemonium.javascript.opt.zip bin/webassembly_release.zip
+mv bin/pandemonium.javascript.opt.zip bin/webassembly_release.zip
 ```
 
 And `webassembly_debug.zip` for the debug template:
 
 ```
-    mv bin/pandemonium.javascript.opt.debug.zip bin/webassembly_debug.zip
+mv bin/pandemonium.javascript.opt.debug.zip bin/webassembly_debug.zip
 ```
 
 ## Threads
@@ -69,8 +69,8 @@ performance and compatibility reasons. See the
 You can build the export templates using the option `threads_enabled=yes` to enable threads support:
 
 ```
-    scons platform=javascript tools=no threads_enabled=yes target=release
-    scons platform=javascript tools=no threads_enabled=yes target=release_debug
+scons platform=javascript tools=no threads_enabled=yes target=release
+scons platform=javascript tools=no threads_enabled=yes target=release_debug
 ```
 
 Once finished, the resulting file will be placed in the `bin` subdirectory.
@@ -79,13 +79,13 @@ Its name will have the `.threads` suffix.
 Finally, rename the zip archives to `webassembly_release_threads.zip` for the release template:
 
 ```
-    mv bin/pandemonium.javascript.opt.threads.zip bin/webassembly_threads_release.zip
+mv bin/pandemonium.javascript.opt.threads.zip bin/webassembly_threads_release.zip
 ```
 
 And `webassembly_debug_threads.zip` for the debug template:
 
 ```
-    mv bin/pandemonium.javascript.opt.debug.threads.zip bin/webassembly_threads_debug.zip
+mv bin/pandemonium.javascript.opt.debug.threads.zip bin/webassembly_threads_debug.zip
 ```
 
 ## Building the Editor
@@ -96,7 +96,7 @@ browser. The editor version requires threads support and is not recommended
 over the native build. You can build the editor with:
 
 ```
-    scons platform=javascript tools=yes threads_enabled=yes target=release_debug
+scons platform=javascript tools=yes threads_enabled=yes target=release_debug
 ```
 
 Once finished, the resulting file will be placed in the `bin` subdirectory.

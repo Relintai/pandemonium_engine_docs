@@ -23,10 +23,10 @@ Note:
 To evaluate a mathematical expression, use:
 
 ```
-    var expression = Expression.new()
-    expression.parse("20 + 10*2 - 5/2.0")
-    var result = expression.execute()
-    print(result)  # 37.5
+var expression = Expression.new()
+expression.parse("20 + 10*2 - 5/2.0")
+var result = expression.execute()
+print(result)  # 37.5
 ```
 
 The following operators are available:
@@ -54,19 +54,19 @@ numbers, strings, arrays, dictionaries, colors, vectors, …
 Arrays and dictionaries can be indexed like in GDScript:
 
 ```
-    # Returns 1.
-    [1, 2][0]
+# Returns 1.
+[1, 2][0]
 
-    # Returns 3. Negative indices can be used to count from the end of the array.
-    [1, 3][-1]
+# Returns 3. Negative indices can be used to count from the end of the array.
+[1, 3][-1]
 
-    # Returns "green".
-    {"favorite_color": "green"}["favorite_color"]
+# Returns "green".
+{"favorite_color": "green"}["favorite_color"]
 
-    # All 3 lines below return 7.0 (Vector3 is floating-point).
-    Vector3(5, 6, 7)[2]
-    Vector3(5, 6, 7)["z"]
-    Vector3(5, 6, 7).z
+# All 3 lines below return 7.0 (Vector3 is floating-point).
+Vector3(5, 6, 7)[2]
+Vector3(5, 6, 7)["z"]
+Vector3(5, 6, 7).z
 ```
 
 ## Passing variables to an expression
@@ -76,14 +76,14 @@ become available in the expression's "context" and will be substituted when used
 in the expression:
 
 ```
-    var expression = Expression.new()
-    # Define the variable names first in the second parameter of `parse()`.
-    # In this example, we use `x` for the variable name.
-    expression.parse("20 + 2 * x", ["x"])
-    # Then define the variable values in the first parameter of `execute()`.
-    # Here, `x` is assigned the integer value 5.
-    var result = expression.execute([5])
-    print(result)  # 30
+var expression = Expression.new()
+# Define the variable names first in the second parameter of `parse()`.
+# In this example, we use `x` for the variable name.
+expression.parse("20 + 2 * x", ["x"])
+# Then define the variable values in the first parameter of `execute()`.
+# Here, `x` is assigned the integer value 5.
+var result = expression.execute([5])
+print(result)  # 30
 ```
 
 Both the variable names and variable values **must** be specified as an array,
@@ -99,22 +99,22 @@ you can set the value of the `base_instance` parameter to a specific object
 instance such as `self`, another script instance or even a singleton:
 
 ```
-    func double(number):
-        return number * 2
+func double(number):
+    return number * 2
 
 
-    func _ready():
-        var expression = Expression.new()
-        expression.parse("double(10)")
+func _ready():
+    var expression = Expression.new()
+    expression.parse("double(10)")
 
-        # This won't work since we're not passing the current script as the base instance.
-        var result = expression.execute([], null)
-        print(result)  # null
+    # This won't work since we're not passing the current script as the base instance.
+    var result = expression.execute([], null)
+    print(result)  # null
 
-        # This will work since we're passing the current script (i.e. self)
-        # as the base instance.
-        result = expression.execute([], self)
-        print(result)  # 20
+    # This will work since we're passing the current script (i.e. self)
+    # as the base instance.
+    result = expression.execute([], self)
+    print(result)  # 20
 ```
 
 Associating a base instance allows doing the following:
@@ -137,67 +137,67 @@ Warning:
 The script below demonstrates what the Expression class is capable of:
 
 ```
-    const DAYS_IN_YEAR = 365
-    var script_member_variable = 1000
+const DAYS_IN_YEAR = 365
+var script_member_variable = 1000
 
 
-    func _ready():
-        # Constant mathexpression.
-        evaluate("2 + 2")
-        # Math expression with variables.
-        evaluate("x + y", ["x", "y"], [60, 100])
+func _ready():
+    # Constant mathexpression.
+    evaluate("2 + 2")
+    # Math expression with variables.
+    evaluate("x + y", ["x", "y"], [60, 100])
 
-        # Call built-in method (hardcoded in the Expression class).
-        evaluate("deg2rad(90)")
+    # Call built-in method (hardcoded in the Expression class).
+    evaluate("deg2rad(90)")
 
-        # Call user method (defined in the script).
-        # We can do this because the expression execution is bound to `self`
-        # in the `evaluate()` method.
-        # Since this user method returns a value, we can use it in math expressions.
-        evaluate("call_me() + DAYS_IN_YEAR + script_member_variable")
-        evaluate("call_me(42)")
-        evaluate("call_me('some string')")
-
-
-    func evaluate(command, variable_names = [], variable_values = []) -> void:
-        var expression = Expression.new()
-        var error = expression.parse(command, variable_names)
-        if error != OK:
-            push_error(expression.get_error_text())
-            return
-
-        var result = expression.execute(variable_values, self)
-
-        if not expression.has_execute_failed():
-            print(str(result))
+    # Call user method (defined in the script).
+    # We can do this because the expression execution is bound to `self`
+    # in the `evaluate()` method.
+    # Since this user method returns a value, we can use it in math expressions.
+    evaluate("call_me() + DAYS_IN_YEAR + script_member_variable")
+    evaluate("call_me(42)")
+    evaluate("call_me('some string')")
 
 
-    func call_me(argument = null):
-        print("\nYou called 'call_me()' in the expression text.")
-        if argument:
-            print("Argument passed: %s" % argument)
+func evaluate(command, variable_names = [], variable_values = []) -> void:
+    var expression = Expression.new()
+    var error = expression.parse(command, variable_names)
+    if error != OK:
+        push_error(expression.get_error_text())
+        return
 
-        # The method's return value is also the expression's return value.
-        return 0
+    var result = expression.execute(variable_values, self)
+
+    if not expression.has_execute_failed():
+        print(str(result))
+
+
+func call_me(argument = null):
+    print("\nYou called 'call_me()' in the expression text.")
+    if argument:
+        print("Argument passed: %s" % argument)
+
+    # The method's return value is also the expression's return value.
+    return 0
 ```
 
 The output from the script will be:
 
 ```
-    4
-    160
-    1.570796
+4
+160
+1.570796
 
-    You called 'call_me()' in the expression text.
-    1365
+You called 'call_me()' in the expression text.
+1365
 
-    You called 'call_me()' in the expression text.
-    Argument passed: 42
-    0
+You called 'call_me()' in the expression text.
+Argument passed: 42
+0
 
-    You called 'call_me()' in the expression text.
-    Argument passed: some string
-    0
+You called 'call_me()' in the expression text.
+Argument passed: some string
+0
 ```
 
 ## Built-in functions

@@ -64,7 +64,7 @@ corner of the screen, so to place a 2D node named `Node2D` 400 pixels to the rig
 gdscript GDScript
 
 ```
-    $Node2D.position = Vector2(400, 300)
+$Node2D.position = Vector2(400, 300)
 ```
 
 Pandemonium supports both `Vector2` and
@@ -78,12 +78,12 @@ The individual components of the vector can be accessed directly by name.
 gdscript GDScript
 
 ```
-    # create a vector with coordinates (2, 5)
-    var a = Vector2(2, 5)
-    # create a vector and assign x and y manually
-    var b = Vector2()
-    b.x = 3
-    b.y = 1
+# create a vector with coordinates (2, 5)
+var a = Vector2(2, 5)
+# create a vector and assign x and y manually
+var b = Vector2()
+b.x = 3
+b.y = 1
 ```
 
 ## Adding vectors
@@ -93,7 +93,7 @@ When adding or subtracting two vectors, the corresponding components are added:
 gdscript GDScript
 
 ```
-    var c = a + b  # (2, 5) + (3, 1) = (5, 6)
+var c = a + b  # (2, 5) + (3, 1) = (5, 6)
 ```
 
 We can also see this visually by adding the second vector at the end of
@@ -114,8 +114,8 @@ A vector can be multiplied by a **scalar**:
 gdscript GDScript
 
 ```
-    var c = a * 2  # (2, 5) * 2 = (4, 10)
-    var d = b / 3  # (3, 6) / 3 = (1, 2)
+var c = a * 2  # (2, 5) * 2 = (4, 10)
+var d = b / 3  # (3, 6) / 3 = (1, 2)
 ```
 
 ![](img/vector_mult1.png)
@@ -169,7 +169,7 @@ by its magnitude. Because this is such a common operation,
 gdscript GDScript
 
 ```
-    a = a.normalized()
+a = a.normalized()
 ```
 
 Warning:
@@ -201,12 +201,12 @@ to handle this. Here is a GDScript example of the diagram above using a
 gdscript GDScript
 
 ```
-    # object "collision" contains information about the collision
-    var collision = move_and_collide(velocity * delta)
-    if collision:
-        var reflect = collision.remainder.bounce(collision.normal)
-        velocity = velocity.bounce(collision.normal)
-        move_and_collide(reflect)
+# object "collision" contains information about the collision
+var collision = move_and_collide(velocity * delta)
+if collision:
+    var reflect = collision.remainder.bounce(collision.normal)
+    velocity = velocity.bounce(collision.normal)
+    move_and_collide(reflect)
 ```
 
 ### Dot product
@@ -230,8 +230,8 @@ the order of the two vectors does not matter:
 gdscript GDScript
 
 ```
-    var c = a.dot(b)
-    var d = b.dot(a) # These are equivalent.
+var c = a.dot(b)
+var d = b.dot(a) # These are equivalent.
 ```
 
 The dot product is most useful when used with unit vectors, making the
@@ -264,9 +264,9 @@ In code it would look like this:
 gdscript GDScript
 
 ```
-    var AP = A.direction_to(P)
-    if AP.dot(fA) > 0:
-        print("A sees P!")
+var AP = A.direction_to(P)
+if AP.dot(fA) > 0:
+    print("A sees P!")
 ```
 
 ### Cross product
@@ -285,10 +285,10 @@ The cross product is calculated like this:
 gdscript GDScript
 
 ```
-    var c = Vector3()
-    c.x = (a.y * b.z) - (a.z * b.y)
-    c.y = (a.z * b.x) - (a.x * b.z)
-    c.z = (a.x * b.y) - (a.y * b.x)
+var c = Vector3()
+c.x = (a.y * b.z) - (a.z * b.y)
+c.y = (a.z * b.x) - (a.x * b.z)
+c.z = (a.x * b.y) - (a.y * b.x)
 ```
 
 With Pandemonium, you can use the built-in method:
@@ -296,7 +296,7 @@ With Pandemonium, you can use the built-in method:
 gdscript GDScript
 
 ```
-    var c = a.cross(b)
+var c = a.cross(b)
 ```
 
 Note:
@@ -316,12 +316,12 @@ Here is a function to calculate a triangle's normal:
 gdscript GDScript
 
 ```
-    func get_triangle_normal(a, b, c):
-        # find the surface normal given 3 vertices
-        var side1 = b - a
-        var side2 = c - a
-        var normal = side1.cross(side2)
-        return normal
+func get_triangle_normal(a, b, c):
+    # find the surface normal given 3 vertices
+    var side1 = b - a
+    var side2 = c - a
+    var normal = side1.cross(side2)
+    return normal
 ```
 
 ## Pointing to a target

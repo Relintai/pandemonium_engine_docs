@@ -38,9 +38,9 @@ The region RID can then be obtained from NavigationRegion Nodes with `get_region
 GDScript
 
 ```
-    extends NavigationRegion3D
+extends NavigationRegion3D
 
-    var navigationserver_region_rid: RID = get_region_rid()
+var navigationserver_region_rid: RID = get_region_rid()
 ```
 
 New regions can also be created with the NavigationServer API and added to any existing map.
@@ -50,21 +50,21 @@ If regions are created with the NavigationServer API directly they need to be as
 GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    var new_2d_region_rid: RID = NavigationServer2D.region_create()
-    var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
-    NavigationServer2D.region_set_map(new_2d_region_rid, default_2d_map_rid)
+var new_2d_region_rid: RID = NavigationServer2D.region_create()
+var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
+NavigationServer2D.region_set_map(new_2d_region_rid, default_2d_map_rid)
 ```
 
 GDScript
 
 ```
-    extends Node3D
+extends Node3D
 
-    var new_3d_region_rid: RID = NavigationServer3D.region_create()
-    var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
-    NavigationServer3D.region_set_map(new_3d_region_rid, default_3d_map_rid)
+var new_3d_region_rid: RID = NavigationServer3D.region_create()
+var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
+NavigationServer3D.region_set_map(new_3d_region_rid, default_3d_map_rid)
 ```
 
 Note:

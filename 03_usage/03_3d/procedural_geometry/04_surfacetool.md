@@ -13,11 +13,11 @@ Attributes are added before each vertex is added:
 gdscript GDScript
 
 ```
-    st.add_normal() # Overwritten by normal below.
-    st.add_normal() # Added to next vertex.
-    st.add_color() # Added to next vertex.
-    st.add_vertex() # Captures normal and color above.
-    st.add_normal() # Normal never added to a vertex.
+st.add_normal() # Overwritten by normal below.
+st.add_normal() # Added to next vertex.
+st.add_color() # Added to next vertex.
+st.add_vertex() # Captures normal and color above.
+st.add_normal() # Normal never added to a vertex.
 ```
 
 When finished generating your geometry with the `SurfaceTool`
@@ -28,9 +28,9 @@ in, `commit()` returns an ArrayMesh.
 gdscript GDScript
 
 ```
-    st.commit(mesh)
-    # Or:
-    var mesh = st.commit()
+st.commit(mesh)
+# Or:
+var mesh = st.commit()
 ```
 
 Code creates a triangle with indices
@@ -38,26 +38,26 @@ Code creates a triangle with indices
 gdscript GDScript
 
 ```
-    var st = SurfaceTool.new()
+var st = SurfaceTool.new()
 
-    st.begin(Mesh.PRIMITIVE_TRIANGLES)
+st.begin(Mesh.PRIMITIVE_TRIANGLES)
 
-    # Prepare attributes for add_vertex.
-    st.add_normal(Vector3(0, 0, 1))
-    st.add_uv(Vector2(0, 0))
-    # Call last for each vertex, adds the above attributes.
-    st.add_vertex(Vector3(-1, -1, 0))
+# Prepare attributes for add_vertex.
+st.add_normal(Vector3(0, 0, 1))
+st.add_uv(Vector2(0, 0))
+# Call last for each vertex, adds the above attributes.
+st.add_vertex(Vector3(-1, -1, 0))
 
-    st.add_normal(Vector3(0, 0, 1))
-    st.add_uv(Vector2(0, 1))
-    st.add_vertex(Vector3(-1, 1, 0))
+st.add_normal(Vector3(0, 0, 1))
+st.add_uv(Vector2(0, 1))
+st.add_vertex(Vector3(-1, 1, 0))
 
-    st.add_normal(Vector3(0, 0, 1))
-    st.add_uv(Vector2(1, 1))
-    st.add_vertex(Vector3(1, 1, 0))
+st.add_normal(Vector3(0, 0, 1))
+st.add_uv(Vector2(1, 1))
+st.add_vertex(Vector3(1, 1, 0))
 
-    # Commit to a mesh.
-    var mesh = st.commit()
+# Commit to a mesh.
+var mesh = st.commit()
 ```
 
 You can optionally add an index array, either by calling `add_index()` and adding
@@ -67,18 +67,18 @@ to remove duplicate vertices.
 gdscript GDScript
 
 ```
-    # Creates a quad from four corner vertices.
-    # Add_index does not need to be called before add_vertex.
-    st.add_index(0)
-    st.add_index(1)
-    st.add_index(2)
+# Creates a quad from four corner vertices.
+# Add_index does not need to be called before add_vertex.
+st.add_index(0)
+st.add_index(1)
+st.add_index(2)
 
-    st.add_index(1)
-    st.add_index(3)
-    st.add_index(2)
+st.add_index(1)
+st.add_index(3)
+st.add_index(2)
 
-    # Alternatively:
-    st.index()
+# Alternatively:
+st.index()
 ```
 
 Similarly, if you have an index array, but you want each vertex to be unique (e.g. because
@@ -87,7 +87,7 @@ you want to use unique normals or colors per face instead of per-vertex), you ca
 gdscript GDScript
 
 ```
-    st.deindex()
+st.deindex()
 ```
 
 If you don't add custom normals yourself, you can add them using `generate_normals()`, which should
@@ -101,8 +101,8 @@ that each vertex have UVs and normals set already.
 gdscript GDScript
 
 ```
-    st.generate_normals()
-    st.generate_tangents()
+st.generate_normals()
+st.generate_tangents()
 ```
 
 By default, when generating normals, they will be calculated on a per-face basis. If you want

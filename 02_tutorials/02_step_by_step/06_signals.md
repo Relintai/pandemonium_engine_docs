@@ -151,8 +151,8 @@ the `not` keyword to invert the value.
 gdscript GDScript
 
 ```
-    func _on_Button_pressed():
-        set_process(not is_processing())
+func _on_Button_pressed():
+    set_process(not is_processing())
 ```
 
 This function will toggle processing and, in turn, the icon's motion on and off
@@ -165,10 +165,10 @@ following code, which we saw two lessons ago:
 gdscript GDScript
 
 ```
-    func _process(delta):
-        rotation += angular_speed * delta
-        var velocity = Vector2.UP.rotated(rotation) * speed
-        position += velocity * delta
+func _process(delta):
+    rotation += angular_speed * delta
+    var velocity = Vector2.UP.rotated(rotation) * speed
+    position += velocity * delta
 ```
 
 Your complete `Sprite.gd` code should look like the following.
@@ -176,20 +176,20 @@ Your complete `Sprite.gd` code should look like the following.
 gdscript GDScript
 
 ```
-    extends Sprite
+extends Sprite
 
-    var speed = 400
-    var angular_speed = PI
-
-
-    func _process(delta):
-        rotation += angular_speed * delta
-        var velocity = Vector2.UP.rotated(rotation) * speed
-        position += velocity * delta
+var speed = 400
+var angular_speed = PI
 
 
-    func _on_Button_pressed():
-        set_process(not is_processing())
+func _process(delta):
+    rotation += angular_speed * delta
+    var velocity = Vector2.UP.rotated(rotation) * speed
+    position += velocity * delta
+
+
+func _on_Button_pressed():
+    set_process(not is_processing())
 ```
 
 Run the scene now and click the button to see the sprite start and stop.
@@ -242,8 +242,8 @@ in a variable.
 gdscript GDScript
 
 ```
-    func _ready():
-        var timer = get_node("Timer")
+func _ready():
+    var timer = get_node("Timer")
 ```
 
 The function `get_node()` looks at the Sprite's children and gets nodes by
@@ -257,9 +257,9 @@ We can now connect the Timer to the Sprite in the `ready()` function.
 gdscript GDScript
 
 ```
-    func _ready():
-        var timer = get_node("Timer")
-        timer.connect("timeout", self, "_on_Timer_timeout")
+func _ready():
+    var timer = get_node("Timer")
+    timer.connect("timeout", self, "_on_Timer_timeout")
 ```
 
 The line reads like so: we connect the Timer's "timeout" signal to the node to
@@ -270,8 +270,8 @@ at the bottom of our script and use it to toggle our sprite's visibility.
 gdscript GDScript
 
 ```
-    func _on_Timer_timeout():
-        visible = not visible
+func _on_Timer_timeout():
+    visible = not visible
 ```
 
 The `visible` property is a boolean that controls the visibility of our node.
@@ -290,29 +290,29 @@ Here is the complete `Sprite.gd` file for reference.
 gdscript GDScript
 
 ```
-    extends Sprite
+extends Sprite
 
-    var speed = 400
-    var angular_speed = PI
-
-
-    func _ready():
-        var timer = get_node("Timer")
-        timer.connect("timeout", self, "_on_Timer_timeout")
+var speed = 400
+var angular_speed = PI
 
 
-    func _process(delta):
-        rotation += angular_speed * delta
-        var velocity = Vector2.UP.rotated(rotation) * speed
-        position += velocity * delta
+func _ready():
+    var timer = get_node("Timer")
+    timer.connect("timeout", self, "_on_Timer_timeout")
 
 
-    func _on_Button_pressed():
-        set_process(not is_processing())
+func _process(delta):
+    rotation += angular_speed * delta
+    var velocity = Vector2.UP.rotated(rotation) * speed
+    position += velocity * delta
 
 
-    func _on_Timer_timeout():
-        visible = not visible
+func _on_Button_pressed():
+    set_process(not is_processing())
+
+
+func _on_Timer_timeout():
+    visible = not visible
 ```
 
 Custom signals
@@ -330,11 +330,11 @@ reaches 0.
 gdscript GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    signal health_depleted
+signal health_depleted
 
-    var health = 10
+var health = 10
 ```
 
 Note:
@@ -351,10 +351,10 @@ To emit a signal in your scripts, call `emit_signal()`.
 gdscript GDScript
 
 ```
-    func take_damage(amount):
-        health -= amount
-        if health <= 0:
-            emit_signal("health_depleted")
+func take_damage(amount):
+    health -= amount
+    if health <= 0:
+        emit_signal("health_depleted")
 ```
 
 A signal can optionally declare one or more arguments. Specify the argument
@@ -363,9 +363,9 @@ names between parentheses:
 gdscript GDScript
 
 ```
-    extends Node
+extends Node
 
-    signal health_changed(old_value, new_value)
+signal health_changed(old_value, new_value)
 ```
 
 Note:
@@ -382,10 +382,10 @@ To emit values along with the signal, add them as extra arguments to the
 gdscript GDScript
 
 ```
-    func take_damage(amount):
-        var old_health = health
-        health -= amount
-        emit_signal("health_changed", old_health, health)
+func take_damage(amount):
+    var old_health = health
+    health -= amount
+    emit_signal("health_changed", old_health, health)
 ```
 
 Summary

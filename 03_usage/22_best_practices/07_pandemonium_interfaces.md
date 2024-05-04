@@ -19,8 +19,8 @@ is to get a reference to an existing object from another acquired instance.
 gdscript GDScript
 
 ```
-    var obj = node.object # Property access.
-    var obj = node.get_object() # Method access.
+var obj = node.object # Property access.
+var obj = node.get_object() # Method access.
 ```
 
 The same principle applies for `Reference` objects.
@@ -33,32 +33,32 @@ access.
 gdscript GDScript
 
 ```
-    var preres = preload(path) # Load resource during scene load
-    var res = load(path) # Load resource when program reaches statement
+var preres = preload(path) # Load resource during scene load
+var res = load(path) # Load resource when program reaches statement
 
-    # Note that users load scenes and scripts, by convention, with PascalCase
-    # names (like typenames), often into constants.
-    const MyScene : = preload("my_scene.tscn") as PackedScene # Static load
-    const MyScript : = preload("my_script.gd") as Script
+# Note that users load scenes and scripts, by convention, with PascalCase
+# names (like typenames), often into constants.
+const MyScene : = preload("my_scene.tscn") as PackedScene # Static load
+const MyScript : = preload("my_script.gd") as Script
 
-    # This type's value varies, i.e. it is a variable, so it uses snake_case.
-    export(Script) var script_type: Script
+# This type's value varies, i.e. it is a variable, so it uses snake_case.
+export(Script) var script_type: Script
 
-    # If need an "export const var" (which doesn't exist), use a conditional
-    # setter for a tool script that checks if it's executing in the editor.
-    tool # Must place at top of file.
+# If need an "export const var" (which doesn't exist), use a conditional
+# setter for a tool script that checks if it's executing in the editor.
+tool # Must place at top of file.
 
-    # Must configure from the editor, defaults to null.
-    export(Script) var const_script setget set_const_script
-    func set_const_script(value):
-        if Engine.is_editor_hint():
-            const_script = value
+# Must configure from the editor, defaults to null.
+export(Script) var const_script setget set_const_script
+func set_const_script(value):
+    if Engine.is_editor_hint():
+        const_script = value
 
-    # Warn users if the value hasn't been set.
-    func _get_configuration_warning():
-        if not const_script:
-            return "Must initialize property 'const_script'."
-        return ""
+# Warn users if the value hasn't been set.
+func _get_configuration_warning():
+    if not const_script:
+        return "Must initialize property 'const_script'."
+    return ""
 ```
 
 Note the following:
@@ -78,55 +78,55 @@ Nodes likewise have an alternative access point: the SceneTree.
 gdscript GDScript
 
 ```
-    extends Node
+extends Node
 
-    # Slow.
-    func dynamic_lookup_with_dynamic_nodepath():
-        print(get_node("Child"))
+# Slow.
+func dynamic_lookup_with_dynamic_nodepath():
+    print(get_node("Child"))
 
-    # Faster. GDScript only.
-    func dynamic_lookup_with_cached_nodepath():
-        print($Child)
+# Faster. GDScript only.
+func dynamic_lookup_with_cached_nodepath():
+    print($Child)
 
-    # Fastest. Doesn't break if node moves later.
-    # Note that `onready` keyword is GDScript only.
-    # Other languages must do...
-    #     var child
-    #     func _ready():
-    #         child = get_node("Child")
-    onready var child = $Child
-    func lookup_and_cache_for_future_access():
-        print(child)
+# Fastest. Doesn't break if node moves later.
+# Note that `onready` keyword is GDScript only.
+# Other languages must do...
+#     var child
+#     func _ready():
+#         child = get_node("Child")
+onready var child = $Child
+func lookup_and_cache_for_future_access():
+    print(child)
 
-    # Delegate reference assignment to an external source.
-    # Con: need to perform a validation check.
-    # Pro: node makes no requirements of its external structure.
-    #      'prop' can come from anywhere.
-    var prop
-    func call_me_after_prop_is_initialized_by_parent():
-        # Validate prop in one of three ways.
+# Delegate reference assignment to an external source.
+# Con: need to perform a validation check.
+# Pro: node makes no requirements of its external structure.
+#      'prop' can come from anywhere.
+var prop
+func call_me_after_prop_is_initialized_by_parent():
+    # Validate prop in one of three ways.
 
-        # Fail with no notification.
-        if not prop:
-            return
+    # Fail with no notification.
+    if not prop:
+        return
 
-        # Fail with an error message.
-        if not prop:
-            printerr("'prop' wasn't initialized")
-            return
+    # Fail with an error message.
+    if not prop:
+        printerr("'prop' wasn't initialized")
+        return
 
-        # Fail and terminate.
-        # Note: Scripts run from a release export template don't
-        # run `assert` statements.
-        assert(prop, "'prop' wasn't initialized")
+    # Fail and terminate.
+    # Note: Scripts run from a release export template don't
+    # run `assert` statements.
+    assert(prop, "'prop' wasn't initialized")
 
-    # Use an autoload.
-    # Dangerous for typical nodes, but useful for true singleton nodes
-    # that manage their own data and don't interfere with other objects.
-    func reference_a_global_autoloaded_variable():
-        print(globals)
-        print(globals.prop)
-        print(globals.my_getter())
+# Use an autoload.
+# Dangerous for typical nodes, but useful for true singleton nodes
+# that manage their own data and don't interfere with other objects.
+func reference_a_global_autoloaded_variable():
+    print(globals)
+    print(globals.prop)
+    print(globals.my_getter())
 ```
 
 ## Accessing data or logic from an object
@@ -178,19 +178,19 @@ accesses:
 gdscript GDScript
 
 ```
-      # All Objects have duck-typed get, set, and call wrapper methods.
-      get_parent().set("visible", false)
+# All Objects have duck-typed get, set, and call wrapper methods.
+get_parent().set("visible", false)
 
-      # Using a symbol accessor, rather than a string in the method call,
-      # will implicitly call the `set` method which, in turn, calls the
-      # setter method bound to the property through the property lookup
-      # sequence.
-      get_parent().visible = false
+# Using a symbol accessor, rather than a string in the method call,
+# will implicitly call the `set` method which, in turn, calls the
+# setter method bound to the property through the property lookup
+# sequence.
+get_parent().visible = false
 
-      # Note that if one defines a _set and _get that describe a property's
-      # existence, but the property isn't recognized in any _get_property_list
-      # method, then the set() and get() methods will work, but the symbol
-      # access will claim it can't find the property.
+# Note that if one defines a _set and _get that describe a property's
+# existence, but the property isn't recognized in any _get_property_list
+# method, then the set() and get() methods will work, but the symbol
+# access will claim it can't find the property.
 ```
 
 - A method check. In the case of
@@ -200,61 +200,61 @@ gdscript GDScript
 gdscript GDScript
 
 ```
-      var child = get_child(0)
+var child = get_child(0)
 
-      # Dynamic lookup.
-      child.call("set_visible", false)
+# Dynamic lookup.
+child.call("set_visible", false)
 
-      # Symbol-based dynamic lookup.
-      # GDScript aliases this into a 'call' method behind the scenes.
-      child.set_visible(false)
+# Symbol-based dynamic lookup.
+# GDScript aliases this into a 'call' method behind the scenes.
+child.set_visible(false)
 
-      # Dynamic lookup, checks for method existence first.
-      if child.has_method("set_visible"):
-          child.set_visible(false)
+# Dynamic lookup, checks for method existence first.
+if child.has_method("set_visible"):
+    child.set_visible(false)
 
-      # Cast check, followed by dynamic lookup.
-      # Useful when you make multiple "safe" calls knowing that the class
-      # implements them all. No need for repeated checks.
-      # Tricky if one executes a cast check for a user-defined type as it
-      # forces more dependencies.
-      if child is CanvasItem:
-          child.set_visible(false)
-          child.show_on_top = true
+# Cast check, followed by dynamic lookup.
+# Useful when you make multiple "safe" calls knowing that the class
+# implements them all. No need for repeated checks.
+# Tricky if one executes a cast check for a user-defined type as it
+# forces more dependencies.
+if child is CanvasItem:
+    child.set_visible(false)
+    child.show_on_top = true
 
-      # If one does not wish to fail these checks without notifying users,
-      # one can use an assert instead. These will trigger runtime errors
-      # immediately if not true.
-      assert(child.has_method("set_visible"))
-      assert(child.is_in_group("offer"))
-      assert(child is CanvasItem)
+# If one does not wish to fail these checks without notifying users,
+# one can use an assert instead. These will trigger runtime errors
+# immediately if not true.
+assert(child.has_method("set_visible"))
+assert(child.is_in_group("offer"))
+assert(child is CanvasItem)
 
-      # Can also use object labels to imply an interface, i.e. assume it
-      # implements certain methods.
-      # There are two types, both of which only exist for Nodes: Names and
-      # Groups.
+# Can also use object labels to imply an interface, i.e. assume it
+# implements certain methods.
+# There are two types, both of which only exist for Nodes: Names and
+# Groups.
 
-      # Assuming...
-      # A "Quest" object exists and 1) that it can "complete" or "fail" and
-      # that it will have text available before and after each state...
+# Assuming...
+# A "Quest" object exists and 1) that it can "complete" or "fail" and
+# that it will have text available before and after each state...
 
-      # 1. Use a name.
-      var quest = $Quest
-      print(quest.text)
-      quest.complete() # or quest.fail()
-      print(quest.text) # implied new text content
+# 1. Use a name.
+var quest = $Quest
+print(quest.text)
+quest.complete() # or quest.fail()
+print(quest.text) # implied new text content
 
-      # 2. Use a group.
-      for a_child in get_children():
-          if a_child.is_in_group("quest"):
-              print(quest.text)
-              quest.complete() # or quest.fail()
-              print(quest.text) # implied new text content
+# 2. Use a group.
+for a_child in get_children():
+    if a_child.is_in_group("quest"):
+        print(quest.text)
+        quest.complete() # or quest.fail()
+        print(quest.text) # implied new text content
 
-      # Note that these interfaces are project-specific conventions the team
-      # defines (which means documentation! But maybe worth it?).
-      # Any script that conforms to the documented "interface" of the name or
-      # group can fill in for it.
+# Note that these interfaces are project-specific conventions the team
+# defines (which means documentation! But maybe worth it?).
+# Any script that conforms to the documented "interface" of the name or
+# group can fill in for it.
 ```
 
 - Outsource the access to a `FuncRef`. These may be useful
@@ -264,25 +264,25 @@ gdscript GDScript
 gdscript GDScript
 
 ```
-    # child.gd
-    extends Node
-    var fn = null
+# child.gd
+extends Node
+var fn = null
 
-    func my_method():
-        if fn:
-            fn.call_func()
+func my_method():
+    if fn:
+        fn.call_func()
 
-    # parent.gd
-    extends Node
+# parent.gd
+extends Node
 
-    onready var child = $Child
+onready var child = $Child
 
-    func _ready():
-        child.fn = funcref(self, "print_me")
-        child.my_method()
+func _ready():
+    child.fn = funcref(self, "print_me")
+    child.my_method()
 
-    func print_me():
-        print(name)
+func print_me():
+    print(name)
 ```
 
 

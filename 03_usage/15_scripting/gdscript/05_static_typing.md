@@ -30,18 +30,18 @@ who work with your code should always pass an `Item` to the
 `Inventory.add` method. With types, you can enforce this:
 
 ```
-    # In 'Item.gd'.
-    class_name Item
-    # In 'Inventory.gd'.
-    class_name Inventory
+# In 'Item.gd'.
+class_name Item
+# In 'Inventory.gd'.
+class_name Inventory
 
 
-    func add(reference: Item, amount: int = 1):
-        var item = find_item(reference)
-        if not item:
-            item = _instance_item_from_db(reference)
+func add(reference: Item, amount: int = 1):
+    var item = find_item(reference)
+    if not item:
+        item = _instance_item_from_db(reference)
 
-        item.amount += amount
+    item.amount += amount
 ```
 
 Another significant advantage of typed GDScript is the new **warning
@@ -88,17 +88,17 @@ variable's name, followed by its type. E.g. `var health: int`. This
 forces the variable's type to always stay the same:
 
 ```
-    var damage: float = 10.5
-    const MOVE_SPEED: float = 50.0
+var damage: float = 10.5
+const MOVE_SPEED: float = 50.0
 ```
 
 Pandemonium will try to infer types if you write a colon, but you omit the
 type:
 
 ```
-    var life_points := 4
-    var damage := 10.5
-    var motion := Vector2()
+var life_points := 4
+var damage := 10.5
+var motion := Vector2()
 ```
 
 Currently you can use three types of… types:
@@ -120,16 +120,16 @@ are two ways to use them in scripts. The first method is to preload the
 script you want to use as a type in a constant:
 
 ```
-    const Rifle = preload("res://player/weapons/Rifle.gd")
-    var my_rifle: Rifle
+const Rifle = preload("res://player/weapons/Rifle.gd")
+var my_rifle: Rifle
 ```
 
 The second method is to use the `name` keyword when you create.
 For the example above, your Rifle.gd would look like this:
 
 ```
-    extends Node2D
-    class_name Rifle
+extends Node2D
+class_name Rifle
 ```
 
 If you use `name`, Pandemonium registers the Rifle type globally in
@@ -137,7 +137,7 @@ the editor, and you can use it anywhere, without having to preload it
 into a constant:
 
 ```
-    var my_rifle: Rifle
+var my_rifle: Rifle
 ```
 
 ### Variable casting
@@ -158,12 +158,12 @@ to use this type. This forces the variable to stick to the
 `PlayerController` type:
 
 ```
-    func _on_body_entered(body: PhysicsBody2D) -> void:
-        var player := body as PlayerController
-        if not player:
-            return
+func _on_body_entered(body: PhysicsBody2D) -> void:
+    var player := body as PlayerController
+    if not player:
+        return
 
-        player.damage()
+    player.damage()
 ```
 
 As we're dealing with a custom type, if the `body` doesn't extend
@@ -212,32 +212,32 @@ To define the return type of a function, write a dash and a right angle
 bracket `- )` after its declaration, followed by the return type:
 
 ```
-    func _process(delta: float) -> void:
-        pass
+func _process(delta: float) -> void:
+    pass
 ```
 
 The type `void` means the function does not return anything. You can
 use any type, as with variables:
 
 ```
-    func hit(damage: float) -> bool:
-        health_points -= damage
-        return health_points <= 0
+func hit(damage: float) -> bool:
+    health_points -= damage
+    return health_points <= 0
 ```
 
 You can also use your own nodes as return types:
 
 ```
-    # Inventory.gd
+# Inventory.gd
 
-    # Adds an item to the inventory and returns it.
-    func add(reference: Item, amount: int) -> Item:
-        var item: Item = find_item(reference)
-        if not item:
-            item = ItemDatabase.get_instance(reference)
+# Adds an item to the inventory and returns it.
+func add(reference: Item, amount: int) -> Item:
+    var item: Item = find_item(reference)
+    if not item:
+        item = ItemDatabase.get_instance(reference)
 
-        item.amount += amount
-        return item
+    item.amount += amount
+    return item
 ```
 
 #### Typed or dynamic: stick to one style
@@ -254,29 +254,29 @@ dynamic style:
 
 
 ```
-    extends Node
+extends Node
 
 
-    func _ready():
-        pass
+func _ready():
+    pass
 
 
-    func _process(delta):
-        pass
+func _process(delta):
+    pass
 ```
 
 And with static typing:
 
 ```
-    extends Node
+extends Node
 
 
-    func _ready() -> void:
-        pass
+func _ready() -> void:
+    pass
 
 
-    func _process(delta: float) -> void:
-        pass
+func _process(delta: float) -> void:
+    pass
 ```
 
 As you can see, you can also use types with the engine's virtual
@@ -284,26 +284,26 @@ methods. Signal callbacks, like any methods, can also use types. Here's
 a `body_entered` signal in a dynamic style:
 
 ```
-    func _on_Area2D_body_entered(body):
-        pass
+func _on_Area2D_body_entered(body):
+    pass
 ```
 
 And the same callback, with type hints:
 
 ```
-    func _on_area_entered(area: CollisionObject2D) -> void:
-        pass
+func _on_area_entered(area: CollisionObject2D) -> void:
+    pass
 ```
 
 You're free to replace, e.g. the `CollisionObject2D`, with your own type,
 to cast parameters automatically:
 
 ```
-    func _on_area_entered(bullet: Bullet) -> void:
-        if not bullet:
-            return
+func _on_area_entered(bullet: Bullet) -> void:
+    if not bullet:
+        return
 
-        take_damage(bullet.damage)
+    take_damage(bullet.damage)
 ```
 
 The `bullet` variable could hold any `CollisionObject2D` here, but
@@ -326,15 +326,15 @@ use type hints. All the examples below **will trigger errors**.
 You can't use Enums as types:
 
 ```
-    enum MoveDirection {UP, DOWN, LEFT, RIGHT}
-    var current_direction: MoveDirection
+enum MoveDirection {UP, DOWN, LEFT, RIGHT}
+var current_direction: MoveDirection
 ```
 
 You can't specify the type of individual members in an array. This will
 give you an error:
 
 ```
-    var enemies: Array = [$Goblin: Enemy, $Zombie: Enemy]
+var enemies: Array = [$Goblin: Enemy, $Zombie: Enemy]
 ```
 
 You can't force the assignment of types in a `for` loop, as each
@@ -342,31 +342,31 @@ element the `for` keyword loops over already has a different type. So you
 **cannot** write:
 
 ```
-    var names = ["John", "Marta", "Samantha", "Jimmy"]
-    for name: String in names:
-        pass
+var names = ["John", "Marta", "Samantha", "Jimmy"]
+for name: String in names:
+    pass
 ```
 
 Two scripts can't depend on each other in a cyclic fashion:
 
 ```
-    # Player.gd
+# Player.gd
 
-    extends Area2D
-    class_name Player
+extends Area2D
+class_name Player
 
 
-    var rifle: Rifle
+var rifle: Rifle
 ```
 
 ```
-    # Rifle.gd
+# Rifle.gd
 
-    extends Area2D
-    class_name Rifle
+extends Area2D
+class_name Rifle
 
 
-    var player: Player
+var player: Player
 ```
 
 ## Summary

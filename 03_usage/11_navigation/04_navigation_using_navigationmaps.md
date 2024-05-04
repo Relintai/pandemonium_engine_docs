@@ -25,9 +25,9 @@ The 3D default navigation `map` can be obtained with ``get_world_3d().get_naviga
 GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    var default_2d_navigation_map_rid: RID = get_world_2d().get_navigation_map()
+var default_2d_navigation_map_rid: RID = get_world_2d().get_navigation_map()
 ```
 
 ### Creating new navigation maps
@@ -49,19 +49,19 @@ Note:
 GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    var new_navigation_map: RID = NavigationServer2D.map_create()
-    NavigationServer2D.map_set_active(true)
+var new_navigation_map: RID = NavigationServer2D.map_create()
+NavigationServer2D.map_set_active(true)
 ```
 
 GDScript
 
 ```
-    extends Node3D
+extends Node3D
 
-    var new_navigation_map: RID = NavigationServer3D.map_create()
-    NavigationServer3D.map_set_active(true)
+var new_navigation_map: RID = NavigationServer3D.map_create()
+NavigationServer3D.map_set_active(true)
 ```
 
 Note:

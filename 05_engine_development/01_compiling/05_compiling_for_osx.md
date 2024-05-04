@@ -19,7 +19,7 @@ For compiling under macOS, the following is required:
 If you have `Homebrew ( https://brew.sh/ )` installed, you can easily install SCons and yasm using the following command:
 
 ```
-              brew install scons yasm
+brew install scons yasm
 ```
 
 Installing Homebrew will also fetch the Command Line Tools for Xcode automatically if you don't have them already.
@@ -28,7 +28,7 @@ Similarly, if you have `MacPorts ( https://www.macports.org/ )` installed, you c
 SCons and yasm using the following command:
 
 ```
-              sudo port install scons yasm
+sudo port install scons yasm
 ```
 
 To get the Pandemonium source code for compiling, see `doc_getting_source`.
@@ -42,19 +42,19 @@ Start a terminal, go to the root directory of the engine source code.
 To compile for Intel (x86-64) powered Macs, use
 
 ```
-    scons platform=osx arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=osx arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
 ```
 
 To compile for Apple Silicon (ARM64) powered Macs, use:
 
 ```
-    scons platform=osx arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=osx arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
 ```
 
 To support both architectures in a single "Universal 2" binary, run the above two commands and then use `lipo` to bundle them together:
 
 ```
-    lipo -create bin/pandemonium.osx.tools.x86_64 bin/pandemonium.osx.tools.arm64 -output bin/pandemonium.osx.tools.universal
+lipo -create bin/pandemonium.osx.tools.x86_64 bin/pandemonium.osx.tools.arm64 -output bin/pandemonium.osx.tools.universal
 ```
 
 If all goes well, the resulting binary executable will be placed in the `bin/` subdirectory. This executable 
@@ -68,10 +68,10 @@ template located in `misc/dist/osx_tools.app`. Typically, for an optimized
 editor binary built with `target=release_debug`:
 
 ```
-    cp -r misc/dist/osx_tools.app ./Pandemonium.app
-    mkdir -p Pandemonium.app/Contents/MacOS
-    cp bin/pandemonium.osx.opt.tools.universal Pandemonium.app/Contents/MacOS/Pandemonium
-    chmod +x Pandemonium.app/Contents/MacOS/Pandemonium
+cp -r misc/dist/osx_tools.app ./Pandemonium.app
+mkdir -p Pandemonium.app/Contents/MacOS
+cp bin/pandemonium.osx.opt.tools.universal Pandemonium.app/Contents/MacOS/Pandemonium
+chmod +x Pandemonium.app/Contents/MacOS/Pandemonium
 ```
 
 ## Compiling a headless/server build
@@ -80,21 +80,21 @@ To compile a *headless* build which provides editor functionality to export
 projects in an automated manner, use:
 
 ```
-    scons platform=server tools=yes target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=server tools=yes target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
 ```
 
 To compile a debug *server* build which can be used with
 `remote debugging tools ( doc_command_line_tutorial )`, use:
 
 ```
-    scons platform=server tools=no target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=server tools=no target=release_debug --jobs=$(sysctl -n hw.logicalcpu)
 ```
 
 To compile a release *server* build which is optimized to run dedicated game servers,
 use:
 
 ```
-    scons platform=server tools=no target=release --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=server tools=no target=release --jobs=$(sysctl -n hw.logicalcpu)
 ```
 
 ## Building export templates
@@ -110,23 +110,23 @@ of those two architectures by leaving out the `lipo` step below.
 - For Intel x86_64:
 
 ```
-    scons platform=osx tools=no target=release arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
-    scons platform=osx tools=no target=release_debug arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=osx tools=no target=release arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=osx tools=no target=release_debug arch=x86_64 --jobs=$(sysctl -n hw.logicalcpu)
 ```
 
 - For ARM64 (Apple M1):
 
 ```
-    scons platform=osx tools=no target=release arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
-    scons platform=osx tools=no target=release_debug arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=osx tools=no target=release arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
+scons platform=osx tools=no target=release_debug arch=arm64 --jobs=$(sysctl -n hw.logicalcpu)
 ```
 
 To support both architectures in a single "Universal 2" binary, run the above
 two commands blocks and then use `lipo` to bundle them together:
 
 ```
-    lipo -create bin/pandemonium.osx.opt.x86_64 bin/pandemonium.osx.opt.arm64 -output bin/pandemonium.osx.opt.universal
-    lipo -create bin/pandemonium.osx.opt.debug.x86_64 bin/pandemonium.osx.opt.debug.arm64 -output bin/pandemonium.osx.opt.debug.universal
+lipo -create bin/pandemonium.osx.opt.x86_64 bin/pandemonium.osx.opt.arm64 -output bin/pandemonium.osx.opt.universal
+lipo -create bin/pandemonium.osx.opt.debug.x86_64 bin/pandemonium.osx.opt.debug.arm64 -output bin/pandemonium.osx.opt.debug.universal
 ```
 
 To create an `.app` bundle like in the official builds, you need to use the
@@ -137,18 +137,18 @@ with the following commands (assuming a universal build, otherwise replace the
 `.universal` extension with the one of your arch-specific binaries):
 
 ```
-    cp -r misc/dist/osx_template.app .
-    mkdir -p osx_template.app/Contents/MacOS
-    cp bin/pandemonium.osx.opt.universal osx_template.app/Contents/MacOS/pandemonium_osx_release.64
-    cp bin/pandemonium.osx.opt.debug.universal osx_template.app/Contents/MacOS/pandemonium_osx_debug.64
-    chmod +x osx_template.app/Contents/MacOS/pandemonium_osx*
+cp -r misc/dist/osx_template.app .
+mkdir -p osx_template.app/Contents/MacOS
+cp bin/pandemonium.osx.opt.universal osx_template.app/Contents/MacOS/pandemonium_osx_release.64
+cp bin/pandemonium.osx.opt.debug.universal osx_template.app/Contents/MacOS/pandemonium_osx_debug.64
+chmod +x osx_template.app/Contents/MacOS/pandemonium_osx*
 ```
 
 You can then zip the `osx_template.app` folder to reproduce the `osx.zip`
 template from the official Pandemonium distribution:
 
 ```
-    zip -q -9 -r osx.zip osx_template.app
+zip -q -9 -r osx.zip osx_template.app
 ```
 
 ## Cross-compiling for macOS from Linux
@@ -163,7 +163,7 @@ somewhere on your machine (or download a ZIP file and extract it somewhere),
 e.g.:
 
 ```
-    git clone --depth=1 https://github.com/tpoechtrager/osxcross.git "$HOME/osxcross"
+git clone --depth=1 https://github.com/tpoechtrager/osxcross.git "$HOME/osxcross"
 ```
 
 1. Follow the instructions to package the SDK:
@@ -176,17 +176,17 @@ the OSXCross installation (the same place where you cloned the
 repository/extracted the zip), e.g.:
 
 ```
-    export OSXCROSS_ROOT="$HOME/osxcross"
+export OSXCROSS_ROOT="$HOME/osxcross"
 ```
 
 Now you can compile with SCons like you normally would:
 
 ```
-    scons platform=osx
+scons platform=osx
 ```
 
 If you have an OSXCross SDK version different from the one expected by the SCons buildsystem, you can specify a custom one with the `osxcross_sdk` argument:
 
 ```
-    scons platform=osx osxcross_sdk=darwin15
+scons platform=osx osxcross_sdk=darwin15
 ```

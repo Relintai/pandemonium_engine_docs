@@ -65,12 +65,12 @@ Create a directory named `locale` in the project directory. In this directory,
 save a file named `messages.pot` with the following contents:
 
 ```
-    # Don't remove the two lines below, they're required for gettext to work correctly.
-    msgid ""
-    msgstr ""
+# Don't remove the two lines below, they're required for gettext to work correctly.
+msgid ""
+msgstr ""
 
-    msgid "Hello world!"
-    msgstr ""
+msgid "Hello world!"
+msgstr ""
 ```
 
 Messages in gettext are made of `msgid` and `msgstr` pairs.
@@ -88,7 +88,7 @@ create and update the POT file from your scene files and scripts.
 After installing `babel` and `babel-pandemonium`, for example using pip:
 
 ```
-    pip3 install babel babel-pandemonium
+pip3 install babel babel-pandemonium
 ```
 
 Write a mapping file (for example `babelrc`) which will indicate which files
@@ -96,17 +96,17 @@ pybabel needs to process (note that we process GDScript as Python, which is
 generally sufficient):
 
 ```
-    [python: **.gd]
-    encoding = utf-8
+[python: **.gd]
+encoding = utf-8
 
-    [pandemonium_scene: **.tscn]
-    encoding = utf-8
+[pandemonium_scene: **.tscn]
+encoding = utf-8
 ```
 
 You can then run pybabel like so:
 
 ```
-    pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr -o pandemonium-l10n.pot .
+pybabel extract -F babelrc -k text -k LineEdit/placeholder_text -k tr -o pandemonium-l10n.pot .
 ```
 
 Use the `-k` option to specify what needs to be extracted. In this case,
@@ -121,7 +121,7 @@ For instance, to create a French localization file, use the following command
 while in the `locale` directory:
 
 ```
-    msginit --no-translator --input=messages.pot --locale=fr
+msginit --no-translator --input=messages.pot --locale=fr
 ```
 
 The command above will create a file named `fr.po` in the same directory
@@ -150,8 +150,8 @@ present in the PO template. This can be done automatically using the
 `msgmerge` tool:
 
 ```
-    # The order matters: specify the message file *then* the PO template!
-    msgmerge --update --backup=none fr.po messages.pot
+# The order matters: specify the message file *then* the PO template!
+msgmerge --update --backup=none fr.po messages.pot
 ```
 
 If you want to keep a backup of the original message file (which would be
@@ -174,7 +174,7 @@ It is possible to check whether a gettext file's syntax is valid by running
 the command below:
 
 ```
-    msgfmt fr.po --check
+msgfmt fr.po --check
 ```
 
 If there are syntax errors or warnings, they will be displayed in the console.
@@ -190,7 +190,7 @@ PO files.
 You can generate a MO file with the command below:
 
 ```
-    msgfmt fr.po --no-hash -o fr.mo
+msgfmt fr.po --no-hash -o fr.mo
 ```
 
 If the PO file is valid, this command will create a `fr.mo` file besides
@@ -201,7 +201,7 @@ your translation in the future. In case you lose the original PO file and
 wish to decompile a MO file into a text-based PO file, you can do so with:
 
 ```
-    msgunfmt fr.mo > fr.po
+msgunfmt fr.mo > fr.po
 ```
 
 The decompiled file will not include comments or fuzzy strings, as these are

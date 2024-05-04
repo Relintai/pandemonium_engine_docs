@@ -27,16 +27,16 @@ An `AudioStreamPlayer` named `AudioStreamRecord` is used for recording.
 gdscript GDScript
 
 ```
-    var effect
-    var recording
+var effect
+var recording
 
 
-    func _ready():
-        # We get the index of the "Record" bus.
-        var idx = AudioServer.get_bus_index("Record")
-        # And use it to retrieve its first effect, which has been defined
-        # as an "AudioEffectRecord" resource.
-        effect = AudioServer.get_bus_effect(idx, 0)
+func _ready():
+    # We get the index of the "Record" bus.
+    var idx = AudioServer.get_bus_index("Record")
+    # And use it to retrieve its first effect, which has been defined
+    # as an "AudioEffectRecord" resource.
+    effect = AudioServer.get_bus_effect(idx, 0)
 ```
 
 The audio recording is handled by the `AudioEffectRecord` resource
@@ -48,20 +48,20 @@ and `set_recording_active()`.
 gdscript GDScript
 
 ```
-    func _on_RecordButton_pressed():
-        if effect.is_recording_active():
-            recording = effect.get_recording()
-            $PlayButton.disabled = false
-            $SaveButton.disabled = false
-            effect.set_recording_active(false)
-            $RecordButton.text = "Record"
-            $Status.text = ""
-        else:
-            $PlayButton.disabled = true
-            $SaveButton.disabled = true
-            effect.set_recording_active(true)
-            $RecordButton.text = "Stop"
-            $Status.text = "Recording..."
+func _on_RecordButton_pressed():
+    if effect.is_recording_active():
+        recording = effect.get_recording()
+        $PlayButton.disabled = false
+        $SaveButton.disabled = false
+        effect.set_recording_active(false)
+        $RecordButton.text = "Record"
+        $Status.text = ""
+    else:
+        $PlayButton.disabled = true
+        $SaveButton.disabled = true
+        effect.set_recording_active(true)
+        $RecordButton.text = "Stop"
+        $Status.text = "Recording..."
 ```
 
 
@@ -76,16 +76,16 @@ the recorded stream can be stored into the `recording` variable by calling
 gdscript GDScript
 
 ```
-    func _on_PlayButton_pressed():
-        print(recording)
-        print(recording.format)
-        print(recording.mix_rate)
-        print(recording.stereo)
-        var data = recording.get_data()
-        print(data)
-        print(data.size())
-        $AudioStreamPlayer.stream = recording
-        $AudioStreamPlayer.play()
+func _on_PlayButton_pressed():
+    print(recording)
+    print(recording.format)
+    print(recording.mix_rate)
+    print(recording.stereo)
+    var data = recording.get_data()
+    print(data)
+    print(data.size())
+    $AudioStreamPlayer.stream = recording
+    $AudioStreamPlayer.play()
 ```
 
 To playback the recording, you assign the recording as the stream of the
@@ -94,10 +94,10 @@ To playback the recording, you assign the recording as the stream of the
 gdscript GDScript
 
 ```
-    func _on_SaveButton_pressed():
-        var save_path = $SaveButton/Filename.text
-        recording.save_to_wav(save_path)
-        $Status.text = "Saved WAV file to: %s\n(%s)" % [save_path, ProjectSettings.globalize_path(save_path)]
+func _on_SaveButton_pressed():
+    var save_path = $SaveButton/Filename.text
+    recording.save_to_wav(save_path)
+    $Status.text = "Saved WAV file to: %s\n(%s)" % [save_path, ProjectSettings.globalize_path(save_path)]
 ```
 
 

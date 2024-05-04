@@ -19,8 +19,8 @@ In Pandemonium debug builds the navigation debug can also be toggled on the Navi
 GDScript
 
 ```
-    NavigationServer2D.set_debug_enabled(false)
-    NavigationServer3D.set_debug_enabled(true)
+NavigationServer2D.set_debug_enabled(false)
+NavigationServer3D.set_debug_enabled(true)
 ```
 
 ## Debug navigation settings

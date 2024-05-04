@@ -65,7 +65,7 @@ To enable debugging support you need to edit the external build target's build a
 - Create a script that will give the binary a name that Xcode can recognize, e.g.:
 
 ```
-  ln -f ${PROJECT_DIR}/pandemonium/bin/pandemonium.osx.tools.64 ${PROJECT_DIR}/pandemonium/bin/pandemonium
+ln -f ${PROJECT_DIR}/pandemonium/bin/pandemonium.osx.tools.64 ${PROJECT_DIR}/pandemonium/bin/pandemonium
 ```
 
 ![](img/xcode_7_setup_build_post_action.png)

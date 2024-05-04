@@ -24,14 +24,14 @@ passing the `-e` argument to Pandemonium Engine's binary from within your
 project's folder. Typically:
 
 ```
-    $ cd ~/myproject
-    $ gdb pandemonium
-    > run -e
+$ cd ~/myproject
+$ gdb pandemonium
+> run -e
 ```
 
 Or:
 
 ```
-    $ gdb pandemonium
-    > run -e --path ~/myproject
+$ gdb pandemonium
+> run -e --path ~/myproject
 ```

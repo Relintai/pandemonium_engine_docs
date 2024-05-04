@@ -108,9 +108,9 @@ objects are rendered from back to front, consider 3 objects `A`, `B` and
 In painter's order they are ordered:
 
 ```
-    A - wood
-    B - grass
-    C - wood
+A - wood
+B - grass
+C - wood
 ```
 
 Because of the texture changes, they can't be batched and will be rendered in 3
@@ -135,9 +135,9 @@ balance the costs and benefits in your project.
 
 ```
 
-    A - wood
-    C - wood
-    B - grass
+A - wood
+C - wood
+B - grass
 ```
 
 Since the texture only changes once, we can render the above in only 2 draw
@@ -156,14 +156,14 @@ lights, they would be drawn as follows, each line being a draw call:
 
 ```
 
-    A
-    A - light 1
-    A - light 2
-    A - light 3
-    B
-    B - light 1
-    B - light 2
-    B - light 3
+A
+A - light 1
+A - light 2
+A - light 3
+B
+B - light 1
+B - light 2
+B - light 3
 ```
 
 That is a lot of draw calls: 8 for only 2 sprites. Now, consider we are drawing
@@ -181,10 +181,10 @@ so the drawing process is as follows:
 
 ```
 
-    AB
-    AB - light 1
-    AB - light 2
-    AB - light 3
+AB
+AB - light 1
+AB - light 2
+AB - light 3
 ```
 
 
@@ -396,25 +396,25 @@ as intended, and help you fix these situations to get the best possible performa
 #### Reading a diagnostic
 
 ```
-    canvas_begin FRAME 2604
-    items
-        joined_item 1 refs
-                batch D 0-0
-                batch D 0-2 n n
-                batch R 0-1 [0 - 0] {255 255 255 255 }
-        joined_item 1 refs
-                batch D 0-0
-                batch R 0-1 [0 - 146] {255 255 255 255 }
-                batch D 0-0
-                batch R 0-1 [0 - 146] {255 255 255 255 }
-        joined_item 1 refs
-                batch D 0-0
-                batch R 0-2560 [0 - 144] {158 193 0 104 } MULTI
-                batch D 0-0
-                batch R 0-2560 [0 - 144] {158 193 0 104 } MULTI
-                batch D 0-0
-                batch R 0-2560 [0 - 144] {158 193 0 104 } MULTI
-    canvas_end
+canvas_begin FRAME 2604
+items
+    joined_item 1 refs
+            batch D 0-0
+            batch D 0-2 n n
+            batch R 0-1 [0 - 0] {255 255 255 255 }
+    joined_item 1 refs
+            batch D 0-0
+            batch R 0-1 [0 - 146] {255 255 255 255 }
+            batch D 0-0
+            batch R 0-1 [0 - 146] {255 255 255 255 }
+    joined_item 1 refs
+            batch D 0-0
+            batch R 0-2560 [0 - 144] {158 193 0 104 } MULTI
+            batch D 0-0
+            batch R 0-2560 [0 - 144] {158 193 0 104 } MULTI
+            batch D 0-0
+            batch R 0-2560 [0 - 144] {158 193 0 104 } MULTI
+canvas_end
 ```
 
 
@@ -439,18 +439,18 @@ The second number following default batches is the number of commands in the
 batch, and it is followed by a brief summary of the contents:
 
 ```
-    l - line
-    PL - polyline
-    r - rect
-    n - ninepatch
-    PR - primitive
-    p - polygon
-    m - mesh
-    MM - multimesh
-    PA - particles
-    c - circle
-    t - transform
-    CI - clip_ignore
+l - line
+PL - polyline
+r - rect
+n - ninepatch
+PR - primitive
+p - polygon
+m - mesh
+MM - multimesh
+PA - particles
+c - circle
+t - transform
+CI - clip_ignore
 ```
 
 You may see "dummy" default batches containing no commands; you can ignore those.
@@ -521,8 +521,8 @@ For example, on a screen size of 1920×1080, there are 2,073,600 pixels.
 At a threshold of 1,000 pixels, the proportion would be:
 
 ```
-    1000 / 2073600 = 0.00048225
-    0.00048225 ^ (1/4) = 0.14819
+1000 / 2073600 = 0.00048225
+0.00048225 ^ (1/4) = 0.14819
 ```
 
 So a `scissor_area_threshold
@@ -534,8 +534,8 @@ Going the other way, for instance with a `scissor_area_threshold
 of `0.5`:
 
 ```
-    0.5 ^ 4 = 0.0625
-    0.0625 * 2073600 = 129600 pixels
+0.5 ^ 4 = 0.0625
+0.0625 * 2073600 = 129600 pixels
 ```
 
 If the number of pixels saved is greater than this threshold, the scissor is

@@ -275,8 +275,8 @@ This allows interacting with the browser in ways not possible with script
 languages integrated into Pandemonium.
 
 ```
-    func my_func():
-        JavaScript.eval("alert('Calling JavaScript per GDScript!');")
+func my_func():
+    JavaScript.eval("alert('Calling JavaScript per GDScript!');")
 ```
 
 The value of the last JavaScript statement is converted to a GDScript value and
@@ -289,9 +289,9 @@ returned by `eval()` under certain circumstances:
    GDScript `PoolByteArray`
 
 ```
-    func my_func2():
-        var js_return = JavaScript.eval("var myNumber = 1; myNumber + 2;")
-        print(js_return) # prints '3.0'
+func my_func2():
+    var js_return = JavaScript.eval("var myNumber = 1; myNumber + 2;")
+    print(js_return) # prints '3.0'
 ```
 
 Any other JavaScript value is returned as `null`.
@@ -303,13 +303,13 @@ platforms other than HTML5, calling `JavaScript.eval` will also return
 `JavaScript` `feature tag ( doc_feature_tags )`:
 
 ```
-    func my_func3():
-        if OS.has_feature('JavaScript'):
-            JavaScript.eval("""
-                console.log('The JavaScript singleton is available')
-            """)
-        else:
-            print("The JavaScript singleton is NOT available")
+func my_func3():
+    if OS.has_feature('JavaScript'):
+        JavaScript.eval("""
+            console.log('The JavaScript singleton is available')
+        """)
+    else:
+        print("The JavaScript singleton is NOT available")
 ```
 
 Tip:
@@ -321,8 +321,8 @@ specifies whether to execute the code in the global execution context,
 defaulting to `false` to prevent polluting the global namespace:
 
 ```
-    func my_func4():
-        # execute in global execution context,
-        # thus adding a new JavaScript global variable `SomeGlobal`
-        JavaScript.eval("var SomeGlobal = {};", true)
+func my_func4():
+    # execute in global execution context,
+    # thus adding a new JavaScript global variable `SomeGlobal`
+    JavaScript.eval("var SomeGlobal = {};", true)
 ```

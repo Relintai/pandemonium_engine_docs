@@ -10,21 +10,21 @@ but it can also be useful for those writing custom C++ modules.
 
 
 ```
-    // Prints a message to standard output.
-    print_line("Message");
+// Prints a message to standard output.
+print_line("Message");
 
-    // Prints a message to standard output, but only when the engine
-    // is started with the `--verbose` command line argument.
-    print_verbose("Message");
+// Prints a message to standard output, but only when the engine
+// is started with the `--verbose` command line argument.
+print_verbose("Message");
 
-    // Prints a formatted error or warning message with a trace.
-    ERR_PRINT("Message");
-    WARN_PRINT("Message");
+// Prints a formatted error or warning message with a trace.
+ERR_PRINT("Message");
+WARN_PRINT("Message");
 
-    // Prints an error or warning message only once per session.
-    // This can be used to avoid spamming the console output.
-    ERR_PRINT_ONCE("Message");
-    WARN_PRINT_ONCE("Message");
+// Prints an error or warning message only once per session.
+// This can be used to avoid spamming the console output.
+ERR_PRINT_ONCE("Message");
+WARN_PRINT_ONCE("Message");
 ```
 
 If you need to add placeholders in your messages, use format strings as
@@ -36,14 +36,14 @@ The `vformat()` function returns a formatted `String`. It behaves
 in a way similar to C's `sprintf()`:
 
 ```
-    vformat("My name is %s.", "Godette");
-    vformat("%d bugs on the wall!", 1234);
-    vformat("Pi is approximately %f.", 3.1416);
+vformat("My name is %s.", "Godette");
+vformat("%d bugs on the wall!", 1234);
+vformat("Pi is approximately %f.", 3.1416);
 
-    // Converts the resulting String into a `const char *`.
-    // You may need to do this if passing the result as an argument
-    // to a method that expects a `const char *` instead of a String.
-    vformat("My name is %s.", "Godette").c_str();
+// Converts the resulting String into a `const char *`.
+// You may need to do this if passing the result as an argument
+// to a method that expects a `const char *` instead of a String.
+vformat("My name is %s.", "Godette").c_str();
 ```
 
 In most cases, try to use `vformat()` instead of string concatenation as it
@@ -54,11 +54,11 @@ makes for more readable code.
 This is mainly useful when printing numbers directly.
 
 ```
-    // Prints "42" using integer-to-string conversion.
-    print_line(itos(42));
+// Prints "42" using integer-to-string conversion.
+print_line(itos(42));
 
-    // Prints "123.45" using real-to-string conversion.
-    print_line(rtos(123.45));
+// Prints "123.45" using real-to-string conversion.
+print_line(rtos(123.45));
 ```
 
 ## Internationalize a string
@@ -74,18 +74,18 @@ There are two types of internationalization in Pandemonium's codebase:
   translation shouldn't be used in editor-only code.
 
 ```
-    // Returns the translated string that matches the user's locale settings.
-    // Translations are located in `editor/translations`.
-    // The localization template is generated automatically; don't modify it.
-    TTR("Exit the editor?");
+// Returns the translated string that matches the user's locale settings.
+// Translations are located in `editor/translations`.
+// The localization template is generated automatically; don't modify it.
+TTR("Exit the editor?");
 ```
 
 To insert placeholders in localizable strings, wrap the localization macro in a
 `vformat()` call as follows:
 
 ```
-    String file_path = "example.txt";
-    vformat(TTR("Couldn't open \"%s\" for reading."), file_path);
+String file_path = "example.txt";
+vformat(TTR("Couldn't open \"%s\" for reading."), file_path);
 ```
 
 Note:
@@ -102,12 +102,12 @@ Pandemonium provides macros for clamping a value with a lower bound (`MAX`), an
 upper bound (`MIN`) or both (`CLAMP`):
 
 ```
-    int a = 3;
-    int b = 5;
+int a = 3;
+int b = 5;
 
-    MAX(b, 6); // 6
-    MIN(2, a); // 2
-    CLAMP(a, 10, 30); // 10
+MAX(b, 6); // 6
+MIN(2, a); // 2
+CLAMP(a, 10, 30); // 10
 ```
 
 This works with any type that can be compared to other values (like `int` and
@@ -119,12 +119,12 @@ If you want to benchmark a piece of code but don't know how to use a profiler,
 use this snippet:
 
 ```
-    uint64_t begin = OS::get_singleton()->get_ticks_usec();
+uint64_t begin = OS::get_singleton()->get_ticks_usec();
 
-    // Your code here...
+// Your code here...
 
-    uint64_t end = OS::get_singleton()->get_ticks_usec();
-    print_line(vformat("Snippet took %d microseconds", end - begin));
+uint64_t end = OS::get_singleton()->get_ticks_usec();
+print_line(vformat("Snippet took %d microseconds", end - begin));
 ```
 
 This will print the time spent between the `begin` declaration and the `end`
@@ -142,23 +142,23 @@ Note:
 There are four macros available for this:
 
 ```
-    // Returns the specified project setting's value,
-    // defaulting to `false` if it doesn't exist.
-    GLOBAL_DEF("section/subsection/value", false);
+// Returns the specified project setting's value,
+// defaulting to `false` if it doesn't exist.
+GLOBAL_DEF("section/subsection/value", false);
 
-    // Returns the specified editor setting's value,
-    // defaulting to "Untitled" if it doesn't exist.
-    EDITOR_DEF("section/subsection/value", "Untitled");
+// Returns the specified editor setting's value,
+// defaulting to "Untitled" if it doesn't exist.
+EDITOR_DEF("section/subsection/value", "Untitled");
 ```
 
 If a default value has been specified elsewhere, don't specify it again to avoid
 repetition:
 
 ```
-    // Returns the value of the project setting.
-    GLOBAL_GET("section/subsection/value");
-    // Returns the value of the editor setting.
-    EDITOR_GET("section/subsection/value");
+// Returns the value of the project setting.
+GLOBAL_GET("section/subsection/value");
+// Returns the value of the editor setting.
+EDITOR_GET("section/subsection/value");
 ```
 
 It's recommended to use `GLOBAL_DEF`/`EDITOR_DEF` only once per setting and
@@ -192,41 +192,41 @@ Note:
     well.
 
 ```
-    // Conditionally prints an error message and returns from the function.
-    // Use this in methods which don't return a value.
-    ERR_FAIL_COND_MSG(!mesh.is_valid(), vformat("Couldn't load mesh at: %s", path));
+// Conditionally prints an error message and returns from the function.
+// Use this in methods which don't return a value.
+ERR_FAIL_COND_MSG(!mesh.is_valid(), vformat("Couldn't load mesh at: %s", path));
 
-    // Conditionally prints an error message and returns `0` from the function.
-    // Use this in methods which must return a value.
-    ERR_FAIL_COND_V_MSG(rect.x < 0 || rect.y < 0, 0,
-            "Couldn't calculate the rectangle's area.");
+// Conditionally prints an error message and returns `0` from the function.
+// Use this in methods which must return a value.
+ERR_FAIL_COND_V_MSG(rect.x < 0 || rect.y < 0, 0,
+        "Couldn't calculate the rectangle's area.");
 
-    // Prints an error message if `index` is < 0 or >= `SomeEnum::QUALITY_MAX`,
-    // then returns from the function.
-    ERR_FAIL_INDEX_MSG(index, SomeEnum::QUALITY_MAX,
-            vformat("Invalid quality: %d. See SomeEnum for allowed values.", index));
+// Prints an error message if `index` is < 0 or >= `SomeEnum::QUALITY_MAX`,
+// then returns from the function.
+ERR_FAIL_INDEX_MSG(index, SomeEnum::QUALITY_MAX,
+        vformat("Invalid quality: %d. See SomeEnum for allowed values.", index));
 
-    // Prints an error message if `index` is < 0 >= `some_array.size()`,
-    // then returns `-1` from the function.
-    ERR_FAIL_INDEX_V_MSG(index, some_array.size(), -1,
-            vformat("Item %d is out of bounds.", index));
+// Prints an error message if `index` is < 0 >= `some_array.size()`,
+// then returns `-1` from the function.
+ERR_FAIL_INDEX_V_MSG(index, some_array.size(), -1,
+        vformat("Item %d is out of bounds.", index));
 
-    // Unconditionally prints an error message and returns from the function.
-    // Only use this if you need to perform complex error checking.
-    if (!complex_error_checking_routine()) {
-        ERR_FAIL_MSG("Couldn't reload the filesystem cache.");
-    }
+// Unconditionally prints an error message and returns from the function.
+// Only use this if you need to perform complex error checking.
+if (!complex_error_checking_routine()) {
+    ERR_FAIL_MSG("Couldn't reload the filesystem cache.");
+}
 
-    // Unconditionally prints an error message and returns `false` from the function.
-    // Only use this if you need to perform complex error checking.
-    if (!complex_error_checking_routine()) {
-        ERR_FAIL_V_MSG(false, "Couldn't parse the input arguments.");
-    }
+// Unconditionally prints an error message and returns `false` from the function.
+// Only use this if you need to perform complex error checking.
+if (!complex_error_checking_routine()) {
+    ERR_FAIL_V_MSG(false, "Couldn't parse the input arguments.");
+}
 
-    // Crashes the engine. This should generally never be used
-    // except for testing crash handling code. Pandemonium's philosophy
-    // is to never crash, both in the editor and in exported projects.
-    CRASH_NOW_MSG("Can't predict the future! Aborting.");
+// Crashes the engine. This should generally never be used
+// except for testing crash handling code. Pandemonium's philosophy
+// is to never crash, both in the editor and in exported projects.
+CRASH_NOW_MSG("Can't predict the future! Aborting.");
 ```
 
 See also:

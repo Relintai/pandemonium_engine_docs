@@ -57,7 +57,7 @@ Add a script to the `Mob` like this:
 gdscript GDScript
 
 ```
-    extends RigidBody2D
+extends RigidBody2D
 ```
 
 Now let's look at the rest of the script. In `ready()` we play the animation
@@ -66,10 +66,10 @@ and randomly choose one of the three animation types:
 gdscript GDScript
 
 ```
-    func _ready():
-        $AnimatedSprite.playing = true
-        var mob_types = $AnimatedSprite.frames.get_animation_names()
-        $AnimatedSprite.animation = mob_types[randi() % mob_types.size()]
+func _ready():
+    $AnimatedSprite.playing = true
+    var mob_types = $AnimatedSprite.frames.get_animation_names()
+    $AnimatedSprite.animation = mob_types[randi() % mob_types.size()]
 ```
 
 First, we get the list of animation names from the AnimatedSprite's `frames`
@@ -92,8 +92,8 @@ add this code:
 gdscript GDScript
 
 ```
-    func _on_VisibilityNotifier2D_screen_exited():
-        queue_free()
+func _on_VisibilityNotifier2D_screen_exited():
+    queue_free()
 ```
 
 This completes the `Mob` scene.

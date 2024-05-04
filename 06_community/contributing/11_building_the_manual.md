@@ -25,25 +25,25 @@ Note:
           If both approaches fail, `check that you have pip3 installed ( https://pip.pypa.io/en/stable/installation/ )`.
 
 ```
-    git clone https://github.com/Relintai/pandemonium_engine-docs.git
-    pip3 install -r requirements.txt
+git clone https://github.com/Relintai/pandemonium_engine-docs.git
+pip3 install -r requirements.txt
 ```
 
 With the programs installed, you can build the HTML documentation from the root
 folder of this repository with the following command:
 
 ```
-    # On Linux and macOS
-    make html
+# On Linux and macOS
+make html
 
-    # On Windows, you need to execute the `make.bat` file instead.
-    make.bat html
+# On Windows, you need to execute the `make.bat` file instead.
+make.bat html
 ```
 
 If you run into errors, you may try the following command:
 
 ```
-    make SPHINXBUILD=~/.local/bin/sphinx-build html
+make SPHINXBUILD=~/.local/bin/sphinx-build html
 ```
 
 Building the documentation requires at least 8 GB of RAM to run without disk
@@ -51,11 +51,11 @@ swapping, which slows it down. If you have at least 16 GB of RAM, you can speed
 up compilation by running:
 
 ```
-    # On Linux/macOS
-    make html SPHINXOPTS=-j2
+# On Linux/macOS
+make html SPHINXOPTS=-j2
 
-    # On Windows
-    set SPHINXOPTS=-j2 && make html
+# On Windows
+set SPHINXOPTS=-j2 && make html
 ```
 
 The compilation will take some time as the `classes/` folder contains hundreds
@@ -87,7 +87,7 @@ You can also specify a list of files to build, which can greatly speed up compil
 .. code:: sh
 
 ```
-  sphinx-build -b html ./ _build classes/class_node.rst classes/class_resource.rst
+sphinx-build -b html ./ _build classes/class_node.rst classes/class_resource.rst
 ```
 
 ## Building with Sphinx and virtualenv
@@ -99,9 +99,9 @@ root folder:
 .. code:: sh
 
 ```
-   virtualenv --system-site-packages env/
-   . env/bin/activate
-   pip3 install -r requirements.txt
+virtualenv --system-site-packages env/
+. env/bin/activate
+pip3 install -r requirements.txt
 ```
 
 Then, run `make html` as shown above.

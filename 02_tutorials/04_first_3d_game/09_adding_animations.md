@@ -187,13 +187,13 @@ vector, add the following code.
 gdscript GDScript
 
 ```
-   func _physics_process(delta):
-       #...
-       #if direction != Vector3.ZERO:
-           #...
-           $AnimationPlayer.playback_speed = 4
-       else:
-           $AnimationPlayer.playback_speed = 1
+func _physics_process(delta):
+    #...
+    #if direction != Vector3.ZERO:
+        #...
+        $AnimationPlayer.playback_speed = 4
+    else:
+        $AnimationPlayer.playback_speed = 1
 ```
 
 This code makes it so when the player moves, we multiply the playback speed by
@@ -206,9 +206,9 @@ at the end of `physics_process()`.
 gdscript GDScript
 
 ```
-   func _physics_process(delta):
-       #...
-       $Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
+func _physics_process(delta):
+    #...
+    $Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 ```
 
 ## Animating the mobs
@@ -231,9 +231,9 @@ following line.
 gdscript GDScript
 
 ```
-   func initialize(start_position, player_position):
-       #...
-       $AnimationPlayer.playback_speed = random_speed / min_speed
+func initialize(start_position, player_position):
+    #...
+    $AnimationPlayer.playback_speed = random_speed / min_speed
 ```
 
 And with that, you finished coding your first complete 3D game.
@@ -249,70 +249,70 @@ Here's the *Player* script.
 gdscript GDScript
 
 ```
-   extends KinematicBody
+extends KinematicBody
 
-   # Emitted when the player was hit by a mob.
-   signal hit
+# Emitted when the player was hit by a mob.
+signal hit
 
-   # How fast the player moves in meters per second.
-   export var speed = 14
-   # The downward acceleration when in the air, in meters per second per second.
-   export var fall_acceleration = 75
-   # Vertical impulse applied to the character upon jumping in meters per second.
-   export var jump_impulse = 20
-   # Vertical impulse applied to the character upon bouncing over a mob in meters per second.
-   export var bounce_impulse = 16
+# How fast the player moves in meters per second.
+export var speed = 14
+# The downward acceleration when in the air, in meters per second per second.
+export var fall_acceleration = 75
+# Vertical impulse applied to the character upon jumping in meters per second.
+export var jump_impulse = 20
+# Vertical impulse applied to the character upon bouncing over a mob in meters per second.
+export var bounce_impulse = 16
 
-   var velocity = Vector3.ZERO
-
-
-   func _physics_process(delta):
-       var direction = Vector3.ZERO
-
-       if Input.is_action_pressed("move_right"):
-           direction.x += 1
-       if Input.is_action_pressed("move_left"):
-           direction.x -= 1
-       if Input.is_action_pressed("move_back"):
-           direction.z += 1
-       if Input.is_action_pressed("move_forward"):
-           direction.z -= 1
-
-       if direction != Vector3.ZERO:
-           direction = direction.normalized()
-           $Pivot.look_at(translation + direction, Vector3.UP)
-           $AnimationPlayer.playback_speed = 4
-       else:
-           $AnimationPlayer.playback_speed = 1
-
-       velocity.x = direction.x * speed
-       velocity.z = direction.z * speed
-
-       # Jumping
-       if is_on_floor() and Input.is_action_just_pressed("jump"):
-           velocity.y += jump_impulse
-
-       velocity.y -= fall_acceleration * delta
-       velocity = move_and_slide(velocity, Vector3.UP)
-
-       for index in range(get_slide_count()):
-           var collision = get_slide_collision(index)
-           if collision.collider.is_in_group("mob"):
-               var mob = collision.collider
-               if Vector3.UP.dot(collision.normal) > 0.1:
-                   mob.squash()
-                   velocity.y = bounce_impulse
-
-       $Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
+var velocity = Vector3.ZERO
 
 
-   func die():
-       emit_signal("hit")
-       queue_free()
+func _physics_process(delta):
+    var direction = Vector3.ZERO
+
+    if Input.is_action_pressed("move_right"):
+        direction.x += 1
+    if Input.is_action_pressed("move_left"):
+        direction.x -= 1
+    if Input.is_action_pressed("move_back"):
+        direction.z += 1
+    if Input.is_action_pressed("move_forward"):
+        direction.z -= 1
+
+    if direction != Vector3.ZERO:
+        direction = direction.normalized()
+        $Pivot.look_at(translation + direction, Vector3.UP)
+        $AnimationPlayer.playback_speed = 4
+    else:
+        $AnimationPlayer.playback_speed = 1
+
+    velocity.x = direction.x * speed
+    velocity.z = direction.z * speed
+
+    # Jumping
+    if is_on_floor() and Input.is_action_just_pressed("jump"):
+        velocity.y += jump_impulse
+
+    velocity.y -= fall_acceleration * delta
+    velocity = move_and_slide(velocity, Vector3.UP)
+
+    for index in range(get_slide_count()):
+        var collision = get_slide_collision(index)
+        if collision.collider.is_in_group("mob"):
+            var mob = collision.collider
+            if Vector3.UP.dot(collision.normal) > 0.1:
+                mob.squash()
+                velocity.y = bounce_impulse
+
+    $Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 
 
-   func _on_MobDetector_body_entered(_body):
-       die()
+func die():
+    emit_signal("hit")
+    queue_free()
+
+
+func _on_MobDetector_body_entered(_body):
+    die()
 ```
 
 And the *Mob*'s script.
@@ -320,40 +320,40 @@ And the *Mob*'s script.
 gdscript GDScript
 
 ```
-   extends KinematicBody
+extends KinematicBody
 
-   # Emitted when the player jumped on the mob.
-   signal squashed
+# Emitted when the player jumped on the mob.
+signal squashed
 
-   # Minimum speed of the mob in meters per second.
-   export var min_speed = 10
-   # Maximum speed of the mob in meters per second.
-   export var max_speed = 18
+# Minimum speed of the mob in meters per second.
+export var min_speed = 10
+# Maximum speed of the mob in meters per second.
+export var max_speed = 18
 
-   var velocity = Vector3.ZERO
-
-
-   func _physics_process(_delta):
-       move_and_slide(velocity)
+var velocity = Vector3.ZERO
 
 
-   func initialize(start_position, player_position):
-       look_at_from_position(start_position, player_position, Vector3.UP)
-       rotate_y(rand_range(-PI / 4, PI / 4))
-
-       var random_speed = rand_range(min_speed, max_speed)
-       velocity = Vector3.FORWARD * random_speed
-       velocity = velocity.rotated(Vector3.UP, rotation.y)
-
-       $AnimationPlayer.playback_speed = random_speed / min_speed
+func _physics_process(_delta):
+    move_and_slide(velocity)
 
 
-    func squash():
-       emit_signal("squashed")
-       queue_free()
+func initialize(start_position, player_position):
+    look_at_from_position(start_position, player_position, Vector3.UP)
+    rotate_y(rand_range(-PI / 4, PI / 4))
+
+    var random_speed = rand_range(min_speed, max_speed)
+    velocity = Vector3.FORWARD * random_speed
+    velocity = velocity.rotated(Vector3.UP, rotation.y)
+
+    $AnimationPlayer.playback_speed = random_speed / min_speed
 
 
-   func _on_VisibilityNotifier_screen_exited():
-       queue_free()
+ func squash():
+    emit_signal("squashed")
+    queue_free()
+
+
+func _on_VisibilityNotifier_screen_exited():
+    queue_free()
 ```
 

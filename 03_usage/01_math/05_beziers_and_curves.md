@@ -27,9 +27,9 @@ change the value of `t` from 0 to 1.
 gdscript GDScript
 
 ```
-    func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
-        var q0 = p0.linear_interpolate(p1, t)
-        var q1 = p1.linear_interpolate(p2, t)
+func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
+    var q0 = p0.linear_interpolate(p1, t)
+    var q1 = p1.linear_interpolate(p2, t)
 ```
 
 We then interpolate `q0` and `q1` to obtain a single point `r` that moves
@@ -38,8 +38,8 @@ along a curve.
 gdscript GDScript
 
 ```
-        var r = q0.linear_interpolate(q1, t)
-        return r
+var r = q0.linear_interpolate(q1, t)
+return r
 ```
 
 This type of curve is called a *Quadratic Bezier* curve.
@@ -61,7 +61,7 @@ We first use a function with four parameters to take four points as an input,
 gdscript GDScript
 
 ```
-    func _cubic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float):
+func _cubic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float):
 ```
 
 We apply a linear interpolation to each couple of points to reduce them to
@@ -70,9 +70,9 @@ three:
 gdscript GDScript
 
 ```
-        var q0 = p0.linear_interpolate(p1, t)
-        var q1 = p1.linear_interpolate(p2, t)
-        var q2 = p2.linear_interpolate(p3, t)
+var q0 = p0.linear_interpolate(p1, t)
+var q1 = p1.linear_interpolate(p2, t)
+var q2 = p2.linear_interpolate(p3, t)
 ```
 
 We then take our three points and reduce them to two:
@@ -80,8 +80,8 @@ We then take our three points and reduce them to two:
 gdscript GDScript
 
 ```
-        var r0 = q0.linear_interpolate(q1, t)
-        var r1 = q1.linear_interpolate(q2, t)
+var r0 = q0.linear_interpolate(q1, t)
+var r1 = q1.linear_interpolate(q2, t)
 ```
 
 And to one:
@@ -89,8 +89,8 @@ And to one:
 gdscript GDScript
 
 ```
-        var s = r0.linear_interpolate(r1, t)
-        return s
+var s = r0.linear_interpolate(r1, t)
+return s
 ```
 
 Here is the full function:
@@ -98,16 +98,16 @@ Here is the full function:
 gdscript GDScript
 
 ```
-    func _cubic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float):
-        var q0 = p0.linear_interpolate(p1, t)
-        var q1 = p1.linear_interpolate(p2, t)
-        var q2 = p2.linear_interpolate(p3, t)
+func _cubic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float):
+    var q0 = p0.linear_interpolate(p1, t)
+    var q1 = p1.linear_interpolate(p2, t)
+    var q2 = p2.linear_interpolate(p3, t)
 
-        var r0 = q0.linear_interpolate(q1, t)
-        var r1 = q1.linear_interpolate(q2, t)
+    var r0 = q0.linear_interpolate(q1, t)
+    var r1 = q1.linear_interpolate(q2, t)
 
-        var s = r0.linear_interpolate(r1, t)
-        return s
+    var s = r0.linear_interpolate(r1, t)
+    return s
 ```
 
 The result will be a smooth curve interpolating between all four points:
@@ -159,11 +159,11 @@ Let's do a simple example with the following pseudocode:
 gdscript GDScript
 
 ```
-    var t = 0.0
+var t = 0.0
 
-    func _process(delta):
-        t += delta
-        position = _cubic_bezier(p0, p1, p2, p3, t)
+func _process(delta):
+    t += delta
+    position = _cubic_bezier(p0, p1, p2, p3, t)
 ```
 
 ![](img/bezier_interpolation_speed.gif)
@@ -197,11 +197,11 @@ Traversal at constant speed, then, can be done with the following pseudo-code:
 gdscript GDScript
 
 ```
-    var t = 0.0
+var t = 0.0
 
-    func _process(delta):
-        t += delta
-        position = curve.interpolate_baked(t * curve.get_baked_length(), true)
+func _process(delta):
+    t += delta
+    position = curve.interpolate_baked(t * curve.get_baked_length(), true)
 ```
 
 And the output will, then, move at constant speed:

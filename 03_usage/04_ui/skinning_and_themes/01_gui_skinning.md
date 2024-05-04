@@ -116,8 +116,8 @@ is applied to them. Those methods accept the theme type as one of the arguments.
 gdscript
 
 ```
-   var accent_color = get_color("accent_color", "MyType")
-   label.add_color_override("font_color", accent_color)
+var accent_color = get_color("accent_color", "MyType")
+label.add_color_override("font_color", accent_color)
 ```
 
 To give more customization opportunities types can also be linked together as

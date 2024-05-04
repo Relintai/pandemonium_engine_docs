@@ -21,21 +21,21 @@ The default HTML page is available in the Pandemonium Engine repository at
 but the following template can be used as a much simpler example:
 
 ```
-    <!DOCTYPE html>
-    <html>
-        <head>
-            <title>My Template</title>
-            <meta charset="UTF-8">
-        </head>
-        <body>
-            <canvas id="canvas"></canvas>
-            <script src="$PANDEMONIUM_URL"></script>
-            <script>
-                var engine = new Engine($PANDEMONIUM_CONFIG);
-                engine.startGame();
-            </script>
-        </body>
-    </html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Template</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script src="$PANDEMONIUM_URL"></script>
+        <script>
+            var engine = new Engine($PANDEMONIUM_CONFIG);
+            engine.startGame();
+        </script>
+    </body>
+</html>
 ```
 
 ## Setup
@@ -87,13 +87,13 @@ class with the exported configuration, and then call the :js:meth:`engine.startG
 optionally overriding any :js:attr:`EngineConfig` parameters.
 
 ```
-    const engine = new Engine($PANDEMONIUM_CONFIG);
-    engine.startGame({
-        /* optional override configuration, eg. */
-        // unloadAfterInit: false,
-        // canvasResizePolicy: 0,
-        // ...
-    });
+const engine = new Engine($PANDEMONIUM_CONFIG);
+engine.startGame({
+    /* optional override configuration, eg. */
+    // unloadAfterInit: false,
+    // canvasResizePolicy: 0,
+    // ...
+});
 ```
 
 This snippet of code automatically loads and initializes the engine before starting the game.
@@ -112,20 +112,20 @@ the module initialization, but before the engine starts.
 This process is a bit more complex, but gives you full control over the engine startup process.
 
 ```
-    const myWasm = 'mygame.wasm';
-    const myPck = 'mygame.pck';
-    const engine = new Engine();
-    Promise.all([
-        // Load and init the engine
-        engine.init(myWasm),
-        // And the pck concurrently
-        engine.preloadFile(myPck),
-    ]).then(() => {
-        // Now start the engine.
-        return engine.start({ args: ['--main-pack', myPck] });
-    }).then(() => {
-        console.log('Engine has started!');
-    });
+const myWasm = 'mygame.wasm';
+const myPck = 'mygame.pck';
+const engine = new Engine();
+Promise.all([
+    // Load and init the engine
+    engine.init(myWasm),
+    // And the pck concurrently
+    engine.preloadFile(myPck),
+]).then(() => {
+    // Now start the engine.
+    return engine.start({ args: ['--main-pack', myPck] });
+}).then(() => {
+    console.log('Engine has started!');
+});
 ```
 
 To load the engine manually the :js:meth:`Engine.load` static method must be called. As
@@ -160,8 +160,8 @@ element the :js:attr:`canvas` override option can be used. It requires a referen
 element itself.
 
 ```
-    const canvasElement = document.querySelector("#my-canvas-element");
-    engine.startGame({ canvas: canvasElement });
+const canvasElement = document.querySelector("#my-canvas-element");
+engine.startGame({ canvas: canvasElement });
 ```
 
 The way the engine resize the canvas can be configured via the :js:attr:`canvasResizePolicy`
@@ -172,10 +172,10 @@ the progress. This can be achieved with the :js:attr:`onProgress` callback optio
 allows to set up a callback function that will be called regularly as the engine loads new bytes.
 
 ```
-    function printProgress(current, total) {
-        console.log("Loaded " + current + " of " + total + " bytes");
-    }
-    engine.startGame({ onProgress: printProgress });
+function printProgress(current, total) {
+    console.log("Loaded " + current + " of " + total + " bytes");
+}
+engine.startGame({ onProgress: printProgress });
 ```
 
 Be aware that in some cases `total` can be `0`. This means that it cannot be calculated.
@@ -196,13 +196,13 @@ Use the :js:attr:`onPrint` override option to set a callback function for the ou
 and the :js:attr:`onPrintError` override option to set a callback function for the error stream.
 
 ```
-    function print(text) {
-        console.log(text);
-    }
-    function printError(text) {
-        console.warn(text);
-    }
-    engine.startGame({ onPrint: print, onPrintError: printError });
+function print(text) {
+    console.log(text);
+}
+function printError(text) {
+    console.warn(text);
+}
+engine.startGame({ onPrint: print, onPrintError: printError });
 ```
 
 When handling the engine output keep in mind, that it may not be desirable to print it out in the

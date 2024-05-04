@@ -25,9 +25,9 @@ If you are using the `git` command line client, this is done by entering
 the following in a terminal:
 
 ```
-    git clone https://github.com/Relintai/pandemonium_engine.git
-    # You can add the --depth 1 argument to omit the commit history.
-    # Faster, but not all Git operations (like blame) will work.
+git clone https://github.com/Relintai/pandemonium_engine.git
+# You can add the --depth 1 argument to omit the commit history.
+# Faster, but not all Git operations (like blame) will work.
 ```
 
 For any stable release, visit the `release page ( https://github.com/Relintai/pandemonium_engine/releases )`
@@ -38,11 +38,11 @@ With `git`, you can also clone a stable release by specifying its branch or tag
 after the `--branch` (or just `-b`) argument:
 
 ```
-    # Clone the continuously maintained stable branch (`3.x` as of writing).
-    git clone https://github.com/Relintai/pandemonium_engine.git -b 3.x
+# Clone the continuously maintained stable branch (`3.x` as of writing).
+git clone https://github.com/Relintai/pandemonium_engine.git -b 3.x
 
-    # Clone the `3.2.3-stable` tag. This is a fixed revision that will never change.
-    git clone https://github.com/Relintai/pandemonium_engine.git -b 3.2.3-stable
+# Clone the `3.2.3-stable` tag. This is a fixed revision that will never change.
+git clone https://github.com/Relintai/pandemonium_engine.git -b 3.2.3-stable
 ```
 
 There are also generally branches besides `master` for each major version.

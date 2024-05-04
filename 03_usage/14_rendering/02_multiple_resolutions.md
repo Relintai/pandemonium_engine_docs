@@ -385,7 +385,7 @@ upon loading. This can be done by calling the method below before
 the game data is loaded:
 
 ```
-    VisualServer.texture_set_shrink_all_x2_on_set_data(true)
+VisualServer.texture_set_shrink_all_x2_on_set_data(true)
 ```
 
 Alternatively, you can also enable mipmaps on all your 2D textures. However,

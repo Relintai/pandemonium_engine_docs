@@ -61,23 +61,23 @@ and send a `Object.notification( Object_method_notification )` to update the
 translation:
 
 ```
-    func _ready():
-        # This assumes you have a node called "Label" as a child of the node
-        # that has the script attached.
-        var label = get_node("Label")
-        label.set_message_translation(false)
-        label.notification(NOTIFICATION_TRANSLATION_CHANGED)
+func _ready():
+    # This assumes you have a node called "Label" as a child of the node
+    # that has the script attached.
+    var label = get_node("Label")
+    label.set_message_translation(false)
+    label.notification(NOTIFICATION_TRANSLATION_CHANGED)
 ```
 
 For more complex UI nodes such as OptionButtons, you may have to use this instead:
 
 ```
-    func _ready():
-        var option_button = get_node("OptionButton")
-        option_button.set_message_translation(false)
-        option_button.notification(NOTIFICATION_TRANSLATION_CHANGED)
-        option_button.get_popup().set_message_translation(false)
-        option_button.get_popup().notification(NOTIFICATION_TRANSLATION_CHANGED)
+func _ready():
+    var option_button = get_node("OptionButton")
+    option_button.set_message_translation(false)
+    option_button.notification(NOTIFICATION_TRANSLATION_CHANGED)
+    option_button.get_popup().set_message_translation(false)
+    option_button.get_popup().notification(NOTIFICATION_TRANSLATION_CHANGED)
 ```
 
 In code, the `Object.tr()`
@@ -85,8 +85,8 @@ function can be used. This will just look up the text in the
 translations and convert it if found:
 
 ```
-    level.set_text(tr("LEVEL_5_NAME"))
-    status.set_text(tr("GAME_STATUS_" + str(status_index)))
+level.set_text(tr("LEVEL_5_NAME"))
+status.set_text(tr("GAME_STATUS_" + str(status_index)))
 ```
 
 ### Making controls resizable
@@ -125,7 +125,7 @@ For example, to test a game in French, the following argument can be
 supplied:
 
 ```
-   pandemonium --language fr
+pandemonium --language fr
 ```
 
 ## Translating the project name

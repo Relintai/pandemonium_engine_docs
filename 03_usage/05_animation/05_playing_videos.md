@@ -212,7 +212,7 @@ space in parts of the video/audio that don't require a high bitrate (such as
 static scenes).
 
 ```
-    ffmpeg -i input.mp4 -q:v 6 -q:a 6 output.ogv
+ffmpeg -i input.mp4 -q:v 6 -q:a 6 output.ogv
 ```
 
 #### FFmpeg: Resize the video then convert it
@@ -222,5 +222,5 @@ preserving its existing aspect ratio. This helps decrease the file size
 significantly if the source is recorded at a higher resolution than 720p:
 
 ```
-    ffmpeg -i input.mp4 -vf "scale=-1:720" -q:v 6 -q:a 6 output.ogv
+ffmpeg -i input.mp4 -vf "scale=-1:720" -q:v 6 -q:a 6 output.ogv
 ```

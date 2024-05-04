@@ -35,7 +35,7 @@ Download and install the Android SDK.
   - Once the command line tools are installed, run the `sdkmanager ( https://developer.android.com/studio/command-line/sdkmanager )` command to complete the setup process:
 
 ```
-    sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-31" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;21.4.7075529"
+sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-31" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;21.4.7075529"
 ```
 
 Note:
@@ -56,7 +56,7 @@ If you can't find it or need to generate one, the keytool command from
 the JDK can be used for this purpose:
 
 ```
-    keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
+keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
 ```
 
 This will create a `debug.keystore` file in your current directory. You should move it to a memorable location such as `%USERPROFILE%\.android\`, because you will need its location in a later step. For more information on `keytool` usage, see `this Q&A article ( https://pandemoniumengine.org/qa/21349/jdk-android-file-missing )`.
@@ -123,7 +123,7 @@ Uploading an APK to Google's Play Store requires you to sign using a non-debug
 keystore file; such file can be generated like this:
 
 ```
-    keytool -v -genkey -keystore mygame.keystore -alias mygame -keyalg RSA -validity 10000
+keytool -v -genkey -keystore mygame.keystore -alias mygame -keyalg RSA -validity 10000
 ```
 
 This keystore and key are used to verify your developer identity, remember the password and keep it in a safe place!

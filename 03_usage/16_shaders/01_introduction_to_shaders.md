@@ -25,18 +25,18 @@ Suppose you want to update all the pixels in a texture to a given color. In
 GDScript, your code would use `for` loops:
 
 ```
-  for x in range(width):
-    for y in range(height):
-      set_color(x, y, some_color)
+for x in range(width):
+  for y in range(height):
+    set_color(x, y, some_color)
 ```
 
 Your code is already part of a loop in a shader, so the corresponding code would
 look like this.
 
 ```
-  void fragment() {
-    COLOR = some_color;
-  }
+void fragment() {
+  COLOR = some_color;
+}
 ```
 
 Note:
@@ -79,7 +79,7 @@ support different render modes, built-in variables, and processing functions.
 In Pandemonium, all shaders need to specify their type in the first line, like so:
 
 ```
-    shader_type spatial;
+shader_type spatial;
 ```
 
 Here are the available types:
@@ -94,8 +94,8 @@ Shaders have optional render modes you can specify on the second line, after the
 shader type, like so:
 
 ```
-    shader_type spatial;
-    render_mode unshaded, cull_disabled;
+shader_type spatial;
+render_mode unshaded, cull_disabled;
 ```
 
 Render modes alter the way Pandemonium applies the shader. For example, the

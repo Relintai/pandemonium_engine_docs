@@ -43,14 +43,14 @@ To continue with the example, use the following values:
 ini GDScript
 
 ```
-    Plugin Name: My Custom Node
-    Subfolder: my_custom_node
-    Description: A custom node made to extend the Pandemonium Engine.
-    Author: Your Name Here
-    Version: 1.0.0
-    Language: GDScript
-    Script Name: custom_node.gd
-    Activate now: No
+Plugin Name: My Custom Node
+Subfolder: my_custom_node
+Description: A custom node made to extend the Pandemonium Engine.
+Author: Your Name Here
+Version: 1.0.0
+Language: GDScript
+Script Name: custom_node.gd
+Activate now: No
 ```
 
 Warning:
@@ -99,18 +99,18 @@ like this:
 gdscript GDScript
 
 ```
-    tool
-    extends EditorPlugin
+tool
+extends EditorPlugin
 
 
-    func _enter_tree():
-        # Initialization of the plugin goes here.
-        pass
+func _enter_tree():
+    # Initialization of the plugin goes here.
+    pass
 
 
-    func _exit_tree():
-        # Clean-up of the plugin goes here.
-        pass
+func _exit_tree():
+    # Clean-up of the plugin goes here.
+    pass
 ```
 
 This is a good template to use when creating new plugins.
@@ -146,16 +146,16 @@ clicked. For that, we'll need a simple script that extends from
 gdscript GDScript
 
 ```
-    tool
-    extends Button
+tool
+extends Button
 
 
-    func _enter_tree():
-        connect("pressed", self, "clicked")
+func _enter_tree():
+    connect("pressed", self, "clicked")
 
 
-    func clicked():
-        print("You clicked me!")
+func clicked():
+    print("You clicked me!")
 ```
 
 That's it for our basic button. You can save this as `my_button.gd` inside the
@@ -172,20 +172,20 @@ dialog. For that, change the `custom_node.gd` script to the following:
 gdscript GDScript
 
 ```
-    tool
-    extends EditorPlugin
+tool
+extends EditorPlugin
 
 
-    func _enter_tree():
-        # Initialization of the plugin goes here.
-        # Add the new type with a name, a parent type, a script and an icon.
-        add_custom_type("MyButton", "Button", preload("my_button.gd"), preload("icon.png)"))
+func _enter_tree():
+    # Initialization of the plugin goes here.
+    # Add the new type with a name, a parent type, a script and an icon.
+    add_custom_type("MyButton", "Button", preload("my_button.gd"), preload("icon.png)"))
 
 
-    func _exit_tree():
-        # Clean-up of the plugin goes here.
-        # Always remember to remove it from the engine when deactivated.
-        remove_custom_type("MyButton")
+func _exit_tree():
+    # Clean-up of the plugin goes here.
+    # Always remember to remove it from the engine when deactivated.
+    remove_custom_type("MyButton")
 ```
 
 With that done, the plugin should already be available in the plugin list in the
@@ -214,13 +214,13 @@ add the following content to it:
 gdscript GDScript
 
 ```
-    [plugin]
+[plugin]
 
-    name="My Custom Dock"
-    description="A custom dock made so I can learn how to make plugins."
-    author="Your Name Here"
-    version="1.0"
-    script="custom_dock.gd"
+name="My Custom Dock"
+description="A custom dock made so I can learn how to make plugins."
+author="Your Name Here"
+version="1.0"
+script="custom_dock.gd"
 ```
 
 Then create the script `custom_dock.gd` in the same folder. Fill it with the
@@ -252,30 +252,30 @@ The script could look like this:
 gdscript GDScript
 
 ```
-    tool
-    extends EditorPlugin
+tool
+extends EditorPlugin
 
 
-    # A class member to hold the dock during the plugin life cycle.
-    var dock
+# A class member to hold the dock during the plugin life cycle.
+var dock
 
 
-    func _enter_tree():
-        # Initialization of the plugin goes here.
-        # Load the dock scene and instance it.
-        dock = preload("res://addons/my_custom_dock/my_dock.tscn").instance()
+func _enter_tree():
+    # Initialization of the plugin goes here.
+    # Load the dock scene and instance it.
+    dock = preload("res://addons/my_custom_dock/my_dock.tscn").instance()
 
-        # Add the loaded scene to the docks.
-        add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
-        # Note that LEFT_UL means the left of the editor, upper-left dock.
+    # Add the loaded scene to the docks.
+    add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
+    # Note that LEFT_UL means the left of the editor, upper-left dock.
 
 
-    func _exit_tree():
-        # Clean-up of the plugin goes here.
-        # Remove the dock.
-        remove_control_from_docks(dock)
-        # Erase the control from the memory.
-        dock.free()
+func _exit_tree():
+    # Clean-up of the plugin goes here.
+    # Remove the dock.
+    remove_control_from_docks(dock)
+    # Erase the control from the memory.
+    dock.free()
 ```
 
 Note that, while the dock will initially appear at its specified position,
@@ -321,18 +321,18 @@ an autoload.
 Use the following code to register a singleton from an editor plugin:
 
 ```
-    tool
-    extends EditorPlugin
+tool
+extends EditorPlugin
 
-    # Replace this value with a PascalCase autoload name, as per the GDScript style guide.
-    const AUTOLOAD_NAME = "SomeAutoload"
-
-
-    func _enter_tree():
-        # The autoload can be a scene or script file.
-        add_autoload_singleton(AUTOLOAD_NAME, "res://addons/my_addon/some_autoload.tscn")
+# Replace this value with a PascalCase autoload name, as per the GDScript style guide.
+const AUTOLOAD_NAME = "SomeAutoload"
 
 
-    func _exit_tree():
-        remove_autoload_singleton(AUTOLOAD_NAME)
+func _enter_tree():
+    # The autoload can be a scene or script file.
+    add_autoload_singleton(AUTOLOAD_NAME, "res://addons/my_addon/some_autoload.tscn")
+
+
+func _exit_tree():
+    remove_autoload_singleton(AUTOLOAD_NAME)
 ```

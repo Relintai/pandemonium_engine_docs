@@ -75,9 +75,9 @@ should not be used. Instead, a few other ones are provided.
 For C-style allocation, Pandemonium provides a few macros:
 
 ```
-    memalloc()
-    memrealloc()
-    memfree()
+memalloc()
+memrealloc()
+memfree()
 ```
 
 These are equivalent to the usual malloc, realloc, free of the standard C
@@ -86,11 +86,11 @@ library.
 For C++-style allocation, special macros are provided:
 
 ```
-    memnew( Class / Class(args) )
-    memdelete( instance )
+memnew( Class / Class(args) )
+memdelete( instance )
 
-    memnew_arr( Class , amount )
-    memdelete_arr( pointer to array )
+memnew_arr( Class , amount )
+memdelete_arr( pointer to array )
 ```
 
 which are equivalent to new, delete, new[] and delete[].
@@ -103,19 +103,19 @@ standard vector class, and is very similar to vector in the C++ standard library
 To create a PoolVector buffer, use this:
 
 ```
-    PoolVector<int> data;
+PoolVector<int> data;
 ```
 
 PoolVector can be accessed using the [] operator and a few helpers exist for this:
 
 ```
-    PoolVector<int>::Read r = data.read()
-    int someint = r[4]
+PoolVector<int>::Read r = data.read()
+int someint = r[4]
 ```
 
 ```
-    PoolVector<int>::Write w = data.write()
-    w[4] = 22;
+PoolVector<int>::Write w = data.write()
+w[4] = 22;
 ```
 
 These operations allow fast read/write from PoolVectors and keep it
@@ -143,9 +143,9 @@ debug symbols and code. List, Set and Map can be iterated using
 pointers, like this:
 
 ```
-    for(List<int>::Element *E=somelist.front();E;E=E->next()) {
-        print_line(E->get()); // print the element
-    }
+for(List<int>::Element *E=somelist.front();E;E=E->next()) {
+    print_line(E->get()); // print the element
+}
 ```
 
 The Vector<> class also has a few nice features:

@@ -114,12 +114,12 @@ For example, the following method can be connected to `meta_clicked` to open
 clicked URLs using the user's default web browser:
 
 ```
-    # This assumes RichTextLabel's `meta_clicked` signal was connected to
-    # the function below using the signal connection dialog.
-    func _richtextlabel_on_meta_clicked(meta):
-        # `meta` is not guaranteed to be a String, so convert it to a String
-        # to avoid script errors at run-time.
-        OS.shell_open(str(meta))
+# This assumes RichTextLabel's `meta_clicked` signal was connected to
+# the function below using the signal connection dialog.
+func _richtextlabel_on_meta_clicked(meta):
+    # `meta` is not guaranteed to be a String, so convert it to a String
+    # to avoid script errors at run-time.
+    OS.shell_open(str(meta))
 ```
 
 For more advanced use cases, it's also possible to store JSON in an `[url]`
@@ -237,89 +237,89 @@ Here are some examples of custom effects:
 ### Ghost
 
 ```
-    tool
-    extends RichTextEffect
-    class_name RichTextGhost
+tool
+extends RichTextEffect
+class_name RichTextGhost
 
-    # Syntax: [ghost freq=5.0 span=10.0][/ghost]
+# Syntax: [ghost freq=5.0 span=10.0][/ghost]
 
-    # Define the tag name.
-    var bbcode = "ghost"
+# Define the tag name.
+var bbcode = "ghost"
 
-    func _process_custom_fx(char_fx):
-        # Get parameters, or use the provided default value if missing.
-        var speed = char_fx.env.get("freq", 5.0)
-        var span = char_fx.env.get("span", 10.0)
+func _process_custom_fx(char_fx):
+    # Get parameters, or use the provided default value if missing.
+    var speed = char_fx.env.get("freq", 5.0)
+    var span = char_fx.env.get("span", 10.0)
 
-        var alpha = sin(char_fx.elapsed_time * speed + (char_fx.absolute_index / span)) * 0.5 + 0.5
-        char_fx.color.a = alpha
-        return true
+    var alpha = sin(char_fx.elapsed_time * speed + (char_fx.absolute_index / span)) * 0.5 + 0.5
+    char_fx.color.a = alpha
+    return true
 ```
 
 ### Pulse
 
 ```
-    tool
-    extends RichTextEffect
-    class_name RichTextPulse
+tool
+extends RichTextEffect
+class_name RichTextPulse
 
-    # Syntax: [pulse color=#00FFAA height=0.0 freq=2.0][/pulse]
+# Syntax: [pulse color=#00FFAA height=0.0 freq=2.0][/pulse]
 
-    # Define the tag name.
-    var bbcode = "pulse"
+# Define the tag name.
+var bbcode = "pulse"
 
-    func _process_custom_fx(char_fx):
-        # Get parameters, or use the provided default value if missing.
-        var color = char_fx.env.get("color", char_fx.color)
-        var height = char_fx.env.get("height", 0.0)
-        var freq = char_fx.env.get("freq", 2.0)
+func _process_custom_fx(char_fx):
+    # Get parameters, or use the provided default value if missing.
+    var color = char_fx.env.get("color", char_fx.color)
+    var height = char_fx.env.get("height", 0.0)
+    var freq = char_fx.env.get("freq", 2.0)
 
-        var sined_time = (sin(char_fx.elapsed_time * freq) + 1.0) / 2.0
-        var y_off = sined_time * height
-        color.a = 1.0
-        char_fx.color = char_fx.color.linear_interpolate(color, sined_time)
-        char_fx.offset = Vector2(0, -1) * y_off
-        return true
+    var sined_time = (sin(char_fx.elapsed_time * freq) + 1.0) / 2.0
+    var y_off = sined_time * height
+    color.a = 1.0
+    char_fx.color = char_fx.color.linear_interpolate(color, sined_time)
+    char_fx.offset = Vector2(0, -1) * y_off
+    return true
 ```
 
 ### Matrix
 
 ```
-    tool
-    extends RichTextEffect
-    class_name RichTextMatrix
+tool
+extends RichTextEffect
+class_name RichTextMatrix
 
-    # Syntax: [matrix clean=2.0 dirty=1.0 span=50][/matrix]
+# Syntax: [matrix clean=2.0 dirty=1.0 span=50][/matrix]
 
-    # Define the tag name.
-    var bbcode = "matrix"
+# Define the tag name.
+var bbcode = "matrix"
 
-    func _process_custom_fx(char_fx):
-        # Get parameters, or use the provided default value if missing.
-        var clear_time = char_fx.env.get("clean", 2.0)
-        var dirty_time = char_fx.env.get("dirty", 1.0)
-        var text_span = char_fx.env.get("span", 50)
+func _process_custom_fx(char_fx):
+    # Get parameters, or use the provided default value if missing.
+    var clear_time = char_fx.env.get("clean", 2.0)
+    var dirty_time = char_fx.env.get("dirty", 1.0)
+    var text_span = char_fx.env.get("span", 50)
 
-        var value = char_fx.character
+    var value = char_fx.character
 
-        var matrix_time = fmod(char_fx.elapsed_time + (char_fx.absolute_index / float(text_span)), \
-                               clear_time + dirty_time)
+    var matrix_time = fmod(char_fx.elapsed_time + (char_fx.absolute_index / float(text_span)), \
+                           clear_time + dirty_time)
 
-        matrix_time = 0.0 if matrix_time < clear_time else \
-                      (matrix_time - clear_time) / dirty_time
+    matrix_time = 0.0 if matrix_time < clear_time else \
+                  (matrix_time - clear_time) / dirty_time
 
-        if value >= 65 && value < 126 && matrix_time > 0.0:
-            value -= 65
-            value = value + int(1 * matrix_time * (126 - 65))
-            value %= (126 - 65)
-            value += 65
-        char_fx.character = value
-        return true
+    if value >= 65 && value < 126 && matrix_time > 0.0:
+        value -= 65
+        value = value + int(1 * matrix_time * (126 - 65))
+        value %= (126 - 65)
+        value += 65
+    char_fx.character = value
+    return true
 ```
 
 This will add a few new BBCode commands, which can be used like so:
 
 ```
-    [center][ghost]This is a custom [matrix]effect[/matrix][/ghost] made in
-    [pulse freq=5.0 height=2.0][pulse color=#00FFAA freq=2.0]GDScript[/pulse][/pulse].[/center]
+[center][ghost]This is a custom [matrix]effect[/matrix][/ghost] made in
+[pulse freq=5.0 height=2.0][pulse color=#00FFAA freq=2.0]GDScript[/pulse][/pulse].[/center]
 ```

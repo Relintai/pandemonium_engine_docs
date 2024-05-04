@@ -55,13 +55,13 @@ The user can disable the built-in modelview transform (projection will still hap
 it manually with the following code:
 
 ```
-    shader_type canvas_item;
-    render_mode skip_vertex_transform;
+shader_type canvas_item;
+render_mode skip_vertex_transform;
 
-    void vertex() {
+void vertex() {
 
-        VERTEX = (EXTRA_MATRIX * (WORLD_MATRIX * vec4(VERTEX, 0.0, 1.0))).xy;
-    }
+    VERTEX = (EXTRA_MATRIX * (WORLD_MATRIX * vec4(VERTEX, 0.0, 1.0))).xy;
+}
 ```
 
 Note:
@@ -71,19 +71,19 @@ Note:
 In order to get the world space coordinates of a vertex, you have to pass in a custom uniform like so:
 
 ```
-    material.set_shader_param("global_transform", get_global_transform())
+material.set_shader_param("global_transform", get_global_transform())
 ```
 
 
 Then, in your vertex shader:
 
 ```
-    uniform mat4 global_transform;
-    varying vec2 world_position;
+uniform mat4 global_transform;
+varying vec2 world_position;
 
-    void vertex(){
-        world_position = (global_transform * vec4(VERTEX, 0.0, 1.0)).xy;
-    }
+void vertex(){
+    world_position = (global_transform * vec4(VERTEX, 0.0, 1.0)).xy;
+}
 ```
 
 `world_position` can then be used in either the vertex or fragment functions.
@@ -125,7 +125,7 @@ manually. Pandemonium does not provide the texture color in the `COLOR` built-in
 the texture color for such nodes, use:
 
 ```
-  COLOR = texture(TEXTURE, UV);
+COLOR = texture(TEXTURE, UV);
 ```
 
 This differs from the behavior of the built-in normal map. If a normal map is attached, Pandemonium uses
@@ -134,7 +134,7 @@ map meant for use in 3D, it will appear inverted. In order to use it in your sha
 it to the `NORMALMAP` property. Pandemonium will handle converting it for use in 2D and overwriting `NORMAL`.
 
 ```
-  NORMALMAP = texture(NORMAL_TEXTURE, UV).rgb;
+NORMALMAP = texture(NORMAL_TEXTURE, UV).rgb;
 ```
 
 

@@ -33,8 +33,8 @@ For example, if you want to execute some code only in the editor, use:
 gdscript GDScript
 
 ```
-    if Engine.editor_hint:
-        # Code to execute when in editor.
+if Engine.editor_hint:
+    # Code to execute when in editor.
 ```
 
 On the other hand, if you want to execute code only in game, simply negate the same statement:
@@ -42,8 +42,8 @@ On the other hand, if you want to execute code only in game, simply negate the s
 gdscript GDScript
 
 ```
-    if not Engine.editor_hint:
-        # Code to execute when in game.
+if not Engine.editor_hint:
+    # Code to execute when in game.
 ```
 
 Pieces of code do not have either of the 2 conditions above will run both in-editor and in-game.
@@ -53,14 +53,14 @@ Here is how a `process()` function might look for you:
 gdscript GDScript
 
 ```
-    func _process(delta):
-        if Engine.editor_hint:
-            # Code to execute in editor.
+func _process(delta):
+    if Engine.editor_hint:
+        # Code to execute in editor.
 
-        if not Engine.editor_hint:
-            # Code to execute in game.
+    if not Engine.editor_hint:
+        # Code to execute in game.
 
-        # Code to execute both in editor and in game.
+    # Code to execute both in editor and in game.
 ```
 
 Note:
@@ -73,11 +73,11 @@ Add a `Sprite` node to your scene and set the texture to Pandemonium icon. Attac
 gdscript GDScript
 
 ```
-    tool
-    extends Sprite
+tool
+extends Sprite
 
-    func _process(delta):
-        rotation_degrees += 180 * delta
+func _process(delta):
+    rotation_degrees += 180 * delta
 ```
 
 Save the script and return to the editor. You should now see your object rotate. If you run the game, it will also rotate.
@@ -92,11 +92,11 @@ Now let's choose which code runs when. Modify your `process()` function to look 
 gdscript GDScript
 
 ```
-    func _process(delta):
-        if Engine.editor_hint:
-            rotation_degrees += 180 * delta
-        else:
-            rotation_degrees -= 180 * delta
+func _process(delta):
+    if Engine.editor_hint:
+        rotation_degrees += 180 * delta
+    else:
+        rotation_degrees -= 180 * delta
 ```
 
 Save the script. Now the object will spin clockwise in the editor, but if you run the game, it will spin counter-clockwise.
@@ -109,21 +109,21 @@ Modify  `process()` to include the rotation speed.
 gdscript GDScript
 
 ```
-    tool
-    extends Sprite
+tool
+extends Sprite
 
 
-    export var speed = 1 setget set_speed
+export var speed = 1 setget set_speed
 
 
-    # Update speed and reset the rotation.
-    func set_speed(new_speed):
-    	speed = new_speed
-    	rotation_degrees = 0
+# Update speed and reset the rotation.
+func set_speed(new_speed):
+	speed = new_speed
+	rotation_degrees = 0
 
 
-    func _process(delta):
-    	rotation_degrees += 180 * delta * speed
+func _process(delta):
+	rotation_degrees += 180 * delta * speed
 ```
 
 
@@ -145,13 +145,13 @@ If you are using `tool`:
 gdscript GDScript
 
 ```
-    func _ready():
-        var node = Spatial.new()
-        add_child(node) # Parent could be any node in the scene
+func _ready():
+    var node = Spatial.new()
+    add_child(node) # Parent could be any node in the scene
 
-        # The line below is required to make the node visible in the Scene tree dock
-        # and persist changes made by the tool script to the saved scene file.
-        node.set_owner(get_tree().edited_scene_root)
+    # The line below is required to make the node visible in the Scene tree dock
+    # and persist changes made by the tool script to the saved scene file.
+    node.set_owner(get_tree().edited_scene_root)
 ```
 
 If you are using `EditorScript( EditorScript )`:
@@ -159,14 +159,14 @@ If you are using `EditorScript( EditorScript )`:
 gdscript GDScript
 
 ```
-    func _run():
-        var parent = get_scene().find_node("Parent") # Parent could be any node in the scene
-        var node = Spatial.new()
-        parent.add_child(node)
+func _run():
+    var parent = get_scene().find_node("Parent") # Parent could be any node in the scene
+    var node = Spatial.new()
+    parent.add_child(node)
 
-        # The line below is required to make the node visible in the Scene tree dock
-        # and persist changes made by the tool script to the saved scene file.
-        node.set_owner(get_scene())
+    # The line below is required to make the node visible in the Scene tree dock
+    # and persist changes made by the tool script to the saved scene file.
+    node.set_owner(get_scene())
 ```
 
 Warning:

@@ -95,9 +95,9 @@ the `score` variable.
 gdscript GDScript
 
 ```
-   extends Label
+extends Label
 
-   var score = 0
+var score = 0
 ```
 
 The score should increase by `1` every time we squash a monster. We can use
@@ -121,10 +121,10 @@ line.
 gdscript GDScript
 
 ```
-   func _on_MobTimer_timeout():
-       #...
-       # We connect the mob to the score label to update the score upon squashing one.
-       mob.connect("squashed", $UserInterface/ScoreLabel, "_on_Mob_squashed")
+func _on_MobTimer_timeout():
+    #...
+    # We connect the mob to the score label to update the score upon squashing one.
+    mob.connect("squashed", $UserInterface/ScoreLabel, "_on_Mob_squashed")
 ```
 
 This line means that when the mob emits the `squashed` signal, the
@@ -138,9 +138,9 @@ There, we increment the score and update the displayed text.
 gdscript GDScript
 
 ```
-   func _on_Mob_squashed():
-       score += 1
-       text = "Score: %s" % score
+func _on_Mob_squashed():
+    score += 1
+    text = "Score: %s" % score
 ```
 
 The second line uses the value of the `score` variable to replace the
@@ -225,9 +225,9 @@ the game. Add this line to the `ready()` function.
 gdscript GDScript
 
 ```
-   func _ready():
-       #...
-       $UserInterface/Retry.hide()
+func _ready():
+    #...
+    $UserInterface/Retry.hide()
 ```
 
 Then, when the player gets hit, we show the overlay.
@@ -236,9 +236,9 @@ gdscript GDScript
 
 
 ```
-   func _on_Player_hit():
-       #...
-       $UserInterface/Retry.show()
+func _on_Player_hit():
+    #...
+    $UserInterface/Retry.show()
 ```
 
 Finally, when the *Retry* node is visible, we need to listen to the player's
@@ -251,10 +251,10 @@ visible, we reload the current scene.
 gdscript GDScript
 
 ```
-   func _unhandled_input(event):
-       if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
-           # This restarts the current scene.
-           get_tree().reload_current_scene()
+func _unhandled_input(event):
+    if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
+        # This restarts the current scene.
+        get_tree().reload_current_scene()
 ```
 
 The function `get_tree()` gives us access to the global `SceneTree
@@ -328,36 +328,36 @@ Here is the complete `Main.gd` script for reference.
 gdscript GDScript
 
 ```
-   extends Node
+extends Node
 
-   export (PackedScene) var mob_scene
-
-
-   func _ready():
-       randomize()
-       $UserInterface/Retry.hide()
+export (PackedScene) var mob_scene
 
 
-   func _unhandled_input(event):
-       if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
-           get_tree().reload_current_scene()
+func _ready():
+    randomize()
+    $UserInterface/Retry.hide()
 
 
-   func _on_MobTimer_timeout():
-       var mob = mob_scene.instance()
-
-       var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
-       mob_spawn_location.unit_offset = randf()
-
-       var player_position = $Player.transform.origin
-       mob.initialize(mob_spawn_location.translation, player_position)
-
-       add_child(mob)
-       mob.connect("squashed", $UserInterface/ScoreLabel, "_on_Mob_squashed")
+func _unhandled_input(event):
+    if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
+        get_tree().reload_current_scene()
 
 
-   func _on_Player_hit():
-       $MobTimer.stop()
-       $UserInterface/Retry.show()
+func _on_MobTimer_timeout():
+    var mob = mob_scene.instance()
+
+    var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
+    mob_spawn_location.unit_offset = randf()
+
+    var player_position = $Player.transform.origin
+    mob.initialize(mob_spawn_location.translation, player_position)
+
+    add_child(mob)
+    mob.connect("squashed", $UserInterface/ScoreLabel, "_on_Mob_squashed")
+
+
+func _on_Player_hit():
+    $MobTimer.stop()
+    $UserInterface/Retry.show()
 ```
 

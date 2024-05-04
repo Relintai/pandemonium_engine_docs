@@ -229,16 +229,16 @@ function `A`, then optimizing `A` can have a massive effect on performance.
 
 ```
 
-    A: 9 ms
-    Everything else: 1 ms
-    Total frame time: 10 ms
+A: 9 ms
+Everything else: 1 ms
+Total frame time: 10 ms
 ```
 
 ```
 
-    A: 1 ms
-    Everything else: 1ms
-    Total frame time: 2 ms
+A: 1 ms
+Everything else: 1ms
+Total frame time: 2 ms
 ```
 
 In this example, improving this bottleneck `A` by a factor of 9× decreases
@@ -249,16 +249,16 @@ project, then the same improvement can lead to less dramatic gains:
 
 ```
 
-    A: 9 ms
-    Everything else: 50 ms
-    Total frame time: 59 ms
+A: 9 ms
+Everything else: 50 ms
+Total frame time: 59 ms
 ```
 
 ```
 
-    A: 1 ms
-    Everything else: 50 ms
-    Total frame time: 51 ms
+A: 1 ms
+Everything else: 50 ms
+Total frame time: 51 ms
 ```
 
 In this example, even though we have hugely optimized function `A`,
@@ -270,16 +270,16 @@ of the two.
 
 ```
 
-    CPU: 9 ms
-    GPU: 50 ms
-    Total frame time: 50 ms
+CPU: 9 ms
+GPU: 50 ms
+Total frame time: 50 ms
 ```
 
 ```
 
-    CPU: 1 ms
-    GPU: 50 ms
-    Total frame time: 50 ms
+CPU: 1 ms
+GPU: 50 ms
+Total frame time: 50 ms
 ```
 
 In this example, we optimized the CPU hugely again, but the frame time didn't

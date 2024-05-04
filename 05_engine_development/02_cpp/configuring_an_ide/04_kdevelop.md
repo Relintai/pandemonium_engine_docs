@@ -25,13 +25,13 @@ KDevelop's main screen.
 - Under **Language Support** open the **Includes/Imports** tab and add the following paths:
 
 ```
-     .  // A dot, to indicate the root of the Pandemonium project
-     core/
-     core/os/
-     core/math/
-     drivers/
-     platform/<your_platform>/  // Replace <your_platform> with a folder 
-                                   corresponding to your current platform
+.  // A dot, to indicate the root of the Pandemonium project
+core/
+core/os/
+core/math/
+drivers/
+platform/<your_platform>/  // Replace <your_platform> with a folder 
+                              corresponding to your current platform
 ```
 
 ![](img/kdevelop_addincludes.png)

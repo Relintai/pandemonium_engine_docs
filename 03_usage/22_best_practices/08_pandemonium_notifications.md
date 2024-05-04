@@ -81,13 +81,13 @@ implementing a Timer-yield-timeout loop is another option.
 gdscript GDScript
 
 ```
-    # Infinitely loop, but only execute whenever the Timer fires.
-    # Allows for recurring operations that don't trigger script logic
-    # every frame (or even every fixed frame).
-    while true:
-        my_method()
-        $Timer.start()
-        yield($Timer, "timeout")
+# Infinitely loop, but only execute whenever the Timer fires.
+# Allows for recurring operations that don't trigger script logic
+# every frame (or even every fixed frame).
+while true:
+    my_method()
+    $Timer.start()
+    yield($Timer, "timeout")
 ```
 
 Use `physics_process` when one needs a framerate-independent deltatime
@@ -108,17 +108,17 @@ deltatime methods as needed.
 gdscript GDScript
 
 ```
-    # Called every frame, even when the engine detects no input.
-    func _process(delta):
-        if Input.is_action_just_pressed("ui_select"):
-            print(delta)
+# Called every frame, even when the engine detects no input.
+func _process(delta):
+    if Input.is_action_just_pressed("ui_select"):
+        print(delta)
 
-    # Called during every input event.
-    func _unhandled_input(event):
-        match event.get_class():
-            "InputEventKey":
-                if Input.is_action_just_pressed("ui_accept"):
-                    print(get_process_delta_time())
+# Called during every input event.
+func _unhandled_input(event):
+    match event.get_class():
+        "InputEventKey":
+            if Input.is_action_just_pressed("ui_accept"):
+                print(get_process_delta_time())
 ```
 
 
@@ -135,21 +135,21 @@ instantiation:
 gdscript GDScript
 
 ```
-    # "one" is an "initialized value". These DO NOT trigger the setter.
-    # If someone set the value as "two" from the Inspector, this would be an
-    # "exported value". These DO trigger the setter.
-    export(String) var test = "one" setget set_test
+# "one" is an "initialized value". These DO NOT trigger the setter.
+# If someone set the value as "two" from the Inspector, this would be an
+# "exported value". These DO trigger the setter.
+export(String) var test = "one" setget set_test
 
-    func _init():
-        # "three" is an "init assignment value".
-        # These DO NOT trigger the setter, but...
-        test = "three"
-        # These DO trigger the setter. Note the `self` prefix.
-        self.test = "three"
+func _init():
+    # "three" is an "init assignment value".
+    # These DO NOT trigger the setter, but...
+    test = "three"
+    # These DO trigger the setter. Note the `self` prefix.
+    self.test = "three"
 
-    func set_test(value):
-        test = value
-        print("Setting: ", test)
+func set_test(value):
+    test = value
+    print("Setting: ", test)
 ```
 
 
@@ -191,23 +191,23 @@ nodes that one might create at runtime.
 gdscript GDScript
 
 ```
-    extends Node
+extends Node
 
-    var parent_cache
+var parent_cache
 
-    func connection_check():
-        return parent.has_user_signal("interacted_with")
+func connection_check():
+    return parent.has_user_signal("interacted_with")
 
-    func _notification(what):
-        match what:
-            NOTIFICATION_PARENTED:
-                parent_cache = get_parent()
-                if connection_check():
-                    parent_cache.connect("interacted_with", self, "_on_parent_interacted_with")
-            NOTIFICATION_UNPARENTED:
-                if connection_check():
-                    parent_cache.disconnect("interacted_with", self, "_on_parent_interacted_with")
+func _notification(what):
+    match what:
+        NOTIFICATION_PARENTED:
+            parent_cache = get_parent()
+            if connection_check():
+                parent_cache.connect("interacted_with", self, "_on_parent_interacted_with")
+        NOTIFICATION_UNPARENTED:
+            if connection_check():
+                parent_cache.disconnect("interacted_with", self, "_on_parent_interacted_with")
 
-    func _on_parent_interacted_with():
-        print("I'm reacting to my parent's interaction!")
+func _on_parent_interacted_with():
+    print("I'm reacting to my parent's interaction!")
 ```

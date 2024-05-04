@@ -69,11 +69,11 @@ Please don't use the `auto` keyword for type inference. While it can avoid
 repetition, it can also lead to confusing code:
 
 ```
-    // Not so confusing...
-    auto button = memnew(Button);
+// Not so confusing...
+auto button = memnew(Button);
 
-    // ...but what about this?
-    auto result = EditorNode::get_singleton()->get_complex_result();
+// ...but what about this?
+auto result = EditorNode::get_singleton()->get_complex_result();
 ```
 
 Keep in mind hover documentation often isn't readily available for pull request

@@ -77,7 +77,7 @@ different name, you can specify the path to the PCK file using the
 `--main-pack` command-line argument:
 
 ```
-    ./pandemonium-server --main-pack my_project.pck
+./pandemonium-server --main-pack my_project.pck
 ```
 
 ## Starting the dedicated server
@@ -88,23 +88,23 @@ can be done by adding the following code snippet in your main scene (or a
 singleton)'s `ready()` method:
 
 ```
-    if "--server" in OS.get_cmdline_args():
-        # Run your server startup code here...
-        # Using this check, you can start a dedicated server by running
-        # a Pandemonium binary (headless or not) with the `--server` command-line argument.
-        pass
+if "--server" in OS.get_cmdline_args():
+    # Run your server startup code here...
+    # Using this check, you can start a dedicated server by running
+    # a Pandemonium binary (headless or not) with the `--server` command-line argument.
+    pass
 ```
 
 Alternatively, you can make the dedicated server always start up if a headless
 or server binary is detected:
 
 ```
-    # Note: Feature tags are case-sensitive! It's "Server", not "server".
-    if OS.has_feature("Server"):
-        # Run your server startup code here...
-        # Note that using this check may break unit testing scripts when
-        # running them with headless or server binaries.
-        pass
+# Note: Feature tags are case-sensitive! It's "Server", not "server".
+if OS.has_feature("Server"):
+    # Run your server startup code here...
+    # Note that using this check may break unit testing scripts when
+    # running them with headless or server binaries.
+    pass
 ```
 
 If your client and server are separate Pandemonium projects, your server should most

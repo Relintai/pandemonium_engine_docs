@@ -47,55 +47,55 @@ This example will show you how to create a WebRTC connection between two peers i
 This is not very useful in real life, but will give you a good overview of how a WebRTC connection is set up.
 
 ```
-    extends Node
+extends Node
 
-    # Create the two peers
-    var p1 = WebRTCPeerConnection.new()
-    var p2 = WebRTCPeerConnection.new()
-    # And a negotiated channel for each each peer
-    var ch1 = p1.create_data_channel("chat", {"id": 1, "negotiated": true})
-    var ch2 = p2.create_data_channel("chat", {"id": 1, "negotiated": true})
+# Create the two peers
+var p1 = WebRTCPeerConnection.new()
+var p2 = WebRTCPeerConnection.new()
+# And a negotiated channel for each each peer
+var ch1 = p1.create_data_channel("chat", {"id": 1, "negotiated": true})
+var ch2 = p2.create_data_channel("chat", {"id": 1, "negotiated": true})
 
-    func _ready():
-        # Connect P1 session created to itself to set local description
-        p1.connect("session_description_created", p1, "set_local_description")
-        # Connect P1 session and ICE created to p2 set remote description and candidates
-        p1.connect("session_description_created", p2, "set_remote_description")
-        p1.connect("ice_candidate_created", p2, "add_ice_candidate")
+func _ready():
+    # Connect P1 session created to itself to set local description
+    p1.connect("session_description_created", p1, "set_local_description")
+    # Connect P1 session and ICE created to p2 set remote description and candidates
+    p1.connect("session_description_created", p2, "set_remote_description")
+    p1.connect("ice_candidate_created", p2, "add_ice_candidate")
 
-        # Same for P2
-        p2.connect("session_description_created", p2, "set_local_description")
-        p2.connect("session_description_created", p1, "set_remote_description")
-        p2.connect("ice_candidate_created", p1, "add_ice_candidate")
+    # Same for P2
+    p2.connect("session_description_created", p2, "set_local_description")
+    p2.connect("session_description_created", p1, "set_remote_description")
+    p2.connect("ice_candidate_created", p1, "add_ice_candidate")
 
-        # Let P1 create the offer
-        p1.create_offer()
+    # Let P1 create the offer
+    p1.create_offer()
 
-        # Wait a second and send message from P1
-        yield(get_tree().create_timer(1), "timeout")
-        ch1.put_packet("Hi from P1".to_utf8())
+    # Wait a second and send message from P1
+    yield(get_tree().create_timer(1), "timeout")
+    ch1.put_packet("Hi from P1".to_utf8())
 
-        # Wait a second and send message from P2
-        yield(get_tree().create_timer(1), "timeout")
-        ch2.put_packet("Hi from P2".to_utf8())
+    # Wait a second and send message from P2
+    yield(get_tree().create_timer(1), "timeout")
+    ch2.put_packet("Hi from P2".to_utf8())
 
-    func _process(_delta):
-        # Poll connections
-        p1.poll()
-        p2.poll()
+func _process(_delta):
+    # Poll connections
+    p1.poll()
+    p2.poll()
 
-        # Check for messages
-        if ch1.get_ready_state() == ch1.STATE_OPEN and ch1.get_available_packet_count() > 0:
-            print("P1 received: ", ch1.get_packet().get_string_from_utf8())
-        if ch2.get_ready_state() == ch2.STATE_OPEN and ch2.get_available_packet_count() > 0:
-            print("P2 received: ", ch2.get_packet().get_string_from_utf8())
+    # Check for messages
+    if ch1.get_ready_state() == ch1.STATE_OPEN and ch1.get_available_packet_count() > 0:
+        print("P1 received: ", ch1.get_packet().get_string_from_utf8())
+    if ch2.get_ready_state() == ch2.STATE_OPEN and ch2.get_available_packet_count() > 0:
+        print("P2 received: ", ch2.get_packet().get_string_from_utf8())
 ```
 
 This will print:
 
 ```
-    P1 received: Hi from P1
-    P2 received: Hi from P2
+P1 received: Hi from P1
+P2 received: Hi from P2
 ```
 
 #### Local signaling example
@@ -103,41 +103,41 @@ This will print:
 This example expands on the previous one, separating the peers in two different scenes, and using a `singleton ( doc_singletons_autoload )` as a signaling server.
 
 ```
-    # An example P2P chat client (chat.gd)
-    extends Node
+# An example P2P chat client (chat.gd)
+extends Node
 
-    var peer = WebRTCPeerConnection.new()
+var peer = WebRTCPeerConnection.new()
 
-    # Create negotiated data channel
-    var channel = peer.create_data_channel("chat", {"negotiated": true, "id": 1})
+# Create negotiated data channel
+var channel = peer.create_data_channel("chat", {"negotiated": true, "id": 1})
 
-    func _ready():
-        # Connect all functions
-        peer.connect("ice_candidate_created", self, "_on_ice_candidate")
-        peer.connect("session_description_created", self, "_on_session")
+func _ready():
+    # Connect all functions
+    peer.connect("ice_candidate_created", self, "_on_ice_candidate")
+    peer.connect("session_description_created", self, "_on_session")
 
-        # Register to the local signaling server (see below for the implementation)
-        Signaling.register(get_path())
+    # Register to the local signaling server (see below for the implementation)
+    Signaling.register(get_path())
 
-    func _on_ice_candidate(mid, index, sdp):
-        # Send the ICE candidate to the other peer via signaling server
-        Signaling.send_candidate(get_path(), mid, index, sdp)
+func _on_ice_candidate(mid, index, sdp):
+    # Send the ICE candidate to the other peer via signaling server
+    Signaling.send_candidate(get_path(), mid, index, sdp)
 
-    func _on_session(type, sdp):
-        # Send the session to other peer via signaling server
-        Signaling.send_session(get_path(), type, sdp)
-        # Set generated description as local
-        peer.set_local_description(type, sdp)
+func _on_session(type, sdp):
+    # Send the session to other peer via signaling server
+    Signaling.send_session(get_path(), type, sdp)
+    # Set generated description as local
+    peer.set_local_description(type, sdp)
 
-    func _process(delta):
-        # Always poll the connection frequently
-        peer.poll()
-        if channel.get_ready_state() == WebRTCDataChannel.STATE_OPEN:
-            while channel.get_available_packet_count() > 0:
-                print(get_path(), " received: ", channel.get_packet().get_string_from_utf8())
+func _process(delta):
+    # Always poll the connection frequently
+    peer.poll()
+    if channel.get_ready_state() == WebRTCDataChannel.STATE_OPEN:
+        while channel.get_available_packet_count() > 0:
+            print(get_path(), " received: ", channel.get_packet().get_string_from_utf8())
 
-    func send_message(message):
-        channel.put_packet(message.to_utf8())
+func send_message(message):
+    channel.put_packet(message.to_utf8())
 ```
 
 And now for the local signaling server:
@@ -146,63 +146,63 @@ Note:
  This local signaling server is supposed to be used as a `singleton ( doc_singletons_autoload )` to connect two peers in the same scene.
 
 ```
-    # A local signaling server. Add this to autoloads with name "Signaling" (/root/Signaling)
-    extends Node
+# A local signaling server. Add this to autoloads with name "Signaling" (/root/Signaling)
+extends Node
 
-    # We will store the two peers here
-    var peers = []
+# We will store the two peers here
+var peers = []
 
-    func register(path):
-        assert(peers.size() < 2)
-        peers.append(path)
-        # If it's the second one, create an offer
-        if peers.size() == 2:
-            get_node(peers[0]).peer.create_offer()
+func register(path):
+    assert(peers.size() < 2)
+    peers.append(path)
+    # If it's the second one, create an offer
+    if peers.size() == 2:
+        get_node(peers[0]).peer.create_offer()
 
-    func _find_other(path):
-        # Find the other registered peer.
-        for p in peers:
-            if p != path:
-                return p
-        return ""
+func _find_other(path):
+    # Find the other registered peer.
+    for p in peers:
+        if p != path:
+            return p
+    return ""
 
-    func send_session(path, type, sdp):
-        var other = _find_other(path)
-        assert(other != "")
-        get_node(other).peer.set_remote_description(type, sdp)
+func send_session(path, type, sdp):
+    var other = _find_other(path)
+    assert(other != "")
+    get_node(other).peer.set_remote_description(type, sdp)
 
-    func send_candidate(path, mid, index, sdp):
-        var other = _find_other(path)
-        assert(other != "")
-        get_node(other).peer.add_ice_candidate(mid, index, sdp)
+func send_candidate(path, mid, index, sdp):
+    var other = _find_other(path)
+    assert(other != "")
+    get_node(other).peer.add_ice_candidate(mid, index, sdp)
 ```
 
 Then you can use it like this:
 
 ```
-    # Main scene (main.gd)
-    extends Node
+# Main scene (main.gd)
+extends Node
 
-    const Chat = preload("res://chat.gd")
+const Chat = preload("res://chat.gd")
 
-    func _ready():
-        var p1 = Chat.new()
-        var p2 = Chat.new()
-        add_child(p1)
-        add_child(p2)
-        yield(get_tree().create_timer(1), "timeout")
-        p1.send_message("Hi from %s" % p1.get_path())
+func _ready():
+    var p1 = Chat.new()
+    var p2 = Chat.new()
+    add_child(p1)
+    add_child(p2)
+    yield(get_tree().create_timer(1), "timeout")
+    p1.send_message("Hi from %s" % p1.get_path())
 
-        # Wait a second and send message from P2
-        yield(get_tree().create_timer(1), "timeout")
-        p2.send_message("Hi from %s" % p2.get_path())
+    # Wait a second and send message from P2
+    yield(get_tree().create_timer(1), "timeout")
+    p2.send_message("Hi from %s" % p2.get_path())
 ```
 
 This will print something similar to this:
 
 ```
-    /root/main/@@3 received: Hi from /root/main/@@2
-    /root/main/@@2 received: Hi from /root/main/@@3
+/root/main/@@3 received: Hi from /root/main/@@2
+/root/main/@@2 received: Hi from /root/main/@@3
 ```
 
 #### Remote signaling with WebSocket

@@ -61,7 +61,7 @@ In Pandemonium, all shaders start with a line specifying what type of shader the
 It uses the following format:
 
 ```
-  shader_type canvas_item;
+shader_type canvas_item;
 ```
 
 Because we are writing a CanvasItem shader, we specify `canvas_item` in the
@@ -93,9 +93,9 @@ vectors see the `Vector math tutorial ( doc_vector_math )` `COLOR` is both
 an input variable to the fragment function and the final output from it.
 
 ```
-  void fragment(){
-    COLOR = vec4(0.4, 0.6, 0.9, 1.0);
-  }
+void fragment(){
+  COLOR = vec4(0.4, 0.6, 0.9, 1.0);
+}
 ```
 
 ![](img/blue-box.png)
@@ -118,9 +118,9 @@ other functions or to assign values to `COLOR` directly.
 ![](img/iconuv.png)
 
 ```
-  void fragment() {
-    COLOR = vec4(UV, 0.5, 1.0);
-  }
+void fragment() {
+  COLOR = vec4(UV, 0.5, 1.0);
+}
 ```
 
 ![](img/UV.png)
@@ -131,10 +131,10 @@ When you want to adjust a color in a Sprite you cannot just adjust the color
 from the texture manually like in the code below.
 
 ```
-  void fragment(){
-    //this shader will result in an all white rectangle
-    COLOR.b = 1.0;
-  }
+void fragment(){
+  //this shader will result in an all white rectangle
+  COLOR.b = 1.0;
+}
 ```
 
 The default fragment function reads from a texture and displays it. When you
@@ -145,10 +145,10 @@ can be accessed in the shader using `TEXTURE`. Use it together with `UV` and
 `texture` to draw the Sprite.
 
 ```
-  void fragment(){
-    COLOR = texture(TEXTURE, UV); //read from texture
-    COLOR.b = 1.0; //set blue channel to 1.0
-  }
+void fragment(){
+  COLOR = texture(TEXTURE, UV); //read from texture
+  COLOR.b = 1.0; //set blue channel to 1.0
+}
 ```
 
 ![](img/blue-tex.png)
@@ -161,7 +161,7 @@ the entire shader.
 You can use uniforms by defining them at the top of your shader like so:
 
 ```
-  uniform float size;
+uniform float size;
 ```
 
 For more information about usage see the `Shading Language doc
@@ -170,12 +170,12 @@ For more information about usage see the `Shading Language doc
 Add a uniform to change the amount of blue in our Sprite.
 
 ```
-  uniform float blue = 1.0; // you can assign a default value to uniforms
+uniform float blue = 1.0; // you can assign a default value to uniforms
 
-  void fragment(){
-    COLOR = texture(TEXTURE, UV); //read from texture
-    COLOR.b = blue;
-  }
+void fragment(){
+  COLOR = texture(TEXTURE, UV); //read from texture
+  COLOR.b = blue;
+}
 ```
 
 Now you can change the amount of blue in the Sprite from the editor. Look back
@@ -191,8 +191,8 @@ which is called on the node's material resource. With a Sprite node, the
 following code can be used to set the `blue` uniform.
 
 ```
-  var blue_value = 1.0
-  material.set_shader_param("blue", blue_value)
+var blue_value = 1.0
+material.set_shader_param("blue", blue_value)
 ```
 
 Note that the name of the uniform is a string. The string must match exactly
@@ -214,19 +214,19 @@ viewport, or parent nodes).
 You can offset the vertices by directly adding to `VERTEX`.
 
 ```
-  void vertex() {
-    VERTEX += vec2(10.0, 0.0);
-  }
+void vertex() {
+  VERTEX += vec2(10.0, 0.0);
+}
 ```
 
 Combined with the `TIME` built-in variable, this can be used for simple
 animation.
 
 ```
-  void vertex() {
-    // Animate Sprite moving in big circle around its location
-    VERTEX += vec2(cos(TIME)*100.0, sin(TIME)*100.0);
-  }
+void vertex() {
+  // Animate Sprite moving in big circle around its location
+  VERTEX += vec2(cos(TIME)*100.0, sin(TIME)*100.0);
+}
 ```
 
 ## Conclusion

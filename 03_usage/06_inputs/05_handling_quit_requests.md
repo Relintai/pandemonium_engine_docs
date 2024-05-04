@@ -30,9 +30,9 @@ Handling the notification is done as follows (on any node):
 gdscript GDScript
 
 ```
-    func _notification(what):
-        if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
-            get_tree().quit() # default behavior
+func _notification(what):
+    if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+        get_tree().quit() # default behavior
 ```
 
 When developing mobile apps, quitting is not desired unless the user is
@@ -44,7 +44,7 @@ behavior to quit when quit is requested, this can be changed:
 gdscript GDScript
 
 ```
-    get_tree().set_auto_accept_quit(false)
+get_tree().set_auto_accept_quit(false)
 ```
 
 ## Sending your own quit notification
@@ -61,5 +61,5 @@ Instead, you should send a quit request:
 gdscript GDScript
 
 ```
-    get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
+get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
 ```

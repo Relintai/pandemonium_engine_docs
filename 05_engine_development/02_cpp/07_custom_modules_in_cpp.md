@@ -40,30 +40,30 @@ The example module will be called "summator" (`pandemonium/modules/summator`).
 Inside we will create a simple summator class:
 
 ```
-    /* summator.h */
+/* summator.h */
 
-    #ifndef SUMMATOR_H
-    #define SUMMATOR_H
+#ifndef SUMMATOR_H
+#define SUMMATOR_H
 
-    #include "core/reference.h"
+#include "core/reference.h"
 
-    class Summator : public Reference {
-        GDCLASS(Summator, Reference);
+class Summator : public Reference {
+    GDCLASS(Summator, Reference);
 
-        int count;
+    int count;
 
-    protected:
-        static void _bind_methods();
+protected:
+    static void _bind_methods();
 
-    public:
-        void add(int p_value);
-        void reset();
-        int get_total() const;
+public:
+    void add(int p_value);
+    void reset();
+    int get_total() const;
 
-        Summator();
-    };
+    Summator();
+};
 
-    #endif // SUMMATOR_H
+#endif // SUMMATOR_H
 ```
 
 And then the cpp file.
@@ -464,7 +464,7 @@ Tip:
         user@host:~/pandemonium$ git status
 ```
 
-    Example output:
+Example output:
 
 ```
         Untracked files:
@@ -561,3 +561,4 @@ some (hopefully positive) surprises.
    saved/loaded.
 -  By this same logic, you can extend the Editor and almost any area of
    the engine.
+```

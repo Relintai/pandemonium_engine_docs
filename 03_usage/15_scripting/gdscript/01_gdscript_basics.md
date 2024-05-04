@@ -26,83 +26,83 @@ here's a simple example of how GDScript looks.
 
 
 ```
-    # A file is a class!
+# A file is a class!
 
-    # Inheritance
+# Inheritance
 
-    extends BaseClass
+extends BaseClass
 
-    # (optional) class definition with a custom icon
+# (optional) class definition with a custom icon
 
-    class_name MyClass, "res://path/to/optional/icon.svg"
-
-
-    # Member variables
-
-    var a = 5
-    var s = "Hello"
-    var arr = [1, 2, 3]
-    var dict = {"key": "value", 2: 3}
-    var typed_var: int
-    var inferred_type := "String"
-
-    # Constants
-
-    const ANSWER = 42
-    const THE_NAME = "Charly"
-
-    # Enums
-
-    enum {UNIT_NEUTRAL, UNIT_ENEMY, UNIT_ALLY}
-    enum Named {THING_1, THING_2, ANOTHER_THING = -1}
-
-    # Built-in vector types
-
-    var v2 = Vector2(1, 2)
-    var v3 = Vector3(1, 2, 3)
+class_name MyClass, "res://path/to/optional/icon.svg"
 
 
-    # Function
+# Member variables
 
-    func some_function(param1, param2):
-        var local_var = 5
+var a = 5
+var s = "Hello"
+var arr = [1, 2, 3]
+var dict = {"key": "value", 2: 3}
+var typed_var: int
+var inferred_type := "String"
 
-        if param1 < local_var:
-            print(param1)
-        elif param2 > 5:
-            print(param2)
-        else:
-            print("Fail!")
+# Constants
 
-        for i in range(20):
-            print(i)
+const ANSWER = 42
+const THE_NAME = "Charly"
 
-        while param2 != 0:
-            param2 -= 1
+# Enums
 
-        var local_var2 = param1 + 3
-        return local_var2
+enum {UNIT_NEUTRAL, UNIT_ENEMY, UNIT_ALLY}
+enum Named {THING_1, THING_2, ANOTHER_THING = -1}
 
+# Built-in vector types
 
-    # Functions override functions with the same name on the base/parent class.
-    # If you still want to call them, use '.' (like 'super' in other languages).
-
-    func something(p1, p2):
-        .something(p1, p2)
+var v2 = Vector2(1, 2)
+var v3 = Vector3(1, 2, 3)
 
 
-    # Inner class
+# Function
 
-    class Something:
-        var a = 10
+func some_function(param1, param2):
+    var local_var = 5
+
+    if param1 < local_var:
+        print(param1)
+    elif param2 > 5:
+        print(param2)
+    else:
+        print("Fail!")
+
+    for i in range(20):
+        print(i)
+
+    while param2 != 0:
+        param2 -= 1
+
+    var local_var2 = param1 + 3
+    return local_var2
 
 
-    # Constructor
+# Functions override functions with the same name on the base/parent class.
+# If you still want to call them, use '.' (like 'super' in other languages).
 
-    func _init():
-        print("Constructed!")
-        var lv = Something.new()
-        print(lv.a)
+func something(p1, p2):
+    .something(p1, p2)
+
+
+# Inner class
+
+class Something:
+    var a = 10
+
+
+# Constructor
+
+func _init():
+    print("Constructed!")
+    var lv = Something.new()
+    print(lv.a)
 ```
 
 If you have previous experience with statically typed languages such as
@@ -237,10 +237,10 @@ Integers and floats can have their numbers separated with `_` to make them more 
 The following ways to write numbers are all valid
 
 ```
-    12_345_678  # Equal to 12345678.
-    3.141_592_7  # Equal to 3.1415927.
-    0x8080_0000_ffff  # Equal to 0x80800000ffff.
-    0b11_00_11_00  # Equal to 0b11001100.
+12_345_678  # Equal to 12345678.
+3.141_592_7  # Equal to 3.1415927.
+0x8080_0000_ffff  # Equal to 0x80800000ffff.
+0b11_00_11_00  # Equal to 0b11001100.
 ```
 
 ### Comments
@@ -250,7 +250,7 @@ considered a comment.
 
 
 ```
-    # This is a comment.
+# This is a comment.
 ```
 
 
@@ -390,13 +390,13 @@ Negative indices count from the end.
 
 
 ```
-    var arr = []
-    arr = [1, 2, 3]
-    var b = arr[1] # This is 2.
-    var c = arr[arr.size() - 1] # This is 3.
-    var d = arr[-1] # Same as the previous line, but shorter.
-    arr[0] = "Hi!" # Replacing value 1 with "Hi!".
-    arr.append(4) # Array is now ["Hi!", 2, 3, 4].
+var arr = []
+arr = [1, 2, 3]
+var b = arr[1] # This is 2.
+var c = arr[arr.size() - 1] # This is 3.
+var d = arr[-1] # Same as the previous line, but shorter.
+arr[0] = "Hi!" # Replacing value 1 with "Hi!".
+arr.append(4) # Array is now ["Hi!", 2, 3, 4].
 ```
 
 GDScript arrays are allocated linearly in memory for speed.
@@ -420,14 +420,14 @@ Associative container which contains values referenced by unique keys.
 
 
 ```
-    var d = {4: 5, "A key": "A value", 28: [1, 2, 3]}
-    d["Hi!"] = 0
-    d = {
-        22: "value",
-        "some_key": 2,
-        "other_key": [2, 3, 4],
-        "more_key": "Hello"
-    }
+var d = {4: 5, "A key": "A value", 28: [1, 2, 3]}
+d["Hi!"] = 0
+d = {
+    22: "value",
+    "some_key": 2,
+    "other_key": [2, 3, 4],
+    "more_key": "Hello"
+}
 ```
 
 Lua-style table syntax is also supported. Lua-style uses `=` instead of `:`
@@ -437,28 +437,28 @@ identifier).
 
 
 ```
-    var d = {
-        test22 = "value",
-        some_key = 2,
-        other_key = [2, 3, 4],
-        more_key = "Hello"
-    }
+var d = {
+    test22 = "value",
+    some_key = 2,
+    other_key = [2, 3, 4],
+    more_key = "Hello"
+}
 ```
 
 To add a key to an existing dictionary, access it like an existing key and
 assign to it
 
 ```
-    var d = {} # Create an empty Dictionary.
-    d.waiting = 14 # Add String "waiting" as a key and assign the value 14 to it.
-    d[4] = "hello" # Add integer 4 as a key and assign the String "hello" as its value.
-    d["Pandemonium"] = 3.01 # Add String "Pandemonium" as a key and assign the value 3.01 to it.
+var d = {} # Create an empty Dictionary.
+d.waiting = 14 # Add String "waiting" as a key and assign the value 14 to it.
+d[4] = "hello" # Add integer 4 as a key and assign the String "hello" as its value.
+d["Pandemonium"] = 3.01 # Add String "Pandemonium" as a key and assign the value 3.01 to it.
 
-    var test = 4
-    # Prints "hello" by indexing the dictionary with a dynamic key.
-    # This is not the same as `d.test`. The bracket syntax equivalent to
-    # `d.test` is `d["test"]`.
-    print(d[test])
+var test = 4
+# Prints "hello" by indexing the dictionary with a dynamic key.
+# This is not the same as `d.test`. The bracket syntax equivalent to
+# `d.test` is `d["test"]`.
+print(d[test])
 ```
 
 Note:
@@ -480,10 +480,10 @@ value upon initialization.
 
 
 ```
-    var a # Data type is 'null' by default.
-    var b = 5
-    var c = 3.8
-    var d = b + c # Variables are always initialized in order.
+var a # Data type is 'null' by default.
+var b = 5
+var c = 3.8
+var d = b + c # Variables are always initialized in order.
 ```
 
 Variables can optionally have a type specification. When a type is specified,
@@ -495,16 +495,16 @@ after the variable name, followed by the type.
 
 
 ```
-    var my_vector2: Vector2
-    var my_node: Node = Sprite.new()
+var my_vector2: Vector2
+var my_node: Node = Sprite.new()
 ```
 
 If the variable is initialized within the declaration, the type can be inferred, so
 it's possible to omit the type name
 
 ```
-    var my_vector2 := Vector2() # 'my_vector2' is of type 'Vector2'.
-    var my_node := Sprite.new() # 'my_node' is of type 'Sprite'.
+var my_vector2 := Vector2() # 'my_vector2' is of type 'Vector2'.
+var my_node := Sprite.new() # 'my_node' is of type 'Sprite'.
 ```
 
 Type inference is only possible if the assigned value has a defined type, otherwise
@@ -529,16 +529,16 @@ same type or a subtype of the cast type.
 
 
 ```
-    var my_node2D: Node2D
-    my_node2D = $Sprite as Node2D # Works since Sprite is a subtype of Node2D.
+var my_node2D: Node2D
+my_node2D = $Sprite as Node2D # Works since Sprite is a subtype of Node2D.
 ```
 
 If the value is not a subtype, the casting operation will result in a `null` value.
 
 
 ```
-    var my_node2D: Node2D
-    my_node2D = $Button as Node2D # Results in 'null' since a Button is not a subtype of Node2D.
+var my_node2D: Node2D
+my_node2D = $Button as Node2D # Results in 'null' since a Button is not a subtype of Node2D.
 ```
 
 For built-in types, they will be forcibly converted if possible, otherwise the
@@ -546,20 +546,20 @@ engine will raise an error.
 
 
 ```
-    var my_int: int
-    my_int = "123" as int # The string can be converted to int.
-    my_int = Vector2() as int # A Vector2 can't be converted to int, this will cause an error.
+var my_int: int
+my_int = "123" as int # The string can be converted to int.
+my_int = Vector2() as int # A Vector2 can't be converted to int, this will cause an error.
 ```
 
 Casting is also useful to have better type-safe variables when interacting with
 the scene tree
 
 ```
-    # Will infer the variable to be of type Sprite.
-    var my_sprite := $Character as Sprite
+# Will infer the variable to be of type Sprite.
+var my_sprite := $Character as Sprite
 
-    # Will fail if $AnimPlayer is not an AnimationPlayer, even if it has the method 'play()'.
-    ($AnimPlayer as AnimationPlayer).play("walk")
+# Will fail if $AnimPlayer is not an AnimationPlayer, even if it has the method 'play()'.
+($AnimPlayer as AnimationPlayer).play("walk")
 ```
 
 ### Constants
@@ -573,22 +573,22 @@ We recommend using constants whenever a value is not meant to change.
 
 
 ```
-    const A = 5
-    const B = Vector2(20, 20)
-    const C = 10 + 20 # Constant expression.
-    const D = Vector2(20, 30).x # Constant expression: 20.
-    const E = [1, 2, 3, 4][0] # Constant expression: 1.
-    const F = sin(20) # 'sin()' can be used in constant expressions.
-    const G = x + 20 # Invalid; this is not a constant expression!
-    const H = A + 20 # Constant expression: 25 (`A` is a constant).
+const A = 5
+const B = Vector2(20, 20)
+const C = 10 + 20 # Constant expression.
+const D = Vector2(20, 30).x # Constant expression: 20.
+const E = [1, 2, 3, 4][0] # Constant expression: 1.
+const F = sin(20) # 'sin()' can be used in constant expressions.
+const G = x + 20 # Invalid; this is not a constant expression!
+const H = A + 20 # Constant expression: 25 (`A` is a constant).
 ```
 
 Although the type of constants is inferred from the assigned value, it's also
 possible to add explicit type specification
 
 ```
-    const A: int = 5
-    const B: Vector2 = Vector2()
+const A: int = 5
+const B: Vector2 = Vector2()
 ```
 
 Assigning a value of an incompatible type will raise an error.
@@ -614,17 +614,17 @@ dictionary of that name.
 
 
 ```
-    enum {TILE_BRICK, TILE_FLOOR, TILE_SPIKE, TILE_TELEPORT}
-    # Is the same as:
-    const TILE_BRICK = 0
-    const TILE_FLOOR = 1
-    const TILE_SPIKE = 2
-    const TILE_TELEPORT = 3
+enum {TILE_BRICK, TILE_FLOOR, TILE_SPIKE, TILE_TELEPORT}
+# Is the same as:
+const TILE_BRICK = 0
+const TILE_FLOOR = 1
+const TILE_SPIKE = 2
+const TILE_TELEPORT = 3
 
-    enum State {STATE_IDLE, STATE_JUMP = 5, STATE_SHOOT}
-    # Is the same as:
-    const State = {STATE_IDLE = 0, STATE_JUMP = 5, STATE_SHOOT = 6}
-    # Access values with State.STATE_IDLE, etc.
+enum State {STATE_IDLE, STATE_JUMP = 5, STATE_SHOOT}
+# Is the same as:
+const State = {STATE_IDLE = 0, STATE_JUMP = 5, STATE_SHOOT = 6}
+# Access values with State.STATE_IDLE, etc.
 ```
 
 
@@ -638,10 +638,10 @@ argument, unlike Python).
 
 
 ```
-    func my_function(a, b):
-        print(a)
-        print(b)
-        return a + b  # Return is optional; without it 'null' is returned.
+func my_function(a, b):
+    print(a)
+    print(b)
+    return a + b  # Return is optional; without it 'null' is returned.
 ```
 
 A function can `return` at any point. The default return value is `null`.
@@ -663,8 +663,8 @@ The return type of the function can be specified after the arguments list using
 the arrow token (`- )`)
 
 ```
-    func my_int_function() -> int:
-        return 0
+func my_int_function() -> int:
+    return 0
 ```
 
 Functions that have a return type **must** return a proper value. Setting the
@@ -673,8 +673,8 @@ return early with the `return` keyword, but they can't return any value.
 
 
 ```
-    func void_function() -> void:
-        return # Can't return a value
+func void_function() -> void:
+    return # Can't return a value
 ```
 
 Note:
@@ -697,13 +697,13 @@ pass it to another function as an argument) one must use the `call` or
 `funcref` helpers
 
 ```
-    # Call a function by name in one step.
-    my_node.call("my_function", args)
+# Call a function by name in one step.
+my_node.call("my_function", args)
 
-    # Store a function reference.
-    var my_func = funcref(my_node, "my_function")
-    # Call stored function reference.
-    my_func.call_func(args)
+# Store a function reference.
+var my_func = funcref(my_node, "my_function")
+# Call stored function reference.
+my_func.call_func(args)
 ```
 
 
@@ -714,8 +714,8 @@ access to the instance member variables or `self`. This is mainly
 useful to make libraries of helper functions
 
 ```
-    static func sum2(a, b):
-        return a + b
+static func sum2(a, b):
+    return a + b
 ```
 
 
@@ -734,62 +734,62 @@ nature of the tab-based indentation, `elif` can be used instead of
 
 
 ```
-    if [expression]:
-        statement(s)
-    elif [expression]:
-        statement(s)
-    else:
-        statement(s)
+if [expression]:
+    statement(s)
+elif [expression]:
+    statement(s)
+else:
+    statement(s)
 ```
 
 Short statements can be written on the same line as the condition
 ```
-    if 1 + 1 == 2: return 2 + 2
-    else:
-        var x = 3 + 3
-        return x
+if 1 + 1 == 2: return 2 + 2
+else:
+    var x = 3 + 3
+    return x
 ```
 
 Sometimes, you might want to assign a different initial value based on a
 boolean expression. In this case, ternary-if expressions come in handy
 ```
-    var x = [value] if [expression] else [value]
-    y += 3 if y < 10 else -1
+var x = [value] if [expression] else [value]
+y += 3 if y < 10 else -1
 ```
 
 Ternary-if expressions can be nested to handle more than 2 cases. When nesting
 ternary-if expressions, it is recommended to wrap the complete expression over
 multiple lines to preserve readability
 ```
-    var count = 0
+var count = 0
 
-    var fruit = (
-            "apple" if count == 2
-            else "pear" if count == 1
-            else "banana" if count == 0
-            else "orange"
-    )
-    print(fruit)  # banana
+var fruit = (
+        "apple" if count == 2
+        else "pear" if count == 1
+        else "banana" if count == 0
+        else "orange"
+)
+print(fruit)  # banana
 
-    # Alternative syntax with backslashes instead of parentheses (for multi-line expressions).
-    # Less lines required, but harder to refactor.
-    var fruit_alt = \
-            "apple" if count == 2 \
-            else "pear" if count == 1 \
-            else "banana" if count == 0 \
-            else "orange"
-    print(fruit_alt)  # banana
+# Alternative syntax with backslashes instead of parentheses (for multi-line expressions).
+# Less lines required, but harder to refactor.
+var fruit_alt = \
+        "apple" if count == 2 \
+        else "pear" if count == 1 \
+        else "banana" if count == 0 \
+        else "orange"
+print(fruit_alt)  # banana
 ```
 
 You may also wish to check if a value is contained within something. You can
 use an `if` statement combined with the `in` operator to accomplish this
 ```
-    # Check if a letter is in a string.
-    var text = "abc"
-    if 'b' in text: print("The string contains b")
+# Check if a letter is in a string.
+var text = "abc"
+if 'b' in text: print("The string contains b")
 
-    # Check if a variable is contained within a node.
-    if "varName" in get_parent(): print("varName is defined in parent!")
+# Check if a variable is contained within a node.
+if "varName" in get_parent(): print("varName is defined in parent!")
 ```
 
 #### while
@@ -799,8 +799,8 @@ using `break` or continued using `continue`:
 
 
 ```
-    while [expression]:
-        statement(s)
+while [expression]:
+    statement(s)
 ```
 
 #### for
@@ -812,30 +812,30 @@ in the loop variable.
 
 
 ```
-    for x in [5, 7, 11]:
-        statement # Loop iterates 3 times with 'x' as 5, then 7 and finally 11.
+for x in [5, 7, 11]:
+    statement # Loop iterates 3 times with 'x' as 5, then 7 and finally 11.
 
-    var dict = {"a": 0, "b": 1, "c": 2}
-    for i in dict:
-        print(dict[i]) # Prints 0, then 1, then 2.
+var dict = {"a": 0, "b": 1, "c": 2}
+for i in dict:
+    print(dict[i]) # Prints 0, then 1, then 2.
 
-    for i in range(3):
-        statement # Similar to [0, 1, 2] but does not allocate an array.
+for i in range(3):
+    statement # Similar to [0, 1, 2] but does not allocate an array.
 
-    for i in range(1, 3):
-        statement # Similar to [1, 2] but does not allocate an array.
+for i in range(1, 3):
+    statement # Similar to [1, 2] but does not allocate an array.
 
-    for i in range(2, 8, 2):
-        statement # Similar to [2, 4, 6] but does not allocate an array.
+for i in range(2, 8, 2):
+    statement # Similar to [2, 4, 6] but does not allocate an array.
 
-    for c in "Hello":
-        print(c) # Iterate through all characters in a String, print every letter on new line.
+for c in "Hello":
+    print(c) # Iterate through all characters in a String, print every letter on new line.
 
-    for i in 3:
-        statement # Similar to range(3)
+for i in 3:
+    statement # Similar to range(3)
 
-    for i in 2.2:
-        statement # Similar to range(ceil(2.2))
+for i in 2.2:
+    statement # Similar to range(ceil(2.2))
 ```
 
 #### match
@@ -845,13 +845,13 @@ It's the equivalent of the `switch` statement found in many other languages, but
 
 Basic syntax
 ```
-    match [expression]:
-        [pattern](s):
-            [block]
-        [pattern](s):
-            [block]
-        [pattern](s):
-            [block]
+match [expression]:
+    [pattern](s):
+        [block]
+    [pattern](s):
+        [block]
+    [pattern](s):
+        [block]
 ```
 
 
@@ -874,26 +874,26 @@ There are 6 pattern types:
 - Constant pattern
     Constant primitives, like numbers and strings
 ```
-        match x:
-            1:
-                print("We are number one!")
-            2:
-                print("Two are better than one!")
-            "test":
-                print("Oh snap! It's a string!")
+match x:
+    1:
+        print("We are number one!")
+    2:
+        print("Two are better than one!")
+    "test":
+        print("Oh snap! It's a string!")
 ```
 
 
 - Variable pattern
     Matches the contents of a variable/enum
 ```
-        match typeof(x):
-            TYPE_REAL:
-                print("float")
-            TYPE_STRING:
-                print("text")
-            TYPE_ARRAY:
-                print("array")
+match typeof(x):
+    TYPE_REAL:
+        print("float")
+    TYPE_STRING:
+        print("text")
+    TYPE_ARRAY:
+        print("array")
 ```
 
 
@@ -902,13 +902,13 @@ There are 6 pattern types:
 
     It can be used as the equivalent of the `default` in a `switch` statement in other languages
 ```
-        match x:
-            1:
-                print("It's one!")
-            2:
-                print("It's one times two!")
-            _:
-                print("It's not 1 or 2. I don't care to be honest.")
+match x:
+    1:
+        print("It's one!")
+    2:
+        print("It's one times two!")
+    _:
+        print("It's not 1 or 2. I don't care to be honest.")
 ```
 
 
@@ -916,13 +916,13 @@ There are 6 pattern types:
     A binding pattern introduces a new variable. Like the wildcard pattern, it matches everything - and also gives that value a name.
     It's especially useful in array and dictionary patterns
 ```
-        match x:
-            1:
-                print("It's one!")
-            2:
-                print("It's one times two!")
-            var new_var:
-                print("It's not 1 or 2, it's ", new_var)
+match x:
+    1:
+        print("It's one!")
+    2:
+        print("It's one times two!")
+    var new_var:
+        print("It's not 1 or 2, it's ", new_var)
 ```
 
 
@@ -937,15 +937,15 @@ There are 6 pattern types:
 
     
 ```
-        match x:
-            []:
-                print("Empty array")
-            [1, 3, "test", null]:
-                print("Very specific array")
-            [var start, _, "test"]:
-                print("First element is ", start, ", and the last is \"test\"")
-            [42, ..]:
-                print("Open ended array")
+match x:
+    []:
+        print("Empty array")
+    [1, 3, "test", null]:
+        print("Very specific array")
+    [var start, _, "test"]:
+        print("First element is ", start, ", and the last is \"test\"")
+    [42, ..]:
+        print("Open ended array")
 ```
 
 - Dictionary pattern
@@ -963,17 +963,17 @@ There are 6 pattern types:
 
     
 ```
-        match x:
-            {}:
-                print("Empty dict")
-            {"name": "Dennis"}:
-                print("The name is Dennis")
-            {"name": "Dennis", "age": var age}:
-                print("Dennis is ", age, " years old.")
-            {"name", "age"}:
-                print("Has a name and an age, but it's not Dennis :(")
-            {"key": "pandemoniumisawesome", ..}:
-                print("I only checked for one entry and ignored the rest")
+match x:
+    {}:
+        print("Empty dict")
+    {"name": "Dennis"}:
+        print("The name is Dennis")
+    {"name": "Dennis", "age": var age}:
+        print("Dennis is ", age, " years old.")
+    {"name", "age"}:
+        print("Has a name and an age, but it's not Dennis :(")
+    {"key": "pandemoniumisawesome", ..}:
+        print("I only checked for one entry and ignored the rest")
 ```
 
 - Multiple patterns
@@ -981,11 +981,11 @@ There are 6 pattern types:
 
     
 ```
-        match x:
-            1, 2, 3:
-                print("It's 1 - 3")
-            "Sword", "Splash potion", "Fist":
-                print("Yep, you've taken damage")
+match x:
+    1, 2, 3:
+        print("It's 1 - 3")
+    "Sword", "Splash potion", "Fist":
+        print("Yep, you've taken damage")
 ```
 
 ### Classes
@@ -994,14 +994,14 @@ By default, all script files are unnamed classes. In this case, you can only
 reference them using the file's path, using either a relative or an absolute
 path. For example, if you name a script file `character.gd`
 ```
-   # Inherit from 'Character.gd'.
+# Inherit from 'Character.gd'.
 
-   extends "res://path/to/character.gd"
+extends "res://path/to/character.gd"
 
-   # Load character.gd and create a new node instance from it.
+# Load character.gd and create a new node instance from it.
 
-   var Character = load("res://path/to/character.gd")
-   var character_node = Character.new()
+var Character = load("res://path/to/character.gd")
+var character_node = Character.new()
 
 ```
 
@@ -1013,10 +1013,10 @@ editor. For that, you use the `name` keyword. You can optionally add
 a comma followed by a path to an image, to use it as an icon. Your
 class will then appear with its new icon in the editor
 ```
-   # Item.gd
+# Item.gd
 
-   extends Node
-   class_name Item, "res://interface/icons/item.png)"
+extends Node
+class_name Item, "res://interface/icons/item.png)"
 ```
 
 ![](img/class_name_editor_register_example.png)
@@ -1033,22 +1033,22 @@ Here's a class file example:
 
 
 ```
-    # Saved as a file named 'character.gd'.
+# Saved as a file named 'character.gd'.
 
-    class_name Character
-
-
-    var health = 5
+class_name Character
 
 
-    func print_health():
-        print(health)
+var health = 5
 
 
-    func print_this_script_three_times():
-        print(get_script())
-        print(ResourceLoader.load("res://character.gd"))
-        print(Character)
+func print_health():
+    print(health)
+
+
+func print_this_script_three_times():
+    print(get_script())
+    print(ResourceLoader.load("res://character.gd"))
+    print(Character)
 ```
 
 
@@ -1073,34 +1073,34 @@ Multiple inheritance is not allowed.
 Inheritance uses the `extends` keyword
 
 ```
-    # Inherit/extend a globally available class.
-    extends SomeClass
+# Inherit/extend a globally available class.
+extends SomeClass
 
-    # Inherit/extend a named class file.
-    extends "somefile.gd"
+# Inherit/extend a named class file.
+extends "somefile.gd"
 
-    # Inherit/extend an inner class in another file.
-    extends "somefile.gd".SomeInnerClass
+# Inherit/extend an inner class in another file.
+extends "somefile.gd".SomeInnerClass
 ```
 
 
 To check if a given instance inherits from a given class,
 the `is` keyword can be used
 ```
-    # Cache the enemy class.
-    const Enemy = preload("enemy.gd")
+# Cache the enemy class.
+const Enemy = preload("enemy.gd")
 
-    # [...]
+# [...]
 
-    # Use 'is' to check inheritance.
-    if entity is Enemy:
-        entity.apply_damage()
+# Use 'is' to check inheritance.
+if entity is Enemy:
+    entity.apply_damage()
 ```
 
 To call a function in a *parent class* (i.e. one `extend`-ed in your current
 class), prepend `.` to the function name
 ```
-    .base_func(args)
+.base_func(args)
 ```
 
 This is especially useful because functions in extending classes replace
@@ -1108,8 +1108,8 @@ functions with the same name in their parent classes. If you still want to
 call them, you can prefix them with `.` (like the `super` keyword
 in other languages)
 ```
-    func some_func(x):
-        .some_func(x) # Calls the same function on the parent class.
+func some_func(x):
+    .some_func(x) # Calls the same function on the parent class.
 ```
 
 Note:
@@ -1130,32 +1130,32 @@ Unlike the call of a regular function, like in the above example with
 `.some_func`, if the constructor from the inherited class takes arguments,
 they are passed like this
 ```
-    func _init(args).(parent_args):
-       pass
+func _init(args).(parent_args):
+   pass
 ```
 
 This is better explained through examples. Consider this scenario
 ```
-    # State.gd (inherited class)
-    var entity = null
-    var message = null
+# State.gd (inherited class)
+var entity = null
+var message = null
 
 
-    func _init(e=null):
-        entity = e
+func _init(e=null):
+    entity = e
 
 
-    func enter(m):
-        message = m
+func enter(m):
+    message = m
 
 
-    # Idle.gd (inheriting class)
-    extends "State.gd"
+# Idle.gd (inheriting class)
+extends "State.gd"
 
 
-    func _init(e=null, m=null).(e):
-        # Do something with 'e'.
-        message = m
+func _init(e=null, m=null).(e):
+    # Do something with 'e'.
+    message = m
 ```
 
 There are a few things to keep in mind here:
@@ -1170,10 +1170,10 @@ There are a few things to keep in mind here:
    to the `State.gd` parent class, even if it does nothing. This brings us to the fact that you
    can pass literals in the base constructor as well, not just variables, e.g.
 ```
-    # Idle.gd
+# Idle.gd
 
-    func _init().(5):
-        pass
+func _init().(5):
+    pass
 ```
 
 #### Inner classes
@@ -1184,21 +1184,21 @@ function.
 
 
 ```
-    # Inside a class file.
+# Inside a class file.
 
-    # An inner class in this class file.
-    class SomeInnerClass:
-        var a = 5
-
-
-        func print_value_of_a():
-            print(a)
+# An inner class in this class file.
+class SomeInnerClass:
+    var a = 5
 
 
-    # This is the constructor of the class file's main class.
-    func _init():
-        var c = SomeInnerClass.new()
-        c.print_value_of_a()
+    func print_value_of_a():
+        print(a)
+
+
+# This is the constructor of the class file's main class.
+func _init():
+    var c = SomeInnerClass.new()
+    c.print_value_of_a()
 
 ```
 
@@ -1210,16 +1210,16 @@ must be loaded from disk to access them in other classes. This is done using
 either the `load` or `preload` functions (see below). Instancing of a loaded
 class resource is done by calling the `new` function on the class object
 ```
-    # Load the class resource when calling load().
-    var MyClass = load("myclass.gd")
+# Load the class resource when calling load().
+var MyClass = load("myclass.gd")
 
-    # Preload the class only once at compile time.
-    const MyClass = preload("myclass.gd")
+# Preload the class only once at compile time.
+const MyClass = preload("myclass.gd")
 
 
-    func _init():
-        var a = MyClass.new()
-        a.some_function()
+func _init():
+    var a = MyClass.new()
+    a.some_function()
 ```
 
 ### Exports
@@ -1239,7 +1239,7 @@ It is used directly after a variable definition:
 
 
 ```
-    var variable = value setget setterfunc, getterfunc
+var variable = value setget setterfunc, getterfunc
 ```
 
 Whenever the value of `variable` is modified by an *external* source
@@ -1249,24 +1249,24 @@ with the new value. Vice versa, when `variable` is accessed, the *getter* functi
 (`getterfunc` above) must `return` the desired value. Below is an example
 
 ```
-    var my_var setget my_var_set, my_var_get
+var my_var setget my_var_set, my_var_get
 
 
-    func my_var_set(new_value):
-        my_var = new_value
+func my_var_set(new_value):
+    my_var = new_value
 
 
-    func my_var_get():
-        return my_var # Getter must return a value.
+func my_var_get():
+    return my_var # Getter must return a value.
 ```
 
 Either of the *setter* or *getter* functions can be omitted
 
 ```
-    # Only a setter.
-    var my_var = 5 setget my_var_set
-    # Only a getter (note the comma).
-    var my_var = 5 setget ,my_var_get
+# Only a setter.
+var my_var = 5 setget my_var_set
+# Only a getter (note the comma).
+var my_var = 5 setget ,my_var_get
 ```
 
 Setters and getters are useful when `exporting variables ( doc_gdscript_exports )`
@@ -1277,14 +1277,14 @@ illustration of this:
 
 
 ```
-    func _init():
-        # Does not trigger setter/getter.
-        my_integer = 5
-        print(my_integer)
+func _init():
+    # Does not trigger setter/getter.
+    my_integer = 5
+    print(my_integer)
 
-        # Does trigger setter/getter.
-        self.my_integer = 5
-        print(self.my_integer)
+    # Does trigger setter/getter.
+    self.my_integer = 5
+    print(self.my_integer)
 
 ```
 
@@ -1297,12 +1297,12 @@ inside the editor (as long as they don't execute game code or manually
 avoid doing so). For this, the `tool` keyword exists and must be
 placed at the top of the file
 ```
-    tool
-    extends Button
+tool
+extends Button
 
 
-    func _ready():
-        print("Hello")
+func _ready():
+    print("Hello")
 
 ```
 
@@ -1328,17 +1328,17 @@ provided for creating weak references. Here is an example:
 
 
 ```
-    extends Node
+extends Node
 
-    var my_node_ref
+var my_node_ref
 
-    func _ready():
-        my_node_ref = weakref(get_node("MyNode"))
+func _ready():
+    my_node_ref = weakref(get_node("MyNode"))
 
-    func _this_is_called_later():
-        var my_node = my_node_ref.get_ref()
-        if my_node:
-            my_node.do_something()
+func _this_is_called_later():
+    var my_node = my_node_ref.get_ref()
+    if my_node:
+        my_node.do_something()
 ```
 
 Alternatively, when not using references, the
@@ -1354,11 +1354,11 @@ to. To create custom signals for a class, use the `signal` keyword.
 
 
 ```
-   extends Node
+extends Node
 
 
-   # A signal named health_depleted.
-   signal health_depleted
+# A signal named health_depleted.
+signal health_depleted
 ```
 
 Note:
@@ -1379,15 +1379,15 @@ In the example below, we connect the `health_depleted` signal from a
 signal, the game node's `on_Character_health_depleted` is called
 
 ```
-    # Game.gd
+# Game.gd
 
-    func _ready():
-        var character_node = get_node('Character')
-        character_node.connect("health_depleted", self, "_on_Character_health_depleted")
+func _ready():
+    var character_node = get_node('Character')
+    character_node.connect("health_depleted", self, "_on_Character_health_depleted")
 
 
-    func _on_Character_health_depleted():
-        get_tree().reload_current_scene()
+func _on_Character_health_depleted():
+    get_tree().reload_current_scene()
 ```
 
 You can emit as many arguments as you want along with a signal.
@@ -1402,40 +1402,40 @@ a `Game` node higher up our scene tree, we connect it to the `Lifebar` using
 the `Object.connect()` method
 
 ```
-    # Character.gd
+# Character.gd
 
-    ...
-    signal health_changed
+...
+signal health_changed
 
 
-    func take_damage(amount):
-        var old_health = health
-        health -= amount
+func take_damage(amount):
+    var old_health = health
+    health -= amount
 
-        # We emit the health_changed signal every time the
-        # character takes damage.
-        emit_signal("health_changed", old_health, health)
-    ...
+    # We emit the health_changed signal every time the
+    # character takes damage.
+    emit_signal("health_changed", old_health, health)
+...
 ```
 
 
 ```
-    # Lifebar.gd
+# Lifebar.gd
 
-    # Here, we define a function to use as a callback when the
-    # character's health_changed signal is emitted.
+# Here, we define a function to use as a callback when the
+# character's health_changed signal is emitted.
 
-    ...
-    func _on_Character_health_changed(old_value, new_value):
-        if old_value > new_value:
-            progress_bar.modulate = Color.red
-        else:
-            progress_bar.modulate = Color.green
+...
+func _on_Character_health_changed(old_value, new_value):
+    if old_value > new_value:
+        progress_bar.modulate = Color.red
+    else:
+        progress_bar.modulate = Color.green
 
-        # Imagine that `animate` is a user-defined function that animates the
-        # bar filling up or emptying itself.
-        progress_bar.animate(old_value, new_value)
-    ...
+    # Imagine that `animate` is a user-defined function that animates the
+    # bar filling up or emptying itself.
+    progress_bar.animate(old_value, new_value)
+...
 ```
 
 Note:
@@ -1450,13 +1450,13 @@ node in this case.
 
 
 ```
-    # Game.gd
+# Game.gd
 
-    func _ready():
-        var character_node = get_node('Character')
-        var lifebar_node = get_node('UserInterface/Lifebar')
+func _ready():
+    var character_node = get_node('Character')
+    var lifebar_node = get_node('UserInterface/Lifebar')
 
-        character_node.connect("health_changed", lifebar_node, "_on_Character_health_changed")
+    character_node.connect("health_changed", lifebar_node, "_on_Character_health_changed")
 ```
 
 This allows the `Lifebar` to react to health changes without coupling it to
@@ -1466,8 +1466,8 @@ You can write optional argument names in parentheses after the signal's
 definition
 
 ```
-    # Defining a signal that forwards two arguments.
-    signal health_changed(old_value, new_value)
+# Defining a signal that forwards two arguments.
+signal health_changed(old_value, new_value)
 ```
 
 These arguments show up in the editor's node dock, and Pandemonium can use them to
@@ -1492,26 +1492,26 @@ damage. So when we connect the signal to the in-game console, we can add the
 character's name in the binds array argument
 
 ```
-    # Game.gd
+# Game.gd
 
-    func _ready():
-        var character_node = get_node('Character')
-        var battle_log_node = get_node('UserInterface/BattleLog')
+func _ready():
+    var character_node = get_node('Character')
+    var battle_log_node = get_node('UserInterface/BattleLog')
 
-        character_node.connect("health_changed", battle_log_node, "_on_Character_health_changed", [character_node.name])
+    character_node.connect("health_changed", battle_log_node, "_on_Character_health_changed", [character_node.name])
 ```
 
 Our `BattleLog` node receives each element in the binds array as an extra argument
 
 ```
-    # BattleLog.gd
+# BattleLog.gd
 
-    func _on_Character_health_changed(old_value, new_value, character_name):
-        if not new_value <= old_value:
-            return
+func _on_Character_health_changed(old_value, new_value, character_name):
+    if not new_value <= old_value:
+        return
 
-        var damage = old_value - new_value
-        label.text += character_name + " took " + str(damage) + " damage."
+    var damage = old_value - new_value
+    label.text += character_name + " took " + str(damage) + " damage."
 
 ```
 
@@ -1526,66 +1526,66 @@ function returns. Once resumed, the state object becomes invalid. Here is
 an example
 
 ```
-    func my_func():
-        print("Hello")
-        yield()
-        print("world")
+func my_func():
+    print("Hello")
+    yield()
+    print("world")
 
 
-    func _ready():
-        var y = my_func()
-        # Function state saved in 'y'.
-        print("my dear")
-        y.resume()
-        # 'y' resumed and is now an invalid state.
+func _ready():
+    var y = my_func()
+    # Function state saved in 'y'.
+    print("my dear")
+    y.resume()
+    # 'y' resumed and is now an invalid state.
 ```
 
 Will print
 
 ```
-    Hello
-    my dear
-    world
+Hello
+my dear
+world
 ```
 
 It is also possible to pass values between `yield()` and `resume()`,
 for example
 
 ```
-    func my_func():
-        print("Hello")
-        print(yield())
-        return "cheers!"
+func my_func():
+    print("Hello")
+    print(yield())
+    return "cheers!"
 
 
-    func _ready():
-        var y = my_func()
-        # Function state saved in 'y'.
-        print(y.resume("world"))
-        # 'y' resumed and is now an invalid state.
+func _ready():
+    var y = my_func()
+    # Function state saved in 'y'.
+    print(y.resume("world"))
+    # 'y' resumed and is now an invalid state.
 ```
 
 Will print
 
 ```
-    Hello
-    world
-    cheers!
+Hello
+world
+cheers!
 ```
 
 Remember to save the new function state, when using multiple `yield`\s
 
 ```
-    func co_func():
-        for i in range(1, 5):
-            print("Turn %d" % i)
-            yield();
+func co_func():
+    for i in range(1, 5):
+        print("Turn %d" % i)
+        yield();
 
 
-    func _ready():
-        var co = co_func();
-        while co is GDScriptFunctionState && co.is_valid():
-            co = co.resume();
+func _ready():
+    var co = co_func();
+    while co is GDScriptFunctionState && co.is_valid():
+        co = co.resume();
 ```
 
 
@@ -1596,28 +1596,28 @@ The real strength of using `yield` is when combined with signals.
 signal is received, execution will recommence. Here are some examples
 
 ```
-    # Resume execution the next frame.
-    yield(get_tree(), "idle_frame")
+# Resume execution the next frame.
+yield(get_tree(), "idle_frame")
 
-    # Resume execution when animation is done playing.
-    yield(get_node("AnimationPlayer"), "animation_finished")
+# Resume execution when animation is done playing.
+yield(get_node("AnimationPlayer"), "animation_finished")
 
-    # Wait 5 seconds, then resume execution.
-    yield(get_tree().create_timer(5.0), "timeout")
+# Wait 5 seconds, then resume execution.
+yield(get_tree().create_timer(5.0), "timeout")
 ```
 
 Coroutines themselves use the `completed` signal when they transition
 into an invalid state, for example
 
 ```
-    func my_func():
-        yield(button_func(), "completed")
-        print("All buttons were pressed, hurray!")
+func my_func():
+    yield(button_func(), "completed")
+    print("All buttons were pressed, hurray!")
 
 
-    func button_func():
-        yield($Button0, "pressed")
-        yield($Button1, "pressed")
+func button_func():
+    yield($Button0, "pressed")
+    yield($Button1, "pressed")
 ```
 
 `my_func` will only continue execution once both buttons have been pressed.
@@ -1626,28 +1626,28 @@ You can also get the signal's argument once it's emitted by an object:
 
 
 ```
-    # Wait for when any node is added to the scene tree.
-    var node = yield(get_tree(), "node_added")
+# Wait for when any node is added to the scene tree.
+var node = yield(get_tree(), "node_added")
 ```
 
 If there is more than one argument, `yield` returns an array containing
 the arguments
 
 ```
-    signal done(input, processed)
+signal done(input, processed)
 
-    func process_input(input):
-        print("Processing initialized")
-        yield(get_tree(), "idle_frame")
-        print("Waiting")
-        yield(get_tree(), "idle_frame")
-        emit_signal("done", input, "Processed " + input)
+func process_input(input):
+    print("Processing initialized")
+    yield(get_tree(), "idle_frame")
+    print("Waiting")
+    yield(get_tree(), "idle_frame")
+    emit_signal("done", input, "Processed " + input)
 
 
-    func _ready():
-        process_input("Test") # Prints: Processing initialized
-        var data = yield(self, "done") # Prints: waiting
-        print(data[1]) # Prints: Processed Test
+func _ready():
+    process_input("Test") # Prints: Processing initialized
+    var data = yield(self, "done") # Prints: waiting
+    print(data[1]) # Prints: Processed Test
 ```
 
 If you're unsure whether a function may yield or not, or whether it may yield
@@ -1655,22 +1655,22 @@ multiple times, you can yield to the `completed` signal conditionally:
 
 
 ```
-    func generate():
-        var result = rand_range(-1.0, 1.0)
+func generate():
+    var result = rand_range(-1.0, 1.0)
 
-        if result < 0.0:
-            yield(get_tree(), "idle_frame")
+    if result < 0.0:
+        yield(get_tree(), "idle_frame")
 
-        return result
+    return result
 
 
-    func make():
-        var result = generate()
+func make():
+    var result = generate()
 
-        if result is GDScriptFunctionState: # Still working.
-            result = yield(result, "completed")
+    if result is GDScriptFunctionState: # Still working.
+        result = yield(result, "completed")
 
-        return result
+    return result
 ```
 
 This ensures that the function returns whatever it was supposed to return
@@ -1689,11 +1689,11 @@ be obtained when a call to `Node._ready()` is made.
 
 
 ```
-    var my_label
+var my_label
 
 
-    func _ready():
-        my_label = get_node("MyLabel")
+func _ready():
+    my_label = get_node("MyLabel")
 ```
 
 This can get a little cumbersome, especially when nodes and external
@@ -1702,7 +1702,7 @@ defers initialization of a member variable until `ready()` is called. It
 can replace the above code with a single line
 
 ```
-    onready var my_label = get_node("MyLabel")
+onready var my_label = get_node("MyLabel")
 ```
 
 ### Assert keyword
@@ -1716,8 +1716,8 @@ depending on whether the project is run in a debug build.
 
 
 ```
-    # Check that 'i' is 0. If 'i' is not 0, an assertion error will occur.
-    assert(i == 0)
+# Check that 'i' is 0. If 'i' is not 0, an assertion error will occur.
+assert(i == 0)
 ```
 
 When running a project from the editor, the project will be paused if an

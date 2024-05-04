@@ -26,9 +26,9 @@ The engine calls this method every time it draws a frame:
 gdscript GDScript
 
 ```
-    func _process(delta):
-        # Do something...
-        pass
+func _process(delta):
+    # Do something...
+    pass
 ```
 
 Keep in mind that the frequency at which the engine calls `process()` depends
@@ -52,9 +52,9 @@ The engine calls this method every time it draws a frame:
 gdscript GDScript
 
 ```
-    func _physics_process(delta):
-        # Do something...
-        pass
+func _physics_process(delta):
+    # Do something...
+    pass
 ```
 
 The function `process()` is not synchronized with physics. Its rate depends on
@@ -67,13 +67,13 @@ single Label node, with the following script attached to it:
 gdscript GDScript
 
 ```
-    extends Label
+extends Label
 
-    var time = 0
+var time = 0
 
-    func _process(delta):
-        time += delta
-        text = str(time) # 'text' is a built-in Label property.
+func _process(delta):
+    time += delta
+    text = str(time) # 'text' is a built-in Label property.
 ```
 
 When you run the scene, you should see a counter increasing each frame.

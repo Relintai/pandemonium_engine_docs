@@ -78,24 +78,24 @@ If the navigation mesh resource is already prepared, the region can be updated w
 GDScript
 
 ```
-    extends NavigationRegion3D
+extends NavigationRegion3D
 
-    func update_navigation_mesh():
+func update_navigation_mesh():
 
-        # use bake and update function of region
-        var on_thread: bool = true
-        bake_navigation_mesh(on_thread)
+    # use bake and update function of region
+    var on_thread: bool = true
+    bake_navigation_mesh(on_thread)
 
-        # or use the NavigationMeshGenerator Singleton
-        var _navigationmesh: NavigationMesh = navigation_mesh
-        NavigationMeshGenerator.bake(_navigationmesh, self)
-        # remove old resource first to trigger a full update
-        navigation_mesh = null
-        navigation_mesh = _navigationmesh
+    # or use the NavigationMeshGenerator Singleton
+    var _navigationmesh: NavigationMesh = navigation_mesh
+    NavigationMeshGenerator.bake(_navigationmesh, self)
+    # remove old resource first to trigger a full update
+    navigation_mesh = null
+    navigation_mesh = _navigationmesh
 
-        # or use NavigationServer API to update region with prepared navigation mesh
-        var region_rid: RID = get_region_rid()
-        NavigationServer3D.region_set_navigation_mesh(region_rid, navigation_mesh)
+    # or use NavigationServer API to update region with prepared navigation mesh
+    var region_rid: RID = get_region_rid()
+    NavigationServer3D.region_set_navigation_mesh(region_rid, navigation_mesh)
 ```
 
 Note:
@@ -130,32 +130,32 @@ navigationmesh from outline data the shapes cannot overlap.
 GDScript
 
 ```
-    extends NavigationRegion2D
+extends NavigationRegion2D
 
-    var new_navigation_polygon: NavigationPolygon = get_navigation_polygon()
+var new_navigation_polygon: NavigationPolygon = get_navigation_polygon()
 
-    func _ready():
+func _ready():
 
-        parse_2d_collisionshapes(self)
+    parse_2d_collisionshapes(self)
 
-        new_navigation_polygon.make_polygons_from_outlines()
-        set_navigation_polygon(new_navigation_polygon)
+    new_navigation_polygon.make_polygons_from_outlines()
+    set_navigation_polygon(new_navigation_polygon)
 
-    func parse_2d_collisionshapes(root_node: Node2D):
+func parse_2d_collisionshapes(root_node: Node2D):
 
-        for node in root_node.get_children():
+    for node in root_node.get_children():
 
-            if node.get_child_count() > 0:
-                parse_2d_collisionshapes(node)
+        if node.get_child_count() > 0:
+            parse_2d_collisionshapes(node)
 
-            if node is CollisionPolygon2D:
+        if node is CollisionPolygon2D:
 
-                var collisionpolygon_transform: Transform2D = node.get_global_transform()
-                var collisionpolygon: PackedVector2Array = node.polygon
+            var collisionpolygon_transform: Transform2D = node.get_global_transform()
+            var collisionpolygon: PackedVector2Array = node.polygon
 
-                var new_collision_outline: PackedVector2Array = collisionpolygon_transform * collisionpolygon
+            var new_collision_outline: PackedVector2Array = collisionpolygon_transform * collisionpolygon
 
-                new_navigation_polygon.add_outline(new_collision_outline)
+            new_navigation_polygon.add_outline(new_collision_outline)
 ```
 
 ### Procedual 2D NavigationMesh
@@ -165,24 +165,24 @@ The following script creates a new 2D navigation region and fills it with proced
 GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    var new_2d_region_rid: RID = NavigationServer2D.region_create()
+var new_2d_region_rid: RID = NavigationServer2D.region_create()
 
-    var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
-    NavigationServer2D.region_set_map(new_2d_region_rid, default_2d_map_rid)
+var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
+NavigationServer2D.region_set_map(new_2d_region_rid, default_2d_map_rid)
 
-    var new_navigation_polygon: NavigationPolygon = NavigationPolygon.new()
-    var new_outline: PackedVector2Array = PackedVector2Array([
-        Vector2(0.0, 0.0),
-        Vector2(50.0, 0.0),
-        Vector2(50.0, 50.0),
-        Vector2(0.0, 50.0),
-    ])
-    new_navigation_polygon.add_outline(new_outline)
-    new_navigation_polygon.make_polygons_from_outlines()
+var new_navigation_polygon: NavigationPolygon = NavigationPolygon.new()
+var new_outline: PackedVector2Array = PackedVector2Array([
+    Vector2(0.0, 0.0),
+    Vector2(50.0, 0.0),
+    Vector2(50.0, 50.0),
+    Vector2(0.0, 50.0),
+])
+new_navigation_polygon.add_outline(new_outline)
+new_navigation_polygon.make_polygons_from_outlines()
 
-    NavigationServer2D.region_set_navigation_polygon(new_2d_region_rid, new_navigation_polygon)
+NavigationServer2D.region_set_navigation_polygon(new_2d_region_rid, new_navigation_polygon)
 ```
 
 ### Procedual 3D NavigationMesh
@@ -192,25 +192,25 @@ The following script creates a new 3D navigation region and fills it with proced
 GDScript
 
 ```
-    extends Node3D
+extends Node3D
 
-    var new_3d_region_rid: RID = NavigationServer3D.region_create()
+var new_3d_region_rid: RID = NavigationServer3D.region_create()
 
-    var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
-    NavigationServer3D.region_set_map(new_3d_region_rid, default_3d_map_rid)
+var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
+NavigationServer3D.region_set_map(new_3d_region_rid, default_3d_map_rid)
 
-    var new_navigation_mesh: NavigationMesh = NavigationMesh.new()
-    # Add vertices for a triangle.
-    new_navigation_mesh.vertices = PackedVector3Array([
-        Vector3(-1.0, 0.0, 1.0),
-        Vector3(1.0, 0.0, 1.0),
-        Vector3(1.0, 0.0, -1.0)
-    ])
-    # Add indices for the polygon.
-    new_navigation_mesh.add_polygon(
-        PackedInt32Array([0, 1, 2])
-    )
-    NavigationServer3D.region_set_navigation_mesh(new_3d_region_rid, new_navigation_mesh)
+var new_navigation_mesh: NavigationMesh = NavigationMesh.new()
+# Add vertices for a triangle.
+new_navigation_mesh.vertices = PackedVector3Array([
+    Vector3(-1.0, 0.0, 1.0),
+    Vector3(1.0, 0.0, 1.0),
+    Vector3(1.0, 0.0, -1.0)
+])
+# Add indices for the polygon.
+new_navigation_mesh.add_polygon(
+    PackedInt32Array([0, 1, 2])
+)
+NavigationServer3D.region_set_navigation_mesh(new_3d_region_rid, new_navigation_mesh)
 ```
 
 ### Navmesh for 3D GridMaps
@@ -220,42 +220,42 @@ The following script creates a new 3D navigation mesh for each GridMap items, cl
 GDScript
 
 ```
-    extends GridMap
+extends GridMap
 
-    # enable navigation mesh for grid items
-    set_bake_navigation(true)
+# enable navigation mesh for grid items
+set_bake_navigation(true)
 
-    # get grid items, create and set a new navigation mesh for each item in the MeshLibrary
-    var gridmap_item_list: PackedInt32Array = mesh_library.get_item_list()
-    for item in gridmap_item_list:
-        var new_item_navigation_mesh: NavigationMesh = NavigationMesh.new()
-        # Add vertices and polygons that describe the traversable ground surface.
-        # E.g. for a convex polygon that resembles a flat square.
-        new_item_navigation_mesh.vertices = PackedVector3Array([
-            Vector3(-1.0, 0.0, 1.0),
-            Vector3(1.0, 0.0, 1.0),
-            Vector3(1.0, 0.0, -1.0),
-            Vector3(-1.0, 0.0, -1.0),
-        ])
-        new_item_navigation_mesh.add_polygon(
-            PackedInt32Array([0, 1, 2, 3])
-        )
-        mesh_library.set_item_navigation_mesh(item, new_item_navigation_mesh)
-        mesh_library.set_item_navigation_mesh_transform(item, Transform3D())
+# get grid items, create and set a new navigation mesh for each item in the MeshLibrary
+var gridmap_item_list: PackedInt32Array = mesh_library.get_item_list()
+for item in gridmap_item_list:
+    var new_item_navigation_mesh: NavigationMesh = NavigationMesh.new()
+    # Add vertices and polygons that describe the traversable ground surface.
+    # E.g. for a convex polygon that resembles a flat square.
+    new_item_navigation_mesh.vertices = PackedVector3Array([
+        Vector3(-1.0, 0.0, 1.0),
+        Vector3(1.0, 0.0, 1.0),
+        Vector3(1.0, 0.0, -1.0),
+        Vector3(-1.0, 0.0, -1.0),
+    ])
+    new_item_navigation_mesh.add_polygon(
+        PackedInt32Array([0, 1, 2, 3])
+    )
+    mesh_library.set_item_navigation_mesh(item, new_item_navigation_mesh)
+    mesh_library.set_item_navigation_mesh_transform(item, Transform3D())
 
-    # clear the cells
-    clear()
+# clear the cells
+clear()
 
-    # add procedual cells using the first item
-    var _position: Vector3i = Vector3i(global_transform.origin)
-    var _item: int = 0
-    var _orientation: int = 0
-    for i in range(0,10):
-        for j in range(0,10):
-            _position.x = i
-            _position.z = j
-            gridmap.set_cell_item(_position, _item, _orientation)
-            _position.x = -i
-            _position.z = -j
-            gridmap.set_cell_item(_position, _item, _orientation)
+# add procedual cells using the first item
+var _position: Vector3i = Vector3i(global_transform.origin)
+var _item: int = 0
+var _orientation: int = 0
+for i in range(0,10):
+    for j in range(0,10):
+        _position.x = i
+        _position.z = j
+        gridmap.set_cell_item(_position, _item, _orientation)
+        _position.x = -i
+        _position.z = -j
+        gridmap.set_cell_item(_position, _item, _orientation)
 ```

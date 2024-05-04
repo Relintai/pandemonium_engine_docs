@@ -32,7 +32,7 @@ For example, if you do not want to have lights affect an object, set the render
 mode to `unshaded`:
 
 ```
-  render_mode unshaded;
+render_mode unshaded;
 ```
 
 You can also stack multiple render modes together. For example, if you want to
@@ -40,7 +40,7 @@ use toon shading instead of more-realistic PBR shading, set the diffuse mode and
 specular mode to toon:
 
 ```
-  render_mode diffuse_toon, specular_toon;
+render_mode diffuse_toon, specular_toon;
 ```
 
 This model of built-in functionality allows you to write complex custom shaders
@@ -59,9 +59,9 @@ First let's set the color of the water. We do that by setting `ALBEDO`.
 Let's set it to a nice shade of blue.
 
 ```
-  void fragment() {
-    ALBEDO = vec3(0.1, 0.3, 0.5);
-  }
+void fragment() {
+  ALBEDO = vec3(0.1, 0.3, 0.5);
+}
 ```
 
 ![](img/albedo.png)
@@ -96,11 +96,11 @@ is also highly reflective, so we will set its `ROUGHNESS` property to be quite
 low as well.
 
 ```
-  void fragment() {
-    METALLIC = 0.0;
-    ROUGHNESS = 0.01;
-    ALBEDO = vec3(0.1, 0.3, 0.5);
-  }
+void fragment() {
+  METALLIC = 0.0;
+  ROUGHNESS = 0.01;
+  ALBEDO = vec3(0.1, 0.3, 0.5);
+}
 ```
 
 ![](img/plastic.png)
@@ -119,7 +119,7 @@ will change the render mode for specular to toon because the toon render mode
 has larger specular highlights.
 
 ```
-  render_mode specular_toon;
+render_mode specular_toon;
 ```
 
 ![](img/specular-toon.png)
@@ -130,12 +130,12 @@ fabric on the edges of an object, but we will use it here to help achieve a nice
 watery effect.
 
 ```
-  void fragment() {
-    RIM = 0.2;
-    METALLIC = 0.0;
-    ROUGHNESS = 0.01;
-    ALBEDO = vec3(0.1, 0.3, 0.5);
-  }
+void fragment() {
+  RIM = 0.2;
+  METALLIC = 0.0;
+  ROUGHNESS = 0.01;
+  ALBEDO = vec3(0.1, 0.3, 0.5);
+}
 ```
 
 ![](img/rim.png)
@@ -149,7 +149,7 @@ that point on the surface. The dot product between them is a handy way to tell
 when you are looking at the surface head-on or at a glancing angle.
 
 ```
-  float fresnel = sqrt(1.0 - dot(NORMAL, VIEW));
+float fresnel = sqrt(1.0 - dot(NORMAL, VIEW));
 ```
 
 And mix it into both `ROUGHNESS` and `ALBEDO`. This is the benefit of
@@ -159,13 +159,13 @@ set them based on any mathematical function that we can dream up.
 
 
 ```
-  void fragment() {
-    float fresnel = sqrt(1.0 - dot(NORMAL, VIEW));
-    RIM = 0.2;
-    METALLIC = 0.0;
-    ROUGHNESS = 0.01 * (1.0 - fresnel);
-    ALBEDO = vec3(0.1, 0.3, 0.5) + (0.1 * fresnel);
-  }
+void fragment() {
+  float fresnel = sqrt(1.0 - dot(NORMAL, VIEW));
+  RIM = 0.2;
+  METALLIC = 0.0;
+  ROUGHNESS = 0.01 * (1.0 - fresnel);
+  ALBEDO = vec3(0.1, 0.3, 0.5) + (0.1 * fresnel);
+}
 ```
 
 ![](img/fresnel.png)
@@ -191,33 +191,33 @@ tutorial, we will do the same. Put the heightmap code in a function called
 `height()`.
 
 ```
-  float height(vec2 position) {
-    return texture(noise, position / 10.0).x; // Scaling factor is based on mesh size (this PlaneMesh is 10×10).
-  }
+float height(vec2 position) {
+  return texture(noise, position / 10.0).x; // Scaling factor is based on mesh size (this PlaneMesh is 10×10).
+}
 ```
 
 In order to use `TIME` in the `height()` function, we need to pass it in.
 
 ```
-  float height(vec2 position, float time) {
-  }
+float height(vec2 position, float time) {
+}
 ```
 
 And make sure to correctly pass it in inside the vertex function.
 
 ```
-  void vertex() {
-    vec2 pos = VERTEX.xz;
-    float k = height(pos, TIME);
-    VERTEX.y = k;
-  }
+void vertex() {
+  vec2 pos = VERTEX.xz;
+  float k = height(pos, TIME);
+  VERTEX.y = k;
+}
 ```
 
 Instead of using a normalmap to calculate normals. We are going to compute them
 manually in the `vertex()` function. To do so use the following line of code.
 
 ```
-  NORMAL = normalize(vec3(k - height(pos + vec2(0.1, 0.0), TIME), 0.1, k - height(pos + vec2(0.0, 0.1), TIME)));
+NORMAL = normalize(vec3(k - height(pos + vec2(0.1, 0.0), TIME), 0.1, k - height(pos + vec2(0.0, 0.1), TIME)));
 ```
 
 We need to compute `NORMAL` manually because in the next section we will be
@@ -227,10 +227,10 @@ Now, we are going to make the `height()` function a little more complicated by
 offsetting `position` by the cosine of `TIME`.
 
 ```
-  float height(vec2 position, float time) {
-    vec2 offset = 0.01 * cos(position + time);
-    return texture(noise, (position / 10.0) - offset).x;
-  }
+float height(vec2 position, float time) {
+  vec2 offset = 0.01 * cos(position + time);
+  return texture(noise, (position / 10.0) - offset).x;
+}
 ```
 
 This results in waves that move slowly, but not in a very natural way. The next
@@ -251,24 +251,24 @@ We are going to call `wave()` multiple times in `height()` in order to fake
 the way waves look.
 
 ```
-  float wave(vec2 position){
-    position += texture(noise, position / 10.0).x * 2.0 - 1.0;
-    vec2 wv = 1.0 - abs(sin(position));
-    return pow(1.0 - pow(wv.x * wv.y, 0.65), 4.0);
-  }
+float wave(vec2 position){
+  position += texture(noise, position / 10.0).x * 2.0 - 1.0;
+  vec2 wv = 1.0 - abs(sin(position));
+  return pow(1.0 - pow(wv.x * wv.y, 0.65), 4.0);
+}
 ```
 
 At first this looks complicated. So let's go through it line-by-line.
 
 ```
-    position += texture(noise, position / 10.0).x * 2.0 - 1.0;
+position += texture(noise, position / 10.0).x * 2.0 - 1.0;
 ```
 
 Offset the position by the `noise` texture. This will make the waves curve, so
 they won't be straight lines completely aligned with the grid.
 
 ```
-    vec2 wv = 1.0 - abs(sin(position));
+vec2 wv = 1.0 - abs(sin(position));
 ```
 
 Define a wave-like function using `sin()` and `position`. Normally `sin()`
@@ -277,7 +277,7 @@ and constrain them to the 0-1 range. And then we subtract it from `1.0` to put
 the peak on top.
 
 ```
-    return pow(1.0 - pow(wv.x * wv.y, 0.65), 4.0);
+return pow(1.0 - pow(wv.x * wv.y, 0.65), 4.0);
 ```
 
 Multiply the x-directional wave by the y-directional wave and raise it to a
@@ -287,10 +287,10 @@ become peaks and raise that to a power to sharpen the ridges.
 We can now replace the contents of our `height()` function with `wave()`.
 
 ```
-  float height(vec2 position, float time) {
-    float h = wave(position);
-    return h;
-  }
+float height(vec2 position, float time) {
+  float h = wave(position);
+  return h;
+}
 ```
 
 Using this, you get:
@@ -301,10 +301,10 @@ The shape of the sin wave is too obvious. So let's spread the waves out a bit.
 We do this by scaling `position`.
 
 ```
-  float height(vec2 position, float time) {
-    float h = wave(position * 0.4);
-    return h;
-  }
+float height(vec2 position, float time) {
+  float h = wave(position * 0.4);
+  return h;
+}
 ```
 
 Now it looks much better.
@@ -321,13 +321,13 @@ Here is an example for how you could layer the four waves to achieve nicer
 looking waves.
 
 ```
-  float height(vec2 position, float time) {
-    float d = wave((position + time) * 0.4) * 0.3;
-    d += wave((position - time) * 0.3) * 0.3;
-    d += wave((position + time) * 0.5) * 0.2;
-    d += wave((position - time) * 0.6) * 0.2;
-    return d;
-  }
+float height(vec2 position, float time) {
+  float d = wave((position + time) * 0.4) * 0.3;
+  d += wave((position - time) * 0.3) * 0.3;
+  d += wave((position + time) * 0.5) * 0.2;
+  d += wave((position - time) * 0.6) * 0.2;
+  return d;
+}
 ```
 
 Note that we add time to two and subtract it from the other two. This makes the

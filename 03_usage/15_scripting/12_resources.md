@@ -68,9 +68,9 @@ There are two ways to load resources from code. First, you can use the `load()` 
 gdscript GDScript
 
 ```
-    func _ready():
-            var res = load("res://robi.png)") # Pandemonium loads the Resource when it reads the line.
-            get_node("sprite").texture = res
+func _ready():
+        var res = load("res://robi.png)") # Pandemonium loads the Resource when it reads the line.
+        get_node("sprite").texture = res
 ```
 
 You can also `preload` resources. Unlike `load`, this function will read the
@@ -80,9 +80,9 @@ with a variable path: you need to use a constant string.
 gdscript GDScript
 
 ```
-    func _ready():
-            var res = preload("res://robi.png)") # Pandemonium loads the resource at compile-time
-            get_node("sprite").texture = res
+func _ready():
+        var res = preload("res://robi.png)") # Pandemonium loads the resource at compile-time
+        get_node("sprite").texture = res
 ```
 
 ## Loading scenes
@@ -97,9 +97,9 @@ To get an instance of the scene, you have to use the
 gdscript GDScript
 
 ```
-    func _on_shoot():
-            var bullet = preload("res://bullet.tscn").instance()
-            add_child(bullet)
+func _on_shoot():
+        var bullet = preload("res://bullet.tscn").instance()
+        add_child(bullet)
 ```
 
 This method creates the nodes in the scene's hierarchy, configures them, and
@@ -170,29 +170,29 @@ Let's see some examples.
 gdscript GDScript
 
 ```
-    # bot_stats.gd
-    extends Resource
-    export(int) var health
-    export(Resource) var sub_resource
-    export(Array, String) var strings
+# bot_stats.gd
+extends Resource
+export(int) var health
+export(Resource) var sub_resource
+export(Array, String) var strings
 
-    # Make sure that every parameter has a default value. 
-    # Otherwise, there will be problems with creating and editing
-    # your resource via the inspector.
-    func _init(p_health = 0, p_sub_resource = null, p_strings = []):
-        health = p_health
-        sub_resource = p_sub_resource
-        strings = p_strings
+# Make sure that every parameter has a default value. 
+# Otherwise, there will be problems with creating and editing
+# your resource via the inspector.
+func _init(p_health = 0, p_sub_resource = null, p_strings = []):
+    health = p_health
+    sub_resource = p_sub_resource
+    strings = p_strings
 
-    # bot.gd
-    extends KinematicBody
+# bot.gd
+extends KinematicBody
 
-    export(Resource) var stats
+export(Resource) var stats
 
-    func _ready():
-        # Uses an implicit, duck-typed interface for any 'health'-compatible resources.
-        if stats:
-            print(stats.health) # Prints '10'.
+func _ready():
+    # Uses an implicit, duck-typed interface for any 'health'-compatible resources.
+    if stats:
+        print(stats.health) # Prints '10'.
 ```
 
 Note:
@@ -211,19 +211,19 @@ Note:
     gdscript GDScript
 
     ```
-        # bot_stats_table.gd
-        extends Resource
+# bot_stats_table.gd
+extends Resource
 
-        const BotStats = preload("bot_stats.gd")
+const BotStats = preload("bot_stats.gd")
 
-        var data = {
-            "PandemoniumBot": BotStats.new(10), # Creates instance with 10 health.
-            "DifferentBot": BotStats.new(20) # A different one with 20 health.
-        }
+var data = {
+    "PandemoniumBot": BotStats.new(10), # Creates instance with 10 health.
+    "DifferentBot": BotStats.new(20) # A different one with 20 health.
+}
 
-        func _init():
-            print(data)
-    ```
+func _init():
+    print(data)
+```
 
     Instead of just inlining the Dictionary values, one could also, alternatively...
 
@@ -251,15 +251,15 @@ Warning:
     gdscript GDScript
 
     ```
-        extends Node
+extends Node
 
-        class MyResource:
-            extends Resource
-            export var value = 5
+class MyResource:
+    extends Resource
+    export var value = 5
 
-        func _ready():
-            var my_res = MyResource.new()
+func _ready():
+    var my_res = MyResource.new()
 
-            # This will NOT serialize the 'value' property.
-            ResourceSaver.save("res://my_res.tres", my_res)
-    ```
+    # This will NOT serialize the 'value' property.
+    ResourceSaver.save("res://my_res.tres", my_res)
+```

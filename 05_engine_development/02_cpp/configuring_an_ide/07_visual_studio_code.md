@@ -31,34 +31,34 @@ by `Microsoft ( https://microsoft.com )` (not to be confused with `doc_configuri
 js Linux/X11
 
 ```
-    {
-      "label": "build",
-      "group": "build",
-      "type": "shell",
-      "command": "scons",
-      "args": [
-        "-j $(nproc)"
-      ],
-      "problemMatcher": "$msCompile"
-    }
+{
+  "label": "build",
+  "group": "build",
+  "type": "shell",
+  "command": "scons",
+  "args": [
+    "-j $(nproc)"
+  ],
+  "problemMatcher": "$msCompile"
+}
 ```
 
 js Windows
 
 ```
-    {
-      "label": "build",
-      "group": "build",
-      "type": "shell",
-      "command": "scons",
-      "args": [
-        // Use this when your default shell is Command Prompt (cmd.exe).
-        "-j %NUMBER_OF_PROCESSORS%",
-        // Use this when your default shell is PowerShell.
-        "-j $env:NUMBER_OF_PROCESSORS"
-      ],
-      "problemMatcher": "$msCompile"
-    }
+{
+  "label": "build",
+  "group": "build",
+  "type": "shell",
+  "command": "scons",
+  "args": [
+    // Use this when your default shell is Command Prompt (cmd.exe).
+    "-j %NUMBER_OF_PROCESSORS%",
+    // Use this when your default shell is PowerShell.
+    "-j $env:NUMBER_OF_PROCESSORS"
+  ],
+  "problemMatcher": "$msCompile"
+}
 ```
 
 ![](img/vscode_3_tasks.json.png)
@@ -84,70 +84,70 @@ To run and debug the project you need to create a new configuration in the `laun
 js X11
 
 ```
-    {
-      "name": "Launch Project",
-      "type": "lldb",
-      "request": "launch",
-      // Change to pandemonium.x11.tools.64.llvm for llvm-based builds.
-      "program": "${workspaceFolder}/bin/pandemonium.x11.tools.64",
-      // Change the arguments below for the project you want to test with.
-      // To run the project instead of editing it, remove the "--editor" argument.
-      "args": [ "--editor", "--path", "path-to-your-pandemonium-project-folder" ],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": false,
-      "preLaunchTask": "build"
-    }
+{
+  "name": "Launch Project",
+  "type": "lldb",
+  "request": "launch",
+  // Change to pandemonium.x11.tools.64.llvm for llvm-based builds.
+  "program": "${workspaceFolder}/bin/pandemonium.x11.tools.64",
+  // Change the arguments below for the project you want to test with.
+  // To run the project instead of editing it, remove the "--editor" argument.
+  "args": [ "--editor", "--path", "path-to-your-pandemonium-project-folder" ],
+  "stopAtEntry": false,
+  "cwd": "${workspaceFolder}",
+  "environment": [],
+  "externalConsole": false,
+  "preLaunchTask": "build"
+}
 
 ```
 
 js X11_gdb
 
 ```
+{
+  "name": "Launch Project",
+  "type": "cppdbg",
+  "request": "launch",
+  // Change to pandemonium.x11.tools.64.llvm for llvm-based builds.
+  "program": "${workspaceFolder}/bin/pandemonium.x11.tools.64",
+  // Change the arguments below for the project you want to test with.
+  // To run the project instead of editing it, remove the "--editor" argument.
+  "args": [ "--editor", "--path", "path-to-your-pandemonium-project-folder" ],
+  "stopAtEntry": false,
+  "cwd": "${workspaceFolder}",
+  "environment": [],
+  "externalConsole": false,
+  "setupCommands":
+  [
     {
-      "name": "Launch Project",
-      "type": "cppdbg",
-      "request": "launch",
-      // Change to pandemonium.x11.tools.64.llvm for llvm-based builds.
-      "program": "${workspaceFolder}/bin/pandemonium.x11.tools.64",
-      // Change the arguments below for the project you want to test with.
-      // To run the project instead of editing it, remove the "--editor" argument.
-      "args": [ "--editor", "--path", "path-to-your-pandemonium-project-folder" ],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": false,
-      "setupCommands":
-      [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ],
-      "preLaunchTask": "build"
+      "description": "Enable pretty-printing for gdb",
+      "text": "-enable-pretty-printing",
+      "ignoreFailures": true
     }
+  ],
+  "preLaunchTask": "build"
+}
 ```
 
 js Windows
 
 ```
-    {
-      "name": "Launch Project",
-      "type": "cppvsdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/bin/pandemonium.windows.tools.64.exe",
-      // Change the arguments below for the project you want to test with.
-      // To run the project instead of editing it, remove the "--editor" argument.
-      "args": [ "--editor", "--path", "path-to-your-pandemonium-project-folder" ],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "console": "internalConsole",
-      "visualizerFile": "${workspaceFolder}/platform/windows/pandemonium.natvis",
-      "preLaunchTask": "build"
-    }
+{
+  "name": "Launch Project",
+  "type": "cppvsdbg",
+  "request": "launch",
+  "program": "${workspaceFolder}/bin/pandemonium.windows.tools.64.exe",
+  // Change the arguments below for the project you want to test with.
+  // To run the project instead of editing it, remove the "--editor" argument.
+  "args": [ "--editor", "--path", "path-to-your-pandemonium-project-folder" ],
+  "stopAtEntry": false,
+  "cwd": "${workspaceFolder}",
+  "environment": [],
+  "console": "internalConsole",
+  "visualizerFile": "${workspaceFolder}/platform/windows/pandemonium.natvis",
+  "preLaunchTask": "build"
+}
 ```
 
 ![](img/vscode_2_launch.json.png)

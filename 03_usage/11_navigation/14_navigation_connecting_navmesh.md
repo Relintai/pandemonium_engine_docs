@@ -44,19 +44,19 @@ The edge connection margin value of any navigation map can also be changed at ru
 GDScript
 
 ```
-    extends Node2D
-    # 2D margins are designed to work with "pixel" values
-    var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
-    NavigationServer2D.map_set_edge_connection_margin(default_2d_map_rid, 50.0)
+extends Node2D
+# 2D margins are designed to work with "pixel" values
+var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
+NavigationServer2D.map_set_edge_connection_margin(default_2d_map_rid, 50.0)
 ```
 
 GDScript
 
 ```
-    extends Node3D
-    # 3D margins are designed to work with 3D unit values
-    var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
-    NavigationServer3D.map_set_edge_connection_margin(default_3d_map_rid, 0.5)
+extends Node3D
+# 3D margins are designed to work with 3D unit values
+var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
+NavigationServer3D.map_set_edge_connection_margin(default_3d_map_rid, 0.5)
 ```
 
 Note:

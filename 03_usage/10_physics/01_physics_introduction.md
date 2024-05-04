@@ -157,20 +157,20 @@ The code equivalent of the above example where layers 1, 3 and 4 were enabled
 would be as follows:
 
 ```
-    # Example: Setting mask value for enabling layers 1, 3 and 4
+# Example: Setting mask value for enabling layers 1, 3 and 4
 
-    # Binary - set the bit corresponding to the layers you want to enable (1, 3, and 4) to 1, set all other bits to 0.
-    # Note: Layer 20 is the first bit, layer 1 is the last. The mask for layers 4,3 and 1 is therefore
-    0b00000000000000001101
-    # (This can be shortened to 0b1101)
+# Binary - set the bit corresponding to the layers you want to enable (1, 3, and 4) to 1, set all other bits to 0.
+# Note: Layer 20 is the first bit, layer 1 is the last. The mask for layers 4,3 and 1 is therefore
+0b00000000000000001101
+# (This can be shortened to 0b1101)
 
-    # Hexadecimal equivalent (1101 binary converted to hexadecimal)
-    0x000d
-    # (This value can be shortened to 0xd)
+# Hexadecimal equivalent (1101 binary converted to hexadecimal)
+0x000d
+# (This value can be shortened to 0xd)
 
-    # Decimal - Add the results of 2 to the power of (layer to be enabled - 1).
-    # (2^(1-1)) + (2^(3-1)) + (2^(4-1)) = 1 + 4 + 8 = 13
-    pow(2, 1) + pow(2, 3) + pow(2, 4)
+# Decimal - Add the results of 2 to the power of (layer to be enabled - 1).
+# (2^(1-1)) + (2^(3-1)) + (2^(4-1)) = 1 + 4 + 8 = 13
+pow(2, 1) + pow(2, 3) + pow(2, 4)
 ```
 
 
@@ -258,22 +258,22 @@ For example, here is the code for an "Asteroids" style spaceship:
 gdscript GDScript
 
 ```
-    extends RigidBody2D
+extends RigidBody2D
 
-    var thrust = Vector2(0, 250)
-    var torque = 20000
+var thrust = Vector2(0, 250)
+var torque = 20000
 
-    func _integrate_forces(state):
-        if Input.is_action_pressed("ui_up"):
-            applied_force = thrust.rotated(rotation)
-        else:
-            applied_force = Vector2()
-        var rotation_dir = 0
-        if Input.is_action_pressed("ui_right"):
-            rotation_dir += 1
-        if Input.is_action_pressed("ui_left"):
-            rotation_dir -= 1
-        applied_torque = rotation_dir * torque
+func _integrate_forces(state):
+    if Input.is_action_pressed("ui_up"):
+        applied_force = thrust.rotated(rotation)
+    else:
+        applied_force = Vector2()
+    var rotation_dir = 0
+    if Input.is_action_pressed("ui_right"):
+        rotation_dir += 1
+    if Input.is_action_pressed("ui_left"):
+        rotation_dir -= 1
+    applied_torque = rotation_dir * torque
 ```
 
 Note that we are not setting the `linear_velocity` or `angular_velocity`
@@ -332,14 +332,14 @@ occurred:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    var velocity = Vector2(250, 250)
+var velocity = Vector2(250, 250)
 
-    func _physics_process(delta):
-        var collision_info = move_and_collide(velocity * delta)
-        if collision_info:
-            var collision_point = collision_info.position
+func _physics_process(delta):
+    var collision_info = move_and_collide(velocity * delta)
+    if collision_info:
+        var collision_point = collision_info.position
 ```
 
 Or to bounce off of the colliding object:
@@ -347,14 +347,14 @@ Or to bounce off of the colliding object:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    var velocity = Vector2(250, 250)
+var velocity = Vector2(250, 250)
 
-    func _physics_process(delta):
-        var collision_info = move_and_collide(velocity * delta)
-        if collision_info:
-            velocity = velocity.bounce(collision_info.normal)
+func _physics_process(delta):
+    var collision_info = move_and_collide(velocity * delta)
+    if collision_info:
+        velocity = velocity.bounce(collision_info.normal)
 ```
 
 #### `move_and_slide`
@@ -376,31 +376,31 @@ the ground (including slopes) and jump when standing on the ground:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    var run_speed = 350
-    var jump_speed = -1000
-    var gravity = 2500
+var run_speed = 350
+var jump_speed = -1000
+var gravity = 2500
 
-    var velocity = Vector2()
+var velocity = Vector2()
 
-    func get_input():
-        velocity.x = 0
-        var right = Input.is_action_pressed('ui_right')
-        var left = Input.is_action_pressed('ui_left')
-        var jump = Input.is_action_just_pressed('ui_select')
+func get_input():
+    velocity.x = 0
+    var right = Input.is_action_pressed('ui_right')
+    var left = Input.is_action_pressed('ui_left')
+    var jump = Input.is_action_just_pressed('ui_select')
 
-        if is_on_floor() and jump:
-            velocity.y = jump_speed
-        if right:
-            velocity.x += run_speed
-        if left:
-            velocity.x -= run_speed
+    if is_on_floor() and jump:
+        velocity.y = jump_speed
+    if right:
+        velocity.x += run_speed
+    if left:
+        velocity.x -= run_speed
 
-    func _physics_process(delta):
-        velocity.y += gravity * delta
-        get_input()
-        velocity = move_and_slide(velocity, Vector2(0, -1))
+func _physics_process(delta):
+    velocity.y += gravity * delta
+    get_input()
+    velocity = move_and_slide(velocity, Vector2(0, -1))
 ```
 
 

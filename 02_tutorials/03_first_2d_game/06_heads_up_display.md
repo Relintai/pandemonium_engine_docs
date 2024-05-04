@@ -97,9 +97,9 @@ Now add this script to `HUD`:
 gdscript GDScript
 
 ```
-    extends CanvasLayer
+extends CanvasLayer
 
-    signal start_game
+signal start_game
 ```
 
 The `start_game` signal tells the `Main` node that the button
@@ -108,10 +108,10 @@ has been pressed.
 gdscript GDScript
 
 ```
-    func show_message(text):
-        $Message.text = text
-        $Message.show()
-        $MessageTimer.start()
+func show_message(text):
+    $Message.text = text
+    $Message.show()
+    $MessageTimer.start()
 ```
 
 This function is called when we want to display a message
@@ -120,16 +120,16 @@ temporarily, such as "Get Ready".
 gdscript GDScript
 
 ```
-    func show_game_over():
-        show_message("Game Over")
-        # Wait until the MessageTimer has counted down.
-        yield($MessageTimer, "timeout")
+func show_game_over():
+    show_message("Game Over")
+    # Wait until the MessageTimer has counted down.
+    yield($MessageTimer, "timeout")
 
-        $Message.text = "Dodge the\nCreeps!"
-        $Message.show()
-        # Make a one-shot timer and wait for it to finish.
-        yield(get_tree().create_timer(1), "timeout")
-        $StartButton.show()
+    $Message.text = "Dodge the\nCreeps!"
+    $Message.show()
+    # Make a one-shot timer and wait for it to finish.
+    yield(get_tree().create_timer(1), "timeout")
+    $StartButton.show()
 ```
 
 This function is called when the player loses. It will show "Game Over" for 2
@@ -145,8 +145,8 @@ Note:
 gdscript GDScript
 
 ```
-    func update_score(score):
-        $ScoreLabel.text = str(score)
+func update_score(score):
+    $ScoreLabel.text = str(score)
 ```
 
 This function is called by `Main` whenever the score changes.
@@ -157,12 +157,12 @@ signal of `StartButton` and add the following code to the new functions:
 gdscript GDScript
 
 ```
-    func _on_StartButton_pressed():
-        $StartButton.hide()
-        emit_signal("start_game")
+func _on_StartButton_pressed():
+    $StartButton.hide()
+    emit_signal("start_game")
 
-    func _on_MessageTimer_timeout():
-        $Message.hide()
+func _on_MessageTimer_timeout():
+    $Message.hide()
 ```
 
 ## Connecting HUD to Main
@@ -186,8 +186,8 @@ In `new_game()`, update the score display and show the "Get Ready" message:
 gdscript GDScript
 
 ```
-        $HUD.update_score(score)
-        $HUD.show_message("Get Ready")
+$HUD.update_score(score)
+$HUD.show_message("Get Ready")
 ```
 
 In `game_over()` we need to call the corresponding `HUD` function:
@@ -195,7 +195,7 @@ In `game_over()` we need to call the corresponding `HUD` function:
 gdscript GDScript
 
 ```
-        $HUD.show_game_over()
+$HUD.show_game_over()
 ```
 
 Finally, add this to `on_ScoreTimer_timeout()` to keep the display in sync
@@ -204,7 +204,7 @@ with the changing score:
 gdscript GDScript
 
 ```
-        $HUD.update_score(score)
+$HUD.update_score(score)
 ```
 
 Now you're ready to play! Click the "Play the Project" button. You will be asked
@@ -229,7 +229,7 @@ the `new_game()` function in `Main`:
 gdscript GDScript
 
 ```
-        get_tree().call_group("mobs", "queue_free")
+get_tree().call_group("mobs", "queue_free")
 ```
 
 The `call_group()` function calls the named function on every node in a

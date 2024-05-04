@@ -35,18 +35,18 @@ a node exits the scene tree. This can be when you call `Node.remove_child()
 gdscript GDScript
 
 ```
-    # Called every time the node enters the scene tree.
-    func _enter_tree():
-        pass
+# Called every time the node enters the scene tree.
+func _enter_tree():
+    pass
 
-    # Called when both the node and its children have entered the scene tree.
-    func _ready():
-        pass
+# Called when both the node and its children have entered the scene tree.
+func _ready():
+    pass
 
-    # Called when the node is about to leave the scene tree, after all its
-    # children received the _exit_tree() callback.
-    func _exit_tree():
-        pass
+# Called when the node is about to leave the scene tree, after all its
+# children received the _exit_tree() callback.
+func _exit_tree():
+    pass
 ```
 
 The two virtual methods `process()` and `physics_process()` allow you to
@@ -57,13 +57,13 @@ information, read the dedicated documentation:
 gdscript GDScript
 
 ```
-    # Called every frame, as often as possible.
-    func _process(delta):
-        pass
+# Called every frame, as often as possible.
+func _process(delta):
+    pass
 
-    # Called every physics frame.
-    func _physics_process(delta):
-        pass
+# Called every physics frame.
+func _physics_process(delta):
+    pass
 ```
 
 Two more essential built-in node callback functions are
@@ -80,14 +80,14 @@ To learn more about inputs in Pandemonium, see the `Input section ( toc-learn-fe
 gdscript GDScript
 
 ```
-    # Called once for every event.
-    func _unhandled_input(event):
-        pass
+# Called once for every event.
+func _unhandled_input(event):
+    pass
 
-    # Called once for every event, before _unhandled_input(), allowing you to
-    # consume some events.
-    func _input(event):
-        pass
+# Called once for every event, before _unhandled_input(), allowing you to
+# consume some events.
+func _input(event):
+    pass
 ```
 
 There are some more overridable functions like

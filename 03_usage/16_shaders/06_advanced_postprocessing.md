@@ -47,11 +47,11 @@ so we need to nullify the effects of Pandemonium's transformations. We do this b
 and sets the vertex position directly.
 
 ```
-  shader_type spatial;
+shader_type spatial;
 
-  void vertex() {
-    POSITION = vec4(VERTEX, 1.0);
-  }
+void vertex() {
+  POSITION = vec4(VERTEX, 1.0);
+}
 ```
 
 Even with this vertex shader, the quad keeps disappearing. This is due to frustum
@@ -75,7 +75,7 @@ To read from the depth texture, perform a texture lookup using `texture()` and
 the uniform variable `DEPTH_TEXTURE`.
 
 ```
-  float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
+float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
 ```
 
 Note:
@@ -99,10 +99,10 @@ Reconstruct the NDC using `SCREEN_UV` for the `x` and `y` axis, and
 the depth value for `z`.
 
 ```
-  void fragment() {
-    float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
-    vec3 ndc = vec3(SCREEN_UV, depth) * 2.0 - 1.0;
-  }
+void fragment() {
+  float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
+  vec3 ndc = vec3(SCREEN_UV, depth) * 2.0 - 1.0;
+}
 ```
 
 Convert NDC to view space by multiplying the NDC by `INV_PROJECTION_MATRIX`.
@@ -110,12 +110,12 @@ Recall that view space gives positions relative to the camera, so the `z` value 
 the distance to the point.
 
 ```
-  void fragment() {
-    ...
-    vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
-    view.xyz /= view.w;
-    float linear_depth = -view.z;
-  }
+void fragment() {
+  ...
+  vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+  view.xyz /= view.w;
+  float linear_depth = -view.z;
+}
 ```
 
 Because the camera is facing the negative `z` direction, the position will have a negative `z` value.
@@ -126,17 +126,17 @@ that the `CAMERA_MATRIX` is needed to transform the position from view space int
 it needs to be passed to the fragment shader with a varying.
 
 ```
-  varying mat4 CAMERA;
+varying mat4 CAMERA;
 
-  void vertex() {
-    CAMERA = CAMERA_MATRIX;
-  }
+void vertex() {
+  CAMERA = CAMERA_MATRIX;
+}
 
-  void fragment() {
-    ...
-    vec4 world = CAMERA * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
-    vec3 world_position = world.xyz / world.w;
-  }
+void fragment() {
+  ...
+  vec4 world = CAMERA * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+  vec3 world_position = world.xyz / world.w;
+}
 ```
 
 ## An optimization
@@ -153,23 +153,23 @@ vertices, normals, colors, etc.
 Now, attach a script to the MeshInstance and use the following code:
 
 ```
-  extends MeshInstance
+extends MeshInstance
 
-  func _ready():
-    # Create a single triangle out of vertices:
-    var verts = PoolVector3Array()
-    verts.append(Vector3(-1.0, -1.0, 0.0))
-    verts.append(Vector3(-1.0, 3.0, 0.0))
-    verts.append(Vector3(3.0, -1.0, 0.0))
+func _ready():
+  # Create a single triangle out of vertices:
+  var verts = PoolVector3Array()
+  verts.append(Vector3(-1.0, -1.0, 0.0))
+  verts.append(Vector3(-1.0, 3.0, 0.0))
+  verts.append(Vector3(3.0, -1.0, 0.0))
 
-    # Create an array of arrays.
-    # This could contain normals, colors, UVs, etc.
-    var mesh_array = []
-    mesh_array.resize(Mesh.ARRAY_MAX) #required size for ArrayMesh Array
-    mesh_array[Mesh.ARRAY_VERTEX] = verts #position of vertex array in ArrayMesh Array
+  # Create an array of arrays.
+  # This could contain normals, colors, UVs, etc.
+  var mesh_array = []
+  mesh_array.resize(Mesh.ARRAY_MAX) #required size for ArrayMesh Array
+  mesh_array[Mesh.ARRAY_VERTEX] = verts #position of vertex array in ArrayMesh Array
 
-    # Create mesh from mesh_array:
-    mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, mesh_array)
+  # Create mesh from mesh_array:
+  mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, mesh_array)
 ```
 
 Note:

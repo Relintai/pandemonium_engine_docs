@@ -50,13 +50,13 @@ For a general overview of SCons usage for Pandemonium, see `doc_introduction_to_
 path to the Android SDK, then answering all the prompts with `y`:
 
 ```
-        tools/bin/sdkmanager --sdk_root=( android_sdk_path> --licenses
+tools/bin/sdkmanager --sdk_root=( android_sdk_path> --licenses
 ```
 
 -  Complete setup by running the following command where `android_sdk_path` is the path to the Android SDK.
 
 ```
-        tools/bin/sdkmanager --sdk_root=( android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-29" "cmdline-tools;latest" "cmake;3.10.2.4988404"
+tools/bin/sdkmanager --sdk_root=( android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-29" "cmdline-tools;latest" "cmake;3.10.2.4988404"
 ```
 
 To set the environment variable on Windows, press :kbd:`Windows + R`, type "control system", then click 
@@ -79,13 +79,13 @@ root directory with the following arguments:
 -  Release template (used when exporting with **Debugging Enabled** unchecked)
 
 ```
-    scons platform=android target=release android_arch=armv7
-    scons platform=android target=release android_arch=arm64v8
-    cd platform/android/java
-    # On Windows
-    .\gradlew generatePandemoniumTemplates
-    # On Linux and macOS
-    ./gradlew generatePandemoniumTemplates
+scons platform=android target=release android_arch=armv7
+scons platform=android target=release android_arch=arm64v8
+cd platform/android/java
+# On Windows
+.\gradlew generatePandemoniumTemplates
+# On Linux and macOS
+./gradlew generatePandemoniumTemplates
 ```
 
 The resulting APK will be located at `bin/android_release.apk`.
@@ -93,13 +93,13 @@ The resulting APK will be located at `bin/android_release.apk`.
 -  Debug template (used when exporting with **Debugging Enabled** checked)
 
 ```
-    scons platform=android target=release_debug android_arch=armv7
-    scons platform=android target=release_debug android_arch=arm64v8
-    cd platform/android/java
-    # On Windows
-    .\gradlew generatePandemoniumTemplates
-    # On Linux and macOS
-    ./gradlew generatePandemoniumTemplates
+scons platform=android target=release_debug android_arch=armv7
+scons platform=android target=release_debug android_arch=arm64v8
+cd platform/android/java
+# On Windows
+.\gradlew generatePandemoniumTemplates
+# On Linux and macOS
+./gradlew generatePandemoniumTemplates
 ```
 
 The resulting APK will be located at `bin/android_debug.apk`.
@@ -112,15 +112,15 @@ command a third and fourth time with the `android_arch=x86`, and
 example, for the release template:
 
 ```
-    scons platform=android target=release android_arch=armv7
-    scons platform=android target=release android_arch=arm64v8
-    scons platform=android target=release android_arch=x86
-    scons platform=android target=release android_arch=x86_64
-    cd platform/android/java
-    # On Windows
-    .\gradlew generatePandemoniumTemplates
-    # On Linux and macOS
-    ./gradlew generatePandemoniumTemplates
+scons platform=android target=release android_arch=armv7
+scons platform=android target=release android_arch=arm64v8
+scons platform=android target=release android_arch=x86
+scons platform=android target=release android_arch=x86_64
+cd platform/android/java
+# On Windows
+.\gradlew generatePandemoniumTemplates
+# On Linux and macOS
+./gradlew generatePandemoniumTemplates
 ```
 
 This will create a fat binary that works on all platforms.
@@ -133,11 +133,11 @@ the APK.
 You can use the following commands to remove the generated export templates:
 
 ```
-    cd platform/android/java
-    # On Windows
-    .\gradlew cleanPandemoniumTemplates
-    # On Linux and macOS
-    ./gradlew cleanPandemoniumTemplates
+cd platform/android/java
+# On Windows
+.\gradlew cleanPandemoniumTemplates
+# On Linux and macOS
+./gradlew cleanPandemoniumTemplates
 ```
 
 ## Using the export templates
@@ -198,7 +198,7 @@ If so:
 If it still fails, open a command line and run `logcat ( https://developer.android.com/studio/command-line/logcat )`:
 
 ```
-    adb logcat
+adb logcat
 ```
 
 Then check the output while the application is installed;

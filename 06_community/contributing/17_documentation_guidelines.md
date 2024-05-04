@@ -90,11 +90,11 @@ respect the following rules (and the ones on the repo).
 Always begin pages with their title and a Sphinx reference name:
 
 ```
-    Insert your title here
-    ======================
+Insert your title here
+======================
 ```
 
-The reference allows linking to this page using the ``` format, e.g.
+The reference allows linking to this page using the ```format, e.g.
 ```doc_insert_your_title_here``` would link to the above example page
 (note the lack of leading underscore in the reference).
 
@@ -133,3 +133,4 @@ the `Creative Commons Attribution 3.0 license (CC-BY-3.0) ( https://tldrlegal.co
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.
+```

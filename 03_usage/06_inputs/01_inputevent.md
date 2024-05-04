@@ -15,10 +15,10 @@ Here is a quick example, closing your game if the escape key is hit:
 gdscript GDScript
 
 ```
-    func _unhandled_input(event):
-        if event is InputEventKey:
-            if event.pressed and event.scancode == KEY_ESCAPE:
-                get_tree().quit()
+func _unhandled_input(event):
+    if event is InputEventKey:
+        if event.pressed and event.scancode == KEY_ESCAPE:
+            get_tree().quit()
 ```
 
 However, it is cleaner and more flexible to use the provided `InputMap` feature,
@@ -32,9 +32,9 @@ You can set up your InputMap under **Project > Project Settings > Input Map** an
 gdscript GDScript
 
 ```
-    func _process(delta):
-        if Input.is_action_pressed("ui_right"):
-            # Move right.
+func _process(delta):
+    if Input.is_action_pressed("ui_right"):
+        # Move right.
 ```
 
 ## How does it work?
@@ -153,12 +153,12 @@ The Input singleton has a method for this:
 gdscript GDScript
 
 ```
-    var ev = InputEventAction.new()
-    # Set as move_left, pressed.
-    ev.action = "move_left"
-    ev.pressed = true
-    # Feedback.
-    Input.parse_input_event(ev)
+var ev = InputEventAction.new()
+# Set as move_left, pressed.
+ev.action = "move_left"
+ev.pressed = true
+# Feedback.
+Input.parse_input_event(ev)
 ````
 
 ## InputMap

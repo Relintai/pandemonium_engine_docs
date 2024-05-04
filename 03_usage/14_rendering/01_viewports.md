@@ -72,7 +72,7 @@ than one, make sure that the desired one has the "current" property set,
 or make it the current camera by calling:
 
 ```
-    camera.make_current()
+camera.make_current()
 ```
 
 By default, cameras will render all objects in their world. In 3D, cameras can use their
@@ -90,8 +90,8 @@ It is also possible to scale the 2D content and make the `Viewport` resolution
 different from the one specified in size, by calling:
 
 ```
-    viewport.set_size_override(true, Vector2(width, height)) # Custom size for 2D.
-    viewport.set_size_override_stretch(true) # Enable stretch for custom size.
+viewport.set_size_override(true, Vector2(width, height)) # Custom size for 2D.
+viewport.set_size_override_stretch(true) # Enable stretch for custom size.
 ```
 
 The root `Viewport` uses this for the stretch options in the project
@@ -129,16 +129,16 @@ It is possible to query a capture of the `Viewport` contents. For the root
 following code:
 
 ```
-   # Retrieve the captured Image using get_data().
-   var img = get_viewport().get_texture().get_data()
-   # Flip on the Y axis.
-   # You can also set "V Flip" to true if not on the root Viewport.
-   img.flip_y()
-   # Convert Image to ImageTexture.
-   var tex = ImageTexture.new()
-   tex.create_from_image(img)
-   # Set Sprite Texture.
-   $sprite.texture = tex
+# Retrieve the captured Image using get_data().
+var img = get_viewport().get_texture().get_data()
+# Flip on the Y axis.
+# You can also set "V Flip" to true if not on the root Viewport.
+img.flip_y()
+# Convert Image to ImageTexture.
+var tex = ImageTexture.new()
+tex.create_from_image(img)
+# Set Sprite Texture.
+$sprite.texture = tex
 ```
 
 But if you use this in `ready()` or from the first frame of the `Viewport's` initialization,
@@ -146,9 +146,9 @@ you will get an empty texture because there is nothing to get as texture. You ca
 it using (for example):
 
 ```
-   # Wait until the frame has finished before getting the texture.
-   yield(VisualServer, "frame_post_draw")
-   # You can get the image after this.
+# Wait until the frame has finished before getting the texture.
+yield(VisualServer, "frame_post_draw")
+# You can get the image after this.
 ```
 
 ## Viewport Container
@@ -214,9 +214,9 @@ visible in the scene editor. To display the contents, you have to draw the `View
 This can be requested via code using (for example):
 
 ```
-    # This gives us the ViewportTexture.
-    var rtt = viewport.get_texture()
-    sprite.texture = rtt
+# This gives us the ViewportTexture.
+var rtt = viewport.get_texture()
+sprite.texture = rtt
 ```
 
 Or it can be assigned in the editor by selecting "New ViewportTexture"

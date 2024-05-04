@@ -73,14 +73,14 @@ Users can disable the built-in modelview transform (projection will still happen
 it manually with the following code:
 
 ```
-    shader_type spatial;
-    render_mode skip_vertex_transform;
+shader_type spatial;
+render_mode skip_vertex_transform;
 
-    void vertex() {
-        VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
-        NORMAL = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
-        // same as above for binormal and tangent, if normal mapping is used
-    }
+void vertex() {
+    VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+    NORMAL = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
+    // same as above for binormal and tangent, if normal mapping is used
+}
 ```
 
 Other built-ins, such as UV, UV2 and COLOR, are also passed through to the fragment function if not modified.
@@ -212,9 +212,9 @@ each light type.
 Below is an example of a custom light function using a Lambertian lighting model:
 
 ```
-    void light() {
-        DIFFUSE_LIGHT += clamp(dot(NORMAL, LIGHT), 0.0, 1.0) * ATTENUATION * ALBEDO;
-    }
+void light() {
+    DIFFUSE_LIGHT += clamp(dot(NORMAL, LIGHT), 0.0, 1.0) * ATTENUATION * ALBEDO;
+}
 ```
 
 If you want the lights to add together, add the light contribution to `DIFFUSE_LIGHT` using `+=`, rather than overwriting it.

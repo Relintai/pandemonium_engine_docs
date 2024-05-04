@@ -69,7 +69,7 @@ compiled Pandemonium binary from the Pandemonium root directory with the `--doct
 For example, if you're on 64-bit Linux, the command is:
 
 ```
-    ./bin/pandemonium.linuxbsd.tools.64 --doctool
+./bin/pandemonium.linuxbsd.tools.64 --doctool
 ```
 
 The XML files in doc/classes should then be up-to-date with current Pandemonium Engine

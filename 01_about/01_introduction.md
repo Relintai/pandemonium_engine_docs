@@ -3,8 +3,8 @@
 # Introduction
 
 ```
-    func _ready():
-        $Label.text = "Hello world!"
+func _ready():
+    $Label.text = "Hello world!"
 ```
 
 Welcome to the official documentation of Pandemonium Engine, the free and open source

@@ -88,11 +88,11 @@ another double quote. Alternatively, you can select another delimiter than
 comma in the import options.
 
 ```
-    keys,en,es,ja
-    GREET,"Hello, friend!","Hola, amigo!",こんにちは
-    ASK,How are you?,Cómo está?,元気ですか
-    BYE,Goodbye,Adiós,さようなら
-    QUOTE,"""Hello"" said the man.","""Hola"" dijo el hombre.",「こんにちは」男は言いました
+keys,en,es,ja
+GREET,"Hello, friend!","Hola, amigo!",こんにちは
+ASK,How are you?,Cómo está?,元気ですか
+BYE,Goodbye,Adiós,さようなら
+QUOTE,"""Hello"" said the man.","""Hola"" dijo el hombre.",「こんにちは」男は言いました
 ```
 
 ## CSV importer

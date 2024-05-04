@@ -75,15 +75,15 @@ released.
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    onready var _animated_sprite = $AnimatedSprite
+onready var _animated_sprite = $AnimatedSprite
 
-    func _process(_delta):
-        if Input.is_action_pressed("ui_right"):
-            _animated_sprite.play("run")
-        else:
-            _animated_sprite.stop()
+func _process(_delta):
+    if Input.is_action_pressed("ui_right"):
+        _animated_sprite.play("run")
+    else:
+        _animated_sprite.stop()
 ```
 
 
@@ -189,15 +189,15 @@ released.
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    onready var _animation_player = $AnimationPlayer
+onready var _animation_player = $AnimationPlayer
 
-    func _process(_delta):
-        if Input.is_action_pressed("ui_right"):
-            _animation_player.play("walk")
-        else:
-            _animation_player.stop()
+func _process(_delta):
+    if Input.is_action_pressed("ui_right"):
+        _animation_player.play("walk")
+    else:
+        _animation_player.stop()
 ```
 
 Note:

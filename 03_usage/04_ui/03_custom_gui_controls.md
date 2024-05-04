@@ -40,11 +40,11 @@ exists. Example
 gdscript GDScript
 
 ```
-    func _draw():
-        if has_focus():
-             draw_selected()
-        else:
-             draw_normal()
+func _draw():
+    if has_focus():
+         draw_selected()
+    else:
+         draw_normal()
 ```
 
 ## Sizing
@@ -64,8 +64,8 @@ for example:
 gdscript GDScript
 
 ```
-    func get_minimum_size():
-        return Vector2(30, 30)
+func get_minimum_size():
+    return Vector2(30, 30)
 ```
 
 Alternatively, set it using a function:
@@ -73,8 +73,8 @@ Alternatively, set it using a function:
 gdscript GDScript
 
 ```
-    func _ready():
-        set_custom_minimum_size(Vector2(30, 30))
+func _ready():
+    set_custom_minimum_size(Vector2(30, 30))
 ```
 
 ## Input
@@ -101,11 +101,11 @@ Simply override it in your control. No processing needs to be set.
 gdscript GDScript
 
 ```
-    extends Control
+extends Control
 
-    func _gui_input(event):
-       if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
-           print("Left mouse button was pressed!")
+func _gui_input(event):
+   if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+       print("Left mouse button was pressed!")
 ```
 
 For more information about events themselves, check the `doc_inputevent`
@@ -119,26 +119,26 @@ exists, but which can be checked with the _notification callback:
 gdscript GDScript
 
 ```
-    func _notification(what):
-        match what:
-            NOTIFICATION_MOUSE_ENTER:
-                pass # Mouse entered the area of this control.
-            NOTIFICATION_MOUSE_EXIT:
-                pass # Mouse exited the area of this control.
-            NOTIFICATION_FOCUS_ENTER:
-                pass # Control gained focus.
-            NOTIFICATION_FOCUS_EXIT:
-                pass # Control lost focus.
-            NOTIFICATION_THEME_CHANGED:
-                pass # Theme used to draw the control changed;
-                # update and redraw is recommended if using a theme.
-            NOTIFICATION_VISIBILITY_CHANGED:
-                pass # Control became visible/invisible;
-                # check new status with is_visible().
-            NOTIFICATION_RESIZED:
-                pass # Control changed size; check new size
-                # with get_size().
-            NOTIFICATION_MODAL_CLOSE:
-                pass # For modal pop-ups, notification
-                # that the pop-up was closed.
+func _notification(what):
+    match what:
+        NOTIFICATION_MOUSE_ENTER:
+            pass # Mouse entered the area of this control.
+        NOTIFICATION_MOUSE_EXIT:
+            pass # Mouse exited the area of this control.
+        NOTIFICATION_FOCUS_ENTER:
+            pass # Control gained focus.
+        NOTIFICATION_FOCUS_EXIT:
+            pass # Control lost focus.
+        NOTIFICATION_THEME_CHANGED:
+            pass # Theme used to draw the control changed;
+            # update and redraw is recommended if using a theme.
+        NOTIFICATION_VISIBILITY_CHANGED:
+            pass # Control became visible/invisible;
+            # check new status with is_visible().
+        NOTIFICATION_RESIZED:
+            pass # Control changed size; check new size
+            # with get_size().
+        NOTIFICATION_MODAL_CLOSE:
+            pass # For modal pop-ups, notification
+            # that the pop-up was closed.
 ```

@@ -28,14 +28,14 @@ PCK encryption.
    `OpenSSL ( https://www.openssl.org/ )` command-line tools:
 
 ```
-       openssl rand -hex 32 > pandemonium.gdkey
+openssl rand -hex 32 > pandemonium.gdkey
 ```
 
    The output in `pandemonium.gdkey` should be similar to:
 
 ```
-       # NOTE: Do not use the key below! Generate your own key instead.
-       aeb1bc56aaf580cc31784e9c41551e9ed976ecba10d315db591e749f3f64890f
+# NOTE: Do not use the key below! Generate your own key instead.
+aeb1bc56aaf580cc31784e9c41551e9ed976ecba10d315db591e749f3f64890f
 ```
 
    You can generate the key without redirecting the output to a file, but
@@ -73,24 +73,24 @@ your Pandemonium build. Pandemonium is encrypting the scripts during export, but
 them at runtime.
 
 ```
-   ERROR: open_and_parse: Condition "String::md5(md5.digest) != String::md5(md5d)" is true. Returning: ERR_FILE_CORRUPT
-      At: core/io/file_access_encrypted.cpp:103
-   ERROR: load_byte_code: Condition ' err ' is true. returned: err
-      At: modules/gdscript/gdscript.cpp:755
-   ERROR: load: Condition ' err != OK ' is true. returned: RES()
-      At: modules/gdscript/gdscript.cpp:2135
-   ERROR: Failed loading resource: res://Node2D.gde
-      At: core/io/resource_loader.cpp:279
-   ERROR: poll: res://Node2D.tscn:3 - Parse Error: [ext_resource] referenced nonexistent resource at: res://Node2D.gd
-      At: scene/resources/scene_format_text.cpp:439
-   ERROR: load: Condition ' err != OK ' is true. returned: RES()
-      At: core/io/resource_loader.cpp:202
-   ERROR: Failed loading resource: res://Node2D.tscn
-      At: core/io/resource_loader.cpp:279
-   ERROR: Failed loading scene: res://Node2D.tscn
-      At: main/main.cpp:1727
-   WARNING: cleanup: ObjectDB Instances still exist!
-        At: core/object.cpp:2081
-   ERROR: clear: Resources Still in use at Exit!
-      At: core/resource.cpp:425
+ERROR: open_and_parse: Condition "String::md5(md5.digest) != String::md5(md5d)" is true. Returning: ERR_FILE_CORRUPT
+   At: core/io/file_access_encrypted.cpp:103
+ERROR: load_byte_code: Condition ' err ' is true. returned: err
+   At: modules/gdscript/gdscript.cpp:755
+ERROR: load: Condition ' err != OK ' is true. returned: RES()
+   At: modules/gdscript/gdscript.cpp:2135
+ERROR: Failed loading resource: res://Node2D.gde
+   At: core/io/resource_loader.cpp:279
+ERROR: poll: res://Node2D.tscn:3 - Parse Error: [ext_resource] referenced nonexistent resource at: res://Node2D.gd
+   At: scene/resources/scene_format_text.cpp:439
+ERROR: load: Condition ' err != OK ' is true. returned: RES()
+   At: core/io/resource_loader.cpp:202
+ERROR: Failed loading resource: res://Node2D.tscn
+   At: core/io/resource_loader.cpp:279
+ERROR: Failed loading scene: res://Node2D.tscn
+   At: main/main.cpp:1727
+WARNING: cleanup: ObjectDB Instances still exist!
+     At: core/object.cpp:2081
+ERROR: clear: Resources Still in use at Exit!
+   At: core/resource.cpp:425
 ```

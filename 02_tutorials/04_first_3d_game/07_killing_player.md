@@ -61,19 +61,19 @@ a `die()` function that helps us put a descriptive label on the code.
 gdscript GDScript
 
 ```
-   # Emitted when the player was hit by a mob.
-   # Put this at the top of the script.
-   signal hit
+# Emitted when the player was hit by a mob.
+# Put this at the top of the script.
+signal hit
 
 
-   # And this function at the bottom.
-   func die():
-       emit_signal("hit")
-       queue_free()
+# And this function at the bottom.
+func die():
+    emit_signal("hit")
+    queue_free()
 
 
-   func _on_MobDetector_body_entered(_body):
-       die()
+func _on_MobDetector_body_entered(_body):
+    die()
 ```
 
 Try the game again by pressing :kbd:`F5`. If everything is set up correctly,
@@ -99,8 +99,8 @@ Get and stop the timer in the `on_Player_hit()` function.
 gdscript GDScript
 
 ```
-   func _on_Player_hit():
-       $MobTimer.stop()
+func _on_Player_hit():
+    $MobTimer.stop()
 ```
 
 If you try the game now, the monsters will stop spawning when you die,
@@ -123,34 +123,34 @@ Starting with `Main.gd`.
 gdscript GDScript
 
 ```
-   extends Node
+extends Node
 
-   export(PackedScene) var mob_scene
-
-
-   func _ready():
-       randomize()
+export(PackedScene) var mob_scene
 
 
-   func _on_MobTimer_timeout():
-       # Create a new instance of the Mob scene.
-       var mob = mob_scene.instance()
-
-       # Choose a random location on the SpawnPath.
-       var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
-       # And give it a random offset.
-       mob_spawn_location.unit_offset = randf()
-
-       # Communicate the spawn location and the player's location to the mob.
-       var player_position = $Player.transform.origin
-       mob.initialize(mob_spawn_location.translation, player_position)
-
-       # Spawn the mob by adding it to the Main scene.
-       add_child(mob)
+func _ready():
+    randomize()
 
 
-   func _on_Player_hit():
-       $MobTimer.stop()
+func _on_MobTimer_timeout():
+    # Create a new instance of the Mob scene.
+    var mob = mob_scene.instance()
+
+    # Choose a random location on the SpawnPath.
+    var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
+    # And give it a random offset.
+    mob_spawn_location.unit_offset = randf()
+
+    # Communicate the spawn location and the player's location to the mob.
+    var player_position = $Player.transform.origin
+    mob.initialize(mob_spawn_location.translation, player_position)
+
+    # Spawn the mob by adding it to the Main scene.
+    add_child(mob)
+
+
+func _on_Player_hit():
+    $MobTimer.stop()
 ```
 
 Next is `Mob.gd`.
@@ -158,39 +158,39 @@ Next is `Mob.gd`.
 gdscript GDScript
 
 ```
-   extends KinematicBody
+extends KinematicBody
 
-   # Emitted when the player jumped on the mob.
-   signal squashed
+# Emitted when the player jumped on the mob.
+signal squashed
 
-   # Minimum speed of the mob in meters per second.
-   export var min_speed = 10
-   # Maximum speed of the mob in meters per second.
-   export var max_speed = 18
+# Minimum speed of the mob in meters per second.
+export var min_speed = 10
+# Maximum speed of the mob in meters per second.
+export var max_speed = 18
 
-   var velocity = Vector3.ZERO
-
-
-   func _physics_process(_delta):
-       move_and_slide(velocity)
+var velocity = Vector3.ZERO
 
 
-   func initialize(start_position, player_position):
-       look_at_from_position(start_position, player_position, Vector3.UP)
-       rotate_y(rand_range(-PI / 4, PI / 4))
-
-       var random_speed = rand_range(min_speed, max_speed)
-       velocity = Vector3.FORWARD * random_speed
-       velocity = velocity.rotated(Vector3.UP, rotation.y)
+func _physics_process(_delta):
+    move_and_slide(velocity)
 
 
-    func squash():
-       emit_signal("squashed")
-       queue_free()
+func initialize(start_position, player_position):
+    look_at_from_position(start_position, player_position, Vector3.UP)
+    rotate_y(rand_range(-PI / 4, PI / 4))
+
+    var random_speed = rand_range(min_speed, max_speed)
+    velocity = Vector3.FORWARD * random_speed
+    velocity = velocity.rotated(Vector3.UP, rotation.y)
 
 
-   func _on_VisibilityNotifier_screen_exited():
-       queue_free()
+ func squash():
+    emit_signal("squashed")
+    queue_free()
+
+
+func _on_VisibilityNotifier_screen_exited():
+    queue_free()
 ```
 
 Finally, the longest script, `Player.gd`.
@@ -198,65 +198,65 @@ Finally, the longest script, `Player.gd`.
 gdscript GDScript
 
 ```
-   extends KinematicBody
+extends KinematicBody
 
-   # Emitted when a mob hit the player.
-   signal hit
+# Emitted when a mob hit the player.
+signal hit
 
-   # How fast the player moves in meters per second.
-   export var speed = 14
-   # The downward acceleration when in the air, in meters per second squared.
-   export var fall_acceleration = 75
-   # Vertical impulse applied to the character upon jumping in meters per second.
-   export var jump_impulse = 20
-   # Vertical impulse applied to the character upon bouncing over a mob in meters per second.
-   export var bounce_impulse = 16
+# How fast the player moves in meters per second.
+export var speed = 14
+# The downward acceleration when in the air, in meters per second squared.
+export var fall_acceleration = 75
+# Vertical impulse applied to the character upon jumping in meters per second.
+export var jump_impulse = 20
+# Vertical impulse applied to the character upon bouncing over a mob in meters per second.
+export var bounce_impulse = 16
 
-   var velocity = Vector3.ZERO
-
-
-   func _physics_process(delta):
-       var direction = Vector3.ZERO
-
-       if Input.is_action_pressed("move_right"):
-           direction.x += 1
-       if Input.is_action_pressed("move_left"):
-           direction.x -= 1
-       if Input.is_action_pressed("move_back"):
-           direction.z += 1
-       if Input.is_action_pressed("move_forward"):
-           direction.z -= 1
-
-       if direction != Vector3.ZERO:
-           direction = direction.normalized()
-           $Pivot.look_at(translation + direction, Vector3.UP)
-
-       velocity.x = direction.x * speed
-       velocity.z = direction.z * speed
-
-       # Jumping.
-       if is_on_floor() and Input.is_action_just_pressed("jump"):
-           velocity.y += jump_impulse
-
-       velocity.y -= fall_acceleration * delta
-       velocity = move_and_slide(velocity, Vector3.UP)
-
-       for index in range(get_slide_count()):
-           var collision = get_slide_collision(index)
-           if collision.collider.is_in_group("mob"):
-               var mob = collision.collider
-               if Vector3.UP.dot(collision.normal) > 0.1:
-                   mob.squash()
-                   velocity.y = bounce_impulse
+var velocity = Vector3.ZERO
 
 
-   func die():
-       emit_signal("hit")
-       queue_free()
+func _physics_process(delta):
+    var direction = Vector3.ZERO
+
+    if Input.is_action_pressed("move_right"):
+        direction.x += 1
+    if Input.is_action_pressed("move_left"):
+        direction.x -= 1
+    if Input.is_action_pressed("move_back"):
+        direction.z += 1
+    if Input.is_action_pressed("move_forward"):
+        direction.z -= 1
+
+    if direction != Vector3.ZERO:
+        direction = direction.normalized()
+        $Pivot.look_at(translation + direction, Vector3.UP)
+
+    velocity.x = direction.x * speed
+    velocity.z = direction.z * speed
+
+    # Jumping.
+    if is_on_floor() and Input.is_action_just_pressed("jump"):
+        velocity.y += jump_impulse
+
+    velocity.y -= fall_acceleration * delta
+    velocity = move_and_slide(velocity, Vector3.UP)
+
+    for index in range(get_slide_count()):
+        var collision = get_slide_collision(index)
+        if collision.collider.is_in_group("mob"):
+            var mob = collision.collider
+            if Vector3.UP.dot(collision.normal) > 0.1:
+                mob.squash()
+                velocity.y = bounce_impulse
 
 
-   func _on_MobDetector_body_entered(_body):
-       die()
+func die():
+    emit_signal("hit")
+    queue_free()
+
+
+func _on_MobDetector_body_entered(_body):
+    die()
 ```
 
 See you in the next lesson to add the score and the retry option.

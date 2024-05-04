@@ -158,13 +158,13 @@ always spawn following the same sequence.
 gdscript GDScript
 
 ```
-   extends Node
+extends Node
 
-   export (PackedScene) var mob_scene
+export (PackedScene) var mob_scene
 
 
-   func _ready():
-       randomize()
+func _ready():
+    randomize()
 ```
 
 We want to spawn mobs at regular time intervals. To do this, we need to go back
@@ -213,20 +213,20 @@ Let's code the mob spawning logic. We're going to:
 
 gdscript GDScript
 ```
-   func _on_MobTimer_timeout():
-       # Create a new instance of the Mob scene.
-       var mob = mob_scene.instance()
+func _on_MobTimer_timeout():
+    # Create a new instance of the Mob scene.
+    var mob = mob_scene.instance()
 
-       # Choose a random location on the SpawnPath.
-       # We store the reference to the SpawnLocation node.
-       var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
-       # And give it a random offset.
-       mob_spawn_location.unit_offset = randf()
+    # Choose a random location on the SpawnPath.
+    # We store the reference to the SpawnLocation node.
+    var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
+    # And give it a random offset.
+    mob_spawn_location.unit_offset = randf()
 
-       var player_position = $Player.transform.origin
-       mob.initialize(mob_spawn_location.translation, player_position)
+    var player_position = $Player.transform.origin
+    mob.initialize(mob_spawn_location.translation, player_position)
 
-       add_child(mob)
+    add_child(mob)
 ```
 
 Above, `randf()` produces a random value between `0` and `1`, which is
@@ -237,24 +237,24 @@ Here is the complete `Main.gd` script so far, for reference.
 gdscript GDScript
 
 ```
-   extends Node
+extends Node
 
-   export (PackedScene) var mob_scene
-
-
-   func _ready():
-       randomize()
+export (PackedScene) var mob_scene
 
 
-   func _on_MobTimer_timeout():
-       var mob = mob_scene.instance()
+func _ready():
+    randomize()
 
-       var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
-       mob_spawn_location.unit_offset = randf()
-       var player_position = $Player.transform.origin
-       mob.initialize(mob_spawn_location.translation, player_position)
 
-       add_child(mob)
+func _on_MobTimer_timeout():
+    var mob = mob_scene.instance()
+
+    var mob_spawn_location = get_node("SpawnPath/SpawnLocation")
+    mob_spawn_location.unit_offset = randf()
+    var player_position = $Player.transform.origin
+    mob.initialize(mob_spawn_location.translation, player_position)
+
+    add_child(mob)
 ```
 
 You can test the scene by pressing :kbd:`F6`. You should see the monsters spawn and

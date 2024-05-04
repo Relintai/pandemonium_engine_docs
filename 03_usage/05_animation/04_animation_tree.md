@@ -95,15 +95,15 @@ After setting the time and changing the animation playback, the seek node automa
 gdscript GDScript
 
 ```
-    # Play child animation from the start.
-    anim_tree.set("parameters/Seek/seek_position", 0.0)
-    # Alternative syntax (same result as above).
-    anim_tree["parameters/Seek/seek_position"] = 0.0
+# Play child animation from the start.
+anim_tree.set("parameters/Seek/seek_position", 0.0)
+# Alternative syntax (same result as above).
+anim_tree["parameters/Seek/seek_position"] = 0.0
 
-    # Play child animation from 12 second timestamp.
-    anim_tree.set("parameters/Seek/seek_position", 12.0)
-    # Alternative syntax (same result as above).
-    anim_tree["parameters/Seek/seek_position"] = 12.0
+# Play child animation from 12 second timestamp.
+anim_tree.set("parameters/Seek/seek_position", 12.0)
+# Alternative syntax (same result as above).
+anim_tree["parameters/Seek/seek_position"] = 12.0
 ```
 
 #### TimeScale
@@ -184,7 +184,7 @@ Afterwards, the actual motion can be retrieved via the `AnimationTree` API as a 
 gdscript GDScript
 
 ```
-    anim_tree.get_root_motion_transform()
+anim_tree.get_root_motion_transform()
 ```
 
 This can be fed to functions such as `KinematicBody.move_and_slide` to control the character movement.
@@ -221,9 +221,9 @@ Which allows setting them or reading them:
 gdscript GDScript
 
 ```
-    anim_tree.set("parameters/eye_blend/blend_amount", 1.0)
-    # Simpler alternative form:
-    anim_tree["parameters/eye_blend/blend_amount"] = 1.0
+anim_tree.set("parameters/eye_blend/blend_amount", 1.0)
+# Simpler alternative form:
+anim_tree["parameters/eye_blend/blend_amount"] = 1.0
 ```
 
 
@@ -241,7 +241,7 @@ object from the `AnimationTree` node (it is exported as a property).
 gdscript GDScript
 
 ```
-    var state_machine = anim_tree["parameters/playback"]
+var state_machine = anim_tree["parameters/playback"]
 ```
 
 Once retrieved, it can be used by calling one of the many functions it offers:
@@ -249,7 +249,7 @@ Once retrieved, it can be used by calling one of the many functions it offers:
 gdscript GDScript
 
 ```
-    state_machine.travel("SomeState")
+state_machine.travel("SomeState")
 ```
 
 The state machine must be running before you can travel. Make sure to either call `start()` or choose a node to **Autoplay on Load**.

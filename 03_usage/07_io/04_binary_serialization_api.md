@@ -20,8 +20,8 @@ The lowest value two bytes are used to determine the type, while the highest val
 two bytes contain flags
 
 ```
-    base_type = val & 0xFFFF;
-    flags = val >> 16;
+base_type = val & 0xFFFF;
+flags = val >> 16;
 ```
 
 | Type   | Value                    |

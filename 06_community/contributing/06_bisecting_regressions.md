@@ -76,9 +76,9 @@ If you're using a stable release as the "good" or "bad" build, use one of the
 following commit hashes depending on the version:
 
 ```
-    3.2-stable
-    3.1-stable
-    3.0-stable
+3.2-stable
+3.1-stable
+3.0-stable
 ```
 
 To refer to the latest state of the master branch, you can use `master`
@@ -89,19 +89,19 @@ is done, in the terminal window, use `cd` to reach the Pandemonium repository
 folder and enter the following command:
 
 ```
-    # <good commit hash> is hash of the build that works as expected.
-    # <bad commit hash> is hash of the build exhibiting the bug.
-    $ git bisect start
-    $ git bisect good <good commit hash>
-    $ git bisect bad <bad commit hash>
+# <good commit hash> is hash of the build that works as expected.
+# <bad commit hash> is hash of the build exhibiting the bug.
+$ git bisect start
+$ git bisect good <good commit hash>
+$ git bisect bad <bad commit hash>
 ```
 
 Compile Pandemonium. This assumes you've set up a build environment:
 
 ```
-    # <platform> is the platform you're targeting for regression testing,
-    # like "windows", "x11" or "osx".
-    $ scons platform=<platform> -j4
+# <platform> is the platform you're targeting for regression testing,
+# like "windows", "x11" or "osx".
+$ scons platform=<platform> -j4
 ```
 
 Since building Pandemonium takes a while, you want to dedicate as many CPU threads as
@@ -113,13 +113,13 @@ Run the binary located in the `bin/` folder and try to reproduce the bug.
 If the build **still** exhibits the bug, run the following command:
 
 ```
-    $ git bisect bad
+$ git bisect bad
 ```
 
 If the build **does not** exhibit the bug, run the following command:
 
 ```
-    $ git bisect good
+$ git bisect good
 ```
 
 After entering one of the commands above, Git will switch to a different commit.

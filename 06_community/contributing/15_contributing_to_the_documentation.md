@@ -116,13 +116,13 @@ line, using a relative path and no extension, e.g. here `light_baking`.
 Always begin pages with their title and a Sphinx reference name:
 
 ```
-    Insert your title here
-    ======================
+Insert your title here
+======================
 ```
 
 The reference `doc_insert_your_title_here` and the title should match.
 
-The reference allows linking to this page using the ``` format, e.g.
+The reference allows linking to this page using the ```format, e.g.
 ```doc_insert_your_title_here``` would link to the above example page (note
 the lack of leading underscore in the reference).
 
@@ -176,3 +176,4 @@ attribution to "Péter Magyar and the Pandemonium community, and Juan Linietsky,
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.
+```

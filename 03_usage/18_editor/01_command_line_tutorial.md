@@ -129,19 +129,19 @@ This can be done by giving the path to the `project.pandemonium` file
 of your project as either the first argument, like this:
 
 ```
-    pandemonium path_to_your_project/project.pandemonium [other] [commands] [and] [args]
+pandemonium path_to_your_project/project.pandemonium [other] [commands] [and] [args]
 ```
 
 Or by using the `--path` argument:
 
 ```
-    pandemonium --path path_to_your_project [other] [commands] [and] [args]
+pandemonium --path path_to_your_project [other] [commands] [and] [args]
 ```
 
 For example, the full command for exporting your game (as explained below) might look like this:
 
 ```
-    pandemonium --path path_to_your_project --export my_export_preset_name game.exe
+pandemonium --path path_to_your_project --export my_export_preset_name game.exe
 ```
 
 ## Creating a project
@@ -151,9 +151,9 @@ shell to the desired place and making a project.pandemonium file.
 
 
 ```
-    mkdir newgame
-    cd newgame
-    touch project.pandemonium
+mkdir newgame
+cd newgame
+touch project.pandemonium
 ```
 
 
@@ -166,14 +166,14 @@ must be done from within the project directory or a subdirectory,
 otherwise the command is ignored and the project manager appears.
 
 ```
-    pandemonium -e
+pandemonium -e
 ```
 
 If a scene has been created and saved, it can be edited later by running
 the same code with that scene as argument.
 
 ```
-    pandemonium -e scene.tscn
+pandemonium -e scene.tscn
 ```
 
 ## Erasing a scene
@@ -183,7 +183,7 @@ metadata files. Use `rm` to erase a scene file. Make sure nothing
 references that scene or else an error will be thrown upon opening.
 
 ```
-    rm scene.tscn
+rm scene.tscn
 ```
 
 ## Running the game
@@ -192,14 +192,14 @@ To run the game, simply execute Pandemonium within the project directory or
 subdirectory.
 
 ```
-    pandemonium
+pandemonium
 ```
 
 When a specific scene needs to be tested, pass that scene to the command
 line.
 
 ```
-    pandemonium scene.tscn
+pandemonium scene.tscn
 ```
 
 ## Debugging
@@ -209,11 +209,11 @@ just fly by. For this, a command line debugger is provided by adding
 `-d`. It works for running either the game or a simple scene.
 
 ```
-    pandemonium -d
+pandemonium -d
 ```
 
 ```
-    pandemonium -d scene.tscn
+pandemonium -d scene.tscn
 ```
 
 
@@ -224,8 +224,8 @@ especially useful for continuous integration setups. The version of Pandemonium
 that is headless (server build, no video) is ideal for this.
 
 ```
-    pandemonium --export "Linux/X11" /var/builds/project
-    pandemonium --export Android /var/builds/project.apk
+pandemonium --export "Linux/X11" /var/builds/project
+pandemonium --export Android /var/builds/project.apk
 ```
 
 The preset name must match the name of an export preset defined in the
@@ -256,19 +256,19 @@ The script must inherit from `SceneTree` or `MainLoop`.
 Here is a simple `sayhello.gd` example of how it works:
 
 ```
-    #!/usr/bin/env -S pandemonium -s
-    extends SceneTree
+#!/usr/bin/env -S pandemonium -s
+extends SceneTree
 
-    func _init():
-        print("Hello!")
-        quit()
+func _init():
+    print("Hello!")
+    quit()
 ```
 
 And how to run it:
 
 ```
-    # Prints "Hello!" to standard output.
-    pandemonium -s sayhello.gd
+# Prints "Hello!" to standard output.
+pandemonium -s sayhello.gd
 ```
 
 If no `project.pandemonium` exists at the path, current path is assumed to be the
@@ -280,15 +280,15 @@ it allows you to run the script as follows in modern Linux
 distributions, as well as macOS:
 
 ```
-    # Mark script as executable.
-    chmod +x sayhello.gd
-    # Prints "Hello!" to standard output.
-    ./sayhello.gd
+# Mark script as executable.
+chmod +x sayhello.gd
+# Prints "Hello!" to standard output.
+./sayhello.gd
 ```
 
 If the above doesn't work in your current version of Linux or macOS, you can
 always have the shebang run Pandemonium straight from where it is located as follows:
 
 ```
-    #!/usr/bin/pandemonium -s
+#!/usr/bin/pandemonium -s
 ```

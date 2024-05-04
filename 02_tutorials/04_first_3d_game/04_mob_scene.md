@@ -98,18 +98,18 @@ the `velocity`.
 gdscript GDScript
 
 ```
-   extends KinematicBody
+extends KinematicBody
 
-   # Minimum speed of the mob in meters per second.
-   export var min_speed = 10
-   # Maximum speed of the mob in meters per second.
-   export var max_speed = 18
+# Minimum speed of the mob in meters per second.
+export var min_speed = 10
+# Maximum speed of the mob in meters per second.
+export var max_speed = 18
 
-   var velocity = Vector3.ZERO
+var velocity = Vector3.ZERO
 
 
-   func _physics_process(_delta):
-       move_and_slide(velocity)
+func _physics_process(_delta):
+    move_and_slide(velocity)
 ```
 
 Similarly to the player, we move the mob every frame by calling
@@ -139,12 +139,12 @@ between `-PI / 4` radians and `PI / 4` radians.
 gdscript GDScript
 
 ```
-   # We will call this function from the Main scene.
-   func initialize(start_position, player_position):
-       # We position the mob and turn it so that it looks at the player.
-       look_at_from_position(start_position, player_position, Vector3.UP)
-       # And rotate it randomly so it doesn't move exactly toward the player.
-       rotate_y(rand_range(-PI / 4, PI / 4))
+# We will call this function from the Main scene.
+func initialize(start_position, player_position):
+    # We position the mob and turn it so that it looks at the player.
+    look_at_from_position(start_position, player_position, Vector3.UP)
+    # And rotate it randomly so it doesn't move exactly toward the player.
+    rotate_y(rand_range(-PI / 4, PI / 4))
 ```
 
 We then calculate a random speed using `rand_range()` once again and we use it
@@ -157,15 +157,15 @@ We start by creating a 3D vector pointing forward, multiply it by our
 gdscript GDScript
 
 ```
-   func initialize(start_position, player_position):
-       # ...
+func initialize(start_position, player_position):
+    # ...
 
-       # We calculate a random speed.
-       var random_speed = rand_range(min_speed, max_speed)
-       # We calculate a forward velocity that represents the speed.
-       velocity = Vector3.FORWARD * random_speed
-       # We then rotate the vector based on the mob's Y rotation to move in the direction it's looking.
-       velocity = velocity.rotated(Vector3.UP, rotation.y)
+    # We calculate a random speed.
+    var random_speed = rand_range(min_speed, max_speed)
+    # We calculate a forward velocity that represents the speed.
+    velocity = Vector3.FORWARD * random_speed
+    # We then rotate the vector based on the mob's Y rotation to move in the direction it's looking.
+    velocity = velocity.rotated(Vector3.UP, rotation.y)
 ```
 
 ## Leaving the screen
@@ -195,8 +195,8 @@ leaves the screen.
 gdscript GDScript
 
 ```
-   func _on_VisibilityNotifier_screen_exited():
-       queue_free()
+func _on_VisibilityNotifier_screen_exited():
+    queue_free()
 ```
 
 Our monster is ready to enter the game! In the next part, you will spawn
@@ -207,28 +207,28 @@ Here is the complete `Mob.gd` script for reference.
 gdscript GDScript
 
 ```
-   extends KinematicBody
+extends KinematicBody
 
-   # Minimum speed of the mob in meters per second.
-   export var min_speed = 10
-   # Maximum speed of the mob in meters per second.
-   export var max_speed = 18
+# Minimum speed of the mob in meters per second.
+export var min_speed = 10
+# Maximum speed of the mob in meters per second.
+export var max_speed = 18
 
-   var velocity = Vector3.ZERO
-
-
-   func _physics_process(_delta):
-       move_and_slide(velocity)
-
-   func initialize(start_position, player_position):
-       look_at_from_position(start_position, player_position, Vector3.UP)
-       rotate_y(rand_range(-PI / 4, PI / 4))
-
-       var random_speed = rand_range(min_speed, max_speed)
-       velocity = Vector3.FORWARD * random_speed
-       velocity = velocity.rotated(Vector3.UP, rotation.y)
+var velocity = Vector3.ZERO
 
 
-   func _on_VisibilityNotifier_screen_exited():
-       queue_free()
+func _physics_process(_delta):
+    move_and_slide(velocity)
+
+func initialize(start_position, player_position):
+    look_at_from_position(start_position, player_position, Vector3.UP)
+    rotate_y(rand_range(-PI / 4, PI / 4))
+
+    var random_speed = rand_range(min_speed, max_speed)
+    velocity = Vector3.FORWARD * random_speed
+    velocity = velocity.rotated(Vector3.UP, rotation.y)
+
+
+func _on_VisibilityNotifier_screen_exited():
+    queue_free()
 ```

@@ -44,8 +44,8 @@ Putting it in your main scene script's `ready()` method is a good choice:
 gdscript GDScript
 
 ```
-    func _ready():
-        randomize()
+func _ready():
+    randomize()
 ```
 
 You can also set a fixed random seed instead using `seed()
@@ -55,10 +55,10 @@ across runs:
 gdscript GDScript
 
 ```
-    func _ready():
-        seed(12345)
-        # To use a string as a seed, you can hash it to a number.
-        seed("Hello world".hash())
+func _ready():
+    seed(12345)
+    # To use a string as a seed, you can hash it to a number.
+    seed("Hello world".hash())
 ```
 
 When using the RandomNumberGenerator class, you should call `randomize()` on
@@ -67,8 +67,8 @@ the instance since it has its own seed:
 gdscript GDScript
 
 ```
-    var random = RandomNumberGenerator.new()
-    random.randomize()
+var random = RandomNumberGenerator.new()
+random.randomize()
 ```
 
 
@@ -85,11 +85,11 @@ denominator:
 gdscript GDScript
 
 ```
-    # Prints a random integer between 0 and 49.
-    print(randi() % 50)
+# Prints a random integer between 0 and 49.
+print(randi() % 50)
 
-    # Prints a random integer between 10 and 60.
-    print(randi() % 51 + 10)
+# Prints a random integer between 10 and 60.
+print(randi() % 51 + 10)
 ```
 
 
@@ -107,10 +107,10 @@ varying by the deviation (1.0 by default):
 gdscript GDScript
 
 ```
-    # Prints a random floating-point number from a normal distribution with a mean 0.0 and deviation 1.0.
-    var random = RandomNumberGenerator.new()
-    random.randomize()
-    print(random.randfn())
+# Prints a random floating-point number from a normal distribution with a mean 0.0 and deviation 1.0.
+var random = RandomNumberGenerator.new()
+random.randomize()
+print(random.randfn())
 ```
 
 `rand_range()` takes two arguments
@@ -120,8 +120,8 @@ and `to`:
 gdscript GDScript
 
 ```
-    # Prints a random floating-point number between -4 and 6.5.
-    print(rand_range(-4, 6.5))
+# Prints a random floating-point number between -4 and 6.5.
+print(rand_range(-4, 6.5))
 ```
 
 `RandomNumberGenerator.randi_range()
@@ -131,10 +131,10 @@ and `to`, and returns a random integer between `from` and `to`:
 gdscript GDScript
 
 ```
-    # Prints a random integer between -10 and 10.
-    var random = RandomNumberGenerator.new()
-    random.randomize()
-    print(random.randi_range(-10, 10))
+# Prints a random integer between -10 and 10.
+var random = RandomNumberGenerator.new()
+random.randomize()
+print(random.randi_range(-10, 10))
 ```
 
 ## Get a random array element
@@ -144,21 +144,21 @@ We can use random integer generation to get a random element from an array:
 gdscript GDScript
 
 ```
-    var _fruits = ["apple", "orange", "pear", "banana"]
+var _fruits = ["apple", "orange", "pear", "banana"]
 
-    func _ready():
-        randomize()
+func _ready():
+    randomize()
 
-        for i in range(100):
-            # Pick 100 fruits randomly.
-            print(get_fruit())
+    for i in range(100):
+        # Pick 100 fruits randomly.
+        print(get_fruit())
 
 
-    func get_fruit():
-        var random_fruit = _fruits[randi() % _fruits.size()]
-        # Returns "apple", "orange", "pear", or "banana" every time the code runs.
-        # We may get the same fruit multiple times in a row.
-        return random_fruit
+func get_fruit():
+    var random_fruit = _fruits[randi() % _fruits.size()]
+    # Returns "apple", "orange", "pear", or "banana" every time the code runs.
+    # We may get the same fruit multiple times in a row.
+    return random_fruit
 ```
 
 To prevent the same fruit from being picked more than once in a row, we can add
@@ -167,32 +167,32 @@ more logic to this method:
 gdscript GDScript
 
 ```
-    var _fruits = ["apple", "orange", "pear", "banana"]
-    var _last_fruit = ""
+var _fruits = ["apple", "orange", "pear", "banana"]
+var _last_fruit = ""
 
 
-    func _ready():
-        randomize()
+func _ready():
+    randomize()
 
-        # Pick 100 fruits randomly.
-        for i in range(100):
-            print(get_fruit())
+    # Pick 100 fruits randomly.
+    for i in range(100):
+        print(get_fruit())
 
 
-    func get_fruit():
-        var random_fruit = _fruits[randi() % _fruits.size()]
-        while random_fruit == _last_fruit:
-            # The last fruit was picked, try again until we get a different fruit.
-            random_fruit = _fruits[randi() % _fruits.size()]
+func get_fruit():
+    var random_fruit = _fruits[randi() % _fruits.size()]
+    while random_fruit == _last_fruit:
+        # The last fruit was picked, try again until we get a different fruit.
+        random_fruit = _fruits[randi() % _fruits.size()]
 
-        # Note: if the random element to pick is passed by reference,
-        # such as an array or dictionary,
-        # use `last_fruit = random_fruit.duplicate()` instead.
-        _last_fruit = random_fruit
+    # Note: if the random element to pick is passed by reference,
+    # such as an array or dictionary,
+    # use `last_fruit = random_fruit.duplicate()` instead.
+    _last_fruit = random_fruit
 
-        # Returns "apple", "orange", "pear", or "banana" every time the code runs.
-        # The function will never return the same fruit more than once in a row.
-        return random_fruit
+    # Returns "apple", "orange", "pear", or "banana" every time the code runs.
+    # The function will never return the same fruit more than once in a row.
+    return random_fruit
 ```
 
 This approach can be useful to make random number generation feel less
@@ -207,25 +207,25 @@ We can apply similar logic from arrays to dictionaries as well:
 gdscript GDScript
 
 ```
-    var metals = {
-        "copper": {"quantity": 50, "price": 50},
-        "silver": {"quantity": 20, "price": 150},
-        "gold": {"quantity": 3, "price": 500},
-    }
+var metals = {
+    "copper": {"quantity": 50, "price": 50},
+    "silver": {"quantity": 20, "price": 150},
+    "gold": {"quantity": 3, "price": 500},
+}
 
 
-    func _ready():
-        randomize()
+func _ready():
+    randomize()
 
-        for i in range(20):
-            print(get_metal())
+    for i in range(20):
+        print(get_metal())
 
 
-    func get_metal():
-        var random_metal = metals.values()[randi() % metals.size()]
-        # Returns a random metal value dictionary every time the code runs.
-        # The same metal may be selected multiple times in succession.
-        return random_metal
+func get_metal():
+    var random_metal = metals.values()[randi() % metals.size()]
+    # Returns a random metal value dictionary every time the code runs.
+    # The same metal may be selected multiple times in succession.
+    return random_metal
 ```
 
 ## Weighted random probability
@@ -237,25 +237,25 @@ floating-point number between 0.0 and 1.0. We can use this to create a
 gdscript GDScript
 
 ```
-    func _ready():
-        randomize()
+func _ready():
+    randomize()
 
-        for i in range(100):
-            print(get_item_rarity())
+    for i in range(100):
+        print(get_item_rarity())
 
 
-    func get_item_rarity():
-        var random_float = randf()
+func get_item_rarity():
+    var random_float = randf()
 
-        if random_float < 0.8:
-            # 80% chance of being returned.
-            return "Common"
-        elif random_float < 0.95:
-            # 15% chance of being returned.
-            return "Uncommon"
-        else:
-            # 5% chance of being returned.
-            return "Rare"
+    if random_float < 0.8:
+        # 80% chance of being returned.
+        return "Common"
+    elif random_float < 0.95:
+        # 15% chance of being returned.
+        return "Uncommon"
+    else:
+        # 5% chance of being returned.
+        return "Rare"
 ```
 
 ## "Better" randomness using shuffle bags
@@ -270,31 +270,31 @@ element from the array after choosing it. After multiple selections, the array
 ends up empty. When that happens, you reinitialize it to its default value:
 
 ```
-    var _fruits = ["apple", "orange", "pear", "banana"]
-    # A copy of the fruits array so we can restore the original value into `fruits`.
-    var _fruits_full = []
+var _fruits = ["apple", "orange", "pear", "banana"]
+# A copy of the fruits array so we can restore the original value into `fruits`.
+var _fruits_full = []
 
 
-    func _ready():
-        randomize()
-        _fruits_full = _fruits.duplicate()
+func _ready():
+    randomize()
+    _fruits_full = _fruits.duplicate()
+    _fruits.shuffle()
+
+    for i in 100:
+        print(get_fruit())
+
+
+func get_fruit():
+    if _fruits.empty():
+        # Fill the fruits array again and shuffle it.
+        _fruits = _fruits_full.duplicate()
         _fruits.shuffle()
 
-        for i in 100:
-            print(get_fruit())
-
-
-    func get_fruit():
-        if _fruits.empty():
-            # Fill the fruits array again and shuffle it.
-            _fruits = _fruits_full.duplicate()
-            _fruits.shuffle()
-
-        # Get a random fruit, since we shuffled the array,
-        # and remove it from the `fruits` array.
-        var random_fruit = _fruits.pop_front()
-        # Prints "apple", "orange", "pear", or "banana" every time the code runs.
-        return random_fruit
+    # Get a random fruit, since we shuffled the array,
+    # and remove it from the `fruits` array.
+    var random_fruit = _fruits.pop_front()
+    # Prints "apple", "orange", "pear", or "banana" every time the code runs.
+    return random_fruit
 ```
 
 When running the above code, there is a chance to get the same fruit twice in a
@@ -316,18 +316,18 @@ terrain. Pandemonium provides `opensimplexnoise` for this, which supports
 gdscript GDScript
 
 ```
-    var _noise = OpenSimplexNoise.new()
+var _noise = OpenSimplexNoise.new()
 
-    func _ready():
-        randomize()
-        # Configure the OpenSimplexNoise instance.
-        _noise.seed = randi()
-        _noise.octaves = 4
-        _noise.period = 20.0
-        _noise.persistence = 0.8
+func _ready():
+    randomize()
+    # Configure the OpenSimplexNoise instance.
+    _noise.seed = randi()
+    _noise.octaves = 4
+    _noise.period = 20.0
+    _noise.persistence = 0.8
 
-        for i in 100:
-            # Prints a slowly-changing series of floating-point numbers
-            # between -1.0 and 1.0.
-            print(_noise.get_noise_1d(i))
+    for i in 100:
+        # Prints a slowly-changing series of floating-point numbers
+        # between -1.0 and 1.0.
+        print(_noise.get_noise_1d(i))
 ```

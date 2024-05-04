@@ -57,11 +57,11 @@ Note:
 ColorRect > CanvasItem > Material > Material > click / Edit > ShaderMaterial > Shader > `New Shader` > click / Edit:
 
 ```
-    shader_type canvas_item;
+shader_type canvas_item;
 
-    void fragment() {
-        COLOR = vec4(UV.x, UV.y, 0.5, 1.0);
-    }
+void fragment() {
+    COLOR = vec4(UV.x, UV.y, 0.5, 1.0);
+}
 ```
 
 The above code renders a gradient like the one below.
@@ -109,7 +109,7 @@ the sphere in a nice way? One solution is to use a function that repeats on the 
 `sin` and `cos` are two such functions. Let's apply them to the texture and see what happens.
 
 ```
-    COLOR.xyz = vec3(sin(UV.x * 3.14159 * 4.0) * cos(UV.y * 3.14159 * 4.0) * 0.5 + 0.5);
+COLOR.xyz = vec3(sin(UV.x * 3.14159 * 4.0) * cos(UV.y * 3.14159 * 4.0) * 0.5 + 0.5);
 ```
 
 ![](img/planet_sincos.png)
@@ -134,14 +134,14 @@ a pinch point on the pole. The following code converts the `UVs` into Cartesian
 coordinates.
 
 ```
-    float theta = UV.y * 3.14159;
-    float phi = UV.x * 3.14159 * 2.0;
-    vec3 unit = vec3(0.0, 0.0, 0.0);
+float theta = UV.y * 3.14159;
+float phi = UV.x * 3.14159 * 2.0;
+vec3 unit = vec3(0.0, 0.0, 0.0);
 
-    unit.x = sin(phi) * sin(theta);
-    unit.y = cos(theta) * -1.0;
-    unit.z = cos(phi) * sin(theta);
-    unit = normalize(unit);
+unit.x = sin(phi) * sin(theta);
+unit.y = cos(theta) * -1.0;
+unit.z = cos(phi) * sin(theta);
+unit = normalize(unit);
 ```
 
 And if we use `unit` as an output `COLOR` value, we get:
@@ -152,28 +152,28 @@ Now that we can calculate the 3D position of the surface of the sphere, we can u
 to make the planet. We will be using this noise function directly from a `Shadertoy ( https://www.shadertoy.com/view/Xsl3Dl )`:
 
 ```
-    vec3 hash(vec3 p) {
-        p = vec3(dot(p, vec3(127.1, 311.7, 74.7)),
-                 dot(p, vec3(269.5, 183.3, 246.1)),
-                 dot(p, vec3(113.5, 271.9, 124.6)));
+vec3 hash(vec3 p) {
+    p = vec3(dot(p, vec3(127.1, 311.7, 74.7)),
+             dot(p, vec3(269.5, 183.3, 246.1)),
+             dot(p, vec3(113.5, 271.9, 124.6)));
 
-        return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
-    }
+    return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
+}
 
-    float noise(vec3 p) {
-      vec3 i = floor(p);
-      vec3 f = fract(p);
-      vec3 u = f * f * (3.0 - 2.0 * f);
+float noise(vec3 p) {
+  vec3 i = floor(p);
+  vec3 f = fract(p);
+  vec3 u = f * f * (3.0 - 2.0 * f);
 
-      return mix(mix(mix(dot(hash(i + vec3(0.0, 0.0, 0.0)), f - vec3(0.0, 0.0, 0.0)),
-                         dot(hash(i + vec3(1.0, 0.0, 0.0)), f - vec3(1.0, 0.0, 0.0)), u.x),
-                     mix(dot(hash(i + vec3(0.0, 1.0, 0.0)), f - vec3(0.0, 1.0, 0.0)),
-                         dot(hash(i + vec3(1.0, 1.0, 0.0)), f - vec3(1.0, 1.0, 0.0)), u.x), u.y),
-                 mix(mix(dot(hash(i + vec3(0.0, 0.0, 1.0)), f - vec3(0.0, 0.0, 1.0)),
-                         dot(hash(i + vec3(1.0, 0.0, 1.0)), f - vec3(1.0, 0.0, 1.0)), u.x),
-                     mix(dot(hash(i + vec3(0.0, 1.0, 1.0)), f - vec3(0.0, 1.0, 1.0)),
-                         dot(hash(i + vec3(1.0, 1.0, 1.0)), f - vec3(1.0, 1.0, 1.0)), u.x), u.y), u.z );
-    }
+  return mix(mix(mix(dot(hash(i + vec3(0.0, 0.0, 0.0)), f - vec3(0.0, 0.0, 0.0)),
+                     dot(hash(i + vec3(1.0, 0.0, 0.0)), f - vec3(1.0, 0.0, 0.0)), u.x),
+                 mix(dot(hash(i + vec3(0.0, 1.0, 0.0)), f - vec3(0.0, 1.0, 0.0)),
+                     dot(hash(i + vec3(1.0, 1.0, 0.0)), f - vec3(1.0, 1.0, 0.0)), u.x), u.y),
+             mix(mix(dot(hash(i + vec3(0.0, 0.0, 1.0)), f - vec3(0.0, 0.0, 1.0)),
+                     dot(hash(i + vec3(1.0, 0.0, 1.0)), f - vec3(1.0, 0.0, 1.0)), u.x),
+                 mix(dot(hash(i + vec3(0.0, 1.0, 1.0)), f - vec3(0.0, 1.0, 1.0)),
+                     dot(hash(i + vec3(1.0, 1.0, 1.0)), f - vec3(1.0, 1.0, 1.0)), u.x), u.y), u.z );
+}
 ```
 
 Note:
@@ -182,8 +182,8 @@ Note:
 Now to use `noise`, add the following to the    `fragment` function:
 
 ```
-    float n = noise(unit * 5.0);
-    COLOR.xyz = vec3(n * 0.5 + 0.5);
+float n = noise(unit * 5.0);
+COLOR.xyz = vec3(n * 0.5 + 0.5);
 ```
 
 ![](img/planet_noise.png)
@@ -206,7 +206,7 @@ However, `lerp` is typically reserved for mixing two floats together; `mix` can 
 values whether it be floats or vector types.
 
 ```
-    COLOR.xyz = mix(vec3(0.05, 0.3, 0.5), vec3(0.9, 0.4, 0.1), n * 0.5 + 0.5);
+COLOR.xyz = mix(vec3(0.05, 0.3, 0.5), vec3(0.9, 0.4, 0.1), n * 0.5 + 0.5);
 ```
 
 The first color is blue for the ocean. The second color is a kind of reddish color (because
@@ -221,7 +221,7 @@ land and sea. In order to do that, we will change the last term to `smoothstep(-
 And thus the whole line becomes:
 
 ```
-    COLOR.xyz = mix(vec3(0.05, 0.3, 0.5), vec3(0.9, 0.4, 0.1), smoothstep(-0.1, 0.0, n));
+COLOR.xyz = mix(vec3(0.05, 0.3, 0.5), vec3(0.9, 0.4, 0.1), smoothstep(-0.1, 0.0, n));
 ```
 
 What `smoothstep` does is return `0` if the third argument is below the first and `1` if the
@@ -239,10 +239,10 @@ another, and so on. What we will do is calculate `n` with four lines of shader c
 instead of just one. `n` becomes:
 
 ```
-    float n = noise(unit * 5.0) * 0.5;
-    n += noise(unit * 10.0) * 0.25;
-    n += noise(unit * 20.0) * 0.125;
-    n += noise(unit * 40.0) * 0.0625;
+float n = noise(unit * 5.0) * 0.5;
+n += noise(unit * 10.0) * 0.25;
+n += noise(unit * 20.0) * 0.125;
+n += noise(unit * 40.0) * 0.0625;
 ```
 
 And now the planet looks like:
@@ -260,7 +260,7 @@ So we want the ocean to shine a little more than the land. We can do this by pas
 into the `alpha` channel of our output `COLOR` and using it as a Roughness map.
 
 ```
-    COLOR.a = 0.3 + 0.7 * smoothstep(-0.1, 0.0, n);
+COLOR.a = 0.3 + 0.7 * smoothstep(-0.1, 0.0, n);
 ```
 
 This line returns `0.3` for water and `1.0` for land. This means that the land is going to be quite
@@ -287,7 +287,7 @@ go into the `Viewport` and enable the "Transparent Bg" property. Since we are no
 rendering one transparent object on top of another, we want to enable `blend_premul_alpha`:
 
 ```
-    render_mode blend_premul_alpha;
+render_mode blend_premul_alpha;
 ```
 
 This pre-multiplies the colors by the `alpha` value and then blends them correctly together. Typically,

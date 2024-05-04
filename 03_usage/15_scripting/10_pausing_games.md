@@ -18,7 +18,7 @@ To pause the game the pause state must be set. This is done by assigning
 gdscript GDScript
 
 ```
-    get_tree().paused = true
+get_tree().paused = true
 ```
 
 Doing this will cause two things. First, 2D and 3D physics will be stopped
@@ -41,8 +41,8 @@ You can also alter the property with code:
 gdscript GDScript
 
 ```
-    func _ready():
-        pause_mode = Node.PAUSE_MODE_PROCESS
+func _ready():
+    pause_mode = Node.PAUSE_MODE_PROCESS
 ```
 
 This is what each mode tells a node to do:  
@@ -88,9 +88,9 @@ enable the pause and show the pause screen.
 gdscript GDScript
 
 ```
-    func _on_pause_button_pressed():
-        get_tree().paused = true
-        $pause_popup.show()
+func _on_pause_button_pressed():
+    get_tree().paused = true
+    $pause_popup.show()
 ```
 
 To unpause, do the opposite when the pause screen is
@@ -99,7 +99,7 @@ closed:
 gdscript GDScript
 
 ```
-    func _on_pause_popup_close_pressed():
-        $pause_popup.hide()
-        get_tree().paused = false
+func _on_pause_popup_close_pressed():
+    $pause_popup.hide()
+    get_tree().paused = false
 ```

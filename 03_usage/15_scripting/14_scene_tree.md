@@ -64,8 +64,8 @@ two different ways:
 gdscript GDScript
 
 ```
-        get_tree().get_root() # Access via scene main loop.
-        get_node("/root") # Access via absolute path.
+get_tree().get_root() # Access via scene main loop.
+get_node("/root") # Access via absolute path.
 ```
 
 This node contains the main viewport. Anything that is a child of a
@@ -127,8 +127,8 @@ function:
 gdscript GDScript
 
 ```
-    func _my_level_was_completed():
-        get_tree().change_scene("res://levels/level2.tscn")
+func _my_level_was_completed():
+    get_tree().change_scene("res://levels/level2.tscn")
 ```
 
 Rather than using file paths, one can also use ready-made
@@ -139,10 +139,10 @@ function
 gdscript GDScript
 
 ```
-    var next_scene = preload("res://levels/level2.tscn")
+var next_scene = preload("res://levels/level2.tscn")
 
-    func _my_level_was_completed():
-    	get_tree().change_scene_to(next_scene)
+func _my_level_was_completed():
+	get_tree().change_scene_to(next_scene)
 ```
 
 These are quick and useful ways to switch scenes but have the drawback

@@ -11,12 +11,12 @@ scenes which one instances and adds to the tree at runtime:
 gdscript GDScript
 
 ```
-    var simultaneous_scene = preload("res://levels/level2.tscn").instance()
+var simultaneous_scene = preload("res://levels/level2.tscn").instance()
 
-    func _add_a_scene_manually():
-        # This is like autoloading the scene, only
-        # it happens after already loading the main scene.
-        get_tree().get_root().add_child(simultaneous_scene)
+func _add_a_scene_manually():
+    # This is like autoloading the scene, only
+    # it happens after already loading the main scene.
+    get_tree().get_root().add_child(simultaneous_scene)
 ```
 
 To complete the cycle and swap out the new scene with the old one,
@@ -107,7 +107,7 @@ a scene's data between scene changes (adding the scene to the root node).
 gdscript GDScript
 
 ```
-        get_tree().get_root().add_child(scene)
+get_tree().get_root().add_child(scene)
 ```
 
 Perhaps instead they wish to display multiple scenes at the same time using

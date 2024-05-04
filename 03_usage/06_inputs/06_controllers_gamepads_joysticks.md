@@ -66,11 +66,11 @@ gdscript GDScript
 gdscript GDScript
 
 ```
-    # `walk` will be a floating-point number between `-1.0` and `1.0`.
-    var walk = Input.get_axis("move_left", "move_right")
+# `walk` will be a floating-point number between `-1.0` and `1.0`.
+var walk = Input.get_axis("move_left", "move_right")
 
-    # The line above is a shorter form of:
-    var walk = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+# The line above is a shorter form of:
+var walk = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 ```
 
 - For other types of analog input, such as handling a trigger or handling
@@ -79,8 +79,8 @@ gdscript GDScript
 gdscript GDScript
 
 ```
-    # `strength` will be a floating-point number between `0.0` and `1.0`.
-    var strength = Input.get_action_strength("accelerate")
+# `strength` will be a floating-point number between `0.0` and `1.0`.
+var strength = Input.get_action_strength("accelerate")
 ```
 
 For non-analog digital/boolean input (only "pressed" or "not pressed" values),
@@ -90,8 +90,8 @@ use `Input.is_action_pressed()`:
 gdscript GDScript
 
 ```
-    # `jumping` will be a boolean with a value of `true` or `false`.
-    var jumping = Input.is_action_pressed("jump")
+# `jumping` will be a boolean with a value of `true` or `false`.
+var jumping = Input.is_action_pressed("jump")
 ```
 
 In Pandemonium versions before 3.4, such as 3.3, `Input.get_vector()` and
@@ -172,22 +172,22 @@ the `SDL_GAMECONTROLLERCONFIG` environment variable before running Pandemonium:
 bash Linux/macOS
 
 ```
-    export SDL_GAMECONTROLLERCONFIG="your:mapping:here"
-    ./path/to/pandemonium.x86_64
+export SDL_GAMECONTROLLERCONFIG="your:mapping:here"
+./path/to/pandemonium.x86_64
 ```
 
 bat Windows (cmd)
 
 ```
-    set SDL_GAMECONTROLLERCONFIG=your:mapping:here
-    path\to\pandemonium.exe
+set SDL_GAMECONTROLLERCONFIG=your:mapping:here
+path\to\pandemonium.exe
 ```
 
 powershell Windows (powershell)
 
 ```
-    $env:SDL_GAMECONTROLLERCONFIG="your:mapping:here"
-    path\to\pandemonium.exe
+$env:SDL_GAMECONTROLLERCONFIG="your:mapping:here"
+path\to\pandemonium.exe
 ```
 
 To test mappings on non-desktop platforms or to distribute your project with

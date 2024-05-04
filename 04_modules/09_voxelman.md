@@ -138,27 +138,27 @@ Note that `_create_chunk` is also responsible for initializing chunks if you hav
 This is done by `setup_chunk(shunk)` in `VoxelWorld`.
 
 ```
-    func _create_chunk(x : int, y : int, z : int, chunk : VoxelChunk) -> VoxelChunk:
-        if !chunk:
-            chunk = MyChunk.new()
+func _create_chunk(x : int, y : int, z : int, chunk : VoxelChunk) -> VoxelChunk:
+    if !chunk:
+        chunk = MyChunk.new()
 
-        # We need to check whether or not we need to initialize jobs
-        if chunk.job_get_count() == 0:
-            # Setup a blocky (minecratf like) mesher job
-            var tj : VoxelTerrainJob = VoxelTerrainJob.new()
+    # We need to check whether or not we need to initialize jobs
+    if chunk.job_get_count() == 0:
+        # Setup a blocky (minecratf like) mesher job
+        var tj : VoxelTerrainJob = VoxelTerrainJob.new()
 
-            var s : VoxelMesherJobStep = VoxelMesherJobStep.new()
-            s.job_type = VoxelMesherJobStep.TYPE_NORMAL
-            tj.add_jobs_step(s)
+        var s : VoxelMesherJobStep = VoxelMesherJobStep.new()
+        s.job_type = VoxelMesherJobStep.TYPE_NORMAL
+        tj.add_jobs_step(s)
 
-            tj.add_mesher(VoxelMesherBlocky.new())
-            tj.add_liquid_mesher(VoxelMesherLiquidBlocky.new())
+        tj.add_mesher(VoxelMesherBlocky.new())
+        tj.add_liquid_mesher(VoxelMesherLiquidBlocky.new())
 
-            chunk.job_add(tj);
+        chunk.job_add(tj);
 
-        #setup your chunk here
+    #setup your chunk here
 
-        return ._create_chunk(x, y, z, chunk)
+    return ._create_chunk(x, y, z, chunk)
 ```
 
 You can look at the world implementations for more examples: [VoxelWorldBlocky](https://github.com/Relintai/voxelman/blob/master/world/blocky/voxel_world_blocky.cpp), [VoxelWorldMarchingCubes](https://github.com/Relintai/voxelman/blob/master/world/marching_cubes/voxel_world_marching_cubes.cpp).

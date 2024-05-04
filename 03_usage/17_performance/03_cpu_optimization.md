@@ -98,13 +98,13 @@ The specifics vary depending on the language, but in GDScript, you would do
 the following:
 
 ```
-    var time_start = OS.get_ticks_usec()
+var time_start = OS.get_ticks_usec()
 
-    # Your function you want to time
-    update_enemies()
+# Your function you want to time
+update_enemies()
 
-    var time_end = OS.get_ticks_usec()
-    print("update_enemies() took %d microseconds" % time_end - time_start)
+var time_end = OS.get_ticks_usec()
+print("update_enemies() took %d microseconds" % time_end - time_start)
 ```
 
 When manually timing functions, it is usually a good idea to run the function

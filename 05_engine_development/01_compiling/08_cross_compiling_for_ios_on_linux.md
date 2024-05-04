@@ -48,18 +48,18 @@ described here and cross-compiling the binary.
 Clone the repository on your machine:
 
 ```
-    $ git clone https://github.com/darlinghq/darling-dmg.git
+$ git clone https://github.com/darlinghq/darling-dmg.git
 ```
 
 Build it:
 
 ```
-    $ cd darling-dmg
-    $ mkdir build
-    $ cd build
-    $ cmake .. -DCMAKE_BUILD_TYPE=Release
-    $ make -j 4  # The number is the amount of cores your processor has, for faster build
-    $ cd ../..
+$ cd darling-dmg
+$ mkdir build
+$ cd build
+$ cmake .. -DCMAKE_BUILD_TYPE=Release
+$ make -j 4  # The number is the amount of cores your processor has, for faster build
+$ cd ../..
 ```
 
 ### Preparing the SDK
@@ -67,26 +67,26 @@ Build it:
 Mount the XCode image:
 
 ```
-    $ mkdir xcode
-    $ ./darling-dmg/build/darling-dmg /path/to/Xcode_7.1.1.dmg xcode
-    [...]
-    Everything looks OK, disk mounted
+$ mkdir xcode
+$ ./darling-dmg/build/darling-dmg /path/to/Xcode_7.1.1.dmg xcode
+[...]
+Everything looks OK, disk mounted
 ```
 
 Extract the iOS SDK:
 
 ```
-    $ mkdir -p iPhoneSDK/iPhoneOS9.1.sdk
-    $ cp -r xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/* iPhoneSDK/iPhoneOS9.1.sdk
-    $ cp -r xcode/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/* iPhoneSDK/iPhoneOS9.1.sdk/usr/include/c++
-    $ fusermount -u xcode  # unmount the image
+$ mkdir -p iPhoneSDK/iPhoneOS9.1.sdk
+$ cp -r xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/* iPhoneSDK/iPhoneOS9.1.sdk
+$ cp -r xcode/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/* iPhoneSDK/iPhoneOS9.1.sdk/usr/include/c++
+$ fusermount -u xcode  # unmount the image
 ```
 
 Pack the SDK:
 
 ```
-    $ cd iPhoneSDK
-    $ tar -cf - * | xz -9 -c - > iPhoneOS9.1.sdk.tar.xz
+$ cd iPhoneSDK
+$ tar -cf - * | xz -9 -c - > iPhoneOS9.1.sdk.tar.xz
 ```
 
 ### Toolchain
@@ -94,9 +94,9 @@ Pack the SDK:
 Build cctools:
 
 ```
-    $ git clone https://github.com/tpoechtrager/cctools-port.git
-    $ cd cctools-port/usage_examples/ios_toolchain
-    $ ./build.sh /path/iPhoneOS9.1.sdk.tar.xz arm64
+$ git clone https://github.com/tpoechtrager/cctools-port.git
+$ cd cctools-port/usage_examples/ios_toolchain
+$ ./build.sh /path/iPhoneOS9.1.sdk.tar.xz arm64
 ```
 
 Copy the tools to a nicer place. Note that the SCons scripts for
@@ -105,8 +105,8 @@ for the toolchain binaries, so you must copy to such subdirectory, akin
 to the following commands:
 
 ```
-    $ mkdir -p /home/user/iostoolchain/usr
-    $ cp -r target/bin /home/user/iostoolchain/usr/
+$ mkdir -p /home/user/iostoolchain/usr
+$ cp -r target/bin /home/user/iostoolchain/usr/
 ```
 
 Now you should have the iOS toolchain binaries in
@@ -123,15 +123,15 @@ For the iPhone platform to be detected, you need the `OSXCROSS_IOS`
 environment variable defined to anything.
 
 ```
-    $ export OSXCROSS_IOS=anything
+$ export OSXCROSS_IOS=anything
 ```
 
 Now you can compile for iPhone using SCons like the standard Pandemonium
 way, with some additional arguments to provide the correct paths:
 
 ```
-    $ scons -j 4 platform=iphone arch=arm target=release_debug IPHONESDK="/path/to/iPhoneSDK" IPHONEPATH="/path/to/iostoolchain" ios_triple="arm-apple-darwin11-"
-    $ scons -j 4 platform=iphone arch=arm64 target=release_debug IPHONESDK="/path/to/iPhoneSDK" IPHONEPATH="/path/to/iostoolchain" ios_triple="arm-apple-darwin11-"
+$ scons -j 4 platform=iphone arch=arm target=release_debug IPHONESDK="/path/to/iPhoneSDK" IPHONEPATH="/path/to/iostoolchain" ios_triple="arm-apple-darwin11-"
+$ scons -j 4 platform=iphone arch=arm64 target=release_debug IPHONESDK="/path/to/iPhoneSDK" IPHONEPATH="/path/to/iostoolchain" ios_triple="arm-apple-darwin11-"
 ```
 
 ### Producing fat binaries
@@ -142,9 +142,9 @@ Apple requires a fat binary with both architectures (`armv7` and
 you are in the root Pandemonium source directory:
 
 ```
-    $ /path/to/iostoolchain/usr/bin/arm-apple-darwin11-lipo -create bin/libpandemonium.iphone.opt.debug.arm.a bin/libpandemonium.iphone.opt.debug.arm64.a -output bin/libpandemonium.iphone.debug.fat.a
-    $ /path/to/iostoolchain/usr/bin/arm-apple-darwin11-lipo -create bin/libpandemonium_camera_module.iphone.opt.debug.arm.a bin/libpandemonium_camera_module.iphone.opt.debug.arm64.a -output bin/libpandemonium_camera_module.iphone.debug.fat.a
-    $ /path/to/iostoolchain/usr/bin/arm-apple-darwin11-lipo -create bin/libpandemonium_arkit_module.iphone.opt.debug.arm.a bin/libpandemonium_arkit_module.iphone.opt.debug.arm64.a -output bin/libpandemonium_arkit_module.iphone.debug.fat.a
+$ /path/to/iostoolchain/usr/bin/arm-apple-darwin11-lipo -create bin/libpandemonium.iphone.opt.debug.arm.a bin/libpandemonium.iphone.opt.debug.arm64.a -output bin/libpandemonium.iphone.debug.fat.a
+$ /path/to/iostoolchain/usr/bin/arm-apple-darwin11-lipo -create bin/libpandemonium_camera_module.iphone.opt.debug.arm.a bin/libpandemonium_camera_module.iphone.opt.debug.arm64.a -output bin/libpandemonium_camera_module.iphone.debug.fat.a
+$ /path/to/iostoolchain/usr/bin/arm-apple-darwin11-lipo -create bin/libpandemonium_arkit_module.iphone.opt.debug.arm.a bin/libpandemonium_arkit_module.iphone.opt.debug.arm64.a -output bin/libpandemonium_arkit_module.iphone.debug.fat.a
 ```
 
 Then you will have iOS fat binaries in `bin` directory.

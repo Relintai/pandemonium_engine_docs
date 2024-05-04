@@ -34,13 +34,13 @@ code below.
 gdscript GDScript
 
 ```
-    var direction = 0
-    if Input.is_action_pressed("ui_left"):
-        direction = -1
-    if Input.is_action_pressed("ui_right"):
-        direction = 1
+var direction = 0
+if Input.is_action_pressed("ui_left"):
+    direction = -1
+if Input.is_action_pressed("ui_right"):
+    direction = 1
 
-    rotation += angular_speed * direction * delta
+rotation += angular_speed * direction * delta
 ```
 
 Our `direction` local variable is a multiplier representing the direction in
@@ -79,9 +79,9 @@ velocity. Replace the line starting with `var velocity` with the code below.
 gdscript GDScript
 
 ```
-    var velocity = Vector2.ZERO
-    if Input.is_action_pressed("ui_up"):
-        velocity = Vector2.UP.rotated(rotation) * speed
+var velocity = Vector2.ZERO
+if Input.is_action_pressed("ui_up"):
+    velocity = Vector2.UP.rotated(rotation) * speed
 ```
 
 We initialize the `velocity` with a value of `Vector2.ZERO`, another
@@ -98,26 +98,26 @@ Here is the complete `Sprite.gd` file for reference.
 gdscript GDScript
 
 ```
-    extends Sprite
+extends Sprite
 
-    var speed = 400
-    var angular_speed = PI
+var speed = 400
+var angular_speed = PI
 
 
-    func _process(delta):
-        var direction = 0
-        if Input.is_action_pressed("ui_left"):
-            direction = -1
-        if Input.is_action_pressed("ui_right"):
-            direction = 1
+func _process(delta):
+    var direction = 0
+    if Input.is_action_pressed("ui_left"):
+        direction = -1
+    if Input.is_action_pressed("ui_right"):
+        direction = 1
 
-        rotation += angular_speed * direction * delta
+    rotation += angular_speed * direction * delta
 
-        var velocity = Vector2.ZERO
-        if Input.is_action_pressed("ui_up"):
-            velocity = Vector2.UP.rotated(rotation) * speed
+    var velocity = Vector2.ZERO
+    if Input.is_action_pressed("ui_up"):
+        velocity = Vector2.UP.rotated(rotation) * speed
 
-        position += velocity * delta
+    position += velocity * delta
 ```
 
 If you run the scene, you should now be able to rotate with the left and right

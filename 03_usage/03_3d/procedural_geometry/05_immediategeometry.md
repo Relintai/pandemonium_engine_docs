@@ -25,10 +25,10 @@ Then you call `add_vertex()` to add a vertex with those attributes. For example:
 gdscript GDScript
 
 ```
-    # Add a vertex with normal and uv.
-    set_normal(Vector3(0, 1, 0))
-    set_uv(Vector2(1, 1))
-    add_vertex(Vector3(0, 0, 1))
+# Add a vertex with normal and uv.
+set_normal(Vector3(0, 1, 0))
+set_uv(Vector2(1, 1))
+add_vertex(Vector3(0, 0, 1))
 ```
 
 Only attributes added before the call to `add_vertex()` will be included in that vertex.
@@ -40,29 +40,29 @@ The example code below draws a single triangle.
 gdscript GDScript
 
 ```
-    extends ImmediateGeometry
+extends ImmediateGeometry
 
-    func _process(_delta):
-        # Clean up before drawing.
-        clear()
+func _process(_delta):
+    # Clean up before drawing.
+    clear()
 
-        # Begin draw.
-        begin(Mesh.PRIMITIVE_TRIANGLES)
+    # Begin draw.
+    begin(Mesh.PRIMITIVE_TRIANGLES)
 
-        # Prepare attributes for add_vertex.
-        set_normal(Vector3(0, 0, 1))
-        set_uv(Vector2(0, 0))
-        # Call last for each vertex, adds the above attributes.
-        add_vertex(Vector3(-1, -1, 0))
+    # Prepare attributes for add_vertex.
+    set_normal(Vector3(0, 0, 1))
+    set_uv(Vector2(0, 0))
+    # Call last for each vertex, adds the above attributes.
+    add_vertex(Vector3(-1, -1, 0))
 
-        set_normal(Vector3(0, 0, 1))
-        set_uv(Vector2(0, 1))
-        add_vertex(Vector3(-1, 1, 0))
+    set_normal(Vector3(0, 0, 1))
+    set_uv(Vector2(0, 1))
+    add_vertex(Vector3(-1, 1, 0))
 
-        set_normal(Vector3(0, 0, 1))
-        set_uv(Vector2(1, 1))
-        add_vertex(Vector3(1, 1, 0))
+    set_normal(Vector3(0, 0, 1))
+    set_uv(Vector2(1, 1))
+    add_vertex(Vector3(1, 1, 0))
 
-        # End drawing.
-        end()
+    # End drawing.
+    end()
 ```

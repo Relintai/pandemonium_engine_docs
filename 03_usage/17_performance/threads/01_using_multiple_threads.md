@@ -26,26 +26,26 @@ Creating a thread is very simple, just use the following code:
 gdscript GDScript
 
 ```
-    var thread
+var thread
 
-    # The thread will start here.
-    func _ready():
-        thread = Thread.new()
-        # Third argument is optional userdata, it can be any variable.
-        thread.start(self, "_thread_function", "Wafflecopter")
+# The thread will start here.
+func _ready():
+    thread = Thread.new()
+    # Third argument is optional userdata, it can be any variable.
+    thread.start(self, "_thread_function", "Wafflecopter")
 
 
-    # Run here and exit.
-    # The argument is the userdata passed from start().
-    # If no argument was passed, this one still needs to
-    # be here and it will be null.
-    func _thread_function(userdata):
-        # Print the userdata ("Wafflecopter")
-        print("I'm a thread! Userdata is: ", userdata)
+# Run here and exit.
+# The argument is the userdata passed from start().
+# If no argument was passed, this one still needs to
+# be here and it will be null.
+func _thread_function(userdata):
+    # Print the userdata ("Wafflecopter")
+    print("I'm a thread! Userdata is: ", userdata)
 
-    # Thread must be disposed (or "joined"), for portability.
-    func _exit_tree():
-        thread.wait_to_finish()
+# Thread must be disposed (or "joined"), for portability.
+func _exit_tree():
+    thread.wait_to_finish()
 ```
 
 Your function will, then, run in a separate thread until it returns.
@@ -77,34 +77,34 @@ Here is an example of using a Mutex:
 gdscript GDScript
 
 ```
-    var counter = 0
-    var mutex
-    var thread
+var counter = 0
+var mutex
+var thread
 
 
-    # The thread will start here.
-    func _ready():
-        mutex = Mutex.new()
-        thread = Thread.new()
-        thread.start(self, "_thread_function")
+# The thread will start here.
+func _ready():
+    mutex = Mutex.new()
+    thread = Thread.new()
+    thread.start(self, "_thread_function")
 
-        # Increase value, protect it with Mutex.
-        mutex.lock()
-        counter += 1
-        mutex.unlock()
-
-
-    # Increment the value from the thread, too.
-    func _thread_function(userdata):
-        mutex.lock()
-        counter += 1
-        mutex.unlock()
+    # Increase value, protect it with Mutex.
+    mutex.lock()
+    counter += 1
+    mutex.unlock()
 
 
-    # Thread must be disposed (or "joined"), for portability.
-    func _exit_tree():
-        thread.wait_to_finish()
-        print("Counter is: ", counter) # Should be 2.
+# Increment the value from the thread, too.
+func _thread_function(userdata):
+    mutex.lock()
+    counter += 1
+    mutex.unlock()
+
+
+# Thread must be disposed (or "joined"), for portability.
+func _exit_tree():
+    thread.wait_to_finish()
+    print("Counter is: ", counter) # Should be 2.
 ```
 
 ## Semaphores
@@ -122,64 +122,64 @@ ready to be processed:
 gdscript GDScript
 
 ```
-    var counter = 0
-    var mutex
-    var semaphore
-    var thread
-    var exit_thread = false
+var counter = 0
+var mutex
+var semaphore
+var thread
+var exit_thread = false
 
 
-    # The thread will start here.
-    func _ready():
-        mutex = Mutex.new()
-        semaphore = Semaphore.new()
-        exit_thread = false
+# The thread will start here.
+func _ready():
+    mutex = Mutex.new()
+    semaphore = Semaphore.new()
+    exit_thread = false
 
-        thread = Thread.new()
-        thread.start(self, "_thread_function")
-
-
-    func _thread_function(userdata):
-        while true:
-            semaphore.wait() # Wait until posted.
-
-            mutex.lock()
-            var should_exit = exit_thread # Protect with Mutex.
-            mutex.unlock()
-
-            if should_exit:
-                break
-
-            mutex.lock()
-            counter += 1 # Increment counter, protect with Mutex.
-            mutex.unlock()
+    thread = Thread.new()
+    thread.start(self, "_thread_function")
 
 
-    func increment_counter():
-        semaphore.post() # Make the thread process.
+func _thread_function(userdata):
+    while true:
+        semaphore.wait() # Wait until posted.
 
-
-    func get_counter():
         mutex.lock()
-        # Copy counter, protect with Mutex.
-        var counter_value = counter
-        mutex.unlock()
-        return counter_value
-
-
-    # Thread must be disposed (or "joined"), for portability.
-    func _exit_tree():
-        # Set exit condition to true.
-        mutex.lock()
-        exit_thread = true # Protect with Mutex.
+        var should_exit = exit_thread # Protect with Mutex.
         mutex.unlock()
 
-        # Unblock by posting.
-        semaphore.post()
+        if should_exit:
+            break
 
-        # Wait until it exits.
-        thread.wait_to_finish()
+        mutex.lock()
+        counter += 1 # Increment counter, protect with Mutex.
+        mutex.unlock()
 
-        # Print the counter.
-        print("Counter is: ", counter)
+
+func increment_counter():
+    semaphore.post() # Make the thread process.
+
+
+func get_counter():
+    mutex.lock()
+    # Copy counter, protect with Mutex.
+    var counter_value = counter
+    mutex.unlock()
+    return counter_value
+
+
+# Thread must be disposed (or "joined"), for portability.
+func _exit_tree():
+    # Set exit condition to true.
+    mutex.lock()
+    exit_thread = true # Protect with Mutex.
+    mutex.unlock()
+
+    # Unblock by posting.
+    semaphore.post()
+
+    # Wait until it exits.
+    thread.wait_to_finish()
+
+    # Print the counter.
+    print("Counter is: ", counter)
 ```

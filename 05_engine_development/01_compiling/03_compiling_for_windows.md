@@ -24,7 +24,7 @@ For compiling under Windows, the following is required:
 If you have `Scoop ( https://scoop.sh/ )` installed, you can easily install MinGW and other dependencies using the following command:
 
 ```
-    scoop install gcc python scons make
+scoop install gcc python scons make
 ```
 
 ### Note:
@@ -32,8 +32,8 @@ If you have `Scoop ( https://scoop.sh/ )` installed, you can easily install MinG
 If you have `MSYS2 ( https://www.msys2.org/ )` installed, you can easily install MinGW and other dependencies using the following command:
 
 ```
-    pacman -S mingw-w64-x86_64-python3-pip mingw-w64-x86_64-gcc \
-        mingw-w64-i686-python3-pip mingw-w64-i686-gcc make
+pacman -S mingw-w64-x86_64-python3-pip mingw-w64-x86_64-gcc \
+    mingw-w64-i686-python3-pip mingw-w64-i686-gcc make
 ```
 
 For each MSYS2 MinGW subsystem, you should then run `pip3 install scons` in its shell.
@@ -49,7 +49,7 @@ For a general overview of SCons usage for Pandemonium, see `doc_introduction_to_
 To install SCons, open the command prompt and run the following command:
 
 ```
-    python -m pip install scons
+python -m pip install scons
 ```
 
 If you are prompted with the message
@@ -123,13 +123,13 @@ After opening a command prompt, change to the root directory of
 the engine source code (using `cd`) and type:
 
 ```
-    C:\pandemonium> scons platform=windows
+C:\pandemonium> scons platform=windows
 ```
 
 You can specify a number of CPU threads to use to speed up the build:
 
 ```
-    C:\pandemonium> scons -j6 platform=windows
+C:\pandemonium> scons -j6 platform=windows
 ```
 
 In general, it is OK to have at least as many threads compiling Pandemonium as you
@@ -174,7 +174,7 @@ You can create a Visual Studio solution via SCons by running SCons with
 the `vsproj=yes` parameter, like this:
 
 ```
-   scons p=windows vsproj=yes
+scons p=windows vsproj=yes
 ```
 
 You will be able to open Pandemonium's source in a Visual Studio solution now,
@@ -222,8 +222,8 @@ Before attempting the compilation, SCons will check for
 the following binaries in your `PATH` environment variable:
 
 ```
-    i686-w64-mingw32-gcc
-    x86_64-w64-mingw32-gcc
+i686-w64-mingw32-gcc
+x86_64-w64-mingw32-gcc
 ```
 
 If the binaries are not located in the `PATH` (e.g. `/usr/bin`),
@@ -231,8 +231,8 @@ you can define the following environment variables to give a hint to
 the build system:
 
 ```
-    export MINGW32_PREFIX="/path/to/i686-w64-mingw32-"
-    export MINGW64_PREFIX="/path/to/x86_64-w64-mingw32-"
+export MINGW32_PREFIX="/path/to/i686-w64-mingw32-"
+export MINGW64_PREFIX="/path/to/x86_64-w64-mingw32-"
 ```
 
 To make sure you are doing things correctly, executing the following in
@@ -240,8 +240,8 @@ the shell should result in a working compiler (the version output may
 differ based on your system):
 
 ```
-    ${MINGW32_PREFIX}gcc --version
-    # i686-w64-mingw32-gcc (GCC) 6.1.0 20160427 (Mageia MinGW 6.1.0-1.mga6)
+${MINGW32_PREFIX}gcc --version
+# i686-w64-mingw32-gcc (GCC) 6.1.0 20160427 (Mageia MinGW 6.1.0-1.mga6)
 ```
 
 ### Troubleshooting
@@ -254,19 +254,19 @@ You can change that configuration following those instructions,
 for 64-bit:
 
 ```
-    sudo update-alternatives --config x86_64-w64-mingw32-gcc
-    <choose x86_64-w64-mingw32-gcc-posix from the list>
-    sudo update-alternatives --config x86_64-w64-mingw32-g++
-    <choose x86_64-w64-mingw32-g++-posix from the list>
+sudo update-alternatives --config x86_64-w64-mingw32-gcc
+<choose x86_64-w64-mingw32-gcc-posix from the list>
+sudo update-alternatives --config x86_64-w64-mingw32-g++
+<choose x86_64-w64-mingw32-g++-posix from the list>
 ```
 
 And for 32-bit:
 
 ```
-    sudo update-alternatives --config i686-w64-mingw32-gcc
-    <choose i686-w64-mingw32-gcc-posix from the list>
-    sudo update-alternatives --config i686-w64-mingw32-g++
-    <choose i686-w64-mingw32-g++-posix from the list>
+sudo update-alternatives --config i686-w64-mingw32-gcc
+<choose i686-w64-mingw32-gcc-posix from the list>
+sudo update-alternatives --config i686-w64-mingw32-g++
+<choose i686-w64-mingw32-g++-posix from the list>
 ```
 
 ### Creating Windows export templates
@@ -275,10 +275,10 @@ Windows export templates are created by compiling Pandemonium without the editor
 with the following flags:
 
 ```
-    C:\pandemonium> scons platform=windows tools=no target=release_debug bits=32
-    C:\pandemonium> scons platform=windows tools=no target=release bits=32
-    C:\pandemonium> scons platform=windows tools=no target=release_debug bits=64
-    C:\pandemonium> scons platform=windows tools=no target=release bits=64
+C:\pandemonium> scons platform=windows tools=no target=release_debug bits=32
+C:\pandemonium> scons platform=windows tools=no target=release bits=32
+C:\pandemonium> scons platform=windows tools=no target=release_debug bits=64
+C:\pandemonium> scons platform=windows tools=no target=release bits=64
 ```
 
 If you plan on replacing the standard export templates, copy these to the
@@ -286,16 +286,16 @@ following location, replacing `( version )` with the version identifier
 (such as `3.1.1.stable` or `3.2.dev`):
 
 ```
-    %USERPROFILE%\AppData\Roaming\Pandemonium\templates\<version>\
+%USERPROFILE%\AppData\Roaming\Pandemonium\templates\<version>\
 ```
 
 With the following names:
 
 ```
-    windows_32_debug.exe
-    windows_32_release.exe
-    windows_64_debug.exe
-    windows_64_release.exe
+windows_32_debug.exe
+windows_32_release.exe
+windows_64_debug.exe
+windows_64_release.exe
 ```
 
 However, if you are using custom modules or custom engine code, you

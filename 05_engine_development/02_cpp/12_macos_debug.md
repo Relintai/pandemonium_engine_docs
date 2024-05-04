@@ -9,32 +9,32 @@ If you want to debug an official build of the editor it should be re-signed with
 Create an `editor.entitlements` text file with the following contents:
 
 ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-        <dict>
-            <key>com.apple.security.cs.allow-dyld-environment-variables</key>
-            <true/>
-            <key>com.apple.security.cs.allow-jit</key>
-            <true/>
-            <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
-            <true/>
-            <key>com.apple.security.cs.disable-executable-page-protection</key>
-            <true/>
-            <key>com.apple.security.cs.disable-library-validation</key>
-            <true/>
-            <key>com.apple.security.device.audio-input</key>
-            <true/>
-            <key>com.apple.security.device.camera</key>
-            <true/>
-        </dict>
-    </plist>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>com.apple.security.cs.allow-dyld-environment-variables</key>
+        <true/>
+        <key>com.apple.security.cs.allow-jit</key>
+        <true/>
+        <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+        <true/>
+        <key>com.apple.security.cs.disable-executable-page-protection</key>
+        <true/>
+        <key>com.apple.security.cs.disable-library-validation</key>
+        <true/>
+        <key>com.apple.security.device.audio-input</key>
+        <true/>
+        <key>com.apple.security.device.camera</key>
+        <true/>
+    </dict>
+</plist>
 ```
 
 Then use the following command to re-sign the editor:
 
 ```
-    codesign -s - --deep --force --options=runtime --entitlements ./editor.entitlements ./path/to/Pandemonium.app
+codesign -s - --deep --force --options=runtime --entitlements ./editor.entitlements ./path/to/Pandemonium.app
 ```
 
 ## Debugging exported project

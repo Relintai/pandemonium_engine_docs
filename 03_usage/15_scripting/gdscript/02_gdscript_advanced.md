@@ -53,17 +53,17 @@ assignment. Example:
 Static:
 
 ```
-    int a; // Value uninitialized.
-    a = 5; // This is valid.
-    a = "Hi!"; // This is invalid.
+int a; // Value uninitialized.
+a = 5; // This is valid.
+a = "Hi!"; // This is invalid.
 ```
 
 Dynamic:
 
 ```
-    var a # 'null' by default.
-    a = 5 # Valid, 'a' becomes an integer.
-    a = "Hi!" # Valid, 'a' changed to a string.
+var a # 'null' by default.
+a = 5 # Valid, 'a' becomes an integer.
+a = "Hi!" # Valid, 'a' changed to a string.
 ```
 
 ### As function arguments:
@@ -74,27 +74,27 @@ different arguments, for example:
 Static:
 
 ```
-    void print_value(int value) {
+void print_value(int value) {
 
-        printf("value is %i\n", value);
-    }
+    printf("value is %i\n", value);
+}
 
-    [..]
+[..]
 
-    print_value(55); // Valid.
-    print_value("Hello"); // Invalid.
+print_value(55); // Valid.
+print_value("Hello"); // Invalid.
 ```
 
 Dynamic:
 
 ```
-    func print_value(value):
-        print(value)
+func print_value(value):
+    print(value)
 
-    [..]
+[..]
 
-    print_value(55) # Valid.
-    print_value("Hello") # Valid.
+print_value(55) # Valid.
+print_value("Hello") # Valid.
 ```
 
 ### Pointers & referencing:
@@ -113,47 +113,47 @@ too. Some Examples:
 -  C++:
 
 ```
-    void use_class(SomeClass *instance) {
+void use_class(SomeClass *instance) {
 
-        instance->use();
-    }
+    instance->use();
+}
 
-    void do_something() {
+void do_something() {
 
-        SomeClass *instance = new SomeClass; // Created as pointer.
-        use_class(instance); // Passed as pointer.
-        delete instance; // Otherwise it will leak memory.
-    }
+    SomeClass *instance = new SomeClass; // Created as pointer.
+    use_class(instance); // Passed as pointer.
+    delete instance; // Otherwise it will leak memory.
+}
 ```
 
 -  Java:
 
 ```
-    @Override
-    public final void use_class(SomeClass instance) {
+@Override
+public final void use_class(SomeClass instance) {
 
-        instance.use();
-    }
+    instance.use();
+}
 
-    public final void do_something() {
+public final void do_something() {
 
-        SomeClass instance = new SomeClass(); // Created as reference.
-        use_class(instance); // Passed as reference.
-        // Garbage collector will get rid of it when not in
-        // use and freeze your game randomly for a second.
-    }
+    SomeClass instance = new SomeClass(); // Created as reference.
+    use_class(instance); // Passed as reference.
+    // Garbage collector will get rid of it when not in
+    // use and freeze your game randomly for a second.
+}
 ```
 
 -  GDScript:
 
 ```
-    func use_class(instance): # Does not care about class type
-        instance.use() # Will work with any class that has a ".use()" method.
+func use_class(instance): # Does not care about class type
+    instance.use() # Will work with any class that has a ".use()" method.
 
-    func do_something():
-        var instance = SomeClass.new() # Created as reference.
-        use_class(instance) # Passed as reference.
-        # Will be unreferenced and deleted.
+func do_something():
+    var instance = SomeClass.new() # Created as reference.
+    use_class(instance) # Passed as reference.
+    # Will be unreferenced and deleted.
 ```
 
 In GDScript, only base types (int, float, String and PoolArray types)
@@ -170,18 +170,18 @@ Note:
     modify the parameter in a way that is visible from outside the function:
     
 ```
-        func greet(text):
-            text = "Hello " + text
+func greet(text):
+    text = "Hello " + text
 
-        func _ready():
-            # Create a String (passed by value and immutable).
-            var example = "Pandemonium"
+func _ready():
+    # Create a String (passed by value and immutable).
+    var example = "Pandemonium"
 
-            # Pass example as a parameter to `greet()`,
-            # which modifies the parameter and does not return any value.
-            greet(example)
+    # Pass example as a parameter to `greet()`,
+    # which modifies the parameter and does not return any value.
+    greet(example)
 
-            print(example)  #  Pandemonium
+    print(example)  #  Pandemonium
 ```
 
     A value is **passed by reference** when it is *not* copied every time it's
@@ -192,19 +192,19 @@ Note:
     difficult-to-track bugs if not done carefully:
 
 ```
-        func greet(text):
-            text.push_front("Hello")
+func greet(text):
+    text.push_front("Hello")
 
-        func _ready():
-            # Create an Array (passed by reference and mutable) containing a String,
-            # instead of a String (passed by value and immutable).
-            var example = ["Pandemonium"]
+func _ready():
+    # Create an Array (passed by reference and mutable) containing a String,
+    # instead of a String (passed by value and immutable).
+    var example = ["Pandemonium"]
 
-            # Pass example as a parameter to `greet()`,
-            # which modifies the parameter and does not return any value.
-            greet(example)
+    # Pass example as a parameter to `greet()`,
+    # which modifies the parameter and does not return any value.
+    greet(example)
 
-            print(example)  #  [Hello, Pandemonium] (Array with 2 String elements)
+    print(example)  #  [Hello, Pandemonium] (Array with 2 String elements)
 ```
 
     Compared to passing by value, passing by reference can perform better when
@@ -221,53 +221,53 @@ datatypes inside and are always dynamic (can be resized at any time).
 Compare for example arrays in statically typed languages:
 
 ```
-    int *array = new int[4]; // Create array.
-    array[0] = 10; // Initialize manually.
-    array[1] = 20; // Can't mix types.
-    array[2] = 40;
-    array[3] = 60;
-    // Can't resize.
-    use_array(array); // Passed as pointer.
-    delete[] array; // Must be freed.
+int *array = new int[4]; // Create array.
+array[0] = 10; // Initialize manually.
+array[1] = 20; // Can't mix types.
+array[2] = 40;
+array[3] = 60;
+// Can't resize.
+use_array(array); // Passed as pointer.
+delete[] array; // Must be freed.
 
-    // or
+// or
 
-    std::vector<int> array;
-    array.resize(4);
-    array[0] = 10; // Initialize manually.
-    array[1] = 20; // Can't mix types.
-    array[2] = 40;
-    array[3] = 60;
-    array.resize(3); // Can be resized.
-    use_array(array); // Passed reference or value.
-    // Freed when stack ends.
+std::vector<int> array;
+array.resize(4);
+array[0] = 10; // Initialize manually.
+array[1] = 20; // Can't mix types.
+array[2] = 40;
+array[3] = 60;
+array.resize(3); // Can be resized.
+use_array(array); // Passed reference or value.
+// Freed when stack ends.
 ```
 
 And in GDScript:
 
 ```
-    var array = [10, "hello", 40, 60] # Simple, and can mix types.
-    array.resize(3) # Can be resized.
-    use_array(array) # Passed as reference.
-    # Freed when no longer in use.
+var array = [10, "hello", 40, 60] # Simple, and can mix types.
+array.resize(3) # Can be resized.
+use_array(array) # Passed as reference.
+# Freed when no longer in use.
 ```
 
 In dynamically typed languages, arrays can also double as other
 datatypes, such as lists:
 
 ```
-    var array = []
-    array.append(4)
-    array.append(5)
-    array.pop_front()
+var array = []
+array.append(4)
+array.append(5)
+array.pop_front()
 ```
 
 Or unordered sets:
 
 ```
-    var a = 20
-    if a in [10, 20, 30]:
-        print("We have a winner!")
+var a = 20
+if a in [10, 20, 30]:
+    print("We have a winner!")
 ```
 
 ## Dictionaries
@@ -287,50 +287,50 @@ will go as far as implementing arrays as dictionaries.
 Example of Dictionary:
 
 ```
-    var d = {"name": "John", "age": 22} # Simple syntax.
-    print("Name: ", d["name"], " Age: ", d["age"])
+var d = {"name": "John", "age": 22} # Simple syntax.
+print("Name: ", d["name"], " Age: ", d["age"])
 ```
 
 Dictionaries are also dynamic, keys can be added or removed at any point
 at little cost:
 
 ```
-    d["mother"] = "Rebecca" # Addition.
-    d["age"] = 11 # Modification.
-    d.erase("name") # Removal.
+d["mother"] = "Rebecca" # Addition.
+d["age"] = 11 # Modification.
+d.erase("name") # Removal.
 ```
 
 In most cases, two-dimensional arrays can often be implemented more
 easily with dictionaries. Here's a simple battleship game example:
 
 ```
-    # Battleship Game
+# Battleship Game
 
-    const SHIP = 0
-    const SHIP_HIT = 1
-    const WATER_HIT = 2
+const SHIP = 0
+const SHIP_HIT = 1
+const WATER_HIT = 2
 
-    var board = {}
+var board = {}
 
-    func initialize():
-        board[Vector2(1, 1)] = SHIP
-        board[Vector2(1, 2)] = SHIP
-        board[Vector2(1, 3)] = SHIP
+func initialize():
+    board[Vector2(1, 1)] = SHIP
+    board[Vector2(1, 2)] = SHIP
+    board[Vector2(1, 3)] = SHIP
 
-    func missile(pos):
-        if pos in board: # Something at that position.
-            if board[pos] == SHIP: # There was a ship! hit it.
-                board[pos] = SHIP_HIT
-            else:
-                print("Already hit here!") # Hey dude you already hit here.
-        else: # Nothing, mark as water.
-            board[pos] = WATER_HIT
+func missile(pos):
+    if pos in board: # Something at that position.
+        if board[pos] == SHIP: # There was a ship! hit it.
+            board[pos] = SHIP_HIT
+        else:
+            print("Already hit here!") # Hey dude you already hit here.
+    else: # Nothing, mark as water.
+        board[pos] = WATER_HIT
 
-    func game():
-        initialize()
-        missile(Vector2(1, 1))
-        missile(Vector2(5, 8))
-        missile(Vector2(2, 3))
+func game():
+    initialize()
+    missile(Vector2(1, 1))
+    missile(Vector2(5, 8))
+    missile(Vector2(2, 3))
 ```
 
 Dictionaries can also be used as data markup or quick structures. While
@@ -339,22 +339,22 @@ style syntax and indexing, which makes it useful for writing initial
 states and quick structs:
 
 ```
-    # Same example, lua-style support.
-    # This syntax is a lot more readable and usable.
-    # Like any GDScript identifier, keys written in this form cannot start
-    # with a digit.
+# Same example, lua-style support.
+# This syntax is a lot more readable and usable.
+# Like any GDScript identifier, keys written in this form cannot start
+# with a digit.
 
-    var d = {
-        name = "John",
-        age = 22
-    }
+var d = {
+    name = "John",
+    age = 22
+}
 
-    print("Name: ", d.name, " Age: ", d.age) # Used "." based indexing.
+print("Name: ", d.name, " Age: ", d.age) # Used "." based indexing.
 
-    # Indexing
+# Indexing
 
-    d["mother"] = "Rebecca"
-    d.mother = "Caroline" # This would work too to create a new key.
+d["mother"] = "Rebecca"
+d.mother = "Caroline" # This would work too to create a new key.
 ```
 
 ## For & while
@@ -362,87 +362,87 @@ states and quick structs:
 Iterating in some statically typed languages can be quite complex:
 
 ```
-    const char* strings = new const char*[50];
+const char* strings = new const char*[50];
 
-    [..]
+[..]
 
-    for (int i = 0; i < 50; i++) {
+for (int i = 0; i < 50; i++) {
 
-        printf("Value: %s\n", i, strings[i]);
-    }
+    printf("Value: %s\n", i, strings[i]);
+}
 
-    // Even in STL:
+// Even in STL:
 
-    for (std::list<std::string>::const_iterator it = strings.begin(); it != strings.end(); it++) {
+for (std::list<std::string>::const_iterator it = strings.begin(); it != strings.end(); it++) {
 
-        std::cout << *it << std::endl;
-    }
+    std::cout << *it << std::endl;
+}
 ```
 
 This is usually greatly simplified in dynamically typed languages:
 
 ```
-    for s in strings:
-        print(s)
+for s in strings:
+    print(s)
 ```
 
 Container datatypes (arrays and dictionaries) are iterable. Dictionaries
 allow iterating the keys:
 
 ```
-    for key in dict:
-        print(key, " -> ", dict[key])
+for key in dict:
+    print(key, " -> ", dict[key])
 ```
 
 Iterating with indices is also possible:
 
 ```
-    for i in range(strings.size()):
-        print(strings[i])
+for i in range(strings.size()):
+    print(strings[i])
 ```
 
 The range() function can take 3 arguments:
 
 ```
-    range(n) # Will go from 0 to n-1.
-    range(b, n) # Will go from b to n-1.
-    range(b, n, s) # Will go from b to n-1, in steps of s.
+range(n) # Will go from 0 to n-1.
+range(b, n) # Will go from b to n-1.
+range(b, n, s) # Will go from b to n-1, in steps of s.
 ```
 
 Some statically typed programming language examples:
 
 ```
-    for (int i = 0; i < 10; i++) {}
+for (int i = 0; i < 10; i++) {}
 
-    for (int i = 5; i < 10; i++) {}
+for (int i = 5; i < 10; i++) {}
 
-    for (int i = 5; i < 10; i += 2) {}
+for (int i = 5; i < 10; i += 2) {}
 ```
 
 Translate to:
 
 ```
-    for i in range(10):
-        pass
+for i in range(10):
+    pass
 
-    for i in range(5, 10):
-        pass
+for i in range(5, 10):
+    pass
 
-    for i in range(5, 10, 2):
-        pass
+for i in range(5, 10, 2):
+    pass
 ```
 
 And backwards looping is done through a negative counter:
 
 ```
-    for (int i = 10; i > 0; i--) {}
+for (int i = 10; i > 0; i--) {}
 ```
 
 Becomes:
 
 ```
-    for i in range(10, 0, -1):
-        pass
+for i in range(10, 0, -1):
+    pass
 ```
 
 ## While
@@ -450,11 +450,11 @@ Becomes:
 while() loops are the same everywhere:
 
 ```
-    var i = 0
+var i = 0
 
-    while i < strings.size():
-        print(strings[i])
-        i += 1
+while i < strings.size():
+    print(strings[i])
+    i += 1
 ```
 
 ## Custom iterators
@@ -464,39 +464,39 @@ needs by overriding the Variant class's `iter_init`, `iter_next`, and `iter_get`
 functions in your script. An example implementation of a forward iterator follows:
 
 ```
-    class ForwardIterator:
-        var start
-        var current
-        var end
-        var increment
+class ForwardIterator:
+    var start
+    var current
+    var end
+    var increment
 
-        func _init(start, stop, increment):
-            self.start = start
-            self.current = start
-            self.end = stop
-            self.increment = increment
+    func _init(start, stop, increment):
+        self.start = start
+        self.current = start
+        self.end = stop
+        self.increment = increment
 
-        func should_continue():
-            return (current < end)
+    func should_continue():
+        return (current < end)
 
-        func _iter_init(arg):
-            current = start
-            return should_continue()
+    func _iter_init(arg):
+        current = start
+        return should_continue()
 
-        func _iter_next(arg):
-            current += increment
-            return should_continue()
+    func _iter_next(arg):
+        current += increment
+        return should_continue()
 
-        func _iter_get(arg):
-            return current
+    func _iter_get(arg):
+        return current
 ```
 
 And it can be used like any other iterator:
 
 ```
-    var itr = ForwardIterator.new(0, 6, 2)
-    for i in itr:
-        print(i) # Will print 0, 2, and 4.
+var itr = ForwardIterator.new(0, 6, 2)
+for i in itr:
+    print(i) # Will print 0, 2, and 4.
 ```
 
 Make sure to reset the state of the iterator in `iter_init`, otherwise nested
@@ -514,10 +514,10 @@ tunnel, smashing everything on its way. The code for the rock, in a
 statically typed language would be something like:
 
 ```
-    void BigRollingRock::on_object_hit(Smashable *entity) {
+void BigRollingRock::on_object_hit(Smashable *entity) {
 
-        entity->smash();
-    }
+    entity->smash();
+}
 ```
 
 This way, everything that can be smashed by a rock would have to
@@ -533,8 +533,8 @@ makes sure you only have to define a `smash()` function where required
 and that's it. No need to consider inheritance, base classes, etc.
 
 ```
-    func _on_object_hit(object):
-        object.smash()
+func _on_object_hit(object):
+    object.smash()
 ```
 
 And that's it. If the object that hit the big rock has a smash() method,
@@ -558,9 +558,9 @@ doesn't exist, but GDScript is stricter, so checking if the function
 exists is desirable:
 
 ```
-    func _on_object_hit(object):
-        if object.has_method("smash"):
-            object.smash()
+func _on_object_hit(object):
+    if object.has_method("smash"):
+        object.smash()
 ```
 
 Then, simply define that method and anything the rock touches can be

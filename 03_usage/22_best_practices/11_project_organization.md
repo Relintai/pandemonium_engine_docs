@@ -26,19 +26,19 @@ such as sprite images, 3D model meshes, materials, and music, etc.
 They can then use a separate folder to store built levels that use them.
 
 ```
-    /project.pandemonium
-    /docs/.gdignore  # See "Ignoring specific folders" below
-    /docs/learning.html
-    /models/town/house/house.dae
-    /models/town/house/window.png
-    /models/town/house/door.png
-    /characters/player/cubio.dae
-    /characters/player/cubio.png
-    /characters/enemies/goblin/goblin.dae
-    /characters/enemies/goblin/goblin.png
-    /characters/npcs/suzanne/suzanne.dae
-    /characters/npcs/suzanne/suzanne.png
-    /levels/riverdale/riverdale.scn
+/project.pandemonium
+/docs/.gdignore  # See "Ignoring specific folders" below
+/docs/learning.html
+/models/town/house/house.dae
+/models/town/house/window.png
+/models/town/house/door.png
+/characters/player/cubio.dae
+/characters/player/cubio.png
+/characters/enemies/goblin/goblin.dae
+/characters/enemies/goblin/goblin.png
+/characters/npcs/suzanne/suzanne.dae
+/characters/npcs/suzanne/suzanne.png
+/levels/riverdale/riverdale.scn
 ```
 
 ## Style guide
@@ -108,11 +108,11 @@ you can also make the project folder case-sensitive. After enabling the Windows
 Subsystem for Linux feature, run the following command in a PowerShell window:
 
 ```
-    # To enable case-sensitivity:
-    fsutil file setcasesensitiveinfo <path to project folder> enable
+# To enable case-sensitivity:
+fsutil file setcasesensitiveinfo <path to project folder> enable
 
-    # To disable case-sensitivity:
-    fsutil file setcasesensitiveinfo <path to project folder> disable
+# To disable case-sensitivity:
+fsutil file setcasesensitiveinfo <path to project folder> disable
 ```
 
 If you haven't enabled the Windows Subsystem for Linux, you can enter the
@@ -120,5 +120,5 @@ following line in a PowerShell window *running as Administrator* then reboot
 when asked:
 
 ```
-    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```

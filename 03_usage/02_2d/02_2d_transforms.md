@@ -64,7 +64,7 @@ coordinates, just multiply in the following order:
 gdscript GDScript
 
 ```
-    var screen_coord = get_viewport_transform() * (get_global_transform() * local_pos)
+var screen_coord = get_viewport_transform() * (get_global_transform() * local_pos)
 ```
 
 Keep in mind, however, that it is generally not desired to work with
@@ -81,9 +81,9 @@ way:
 gdscript GDScript
 
 ```
-    var local_pos = Vector2(10, 20) # local to Control/Node2D
-    var ie = InputEventMouseButton.new()
-    ie.button_index = BUTTON_LEFT
-    ie.position = get_viewport_transform() * (get_global_transform() * local_pos)
-    get_tree().input_event(ie)
+var local_pos = Vector2(10, 20) # local to Control/Node2D
+var ie = InputEventMouseButton.new()
+ie.button_index = BUTTON_LEFT
+ie.position = get_viewport_transform() * (get_global_transform() * local_pos)
+get_tree().input_event(ie)
 ```

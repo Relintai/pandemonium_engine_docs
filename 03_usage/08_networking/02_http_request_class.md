@@ -31,17 +31,17 @@ Below is all the code we need to make it work. The URL points to an online API m
 gdscript GDScript
 
 ```
-        extends CanvasLayer
+extends CanvasLayer
 
-        func _ready():
-            $HTTPRequest.connect("request_completed", self, "_on_request_completed")
+func _ready():
+    $HTTPRequest.connect("request_completed", self, "_on_request_completed")
 
-        func _on_Button_pressed():
-            $HTTPRequest.request("http://www.mocky.io/v2/5185415ba171ea3a00704eed")
+func _on_Button_pressed():
+    $HTTPRequest.request("http://www.mocky.io/v2/5185415ba171ea3a00704eed")
 
-        func _on_request_completed(result, response_code, headers, body):
-            var json = JSON.parse(body.get_string_from_utf8())
-            print(json.result)
+func _on_request_completed(result, response_code, headers, body):
+    var json = JSON.parse(body.get_string_from_utf8())
+    print(json.result)
 ```
 
 With this, you should see `(hello:world)` printed on the console; hello being a key, and world being a value, both of them strings.
@@ -56,7 +56,7 @@ For example, to set a custom user agent (the HTTP `user-agent` header) you could
 gdscript GDScript
 
 ```
-        $HTTPRequest.request("http://www.mocky.io/v2/5185415ba171ea3a00704eed", ["user-agent: YourCustomUserAgent"])
+$HTTPRequest.request("http://www.mocky.io/v2/5185415ba171ea3a00704eed", ["user-agent: YourCustomUserAgent"])
 ```
 
 Please note that, for SSL/TLS encryption and thus HTTPS URLs to work, you may need to take some steps as described `here ( doc_ssl_certificates )`.
@@ -71,12 +71,12 @@ Until now, we have limited ourselves to requesting data from a server. But what 
 gdscript GDScript
 
 ```
-        func _make_post_request(url, data_to_send, use_ssl):
-            # Convert data to json string:
-            var query = JSON.print(data_to_send)
-            # Add 'Content-Type' header:
-            var headers = ["Content-Type: application/json"]
-            $HTTPRequest.request(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
+func _make_post_request(url, data_to_send, use_ssl):
+    # Convert data to json string:
+    var query = JSON.print(data_to_send)
+    # Add 'Content-Type' header:
+    var headers = ["Content-Type: application/json"]
+    $HTTPRequest.request(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
 ```
 
 Keep in mind that you have to wait for a request to finish before sending another one. Making multiple request at once requires you to have one node per request.

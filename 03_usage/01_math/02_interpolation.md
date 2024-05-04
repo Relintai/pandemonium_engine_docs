@@ -11,13 +11,13 @@ As an example if `t` is 0, then the state is A. If `t` is 1, then the state is B
 Between two real (floating-point) numbers, a simple interpolation is usually described as:
 
 ```
-    interpolation = A * (1 - t) + B * t
+interpolation = A * (1 - t) + B * t
 ```
 
 And often simplified to:
 
 ```
-    interpolation = A + (B - A) * t
+interpolation = A + (B - A) * t
 ```
 
 The name of this type of interpolation, which transforms a value into another at *constant speed* is *"linear"*. So, when you hear about *Linear Interpolation*, you know they are referring to this simple formula.
@@ -36,12 +36,12 @@ Here is simple pseudo-code for going from point A to B using interpolation:
 gdscript GDScript
 
 ```
-    var t = 0.0
+var t = 0.0
 
-    func _physics_process(delta):
-        t += delta * 0.4
+func _physics_process(delta):
+    t += delta * 0.4
 
-        $Sprite.position = $A.position.linear_interpolate($B.position, t)
+    $Sprite.position = $A.position.linear_interpolate($B.position, t)
 ```
 
 It will produce the following motion:
@@ -62,12 +62,12 @@ Using the following pseudocode:
 gdscript GDScript
 
 ```
-    var t = 0.0
+var t = 0.0
 
-    func _physics_process(delta):
-        t += delta
+func _physics_process(delta):
+    t += delta
 
-        $Monkey.transform = $Position1.transform.interpolate_with($Position2.transform, t)
+    $Monkey.transform = $Position1.transform.interpolate_with($Position2.transform, t)
 ```
 
 And again, it will produce the following motion:
@@ -82,12 +82,12 @@ Interpolation can be used to smooth movement, rotation, etc. Here is an example 
 gdscript GDScript
 
 ```
-    const FOLLOW_SPEED = 4.0
+const FOLLOW_SPEED = 4.0
 
-    func _physics_process(delta):
-        var mouse_pos = get_local_mouse_position()
+func _physics_process(delta):
+    var mouse_pos = get_local_mouse_position()
 
-        $Sprite.position = $Sprite.position.linear_interpolate(mouse_pos, delta * FOLLOW_SPEED)
+    $Sprite.position = $Sprite.position.linear_interpolate(mouse_pos, delta * FOLLOW_SPEED)
 ```
 
 Here is how it looks:

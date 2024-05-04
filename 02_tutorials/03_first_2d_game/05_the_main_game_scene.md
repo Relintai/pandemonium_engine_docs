@@ -76,10 +76,10 @@ Add a script to `Main`. At the top of the script, we use `export
 gdscript GDScript
 
 ```
-    extends Node
+extends Node
 
-    export(PackedScene) var mob_scene
-    var score
+export(PackedScene) var mob_scene
+var score
 ```
 
 We also add a call to `randomize()` here so that the random number
@@ -88,8 +88,8 @@ generator generates different random numbers each time the game is run:
 gdscript GDScript
 
 ```
-    func _ready():
-        randomize()
+func _ready():
+    randomize()
 ```
 
 Click the `Main` node and you will see the `Mob Scene` property in the Inspector
@@ -116,14 +116,14 @@ new game:
 gdscript GDScript
 
 ```
-    func game_over():
-        $ScoreTimer.stop()
-        $MobTimer.stop()
+func game_over():
+    $ScoreTimer.stop()
+    $MobTimer.stop()
 
-    func new_game():
-        score = 0
-        $Player.start($StartPosition.position)
-        $StartTimer.start()
+func new_game():
+    score = 0
+    $Player.start($StartPosition.position)
+    $StartTimer.start()
 ```
 
 Now connect the `timeout()` signal of each of the Timer nodes (`StartTimer`,
@@ -133,12 +133,12 @@ the other two timers. `ScoreTimer` will increment the score by 1.
 gdscript GDScript
 
 ```
-    func _on_ScoreTimer_timeout():
-        score += 1
+func _on_ScoreTimer_timeout():
+    score += 1
 
-    func _on_StartTimer_timeout():
-        $MobTimer.start()
-        $ScoreTimer.start()
+func _on_StartTimer_timeout():
+    $MobTimer.start()
+    $ScoreTimer.start()
 ```
 
 In `on_MobTimer_timeout()`, we will create a mob instance, pick a random
@@ -154,30 +154,30 @@ Note that a new instance must be added to the scene using `add_child()`.
 gdscript GDScript
 
 ```
-    func _on_MobTimer_timeout():
-        # Create a new instance of the Mob scene.
-        var mob = mob_scene.instance()
+func _on_MobTimer_timeout():
+    # Create a new instance of the Mob scene.
+    var mob = mob_scene.instance()
 
-        # Choose a random location on Path2D.
-        var mob_spawn_location = get_node("MobPath/MobSpawnLocation")
-        mob_spawn_location.offset = randi()
+    # Choose a random location on Path2D.
+    var mob_spawn_location = get_node("MobPath/MobSpawnLocation")
+    mob_spawn_location.offset = randi()
 
-        # Set the mob's direction perpendicular to the path direction.
-        var direction = mob_spawn_location.rotation + PI / 2
+    # Set the mob's direction perpendicular to the path direction.
+    var direction = mob_spawn_location.rotation + PI / 2
 
-        # Set the mob's position to a random location.
-        mob.position = mob_spawn_location.position
+    # Set the mob's position to a random location.
+    mob.position = mob_spawn_location.position
 
-        # Add some randomness to the direction.
-        direction += rand_range(-PI / 4, PI / 4)
-        mob.rotation = direction
+    # Add some randomness to the direction.
+    direction += rand_range(-PI / 4, PI / 4)
+    mob.rotation = direction
 
-        # Choose the velocity for the mob.
-        var velocity = Vector2(rand_range(150.0, 250.0), 0.0)
-        mob.linear_velocity = velocity.rotated(direction)
+    # Choose the velocity for the mob.
+    var velocity = Vector2(rand_range(150.0, 250.0), 0.0)
+    mob.linear_velocity = velocity.rotated(direction)
 
-        # Spawn the mob by adding it to the Main scene.
-        add_child(mob)
+    # Spawn the mob by adding it to the Main scene.
+    add_child(mob)
 ```
 
 .. important:: Why `PI`? In functions requiring angles, Pandemonium uses *radians*,
@@ -195,9 +195,9 @@ call to `ready()`:
 gdscript GDScript
 
 ```
-    func _ready():
-        randomize()
-        new_game()
+func _ready():
+    randomize()
+    new_game()
 ```
 
 Let's also assign `Main` as our "Main Scene" - the one that runs automatically

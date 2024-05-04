@@ -74,8 +74,8 @@ scene tree.
 gdscript GDScript
 
 ```
-    func _ready():
-        add_to_group("guards")
+func _ready():
+    add_to_group("guards")
 ```
 
 Imagine you're creating an infiltration game. When an
@@ -87,8 +87,8 @@ enemies that the player was spotted.
 gdscript GDScript
 
 ```
-    func _on_Player_spotted():
-        get_tree().call_group("guards", "enter_alert_mode")
+func _on_Player_spotted():
+    get_tree().call_group("guards", "enter_alert_mode")
 ```
 
 The above code calls the function `enter_alert_mode` on every member of the
@@ -101,7 +101,7 @@ To get the full list of nodes in the `guards` group as an array, you can call
 gdscript GDScript
 
 ```
-    var guards = get_tree().get_nodes_in_group("guards")
+var guards = get_tree().get_nodes_in_group("guards")
 ```
 
 The `SceneTree` class provides many more useful methods

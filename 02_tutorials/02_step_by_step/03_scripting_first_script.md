@@ -77,7 +77,7 @@ following line of code:
 gdscript GDScript
 
 ```
-    extends Sprite
+extends Sprite
 ```
 
 Every GDScript file is implicitly a class. The `extends` keyword defines the
@@ -114,8 +114,8 @@ Add the following code to your script:
 gdscript GDScript
 
 ```
-    func _init():
-        print("Hello, world!")
+func _init():
+    print("Hello, world!")
 ```
 
 
@@ -148,8 +148,8 @@ angular speed in radians per second.
 gdscript GDScript
 
 ```
-    var speed = 400
-    var angular_speed = PI
+var speed = 400
+var angular_speed = PI
 ```
 
 Member variables sit near the top of the script, after any "extends" lines,
@@ -187,8 +187,8 @@ At the bottom of the script, define the function:
 gdscript GDScript
 
 ```
-    func _process(delta):
-        rotation += angular_speed * delta
+func _process(delta):
+    rotation += angular_speed * delta
 ```
 
 The `func` keyword defines a new function. After it, we have to write the
@@ -225,9 +225,9 @@ them.
 gdscript GDScript
 
 ```
-    var velocity = Vector2.UP.rotated(rotation) * speed
+var velocity = Vector2.UP.rotated(rotation) * speed
 
-    position += velocity * delta
+position += velocity * delta
 ```
 
 As we already saw, the `var` keyword defines a new variable. If you put it at
@@ -264,16 +264,16 @@ Here is the complete `Sprite.gd` file for reference.
 gdscript GDScript
 
 ```
-    extends Sprite
+extends Sprite
 
-    var speed = 400
-    var angular_speed = PI
+var speed = 400
+var angular_speed = PI
 
 
-    func _process(delta):
-        rotation += angular_speed * delta
+func _process(delta):
+    rotation += angular_speed * delta
 
-        var velocity = Vector2.UP.rotated(rotation) * speed
+    var velocity = Vector2.UP.rotated(rotation) * speed
 
-        position += velocity * delta
+    position += velocity * delta
 ```

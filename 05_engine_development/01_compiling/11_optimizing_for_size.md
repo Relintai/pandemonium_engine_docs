@@ -26,7 +26,7 @@ strip debug symbols from binaries by installing the `strip` package from your
 distribution then running:
 
 ```
-    strip path/to/pandemonium.binary
+strip path/to/pandemonium.binary
 ```
 
 On Windows, `strip.exe` is included in most MinGW toolchain setups.
@@ -54,7 +54,7 @@ Pandemonium 3.1 onwards allows compiling using size optimizations (instead of sp
 To enable this, set the `optimize` flag to `size`:
 
 ```
-    scons p=windows target=release tools=no optimize=size
+scons p=windows target=release tools=no optimize=size
 ```
 
 Some platforms such as WebAssembly already use this mode by default.
@@ -71,7 +71,7 @@ template functions and unused code. It can currently be used with the GCC
 and MSVC compilers:
 
 ```
-    scons p=windows target=release tools=no use_lto=yes
+scons p=windows target=release tools=no use_lto=yes
 ```
 
 Linking becomes much slower and more RAM-consuming with this option,
@@ -91,7 +91,7 @@ so it should be used only for release builds:
 For 2D games, having the whole 3D engine available usually makes no sense. Because of this, there is a build flag to disable it:
 
 ```
-    scons p=windows target=release tools=no disable_3d=yes
+scons p=windows target=release tools=no disable_3d=yes
 ```
 
 Tools must be disabled in order to use this flag, as the editor is not designed
@@ -108,7 +108,7 @@ Most small games don't require complex GUI controls such as Tree, ItemList,
 TextEdit or GraphEdit. They can be disabled using a build flag:
 
 ```
-    scons p=windows target=release tools=no disable_advanced_gui=yes
+scons p=windows target=release tools=no disable_advanced_gui=yes
 ```
 
 This is everything that will be disabled:
@@ -146,7 +146,7 @@ A lot of Pandemonium's functions are offered as modules.
 You can see a list of modules with the following command:
 
 ```
-    scons --help
+scons --help
 ```
 
 The list of modules that can be disabled will appear, together with all
@@ -154,7 +154,7 @@ build options. If you are working on a simple 2D game, you could disable
 a lot of them:
 
 ```
-    scons p=windows target=release tools=no module_arkit_enabled=no module_assimp_enabled=no module_bmp_enabled=no module_bullet_enabled=no module_camera_enabled=no module_csg_enabled=no module_dds_enabled=no module_enet_enabled=no module_etc_enabled=no module_gdnative_enabled=no module_gridmap_enabled=no module_hdr_enabled=no module_jsonrpc_enabled=no module_mbedtls_enabled=no module_mobile_vr_enabled=no module_opensimplex_enabled=no module_opus_enabled=no module_pvr_enabled=no module_recast_enabled=no module_regex_enabled=no module_squish_enabled=no module_svg_enabled=no module_tga_enabled=no module_theora_enabled=no module_tinyexr_enabled=no module_upnp_enabled=no module_vhacd_enabled=no module_vorbis_enabled=no module_webm_enabled=no module_webrtc_enabled=no module_websocket_enabled=no module_xatlas_unwrap_enabled=no
+scons p=windows target=release tools=no module_arkit_enabled=no module_assimp_enabled=no module_bmp_enabled=no module_bullet_enabled=no module_camera_enabled=no module_csg_enabled=no module_dds_enabled=no module_enet_enabled=no module_etc_enabled=no module_gdnative_enabled=no module_gridmap_enabled=no module_hdr_enabled=no module_jsonrpc_enabled=no module_mbedtls_enabled=no module_mobile_vr_enabled=no module_opensimplex_enabled=no module_opus_enabled=no module_pvr_enabled=no module_recast_enabled=no module_regex_enabled=no module_squish_enabled=no module_svg_enabled=no module_tga_enabled=no module_theora_enabled=no module_tinyexr_enabled=no module_upnp_enabled=no module_vhacd_enabled=no module_vorbis_enabled=no module_webm_enabled=no module_webrtc_enabled=no module_websocket_enabled=no module_xatlas_unwrap_enabled=no
 ```
 
 If this proves not to work for your use case, you should review the list of
@@ -167,40 +167,40 @@ Alternatively, you can supply a list of disabled modules by creating
 following:
 
 ```
-    # custom.py
+# custom.py
 
-    module_arkit_enabled = "no"
-    module_assimp_enabled = "no"
-    module_bmp_enabled = "no"
-    module_bullet_enabled = "no"
-    module_camera_enabled = "no"
-    module_csg_enabled = "no"
-    module_dds_enabled = "no"
-    module_enet_enabled = "no"
-    module_etc_enabled = "no"
-    module_gdnative_enabled = "no"
-    module_gridmap_enabled = "no"
-    module_hdr_enabled = "no"
-    module_jsonrpc_enabled = "no"
-    module_mbedtls_enabled = "no"
-    module_mobile_vr_enabled = "no"
-    module_opensimplex_enabled = "no"
-    module_opus_enabled = "no"
-    module_pvr_enabled = "no"
-    module_recast_enabled = "no"
-    module_regex_enabled = "no"
-    module_squish_enabled = "no"
-    module_svg_enabled = "no"
-    module_tga_enabled = "no"
-    module_theora_enabled = "no"
-    module_tinyexr_enabled = "no"
-    module_upnp_enabled = "no"
-    module_vhacd_enabled = "no"
-    module_vorbis_enabled = "no"
-    module_webm_enabled = "no"
-    module_webrtc_enabled = "no"
-    module_websocket_enabled = "no"
-    module_xatlas_unwrap_enabled = "no"
+module_arkit_enabled = "no"
+module_assimp_enabled = "no"
+module_bmp_enabled = "no"
+module_bullet_enabled = "no"
+module_camera_enabled = "no"
+module_csg_enabled = "no"
+module_dds_enabled = "no"
+module_enet_enabled = "no"
+module_etc_enabled = "no"
+module_gdnative_enabled = "no"
+module_gridmap_enabled = "no"
+module_hdr_enabled = "no"
+module_jsonrpc_enabled = "no"
+module_mbedtls_enabled = "no"
+module_mobile_vr_enabled = "no"
+module_opensimplex_enabled = "no"
+module_opus_enabled = "no"
+module_pvr_enabled = "no"
+module_recast_enabled = "no"
+module_regex_enabled = "no"
+module_squish_enabled = "no"
+module_svg_enabled = "no"
+module_tga_enabled = "no"
+module_theora_enabled = "no"
+module_tinyexr_enabled = "no"
+module_upnp_enabled = "no"
+module_vhacd_enabled = "no"
+module_vorbis_enabled = "no"
+module_webm_enabled = "no"
+module_webrtc_enabled = "no"
+module_websocket_enabled = "no"
+module_xatlas_unwrap_enabled = "no"
 ```
 
 See also: `doc_overriding_build_options`.

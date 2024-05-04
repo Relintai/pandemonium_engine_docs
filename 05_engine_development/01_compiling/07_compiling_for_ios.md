@@ -19,13 +19,13 @@ For a general overview of SCons usage for Pandemonium, see `doc_introduction_to_
 Open a Terminal, go to the root dir of the engine source code and type:
 
 ```
-    $ scons p=iphone target=debug
+$ scons p=iphone target=debug
 ```
 
 for a debug build, or:
 
 ```
-    $ scons p=iphone target=release
+$ scons p=iphone target=release
 ```
 
 for a release build (check `platform/iphone/detect.py` for the compiler
@@ -34,7 +34,7 @@ flags used for each configuration).
 Alternatively, you can run
 
 ```
-    $ scons p=iphone arch=x86_64 target=debug
+$ scons p=iphone arch=x86_64 target=debug
 ```
 
 for a Simulator executable.
@@ -46,22 +46,22 @@ It can be done in three steps: first compile the 32-bit version, then compile th
 All those steps can be performed with following commands:
 
 ```
-    $ scons p=iphone tools=no target=release arch=arm
-    $ scons p=iphone tools=no target=release arch=arm64
-    $ lipo -create bin/libpandemonium.iphone.opt.arm.a bin/libpandemonium.iphone.opt.arm64.a -output bin/libpandemonium.iphone.release.fat.a
-    $ lipo -create bin/libpandemonium_camera_module.iphone.opt.arm.a bin/libpandemonium_camera_module.iphone.opt.arm64.a -output bin/libpandemonium_camera_module.iphone.release.fat.a
-    $ lipo -create bin/libpandemonium_arkit_module.iphone.opt.arm.a bin/libpandemonium_arkit_module.iphone.opt.arm64.a -output bin/libpandemonium_arkit_module.iphone.release.fat.a
+$ scons p=iphone tools=no target=release arch=arm
+$ scons p=iphone tools=no target=release arch=arm64
+$ lipo -create bin/libpandemonium.iphone.opt.arm.a bin/libpandemonium.iphone.opt.arm64.a -output bin/libpandemonium.iphone.release.fat.a
+$ lipo -create bin/libpandemonium_camera_module.iphone.opt.arm.a bin/libpandemonium_camera_module.iphone.opt.arm64.a -output bin/libpandemonium_camera_module.iphone.release.fat.a
+$ lipo -create bin/libpandemonium_arkit_module.iphone.opt.arm.a bin/libpandemonium_arkit_module.iphone.opt.arm64.a -output bin/libpandemonium_arkit_module.iphone.release.fat.a
 ```
 
 If you also want to provide a simulator build (reduces the chance of any linker errors with dependencies), you'll need to build and lipo the `x86_64` architecture as well.
 
 ```
-    $ scons p=iphone tools=no target=release arch=arm
-    $ scons p=iphone tools=no target=release arch=arm64
-    $ scons p=iphone tools=no target=release arch=x86_64
-    $ lipo -create bin/libpandemonium.iphone.opt.arm.a bin/libpandemonium.iphone.opt.arm64.a bin/libpandemonium.iphone.opt.x86_64.a -output bin/libpandemonium.iphone.release.fat.a
-    $ lipo -create bin/libpandemonium_camera_module.iphone.opt.arm.a bin/libpandemonium_camera_module.iphone.opt.arm64.a bin/libpandemonium_camera_module.iphone.opt.x86_64.a -output bin/libpandemonium_camera_module.iphone.release.fat.a
-    $ lipo -create bin/libpandemonium_arkit_module.iphone.opt.arm.a bin/libpandemonium_arkit_module.iphone.opt.arm64.a bin/libpandemonium_arkit_module.iphone.opt.x86_64.a -output bin/libpandemonium_arkit_module.iphone.release.fat.a
+$ scons p=iphone tools=no target=release arch=arm
+$ scons p=iphone tools=no target=release arch=arm64
+$ scons p=iphone tools=no target=release arch=x86_64
+$ lipo -create bin/libpandemonium.iphone.opt.arm.a bin/libpandemonium.iphone.opt.arm64.a bin/libpandemonium.iphone.opt.x86_64.a -output bin/libpandemonium.iphone.release.fat.a
+$ lipo -create bin/libpandemonium_camera_module.iphone.opt.arm.a bin/libpandemonium_camera_module.iphone.opt.arm64.a bin/libpandemonium_camera_module.iphone.opt.x86_64.a -output bin/libpandemonium_camera_module.iphone.release.fat.a
+$ lipo -create bin/libpandemonium_arkit_module.iphone.opt.arm.a bin/libpandemonium_arkit_module.iphone.opt.arm64.a bin/libpandemonium_arkit_module.iphone.opt.x86_64.a -output bin/libpandemonium_arkit_module.iphone.release.fat.a
 ```
 
 ## Run

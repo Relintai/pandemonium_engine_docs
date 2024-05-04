@@ -115,16 +115,16 @@ and `get_slide_collision()`:
 gdscript GDScript
 
 ```
-    # Using move_and_collide.
-    var collision = move_and_collide(velocity * delta)
-    if collision:
-        print("I collided with ", collision.collider.name)
+# Using move_and_collide.
+var collision = move_and_collide(velocity * delta)
+if collision:
+    print("I collided with ", collision.collider.name)
 
-    # Using move_and_slide.
-    velocity = move_and_slide(velocity)
-    for i in get_slide_count():
-        var collision = get_slide_collision(i)
-        print("I collided with ", collision.collider.name)
+# Using move_and_slide.
+velocity = move_and_slide(velocity)
+for i in get_slide_count():
+    var collision = get_slide_collision(i)
+    print("I collided with ", collision.collider.name)
 ```
 
 Note:
@@ -147,13 +147,13 @@ the same collision response:
 gdscript GDScript
 
 ```
-    # using move_and_collide
-    var collision = move_and_collide(velocity * delta)
-    if collision:
-        velocity = velocity.slide(collision.normal)
+# using move_and_collide
+var collision = move_and_collide(velocity * delta)
+if collision:
+    velocity = velocity.slide(collision.normal)
 
-    # using move_and_slide
-    velocity = move_and_slide(velocity)
+# using move_and_slide
+velocity = move_and_slide(velocity)
 ```
 
 Anything you do with `move_and_slide()` can also be done with `move_and_collide()`,
@@ -198,27 +198,27 @@ Attach a script to the KinematicBody2D and add the following code:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    var speed = 250
-    var velocity = Vector2()
+var speed = 250
+var velocity = Vector2()
 
-    func get_input():
-        # Detect up/down/left/right keystate and only move when pressed.
-        velocity = Vector2()
-        if Input.is_action_pressed('ui_right'):
-            velocity.x += 1
-        if Input.is_action_pressed('ui_left'):
-            velocity.x -= 1
-        if Input.is_action_pressed('ui_down'):
-            velocity.y += 1
-        if Input.is_action_pressed('ui_up'):
-            velocity.y -= 1
-        velocity = velocity.normalized() * speed
+func get_input():
+    # Detect up/down/left/right keystate and only move when pressed.
+    velocity = Vector2()
+    if Input.is_action_pressed('ui_right'):
+        velocity.x += 1
+    if Input.is_action_pressed('ui_left'):
+        velocity.x -= 1
+    if Input.is_action_pressed('ui_down'):
+        velocity.y += 1
+    if Input.is_action_pressed('ui_up'):
+        velocity.y -= 1
+    velocity = velocity.normalized() * speed
 
-    func _physics_process(delta):
-        get_input()
-        move_and_collide(velocity * delta)
+func _physics_process(delta):
+    get_input()
+    move_and_collide(velocity * delta)
 ```
 
 
@@ -258,35 +258,35 @@ uses the mouse pointer. Here is the code for the Player, using `move_and_slide()
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    var Bullet = preload("res://Bullet.tscn")
-    var speed = 200
-    var velocity = Vector2()
+var Bullet = preload("res://Bullet.tscn")
+var speed = 200
+var velocity = Vector2()
 
-    func get_input():
-        # Add these actions in Project Settings -> Input Map.
-        velocity = Vector2()
-        if Input.is_action_pressed('backward'):
-            velocity = Vector2(-speed/3, 0).rotated(rotation)
-        if Input.is_action_pressed('forward'):
-            velocity = Vector2(speed, 0).rotated(rotation)
-        if Input.is_action_just_pressed('mouse_click'):
-            shoot()
+func get_input():
+    # Add these actions in Project Settings -> Input Map.
+    velocity = Vector2()
+    if Input.is_action_pressed('backward'):
+        velocity = Vector2(-speed/3, 0).rotated(rotation)
+    if Input.is_action_pressed('forward'):
+        velocity = Vector2(speed, 0).rotated(rotation)
+    if Input.is_action_just_pressed('mouse_click'):
+        shoot()
 
-    func shoot():
-        # "Muzzle" is a Position2D placed at the barrel of the gun.
-        var b = Bullet.instance()
-        b.start($Muzzle.global_position, rotation)
-        get_parent().add_child(b)
+func shoot():
+    # "Muzzle" is a Position2D placed at the barrel of the gun.
+    var b = Bullet.instance()
+    b.start($Muzzle.global_position, rotation)
+    get_parent().add_child(b)
 
-    func _physics_process(delta):
-        get_input()
-        var dir = get_global_mouse_position() - global_position
-        # Don't move if too close to the mouse pointer.
-        if dir.length() > 5:
-            rotation = dir.angle()
-            velocity = move_and_slide(velocity)
+func _physics_process(delta):
+    get_input()
+    var dir = get_global_mouse_position() - global_position
+    # Don't move if too close to the mouse pointer.
+    if dir.length() > 5:
+        rotation = dir.angle()
+        velocity = move_and_slide(velocity)
 ```
 
 
@@ -295,25 +295,25 @@ And the code for the Bullet:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    var speed = 750
-    var velocity = Vector2()
+var speed = 750
+var velocity = Vector2()
 
-    func start(pos, dir):
-        rotation = dir
-        position = pos
-        velocity = Vector2(speed, 0).rotated(rotation)
+func start(pos, dir):
+    rotation = dir
+    position = pos
+    velocity = Vector2(speed, 0).rotated(rotation)
 
-    func _physics_process(delta):
-        var collision = move_and_collide(velocity * delta)
-        if collision:
-            velocity = velocity.bounce(collision.normal)
-            if collision.collider.has_method("hit"):
-                collision.collider.hit()
+func _physics_process(delta):
+    var collision = move_and_collide(velocity * delta)
+    if collision:
+        velocity = velocity.bounce(collision.normal)
+        if collision.collider.has_method("hit"):
+            collision.collider.hit()
 
-    func _on_VisibilityNotifier2D_screen_exited():
-        queue_free()
+func _on_VisibilityNotifier2D_screen_exited():
+    queue_free()
 ```
 
 The action happens in `physics_process()`. After using `move_and_collide()`, if a
@@ -345,35 +345,35 @@ Here's the code for the player body:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    export (int) var run_speed = 100
-    export (int) var jump_speed = -400
-    export (int) var gravity = 1200
+export (int) var run_speed = 100
+export (int) var jump_speed = -400
+export (int) var gravity = 1200
 
-    var velocity = Vector2()
-    var jumping = false
+var velocity = Vector2()
+var jumping = false
 
-    func get_input():
-        velocity.x = 0
-        var right = Input.is_action_pressed('ui_right')
-        var left = Input.is_action_pressed('ui_left')
-        var jump = Input.is_action_just_pressed('ui_select')
+func get_input():
+    velocity.x = 0
+    var right = Input.is_action_pressed('ui_right')
+    var left = Input.is_action_pressed('ui_left')
+    var jump = Input.is_action_just_pressed('ui_select')
 
-        if jump and is_on_floor():
-            jumping = true
-            velocity.y = jump_speed
-        if right:
-            velocity.x += run_speed
-        if left:
-            velocity.x -= run_speed
+    if jump and is_on_floor():
+        jumping = true
+        velocity.y = jump_speed
+    if right:
+        velocity.x += run_speed
+    if left:
+        velocity.x -= run_speed
 
-    func _physics_process(delta):
-        get_input()
-        velocity.y += gravity * delta
-        if jumping and is_on_floor():
-            jumping = false
-        velocity = move_and_slide(velocity, Vector2(0, -1))
+func _physics_process(delta):
+    get_input()
+    velocity.y += gravity * delta
+    if jumping and is_on_floor():
+        jumping = false
+    velocity = move_and_slide(velocity, Vector2(0, -1))
 ```
 
 ![](img/k2d_platform.gif)

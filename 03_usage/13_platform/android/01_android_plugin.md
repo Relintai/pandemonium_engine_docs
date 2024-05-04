@@ -67,9 +67,9 @@ The instructions below assumes that you're using Android Studio.
   - In the `&lt;application&gt;` tag, add a `&lt;meta-data&gt;` tag setup as follow:
 
 ```
-        <meta-data
-            android:name="org.pandemoniumengine.plugin.v1.[PluginName]"
-            android:value="[plugin.init.ClassFullName]" />
+<meta-data
+    android:name="org.pandemoniumengine.plugin.v1.[PluginName]"
+    android:value="[plugin.init.ClassFullName]" />
 ```
 
     Where `PluginName` is the name of the plugin, and `plugin.init.ClassFullName` is the full name (package + class name) of the plugin loading class.
@@ -86,17 +86,17 @@ The instructions below assumes that you're using Android Studio.
   - The configuration file format is as follow:
   
 ```
-        [config]
+[config]
 
-        name="MyPlugin"
-        binary_type="local"
-        binary="MyPlugin.aar"
+name="MyPlugin"
+binary_type="local"
+binary="MyPlugin.aar"
 
-        [dependencies]
+[dependencies]
 
-        local=["local_dep1.aar", "local_dep2.aar"]
-        remote=["example.plugin.android:remote-dep1:0.0.1", "example.plugin.android:remote-dep2:0.0.1"]
-        custom_maven_repos=["http://repo.mycompany.com/maven2"]
+local=["local_dep1.aar", "local_dep2.aar"]
+remote=["example.plugin.android:remote-dep1:0.0.1", "example.plugin.android:remote-dep2:0.0.1"]
+custom_maven_repos=["http://repo.mycompany.com/maven2"]
 ```
 
     The `config` section and fields are required and defined as follow:
@@ -129,9 +129,9 @@ The Pandemonium editor will automatically parse all `.gdap` files in the `res://
 From your script:
 
 ```
-    if Engine.has_singleton("MyPlugin"):
-        var singleton = Engine.get_singleton("MyPlugin")
-        print(singleton.myPluginFunction("World"))
+if Engine.has_singleton("MyPlugin"):
+    var singleton = Engine.get_singleton("MyPlugin")
+    print(singleton.myPluginFunction("World"))
 ```
 
 

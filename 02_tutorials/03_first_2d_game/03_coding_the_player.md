@@ -152,9 +152,9 @@ the `process` function (make sure it's not indented under the `else`):
 gdscript GDScript
 
 ```
-    position += velocity * delta
-    position.x = clamp(position.x, 0, screen_size.x)
-    position.y = clamp(position.y, 0, screen_size.y)
+position += velocity * delta
+position.x = clamp(position.x, 0, screen_size.x)
+position.y = clamp(position.y, 0, screen_size.y)
 ```
 
 Tip:
@@ -186,14 +186,14 @@ movement. Let's place this code at the end of the `process()` function:
 gdscript GDScript
 
 ```
-    if velocity.x != 0:
-        $AnimatedSprite.animation = "walk"
-        $AnimatedSprite.flip_v = false
-        # See the note below about boolean assignment.
-        $AnimatedSprite.flip_h = velocity.x < 0
-    elif velocity.y != 0:
-        $AnimatedSprite.animation = "up"
-        $AnimatedSprite.flip_v = velocity.y > 0
+if velocity.x != 0:
+    $AnimatedSprite.animation = "walk"
+    $AnimatedSprite.flip_v = false
+    # See the note below about boolean assignment.
+    $AnimatedSprite.flip_h = velocity.x < 0
+elif velocity.y != 0:
+    $AnimatedSprite.animation = "up"
+    $AnimatedSprite.flip_v = velocity.y > 0
 ```
 
 Note:
@@ -202,10 +202,10 @@ Note:
     *assigning* a boolean value, we can do both at the same time. Consider this code versus the one-line boolean assignment above:
 
 ```
-    if velocity.x < 0:
-        $AnimatedSprite.flip_h = true
-    else:
-        $AnimatedSprite.flip_h = false
+if velocity.x < 0:
+    $AnimatedSprite.flip_h = true
+else:
+    $AnimatedSprite.flip_h = false
 ```
 
 Play the scene again and check that the animations are correct in each of the
@@ -223,7 +223,7 @@ When you're sure the movement is working correctly, add this line to
 gdscript GDScript
 
 ```
-    hide()
+hide()
 ```
 
 ## Preparing for collisions
@@ -237,7 +237,7 @@ Add the following at the top of the script, after `extends Area2D`:
 gdscript GDScript
 
 ```
-    signal hit
+signal hit
 ```
 
 This defines a custom signal called "hit" that we will have our player emit
@@ -262,11 +262,11 @@ this code to the function:
 gdscript GDScript
 
 ```
-    func _on_Player_body_entered(body):
-        hide() # Player disappears after being hit.
-        emit_signal("hit")
-        # Must be deferred as we can't change physics properties on a physics callback.
-        $CollisionShape2D.set_deferred("disabled", true)
+func _on_Player_body_entered(body):
+    hide() # Player disappears after being hit.
+    emit_signal("hit")
+    # Must be deferred as we can't change physics properties on a physics callback.
+    $CollisionShape2D.set_deferred("disabled", true)
 ```
 
 Each time an enemy hits the player, the signal is going to be emitted. We need
@@ -285,10 +285,10 @@ starting a new game.
 gdscript GDScript
 
 ```
-    func start(pos):
-        position = pos
-        show()
-        $CollisionShape2D.disabled = false
+func start(pos):
+    position = pos
+    show()
+    $CollisionShape2D.disabled = false
 ```
 
 With the player working, we'll work on the enemy in the next lesson.

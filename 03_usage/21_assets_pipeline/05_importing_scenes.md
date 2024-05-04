@@ -158,13 +158,13 @@ with the geometry etc.
 Create a script like this:
 
 ```
-    tool # Needed so it runs in the editor.
-    extends EditorScenePostImport
+tool # Needed so it runs in the editor.
+extends EditorScenePostImport
 
 
-    func post_import(scene):
-        # Do your stuff here.
-        return scene # remember to return the imported scene
+func post_import(scene):
+    # Do your stuff here.
+    return scene # remember to return the imported scene
 ```
 
 The `post_import` function takes the imported scene as argument (the
@@ -310,7 +310,7 @@ The script must start with an animation filter statement (as denoted by the line
 ending in `"_Loop"`:
 
 ```
-    @+*_Loop
+@+*_Loop
 ```
 
 Similarly, additional patterns can be added to the same line, separated by commas. Here is a
@@ -318,7 +318,7 @@ modified example to additionally *include* all animations with names that begin 
 but also *exclude* all animations which have names ending in `"Attack"`:
 
 ```
-    @+*_Loop, +Arm_Left*, -*Attack
+@+*_Loop, +Arm_Left*, -*Attack
 ```
 
 Following the animation selection filter statement, we add track filtering patterns to indicate
@@ -335,10 +335,10 @@ tracks affecting a `"Skeleton"` which end in `"Control"`, unless they have `"Arm
 name:
 
 ```
-    @+*_Loop
-    +*
-    -Skeleton:*Control
-    +*Arm*
+@+*_Loop
++*
+-Skeleton:*Control
++*Arm*
 ```
 
 In the above example, tracks like `"Skeleton:Leg_Control"` would be discarded, while tracks such

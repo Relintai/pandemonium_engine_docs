@@ -110,7 +110,7 @@ All physics parameters can be randomized. Random values range from `0` to
 `1`. The formula to randomize a parameter is:
 
 ```
-    initial_value = param_value + param_value * randomness
+initial_value = param_value + param_value * randomness
 ```
 
 ### Fixed FPS

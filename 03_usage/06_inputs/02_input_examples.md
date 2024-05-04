@@ -29,15 +29,15 @@ Examples:
 gdscript GDScript
 
 ```
-    func _input(event):
-        if event.is_action_pressed("jump"):
-            jump()
+func _input(event):
+    if event.is_action_pressed("jump"):
+        jump()
 
 
-    func _physics_process(delta):
-        if Input.is_action_pressed("move_right"):
-            # Move as long as the key/button is pressed.
-            position.x += speed * delta
+func _physics_process(delta):
+    if Input.is_action_pressed("move_right"):
+        # Move as long as the key/button is pressed.
+        position.x += speed * delta
 ```
 
 This gives you the flexibility to mix-and-match the type of input processing
@@ -56,25 +56,25 @@ attach the following script:
 gdscript GDScript
 
 ```
-    extends Node
+extends Node
 
 
-    func _input(event):
-        print(event.as_text())
+func _input(event):
+    print(event.as_text())
 ```
 
 As you press keys, move the mouse, and perform other inputs, you'll see each
 event scroll by in the output window. Here's an example of the output:
 
 ```
-    A
-    InputEventMouseMotion : button_mask=0, position=(108, 108), relative=(26, 1), speed=(164.152496, 159.119843), pressure=(0), tilt=(0, 0)
-    InputEventMouseButton : button_index=BUTTON_LEFT, pressed=true, position=(108, 107), button_mask=1, doubleclick=false
-    InputEventMouseButton : button_index=BUTTON_LEFT, pressed=false, position=(108, 107), button_mask=0, doubleclick=false
-    S
-    F
-    Alt
-    InputEventMouseMotion : button_mask=0, position=(108, 107), relative=(0, -1), speed=(164.152496, 159.119843), pressure=(0), tilt=(0, 0)
+A
+InputEventMouseMotion : button_mask=0, position=(108, 108), relative=(26, 1), speed=(164.152496, 159.119843), pressure=(0), tilt=(0, 0)
+InputEventMouseButton : button_index=BUTTON_LEFT, pressed=true, position=(108, 107), button_mask=1, doubleclick=false
+InputEventMouseButton : button_index=BUTTON_LEFT, pressed=false, position=(108, 107), button_mask=0, doubleclick=false
+S
+F
+Alt
+InputEventMouseMotion : button_mask=0, position=(108, 107), relative=(0, -1), speed=(164.152496, 159.119843), pressure=(0), tilt=(0, 0)
 ```
 
 As you can see, the results are very different for the different types of
@@ -99,9 +99,9 @@ avoid this, make sure to test the event type first:
 gdscript GDScript
 
 ```
-    func _input(event):
-        if event is InputEventMouseButton:
-            print("mouse button event at ", event.position)
+func _input(event):
+    if event is InputEventMouseButton:
+        print("mouse button event at ", event.position)
 ```
 
 ## InputMap
@@ -124,9 +124,9 @@ the action you're looking for:
 gdscript GDScript
 
 ```
-    func _input(event):
-        if event.is_action_pressed("my_action"):
-            print("my_action occurred!")
+func _input(event):
+    if event.is_action_pressed("my_action"):
+        print("my_action occurred!")
 ```
 
 ## Keyboard events
@@ -139,10 +139,10 @@ the :kbd:`T`:
 gdscript GDScript
 
 ```
-    func _input(event):
-        if event is InputEventKey and event.pressed:
-            if event.scancode == KEY_T:
-                print("T was pressed")
+func _input(event):
+    if event is InputEventKey and event.pressed:
+        if event.scancode == KEY_T:
+            print("T was pressed")
 ```
 
 Tip:
@@ -174,13 +174,13 @@ different when it's :kbd:`Shift + T`:
 gdscript GDScript
 
 ```
-    func _input(event):
-        if event is InputEventKey and event.pressed:
-            if event.scancode == KEY_T:
-                if event.shift:
-                    print("Shift+T was pressed")
-                else:
-                    print("T was pressed")
+func _input(event):
+    if event is InputEventKey and event.pressed:
+        if event.scancode == KEY_T:
+            if event.shift:
+                print("Shift+T was pressed")
+            else:
+                print("T was pressed")
 ```
 
 Tip:
@@ -205,12 +205,12 @@ also counts as a button - two buttons, to be precise, with both
 gdscript GDScript
 
 ```
-    func _input(event):
-        if event is InputEventMouseButton:
-            if event.button_index == BUTTON_LEFT and event.pressed:
-                print("Left button was clicked at ", event.position)
-            if event.button_index == BUTTON_WHEEL_UP and event.pressed:
-                print("Wheel up")
+func _input(event):
+    if event is InputEventMouseButton:
+        if event.button_index == BUTTON_LEFT and event.pressed:
+            print("Left button was clicked at ", event.position)
+        if event.button_index == BUTTON_WHEEL_UP and event.pressed:
+            print("Wheel up")
 ```
 
 ### Mouse motion
@@ -225,26 +225,26 @@ node:
 gdscript GDScript
 
 ```
-    extends Node
+extends Node
 
 
-    var dragging = false
-    var click_radius = 32 # Size of the sprite.
+var dragging = false
+var click_radius = 32 # Size of the sprite.
 
 
-    func _input(event):
-        if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-            if (event.position - $Sprite.position).length() (  click_radius:
-                # Start dragging if the click is on the sprite.
-                if not dragging and event.pressed:
-                    dragging = true
-            # Stop dragging if the button is released.
-            if dragging and not event.pressed:
-                dragging = false
+func _input(event):
+    if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+        if (event.position - $Sprite.position).length() (  click_radius:
+            # Start dragging if the click is on the sprite.
+            if not dragging and event.pressed:
+                dragging = true
+        # Stop dragging if the button is released.
+        if dragging and not event.pressed:
+            dragging = false
 
-        if event is InputEventMouseMotion and dragging:
-            # While dragging, move the sprite with the mouse.
-            $Sprite.position = event.position
+    if event is InputEventMouseMotion and dragging:
+        # While dragging, move the sprite with the mouse.
+        $Sprite.position = event.position
 ```
 
 ## Touch events

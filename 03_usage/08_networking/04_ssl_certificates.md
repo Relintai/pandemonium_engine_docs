@@ -58,7 +58,7 @@ If you are using Linux, you can use the supplied certs file, generally
 located in:
 
 ```
-    /etc/ssl/certs/ca-certificates.crt
+/etc/ssl/certs/ca-certificates.crt
 ```
 
 This file allows HTTPS connections to virtually any website (i.e.,

@@ -23,7 +23,7 @@ imported material. In this example it will contain the pure blue color
 
 
 ```
-    0,0,255
+0,0,255
 ```
 
 ## Configuration
@@ -32,35 +32,35 @@ First we need a generic plugin that will handle the initialization and
 destruction of our import plugin. Let's add the `plugin.cfg` file first:
 
 ```
-    [plugin]
+[plugin]
 
-    name="Silly Material Importer"
-    description="Imports a 3D Material from an external text file."
-    author="Yours Truly"
-    version="1.0"
-    script="material_import.gd"
+name="Silly Material Importer"
+description="Imports a 3D Material from an external text file."
+author="Yours Truly"
+version="1.0"
+script="material_import.gd"
 ```
 
 Then we need the `material_import.gd` file to add and remove the import plugin
 when needed:
 
 ```
-    # material_import.gd
-    tool
-    extends EditorPlugin
+# material_import.gd
+tool
+extends EditorPlugin
 
 
-    var import_plugin
+var import_plugin
 
 
-    func _enter_tree():
-        import_plugin = preload("import_plugin.gd").new()
-        add_import_plugin(import_plugin)
+func _enter_tree():
+    import_plugin = preload("import_plugin.gd").new()
+    add_import_plugin(import_plugin)
 
 
-    func _exit_tree():
-        remove_import_plugin(import_plugin)
-        import_plugin = null
+func _exit_tree():
+    remove_import_plugin(import_plugin)
+    import_plugin = null
 ```
 
 When this plugin is activated, it will create a new instance of the import
@@ -86,13 +86,13 @@ with files.
 Let's begin to code our plugin, one method at time:
 
 ```
-    # import_plugin.gd
-    tool
-    extends EditorImportPlugin
+# import_plugin.gd
+tool
+extends EditorImportPlugin
 
 
-    func get_importer_name():
-        return "demos.sillymaterial"
+func get_importer_name():
+    return "demos.sillymaterial"
 ```
 
 The first method is the
@@ -102,8 +102,8 @@ in a certain file. When the files needs to be reimported, the editor will know
 which plugin to call.
 
 ```
-    func get_visible_name():
-        return "Silly Material"
+func get_visible_name():
+    return "Silly Material"
 ```
 
 The `get_visible_name()( EditorImportPlugin_method_get_visible_name )` method is
@@ -115,8 +115,8 @@ Silly Material"*. You can name it whatever you want but we recommend a
 descriptive name for your plugin.
 
 ```
-    func get_recognized_extensions():
-        return ["mtxt"]
+func get_recognized_extensions():
+    return ["mtxt"]
 ```
 
 Pandemonium's import system detects file types by their extension. In the
@@ -132,8 +132,8 @@ Tip:
          importing to validate the data. Never expect the file to be well-formed.
 
 ```
-    func get_save_extension():
-        return "material"
+func get_save_extension():
+    return "material"
 ```
 
 The imported files are saved in the `.import` folder at the project's root.
@@ -148,8 +148,8 @@ resources can use the `res` extension. However, this is not enforced in any
 way by the engine.
 
 ```
-    func get_resource_type():
-        return "SpatialMaterial"
+func get_resource_type():
+    return "SpatialMaterial"
 ```
 
 The imported resource has a specific type, so the editor can know which property
@@ -177,22 +177,22 @@ Since there might be many presets and they are identified with a number, it's a
 good practice to use an enum so you can refer to them using names.
 
 ```
-    tool
-    extends EditorImportPlugin
+tool
+extends EditorImportPlugin
 
 
-    enum Presets { DEFAULT }
+enum Presets { DEFAULT }
 
 
-    ...
+...
 ```
 
 Now that the enum is defined, let's keep looking at the methods of an import
 plugin:
 
 ```
-    func get_preset_count():
-        return Presets.size()
+func get_preset_count():
+    return Presets.size()
 ```
 
 The `get_preset_count()` method
@@ -201,12 +201,12 @@ now, but we can make this method future-proof by returning the size of our
 `Presets` enumeration.
 
 ```
-    func get_preset_name(preset):
-        match preset:
-            Presets.DEFAULT:
-                return "Default"
-            _:
-                return "Unknown"
+func get_preset_name(preset):
+    match preset:
+        Presets.DEFAULT:
+            return "Default"
+        _:
+            return "Unknown"
 ```
 
 
@@ -224,15 +224,15 @@ If you have only one preset you could simply return its name directly, but if
 you do this you have to be careful when you add more presets.
 
 ```
-    func get_import_options(preset):
-        match preset:
-            Presets.DEFAULT:
-                return [{
-                           "name": "use_red_anyway",
-                           "default_value": false
-                        }]
-            _:
-                return []
+func get_import_options(preset):
+    match preset:
+        Presets.DEFAULT:
+            return [{
+                       "name": "use_red_anyway",
+                       "default_value": false
+                    }]
+        _:
+            return []
 ```
 
 This is the method which defines the available options.
@@ -266,8 +266,8 @@ Warning:
              errors.
 
 ```
-    func get_option_visibility(option, options):
-        return true
+func get_option_visibility(option, options):
+    return true
 ```
 
 For the
@@ -285,15 +285,15 @@ resources, is covered by the `import()`
 method. Our sample code is a bit long, so let's split in a few parts:
 
 ```
-    func import(source_file, save_path, options, r_platform_variants, r_gen_files):
-        var file = File.new()
-        var err = file.open(source_file, File.READ)
-        if err != OK:
-            return err
+func import(source_file, save_path, options, r_platform_variants, r_gen_files):
+    var file = File.new()
+    var err = file.open(source_file, File.READ)
+    if err != OK:
+        return err
 
-        var line = file.get_line()
+    var line = file.get_line()
 
-        file.close()
+    file.close()
 ```
 
 The first part of our import method opens and reads the source file. We use the
@@ -304,15 +304,15 @@ If there's an error when opening the file, we return it to let the editor know
 that the import wasn't successful.
 
 ```
-    var channels = line.split(",")
-    if channels.size() != 3:
-        return ERR_PARSE_ERROR
+var channels = line.split(",")
+if channels.size() != 3:
+    return ERR_PARSE_ERROR
 
-    var color
-    if options.use_red_anyway:
-        color = Color8(255, 0, 0)
-    else:
-        color = Color8(int(channels[0]), int(channels[1]), int(channels[2]))
+var color
+if options.use_red_anyway:
+    color = Color8(255, 0, 0)
+else:
+    color = Color8(int(channels[0]), int(channels[1]), int(channels[2]))
 ```
 
 This code takes the line of the file it read before and splits it in pieces
@@ -324,8 +324,8 @@ according to the input file. If the `use_red_anyway` option is enabled, then
 it sets the color as a pure red instead.
 
 ```
-    var material = SpatialMaterial.new()
-    material.albedo_color = color
+var material = SpatialMaterial.new()
+material.albedo_color = color
 ```
 
 This part makes a new `SpatialMaterial` that is the
@@ -333,7 +333,7 @@ imported resource. We create a new instance of it and then set its albedo color
 as the value we got before.
 
 ```
-    return ResourceSaver.save("%s.%s" % [save_path, get_save_extension()], material)
+return ResourceSaver.save("%s.%s" % [save_path, get_save_extension()], material)
 ```
 
 This is the last part and quite an important one, because here we save the made
@@ -367,8 +367,8 @@ For example, let's say we save a different material for a mobile platform. We
 would need to do something like the following:
 
 ```
-    r_platform_variants.push_back("mobile")
-    return ResourceSaver.save("%s.%s.%s" % [save_path, "mobile", get_save_extension()], mobile_material)
+r_platform_variants.push_back("mobile")
+return ResourceSaver.save("%s.%s.%s" % [save_path, "mobile", get_save_extension()], mobile_material)
 ```
 
 The `r_gen_files` argument is meant for extra files that are generated during
@@ -381,14 +381,14 @@ save. As an example, let's create another material for the next pass and save it
 in a different file:
 
 ```
-    var next_pass = SpatialMaterial.new()
-    next_pass.albedo_color = color.inverted()
-    var next_pass_path = "%s.next_pass.%s" % [save_path, get_save_extension()]
+var next_pass = SpatialMaterial.new()
+next_pass.albedo_color = color.inverted()
+var next_pass_path = "%s.next_pass.%s" % [save_path, get_save_extension()]
 
-    err = ResourceSaver.save(next_pass_path, next_pass)
-    if err != OK:
-        return err
-    r_gen_files.push_back(next_pass_path)
+err = ResourceSaver.save(next_pass_path, next_pass)
+if err != OK:
+    return err
+r_gen_files.push_back(next_pass_path)
 ```
 
 ## Trying the plugin

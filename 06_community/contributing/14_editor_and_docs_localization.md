@@ -248,41 +248,41 @@ which also use their own markup syntax to style text, create internal and
 external links, etc. Here are some examples:
 
 ```
-    # "development" is styled bold.
-    # "Have a look here" is a link pointing to https://docs.pandemoniumengine.org/en/latest.
-    # You should translate "Have a look here", but not the URL, unless there is
-    # a matching URL for the same content in your language.
-    # Note: The `, ( , >, and _ characters all have a meaning in the hyperlink
-    # syntax and should be preserved.
+# "development" is styled bold.
+# "Have a look here" is a link pointing to https://docs.pandemoniumengine.org/en/latest.
+# You should translate "Have a look here", but not the URL, unless there is
+# a matching URL for the same content in your language.
+# Note: The `, ( , >, and _ characters all have a meaning in the hyperlink
+# syntax and should be preserved.
 
-    Looking for the documentation of the current **development** branch?
-    `Have a look here ( https://docs.pandemoniumengine.org/en/latest )`.
+Looking for the documentation of the current **development** branch?
+`Have a look here ( https://docs.pandemoniumengine.org/en/latest )`.
 
-    # "|supported|" is an inline reference to an image and should stay unchanged.
-    # "master" uses the markup for inline code, and will be styled as such.
-    # Note: Inline code in RST uses 2 backticks on each side, unlike Markdown.
-    # Single backticks are used for hyperlinks.
+# "|supported|" is an inline reference to an image and should stay unchanged.
+# "master" uses the markup for inline code, and will be styled as such.
+# Note: Inline code in RST uses 2 backticks on each side, unlike Markdown.
+# Single backticks are used for hyperlinks.
 
-    |supported| Backwards-compatible new features (backported from the `master`
-    branch) as well as bug, security, and platform support fixes.
+|supported| Backwards-compatible new features (backported from the `master`
+branch) as well as bug, security, and platform support fixes.
 
-    # The  Sphinx "role" is used for internal references to other pages of
-    # the documentation.
-    # It can be used with only the reference name of a page (which should not be
-    # changed), in which case the title of that page will be displayed:
+# The  Sphinx "role" is used for internal references to other pages of
+# the documentation.
+# It can be used with only the reference name of a page (which should not be
+# changed), in which case the title of that page will be displayed:
 
-    See `doc_ways_to_contribute`.
+See `doc_ways_to_contribute`.
 
-    # Or it can be used with an optional custom title, which should thus be translated:
+# Or it can be used with an optional custom title, which should thus be translated:
 
-    See `how to contribute ( doc_ways_to_contribute )`.
+See `how to contribute ( doc_ways_to_contribute )`.
 
-    # You may encounter other Sphinx roles, such as :kbd: used for shortcut keys.
-    # You can translate the content between backticks to match the usual key names,
-    # if it's different from the English one.
+# You may encounter other Sphinx roles, such as :kbd: used for shortcut keys.
+# You can translate the content between backticks to match the usual key names,
+# if it's different from the English one.
 
-    Save the scene. Click Scene -> Save, or press :kbd:`Ctrl + S` on Windows/Linux
-    or :kbd:`Cmd + S` on macOS.
+Save the scene. Click Scene -> Save, or press :kbd:`Ctrl + S` on Windows/Linux
+or :kbd:`Cmd + S` on macOS.
 ```
 
 See also:
@@ -305,11 +305,11 @@ class (e.g. `[Node2D]`) or to a property in a given class (e.g.
 `[member Node2D.position]`), or for multiline code blocks. Example:
 
 ```
-    Returns a color according to the standardized [code]name[/code] with [code]alpha[/code] ranging from 0 to 1.
-    [codeblock]
-    red = ColorN("red", 1)
-    [/codeblock]
-    Supported color names are the same as the constants defined in [Color].
+Returns a color according to the standardized [code]name[/code] with [code]alpha[/code] ranging from 0 to 1.
+[codeblock]
+red = ColorN("red", 1)
+[/codeblock]
+Supported color names are the same as the constants defined in [Color].
 ```
 
 In the above example, `[code]name[/code]`, `[code]alpha[/code]`, and

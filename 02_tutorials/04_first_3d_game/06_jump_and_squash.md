@@ -107,9 +107,9 @@ the `jump_impulse`.
 gdscript GDScript
 
 ```
-   #...
-   # Vertical impulse applied to the character upon jumping in meters per second.
-   export var jump_impulse = 20
+#...
+# Vertical impulse applied to the character upon jumping in meters per second.
+export var jump_impulse = 20
 ```
 
 Inside `physics_process()`, add the following code before the line where we
@@ -118,14 +118,14 @@ called `move_and_slide()`.
 gdscript GDScript
 
 ```
-   func _physics_process(delta):
-       #...
+func _physics_process(delta):
+    #...
 
-       # Jumping.
-       if is_on_floor() and Input.is_action_just_pressed("jump"):
-           velocity.y += jump_impulse
+    # Jumping.
+    if is_on_floor() and Input.is_action_just_pressed("jump"):
+        velocity.y += jump_impulse
 
-       #...
+    #...
 ```
 
 That's all you need to jump!
@@ -181,9 +181,9 @@ when jumping.
 gdscript GDScript
 
 ```
-   # Vertical impulse applied to the character upon bouncing over a mob in
-   # meters per second.
-   export var bounce_impulse = 16
+# Vertical impulse applied to the character upon bouncing over a mob in
+# meters per second.
+export var bounce_impulse = 16
 ```
 
 Then, at the bottom of `physics_process()`, add the following loop. With
@@ -199,19 +199,19 @@ With this code, if no collisions occurred on a given frame, the loop won't run.
 gdscript GDScript
 
 ```
-   func _physics_process(delta):
-       #...
-       for index in range(get_slide_count()):
-           # We check every collision that occurred this frame.
-           var collision = get_slide_collision(index)
-           # If we collide with a monster...
-           if collision.collider.is_in_group("mob"):
-               var mob = collision.collider
-               # ...we check that we are hitting it from above.
-               if Vector3.UP.dot(collision.normal) > 0.1:
-                   # If so, we squash it and bounce.
-                   mob.squash()
-                   velocity.y = bounce_impulse
+func _physics_process(delta):
+    #...
+    for index in range(get_slide_count()):
+        # We check every collision that occurred this frame.
+        var collision = get_slide_collision(index)
+        # If we collide with a monster...
+        if collision.collider.is_in_group("mob"):
+            var mob = collision.collider
+            # ...we check that we are hitting it from above.
+            if Vector3.UP.dot(collision.normal) > 0.1:
+                # If so, we squash it and bounce.
+                mob.squash()
+                velocity.y = bounce_impulse
 ```
 
  That's a lot of new functions. Here's some more information about them.
@@ -251,15 +251,15 @@ destroy the mob.
 gdscript GDScript
 
 ```
-   # Emitted when the player jumped on the mob.
-   signal squashed
+# Emitted when the player jumped on the mob.
+signal squashed
 
-   # ...
+# ...
 
 
-   func squash():
-       emit_signal("squashed")
-       queue_free()
+func squash():
+    emit_signal("squashed")
+    queue_free()
 ```
 
 We will use the signal to add points to the score in the next lesson.

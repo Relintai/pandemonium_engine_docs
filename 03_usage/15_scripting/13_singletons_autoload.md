@@ -75,8 +75,8 @@ This means that any node can access a singleton named "PlayerVariables" with:
 gdscript GDScript
 
 ```
-   var player_vars = get_node("/root/PlayerVariables")
-   player_vars.health -= 10
+var player_vars = get_node("/root/PlayerVariables")
+player_vars.health -= 10
 ```
 
 If the **Enable** column is checked (which is the default), then the singleton can
@@ -85,7 +85,7 @@ be accessed directly without requiring `get_node()`:
 gdscript GDScript
 
 ```
-   PlayerVariables.health -= 10
+PlayerVariables.health -= 10
 ```
 
 Note that autoload objects (scripts and/or scenes) are accessed just like any
@@ -140,13 +140,13 @@ means that the last child of root is always the loaded scene.
 gdscript GDScript
 
 ```
-    extends Node
+extends Node
 
-    var current_scene = null
+var current_scene = null
 
-    func _ready():
-        var root = get_tree().root
-        current_scene = root.get_child(root.get_child_count() - 1)
+func _ready():
+    var root = get_tree().root
+    current_scene = root.get_child(root.get_child_count() - 1)
 ```
 
 Now we need a function for changing the scene. This function needs to free the
@@ -155,34 +155,34 @@ current scene and replace it with the requested one.
 gdscript GDScript
 
 ```
-    func goto_scene(path):
-        # This function will usually be called from a signal callback,
-        # or some other function in the current scene.
-        # Deleting the current scene at this point is
-        # a bad idea, because it may still be executing code.
-        # This will result in a crash or unexpected behavior.
+func goto_scene(path):
+    # This function will usually be called from a signal callback,
+    # or some other function in the current scene.
+    # Deleting the current scene at this point is
+    # a bad idea, because it may still be executing code.
+    # This will result in a crash or unexpected behavior.
 
-        # The solution is to defer the load to a later time, when
-        # we can be sure that no code from the current scene is running:
+    # The solution is to defer the load to a later time, when
+    # we can be sure that no code from the current scene is running:
 
-        call_deferred("_deferred_goto_scene", path)
+    call_deferred("_deferred_goto_scene", path)
 
 
-    func _deferred_goto_scene(path):
-        # It is now safe to remove the current scene
-        current_scene.free()
+func _deferred_goto_scene(path):
+    # It is now safe to remove the current scene
+    current_scene.free()
 
-        # Load the new scene.
-        var s = ResourceLoader.load(path)
+    # Load the new scene.
+    var s = ResourceLoader.load(path)
 
-        # Instance the new scene.
-        current_scene = s.instance()
+    # Instance the new scene.
+    current_scene = s.instance()
 
-        # Add it to the active scene, as child of root.
-        get_tree().root.add_child(current_scene)
+    # Add it to the active scene, as child of root.
+    get_tree().root.add_child(current_scene)
 
-        # Optionally, to make it compatible with the SceneTree.change_scene() API.
-        get_tree().current_scene = current_scene
+    # Optionally, to make it compatible with the SceneTree.change_scene() API.
+    get_tree().current_scene = current_scene
 ```
 
 Using `Object.call_deferred()`,
@@ -195,10 +195,10 @@ Finally, we need to fill the empty callback functions in the two scenes:
 gdscript GDScript
 
 ```
-    # Add to 'Scene1.gd'.
+# Add to 'Scene1.gd'.
 
-    func _on_Button_pressed():
-        Global.goto_scene("res://Scene2.tscn")
+func _on_Button_pressed():
+    Global.goto_scene("res://Scene2.tscn")
 ```
 
 and
@@ -206,10 +206,10 @@ and
 gdscript GDScript
 
 ```
-    # Add to 'Scene2.gd'.
+# Add to 'Scene2.gd'.
 
-    func _on_Button_pressed():
-        Global.goto_scene("res://Scene1.tscn")
+func _on_Button_pressed():
+    Global.goto_scene("res://Scene1.tscn")
 ```
 
 Run the project and test that you can switch between scenes by pressing

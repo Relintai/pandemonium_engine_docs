@@ -15,7 +15,7 @@ For instance, you can use the open source `Inkscape ( https://inkscape.org/ )` e
 Clone the `pandemonium` repository containing all the editor icons:
 
 ```
-    git clone https://github.com/Relintai/pandemonium_engine.git
+git clone https://github.com/Relintai/pandemonium_engine.git
 ```
 
 The icons must be created in a vector graphics editor in SVG format. There are
@@ -55,7 +55,7 @@ optimized before being added to the engine, to do so:
    SVG file (which can be a relative or absolute path):
 
 ```
-       svgcleaner --multipass svg_source.svg svg_optimized.svg
+svgcleaner --multipass svg_source.svg svg_optimized.svg
 ```
 
 The `--multipass` switch improves compression, so make sure to include it.

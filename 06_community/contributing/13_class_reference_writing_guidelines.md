@@ -13,50 +13,50 @@ See also:
 The reference for each class is contained in an XML file like the one below:
 
 ```
-    <class name="Node2D" inherits="CanvasItem" version="4.0">
-        <brief_description>
-            A 2D game object, inherited by all 2D-related nodes. Has a position, rotation, scale, and Z index.
-        </brief_description>
-        <description>
-            A 2D game object, with a transform (position, rotation, and scale). All 2D nodes, including physics objects and sprites, inherit from Node2D. Use Node2D as a parent node to move, scale and rotate children in a 2D project. Also gives control of the node's render order.
-        </description>
-        <tutorials>
-            <link title="Custom drawing in 2D">https://docs.pandemoniumengine.org/en/latest/tutorials/2d/custom_drawing_in_2d.html</link>
-            <link title="All 2D Demos">https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d</link>
-        </tutorials>
-        <methods>
-            <method name="apply_scale">
-                <return type="void">
-                </return>
-                <argument index="0" name="ratio" type="Vector2">
-                </argument>
-                <description>
-                    Multiplies the current scale by the [code]ratio[/code] vector.
-                </description>
-            </method>
-            [...]
-            <method name="translate">
-                <return type="void">
-                </return>
-                <argument index="0" name="offset" type="Vector2">
-                </argument>
-                <description>
-                    Translates the node by the given [code]offset[/code] in local coordinates.
-                </description>
-            </method>
-        </methods>
-        <members>
-            <member name="global_position" type="Vector2" setter="set_global_position" getter="get_global_position">
-                Global position.
-            </member>
-            [...]
-            <member name="z_index" type="int" setter="set_z_index" getter="get_z_index" default="0">
-                Z index. Controls the order in which the nodes render. A node with a higher Z index will display in front of others.
-            </member>
-        </members>
-        <constants>
-        </constants>
-    </class>
+<class name="Node2D" inherits="CanvasItem" version="4.0">
+    <brief_description>
+        A 2D game object, inherited by all 2D-related nodes. Has a position, rotation, scale, and Z index.
+    </brief_description>
+    <description>
+        A 2D game object, with a transform (position, rotation, and scale). All 2D nodes, including physics objects and sprites, inherit from Node2D. Use Node2D as a parent node to move, scale and rotate children in a 2D project. Also gives control of the node's render order.
+    </description>
+    <tutorials>
+        <link title="Custom drawing in 2D">https://docs.pandemoniumengine.org/en/latest/tutorials/2d/custom_drawing_in_2d.html</link>
+        <link title="All 2D Demos">https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d</link>
+    </tutorials>
+    <methods>
+        <method name="apply_scale">
+            <return type="void">
+            </return>
+            <argument index="0" name="ratio" type="Vector2">
+            </argument>
+            <description>
+                Multiplies the current scale by the [code]ratio[/code] vector.
+            </description>
+        </method>
+        [...]
+        <method name="translate">
+            <return type="void">
+            </return>
+            <argument index="0" name="offset" type="Vector2">
+            </argument>
+            <description>
+                Translates the node by the given [code]offset[/code] in local coordinates.
+            </description>
+        </method>
+    </methods>
+    <members>
+        <member name="global_position" type="Vector2" setter="set_global_position" getter="get_global_position">
+            Global position.
+        </member>
+        [...]
+        <member name="z_index" type="int" setter="set_z_index" getter="get_z_index" default="0">
+            Z index. Controls the order in which the nodes render. A node with a higher Z index will display in front of others.
+        </member>
+    </members>
+    <constants>
+    </constants>
+</class>
 ```
 
 It starts with brief and long descriptions. In the generated docs, the brief
@@ -139,19 +139,19 @@ always use **four spaces** for indentation. The parser will delete tabs. For
 example:
 
 ```
-    [codeblock]
-    func _ready():
-        var sprite = get_node("Sprite")
-        print(sprite.get_pos())
-    [/codeblock]
+[codeblock]
+func _ready():
+    var sprite = get_node("Sprite")
+    print(sprite.get_pos())
+[/codeblock]
 ```
 
 Will display as:
 
 ```
-    func _ready():
-        var sprite = get_node("Sprite")
-        print(sprite.get_pos())
+func _ready():
+    var sprite = get_node("Sprite")
+    print(sprite.get_pos())
 ```
 
 If you need to have different code version in GDScript and C#, use
@@ -163,36 +163,36 @@ translation tool ( https://github.com/HaSa1002/codetranslator )` to speed up you
 workflow.
 
 ```
-    [codeblocks]
-    [gdscript]
-    func _ready():
-        var sprite = get_node("Sprite")
-        print(sprite.get_pos())
-    [/gdscript]
-    [csharp]
-    public override void _Ready()
-    {
-        var sprite = GetNode("Sprite");
-        GD.Print(sprite.GetPos());
-    }
-    [/csharp]
-    [/codeblocks]
+[codeblocks]
+[gdscript]
+func _ready():
+    var sprite = get_node("Sprite")
+    print(sprite.get_pos())
+[/gdscript]
+[csharp]
+public override void _Ready()
+{
+    var sprite = GetNode("Sprite");
+    GD.Print(sprite.GetPos());
+}
+[/csharp]
+[/codeblocks]
 ```
 
 The above will display as:
 
 gdscript GDScript
 ```
-    func _ready():
-        var sprite = get_node("Sprite")
-        print(sprite.get_pos())
+func _ready():
+    var sprite = get_node("Sprite")
+    print(sprite.get_pos())
 ```
 
 To denote important information, add a paragraph starting with "[b]Note:[/b]" at
 the end of the description:
 
 ```
-    [b]Note:[/b] Only available when using the Vulkan renderer.
+[b]Note:[/b] Only available when using the Vulkan renderer.
 ```
 
 To denote crucial information that could cause security issues or loss of data
@@ -200,14 +200,14 @@ if not followed carefully, add a paragraph starting with "[b]Warning:[/b]" at
 the end of the description:
 
 ```
-    [b]Warning:[/b] If this property is set to [code]true[/code], it allows clients to execute arbitrary code on the server.
+[b]Warning:[/b] If this property is set to [code]true[/code], it allows clients to execute arbitrary code on the server.
 ```
 
 For deprecated properties, add a paragraph starting with "[i]Deprecated.[/i]".
 Notice the use of italics instead of bold:
 
 ```
-    [i]Deprecated.[/i] This property has been replaced by [member other_property].
+[i]Deprecated.[/i] This property has been replaced by [member other_property].
 ```
 
 In all the paragraphs described above, make sure the punctuation is part of the

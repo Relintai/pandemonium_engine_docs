@@ -55,47 +55,47 @@ For static use an array of `vertices` is required.
 GDScript
 
 ```
-    # For 2D
+# For 2D
 
-    # create a new "obstacle" and place it on the default navigation map.
-    var new_obstacle_rid: RID = NavigationServer2D.obstacle_create()
-    var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
+# create a new "obstacle" and place it on the default navigation map.
+var new_obstacle_rid: RID = NavigationServer2D.obstacle_create()
+var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
 
-    NavigationServer2D.obstacle_set_map(new_obstacle_rid, default_2d_map_rid)
-    NavigationServer2D.obstacle_set_position(new_obstacle_rid, global_position)
+NavigationServer2D.obstacle_set_map(new_obstacle_rid, default_2d_map_rid)
+NavigationServer2D.obstacle_set_position(new_obstacle_rid, global_position)
 
-    # Use obstacle dynamic by increasing radius above zero.
-    NavigationServer2D.obstacle_set_radius(new_obstacle_rid, 5.0)
+# Use obstacle dynamic by increasing radius above zero.
+NavigationServer2D.obstacle_set_radius(new_obstacle_rid, 5.0)
 
-    # Use obstacle static by adding a square that pushes agents out.
-    var outline = PackedVector2Array([Vector2(-100, -100), Vector2(100, -100), Vector2(100, 100), Vector2(-100, 100)])
-    NavigationServer2D.obstacle_set_vertices(new_obstacle_rid, outline)
+# Use obstacle static by adding a square that pushes agents out.
+var outline = PackedVector2Array([Vector2(-100, -100), Vector2(100, -100), Vector2(100, 100), Vector2(-100, 100)])
+NavigationServer2D.obstacle_set_vertices(new_obstacle_rid, outline)
 
-    # Enable the obstacle.
-    NavigationServer2D.obstacle_set_avoidance_enabled(new_obstacle_rid, true)
+# Enable the obstacle.
+NavigationServer2D.obstacle_set_avoidance_enabled(new_obstacle_rid, true)
 ```
 
 GDScript
 
 ```
-    # For 3D
+# For 3D
 
-    # Create a new "obstacle" and place it on the default navigation map.
-    var new_obstacle_rid: RID = NavigationServer3D.obstacle_create()
-    var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
+# Create a new "obstacle" and place it on the default navigation map.
+var new_obstacle_rid: RID = NavigationServer3D.obstacle_create()
+var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
 
-    NavigationServer3D.obstacle_set_map(new_obstacle_rid, default_3d_map_rid)
-    NavigationServer3D.obstacle_set_position(new_obstacle_rid, global_position)
+NavigationServer3D.obstacle_set_map(new_obstacle_rid, default_3d_map_rid)
+NavigationServer3D.obstacle_set_position(new_obstacle_rid, global_position)
 
-    # Use obstacle dynamic by increasing radius above zero.
-    NavigationServer3D.obstacle_set_radius(new_obstacle_rid, 0.5)
+# Use obstacle dynamic by increasing radius above zero.
+NavigationServer3D.obstacle_set_radius(new_obstacle_rid, 0.5)
 
-    # Use obstacle static by adding a square that pushes agents out.
-    var outline = PackedVector3Array([Vector3(-5, 0, -5), Vector3(5, 0, -5), Vector3(5, 0, 5), Vector3(-5, 0, 5)])
-    NavigationServer3D.obstacle_set_vertices(new_obstacle_rid, outline)
-    # Set the obstacle height on the y-axis.
-    NavigationServer3D.obstacle_set_height(new_obstacle_rid, 1.0)
+# Use obstacle static by adding a square that pushes agents out.
+var outline = PackedVector3Array([Vector3(-5, 0, -5), Vector3(5, 0, -5), Vector3(5, 0, 5), Vector3(-5, 0, 5)])
+NavigationServer3D.obstacle_set_vertices(new_obstacle_rid, outline)
+# Set the obstacle height on the y-axis.
+NavigationServer3D.obstacle_set_height(new_obstacle_rid, 1.0)
 
-    # Enable the obstacle.
-    NavigationServer3D.obstacle_set_avoidance_enabled(new_obstacle_rid, true)
+# Enable the obstacle.
+NavigationServer3D.obstacle_set_avoidance_enabled(new_obstacle_rid, true)
 ```

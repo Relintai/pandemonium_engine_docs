@@ -105,7 +105,7 @@ type of shader they are. We set the variable `shader_type` to `spatial`
 because this is a spatial shader.
 
 ```
-  shader_type spatial;
+shader_type spatial;
 ```
 
 Next we will define the `vertex()` function. The `vertex()` function
@@ -116,18 +116,18 @@ make our flat plane appear like a little terrain.
 We define the vertex shader like so:
 
 ```
-  void vertex() {
+void vertex() {
 
-  }
+}
 ```
 
 With nothing in the `vertex()` function, Pandemonium will use its default vertex
 shader. We can easily start to make changes by adding a single line:
 
 ```
-  void vertex() {
-    VERTEX.y += cos(VERTEX.x) * sin(VERTEX.z);
-  }
+void vertex() {
+  VERTEX.y += cos(VERTEX.x) * sin(VERTEX.z);
+}
 ```
 
 Adding this line, you should get an image like the one below.
@@ -144,9 +144,9 @@ What we want to achieve is the look of little hills; after all. `cos` and
 `cos` and `sin` functions.
 
 ```
-  void vertex() {
-    VERTEX.y += cos(VERTEX.x * 4.0) * sin(VERTEX.z * 4.0);
-  }
+void vertex() {
+  VERTEX.y += cos(VERTEX.x * 4.0) * sin(VERTEX.z * 4.0);
+}
 ```
 
 ![](img/cos4.png)
@@ -167,7 +167,7 @@ To access a texture in a shader add the following code near the top of your
 shader, outside the `vertex()` function.
 
 ```
-  uniform sampler2D noise;
+uniform sampler2D noise;
 ```
 
 This will allow you to send a noise texture to the shader. Now look in the
@@ -197,8 +197,8 @@ values are the same, so we can use any one of the channels as the height. In
 this case we'll use the `r`, or `x` channel.
 
 ```
-  float height = texture(noise, VERTEX.xz / 2.0 + 0.5).x;
-  VERTEX.y += height;
+float height = texture(noise, VERTEX.xz / 2.0 + 0.5).x;
+VERTEX.y += height;
 ```
 
 Note: `xyzw` is the same as `rgba` in GLSL, so instead of `texture().x`
@@ -224,7 +224,7 @@ that can be used in the shader. To use a uniform, you declare it in your
 Let's make a uniform that changes the height of the terrain.
 
 ```
-  uniform float height_scale = 0.5;
+uniform float height_scale = 0.5;
 ```
 
 
@@ -235,8 +235,8 @@ passed from GDScript takes precedence over the value used to initialize it in
 the shader.
 
 ```
-  # called from the MeshInstance
-  mesh.material.set_shader_param("height_scale", 0.5)
+# called from the MeshInstance
+mesh.material.set_shader_param("height_scale", 0.5)
 ```
 
 Note:
@@ -253,7 +253,7 @@ uniform variable anywhere inside your `Shader( Shader )`. Here, we will
 use it to set the height value instead of arbitrarily multiplying by `0.5`.
 
 ```
-  VERTEX.y += height * height_scale;
+VERTEX.y += height * height_scale;
 ```
 
 Now it looks  much better.
@@ -297,7 +297,7 @@ Instead we will rely on the NoiseTexture again to calculate normals for us. We
 do that by passing in a second noise texture.
 
 ```
-  uniform sampler2D normalmap;
+uniform sampler2D normalmap;
 ```
 
 Set this second uniform texture to another NoiseTexture with another
@@ -310,8 +310,8 @@ assign it in the `fragment()` function. The `fragment()` function will be
 explained in more detail in the next part of this tutorial.
 
 ```
-  void fragment() {
-  }
+void fragment() {
+}
 ```
 
 When we have normals that correspond to a specific vertex we set `NORMAL`, but
@@ -328,22 +328,22 @@ Above the `vertex()` define a `vec2` called `tex_position`. And inside the
 `vertex()` function assign `VERTEX.xz` to `tex_position`.
 
 ```
-  varying vec2 tex_position;
+varying vec2 tex_position;
 
-  void vertex() {
-    ...
-    tex_position = VERTEX.xz / 2.0 + 0.5;
-    float height = texture(noise, tex_position).x;
-    ...
-  }
+void vertex() {
+  ...
+  tex_position = VERTEX.xz / 2.0 + 0.5;
+  float height = texture(noise, tex_position).x;
+  ...
+}
 ```
 
 And now we can access `tex_position` from the `fragment()` function.
 
 ```
-  void fragment() {
-    NORMALMAP = texture(normalmap, tex_position).xyz;
-  }
+void fragment() {
+  NORMALMAP = texture(normalmap, tex_position).xyz;
+}
 ```
 
 With the normals in place the light now reacts to the height of the mesh
@@ -359,23 +359,23 @@ Here is the full code for this tutorial. You can see it is not very long as
 Pandemonium handles most of the difficult stuff for you.
 
 ```
-  shader_type spatial;
+shader_type spatial;
 
-  uniform float height_scale = 0.5;
-  uniform sampler2D noise;
-  uniform sampler2D normalmap;
+uniform float height_scale = 0.5;
+uniform sampler2D noise;
+uniform sampler2D normalmap;
 
-  varying vec2 tex_position;
+varying vec2 tex_position;
 
-  void vertex() {
-    tex_position = VERTEX.xz / 2.0 + 0.5;
-    float height = texture(noise, tex_position).x;
-    VERTEX.y += height * height_scale;
-  }
+void vertex() {
+  tex_position = VERTEX.xz / 2.0 + 0.5;
+  float height = texture(noise, tex_position).x;
+  VERTEX.y += height * height_scale;
+}
 
-  void fragment() {
-    NORMALMAP = texture(normalmap, tex_position).xyz;
-  }
+void fragment() {
+  NORMALMAP = texture(normalmap, tex_position).xyz;
+}
 ```
 
 That is everything for this part. Hopefully, you now understand the basics of

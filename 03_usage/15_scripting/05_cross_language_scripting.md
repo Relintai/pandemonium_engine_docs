@@ -12,24 +12,24 @@ The following two scripts will be used as references throughout this page.
 gdscript GDScript
 
 ```
-    extends Node
+extends Node
 
-    var str1 : String = "foo"
-    var str2 : String setget ,get_str2
+var str1 : String = "foo"
+var str2 : String setget ,get_str2
 
-    func get_str2() -> String:
-        return "foofoo"
+func get_str2() -> String:
+    return "foofoo"
 
-    func print_node_name(node : Node) -> void:
-        print(node.get_name())
+func print_node_name(node : Node) -> void:
+    print(node.get_name())
 
-    func print_array(arr : Array) -> void:
-        for element in arr:
-            print(element)
+func print_array(arr : Array) -> void:
+    for element in arr:
+        print(element)
 
-    func print_n_times(msg : String, n : int) -> void:
-        for i in range(n):
-            print(msg)
+func print_n_times(msg : String, n : int) -> void:
+    for i in range(n):
+        print(msg)
 ```
 
 ## Instantiating nodes
@@ -44,9 +44,9 @@ Using C# from GDScript doesn't need much work. Once loaded
 with `new()`.
 
 ```
-    var my_csharp_script = load("res://path_to_cs_file.cs")
-    var my_csharp_node = my_csharp_script.new()
-    print(my_csharp_node.str2) # barbar
+var my_csharp_script = load("res://path_to_cs_file.cs")
+var my_csharp_node = my_csharp_script.new()
+print(my_csharp_node.str2) # barbar
 ```
 
 Warning:
@@ -68,8 +68,8 @@ From the C# side, everything work the same way. Once loaded, the GDScript can
 be instantiated with `GDScript.New()`.
 
 ```
-    GDScript MyGDScript = (GDScript) GD.Load("res://path_to_gd_file.gd");
-    Object myGDScriptNode = (Pandemonium.Object) MyGDScript.New(); // This is a Pandemonium.Object
+GDScript MyGDScript = (GDScript) GD.Load("res://path_to_gd_file.gd");
+Object myGDScriptNode = (Pandemonium.Object) MyGDScript.New(); // This is a Pandemonium.Object
 ```
 
 Here we are using an `Object`, but you can use type conversion like
@@ -83,12 +83,12 @@ Accessing C# fields from GDScript is straightforward, you shouldn't have
 anything to worry about.
 
 ```
-    print(my_csharp_node.str1) # bar
-    my_csharp_node.str1 = "BAR"
-    print(my_csharp_node.str1) # BAR
+print(my_csharp_node.str1) # bar
+my_csharp_node.str1 = "BAR"
+print(my_csharp_node.str1) # BAR
 
-    print(my_csharp_node.str2) # barbar
-    # my_csharp_node.str2 = "BARBAR" # This line will hang and crash
+print(my_csharp_node.str2) # barbar
+# my_csharp_node.str2 = "BARBAR" # This line will hang and crash
 ```
 
 Note that it doesn't matter if the field is defined as a property or an
@@ -102,12 +102,12 @@ convoluted, you will have to use `Object.Get()`
 and `Object.Set()`. The first argument is the name of the field you want to access.
 
 ```
-    GD.Print(myGDScriptNode.Get("str1")); // foo
-    myGDScriptNode.Set("str1", "FOO");
-    GD.Print(myGDScriptNode.Get("str1")); // FOO
+GD.Print(myGDScriptNode.Get("str1")); // foo
+myGDScriptNode.Set("str1", "FOO");
+GD.Print(myGDScriptNode.Get("str1")); // FOO
 
-    GD.Print(myGDScriptNode.Get("str2")); // foofoo
-    // myGDScriptNode.Set("str2", "FOOFOO"); // This line won't do anything
+GD.Print(myGDScriptNode.Get("str2")); // foofoo
+// myGDScriptNode.Set("str2", "FOOFOO"); // This line won't do anything
 ```
 
 Keep in mind that when setting a field value you should only use types the
@@ -170,3 +170,4 @@ inherit from a GDScript file. Due to how complex this would be to implement,
 this limitation is unlikely to be lifted in the future. See
 `this GitHub issue ( https://github.com/Relintai/pandemonium_engine/issues/38352 )`
 for more information.
+```

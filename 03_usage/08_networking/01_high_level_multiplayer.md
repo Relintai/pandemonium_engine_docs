@@ -81,35 +81,35 @@ To create that object, it first has to be initialized as a server or client.
 Initializing as a server, listening on the given port, with a given maximum number of peers:
 
 ```
-    var peer = NetworkedMultiplayerENet.new()
-    peer.create_server(SERVER_PORT, MAX_PLAYERS)
-    get_tree().network_peer = peer
+var peer = NetworkedMultiplayerENet.new()
+peer.create_server(SERVER_PORT, MAX_PLAYERS)
+get_tree().network_peer = peer
 ```
 
 Initializing as a client, connecting to a given IP and port:
 
 ```
-    var peer = NetworkedMultiplayerENet.new()
-    peer.create_client(SERVER_IP, SERVER_PORT)
-    get_tree().network_peer = peer
+var peer = NetworkedMultiplayerENet.new()
+peer.create_client(SERVER_IP, SERVER_PORT)
+get_tree().network_peer = peer
 ```
 
 Get the previously set network peer:
 
 ```
-    get_tree().get_network_peer()
+get_tree().get_network_peer()
 ```
 
 Checking whether the tree is initialized as a server or client:
 
 ```
-    get_tree().is_network_server()
+get_tree().is_network_server()
 ```
 
 Terminating the networking feature:
 
 ```
-    get_tree().network_peer = null
+get_tree().network_peer = null
 ```
 
 (Although it may make sense to send a message first to let the other peers know you're going away instead of letting the connection close or timeout, depending on your game.)
@@ -183,53 +183,53 @@ There is also `SceneTree.get_rpc_sender_id()`, which can be used to check which 
 Let's get back to the lobby. Imagine that each player that connects to the server will tell everyone about it.
 
 ```
-    # Typical lobby implementation; imagine this being in /root/lobby.
+# Typical lobby implementation; imagine this being in /root/lobby.
 
-    extends Node
+extends Node
 
-    # Connect all functions
+# Connect all functions
 
-    func _ready():
-        get_tree().connect("network_peer_connected", self, "_player_connected")
-        get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-        get_tree().connect("connected_to_server", self, "_connected_ok")
-        get_tree().connect("connection_failed", self, "_connected_fail")
-        get_tree().connect("server_disconnected", self, "_server_disconnected")
+func _ready():
+    get_tree().connect("network_peer_connected", self, "_player_connected")
+    get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
+    get_tree().connect("connected_to_server", self, "_connected_ok")
+    get_tree().connect("connection_failed", self, "_connected_fail")
+    get_tree().connect("server_disconnected", self, "_server_disconnected")
 
-    # Player info, associate ID to data
-    var player_info = {}
-    # Info we send to other players
-    var my_info = { name = "Johnson Magenta", favorite_color = Color8(255, 0, 255) }
+# Player info, associate ID to data
+var player_info = {}
+# Info we send to other players
+var my_info = { name = "Johnson Magenta", favorite_color = Color8(255, 0, 255) }
 
-    func _player_connected(id):
-        # Called on both clients and server when a peer connects. Send my info to it.
-        rpc_id(id, "register_player", my_info)
+func _player_connected(id):
+    # Called on both clients and server when a peer connects. Send my info to it.
+    rpc_id(id, "register_player", my_info)
 
-    func _player_disconnected(id):
-        player_info.erase(id) # Erase player from info.
+func _player_disconnected(id):
+    player_info.erase(id) # Erase player from info.
 
-    func _connected_ok():
-        pass # Only called on clients, not server. Will go unused; not useful here.
+func _connected_ok():
+    pass # Only called on clients, not server. Will go unused; not useful here.
 
-    func _server_disconnected():
-        pass # Server kicked us; show error and abort.
+func _server_disconnected():
+    pass # Server kicked us; show error and abort.
 
-    func _connected_fail():
-        pass # Could not even connect to server; abort.
+func _connected_fail():
+    pass # Could not even connect to server; abort.
 
-    remote func register_player(info):
-        # Get the id of the RPC sender.
-        var id = get_tree().get_rpc_sender_id()
-        # Store the info
-        player_info[id] = info
+remote func register_player(info):
+    # Get the id of the RPC sender.
+    var id = get_tree().get_rpc_sender_id()
+    # Store the info
+    player_info[id] = info
 
-        # Call function to update lobby UI here
+    # Call function to update lobby UI here
 ```
 
 You might have already noticed something different, which is the usage of the `remote` keyword on the `register_player` function:
 
 ```
-    remote func register_player(info):
+remote func register_player(info):
 ```
 
 This keyword is one of many that allow a function to be called by a remote procedure call (RPC). There are six of them total:
@@ -254,8 +254,8 @@ The `master` keyword means a call can be made from any network puppet to the net
 If `sync` is included, the call can also be made locally. For example, to allow the network master to change the player's position on all peers:
 
 ```
-    puppetsync func update_position(new_position):
-        position = new_position
+puppetsync func update_position(new_position):
+    position = new_position
 ```
 
 Tip:
@@ -284,29 +284,29 @@ The solution is to simply name the *root nodes of the instanced player scenes as
 every peer and RPC will work great! Here is an example:
 
 ```
-    remote func pre_configure_game():
-        var selfPeerID = get_tree().get_network_unique_id()
+remote func pre_configure_game():
+    var selfPeerID = get_tree().get_network_unique_id()
 
-        # Load world
-        var world = load(which_level).instance()
-        get_node("/root").add_child(world)
+    # Load world
+    var world = load(which_level).instance()
+    get_node("/root").add_child(world)
 
-        # Load my player
-        var my_player = preload("res://player.tscn").instance()
-        my_player.set_name(str(selfPeerID))
-        my_player.set_network_master(selfPeerID) # Will be explained later
-        get_node("/root/world/players").add_child(my_player)
+    # Load my player
+    var my_player = preload("res://player.tscn").instance()
+    my_player.set_name(str(selfPeerID))
+    my_player.set_network_master(selfPeerID) # Will be explained later
+    get_node("/root/world/players").add_child(my_player)
 
-        # Load other players
-        for p in player_info:
-            var player = preload("res://player.tscn").instance()
-            player.set_name(str(p))
-            player.set_network_master(p) # Will be explained later
-            get_node("/root/world/players").add_child(player)
+    # Load other players
+    for p in player_info:
+        var player = preload("res://player.tscn").instance()
+        player.set_name(str(p))
+        player.set_network_master(p) # Will be explained later
+        get_node("/root/world/players").add_child(player)
 
-        # Tell server (remember, server is always ID=1) that this peer is done pre-configuring.
-        # The server can call get_tree().get_rpc_sender_id() to find out who said they were done.
-        rpc_id(1, "done_preconfiguring")
+    # Tell server (remember, server is always ID=1) that this peer is done pre-configuring.
+    # The server can call get_tree().get_rpc_sender_id() to find out who said they were done.
+    rpc_id(1, "done_preconfiguring")
 ```
 
 Note:
@@ -319,32 +319,32 @@ Setting up players might take different amounts of time for every peer due to la
 To make sure the game will actually start when everyone is ready, pausing the game until all players are ready can be useful:
 
 ```
-    remote func pre_configure_game():
-        get_tree().set_pause(true) # Pre-pause
-        # The rest is the same as in the code in the previous section (look above)
+remote func pre_configure_game():
+    get_tree().set_pause(true) # Pre-pause
+    # The rest is the same as in the code in the previous section (look above)
 ```
 
 When the server gets the OK from all the peers, it can tell them to start, as for example:
 
 ```
-    var players_done = []
-    remote func done_preconfiguring():
-        var who = get_tree().get_rpc_sender_id()
-        # Here are some checks you can do, for example
-        assert(get_tree().is_network_server())
-        assert(who in player_info) # Exists
-        assert(not who in players_done) # Was not added yet
+var players_done = []
+remote func done_preconfiguring():
+    var who = get_tree().get_rpc_sender_id()
+    # Here are some checks you can do, for example
+    assert(get_tree().is_network_server())
+    assert(who in player_info) # Exists
+    assert(not who in players_done) # Was not added yet
 
-        players_done.append(who)
+    players_done.append(who)
 
-        if players_done.size() == player_info.size():
-            rpc("post_configure_game")
+    if players_done.size() == player_info.size():
+        rpc("post_configure_game")
 
-    remote func post_configure_game():
-        # Only the server is allowed to tell a client to unpause
-        if 1 == get_tree().get_rpc_sender_id():
-            get_tree().set_pause(false)
-            # Game starts now!
+remote func post_configure_game():
+    # Only the server is allowed to tell a client to unpause
+    if 1 == get_tree().get_rpc_sender_id():
+        get_tree().set_pause(false)
+        # Game starts now!
 
 ```
 
@@ -367,20 +367,20 @@ Checking that a specific node instance on a peer is the network master for this 
 If you have paid attention to the previous example, it's possible you noticed that each peer was set to have network master authority for their own player (Node) instead of the server:
 
 ```
-        [...]
-        # Load my player
-        var my_player = preload("res://player.tscn").instance()
-        my_player.set_name(str(selfPeerID))
-        my_player.set_network_master(selfPeerID) # The player belongs to this peer; it has the authority.
-        get_node("/root/world/players").add_child(my_player)
+[...]
+# Load my player
+var my_player = preload("res://player.tscn").instance()
+my_player.set_name(str(selfPeerID))
+my_player.set_network_master(selfPeerID) # The player belongs to this peer; it has the authority.
+get_node("/root/world/players").add_child(my_player)
 
-        # Load other players
-        for p in player_info:
-            var player = preload("res://player.tscn").instance()
-            player.set_name(str(p))
-            player.set_network_master(p) # Each other connected peer has authority over their own player.
-            get_node("/root/world/players").add_child(player)
-        [...]
+# Load other players
+for p in player_info:
+    var player = preload("res://player.tscn").instance()
+    player.set_name(str(p))
+    player.set_network_master(p) # Each other connected peer has authority over their own player.
+    get_node("/root/world/players").add_child(player)
+[...]
 ```
 
 Each time this piece of code is executed on each peer, the peer makes itself master on the node it controls, and all other nodes remain as puppets with the server being their network master.
@@ -401,26 +401,26 @@ Similarly to the `remote` keyword, functions can also be tagged with them:
 Example bomb code:
 
 ```
-    for p in bodies_in_area:
-        if p.has_method("exploded"):
-            p.rpc("exploded", bomb_owner)
+for p in bodies_in_area:
+    if p.has_method("exploded"):
+        p.rpc("exploded", bomb_owner)
 ```
 
 Example player code:
 
 ```
-    puppet func stun():
-        stunned = true
+puppet func stun():
+    stunned = true
 
-    master func exploded(by_who):
-        if stunned:
-            return # Already stunned
+master func exploded(by_who):
+    if stunned:
+        return # Already stunned
 
-        rpc("stun")
-        
-        # Stun this player instance for myself as well; could instead have used
-        # the remotesync keyword above (in place of puppet) to achieve this.
-        stun()
+    rpc("stun")
+
+    # Stun this player instance for myself as well; could instead have used
+    # the remotesync keyword above (in place of puppet) to achieve this.
+    stun()
 ```
 
 In the above example, a bomb explodes somewhere (likely managed by whoever is the master of this bomb-node, e.g. the host).
@@ -457,7 +457,7 @@ Note that you could also send the `stun()` message only to a specific player by 
 This may not make much sense for an area-of-effect case like the bomb, but might in other cases, like single target damage.
 
 ```
-    rpc_id(TARGET_PEER_ID, "stun") # Only stun the target peer
+rpc_id(TARGET_PEER_ID, "stun") # Only stun the target peer
 ```
 
 ## Exporting for dedicated servers

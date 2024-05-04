@@ -31,5 +31,5 @@ name in the path for `get_node()`. For example:
 gdscript GDScript
 
 ```
-    get_node("%RedButton").text = "Hello"
+get_node("%RedButton").text = "Hello"
 ```

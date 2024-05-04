@@ -38,5 +38,5 @@ This can lead to files unnecessarily being marked as modified by Git due to thei
 It is better to set this option as:
 
 ```
-    git config --global core.autocrlf input
+git config --global core.autocrlf input
 ```

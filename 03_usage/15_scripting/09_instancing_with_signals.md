@@ -22,12 +22,12 @@ given velocity:
 gdscript GDScript
 
 ```
-    extends Area2D
+extends Area2D
 
-    var velocity = Vector2.ZERO
+var velocity = Vector2.ZERO
 
-    func _physics_process(delta):
-        position += velocity * delta
+func _physics_process(delta):
+    position += velocity * delta
 ```
 
 However, if the bullets are added as children of the player, then they will
@@ -46,8 +46,8 @@ You could do this by adding the bullet to the main scene directly:
 gdscript GDScript
 
 ```
-    var bullet_instance = Bullet.instance()
-    get_parent().add_child(bullet_instance)
+var bullet_instance = Bullet.instance()
+get_parent().add_child(bullet_instance)
 ```
 
 However, this will lead to a different problem. Now if you try to test your
@@ -67,19 +67,19 @@ Here is the code for the player using signals to emit the bullet:
 gdscript GDScript
 
 ```
-    extends Sprite
+extends Sprite
 
-    signal shoot(bullet, direction, location)
+signal shoot(bullet, direction, location)
 
-    var Bullet = preload("res://Bullet.tscn")
+var Bullet = preload("res://Bullet.tscn")
 
-    func _input(event):
-        if event is InputEventMouseButton:
-            if event.button_index == BUTTON_LEFT and event.pressed:
-                emit_signal("shoot", Bullet, rotation, position)
+func _input(event):
+    if event is InputEventMouseButton:
+        if event.button_index == BUTTON_LEFT and event.pressed:
+            emit_signal("shoot", Bullet, rotation, position)
 
-    func _process(delta):
-        look_at(get_global_mouse_position())
+func _process(delta):
+    look_at(get_global_mouse_position())
 ```
 
 In the main scene, we then connect the player's signal (it will appear in the
@@ -88,12 +88,12 @@ In the main scene, we then connect the player's signal (it will appear in the
 gdscript GDScript
 
 ```
-    func _on_Player_shoot(Bullet, direction, location):
-        var b = Bullet.instance()
-        add_child(b)
-        b.rotation = direction
-        b.position = location
-        b.velocity = b.velocity.rotated(direction)
+func _on_Player_shoot(Bullet, direction, location):
+    var b = Bullet.instance()
+    add_child(b)
+    b.rotation = direction
+    b.position = location
+    b.velocity = b.velocity.rotated(direction)
 ```
 
 Now the bullets will maintain their own movement independent of the player's

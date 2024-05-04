@@ -37,7 +37,7 @@ the **distance from the point to the plane**:
 gdscript GDScript
 
 ```
-    var distance = normal.dot(point)
+var distance = normal.dot(point)
 ```
 
 But not just the absolute distance, if the point is in the negative half
@@ -75,7 +75,7 @@ to reach a point in the plane, you will just do:
 gdscript GDScript
 
 ```
-    var point_in_plane = N*D
+var point_in_plane = N*D
 ```
 
 This will stretch (resize) the normal vector and make it touch the
@@ -86,7 +86,7 @@ the plane, we do the same but adjusting for distance:
 gdscript GDScript
 
 ```
-    var distance = N.dot(point) - D
+var distance = N.dot(point) - D
 ```
 
 The same thing, using a built-in function:
@@ -94,7 +94,7 @@ The same thing, using a built-in function:
 gdscript GDScript
 
 ```
-    var distance = plane.distance_to(point)
+var distance = plane.distance_to(point)
 ```
 
 This will, again, return either a positive or negative distance.
@@ -106,8 +106,8 @@ inverted negative and positive half spaces:
 gdscript GDScript
 
 ```
-    N = -N
-    D = -D
+N = -N
+D = -D
 ```
 
 Of course, Pandemonium also implements this operator in `Plane`,
@@ -116,7 +116,7 @@ so doing:
 gdscript GDScript
 
 ```
-    var inverted_plane = -plane
+var inverted_plane = -plane
 ```
 
 Will work as expected.
@@ -139,8 +139,8 @@ the normal and the point.
 gdscript GDScript
 
 ```
-    var N = normal
-    var D = normal.dot(point)
+var N = normal
+var D = normal.dot(point)
 ```
 
 For two points in space, there are actually two planes that pass through
@@ -152,12 +152,12 @@ degrees to either side:
 gdscript GDScript
 
 ```
-    # Calculate vector from `a` to `b`.
-    var dvec = (point_b - point_a).normalized()
-    # Rotate 90 degrees.
-    var normal = Vector2(dvec.y, -dvec.x)
-    # Alternatively (depending the desired side of the normal):
-    # var normal = Vector2(-dvec.y, dvec.x)
+# Calculate vector from `a` to `b`.
+var dvec = (point_b - point_a).normalized()
+# Rotate 90 degrees.
+var normal = Vector2(dvec.y, -dvec.x)
+# Alternatively (depending the desired side of the normal):
+# var normal = Vector2(-dvec.y, dvec.x)
 ```
 
 The rest is the same as the previous example, either point_a or
@@ -166,10 +166,10 @@ point_b will work since they are in the same plane:
 gdscript GDScript
 
 ```
-    var N = normal
-    var D = normal.dot(point_a)
-    # this works the same
-    # var D = normal.dot(point_b)
+var N = normal
+var D = normal.dot(point_a)
+# this works the same
+# var D = normal.dot(point_b)
 ```
 
 Doing the same in 3D is a little more complex and will be explained
@@ -197,12 +197,12 @@ Code should be something like this:
 gdscript GDScript
 
 ```
-    var inside = true
-    for p in planes:
-        # check if distance to plane is positive
-        if (p.distance_to(point) > 0):
-            inside = false
-            break # with one that fails, it's enough
+var inside = true
+for p in planes:
+    # check if distance to plane is positive
+    if (p.distance_to(point) > 0):
+        inside = false
+        break # with one that fails, it's enough
 ```
 
 Pretty cool, huh? But this gets much better! With a little more effort,
@@ -224,37 +224,37 @@ Code should be something like this:
 gdscript GDScript
 
 ```
-    var overlapping = true
+var overlapping = true
 
-    for p in planes_of_A:
+for p in planes_of_A:
+    var all_out = true
+    for v in points_of_B:
+        if (p.distance_to(v) < 0):
+            all_out = false
+            break
+
+    if (all_out):
+        # a separating plane was found
+        # do not continue testing
+        overlapping = false
+        break
+
+if (overlapping):
+    # only do this check if no separating plane
+    # was found in planes of A
+    for p in planes_of_B:
         var all_out = true
-        for v in points_of_B:
+        for v in points_of_A:
             if (p.distance_to(v) < 0):
                 all_out = false
                 break
 
         if (all_out):
-            # a separating plane was found
-            # do not continue testing
             overlapping = false
             break
 
-    if (overlapping):
-        # only do this check if no separating plane
-        # was found in planes of A
-        for p in planes_of_B:
-            var all_out = true
-            for v in points_of_A:
-                if (p.distance_to(v) < 0):
-                    all_out = false
-                    break
-
-            if (all_out):
-                overlapping = false
-                break
-
-    if (overlapping):
-        print("Polygons Collided!")
+if (overlapping):
+    print("Polygons Collided!")
 ```
 
 As you can see, planes are quite useful, and this is the tip of the
@@ -301,73 +301,73 @@ So the final algorithm is something like:
 gdscript GDScript
 
 ```
-    var overlapping = true
+var overlapping = true
 
-    for p in planes_of_A:
+for p in planes_of_A:
+    var all_out = true
+    for v in points_of_B:
+        if (p.distance_to(v) < 0):
+            all_out = false
+            break
+
+    if (all_out):
+        # a separating plane was found
+        # do not continue testing
+        overlapping = false
+        break
+
+if (overlapping):
+    # only do this check if no separating plane
+    # was found in planes of A
+    for p in planes_of_B:
         var all_out = true
-        for v in points_of_B:
+        for v in points_of_A:
             if (p.distance_to(v) < 0):
                 all_out = false
                 break
 
         if (all_out):
-            # a separating plane was found
-            # do not continue testing
             overlapping = false
             break
 
-    if (overlapping):
-        # only do this check if no separating plane
-        # was found in planes of A
-        for p in planes_of_B:
-            var all_out = true
-            for v in points_of_A:
-                if (p.distance_to(v) < 0):
-                    all_out = false
-                    break
+if (overlapping):
+    for ea in edges_of_A:
+        for eb in edges_of_B:
+            var n = ea.cross(eb)
+            if (n.length() == 0):
+                continue
 
-            if (all_out):
+            var max_A = -1e20 # tiny number
+            var min_A = 1e20 # huge number
+
+            # we are using the dot product directly
+            # so we can map a maximum and minimum range
+            # for each polygon, then check if they
+            # overlap.
+
+            for v in points_of_A:
+                var d = n.dot(v)
+                max_A = max(max_A, d)
+                min_A = min(min_A, d)
+
+            var max_B = -1e20 # tiny number
+            var min_B = 1e20 # huge number
+
+            for v in points_of_B:
+                var d = n.dot(v)
+                max_B = max(max_B, d)
+                min_B = min(min_B, d)
+
+            if (min_A > max_B or min_B > max_A):
+                # not overlapping!
                 overlapping = false
                 break
 
-    if (overlapping):
-        for ea in edges_of_A:
-            for eb in edges_of_B:
-                var n = ea.cross(eb)
-                if (n.length() == 0):
-                    continue
+        if (not overlapping):
+            break
 
-                var max_A = -1e20 # tiny number
-                var min_A = 1e20 # huge number
-
-                # we are using the dot product directly
-                # so we can map a maximum and minimum range
-                # for each polygon, then check if they
-                # overlap.
-
-                for v in points_of_A:
-                    var d = n.dot(v)
-                    max_A = max(max_A, d)
-                    min_A = min(min_A, d)
-
-                var max_B = -1e20 # tiny number
-                var min_B = 1e20 # huge number
-
-                for v in points_of_B:
-                    var d = n.dot(v)
-                    max_B = max(max_B, d)
-                    min_B = min(min_B, d)
-
-                if (min_A > max_B or min_B > max_A):
-                    # not overlapping!
-                    overlapping = false
-                    break
-
-            if (not overlapping):
-                break
-
-    if (overlapping):
-       print("Polygons collided!")
+if (overlapping):
+   print("Polygons collided!")
 ```
 
 ### More information

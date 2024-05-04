@@ -132,7 +132,7 @@ Exporting from the command line still requires an export preset to define
 the export parameters. A basic invocation of the command would be:
 
 ```
-    pandemonium --export "Windows Desktop" some_name.exe
+pandemonium --export "Windows Desktop" some_name.exe
 ```
 
 This will export to `some_name.exe`, assuming there is a preset
@@ -156,7 +156,7 @@ a single exported main pack file to be used with multiple Pandemonium executable
 When doing so, the export preset name must still be specified on the command line:
 
 ```
-    pandemonium --export-pack "Windows Desktop" some_name.pck
+pandemonium --export-pack "Windows Desktop" some_name.pck
 ```
 
 It is often useful to combine the `--export` flag with the `--path`
@@ -164,7 +164,7 @@ flag, so that you do not need to `cd` to the project folder before running
 the command:
 
 ```
-    pandemonium --path /path/to/project --export "Windows Desktop" some_name.exe
+pandemonium --path /path/to/project --export "Windows Desktop" some_name.exe
 ```
 
 See also:
@@ -202,12 +202,12 @@ Warning:
     the player can double-click or run from a terminal to launch the project:
 
 ```
-        launch.bat (Windows)
-        @echo off
-        my_project.exe --main-pack my_project.zip
+launch.bat (Windows)
+@echo off
+my_project.exe --main-pack my_project.zip
 
-        # launch.sh (Linux)
-        ./my_project.x86_64 --main-pack my_project.zip
+# launch.sh (Linux)
+./my_project.x86_64 --main-pack my_project.zip
 ```
 
     Save the launcher script and place it in the same folder as the exported binary.

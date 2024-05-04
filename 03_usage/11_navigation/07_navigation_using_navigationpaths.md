@@ -31,33 +31,33 @@ Outside of grids due to polygons often covering large open areas with a single, 
 GDScript
 
 ```
-    extends Node2D
-     # basic query for a navigation path in 2D using the default navigation map
-    var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
-    var start_position: Vector2 = Vector2(0.0, 0.0)
-    var target_position: Vector2 = Vector2(5.0, 0.0)
-    var path: PackedVector2Array = NavigationServer2D.map_get_path(
-        default_2d_map_rid,
-        start_position,
-        target_position,
-        true
-    )
+extends Node2D
+ # basic query for a navigation path in 2D using the default navigation map
+var default_2d_map_rid: RID = get_world_2d().get_navigation_map()
+var start_position: Vector2 = Vector2(0.0, 0.0)
+var target_position: Vector2 = Vector2(5.0, 0.0)
+var path: PackedVector2Array = NavigationServer2D.map_get_path(
+    default_2d_map_rid,
+    start_position,
+    target_position,
+    true
+)
 ```
 
 GDScript
 
 ```
-    extends Node3D
-    # basic query for a navigation path in 3D using the default navigation map
-    var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
-    var start_position: Vector3 = Vector3(0.0, 0.0, 0.0)
-    var target_position: Vector3 = Vector3(5.0, 0.0, 3.0)
-    var path: PackedVector3Array = NavigationServer3D.map_get_path(
-        default_3d_map_rid,
-        start_position,
-        target_position,
-        true
-    )
+extends Node3D
+# basic query for a navigation path in 3D using the default navigation map
+var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
+var start_position: Vector3 = Vector3(0.0, 0.0, 0.0)
+var target_position: Vector3 = Vector3(5.0, 0.0, 3.0)
+var path: PackedVector3Array = NavigationServer3D.map_get_path(
+    default_3d_map_rid,
+    start_position,
+    target_position,
+    true
+)
 ```
 
 A returned `path` by the NavigationServer will be a `PackedVector2Array` for 2D or a `PackedVector3Array` for 3D.
@@ -78,48 +78,48 @@ the default navigation map by setting the target position with `set_movement_tar
 GDScript
 
 ```
-    var movement_speed: float = 4.0
-    var movement_delta: float
-    var path_point_margin: float = 0.5
-    var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
+var movement_speed: float = 4.0
+var movement_delta: float
+var path_point_margin: float = 0.5
+var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
 
-    var current_path_index: int = 0
-    var current_path_point: Vector3
-    var current_path: PackedVector3Array
+var current_path_index: int = 0
+var current_path_point: Vector3
+var current_path: PackedVector3Array
 
-    func set_movement_target(target_position: Vector3):
+func set_movement_target(target_position: Vector3):
 
-        var start_position: Vector3 = global_transform.origin
+    var start_position: Vector3 = global_transform.origin
 
-        current_path = NavigationServer3D.map_get_path(
-            default_3d_map_rid,
-            start_position,
-            target_position,
-            true
-        )
+    current_path = NavigationServer3D.map_get_path(
+        default_3d_map_rid,
+        start_position,
+        target_position,
+        true
+    )
 
-        if not current_path.is_empty():
+    if not current_path.is_empty():
+        current_path_index = 0
+        current_path_point = current_path[0]
+
+func _physics_process(delta):
+
+    if current_path.is_empty():
+        return
+
+    movement_delta = move_speed * delta
+
+    if global_transform.origin.distance_to(current_path_point) <= path_point_margin:
+        current_path_index += 1
+        if current_path_index >= current_path.size():
+            current_path = []
             current_path_index = 0
-            current_path_point = current_path[0]
-
-    func _physics_process(delta):
-
-        if current_path.is_empty():
+            current_path_point = global_transform.origin
             return
 
-        movement_delta = move_speed * delta
+    current_path_point = current_path[current_path_index]
 
-        if global_transform.origin.distance_to(current_path_point) <= path_point_margin:
-            current_path_index += 1
-            if current_path_index >= current_path.size():
-                current_path = []
-                current_path_index = 0
-                current_path_point = global_transform.origin
-                return
+    var new_velocity: Vector3 = (current_path_point - global_transform.origin).normalized() * movement_delta
 
-        current_path_point = current_path[current_path_index]
-
-        var new_velocity: Vector3 = (current_path_point - global_transform.origin).normalized() * movement_delta
-
-        global_transform.origin = global_transform.origin.move_toward(global_transform.origin + new_velocity, movement_delta)
+    global_transform.origin = global_transform.origin.move_toward(global_transform.origin + new_velocity, movement_delta)
 ```

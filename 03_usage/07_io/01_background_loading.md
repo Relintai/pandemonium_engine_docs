@@ -25,7 +25,7 @@ Usage is generally as follows
 ### Obtaining a ResourceInteractiveLoader
 
 ```
-    Ref( ResourceInteractiveLoader> ResourceLoader::load_interactive(String p_path);
+Ref( ResourceInteractiveLoader> ResourceLoader::load_interactive(String p_path);
 ```
 
 This method will give you a ResourceInteractiveLoader that you will use
@@ -34,7 +34,7 @@ to manage the load operation.
 ### Polling
 
 ```
-    Error ResourceInteractiveLoader::poll();
+Error ResourceInteractiveLoader::poll();
 ```
 
 Use this method to advance the progress of the load. Each call to
@@ -50,8 +50,8 @@ Any other return value means there was an error and loading has stopped.
 To query the progress of the load, use the following methods:
 
 ```
-    int ResourceInteractiveLoader::get_stage_count() const;
-    int ResourceInteractiveLoader::get_stage() const;
+int ResourceInteractiveLoader::get_stage_count() const;
+int ResourceInteractiveLoader::get_stage() const;
 ```
 
 `get_stage_count` returns the total number of stages to load.
@@ -60,7 +60,7 @@ To query the progress of the load, use the following methods:
 ### Forcing completion (optional)
 
 ```
-    Error ResourceInteractiveLoader::wait();
+Error ResourceInteractiveLoader::wait();
 ```
 
 Use this method if you need to load the entire resource in the current
@@ -69,7 +69,7 @@ frame, without any more steps.
 ### Obtaining the resource
 
 ```
-    Ref<Resource> ResourceInteractiveLoader::get_resource();
+Ref<Resource> ResourceInteractiveLoader::get_resource();
 ```
 
 If everything goes well, use this method to retrieve your loaded
@@ -84,15 +84,15 @@ First, we set up some variables and initialize the `current_scene`
 with the main scene of the game:
 
 ```
-    var loader
-    var wait_frames
-    var time_max = 100 # msec
-    var current_scene
+var loader
+var wait_frames
+var time_max = 100 # msec
+var current_scene
 
 
-    func _ready():
-        var root = get_tree().get_root()
-        current_scene = root.get_child(root.get_child_count() -1)
+func _ready():
+    var root = get_tree().get_root()
+    current_scene = root.get_child(root.get_child_count() -1)
 ```
 
 The function `goto_scene` is called from the game when the scene
@@ -102,19 +102,19 @@ callback. It also starts a "loading" animation, which could show a
 progress bar or loading screen.
 
 ```
-    func goto_scene(path): # Game requests to switch to this scene.
-        loader = ResourceLoader.load_interactive(path)
-        if loader == null: # Check for errors.
-            show_error()
-            return
-        set_process(true)
+func goto_scene(path): # Game requests to switch to this scene.
+    loader = ResourceLoader.load_interactive(path)
+    if loader == null: # Check for errors.
+        show_error()
+        return
+    set_process(true)
 
-        current_scene.queue_free() # Get rid of the old scene.
+    current_scene.queue_free() # Get rid of the old scene.
 
-        # Start your "loading..." animation.
-        get_node("animation").play("loading")
+    # Start your "loading..." animation.
+    get_node("animation").play("loading")
 
-        wait_frames = 1
+    wait_frames = 1
 ```
 
 `process` is where the loader is polled. `poll` is called, and then
@@ -130,34 +130,34 @@ more than your value for `time_max`, so keep in mind we won't have
 precise control over the timings.
 
 ```
-    func _process(time):
-        if loader == null:
-            # no need to process anymore
-            set_process(false)
-            return
+func _process(time):
+    if loader == null:
+        # no need to process anymore
+        set_process(false)
+        return
 
-        # Wait for frames to let the "loading" animation show up.
-        if wait_frames > 0:
-            wait_frames -= 1
-            return
+    # Wait for frames to let the "loading" animation show up.
+    if wait_frames > 0:
+        wait_frames -= 1
+        return
 
-        var t = OS.get_ticks_msec()
-        # Use "time_max" to control for how long we block this thread.
-        while OS.get_ticks_msec() (  t + time_max:
-            # Poll your loader.
-            var err = loader.poll()
+    var t = OS.get_ticks_msec()
+    # Use "time_max" to control for how long we block this thread.
+    while OS.get_ticks_msec() (  t + time_max:
+        # Poll your loader.
+        var err = loader.poll()
 
-            if err == ERR_FILE_EOF: # Finished loading.
-                var resource = loader.get_resource()
-                loader = null
-                set_new_scene(resource)
-                break
-            elif err == OK:
-                update_progress()
-            else: # Error during loading.
-                show_error()
-                loader = null
-                break
+        if err == ERR_FILE_EOF: # Finished loading.
+            var resource = loader.get_resource()
+            loader = null
+            set_new_scene(resource)
+            break
+        elif err == OK:
+            update_progress()
+        else: # Error during loading.
+            show_error()
+            loader = null
+            break
 ```
 
 Some extra helper functions. `update_progress` updates a progress bar,
@@ -168,22 +168,22 @@ newly loaded scene on the tree. Because it's a scene being loaded,
 loader.
 
 ```
-    func update_progress():
-        var progress = float(loader.get_stage()) / loader.get_stage_count()
-        # Update your progress bar?
-        get_node("progress").set_progress(progress)
+func update_progress():
+    var progress = float(loader.get_stage()) / loader.get_stage_count()
+    # Update your progress bar?
+    get_node("progress").set_progress(progress)
 
-        # ...or update a progress animation?
-        var length = get_node("animation").get_current_animation_length()
+    # ...or update a progress animation?
+    var length = get_node("animation").get_current_animation_length()
 
-        # Call this on a paused animation. Use "true" as the second argument to
-        # force the animation to update.
-        get_node("animation").seek(progress * length, true)
+    # Call this on a paused animation. Use "true" as the second argument to
+    # force the animation to update.
+    get_node("animation").seek(progress * length, true)
 
 
-    func set_new_scene(scene_resource):
-        current_scene = scene_resource.instance()
-        get_node("/root").add_child(current_scene)
+func set_new_scene(scene_resource):
+    current_scene = scene_resource.instance()
+    get_node("/root").add_child(current_scene)
 ```
 
 ## Using multiple threads
@@ -212,32 +212,32 @@ You can find an example class for loading resources in threads here:
 :download:`resource_queue.gd ( files/resource_queue.gd )`. Usage is as follows:
 
 ```
-    func start()
+func start()
 ```
 
 Call after you instance the class to start the thread.
 
 ```
-    func queue_resource(path, p_in_front = false)
+func queue_resource(path, p_in_front = false)
 ```
 
 Queue a resource. Use optional argument "p_in_front" to put it in
 front of the queue.
 
 ```
-    func cancel_resource(path)
+func cancel_resource(path)
 ```
 
 Remove a resource from the queue, discarding any loading done.
 
 ```
-    func is_ready(path)
+func is_ready(path)
 ```
 
 Returns `true` if a resource is fully loaded and ready to be retrieved.
 
 ```
-    func get_progress(path)
+func get_progress(path)
 ```
 
 Get the progress of a resource. Returns -1 if there was an error (for example if the
@@ -247,7 +247,7 @@ progress bars, etc), use `is_ready` to find out if a resource is
 actually ready.
 
 ```
-    func get_resource(path)
+func get_resource(path)
 ```
 
 Returns the fully loaded resource, or `null` on error. If the resource is
@@ -258,34 +258,34 @@ and finish the load. If the resource is not on the queue, it will call
 ### Example:
 
 ```
-    # Initialize.
-    queue = preload("res://resource_queue.gd").new()
-    queue.start()
+# Initialize.
+queue = preload("res://resource_queue.gd").new()
+queue.start()
 
-    # Suppose your game starts with a 10 second cutscene, during which the user
-    # can't interact with the game.
-    # For that time, we know they won't use the pause menu, so we can queue it
-    # to load during the cutscene:
-    queue.queue_resource("res://pause_menu.tres")
-    start_cutscene()
+# Suppose your game starts with a 10 second cutscene, during which the user
+# can't interact with the game.
+# For that time, we know they won't use the pause menu, so we can queue it
+# to load during the cutscene:
+queue.queue_resource("res://pause_menu.tres")
+start_cutscene()
 
-    # Later, when the user presses the pause button for the first time:
-    pause_menu = queue.get_resource("res://pause_menu.tres").instance()
-    pause_menu.show()
+# Later, when the user presses the pause button for the first time:
+pause_menu = queue.get_resource("res://pause_menu.tres").instance()
+pause_menu.show()
 
-    # When you need a new scene:
-    queue.queue_resource("res://level_1.tscn", true)
-    # Use "true" as the second argument to put it at the front of the queue,
-    # pausing the load of any other resource.
+# When you need a new scene:
+queue.queue_resource("res://level_1.tscn", true)
+# Use "true" as the second argument to put it at the front of the queue,
+# pausing the load of any other resource.
 
-    # To check progress.
-    if queue.is_ready("res://level_1.tscn"):
-        show_new_level(queue.get_resource("res://level_1.tscn"))
-    else:
-        update_progress(queue.get_progress("res://level_1.tscn"))
+# To check progress.
+if queue.is_ready("res://level_1.tscn"):
+    show_new_level(queue.get_resource("res://level_1.tscn"))
+else:
+    update_progress(queue.get_progress("res://level_1.tscn"))
 
-    # When the user walks away from the trigger zone in your Metroidvania game:
-    queue.cancel_resource("res://zone_2.tscn")
+# When the user walks away from the trigger zone in your Metroidvania game:
+queue.cancel_resource("res://zone_2.tscn")
 ```
 
 **Note**: this code, in its current form, is not tested in real world

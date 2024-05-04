@@ -52,8 +52,8 @@ world orientation.
 In order to control the speed of the animation, we will start by defining our own time variable using `TIME`.
 
 ```
-  //time_scale is a uniform float
-  float time = TIME * time_scale;
+//time_scale is a uniform float
+float time = TIME * time_scale;
 ```
 
 The first motion we will implement is the side to side motion. It can be made by offsetting `VERTEX.x` by
@@ -61,8 +61,8 @@ The first motion we will implement is the side to side motion. It can be made by
 of `cos(time)`.
 
 ```
-  //side_to_side is a uniform float
-  VERTEX.x += cos(time) * side_to_side;
+//side_to_side is a uniform float
+VERTEX.x += cos(time) * side_to_side;
 ```
 
 The resulting animation should look something like this:
@@ -75,16 +75,16 @@ rotation matrix for it to rotate around the center of the fish.
 We construct a rotation matrix like so:
 
 ```
-  //angle is scaled by 0.1 so that the fish only pivots and doesn't rotate all the way around
-  //pivot is a uniform float
-  float pivot_angle = cos(time) * 0.1 * pivot;
-  mat2 rotation_matrix = mat2(vec2(cos(pivot_angle), -sin(pivot_angle)), vec2(sin(pivot_angle), cos(pivot_angle)));
+//angle is scaled by 0.1 so that the fish only pivots and doesn't rotate all the way around
+//pivot is a uniform float
+float pivot_angle = cos(time) * 0.1 * pivot;
+mat2 rotation_matrix = mat2(vec2(cos(pivot_angle), -sin(pivot_angle)), vec2(sin(pivot_angle), cos(pivot_angle)));
 ```
 
 And then we apply it in the `x` and `z` axes by multiplying it by `VERTEX.xz`.
 
 ```
-  VERTEX.xz = rotation_matrix * VERTEX.xz;
+VERTEX.xz = rotation_matrix * VERTEX.xz;
 ```
 
 With only the pivot applied you should see something like this:
@@ -95,7 +95,7 @@ The next two motions need to pan down the spine of the fish. For that, we need a
 `body` is a float that is `0` at the tail of the fish and `1` at its head.
 
 ```
-  float body = (VERTEX.z + 1.0) / 2.0; //for a fish centered at (0, 0) with a length of 2
+float body = (VERTEX.z + 1.0) / 2.0; //for a fish centered at (0, 0) with a length of 2
 ```
 
 The next motion is a cosine wave that moves down the length of the fish. To make
@@ -103,8 +103,8 @@ it move along the spine of the fish, we offset the input to `cos` by the positio
 along the spine, which is the variable we defined above, `body`.
 
 ```
-  //wave is a uniform float
-  VERTEX.x += cos(time + body) * wave;
+//wave is a uniform float
+VERTEX.x += cos(time + body) * wave;
 ```
 
 This looks very similar to the side to side motion we defined above, but in this one, by
@@ -117,16 +117,16 @@ The last motion is the twist, which is a panning roll along the spine. Similarly
 we first construct a rotation matrix.
 
 ```
-  //twist is a uniform float
-  float twist_angle = cos(time + body) * 0.3 * twist;
-  mat2 twist_matrix = mat2(vec2(cos(twist_angle), -sin(twist_angle)), vec2(sin(twist_angle), cos(twist_angle)));
+//twist is a uniform float
+float twist_angle = cos(time + body) * 0.3 * twist;
+mat2 twist_matrix = mat2(vec2(cos(twist_angle), -sin(twist_angle)), vec2(sin(twist_angle), cos(twist_angle)));
 ```
 
 We apply the rotation in the `xy` axes so that the fish appears to roll around its spine. For
 this to work, the fish's spine needs to be centered on the `z` axis.
 
 ```
-  VERTEX.xy = twist_matrix * VERTEX.xy;
+VERTEX.xy = twist_matrix * VERTEX.xy;
 ```
 
 Here is the fish with twist applied:
@@ -144,8 +144,8 @@ panning motions to the back half of the fish. To do this, we create a new variab
 `smoothstep` to control the point at which the transition from `0` to `1` happens.
 
 ```
-  //mask_black and mask_white are uniforms
-  float mask = smoothstep(mask_black, mask_white, 1.0 - body);
+//mask_black and mask_white are uniforms
+float mask = smoothstep(mask_black, mask_white, 1.0 - body);
 ```
 
 Below is an image of the fish with `mask` used as `COLOR`:
@@ -155,8 +155,8 @@ Below is an image of the fish with `mask` used as `COLOR`:
 For the wave, we multiply the motion by `mask` which will limit it to the back half.
 
 ```
-  //wave motion with mask
-  VERTEX.x += cos(time + body) * mask * wave;
+//wave motion with mask
+VERTEX.x += cos(time + body) * mask * wave;
 ```
 
 In order to apply the mask to the twist, we use `mix`. `mix` allows us to mix the
@@ -166,8 +166,8 @@ adding the motion to the `VERTEX` we are replacing the `VERTEX` with the rotated
 version. If we multiplied that by `mask`, we would shrink the fish.
 
 ```
-  //twist motion with mask
-  VERTEX.xy = mix(VERTEX.xy, twist_matrix * VERTEX.xy, mask);
+//twist motion with mask
+VERTEX.xy = mix(VERTEX.xy, twist_matrix * VERTEX.xy, mask);
 ```
 
 Putting the four motions together gives us the final animation.
@@ -216,10 +216,10 @@ The second is to loop over all the instances and set their transforms in code. B
 to loop over all the instances and set their transform to a random position.
 
 ```
-  for i in range($School.multimesh.instance_count):
-    var position = Transform()
-    position = position.translated(Vector3(randf() * 100 - 50, randf() * 50 - 25, randf() * 50 - 25))
-    $School.multimesh.set_instance_transform(i, position)
+for i in range($School.multimesh.instance_count):
+  var position = Transform()
+  position = position.translated(Vector3(randf() * 100 - 50, randf() * 50 - 25, randf() * 50 - 25))
+  $School.multimesh.set_instance_transform(i, position)
 ```
 
 Running this script will place the fish in random positions in a box around the position of the
@@ -241,7 +241,7 @@ swim cycle, we only need to offset `time`.
 We do that by adding the per-instance custom value `INSTANCE_CUSTOM` to `time`.
 
 ```
-  float time = (TIME * time_scale) + (6.28318 * INSTANCE_CUSTOM.x);
+float time = (TIME * time_scale) + (6.28318 * INSTANCE_CUSTOM.x);
 ```
 
 Next, we need to pass a value into `INSTANCE_CUSTOM`. We do that by adding one line into
@@ -249,7 +249,7 @@ the `for` loop from above. In the `for` loop we assign each instance a set of fo
 random floats to use.
 
 ```
-  $School.multimesh.set_instance_custom_data(i, Color(randf(), randf(), randf(), randf()))
+$School.multimesh.set_instance_custom_data(i, Color(randf(), randf(), randf(), randf()))
 ```
 
 Now the fish all have unique positions in the swim cycle. You can give them a little more
@@ -257,8 +257,8 @@ individuality by using `INSTANCE_CUSTOM` to make them swim faster or slower by m
 by `TIME`.
 
 ```
-  //set speed from 50% - 150% of regular speed
-  float time = (TIME * (0.5 + INSTANCE_CUSTOM.y) * time_scale) + (6.28318 * INSTANCE_CUSTOM.x);
+//set speed from 50% - 150% of regular speed
+float time = (TIME * (0.5 + INSTANCE_CUSTOM.y) * time_scale) + (6.28318 * INSTANCE_CUSTOM.x);
 ```
 
 You can even experiment with changing the per-instance color the same way you changed the per-instance

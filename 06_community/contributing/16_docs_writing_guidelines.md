@@ -47,27 +47,27 @@ passive voice, but it's harder to read and produces longer sentences.
 Passive:
 
 ```
-    The man **was bitten** by the dog.
+The man **was bitten** by the dog.
 ```
 
 Active:
 
 ```
-    The dog bit the man.
+The dog bit the man.
 ```
 
 **Don't** use the passive voice:
 
 ```
-    void edit_set_pivot ( Vector2 pivot )
-    [...] This method **is implemented** only in some nodes that inherit Node2D.
+void edit_set_pivot ( Vector2 pivot )
+[...] This method **is implemented** only in some nodes that inherit Node2D.
 ```
 
 **Do** use the node's name as a noun:
 
 ```
-    void edit_set_pivot ( Vector2 pivot )
-    [...] Only some Node2Ds **implement** this method.
+void edit_set_pivot ( Vector2 pivot )
+[...] Only some Node2Ds **implement** this method.
 ```
 
 ### Use precise action verbs
@@ -79,16 +79,16 @@ and any expression you can replace with a single word.
 value to a new one:
 
 ```
-    void edit_set_pivot ( Vector2 pivot )
-    Set the pivot position of the 2D node to [code]pivot[/code] value. [...]
+void edit_set_pivot ( Vector2 pivot )
+Set the pivot position of the 2D node to [code]pivot[/code] value. [...]
 ```
 
 **Do** explain what's the consequence of this "set": use precise verbs
 like `place`, `position`, `rotate`, `fade`, etc.
 
 ```
-    void edit_set_pivot ( Vector2 pivot )
-    Position the node's pivot to the [code]pivot[/code] value. [...]
+void edit_set_pivot ( Vector2 pivot )
+Position the node's pivot to the [code]pivot[/code] value. [...]
 ```
 
 ### Avoid verbs that end in -ing
@@ -99,15 +99,15 @@ The progressive forms describe continuous actions. E.g. "is calling",
 **Don't** use the progressive form for instant changes.
 
 ```
-    Vector2 move ( Vector2 rel_vec )
-    Move the body in the given direction, **stopping** if there is an obstacle. [...]
+Vector2 move ( Vector2 rel_vec )
+Move the body in the given direction, **stopping** if there is an obstacle. [...]
 ```
 
 **Do** use simple present, past, or future.
 
 ```
-    Vector2 move ( Vector2 rel_vec )
-    Moves the body in the vector's direction. The body **stops** if it collides with an obstacle. [...]
+Vector2 move ( Vector2 rel_vec )
+Moves the body in the vector's direction. The body **stops** if it collides with an obstacle. [...]
 ```
 
 Exception: If the subject is not clear, replacing "ing" verbs is not an
@@ -132,13 +132,13 @@ add key information to the description.
 documentation but don't add any information:
 
 ```
-    **Basically** a big texture [...]
+**Basically** a big texture [...]
 ```
 
 **Do** write short sentences in a simple, descriptive language:
 
 ```
-    A big texture [...]
+A big texture [...]
 ```
 
 ### Ban these 8 words
@@ -164,15 +164,15 @@ easily, actually, clearly.
 attention away from the most important info:
 
 ```
-    **TextureRect**
-    Control frame that **simply** draws an assigned texture. It can stretch or not. It's a **simple** way to **just** show an image in a UI.
+**TextureRect**
+Control frame that **simply** draws an assigned texture. It can stretch or not. It's a **simple** way to **just** show an image in a UI.
 ```
 
 **Do** remove them:
 
 ```
-    **TextureRect**
-    [Control] node that displays a texture. The texture can stretch to the node's bounding box or stay in the center. Useful to display sprites in your UIs.
+**TextureRect**
+[Control] node that displays a texture. The texture can stretch to the node's bounding box or stay in the center. Useful to display sprites in your UIs.
 ```
 
 "Simple" never helps. Remember, for other users, anything could be
@@ -181,29 +181,29 @@ to make you cringe. Here's the old brief description, the first sentence
 on the Timer node's page:
 
 ```
-    **Timer**
-    A **simple** Timer node.
+**Timer**
+A **simple** Timer node.
 ```
 
 **Do** explain what the node does instead:
 
 ```
-    **Timer**
-    Calls a function of your choice after a certain duration.
+**Timer**
+Calls a function of your choice after a certain duration.
 ```
 
 **Don't** use "basic", it is too vague:
 
 ```
-    **Vector3**
-    Vector class, which performs **basic** 3D vector math operations.
+**Vector3**
+Vector class, which performs **basic** 3D vector math operations.
 ```
 
 **Do** use the brief description to offer an overview of the node:
 
 ```
-    **Vector3**
-    Provides essential math functions to manipulate 3D vectors: cross product, normalize, rotate, etc.
+**Vector3**
+Provides essential math functions to manipulate 3D vectors: cross product, normalize, rotate, etc.
 ```
 
 ### Use explicit references
@@ -214,13 +214,13 @@ Favor explicit references over implicit ones.
 the most common in English, and they require you to check the reference.
 
 ```
-    [code]w[/code] and [code]h[/code] define right and bottom margins. The **latter** two resize the texture so it fits in the defined margin.
+[code]w[/code] and [code]h[/code] define right and bottom margins. The **latter** two resize the texture so it fits in the defined margin.
 ```
 
 **Do** repeat words. They remove all ambiguity:
 
 ```
-    [code]w[/code] and [code]h[/code] define right and bottom margins. **[code]w[/code] and [code]h[/code]** resize the texture so it fits the margin.
+[code]w[/code] and [code]h[/code] define right and bottom margins. **[code]w[/code] and [code]h[/code]** resize the texture so it fits the margin.
 ```
 
 If you need to repeat the same variable name 3 or 4 times, you probably
@@ -234,14 +234,14 @@ milk" instead.
 **Don't** write "of the X":
 
 ```
-    The region **of the AtlasTexture that is** used.
+The region **of the AtlasTexture that is** used.
 ```
 
 **Do** use `'s`. It lets you put the main subject at the start of the
 sentence, and keep it short:
 
 ```
-    The **AtlasTexture's** used region.
+The **AtlasTexture's** used region.
 ```
 
 ### Use the Oxford comma to enumerate anything
@@ -257,14 +257,14 @@ From the Oxford dictionary:
 **Don't** leave the last element of a list without a comma:
 
 ```
-    Create a KinematicBody2D node, a CollisionShape2D node and a sprite node.
+Create a KinematicBody2D node, a CollisionShape2D node and a sprite node.
 ```
 
 **Do** add a comma before `and` or `or`, for the last
 element of a list with more than two elements.
 
 ```
-    Create a KinematicBody2D node, a CollisionShape2D node, and a sprite node.
+Create a KinematicBody2D node, a CollisionShape2D node, and a sprite node.
 ```
 
 ## How to write methods and classes
@@ -281,41 +281,41 @@ The exception is topics that explain static typing concepts to users.
 **Don't** add a type hint with a colon or by casting:
 
 ```
-    const MainAttack := preload("res://fire_attack.gd")
-    var hit_points := 5
-    var name: String = "Bob"
-    var body_sprite := $Sprite as Sprite
+const MainAttack := preload("res://fire_attack.gd")
+var hit_points := 5
+var name: String = "Bob"
+var body_sprite := $Sprite as Sprite
 ```
 
 **Do** write constants and variables with dynamic typing:
 
 ```
-    const MainAttack = preload("res://fire_attack.gd")
-    var hit_points = 5
-    var name = "Bob"
-    var body_sprite = $Sprite
+const MainAttack = preload("res://fire_attack.gd")
+var hit_points = 5
+var name = "Bob"
+var body_sprite = $Sprite
 ```
 
 **Don't** write functions with inferred arguments or return types:
 
 ```
-    func choose(arguments: PackedStringArray) -> String:
-        # Chooses one of the arguments from array with equal chances
-        randomize()
-        var size := arguments.size()
-        var choice: int = randi() % size
-        return arguments[choice]
+func choose(arguments: PackedStringArray) -> String:
+    # Chooses one of the arguments from array with equal chances
+    randomize()
+    var size := arguments.size()
+    var choice: int = randi() % size
+    return arguments[choice]
 ```
 
 **Do** write functions using dynamic typing:
 
 ```
-    func choose(arguments):
-        # Chooses one of the arguments from array with equal chances
-        randomize()
-        var size = arguments.size()
-        var choice = randi() % size
-        return arguments[choice]
+func choose(arguments):
+    # Chooses one of the arguments from array with equal chances
+    randomize()
+    var size = arguments.size()
+    var choice = randi() % size
+    return arguments[choice]
 ```
 
 ### Use real-world code examples where appropriate
@@ -331,24 +331,24 @@ could use the code snippets in a live project.
 **Don't** write made-up examples:
 
 ```
-    onready var a = preload("res://MyPath")
-    onready var my_node = $MyNode
+onready var a = preload("res://MyPath")
+onready var my_node = $MyNode
 
 
-    func foo():
-        # Do stuff
+func foo():
+    # Do stuff
 ```
 
 **Do** write concrete examples:
 
 ```
-    onready var sfx_player_gun = preload("res://Assets/Sound/SFXPlayerGun.ogg")
-    onready var audio_player = $Audio/AudioStreamPlayer
+onready var sfx_player_gun = preload("res://Assets/Sound/SFXPlayerGun.ogg")
+onready var audio_player = $Audio/AudioStreamPlayer
 
 
-    func play_shooting_sound():
-        audio_player.stream = sfx_player_gun
-        audio_player.play()
+func play_shooting_sound():
+    audio_player.stream = sfx_player_gun
+    audio_player.play()
 ```
 
 Of course, there are times when using real-world examples is impractical. In
@@ -369,15 +369,15 @@ functionality, in up to 200 characters.
 **Don't** write tiny and vague summaries:
 
 ```
-    **Node2D**
-    Base node for 2D system.
+**Node2D**
+Base node for 2D system.
 ```
 
 **Do** give an overview of the node's functionality:
 
 ```
-    **Node2D**
-    A 2D game object, inherited by all 2D-related nodes. Has a position, rotation, scale, and Z index.
+**Node2D**
+A 2D game object, inherited by all 2D-related nodes. Has a position, rotation, scale, and Z index.
 ```
 
 Use the node's full description to provide more information, and a code
@@ -392,15 +392,15 @@ for any method whose name starts with `set` or `get`.
 **Don't** use the passive voice:
 
 ```
-    Vector2 move ( Vector2 rel_vec )
-    [...] The returned vector is how much movement was remaining before being stopped.
+Vector2 move ( Vector2 rel_vec )
+[...] The returned vector is how much movement was remaining before being stopped.
 ```
 
 **Do** always use "Returns".
 
 ```
-    Vector2 move ( Vector2 rel_vec )
-    [...] Returns the remaining movement before the body was stopped.
+Vector2 move ( Vector2 rel_vec )
+[...] Returns the remaining movement before the body was stopped.
 ```
 
 Notice the exception to the "direct voice" rule: with the move method,
@@ -418,8 +418,8 @@ Also, surround boolean values, variable names and methods with `[code][/code]`.
 **Do** start with "if true":
 
 ```
-    Timer.autostart
-    If [code]true[/code], the timer will automatically start when entering the scene tree.
+Timer.autostart
+If [code]true[/code], the timer will automatically start when entering the scene tree.
 ```
 
 ### Use `[code]` around arguments

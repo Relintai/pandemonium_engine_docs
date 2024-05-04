@@ -79,7 +79,7 @@ You can apply clang-format manually one or more files with the following
 command:
 
 ```
-    clang-format -i <path/to/file(s)>
+clang-format -i <path/to/file(s)>
 ```
 
 - `-i` means that the changes should be written directly to the file (by
@@ -149,90 +149,90 @@ ones, the following rules should be followed:
 Example:
 
 ```
-    /*************************************************************************/
-    /*  my_new_file.h                                                        */
-    /*************************************************************************/
-    /*                         This file is part of:                         */
-    /*                          PANDEMONIUM ENGINE                           */
-    /*             https://github.com/Relintai/pandemonium_engine            */
-    /*************************************************************************/
-    /* Copyright (c) 2022-present Péter Magyar.                              */
-    /* Copyright (c) 2014-2022 Godot Engine contributors (cf. AUTHORS.md).   */
-    /* Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.                 */
-    /*                                                                       */
-    /* Permission is hereby granted, free of charge, to any person obtaining */
-    /* a copy of this software and associated documentation files (the       */
-    /* "Software"), to deal in the Software without restriction, including   */
-    /* without limitation the rights to use, copy, modify, merge, publish,   */
-    /* distribute, sublicense, and/or sell copies of the Software, and to    */
-    /* permit persons to whom the Software is furnished to do so, subject to */
-    /* the following conditions:                                             */
-    /*                                                                       */
-    /* The above copyright notice and this permission notice shall be        */
-    /* included in all copies or substantial portions of the Software.       */
-    /*                                                                       */
-    /* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
-    /* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
-    /* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
-    /* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
-    /* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
-    /* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
-    /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-    /*************************************************************************/
+/*************************************************************************/
+/*  my_new_file.h                                                        */
+/*************************************************************************/
+/*                         This file is part of:                         */
+/*                          PANDEMONIUM ENGINE                           */
+/*             https://github.com/Relintai/pandemonium_engine            */
+/*************************************************************************/
+/* Copyright (c) 2022-present Péter Magyar.                              */
+/* Copyright (c) 2014-2022 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.                 */
+/*                                                                       */
+/* Permission is hereby granted, free of charge, to any person obtaining */
+/* a copy of this software and associated documentation files (the       */
+/* "Software"), to deal in the Software without restriction, including   */
+/* without limitation the rights to use, copy, modify, merge, publish,   */
+/* distribute, sublicense, and/or sell copies of the Software, and to    */
+/* permit persons to whom the Software is furnished to do so, subject to */
+/* the following conditions:                                             */
+/*                                                                       */
+/* The above copyright notice and this permission notice shall be        */
+/* included in all copies or substantial portions of the Software.       */
+/*                                                                       */
+/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
+/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
+/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
+/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
+/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
+/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
+/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
+/*************************************************************************/
 
-    #ifndef MY_NEW_FILE_H
-    #define MY_NEW_FILE_H
+#ifndef MY_NEW_FILE_H
+#define MY_NEW_FILE_H
 
-    #include "core/hash_map.h"
-    #include "core/list.h"
-    #include "scene/gui/control.h"
+#include "core/hash_map.h"
+#include "core/list.h"
+#include "scene/gui/control.h"
 
-    #include <png.h>
+#include <png.h>
 
-    ...
+...
 
-    #endif // MY_NEW_FILE_H
+#endif // MY_NEW_FILE_H
 ```
 
 ```
-    /*************************************************************************/
-    /*  my_new_file.cpp                                                      */
-    /*************************************************************************/
-    /*                         This file is part of:                         */
-    /*                          PANDEMONIUM ENGINE                           */
-    /*             https://github.com/Relintai/pandemonium_engine            */
-    /*************************************************************************/
-    /* Copyright (c) 2022-present Péter Magyar.                              */
-    /* Copyright (c) 2014-2022 Godot Engine contributors (cf. AUTHORS.md).   */
-    /* Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.                 */
-    /*                                                                       */
-    /* Permission is hereby granted, free of charge, to any person obtaining */
-    /* a copy of this software and associated documentation files (the       */
-    /* "Software"), to deal in the Software without restriction, including   */
-    /* without limitation the rights to use, copy, modify, merge, publish,   */
-    /* distribute, sublicense, and/or sell copies of the Software, and to    */
-    /* permit persons to whom the Software is furnished to do so, subject to */
-    /* the following conditions:                                             */
-    /*                                                                       */
-    /* The above copyright notice and this permission notice shall be        */
-    /* included in all copies or substantial portions of the Software.       */
-    /*                                                                       */
-    /* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
-    /* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
-    /* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
-    /* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
-    /* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
-    /* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
-    /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-    /*************************************************************************/
+/*************************************************************************/
+/*  my_new_file.cpp                                                      */
+/*************************************************************************/
+/*                         This file is part of:                         */
+/*                          PANDEMONIUM ENGINE                           */
+/*             https://github.com/Relintai/pandemonium_engine            */
+/*************************************************************************/
+/* Copyright (c) 2022-present Péter Magyar.                              */
+/* Copyright (c) 2014-2022 Godot Engine contributors (cf. AUTHORS.md).   */
+/* Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur.                 */
+/*                                                                       */
+/* Permission is hereby granted, free of charge, to any person obtaining */
+/* a copy of this software and associated documentation files (the       */
+/* "Software"), to deal in the Software without restriction, including   */
+/* without limitation the rights to use, copy, modify, merge, publish,   */
+/* distribute, sublicense, and/or sell copies of the Software, and to    */
+/* permit persons to whom the Software is furnished to do so, subject to */
+/* the following conditions:                                             */
+/*                                                                       */
+/* The above copyright notice and this permission notice shall be        */
+/* included in all copies or substantial portions of the Software.       */
+/*                                                                       */
+/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
+/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
+/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
+/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
+/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
+/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
+/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
+/*************************************************************************/
 
-    #include "my_new_file.h"
+#include "my_new_file.h"
 
-    #include "core/math/math_funcs.h"
-    #include "scene/gui/line_edit.h"
+#include "core/math/math_funcs.h"
+#include "scene/gui/line_edit.h"
 
-    #include <zlib.h>
-    #include <zstd.h>
+#include <zlib.h>
+#include <zstd.h>
 ```
 
 ## Java
@@ -260,7 +260,7 @@ to run.
 Here's how to install black:
 
 ```
-    pip3 install black --user
+pip3 install black --user
 ```
 
 You then have different possibilities to apply black to your changes:
@@ -271,7 +271,7 @@ You can apply `black` manually to one or more files with the following
 command:
 
 ```
-    black -l 120 <path/to/file(s)>
+black -l 120 <path/to/file(s)>
 ```
 
 - `-l 120` means that the allowed number of characters per line is 120.
@@ -311,9 +311,9 @@ Pandemonium's codebase.
 **Example:**
 
 ```
-    // Compute the first 10,000 decimals of Pi.
-    // FIXME: Don't crash when computing the 1,337th decimal due to `increment`
-    //        being negative.
+// Compute the first 10,000 decimals of Pi.
+// FIXME: Don't crash when computing the 1,337th decimal due to `increment`
+//        being negative.
 ```
 
 Don't repeat what the code says in a comment. Explain the *why* rather than *how*.
@@ -321,8 +321,8 @@ Don't repeat what the code says in a comment. Explain the *why* rather than *how
 **Bad:**
 
 ```
-    // Draw loading screen.
-    draw_load_screen();
+// Draw loading screen.
+draw_load_screen();
 ```
 
 You can use Javadoc-style comments above function or macro definitions. It's
@@ -334,22 +334,22 @@ instead.
 **Example:**
 
 ```
-    /**
-     * Returns the number of nodes in the universe.
-     * This can potentially be a very large number, hence the 64-bit return type.
-     */
-    uint64_t Universe::get_node_count() {
-        // ...
-    }
+/**
+ * Returns the number of nodes in the universe.
+ * This can potentially be a very large number, hence the 64-bit return type.
+ */
+uint64_t Universe::get_node_count() {
+    // ...
+}
 ```
 
 For member variables, don't use Javadoc-style comments but use single-line comments instead:
 
 ```
-    class Universe {
-        // The cached number of nodes in the universe.
-        // This value may not always be up-to-date with the current number of nodes
-        // in the universe.
-        uint64_t node_count_cached = 0;
-    };
+class Universe {
+    // The cached number of nodes in the universe.
+    // This value may not always be up-to-date with the current number of nodes
+    // in the universe.
+    uint64_t node_count_cached = 0;
+};
 ```

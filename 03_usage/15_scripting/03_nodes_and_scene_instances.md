@@ -22,12 +22,12 @@ To do so, you can use the following code.
 gdscript GDScript
 
 ```
-    var sprite
-    var camera2d
+var sprite
+var camera2d
 
-    func _ready():
-        sprite = get_node("Sprite")
-        camera2d = get_node("Camera2D")
+func _ready():
+    sprite = get_node("Sprite")
+    camera2d = get_node("Camera2D")
 ```
 
 Note that you get nodes using their name, not their type. Above, "Sprite" and
@@ -56,10 +56,10 @@ To get the Tween node, you would use the following code.
 gdscript GDScript
 
 ```
-    var tween
+var tween
 
-    func _ready():
-        tween = get_node("ShieldBar/Tween")
+func _ready():
+    tween = get_node("ShieldBar/Tween")
 ```
 
 Note:
@@ -76,15 +76,15 @@ You can use two shorthands to shorten your code in GDScript. Firstly, putting th
 the `ready()` callback.
 
 ```
-    onready var sprite = get_node("Sprite")
+onready var sprite = get_node("Sprite")
 ```
 
 There is also a short notation for `get_node()`: the dollar sign, "$". You
 place it before the name or path of the node you want to get.
 
 ```
-    onready var sprite = $Sprite
-    onready var tween = $ShieldBar/Tween
+onready var sprite = $Sprite
+onready var tween = $ShieldBar/Tween
 ```
 
 ## Creating nodes
@@ -99,11 +99,11 @@ script.
 gdscript GDScript
 
 ```
-    var sprite
+var sprite
 
-    func _ready():
-        var sprite = Sprite.new() # Create a new Sprite.
-        add_child(sprite) # Add it as a child of this node.
+func _ready():
+    var sprite = Sprite.new() # Create a new Sprite.
+    add_child(sprite) # Add it as a child of this node.
 ```
 
 To delete a node and free it from memory, you can call its `queue_free()`
@@ -114,7 +114,7 @@ the scene and frees the object in memory.
 gdscript GDScript
 
 ```
-    sprite.queue_free()
+sprite.queue_free()
 ```
 
 Before calling `sprite.queue_free()`, the remote scene tree looks like this.
@@ -147,7 +147,7 @@ steps:
 gdscript GDScript
 
 ```
-    var scene = load("res://MyScene.tscn")
+var scene = load("res://MyScene.tscn")
 ```
 
 Preloading the scene can improve the user's experience as the load operation
@@ -157,7 +157,7 @@ only available with GDScript.
 gdscript GDScript
 
 ```
-    var scene = preload("res://MyScene.tscn")
+var scene = preload("res://MyScene.tscn")
 ```
 
 At that point, `scene` is a packed scene resource, not a node. To create the
@@ -168,8 +168,8 @@ as a child of your current node.
 gdscript GDScript
 
 ```
-    var instance = scene.instance()
-    add_child(instance)
+var instance = scene.instance()
+add_child(instance)
 ```
 
 The advantage of this two-step process is you can keep a packed scene loaded and

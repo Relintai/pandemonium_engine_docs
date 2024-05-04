@@ -52,7 +52,7 @@ Under `ready()`, create a new Array.
 gdscript GDScript
 
 ```
-    var surface_array = []
+var surface_array = []
 ```
 
 This will be the array that we keep our surface information in - it will hold
@@ -62,8 +62,8 @@ size `Mesh.ARRAY_MAX`, so resize it accordingly.
 gdscript GDScript
 
 ```
-    var surface_array = []
-    surface_array.resize(Mesh.ARRAY_MAX)
+var surface_array = []
+surface_array.resize(Mesh.ARRAY_MAX)
 ```
 
 Next create the arrays for each data type you will use.
@@ -71,10 +71,10 @@ Next create the arrays for each data type you will use.
 gdscript GDScript
 
 ```
-    var verts = PoolVector3Array()
-    var uvs = PoolVector2Array()
-    var normals = PoolVector3Array()
-    var indices = PoolIntArray()
+var verts = PoolVector3Array()
+var uvs = PoolVector2Array()
+var normals = PoolVector3Array()
+var indices = PoolIntArray()
 ```
 
 Once you have filled your data arrays with your geometry you can create a mesh
@@ -83,12 +83,12 @@ by adding each array to `surface_array` and then committing to the mesh.
 gdscript GDScript
 
 ```
-    surface_array[Mesh.ARRAY_VERTEX] = verts
-    surface_array[Mesh.ARRAY_TEX_UV] = uvs
-    surface_array[Mesh.ARRAY_NORMAL] = normals
-    surface_array[Mesh.ARRAY_INDEX] = indices
+surface_array[Mesh.ARRAY_VERTEX] = verts
+surface_array[Mesh.ARRAY_TEX_UV] = uvs
+surface_array[Mesh.ARRAY_NORMAL] = normals
+surface_array[Mesh.ARRAY_INDEX] = indices
 
-    mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
+mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
 ```
 
 Note:
@@ -100,30 +100,30 @@ Put together, the full code looks like:
 gdscript GDScript
 
 ```
-    extends MeshInstance
+extends MeshInstance
 
-    func _ready():
-        var surface_array= []
-        surface_array.resize(Mesh.ARRAY_MAX)
+func _ready():
+    var surface_array= []
+    surface_array.resize(Mesh.ARRAY_MAX)
 
-        # PoolVector**Arrays for mesh construction.
-        var verts = PoolVector3Array()
-        var uvs = PoolVector2Array()
-        var normals = PoolVector3Array()
-        var indices = PoolIntArray()
+    # PoolVector**Arrays for mesh construction.
+    var verts = PoolVector3Array()
+    var uvs = PoolVector2Array()
+    var normals = PoolVector3Array()
+    var indices = PoolIntArray()
 
-        #######################################
-        ## Insert code here to generate mesh ##
-        #######################################
+    #######################################
+    ## Insert code here to generate mesh ##
+    #######################################
 
-        # Assign arrays to mesh array.
-        surface_array[Mesh.ARRAY_VERTEX] = verts
-        surface_array[Mesh.ARRAY_TEX_UV] = uvs
-        surface_array[Mesh.ARRAY_NORMAL] = normals
-        surface_array[Mesh.ARRAY_INDEX] = indices
+    # Assign arrays to mesh array.
+    surface_array[Mesh.ARRAY_VERTEX] = verts
+    surface_array[Mesh.ARRAY_TEX_UV] = uvs
+    surface_array[Mesh.ARRAY_NORMAL] = normals
+    surface_array[Mesh.ARRAY_INDEX] = indices
 
-        # Create mesh surface from mesh array.
-        mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
+    # Create mesh surface from mesh array.
+    mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
 ```
 
 The code that goes in the middle can be whatever you want. Below we will present some example code
@@ -141,62 +141,62 @@ that you find online.
 gdscript GDScript
 
 ```
-    extends MeshInstance
+extends MeshInstance
 
-    var rings = 50
-    var radial_segments = 50
-    var height = 1
-    var radius = 1
+var rings = 50
+var radial_segments = 50
+var height = 1
+var radius = 1
 
-    func _ready():
+func _ready():
 
-        # Insert setting up the PoolVector**Arrays here.
+    # Insert setting up the PoolVector**Arrays here.
 
-        # Vertex indices.
-        var thisrow = 0
-        var prevrow = 0
-        var point = 0
+    # Vertex indices.
+    var thisrow = 0
+    var prevrow = 0
+    var point = 0
 
-        # Loop over rings.
-        for i in range(rings + 1):
-            var v = float(i) / rings
-            var w = sin(PI * v)
-            var y = cos(PI * v)
+    # Loop over rings.
+    for i in range(rings + 1):
+        var v = float(i) / rings
+        var w = sin(PI * v)
+        var y = cos(PI * v)
 
-            # Loop over segments in ring.
-            for j in range(radial_segments):
-                var u = float(j) / radial_segments
-                var x = sin(u * PI * 2.0)
-                var z = cos(u * PI * 2.0)
-                var vert = Vector3(x * radius * w, y, z * radius * w)
-                verts.append(vert)
-                normals.append(vert.normalized())
-                uvs.append(Vector2(u, v))
-                point += 1
+        # Loop over segments in ring.
+        for j in range(radial_segments):
+            var u = float(j) / radial_segments
+            var x = sin(u * PI * 2.0)
+            var z = cos(u * PI * 2.0)
+            var vert = Vector3(x * radius * w, y, z * radius * w)
+            verts.append(vert)
+            normals.append(vert.normalized())
+            uvs.append(Vector2(u, v))
+            point += 1
 
-                # Create triangles in ring using indices.
-                if i > 0 and j > 0:
-                    indices.append(prevrow + j - 1)
-                    indices.append(prevrow + j)
-                    indices.append(thisrow + j - 1)
+            # Create triangles in ring using indices.
+            if i > 0 and j > 0:
+                indices.append(prevrow + j - 1)
+                indices.append(prevrow + j)
+                indices.append(thisrow + j - 1)
 
-                    indices.append(prevrow + j)
-                    indices.append(thisrow + j)
-                    indices.append(thisrow + j - 1)
+                indices.append(prevrow + j)
+                indices.append(thisrow + j)
+                indices.append(thisrow + j - 1)
 
-            if i > 0:
-                indices.append(prevrow + radial_segments - 1)
-                indices.append(prevrow)
-                indices.append(thisrow + radial_segments - 1)
+        if i > 0:
+            indices.append(prevrow + radial_segments - 1)
+            indices.append(prevrow)
+            indices.append(thisrow + radial_segments - 1)
 
-                indices.append(prevrow)
-                indices.append(prevrow + radial_segments)
-                indices.append(thisrow + radial_segments - 1)
+            indices.append(prevrow)
+            indices.append(prevrow + radial_segments)
+            indices.append(thisrow + radial_segments - 1)
 
-            prevrow = thisrow
-            thisrow = point
+        prevrow = thisrow
+        thisrow = point
 
-      # Insert committing to the ArrayMesh here.
+  # Insert committing to the ArrayMesh here.
 ```
 
 ## Saving
@@ -207,6 +207,6 @@ This is useful when you want to generate a mesh and then use it later without ha
 gdscript GDScript
 
 ```
-    # Saves mesh to a .tres file with compression enabled.
-    ResourceSaver.save("res://sphere.tres", mesh, ResourceSaver.FLAG_COMPRESS)
+# Saves mesh to a .tres file with compression enabled.
+ResourceSaver.save("res://sphere.tres", mesh, ResourceSaver.FLAG_COMPRESS)
 ```

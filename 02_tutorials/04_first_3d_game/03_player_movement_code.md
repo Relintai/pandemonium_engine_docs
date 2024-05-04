@@ -45,21 +45,21 @@ using the global `Input` object, in `physics_process()`.
 gdscript GDScript
 
 ```
-   func _physics_process(delta):
-       # We create a local variable to store the input direction.
-       var direction = Vector3.ZERO
+func _physics_process(delta):
+    # We create a local variable to store the input direction.
+    var direction = Vector3.ZERO
 
-       # We check for each move input and update the direction accordingly.
-       if Input.is_action_pressed("move_right"):
-           direction.x += 1
-       if Input.is_action_pressed("move_left"):
-           direction.x -= 1
-       if Input.is_action_pressed("move_back"):
-           # Notice how we are working with the vector's x and z axes.
-           # In 3D, the XZ plane is the ground plane.
-           direction.z += 1
-       if Input.is_action_pressed("move_forward"):
-           direction.z -= 1
+    # We check for each move input and update the direction accordingly.
+    if Input.is_action_pressed("move_right"):
+        direction.x += 1
+    if Input.is_action_pressed("move_left"):
+        direction.x -= 1
+    if Input.is_action_pressed("move_back"):
+        # Notice how we are working with the vector's x and z axes.
+        # In 3D, the XZ plane is the ground plane.
+        direction.z += 1
+    if Input.is_action_pressed("move_forward"):
+        direction.z -= 1
 ```
 
 Here, we're going to make all calculations using the `physics_process()`
@@ -88,12 +88,12 @@ call its `normalize()` method.
 gdscript GDScript
 
 ```
-   #func _physics_process(delta):
-       #...
+#func _physics_process(delta):
+    #...
 
-       if direction != Vector3.ZERO:
-           direction = direction.normalized()
-           $Pivot.look_at(translation + direction, Vector3.UP)
+    if direction != Vector3.ZERO:
+        direction = direction.normalized()
+        $Pivot.look_at(translation + direction, Vector3.UP)
 ```
 
 Here, we only normalize the vector if the direction has a length greater than
@@ -121,18 +121,18 @@ fall speed separately. Be sure to go back one tab so the lines are inside the
 gdscript GDScript
 
 ```
-    func _physics_process(delta):
+func _physics_process(delta):
+    #...
+    if direction != Vector3.ZERO:
         #...
-        if direction != Vector3.ZERO:
-            #...
 
-        # Ground velocity
-        velocity.x = direction.x * speed
-        velocity.z = direction.z * speed
-        # Vertical velocity
-        velocity.y -= fall_acceleration * delta
-        # Moving the character
-        velocity = move_and_slide(velocity, Vector3.UP)
+    # Ground velocity
+    velocity.x = direction.x * speed
+    velocity.z = direction.z * speed
+    # Vertical velocity
+    velocity.y -= fall_acceleration * delta
+    # Moving the character
+    velocity = move_and_slide(velocity, Vector3.UP)
 ```
 
 For the vertical velocity, we subtract the fall acceleration multiplied by the
@@ -166,36 +166,36 @@ Here is the complete `Player.gd` code for reference.
 gdscript GDScript
 
 ```
-   extends KinematicBody
+extends KinematicBody
 
-   # How fast the player moves in meters per second.
-   export var speed = 14
-   # The downward acceleration when in the air, in meters per second squared.
-   export var fall_acceleration = 75
+# How fast the player moves in meters per second.
+export var speed = 14
+# The downward acceleration when in the air, in meters per second squared.
+export var fall_acceleration = 75
 
-   var velocity = Vector3.ZERO
+var velocity = Vector3.ZERO
 
 
-   func _physics_process(delta):
-       var direction = Vector3.ZERO
+func _physics_process(delta):
+    var direction = Vector3.ZERO
 
-       if Input.is_action_pressed("move_right"):
-           direction.x += 1
-       if Input.is_action_pressed("move_left"):
-           direction.x -= 1
-       if Input.is_action_pressed("move_back"):
-           direction.z += 1
-       if Input.is_action_pressed("move_forward"):
-           direction.z -= 1
+    if Input.is_action_pressed("move_right"):
+        direction.x += 1
+    if Input.is_action_pressed("move_left"):
+        direction.x -= 1
+    if Input.is_action_pressed("move_back"):
+        direction.z += 1
+    if Input.is_action_pressed("move_forward"):
+        direction.z -= 1
 
-       if direction != Vector3.ZERO:
-           direction = direction.normalized()
-           $Pivot.look_at(translation + direction, Vector3.UP)
+    if direction != Vector3.ZERO:
+        direction = direction.normalized()
+        $Pivot.look_at(translation + direction, Vector3.UP)
 
-       velocity.x = direction.x * speed
-       velocity.z = direction.z * speed
-       velocity.y -= fall_acceleration * delta
-       velocity = move_and_slide(velocity, Vector3.UP)
+    velocity.x = direction.x * speed
+    velocity.z = direction.z * speed
+    velocity.y -= fall_acceleration * delta
+    velocity = move_and_slide(velocity, Vector3.UP)
 ```
 
 ## Testing our player's movement

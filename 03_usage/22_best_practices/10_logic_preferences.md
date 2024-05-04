@@ -25,43 +25,43 @@ either? Let's see an example:
 gdscript GDScript
 
 ```
-    # my_buildings.gd
-    extends Node
+# my_buildings.gd
+extends Node
 
-    # Note how constant scripts/scenes have a different naming scheme than
-    # their property variants.
+# Note how constant scripts/scenes have a different naming scheme than
+# their property variants.
 
-    # This value is a constant, so it spawns when the Script object loads.
-    # The script is preloading the value. The advantage here is that the editor
-    # can offer autocompletion since it must be a static path.
-    const BuildingScn = preload("res://building.tscn")
+# This value is a constant, so it spawns when the Script object loads.
+# The script is preloading the value. The advantage here is that the editor
+# can offer autocompletion since it must be a static path.
+const BuildingScn = preload("res://building.tscn")
 
-    # 1. The script preloads the value, so it will load as a dependency
-    #    of the 'my_buildings.gd' script file. But, because this is a
-    #    property rather than a constant, the object won't copy the preloaded
-    #    PackedScene resource into the property until the script instantiates
-    #    with .new().
-    #
-    # 2. The preloaded value is inaccessible from the Script object alone. As
-    #    such, preloading the value here actually does not benefit anyone.
-    #
-    # 3. Because the user exports the value, if this script stored on
-    #    a node in a scene file, the scene instantiation code will overwrite the
-    #    preloaded initial value anyway (wasting it). It's usually better to
-    #    provide null, empty, or otherwise invalid default values for exports.
-    #
-    # 4. It is when one instantiates this script on its own with .new() that
-    #    one will load "office.tscn" rather than the exported value.
-    export(PackedScene) var a_building = preload("office.tscn")
+# 1. The script preloads the value, so it will load as a dependency
+#    of the 'my_buildings.gd' script file. But, because this is a
+#    property rather than a constant, the object won't copy the preloaded
+#    PackedScene resource into the property until the script instantiates
+#    with .new().
+#
+# 2. The preloaded value is inaccessible from the Script object alone. As
+#    such, preloading the value here actually does not benefit anyone.
+#
+# 3. Because the user exports the value, if this script stored on
+#    a node in a scene file, the scene instantiation code will overwrite the
+#    preloaded initial value anyway (wasting it). It's usually better to
+#    provide null, empty, or otherwise invalid default values for exports.
+#
+# 4. It is when one instantiates this script on its own with .new() that
+#    one will load "office.tscn" rather than the exported value.
+export(PackedScene) var a_building = preload("office.tscn")
 
-    # Uh oh! This results in an error!
-    # One must assign constant values to constants. Because `load` performs a
-    # runtime lookup by its very nature, one cannot use it to initialize a
-    # constant.
-    const OfficeScn = load("res://office.tscn")
+# Uh oh! This results in an error!
+# One must assign constant values to constants. Because `load` performs a
+# runtime lookup by its very nature, one cannot use it to initialize a
+# constant.
+const OfficeScn = load("res://office.tscn")
 
-    # Successfully loads and only when one instantiates the script! Yay!
-    var office_scn = load("res://office.tscn")
+# Successfully loads and only when one instantiates the script! Yay!
+var office_scn = load("res://office.tscn")
 ```
 
 Preloading allows the script to handle all the loading the moment one loads the

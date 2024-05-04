@@ -26,11 +26,11 @@ Example of file system contents:
 
 
 ```
-    /project.pandemonium
-    /enemy/enemy.tscn
-    /enemy/enemy.gd
-    /enemy/enemysprite.png
-    /player/player.gd
+/project.pandemonium
+/enemy/enemy.tscn
+/enemy/enemy.gd
+/enemy/enemysprite.png
+/player/player.gd
 ```
 
 ## project.pandemonium

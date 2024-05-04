@@ -23,36 +23,36 @@ In scripts the following helper functions can be used to work with the navigatio
 GDScript
 
 ```
-    func change_layers():
-        var region: NavigationRegion3D = get_node("NavigationRegion3D")
-        # enables 4-th layer for this region
-        region.navigation_layers = enable_bitmask_inx(region.navigation_layers, 4)
-        # disables 1-rst layer for this region
-        region.navigation_layers = disable_bitmask_inx(region.navigation_layers, 1)
+func change_layers():
+    var region: NavigationRegion3D = get_node("NavigationRegion3D")
+    # enables 4-th layer for this region
+    region.navigation_layers = enable_bitmask_inx(region.navigation_layers, 4)
+    # disables 1-rst layer for this region
+    region.navigation_layers = disable_bitmask_inx(region.navigation_layers, 1)
 
-        var agent: NavigationAgent3D = get_node("NavigationAgent3D")
-        # make future path queries of this agent ignore regions with 4-th layer
-        agent.navigation_layers = disable_bitmask_inx(agent.navigation_layers, 4)
+    var agent: NavigationAgent3D = get_node("NavigationAgent3D")
+    # make future path queries of this agent ignore regions with 4-th layer
+    agent.navigation_layers = disable_bitmask_inx(agent.navigation_layers, 4)
 
-        var path_query_navigation_layers: int = 0
-        path_query_navigation_layers = enable_bitmask_inx(path_query_navigation_layers, 2)
-        # get a path that only considers 2-nd layer regions
-        var path: PoolVector3Array = NavigationServer3D.map_get_path(
-            map,
-            start_position,
-            target_position,
-            true,
-            path_query_navigation_layers
-            )
+    var path_query_navigation_layers: int = 0
+    path_query_navigation_layers = enable_bitmask_inx(path_query_navigation_layers, 2)
+    # get a path that only considers 2-nd layer regions
+    var path: PoolVector3Array = NavigationServer3D.map_get_path(
+        map,
+        start_position,
+        target_position,
+        true,
+        path_query_navigation_layers
+        )
 
-    static func is_bitmask_inx_enabled(_bitmask: int, _index: int) -> bool:
-        return _bitmask & (1 << _index) != 0
+static func is_bitmask_inx_enabled(_bitmask: int, _index: int) -> bool:
+    return _bitmask & (1 << _index) != 0
 
-    static func enable_bitmask_inx(_bitmask: int, _index: int) -> int:
-        return _bitmask | (1 << _index)
+static func enable_bitmask_inx(_bitmask: int, _index: int) -> int:
+    return _bitmask | (1 << _index)
 
-    static func disable_bitmask_inx(_bitmask: int, _index: int) -> int:
-        return _bitmask & ~(1 << _index)
+static func disable_bitmask_inx(_bitmask: int, _index: int) -> int:
+    return _bitmask & ~(1 << _index)
 ```
 
 Changing navigation layers for path queries is a performance friendly alternative to

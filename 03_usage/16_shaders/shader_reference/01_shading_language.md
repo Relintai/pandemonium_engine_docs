@@ -56,17 +56,17 @@ Casting of types of different size is also not allowed. Conversion must be done 
 Example:
 
 ```
-    float a = 2; // invalid
-    float a = 2.0; // valid
-    float a = float(2); // valid
+float a = 2; // invalid
+float a = 2.0; // valid
+float a = float(2); // valid
 ```
 
 Default integer constants are signed, so casting is always needed to convert to unsigned:
 
 ```
-    int a = 2; // valid
-    uint a = 2; // invalid
-    uint a = uint(2); // valid
+int a = 2; // valid
+uint a = 2; // invalid
+uint a = uint(2); // valid
 ```
 
 ### Members
@@ -84,13 +84,13 @@ position of an object in a mat4 you use `m[3][1]`.
 Construction of vector types must always pass:
 
 ```
-    // The required amount of scalars
-    vec4 a = vec4(0.0, 1.0, 2.0, 3.0);
-    // Complementary vectors and/or scalars
-    vec4 a = vec4(vec2(0.0, 1.0), vec2(2.0, 3.0));
-    vec4 a = vec4(vec3(0.0, 1.0, 2.0), 3.0);
-    // A single scalar for the whole vector
-    vec4 a = vec4(0.0);
+// The required amount of scalars
+vec4 a = vec4(0.0, 1.0, 2.0, 3.0);
+// Complementary vectors and/or scalars
+vec4 a = vec4(vec2(0.0, 1.0), vec2(2.0, 3.0));
+vec4 a = vec4(vec3(0.0, 1.0, 2.0), 3.0);
+// A single scalar for the whole vector
+vec4 a = vec4(0.0);
 ```
 
 Construction of matrix types requires vectors of the same dimension as the matrix. You can
@@ -98,9 +98,9 @@ also build a diagonal matrix using `matx(float)` syntax. Accordingly, `mat4(1.0)
 an identity matrix.
 
 ```
-    mat2 m2 = mat2(vec2(1.0, 0.0), vec2(0.0, 1.0));
-    mat3 m3 = mat3(vec3(1.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 0.0, 1.0));
-    mat4 identity = mat4(1.0);
+mat2 m2 = mat2(vec2(1.0, 0.0), vec2(0.0, 1.0));
+mat3 m3 = mat3(vec3(1.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0), vec3(0.0, 0.0, 1.0));
+mat4 identity = mat4(1.0);
 ```
 
 Matrices can also be built from a matrix of another dimension.
@@ -110,9 +110,9 @@ set to the values they would have in an identity matrix. If a smaller matrix is 
 from a larger matrix, the top, left submatrix of the larger matrix is used.
 
 ```
-	mat3 basis = mat3(WORLD_MATRIX);
-	mat4 m4 = mat4(basis);
-	mat2 m2 = mat2(m4);
+mat3 basis = mat3(WORLD_MATRIX);
+mat4 m4 = mat4(basis);
+mat2 m2 = mat2(m4);
 ```
 
 ### Swizzling
@@ -121,16 +121,16 @@ It is possible to obtain any combination of components in any order, as long as 
 is another vector type (or scalar). This is easier shown than explained:
 
 ```
-    vec4 a = vec4(0.0, 1.0, 2.0, 3.0);
-    vec3 b = a.rgb; // Creates a vec3 with vec4 components.
-    vec3 b = a.ggg; // Also valid; creates a vec3 and fills it with a single vec4 component.
-    vec3 b = a.bgr; // "b" will be vec3(2.0, 1.0, 0.0).
-    vec3 b = a.xyz; // Also rgba, xyzw are equivalent.
-    vec3 b = a.stp; // And stpq (for texture coordinates).
-    float c = b.w; // Invalid, because "w" is not present in vec3 b.
-    vec3 c = b.xrt; // Invalid, mixing different styles is forbidden.
-    b.rrr = a.rgb; // Invalid, assignment with duplication.
-    b.bgr = a.rgb; // Valid assignment. "b"'s "blue" component will be "a"'s "red" and vice versa.
+vec4 a = vec4(0.0, 1.0, 2.0, 3.0);
+vec3 b = a.rgb; // Creates a vec3 with vec4 components.
+vec3 b = a.ggg; // Also valid; creates a vec3 and fills it with a single vec4 component.
+vec3 b = a.bgr; // "b" will be vec3(2.0, 1.0, 0.0).
+vec3 b = a.xyz; // Also rgba, xyzw are equivalent.
+vec3 b = a.stp; // And stpq (for texture coordinates).
+float c = b.w; // Invalid, because "w" is not present in vec3 b.
+vec3 c = b.xrt; // Invalid, mixing different styles is forbidden.
+b.rrr = a.rgb; // Invalid, assignment with duplication.
+b.bgr = a.rgb; // Valid assignment. "b"'s "blue" component will be "a"'s "red" and vice versa.
 ```
 
 ### Precision
@@ -138,9 +138,9 @@ is another vector type (or scalar). This is easier shown than explained:
 It is possible to add precision modifiers to datatypes; use them for uniforms, variables, arguments and varyings:
 
 ```
-    lowp vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // low precision, usually 8 bits per component mapped to 0-1
-    mediump vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // medium precision, usually 16 bits or half float
-    highp vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // high precision, uses full float or integer range (default)
+lowp vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // low precision, usually 8 bits per component mapped to 0-1
+mediump vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // medium precision, usually 16 bits or half float
+highp vec4 a = vec4(0.0, 1.0, 2.0, 3.0); // high precision, uses full float or integer range (default)
 ```
 
 
@@ -165,50 +165,50 @@ Local arrays are declared in functions. They can use all of the allowed datatype
 The array declaration follows a C-style syntax: `[const] + [precision] + typename + identifier + [array size]`.
 
 ```
-    void fragment() {
-        float arr[3];
-    }
+void fragment() {
+    float arr[3];
+}
 ```
 
 They can be initialized at the beginning like:
 
 ```
-    float float_arr[3] = float[3] (1.0, 0.5, 0.0); // first constructor
+float float_arr[3] = float[3] (1.0, 0.5, 0.0); // first constructor
 
-    int int_arr[3] = int[] (2, 1, 0); // second constructor
+int int_arr[3] = int[] (2, 1, 0); // second constructor
 
-    vec2 vec2_arr[3] = { vec2(1.0, 1.0), vec2(0.5, 0.5), vec2(0.0, 0.0) }; // third constructor
+vec2 vec2_arr[3] = { vec2(1.0, 1.0), vec2(0.5, 0.5), vec2(0.0, 0.0) }; // third constructor
 
-    bool bool_arr[] = { true, true, false }; // fourth constructor - size is defined automatically from the element count
+bool bool_arr[] = { true, true, false }; // fourth constructor - size is defined automatically from the element count
 ```
 
 You can declare multiple arrays (even with different sizes) in one expression:
 
 ```
-    float a[3] = float[3] (1.0, 0.5, 0.0),
-    b[2] = { 1.0, 0.5 },
-    c[] = { 0.7 },
-    d = 0.0,
-    e[5];
+float a[3] = float[3] (1.0, 0.5, 0.0),
+b[2] = { 1.0, 0.5 },
+c[] = { 0.7 },
+d = 0.0,
+e[5];
 ```
 
 To access an array element, use the indexing syntax:
 
 ```
-    float arr[3];
+float arr[3];
 
-    arr[0] = 1.0; // setter
+arr[0] = 1.0; // setter
 
-    COLOR.r = arr[0]; // getter
+COLOR.r = arr[0]; // getter
 ```
 
 Arrays also have a built-in function `.length()` (not to be confused with the built-in `length()` function). It doesn't accept any parameters and will return the array's size.
 
 ```
-    float arr[] = { 0.0, 1.0, 0.5, -1.0 };
-    for (int i = 0; i < arr.length(); i++) {
-        // ...
-    }
+float arr[] = { 0.0, 1.0, 0.5, -1.0 };
+for (int i = 0; i < arr.length(); i++) {
+    // ...
+}
 ```
 
 Note:
@@ -221,36 +221,36 @@ Note:
 Use the `const` keyword before the variable declaration to make that variable immutable, which means that it cannot be modified. All basic types, except samplers can be declared as constants. Accessing and using a constant value is slightly faster than using a uniform. Constants must be initialized at their declaration.
 
 ```
-    const vec2 a = vec2(0.0, 1.0);
-    vec2 b;
+const vec2 a = vec2(0.0, 1.0);
+vec2 b;
 
-    a = b; // invalid
-    b = a; // valid
+a = b; // invalid
+b = a; // valid
 ```
 
 Constants cannot be modified and additionally cannot have hints, but multiple of them (if they have the same type) can be declared in a single expression e.g
 
 ```
-    const vec2 V1 = vec2(1, 1), V2 = vec2(2, 2);
+const vec2 V1 = vec2(1, 1), V2 = vec2(2, 2);
 ```
 
 Similar to variables, arrays can also be declared with `const`.
 
 ```
-    const float arr[] = { 1.0, 0.5, 0.0 };
+const float arr[] = { 1.0, 0.5, 0.0 };
 
-    arr[0] = 1.0; // invalid
+arr[0] = 1.0; // invalid
 
-    COLOR.r = arr[0]; // valid
+COLOR.r = arr[0]; // valid
 ```
 
 Constants can be declared both globally (outside of any function) or locally (inside a function).
 Global constants are useful when you want to have access to a value throughout your shader that does not need to be modified. Like uniforms, global constants are shared between all shader stages, but they are not accessible outside of the shader.
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    const float PI = 3.14159265358979323846;
+const float PI = 3.14159265358979323846;
 ```
 
 ## Operators
@@ -279,41 +279,41 @@ Pandemonium shading language supports the same set of operators as GLSL ES 3.0. 
 Pandemonium Shading language supports the most common types of flow control:
 
 ```
-    // if and else
-    if (cond) {
+// if and else
+if (cond) {
 
-    } else {
+} else {
 
-    }
+}
 
-    // switch
-    switch(i) { // signed integer expression
-        case -1:
-            break;
-        case 0:
-            return; // break or return
-        case 1: // pass-through
-        case 2:
-            break;
-        //...
-        default: // optional
-            break;
-    }
+// switch
+switch(i) { // signed integer expression
+    case -1:
+        break;
+    case 0:
+        return; // break or return
+    case 1: // pass-through
+    case 2:
+        break;
+    //...
+    default: // optional
+        break;
+}
 
-    // for loops
-    for (int i = 0; i < 10; i++) {
+// for loops
+for (int i = 0; i < 10; i++) {
 
-    }
+}
 
-    // while
-    while (true) {
+// while
+while (true) {
 
-    }
+}
 
-    // do while
-    do {
+// do while
+do {
 
-    } while(true);
+} while(true);
 ```
 
 Keep in mind that, in modern GPUs, an infinite loop can exist and can freeze your application (including editor).
@@ -333,15 +333,15 @@ Fragment and light functions can use the **discard** keyword. If used, the fragm
 It is possible to define functions in a Pandemonium shader. They use the following syntax:
 
 ```
-    ret_type func_name(args) {
-        return ret_type; // if returning a value
-    }
+ret_type func_name(args) {
+    return ret_type; // if returning a value
+}
 
-    // a more specific example:
+// a more specific example:
 
-    int sum2(int a, int b) {
-        return a + b;
-    }
+int sum2(int a, int b) {
+    return a + b;
+}
 ```
 
 
@@ -357,9 +357,9 @@ Function arguments can have special qualifiers:
 Example below:
 
 ```
-    void sum2(int a, int b, inout int result) {
-        result = a + b;
-    }
+void sum2(int a, int b, inout int result) {
+    result = a + b;
+}
 ```
 
 ### Varyings
@@ -369,74 +369,74 @@ used. They are set for every primitive vertex in the *vertex processor*, and the
 value is interpolated for every pixel in the *fragment processor*.
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    varying vec3 some_color;
+varying vec3 some_color;
 
-    void vertex() {
-        some_color = NORMAL; // Make the normal the color.
-    }
+void vertex() {
+    some_color = NORMAL; // Make the normal the color.
+}
 
-    void fragment() {
-        ALBEDO = some_color;
-    }
+void fragment() {
+    ALBEDO = some_color;
+}
 
-    void light() {
-        DIFFUSE_LIGHT = some_color * 100; // optionally
-    }
+void light() {
+    DIFFUSE_LIGHT = some_color * 100; // optionally
+}
 ```
 
 Varying can also be an array:
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    varying float var_arr[3];
+varying float var_arr[3];
 
-    void vertex() {
-        var_arr[0] = 1.0;
-        var_arr[1] = 0.0;
-    }
+void vertex() {
+    var_arr[0] = 1.0;
+    var_arr[1] = 0.0;
+}
 
-    void fragment() {
-        ALBEDO = vec3(var_arr[0], var_arr[1], var_arr[2]); // red color
-    }
+void fragment() {
+    ALBEDO = vec3(var_arr[0], var_arr[1], var_arr[2]); // red color
+}
 ```
 
 It's also possible to send data from *fragment* to *light* processors using *varying* keyword. To do so you can assign it in the *fragment* and later use it in the *light* function.
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    varying vec3 some_light;
+varying vec3 some_light;
 
-    void fragment() {
-        some_light = ALBEDO * 100.0; // Make a shining light.
-    }
+void fragment() {
+    some_light = ALBEDO * 100.0; // Make a shining light.
+}
 
-    void light() {
-        DIFFUSE_LIGHT = some_light;
-    }
+void light() {
+    DIFFUSE_LIGHT = some_light;
+}
 ```
 
 Note that varying may not be assigned in custom functions or a *light processor* function like:
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    varying float test;
+varying float test;
 
-    void foo() {
-        test = 0.0; // Error.
-    }
+void foo() {
+    test = 0.0; // Error.
+}
 
-    void vertex() {
-        test = 0.0;
-    }
+void vertex() {
+    test = 0.0;
+}
 
-    void light() {
-        test = 0.0; // Error too.
-    }
+void light() {
+    test = 0.0; // Error too.
+}
 ```
 
 This limitation was introduced to prevent incorrect usage before initialization.
@@ -447,17 +447,17 @@ Certain values are interpolated during the shading pipeline. You can modify how 
 are done by using *interpolation qualifiers*.
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    varying flat vec3 our_color;
+varying flat vec3 our_color;
 
-    void vertex() {
-        our_color = COLOR.rgb;
-    }
+void vertex() {
+    our_color = COLOR.rgb;
+}
 
-    void fragment() {
-        ALBEDO = our_color;
-    }
+void fragment() {
+    ALBEDO = our_color;
+}
 ```
 
 There are two possible interpolation qualifiers:
@@ -477,15 +477,15 @@ When a shader is later assigned to a material, the uniforms will appear as edita
 Uniforms can't be written from within the shader.
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    uniform float some_value;
+uniform float some_value;
 ```
 
 You can set uniforms in the editor in the material. Or you can set them through GDScript:
 
 ```
-  material.set_shader_param("some_value", some_value)
+material.set_shader_param("some_value", some_value)
 ```
 
 Note:
@@ -497,11 +497,11 @@ optional shader hints to make the compiler understand for what the uniform is
 used, and how the editor should allow users to modify it.
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    uniform vec4 color : hint_color;
-    uniform float amount : hint_range(0, 1);
-    uniform vec4 other_color : hint_color = vec4(1.0);
+uniform vec4 color : hint_color;
+uniform float amount : hint_range(0, 1);
+uniform vec4 other_color : hint_color = vec4(1.0);
 ```
 
 It's important to understand that textures that are supplied as color require hints for proper sRGB->linear conversion (i.e. `hint_albedo`), as Pandemonium's 3D engine renders in linear color space.
@@ -543,10 +543,10 @@ Note:
 Uniforms can also be assigned default values:
 
 ```
-    shader_type spatial;
+shader_type spatial;
 
-    uniform vec4 some_vector = vec4(0.0);
-    uniform vec4 some_color : hint_color = vec4(1.0);
+uniform vec4 some_vector = vec4(0.0);
+uniform vec4 some_color : hint_color = vec4(1.0);
 ```
 
 ## Built-in variables

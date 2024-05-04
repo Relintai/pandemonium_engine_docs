@@ -41,29 +41,29 @@ To use the `PandemoniumGooglePlayBilling` API you first have to get the `Pandemo
 singleton and start the connection:
 
 ```
-    var payment
+var payment
 
-    func _ready():
-        if Engine.has_singleton("PandemoniumGooglePlayBilling"):
-            payment = Engine.get_singleton("PandemoniumGooglePlayBilling")
+func _ready():
+    if Engine.has_singleton("PandemoniumGooglePlayBilling"):
+        payment = Engine.get_singleton("PandemoniumGooglePlayBilling")
 
-            # These are all signals supported by the API
-            # You can drop some of these based on your needs
-            payment.connect("connected", self, "_on_connected") # No params
-            payment.connect("disconnected", self, "_on_disconnected") # No params
-            payment.connect("connect_error", self, "_on_connect_error") # Response ID (int), Debug message (string)
-            payment.connect("purchases_updated", self, "_on_purchases_updated") # Purchases (Dictionary[])
-            payment.connect("purchase_error", self, "_on_purchase_error") # Response ID (int), Debug message (string)
-            payment.connect("sku_details_query_completed", self, "_on_sku_details_query_completed") # SKUs (Dictionary[])
-            payment.connect("sku_details_query_error", self, "_on_sku_details_query_error") # Response ID (int), Debug message (string), Queried SKUs (string[])
-            payment.connect("purchase_acknowledged", self, "_on_purchase_acknowledged") # Purchase token (string)
-            payment.connect("purchase_acknowledgement_error", self, "_on_purchase_acknowledgement_error") # Response ID (int), Debug message (string), Purchase token (string)
-            payment.connect("purchase_consumed", self, "_on_purchase_consumed") # Purchase token (string)
-            payment.connect("purchase_consumption_error", self, "_on_purchase_consumption_error") # Response ID (int), Debug message (string), Purchase token (string)
+        # These are all signals supported by the API
+        # You can drop some of these based on your needs
+        payment.connect("connected", self, "_on_connected") # No params
+        payment.connect("disconnected", self, "_on_disconnected") # No params
+        payment.connect("connect_error", self, "_on_connect_error") # Response ID (int), Debug message (string)
+        payment.connect("purchases_updated", self, "_on_purchases_updated") # Purchases (Dictionary[])
+        payment.connect("purchase_error", self, "_on_purchase_error") # Response ID (int), Debug message (string)
+        payment.connect("sku_details_query_completed", self, "_on_sku_details_query_completed") # SKUs (Dictionary[])
+        payment.connect("sku_details_query_error", self, "_on_sku_details_query_error") # Response ID (int), Debug message (string), Queried SKUs (string[])
+        payment.connect("purchase_acknowledged", self, "_on_purchase_acknowledged") # Purchase token (string)
+        payment.connect("purchase_acknowledgement_error", self, "_on_purchase_acknowledgement_error") # Response ID (int), Debug message (string), Purchase token (string)
+        payment.connect("purchase_consumed", self, "_on_purchase_consumed") # Purchase token (string)
+        payment.connect("purchase_consumption_error", self, "_on_purchase_consumption_error") # Response ID (int), Debug message (string), Purchase token (string)
 
-            payment.startConnection()
-        else:
-            print("Android IAP support is not enabled. Make sure you have enabled 'Custom Build' and the PandemoniumGooglePlayBilling plugin in your Android export settings! IAP will not work.")
+        payment.startConnection()
+    else:
+        print("Android IAP support is not enabled. Make sure you have enabled 'Custom Build' and the PandemoniumGooglePlayBilling plugin in your Android export settings! IAP will not work.")
 ```
 
 All API methods only work if the API is connected. You can use `payment.isReady()` to check the connection status.
@@ -76,12 +76,12 @@ As soon as the API is connected, you can query SKUs using `querySkuDetails`.
 Full example:
 
 ```
-    func _on_connected():
-      payment.querySkuDetails(["my_iap_item"], "inapp") # "subs" for subscriptions
+func _on_connected():
+  payment.querySkuDetails(["my_iap_item"], "inapp") # "subs" for subscriptions
 
-    func _on_sku_details_query_completed(sku_details):
-      for available_sku in sku_details:
-        print(available_sku)
+func _on_sku_details_query_completed(sku_details):
+  for available_sku in sku_details:
+    print(available_sku)
 ```
 
 
@@ -92,20 +92,20 @@ You **must** query the SKU details for an item before you can
 initiate the purchase flow for it.
 
 ```
-    payment.purchase("my_iap_item")
+payment.purchase("my_iap_item")
 ```
 
 Then, wait for the `on_purchases_updated` callback and handle the purchase result:
 
 ```
-    func _on_purchases_updated(purchases):
-        for purchase in purchases:
-            if purchase.purchase_state == 1: # 1 means "purchased", see https://developer.android.com/reference/com/android/billingclient/api/Purchase.PurchaseState#constants_1
-                # enable_premium(purchase.sku) # unlock paid content, add coins, save token on server, etc. (you have to implement enable_premium yourself)
-                if not purchase.is_acknowledged:                                        
-                    payment.acknowledgePurchase(purchase.purchase_token) # call if non-consumable product
-                    if purchase.sku in list_of_consumable_products:
-                        payment.consumePurchase(purchase.purchase_token) # call if consumable product
+func _on_purchases_updated(purchases):
+    for purchase in purchases:
+        if purchase.purchase_state == 1: # 1 means "purchased", see https://developer.android.com/reference/com/android/billingclient/api/Purchase.PurchaseState#constants_1
+            # enable_premium(purchase.sku) # unlock paid content, add coins, save token on server, etc. (you have to implement enable_premium yourself)
+            if not purchase.is_acknowledged:                                        
+                payment.acknowledgePurchase(purchase.purchase_token) # call if non-consumable product
+                if purchase.sku in list_of_consumable_products:
+                    payment.consumePurchase(purchase.purchase_token) # call if consumable product
 ```
 
 
@@ -118,14 +118,14 @@ and either an array of purchases or an error message. Only active subscriptions 
 Full example:
 
 ```
-    var query = payment.queryPurchases("inapp") # Or "subs" for subscriptions
-    if query.status == OK:
-        for purchase in query.purchases:
-            if purchase.sku == "my_iap_item" and purchase.purchase_state == 1:
-                # enable_premium(purchase.sku) # unlock paid content, save token on server, etc.
-                if !purchase.is_acknowledged:
-                    payment.acknowledgePurchase(purchase.purchase_token)
-                    # Or wait for the _on_purchase_acknowledged callback before giving the user what they bought
+var query = payment.queryPurchases("inapp") # Or "subs" for subscriptions
+if query.status == OK:
+    for purchase in query.purchases:
+        if purchase.sku == "my_iap_item" and purchase.purchase_state == 1:
+            # enable_premium(purchase.sku) # unlock paid content, save token on server, etc.
+            if !purchase.is_acknowledged:
+                payment.acknowledgePurchase(purchase.purchase_token)
+                # Or wait for the _on_purchase_acknowledged callback before giving the user what they bought
 ```
 
 
@@ -138,13 +138,13 @@ acknowledges a purchase.
 Consuming a product allows the user to purchase it again, and removes it from appearing in subsequent `queryPurchases` calls.
 
 ```
-    var query = payment.queryPurchases("inapp") # Or "subs" for subscriptions
-    if query.status == OK:
-        for purchase in query.purchases:
-            if purchase.sku == "my_consumable_iap_item" and purchase.purchase_state == 1:
-                # enable_premium(purchase.sku) # add coins, save token on server, etc.
-                payment.consumePurchase(purchase.purchase_token)
-                # Or wait for the _on_purchase_consumed callback before giving the user what they bought
+var query = payment.queryPurchases("inapp") # Or "subs" for subscriptions
+if query.status == OK:
+    for purchase in query.purchases:
+        if purchase.sku == "my_consumable_iap_item" and purchase.purchase_state == 1:
+            # enable_premium(purchase.sku) # add coins, save token on server, etc.
+            payment.consumePurchase(purchase.purchase_token)
+            # Or wait for the _on_purchase_consumed callback before giving the user what they bought
 ```
 
 #### Subscriptions

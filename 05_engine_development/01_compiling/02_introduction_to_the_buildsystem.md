@@ -56,24 +56,24 @@ It will then start building for the target platform right away.
 To list the available target platforms, use `scons platform=list`:
 
 ```
-    scons platform=list
-    scons: Reading SConscript files ...
-    The following platforms are available:
+scons platform=list
+scons: Reading SConscript files ...
+The following platforms are available:
 
-        android
-        javascript
-        server
-        windows
-        x11
+    android
+    javascript
+    server
+    windows
+    x11
 
-    Please run SCons again and select a valid platform: platform=&lt;string&gt;
+Please run SCons again and select a valid platform: platform=&lt;string&gt;
 ```
 
 To build for a platform (for example, x11), run with the `platform=` (or
 `p=` to make it short) argument:
 
 ```
-    scons platform=x11
+scons platform=x11
 ```
 
 This will start the build process, which will take a while. If you want
@@ -84,7 +84,7 @@ can use your computer for something else :)
 Example for using 4 cores:
 
 ```
-    scons platform=x11 -j 4
+scons platform=x11 -j 4
 ```
 
 ## Resulting binary
@@ -94,14 +94,14 @@ The resulting binaries will be placed in the `bin/` subdirectory,
 generally with this naming convention:
 
 ```
-    pandemonium.&lt;platform&gt;.[opt].[tools/debug].&lt;architecture&gt;[extension]
+pandemonium.&lt;platform&gt;.[opt].[tools/debug].&lt;architecture&gt;[extension]
 ```
 
 For the previous build attempt, the result would look like this:
 
 ```
-    ls bin
-    bin/pandemonium.x11.tools.64
+ls bin
+bin/pandemonium.x11.tools.64
 ```
 
 This means that the binary is for X11, is not optimized, has tools (the
@@ -110,8 +110,8 @@ whole editor) compiled in, and is meant for 64 bits.
 A Windows binary with the same configuration will look like this:
 
 ```
-    C:\pandemonium> dir bin/
-    pandemonium.windows.tools.64.exe
+C:\pandemonium> dir bin/
+pandemonium.windows.tools.64.exe
 ```
 
 Copy that binary to any location you like, as it contains the project manager,
@@ -132,7 +132,7 @@ run projects but that does not include the editor or the project
 manager.
 
 ```
-    scons platform=&lt;platform&gt; tools=yes/no
+scons platform=&lt;platform&gt; tools=yes/no
 ```
 
 ## Target
@@ -150,7 +150,7 @@ Target controls optimization and debug flags. Each mode means:
    checks to run.
 
 ```
-    scons platform=&lt;platform&gt; target=debug/release_debug/release
+scons platform=&lt;platform&gt; target=debug/release_debug/release
 ```
 
 This flag appends the `.debug` suffix (for debug), or `.tools` (for debug
@@ -168,7 +168,7 @@ else.
 -  **default**: Build for the architecture that matches the host platform.
 
 ```
-    scons platform=&lt;platform&gt; bits=default/32/64
+scons platform=&lt;platform&gt; bits=default/32/64
 ```
 
 This flag appends `.32` or `.64` suffixes to resulting binaries when
@@ -189,7 +189,7 @@ For instance, it's possible to provide both relative, absolute, and user
 directory paths containing such modules:
 
 ```
-    scons custom_modules="../modules,/abs/path/to/modules,~/src/pandemonium_modules"
+scons custom_modules="../modules,/abs/path/to/modules,~/src/pandemonium_modules"
 ```
 
 Note:
@@ -232,12 +232,12 @@ The default `custom.py` file can be created at the root of the Pandemonium Engin
 source to initialize any SCons build options passed via the command line:
 
 ```
-    # custom.py
+# custom.py
 
-    optimize = "size"
-    module_mono_enabled = "yes"
-    use_llvm = "yes"
-    extra_suffix = "game_title"
+optimize = "size"
+module_mono_enabled = "yes"
+use_llvm = "yes"
+extra_suffix = "game_title"
 ```
 
 You can also disable some of the builtin modules before compiling, saving some
@@ -253,7 +253,7 @@ Another custom file can be specified explicitly with the `profile` command
 line option, both overriding the default build configuration:
 
 ```
-    scons profile=path/to/custom.py
+scons profile=path/to/custom.py
 ```
 
 Note: Build options set from the file can be overridden by the command line options.
@@ -261,15 +261,15 @@ Note: Build options set from the file can be overridden by the command line opti
 It's also possible to override the options conditionally:
 
 ```
-    # custom.py
+# custom.py
 
-    import version
+import version
 
-    # Override options specific for Pandemonium 3.x and 4.x versions.
-    if version.major == 3:
-        pass
-    elif version.major == 4:
-        pass
+# Override options specific for Pandemonium 3.x and 4.x versions.
+if version.major == 3:
+    pass
+elif version.major == 4:
+    pass
 ```
 
 #### Using the SCONSFLAGS
@@ -304,22 +304,22 @@ will notice that most files are optimized binaries or packages for each
 platform:
 
 ```
-    android_debug.apk
-    android_release.apk
-    webassembly_debug.zip
-    webassembly_release.zip
-    linux_server_32
-    linux_server_64
-    linux_x11_32_debug
-    linux_x11_32_release
-    linux_x11_64_debug
-    linux_x11_64_release
-    osx.zip
-    version.txt
-    windows_32_debug.exe
-    windows_32_release.exe
-    windows_64_debug.exe
-    windows_64_release.exe
+android_debug.apk
+android_release.apk
+webassembly_debug.zip
+webassembly_release.zip
+linux_server_32
+linux_server_64
+linux_x11_32_debug
+linux_x11_32_release
+linux_x11_64_debug
+linux_x11_64_release
+osx.zip
+version.txt
+windows_32_debug.exe
+windows_32_release.exe
+windows_64_debug.exe
+windows_64_release.exe
 ```
 
 To create those yourself, follow the instructions detailed for each

@@ -24,12 +24,12 @@ a change in API:
 gdscript GDScript
 
 ```
-        const MyNode = preload("my_node.gd")
-        const MyScene = preload("my_scene.tscn")
-        var node = Node.new()
-        var my_node = MyNode.new() # Same method call
-        var my_scene = MyScene.instance() # Different method call
-        var my_inherited_scene = MyScene.instance(PackedScene.GEN_EDIT_STATE_MAIN) # Create scene inheriting from MyScene
+const MyNode = preload("my_node.gd")
+const MyScene = preload("my_scene.tscn")
+var node = Node.new()
+var my_node = MyNode.new() # Same method call
+var my_scene = MyScene.instance() # Different method call
+var my_inherited_scene = MyScene.instance(PackedScene.GEN_EDIT_STATE_MAIN) # Create scene inheriting from MyScene
 ```
 
 Also, scripts will operate a little slower than scenes due to the
@@ -137,15 +137,15 @@ with it, and finally adds it as a child of the `Main` node:
 gdscript GDScript
 
 ```
-    # Main.gd
-    extends Node
+# Main.gd
+extends Node
 
-    func _init():
-        var child = Node.new()
-        child.name = "Child"
-        child.script = preload("Child.gd")
-        child.owner = self
-        add_child(child)
+func _init():
+    var child = Node.new()
+    child.name = "Child"
+    child.script = preload("Child.gd")
+    child.owner = self
+    add_child(child)
 ```
 
 Script code like this is much slower than engine-side C++ code. Each instruction
@@ -177,13 +177,13 @@ In the end, the best approach is to consider the following:
 gdscript GDScript
 
 ```
-      # game.gd
-      extends Reference
-      class_name Game # extends Reference, so it won't show up in the node creation dialog
-      const MyScene = preload("my_scene.tscn")
+# game.gd
+extends Reference
+class_name Game # extends Reference, so it won't show up in the node creation dialog
+const MyScene = preload("my_scene.tscn")
 
-      # main.gd
-      extends Node
-      func _ready():
-          add_child(Game.MyScene.instance())
+# main.gd
+extends Node
+func _ready():
+    add_child(Game.MyScene.instance())
 ```

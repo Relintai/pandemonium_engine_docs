@@ -114,7 +114,7 @@ sudo eopkg install -c system.devel scons libxcursor-devel libxinerama-devel libx
 Start a terminal, go to the root dir of the engine source code and type:
 
 ```
-    scons -j8 platform=x11
+scons -j8 platform=x11
 ```
 
 A good rule of thumb for the `-j` (*jobs*) flag, is to have at least as many
@@ -129,7 +129,7 @@ manager.
 Note: If you wish to compile using Clang rather than GCC, use this command:
 
 ```
-        scons platform=x11 use_llvm=yes
+scons platform=x11 use_llvm=yes
 ```
 
 Using Clang appears to be a requirement for OpenBSD, otherwise fonts would not build.
@@ -154,19 +154,19 @@ To compile a *headless* build which provides editor functionality to export
 projects in an automated manner, use:
 
 ```
-    scons -j8 platform=server tools=yes target=release_debug
+scons -j8 platform=server tools=yes target=release_debug
 ```
 
 To compile a debug *server* build which can be used with `remote debugging tools ( doc_command_line_tutorial )`, use:
 
 ```
-    scons -j8 platform=server tools=no target=release_debug
+scons -j8 platform=server tools=no target=release_debug
 ```
 
 To compile a *server* build which is optimized to run dedicated game servers, use:
 
 ```
-    scons -j8 platform=server tools=no target=release
+scons -j8 platform=server tools=no target=release
 ```
 
 ## Building export templates
@@ -182,15 +182,15 @@ To build X11 (Linux, \*BSD) export templates, run the build system with the foll
 -  (32 bits)
 
 ```
-    scons platform=x11 tools=no target=release bits=32
-    scons platform=x11 tools=no target=release_debug bits=32
+scons platform=x11 tools=no target=release bits=32
+scons platform=x11 tools=no target=release_debug bits=32
 ```
 
 -  (64 bits)
 
 ```
-    scons platform=x11 tools=no target=release bits=64
-    scons platform=x11 tools=no target=release_debug bits=64
+scons platform=x11 tools=no target=release bits=64
+scons platform=x11 tools=no target=release_debug bits=64
 ```
 
 Note that cross-compiling for the opposite bits (64/32) as your host
@@ -199,16 +199,16 @@ platform is not always straight-forward and might need a chroot environment.
 To create standard export templates, the resulting files must be copied to:
 
 ```
-    $HOME/.local/share/pandemonium/templates/[gd-version]/
+$HOME/.local/share/pandemonium/templates/[gd-version]/
 ```
 
 and named like this (even for \*BSD which is seen as "Linux X11" by Pandemonium):
 
 ```
-    linux_x11_32_debug
-    linux_x11_32_release
-    linux_x11_64_debug
-    linux_x11_64_release
+linux_x11_32_debug
+linux_x11_32_release
+linux_x11_64_debug
+linux_x11_64_release
 ```
 
 However, if you are writing your custom modules or custom C++ code, you might instead want to configure your 
@@ -230,7 +230,7 @@ To do so, install Clang and the `lld` package from your distribution's package m
 then use the following SCons command:
 
 ```
-    scons platform=x11 use_llvm=yes use_lld=yes
+scons platform=x11 use_llvm=yes use_lld=yes
 ```
 
 After the build is completed, a new binary with a `.llvm` suffix will be created in the `bin/` folder.
@@ -254,7 +254,7 @@ to get even faster builds.
   script to a location in your `PATH` environment variable:
 
 ```
-    ln -s ~/.local/opt/pyston/bin/scons ~/.local/bin/pyston-scons
+ln -s ~/.local/opt/pyston/bin/scons ~/.local/bin/pyston-scons
 ```
 
 - Instead of running `scons ( build arguments )`, run `pyston-scons ( build arguments )`

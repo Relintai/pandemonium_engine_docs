@@ -34,10 +34,10 @@ It also supports encryption.
 To create an encrypted file, a passphrase must be provided, like this:
 
 ```
-    var f = File.new()
-    var err = f.open_encrypted_with_pass("user://savedata.bin", File.WRITE, "mypass")
-    f.store_var(game_state)
-    f.close()
+var f = File.new()
+var err = f.open_encrypted_with_pass("user://savedata.bin", File.WRITE, "mypass")
+f.store_var(game_state)
+f.close()
 ```
 
 This will make the file unreadable to users, but will still not prevent
@@ -45,10 +45,10 @@ them from sharing savefiles. To solve this, use the device unique id or
 some unique user identifier, for example:
 
 ```
-    var f = File.new()
-    var err = f.open_encrypted_with_pass("user://savedata.bin", File.WRITE, OS.get_unique_id())
-    f.store_var(game_state)
-    f.close()
+var f = File.new()
+var err = f.open_encrypted_with_pass("user://savedata.bin", File.WRITE, OS.get_unique_id())
+f.store_var(game_state)
+f.close()
 ```
 
 

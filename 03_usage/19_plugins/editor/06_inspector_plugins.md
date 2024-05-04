@@ -43,20 +43,20 @@ Note:
 gdscript GDScript
 
 ```
-    # plugin.gd
-    tool
-    extends EditorPlugin
+# plugin.gd
+tool
+extends EditorPlugin
 
-    var plugin
-
-
-    func _enter_tree():
-        plugin = preload("res://addons/my_inspector_plugin/MyInspectorPlugin.gd").new()
-        add_inspector_plugin(plugin)
+var plugin
 
 
-    func _exit_tree():
-        remove_inspector_plugin(plugin)
+func _enter_tree():
+    plugin = preload("res://addons/my_inspector_plugin/MyInspectorPlugin.gd").new()
+    add_inspector_plugin(plugin)
+
+
+func _exit_tree():
+    remove_inspector_plugin(plugin)
 ```
 
 
@@ -88,28 +88,28 @@ specifically add `EditorProperty`-based controls.
 gdscript GDScript
 
 ```
-    # MyInspectorPlugin.gd
-    extends EditorInspectorPlugin
+# MyInspectorPlugin.gd
+extends EditorInspectorPlugin
 
-    var RandomIntEditor = preload("res://addons/my_inspector_plugin/RandomIntEditor.gd")
+var RandomIntEditor = preload("res://addons/my_inspector_plugin/RandomIntEditor.gd")
 
 
-    func can_handle(object):
-        # We support all objects in this example.
+func can_handle(object):
+    # We support all objects in this example.
+    return true
+
+
+func parse_property(object, type, path, hint, hint_text, usage):
+    # We handle properties of type integer.
+    if type == TYPE_INT:
+        # Create an instance of the custom property editor and register
+        # it to a specific property path.
+        add_property_editor(path, RandomIntEditor.new())
+        # Inform the editor to remove the default property editor for
+        # this property type.
         return true
-
-
-    func parse_property(object, type, path, hint, hint_text, usage):
-        # We handle properties of type integer.
-        if type == TYPE_INT:
-            # Create an instance of the custom property editor and register
-            # it to a specific property path.
-            add_property_editor(path, RandomIntEditor.new())
-            # Inform the editor to remove the default property editor for
-            # this property type.
-            return true
-        else:
-            return false
+    else:
+        return false
 ```
 
 
@@ -138,53 +138,53 @@ followed by `set_bottom_editor()` to position it below the name.
 gdscript GDScript
 
 ```
-    # RandomIntEditor.gd
-    extends EditorProperty
+# RandomIntEditor.gd
+extends EditorProperty
 
 
-    # The main control for editing the property.
-    var property_control = Button.new()
-    # An internal value of the property.
-    var current_value = 0
-    # A guard against internal changes when the property is updated.
-    var updating = false
+# The main control for editing the property.
+var property_control = Button.new()
+# An internal value of the property.
+var current_value = 0
+# A guard against internal changes when the property is updated.
+var updating = false
 
 
-    func _init():
-        # Add the control as a direct child of EditorProperty node.
-        add_child(property_control)
-        # Make sure the control is able to retain the focus.
-        add_focusable(property_control)
-        # Setup the initial state and connect to the signal to track changes.
-        refresh_control_text()
-        property_control.connect("pressed", self, "_on_button_pressed")
+func _init():
+    # Add the control as a direct child of EditorProperty node.
+    add_child(property_control)
+    # Make sure the control is able to retain the focus.
+    add_focusable(property_control)
+    # Setup the initial state and connect to the signal to track changes.
+    refresh_control_text()
+    property_control.connect("pressed", self, "_on_button_pressed")
 
 
-    func _on_button_pressed():
-        # Ignore the signal if the property is currently being updated.
-        if (updating):
-            return
+func _on_button_pressed():
+    # Ignore the signal if the property is currently being updated.
+    if (updating):
+        return
 
-        # Generate a new random integer between 0 and 99.
-        current_value = randi() % 100
-        refresh_control_text()
-        emit_changed(get_edited_property(), current_value)
+    # Generate a new random integer between 0 and 99.
+    current_value = randi() % 100
+    refresh_control_text()
+    emit_changed(get_edited_property(), current_value)
 
 
-    func update_property():
-        # Read the current value from the property.
-        var new_value = get_edited_object()[get_edited_property()]
-        if (new_value == current_value):
-            return
+func update_property():
+    # Read the current value from the property.
+    var new_value = get_edited_object()[get_edited_property()]
+    if (new_value == current_value):
+        return
 
-        # Update the control with the new value.
-        updating = true
-        current_value = new_value
-        refresh_control_text()
-        updating = false
+    # Update the control with the new value.
+    updating = true
+    current_value = new_value
+    refresh_control_text()
+    updating = false
 
-    func refresh_control_text():
-        property_control.text = "Value: " + str(current_value)
+func refresh_control_text():
+    property_control.text = "Value: " + str(current_value)
 ```
 
 Using the example code above you should be able to make a custom widget that

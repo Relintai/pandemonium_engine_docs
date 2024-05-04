@@ -63,8 +63,8 @@ do anything. Here is a basic example of setting initial focus with code:
 gdscript GDScript
 
 ```
-    func _ready():
-        $StartButton.grab_focus()
+func _ready():
+    $StartButton.grab_focus()
 ```
 
 Now when the scene starts the "Start Button" node will be focused, and the keyboard

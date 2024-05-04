@@ -90,11 +90,11 @@ A default basis (unmodified) is akin to:
 gdscript GDScript
 
 ```
-    var basis = Basis()
-    # Contains the following default values:
-    basis.x = Vector3(1, 0, 0) # Vector pointing along the X axis
-    basis.y = Vector3(0, 1, 0) # Vector pointing along the Y axis
-    basis.z = Vector3(0, 0, 1) # Vector pointing along the Z axis
+var basis = Basis()
+# Contains the following default values:
+basis.x = Vector3(1, 0, 0) # Vector pointing along the X axis
+basis.y = Vector3(0, 1, 0) # Vector pointing along the Y axis
+basis.z = Vector3(0, 0, 1) # Vector pointing along the Z axis
 ```
 
 This is also an analog of a 3x3 identity matrix.
@@ -125,12 +125,12 @@ It is possible to rotate a transform, either by multiplying its basis by another
 gdscript GDScript
 
 ```
-    var axis = Vector3(1, 0, 0) # Or Vector3.RIGHT
-    var rotation_amount = 0.1
-    # Rotate the transform around the X axis by 0.1 radians.
-    transform.basis = Basis(axis, rotation_amount) * transform.basis
-    # shortened
-    transform.basis = transform.basis.rotated(axis, rotation_amount)
+var axis = Vector3(1, 0, 0) # Or Vector3.RIGHT
+var rotation_amount = 0.1
+# Rotate the transform around the X axis by 0.1 radians.
+transform.basis = Basis(axis, rotation_amount) * transform.basis
+# shortened
+transform.basis = transform.basis.rotated(axis, rotation_amount)
 ```
 
 A method in Spatial simplifies this:
@@ -138,10 +138,10 @@ A method in Spatial simplifies this:
 gdscript GDScript
 
 ```
-    # Rotate the transform around the X axis by 0.1 radians.
-    rotate(Vector3(1, 0, 0), 0.1)
-    # shortened
-    rotate_x(0.1)
+# Rotate the transform around the X axis by 0.1 radians.
+rotate(Vector3(1, 0, 0), 0.1)
+# shortened
+rotate_x(0.1)
 ```
 
 This rotates the node relative to the parent node.
@@ -151,8 +151,8 @@ To rotate relative to object space (the node's own transform), use the following
 gdscript GDScript
 
 ```
-    # Rotate around the object's local X axis by 0.1 radians.
-    rotate_object_local(Vector3(1, 0, 0), 0.1)
+# Rotate around the object's local X axis by 0.1 radians.
+rotate_object_local(Vector3(1, 0, 0), 0.1)
 ```
 
 # Precision errors
@@ -166,7 +166,7 @@ There are two different ways to handle this. The first is to *orthonormalize* th
 gdscript GDScript
 
 ```
-    transform = transform.orthonormalized()
+transform = transform.orthonormalized()
 ```
 
 This will make all axes have `1.0` length again and be `90` degrees from each other. However, any scale applied to the transform will be lost.
@@ -176,8 +176,8 @@ It is recommended you not scale nodes that are going to be manipulated; scale th
 gdscript GDScript
 
 ```
-    transform = transform.orthonormalized()
-    transform = transform.scaled(scale)
+transform = transform.orthonormalized()
+transform = transform.scaled(scale)
 ```
 
 # Obtaining information
@@ -189,8 +189,8 @@ Imagine you need to shoot a bullet in the direction your player is facing. Just 
 gdscript GDScript
 
 ```
-    bullet.transform = transform
-    bullet.speed = transform.basis.z * BULLET_SPEED
+bullet.transform = transform
+bullet.speed = transform.basis.z * BULLET_SPEED
 ```
 
 Is the enemy looking at the player? Use the dot product for this (see the `doc_vector_math` tutorial for an explanation of the dot product):
@@ -198,10 +198,10 @@ Is the enemy looking at the player? Use the dot product for this (see the `doc_v
 gdscript GDScript
 
 ```
-    # Get the direction vector from player to enemy
-    var direction = enemy.transform.origin - player.transform.origin
-    if direction.dot(enemy.transform.basis.z) > 0:
-        enemy.im_watching_you(player)
+# Get the direction vector from player to enemy
+var direction = enemy.transform.origin - player.transform.origin
+if direction.dot(enemy.transform.basis.z) > 0:
+    enemy.im_watching_you(player)
 ```
 
 Strafe left:
@@ -209,9 +209,9 @@ Strafe left:
 gdscript GDScript
 
 ```
-    # Remember that +X is right
-    if Input.is_action_pressed("strafe_left"):
-        translate_object_local(-transform.basis.x)
+# Remember that +X is right
+if Input.is_action_pressed("strafe_left"):
+    translate_object_local(-transform.basis.x)
 ```
 
 Jump:
@@ -219,11 +219,11 @@ Jump:
 gdscript GDScript
 
 ```
-    # Keep in mind Y is up-axis
-    if Input.is_action_just_pressed("jump"):
-        velocity.y = JUMP_SPEED
+# Keep in mind Y is up-axis
+if Input.is_action_just_pressed("jump"):
+    velocity.y = JUMP_SPEED
 
-    velocity = move_and_slide(velocity)
+velocity = move_and_slide(velocity)
 ```
 
 All common behaviors and logic can be done with just vectors.
@@ -239,18 +239,18 @@ Example of looking around, FPS style:
 gdscript GDScript
 
 ```
-    # accumulators
-    var rot_x = 0
-    var rot_y = 0
+# accumulators
+var rot_x = 0
+var rot_y = 0
 
-    func _input(event):
-        if event is InputEventMouseMotion and event.button_mask & 1:
-            # modify accumulated mouse rotation
-            rot_x += event.relative.x * LOOKAROUND_SPEED
-            rot_y += event.relative.y * LOOKAROUND_SPEED
-            transform.basis = Basis() # reset rotation
-            rotate_object_local(Vector3(0, 1, 0), rot_x) # first rotate in Y
-            rotate_object_local(Vector3(1, 0, 0), rot_y) # then rotate in X
+func _input(event):
+    if event is InputEventMouseMotion and event.button_mask & 1:
+        # modify accumulated mouse rotation
+        rot_x += event.relative.x * LOOKAROUND_SPEED
+        rot_y += event.relative.y * LOOKAROUND_SPEED
+        transform.basis = Basis() # reset rotation
+        rotate_object_local(Vector3(0, 1, 0), rot_x) # first rotate in Y
+        rotate_object_local(Vector3(1, 0, 0), rot_y) # then rotate in X
 ```
 
 As you can see, in such cases it's even simpler to keep the rotation outside, then use the transform as the *final* orientation.
@@ -264,13 +264,13 @@ Converting a rotation to quaternion is straightforward.
 gdscript GDScript
 
 ```
-    # Convert basis to quaternion, keep in mind scale is lost
-    var a = Quat(transform.basis)
-    var b = Quat(transform2.basis)
-    # Interpolate using spherical-linear interpolation (SLERP).
-    var c = a.slerp(b,0.5) # find halfway point between a and b
-    # Apply back
-    transform.basis = Basis(c)
+# Convert basis to quaternion, keep in mind scale is lost
+var a = Quat(transform.basis)
+var b = Quat(transform2.basis)
+# Interpolate using spherical-linear interpolation (SLERP).
+var c = a.slerp(b,0.5) # find halfway point between a and b
+# Apply back
+transform.basis = Basis(c)
 ```
 
 The `Quat` type reference has more information on the datatype (it

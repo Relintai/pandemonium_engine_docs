@@ -54,10 +54,10 @@ or lose precision if the frame rate is too high or too low.
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    func _physics_process(delta):
-        pass
+func _physics_process(delta):
+    pass
 ```
 
 
@@ -106,10 +106,10 @@ So, let's move our sprite downwards until it hits the floor:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    func _physics_process(delta):
-        move_and_collide(Vector2(0, 1)) # Move down 1 pixel per physics frame
+func _physics_process(delta):
+    move_and_collide(Vector2(0, 1)) # Move down 1 pixel per physics frame
 ```
 
 The result is that the character will move, but stop right when
@@ -121,16 +121,16 @@ little more like a regular game character:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    const GRAVITY = 200.0
-    var velocity = Vector2()
+const GRAVITY = 200.0
+var velocity = Vector2()
 
-    func _physics_process(delta):
-        velocity.y += delta * GRAVITY
+func _physics_process(delta):
+    velocity.y += delta * GRAVITY
 
-        var motion = velocity * delta
-        move_and_collide(motion)
+    var motion = velocity * delta
+    move_and_collide(motion)
 ```
 
 Now the character falls smoothly. Let's make it walk to the sides, left
@@ -142,28 +142,28 @@ This adds simple walking support by pressing left and right:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    const GRAVITY = 200.0
-    const WALK_SPEED = 200
+const GRAVITY = 200.0
+const WALK_SPEED = 200
 
-    var velocity = Vector2()
+var velocity = Vector2()
 
-    func _physics_process(delta):
-        velocity.y += delta * GRAVITY
+func _physics_process(delta):
+    velocity.y += delta * GRAVITY
 
-        if Input.is_action_pressed("ui_left"):
-            velocity.x = -WALK_SPEED
-        elif Input.is_action_pressed("ui_right"):
-            velocity.x =  WALK_SPEED
-        else:
-            velocity.x = 0
+    if Input.is_action_pressed("ui_left"):
+        velocity.x = -WALK_SPEED
+    elif Input.is_action_pressed("ui_right"):
+        velocity.x =  WALK_SPEED
+    else:
+        velocity.x = 0
 
-        # We don't need to multiply velocity by delta because "move_and_slide" already takes delta time into account.
+    # We don't need to multiply velocity by delta because "move_and_slide" already takes delta time into account.
 
-        # The second parameter of "move_and_slide" is the normal pointing up.
-        # In the case of a 2D platformer, in Pandemonium, upward is negative y, which translates to -1 as a normal.
-        move_and_slide(velocity, Vector2(0, -1))
+    # The second parameter of "move_and_slide" is the normal pointing up.
+    # In the case of a 2D platformer, in Pandemonium, upward is negative y, which translates to -1 as a normal.
+    move_and_slide(velocity, Vector2(0, -1))
 ```
 
 And give it a try.

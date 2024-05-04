@@ -234,18 +234,18 @@ tree structures.
 gdscript GDScript
 
 ```
-    extends Object
-    class_name TreeNode
+extends Object
+class_name TreeNode
 
-    var _parent : TreeNode = null
-    var _children : = [] setget
+var _parent : TreeNode = null
+var _children : = [] setget
 
-    func _notification(p_what):
-        match p_what:
-            NOTIFICATION_PREDELETE:
-                # Destructor.
-                for a_child in _children:
-                    a_child.free()
+func _notification(p_what):
+    match p_what:
+        NOTIFICATION_PREDELETE:
+            # Destructor.
+            for a_child in _children:
+                a_child.free()
 ```
 
 From here, one can then create their own structures with specific features,

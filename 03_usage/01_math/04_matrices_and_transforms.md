@@ -73,11 +73,11 @@ To do this in code, we can simply multiply each of the vectors:
 gdscript GDScript
 
 ```
-    var t = Transform2D()
-    # Scale
-    t.x *= 2
-    t.y *= 2
-    transform = t # Change the node's transform to what we just calculated.
+var t = Transform2D()
+# Scale
+t.x *= 2
+t.y *= 2
+transform = t # Change the node's transform to what we just calculated.
 ```
 
 If we wanted to return it to its original scale, we can multiply
@@ -151,13 +151,13 @@ Here's how that would be done in code (place the script on a Node2D):
 gdscript GDScript
 
 ```
-    var rot = 0.5 # The rotation to apply.
-    var t = Transform2D()
-    t.x.x = cos(rot)
-    t.y.y = cos(rot)
-    t.x.y = sin(rot)
-    t.y.x = -sin(rot)
-    transform = t # Change the node's transform to what we just calculated.
+var rot = 0.5 # The rotation to apply.
+var t = Transform2D()
+t.x.x = cos(rot)
+t.y.y = cos(rot)
+t.x.y = sin(rot)
+t.y.x = -sin(rot)
+transform = t # Change the node's transform to what we just calculated.
 ```
 
 To calculate the object's rotation from an existing transformation
@@ -231,19 +231,19 @@ you to try and reproduce the screenshot without looking at the code!
 gdscript GDScript
 
 ```
-    var t = Transform2D()
-    # Translation
-    t.origin = Vector2(350, 150)
-    # Rotation
-    var rot = -0.5 # The rotation to apply.
-    t.x.x = cos(rot)
-    t.y.y = cos(rot)
-    t.x.y = sin(rot)
-    t.y.x = -sin(rot)
-    # Scale
-    t.x *= 3
-    t.y *= 3
-    transform = t # Change the node's transform to what we just calculated.
+var t = Transform2D()
+# Translation
+t.origin = Vector2(350, 150)
+# Rotation
+var rot = -0.5 # The rotation to apply.
+t.x.x = cos(rot)
+t.y.y = cos(rot)
+t.x.y = sin(rot)
+t.y.x = -sin(rot)
+# Scale
+t.x *= 3
+t.y *= 3
+transform = t # Change the node's transform to what we just calculated.
 ```
 
 ### Shearing the transformation matrix (advanced)
@@ -283,10 +283,10 @@ As an example, let's set Y to (1, 1):
 gdscript GDScript
 
 ```
-    var t = Transform2D()
-    # Shear by setting Y to (1, 1)
-    t.y = Vector2.ONE
-    transform = t # Change the node's transform to what we just calculated.
+var t = Transform2D()
+# Shear by setting Y to (1, 1)
+t.y = Vector2.ONE
+transform = t # Change the node's transform to what we just calculated.
 ```
 
 Note:
@@ -350,8 +350,8 @@ world space as using the "xform" method:
 gdscript GDScript
 
 ```
-    # World space vector 100 units below the player.
-    print(transform.xform(Vector2(0, 100)))
+# World space vector 100 units below the player.
+print(transform.xform(Vector2(0, 100)))
 ```
 
 And we can use the "xform_inv" method to find a what world space position
@@ -360,8 +360,8 @@ would be if it was instead defined relative to the player:
 gdscript GDScript
 
 ```
-    # Where is (0, 100) relative to the player?
-    print(transform.xform_inv(Vector2(0, 100)))
+# Where is (0, 100) relative to the player?
+print(transform.xform_inv(Vector2(0, 100)))
 ```
 
 Note:
@@ -384,7 +384,7 @@ This code moves an object 100 units to its own right:
 gdscript GDScript
 
 ```
-    transform.origin += transform.x * 100
+transform.origin += transform.x * 100
 ```
 
 For moving in 3D, you would need to replace "x" with "basis.x".
@@ -426,20 +426,20 @@ the code we would use:
 gdscript GDScript
 
 ```
-    # Set up transforms just like in the image, except make positions be 100 times bigger.
-    var parent = Transform2D(Vector2(2, 0), Vector2(0, 1), Vector2(100, 200))
-    var child = Transform2D(Vector2(0.5, 0), Vector2(0, 0.5), Vector2(100, 100))
+# Set up transforms just like in the image, except make positions be 100 times bigger.
+var parent = Transform2D(Vector2(2, 0), Vector2(0, 1), Vector2(100, 200))
+var child = Transform2D(Vector2(0.5, 0), Vector2(0, 0.5), Vector2(100, 100))
 
-    # Calculate the child's world space transform
-    # origin = (2, 0) * 100 + (0, 1) * 100 + (100, 200)
-    var origin = parent.x * child.origin.x + parent.y * child.origin.y + parent.origin
-    # basis_x = (2, 0) * 0.5 + (0, 1) * 0
-    var basis_x = parent.x * child.x.x + parent.y * child.x.y
-    # basis_y = (2, 0) * 0 + (0, 1) * 0.5
-    var basis_y = parent.x * child.y.x + parent.y * child.y.y
+# Calculate the child's world space transform
+# origin = (2, 0) * 100 + (0, 1) * 100 + (100, 200)
+var origin = parent.x * child.origin.x + parent.y * child.origin.y + parent.origin
+# basis_x = (2, 0) * 0.5 + (0, 1) * 0
+var basis_x = parent.x * child.x.x + parent.y * child.x.y
+# basis_y = (2, 0) * 0 + (0, 1) * 0.5
+var basis_y = parent.x * child.y.x + parent.y * child.y.y
 
-    # Change the node's transform to what we just calculated.
-    transform = Transform2D(basis_x, basis_y, origin)
+# Change the node's transform to what we just calculated.
+transform = Transform2D(basis_x, basis_y, origin)
 ```
 
 In actual projects, we can find the world transform of the child by
@@ -448,12 +448,12 @@ applying one transform onto another using the `*` operator:
 gdscript GDScript
 
 ```
-    # Set up transforms just like in the image, except make positions be 100 times bigger.
-    var parent = Transform2D(Vector2(2, 0), Vector2(0, 1), Vector2(100, 200))
-    var child = Transform2D(Vector2(0.5, 0), Vector2(0, 0.5), Vector2(100, 100))
+# Set up transforms just like in the image, except make positions be 100 times bigger.
+var parent = Transform2D(Vector2(2, 0), Vector2(0, 1), Vector2(100, 200))
+var child = Transform2D(Vector2(0.5, 0), Vector2(0, 0.5), Vector2(100, 100))
 
-    # Change the node's transform to what would be the child's world transform.
-    transform = parent * child
+# Change the node's transform to what would be the child's world transform.
+transform = parent * child
 ```
 
 Note:
@@ -477,9 +477,9 @@ transformations:
 gdscript GDScript
 
 ```
-    var ti = transform.affine_inverse()
-    var t = ti * transform
-    # The transform is the identity transform.
+var ti = transform.affine_inverse()
+var t = ti * transform
+# The transform is the identity transform.
 ```
 
 Transforming a position by a transform and its inverse results in the
@@ -488,10 +488,10 @@ same position (same for "xform_inv"):
 gdscript GDScript
 
 ```
-    var ti = transform.affine_inverse()
-    position = transform.xform(position)
-    position = ti.xform(position)
-    # The position is the same as before.
+var ti = transform.affine_inverse()
+position = transform.xform(position)
+position = ti.xform(position)
+# The position is the same as before.
 ```
 
 ## How does it all work in 3D?

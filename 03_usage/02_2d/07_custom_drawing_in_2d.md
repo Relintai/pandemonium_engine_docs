@@ -34,11 +34,11 @@ derived node, like `Control` or
 gdscript GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    func _draw():
-        # Your draw commands here
-        pass
+func _draw():
+    # Your draw commands here
+    pass
 ```
 
 Draw commands are described in the `CanvasItem`
@@ -59,18 +59,18 @@ redrawn if modified:
 gdscript GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    export (Texture) var texture setget _set_texture
+export (Texture) var texture setget _set_texture
 
-    func _set_texture(value):
-        # If the texture variable is modified externally,
-        # this callback is called.
-        texture = value  # Texture was changed.
-        update()  # Update the node's visual representation.
+func _set_texture(value):
+    # If the texture variable is modified externally,
+    # this callback is called.
+    texture = value  # Texture was changed.
+    update()  # Update the node's visual representation.
 
-    func _draw():
-        draw_texture(texture, Vector2())
+func _draw():
+    draw_texture(texture, Vector2())
 ```
 
 In some cases, it may be desired to draw every frame. For this, just
@@ -79,14 +79,14 @@ call `update()` from the `process()` callback, like this:
 gdscript GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    func _draw():
-        # Your draw commands here
-        pass
+func _draw():
+    # Your draw commands here
+    pass
 
-    func _process(delta):
-        update()
+func _process(delta):
+    update()
 ```
 
 
@@ -115,16 +115,16 @@ In our example, we will simply use a fixed number of points, no matter the radiu
 gdscript GDScript
 
 ```
-    func draw_circle_arc(center, radius, angle_from, angle_to, color):
-        var nb_points = 32
-        var points_arc = PoolVector2Array()
+func draw_circle_arc(center, radius, angle_from, angle_to, color):
+    var nb_points = 32
+    var points_arc = PoolVector2Array()
 
-        for i in range(nb_points + 1):
-            var angle_point = deg2rad(angle_from + i * (angle_to-angle_from) / nb_points - 90)
-            points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius)
+    for i in range(nb_points + 1):
+        var angle_point = deg2rad(angle_from + i * (angle_to-angle_from) / nb_points - 90)
+        points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius)
 
-        for index_point in range(nb_points):
-            draw_line(points_arc[index_point], points_arc[index_point + 1], color)
+    for index_point in range(nb_points):
+        draw_line(points_arc[index_point], points_arc[index_point + 1], color)
 ```
 
 
@@ -168,13 +168,13 @@ it is time to call it inside the `draw()` function:
 gdscript GDScript
 
 ```
-    func _draw():
-        var center = Vector2(200, 200)
-        var radius = 80
-        var angle_from = 75
-        var angle_to = 195
-        var color = Color(1.0, 0.0, 0.0)
-        draw_circle_arc(center, radius, angle_from, angle_to, color)
+func _draw():
+    var center = Vector2(200, 200)
+    var radius = 80
+    var angle_from = 75
+    var angle_to = 195
+    var color = Color(1.0, 0.0, 0.0)
+    draw_circle_arc(center, radius, angle_from, angle_to, color)
 ```
 
 Result:
@@ -190,16 +190,16 @@ the same as before, except that we draw a polygon instead of lines:
 gdscript GDScript
 
 ```
-    func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
-        var nb_points = 32
-        var points_arc = PoolVector2Array()
-        points_arc.push_back(center)
-        var colors = PoolColorArray([color])
+func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
+    var nb_points = 32
+    var points_arc = PoolVector2Array()
+    points_arc.push_back(center)
+    var colors = PoolColorArray([color])
 
-        for i in range(nb_points + 1):
-            var angle_point = deg2rad(angle_from + i * (angle_to - angle_from) / nb_points - 90)
-            points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius)
-        draw_polygon(points_arc, colors)
+    for i in range(nb_points + 1):
+        var angle_point = deg2rad(angle_from + i * (angle_to - angle_from) / nb_points - 90)
+        points_arc.push_back(center + Vector2(cos(angle_point), sin(angle_point)) * radius)
+    draw_polygon(points_arc, colors)
 ```
 
 ![](img/result_drawarc_poly.png)
@@ -219,11 +219,11 @@ using `get_node()`.
 gdscript GDScript
 
 ```
-    extends Node2D
+extends Node2D
 
-    var rotation_angle = 50
-    var angle_from = 75
-    var angle_to = 195
+var rotation_angle = 50
+var angle_from = 75
+var angle_to = 195
 ```
 
 We make these values change in the _process(delta) function.
@@ -241,15 +241,15 @@ calls `draw()`. This way, you can control when you want to refresh the frame.
 gdscript GDScript
 
 ```
-    func _process(delta):
-        angle_from += rotation_angle
-        angle_to += rotation_angle
+func _process(delta):
+    angle_from += rotation_angle
+    angle_to += rotation_angle
 
-        # We only wrap angles when both of them are bigger than 360.
-        if angle_from > 360 and angle_to > 360:
-            angle_from = wrapf(angle_from, 0, 360)
-            angle_to = wrapf(angle_to, 0, 360)
-        update()
+    # We only wrap angles when both of them are bigger than 360.
+    if angle_from > 360 and angle_to > 360:
+        angle_from = wrapf(angle_from, 0, 360)
+        angle_to = wrapf(angle_to, 0, 360)
+    update()
 ```
 
 Also, don't forget to modify the `draw()` function to make use of these variables:
@@ -257,12 +257,12 @@ Also, don't forget to modify the `draw()` function to make use of these variable
 gdscript GDScript
 
 ```
-     func _draw():
-        var center = Vector2(200, 200)
-        var radius = 80
-        var color = Color(1.0, 0.0, 0.0)
+func _draw():
+   var center = Vector2(200, 200)
+   var radius = 80
+   var color = Color(1.0, 0.0, 0.0)
 
-        draw_circle_arc( center, radius, angle_from, angle_to, color )
+   draw_circle_arc( center, radius, angle_from, angle_to, color )
 ```
 
 Let's run!
@@ -283,15 +283,15 @@ smaller value, which directly depends on the rendering speed.
 gdscript GDScript
 
 ```
-    func _process(delta):
-        angle_from += rotation_angle * delta
-        angle_to += rotation_angle * delta
+func _process(delta):
+    angle_from += rotation_angle * delta
+    angle_to += rotation_angle * delta
 
-        # We only wrap angles when both of them are bigger than 360.
-        if angle_from > 360 and angle_to > 360:
-            angle_from = wrapf(angle_from, 0, 360)
-            angle_to = wrapf(angle_to, 0, 360)
-        update()
+    # We only wrap angles when both of them are bigger than 360.
+    if angle_from > 360 and angle_to > 360:
+        angle_from = wrapf(angle_from, 0, 360)
+        angle_to = wrapf(angle_to, 0, 360)
+    update()
 ```
 
 Let's run again! This time, the rotation displays fine!

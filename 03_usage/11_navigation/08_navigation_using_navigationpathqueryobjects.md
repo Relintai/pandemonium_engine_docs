@@ -30,33 +30,33 @@ has a large quantity of simultaneous agents that regularly update their paths.
 GDScript
 
 ```
-    # prepare query objects
-    var query_parameters = NavigationPathQueryParameters2D.new()
-    var query_result  = NavigationPathQueryResult2D.new()
+# prepare query objects
+var query_parameters = NavigationPathQueryParameters2D.new()
+var query_result  = NavigationPathQueryResult2D.new()
 
-    # update parameters object
-    query_parameters.map = get_world_2d().get_navigation_map()
-    query_parameters.start_position = agent2d_current_global_position
-    query_parameters.target_position = agent2d_target_global_position
+# update parameters object
+query_parameters.map = get_world_2d().get_navigation_map()
+query_parameters.start_position = agent2d_current_global_position
+query_parameters.target_position = agent2d_target_global_position
 
-    # update result object
-    NavigationServer2D.query_path(query_parameters, query_result)
-    var path: PackedVector2Array = query_result.get_path()
+# update result object
+NavigationServer2D.query_path(query_parameters, query_result)
+var path: PackedVector2Array = query_result.get_path()
 ```
 
 GDScript
 
 ```
-    # prepare query objects
-    var query_parameters = NavigationPathQueryParameters3D.new()
-    var query_result  = NavigationPathQueryResult3D.new()
+# prepare query objects
+var query_parameters = NavigationPathQueryParameters3D.new()
+var query_result  = NavigationPathQueryResult3D.new()
 
-    # update parameters object
-    query_parameters.map = get_world_3d().get_navigation_map()
-    query_parameters.start_position = agent3d_current_global_position
-    query_parameters.target_position = agent3d_target_global_position
+# update parameters object
+query_parameters.map = get_world_3d().get_navigation_map()
+query_parameters.start_position = agent3d_current_global_position
+query_parameters.target_position = agent3d_target_global_position
 
-    # update result object
-    NavigationServer3D.query_path(query_parameters, query_result)
-    var path: PackedVector3Array = query_result.get_path()
+# update result object
+NavigationServer3D.query_path(query_parameters, query_result)
+var path: PackedVector3Array = query_result.get_path()
 ```

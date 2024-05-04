@@ -54,11 +54,11 @@ initialize it:
 gdscript GDScript
 
 ```
-       # Parent
-       $Child.connect("signal_name", object_with_method, "method_on_the_object")
+# Parent
+$Child.connect("signal_name", object_with_method, "method_on_the_object")
 
-       # Child
-       emit_signal("signal_name") # Triggers parent-defined behavior.
+# Child
+emit_signal("signal_name") # Triggers parent-defined behavior.
 ```
 
 2. Call a method. Used to start behavior.
@@ -66,11 +66,11 @@ gdscript GDScript
 gdscript GDScript
 
 ```
-       # Parent
-       $Child.method_name = "do"
+# Parent
+$Child.method_name = "do"
 
-       # Child, assuming it has String property 'method_name' and method 'do'.
-       call(method_name) # Call parent-defined method (which child must own).
+# Child, assuming it has String property 'method_name' and method 'do'.
+call(method_name) # Call parent-defined method (which child must own).
 ```
 
 3. Initialize a `FuncRef` property. Safer than a method
@@ -79,11 +79,11 @@ gdscript GDScript
 gdscript GDScript
 
 ```
-       # Parent
-       $Child.func_property = funcref(object_with_method, "method_on_the_object")
+# Parent
+$Child.func_property = funcref(object_with_method, "method_on_the_object")
 
-       # Child
-       func_property.call_func() # Call parent-defined method (can come from anywhere).
+# Child
+func_property.call_func() # Call parent-defined method (can come from anywhere).
 ```
 
 4. Initialize a Node or other Object reference.
@@ -91,11 +91,11 @@ gdscript GDScript
 gdscript GDScript
 
 ```
-       # Parent
-       $Child.target = self
+# Parent
+$Child.target = self
 
-       # Child
-       print(target) # Use parent-defined node.
+# Child
+print(target) # Use parent-defined node.
 ```
 
 5. Initialize a NodePath.
@@ -103,11 +103,11 @@ gdscript GDScript
 gdscript GDScript
 
 ```
-       # Parent
-       $Child.target_path = ".."
+# Parent
+$Child.target_path = ".."
 
-       # Child
-       get_node(target_path) # Use parent-defined NodePath.
+# Child
+get_node(target_path) # Use parent-defined NodePath.
 ```
 
 These options hide the points of access from the child node. This in turn
@@ -125,18 +125,18 @@ Note:
 gdscript GDScript
 
 ```
-      # Parent
-      $Left.target = $Right.get_node("Receiver")
+# Parent
+$Left.target = $Right.get_node("Receiver")
 
-      # Left
-      var target: Node
-      func execute():
-          # Do something with 'target'.
+# Left
+var target: Node
+func execute():
+    # Do something with 'target'.
 
-      # Right
-      func _init():
-          var receiver = Receiver.new()
-          add_child(receiver)
+# Right
+func _init():
+    var receiver = Receiver.new()
+    add_child(receiver)
 ```
 
   The same principles also apply to non-Node objects that maintain dependencies

@@ -132,27 +132,27 @@ Note that `_create_chunk` is also responsible for initializing chunks if you hav
 This is done by `setup_chunk(shunk)` in `TerraWorld`.
 
 ```
-    func _create_chunk(x : int, y : int, z : int, chunk : TerraChunk) -> TerraChunk:
-        if !chunk:
-            chunk = MyChunk.new()
+func _create_chunk(x : int, y : int, z : int, chunk : TerraChunk) -> TerraChunk:
+    if !chunk:
+        chunk = MyChunk.new()
 
-        # We need to check whether or not we need to initialize jobs
-        if chunk.job_get_count() == 0:
-            # Setup a blocky (minecratf like) mesher job
-            var tj : TerraTerrain2DJob = TerraTerrain2DJob.new()
+    # We need to check whether or not we need to initialize jobs
+    if chunk.job_get_count() == 0:
+        # Setup a blocky (minecratf like) mesher job
+        var tj : TerraTerrain2DJob = TerraTerrain2DJob.new()
 
-            var s : TerraMesherJobStep = TerraMesherJobStep.new()
-            s.job_type = TerraMesherJobStep.TYPE_NORMAL
-            tj.add_jobs_step(s)
+        var s : TerraMesherJobStep = TerraMesherJobStep.new()
+        s.job_type = TerraMesherJobStep.TYPE_NORMAL
+        tj.add_jobs_step(s)
 
-            tj.add_mesher(TerraMesherBlocky.new())
-            tj.add_liquid_mesher(TerraMesherLiquidBlocky.new())
+        tj.add_mesher(TerraMesherBlocky.new())
+        tj.add_liquid_mesher(TerraMesherLiquidBlocky.new())
 
-            chunk.job_add(tj);
+        chunk.job_add(tj);
 
-        #setup your chunk here
+    #setup your chunk here
 
-        return ._create_chunk(x, y, z, chunk)
+    return ._create_chunk(x, y, z, chunk)
 ```
 
 You can look at the world implementations for more examples: [TerraWorldBlocky](https://github.com/Relintai/terraman/blob/master/world/blocky/voxel_world_blocky.cpp).

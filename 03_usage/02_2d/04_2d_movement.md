@@ -37,27 +37,27 @@ Add a script to the kinematic body and add the following code:
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    export (int) var speed = 200
+export (int) var speed = 200
 
-    var velocity = Vector2()
+var velocity = Vector2()
 
-    func get_input():
-        velocity = Vector2()
-        if Input.is_action_pressed("right"):
-            velocity.x += 1
-        if Input.is_action_pressed("left"):
-            velocity.x -= 1
-        if Input.is_action_pressed("down"):
-            velocity.y += 1
-        if Input.is_action_pressed("up"):
-            velocity.y -= 1
-        velocity = velocity.normalized() * speed
+func get_input():
+    velocity = Vector2()
+    if Input.is_action_pressed("right"):
+        velocity.x += 1
+    if Input.is_action_pressed("left"):
+        velocity.x -= 1
+    if Input.is_action_pressed("down"):
+        velocity.y += 1
+    if Input.is_action_pressed("up"):
+        velocity.y -= 1
+    velocity = velocity.normalized() * speed
 
-    func _physics_process(delta):
-        get_input()
-        velocity = move_and_slide(velocity)
+func _physics_process(delta):
+    get_input()
+    velocity = move_and_slide(velocity)
 ```
 
 In the `get_input()` function, we check for the four key events and sum them
@@ -90,30 +90,30 @@ while up/down moves it forward or backward in whatever direction it's facing.
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    export (int) var speed = 200
-    export (float) var rotation_speed = 1.5
+export (int) var speed = 200
+export (float) var rotation_speed = 1.5
 
-    var velocity = Vector2()
-    var rotation_dir = 0
+var velocity = Vector2()
+var rotation_dir = 0
 
-    func get_input():
-        rotation_dir = 0
-        velocity = Vector2()
-        if Input.is_action_pressed("right"):
-            rotation_dir += 1
-        if Input.is_action_pressed("left"):
-            rotation_dir -= 1
-        if Input.is_action_pressed("down"):
-            velocity = Vector2(-speed, 0).rotated(rotation)
-        if Input.is_action_pressed("up"):
-            velocity = Vector2(speed, 0).rotated(rotation)
+func get_input():
+    rotation_dir = 0
+    velocity = Vector2()
+    if Input.is_action_pressed("right"):
+        rotation_dir += 1
+    if Input.is_action_pressed("left"):
+        rotation_dir -= 1
+    if Input.is_action_pressed("down"):
+        velocity = Vector2(-speed, 0).rotated(rotation)
+    if Input.is_action_pressed("up"):
+        velocity = Vector2(speed, 0).rotated(rotation)
 
-    func _physics_process(delta):
-        get_input()
-        rotation += rotation_dir * rotation_speed * delta
-        velocity = move_and_slide(velocity)
+func _physics_process(delta):
+    get_input()
+    rotation += rotation_dir * rotation_speed * delta
+    velocity = move_and_slide(velocity)
 ```
 
 Here we've added two new variables to track our rotation direction and speed.
@@ -136,23 +136,23 @@ is set by the mouse position instead of the keyboard. The character will always
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    export (int) var speed = 200
+export (int) var speed = 200
 
-    var velocity = Vector2()
+var velocity = Vector2()
 
-    func get_input():
-        look_at(get_global_mouse_position())
-        velocity = Vector2()
-        if Input.is_action_pressed("down"):
-            velocity = Vector2(-speed, 0).rotated(rotation)
-        if Input.is_action_pressed("up"):
-            velocity = Vector2(speed, 0).rotated(rotation)
+func get_input():
+    look_at(get_global_mouse_position())
+    velocity = Vector2()
+    if Input.is_action_pressed("down"):
+        velocity = Vector2(-speed, 0).rotated(rotation)
+    if Input.is_action_pressed("up"):
+        velocity = Vector2(speed, 0).rotated(rotation)
 
-    func _physics_process(delta):
-        get_input()
-        velocity = move_and_slide(velocity)
+func _physics_process(delta):
+    get_input()
+    velocity = move_and_slide(velocity)
 ```
 
 Here we're using the `Node2D` `look_at()` method to
@@ -162,7 +162,7 @@ could get the same effect by setting the angle like this:
 gdscript GDScript
 
 ```
-    rotation = get_global_mouse_position().angle_to_point(position)
+rotation = get_global_mouse_position().angle_to_point(position)
 ```
 
 
@@ -176,22 +176,22 @@ on the screen will cause the player to move to the target location.
 gdscript GDScript
 
 ```
-    extends KinematicBody2D
+extends KinematicBody2D
 
-    export (int) var speed = 200
+export (int) var speed = 200
 
-    onready var target = position
-    var velocity = Vector2()
+onready var target = position
+var velocity = Vector2()
 
-    func _input(event):
-        if event.is_action_pressed("click"):
-            target = get_global_mouse_position()
+func _input(event):
+    if event.is_action_pressed("click"):
+        target = get_global_mouse_position()
 
-    func _physics_process(delta):
-        velocity = position.direction_to(target) * speed
-        # look_at(target)
-        if position.distance_to(target) > 5:
-            velocity = move_and_slide(velocity)
+func _physics_process(delta):
+    velocity = position.direction_to(target) * speed
+    # look_at(target)
+    if position.distance_to(target) > 5:
+        velocity = move_and_slide(velocity)
 ```
 
 

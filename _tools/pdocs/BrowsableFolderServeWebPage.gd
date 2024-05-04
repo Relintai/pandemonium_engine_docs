@@ -1,11 +1,11 @@
-extends WebRoot
+extends BrowsableFolderServeWebPage
 
 var markdown_renderer : MarkdownRenderer = null
 
 func serve_md(request: WebServerRequest) -> void:
 	var path : String = request.get_path_full()
 	
-	var fabs : String = www_root_file_cache.wwwroot_get_file_abspath(path)
+	var fabs : String = get_file_cache().wwwroot_get_file_abspath(path)
 	
 	if fabs == "":
 		request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_404_NOT_FOUND)
@@ -23,11 +23,11 @@ func serve_md(request: WebServerRequest) -> void:
 	request.compile_and_send_body()
 
 func _handle_request_main(request: WebServerRequest) -> void:
-	
+
 	if request.get_path_full().ends_with(".md"):
 		serve_md(request)
 		return
-	
+
 	._handle_request_main(request)
 
 func _ready() -> void:

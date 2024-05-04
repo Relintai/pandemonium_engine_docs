@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource path="res://WebRoot.gd" type="Script" id=1]
+[ext_resource path="res://BrowsableFolderServeWebPage.gd" type="Script" id=1]
 
 [node name="Main" type="Node"]
 
@@ -25,6 +25,7 @@ uri = "http://127.0.0.1:8080"
 [node name="WebServerSimple" type="WebServerSimple" parent="."]
 start_on_ready = true
 
-[node name="WebRoot" type="WebRoot" parent="WebServerSimple"]
-www_root_path = "res://www/"
+[node name="BrowsableFolderServeWebPage" type="BrowsableFolderServeWebPage" parent="WebServerSimple"]
+uri_segment = "/"
+serve_folder = "res://www/"
 script = ExtResource( 1 )

@@ -156,7 +156,7 @@ To add images, please put them in an `img/` folder next to the `.rst` file with
 a meaningful name and include them in your page with:
 
 ```
-   ![](img/image_name.png)
+![](img/image_name.png)
 ```
 
 Similarly, you can include attachments, like assets as support material for a
@@ -164,7 +164,7 @@ tutorial, by placing them into a `files/` folder next to the `.rst` file, and
 using this inline markup:
 
 ```
-   :download:`myfilename.zip ( files/myfilename.zip )`
+:download:`myfilename.zip ( files/myfilename.zip )`
 ```
 
 ## License
@@ -176,4 +176,4 @@ attribution to "Péter Magyar and the Pandemonium community, and Juan Linietsky,
 
 By contributing to the documentation on the GitHub repository, you agree that
 your changes are distributed under this license.
-```
+``````

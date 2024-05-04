@@ -650,15 +650,15 @@ Functions can also have type specification for the arguments and for the return
 value. Types for arguments can be added in a similar way to variables
 
 ```
-    func my_function(a: int, b: String):
-        pass
+func my_function(a: int, b: String):
+    pass
 ```
 
 If a function argument has a default value, it's possible to infer the type
 
 ```
-    func my_function(int_arg := 42, String_arg := "string"):
-        pass
+func my_function(int_arg := 42, String_arg := "string"):
+    pass
 ```
 
 The return type of the function can be specified after the arguments list using

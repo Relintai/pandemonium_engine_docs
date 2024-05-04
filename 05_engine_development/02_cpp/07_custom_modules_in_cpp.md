@@ -40,67 +40,68 @@ The example module will be called "summator" (`pandemonium/modules/summator`).
 Inside we will create a simple summator class:
 
 ```
-    /* summator.h */
+/* summator.h */
 
-    #ifndef SUMMATOR_H
-    #define SUMMATOR_H
+#ifndef SUMMATOR_H
+#define SUMMATOR_H
 
-    #include "core/reference.h"
+#include "core/reference.h"
 
-    class Summator : public Reference {
-        GDCLASS(Summator, Reference);
+class Summator : public Reference {
+    GDCLASS(Summator, Reference);
 
-        int count;
+    int count;
 
-    protected:
-        static void _bind_methods();
+protected:
+    static void _bind_methods();
 
-    public:
-        void add(int p_value);
-        void reset();
-        int get_total() const;
+public:
+    void add(int p_value);
+    void reset();
+    int get_total() const;
 
-        Summator();
-    };
+    Summator();
+};
 
-    #endif // SUMMATOR_H
+#endif // SUMMATOR_H
 ```
 
 And then the cpp file.
 
 ```
-    /* summator.cpp */
+/* summator.cpp */
 
-    #include "summator.h"
+#include "summator.h"
 
-    void Summator::add(int p_value) {
-        count += p_value;
-    }
+void Summator::add(int p_value) {
+    count += p_value;
+}
 
-    void Summator::reset() {
-        count = 0;
-    }
+void Summator::reset() {
+    count = 0;
+}
 
-    int Summator::get_total() const {
-        return count;
-    }
+int Summator::get_total() const {
+    return count;
+}
 
-    void Summator::_bind_methods() {
-        ClassDB::bind_method(D_METHOD("add", "value"), &Summator::add);
-        ClassDB::bind_method(D_METHOD("reset"), &Summator::reset);
-        ClassDB::bind_method(D_METHOD("get_total"), &Summator::get_total);
-    }
+void Summator::_bind_methods() {
+    ClassDB::bind_method(D_METHOD("add", "value"), &Summator::add);
+    ClassDB::bind_method(D_METHOD("reset"), &Summator::reset);
+    ClassDB::bind_method(D_METHOD("get_total"), &Summator::get_total);
+}
 
-    Summator::Summator() {
-        count = 0;
-    }
+Summator::Summator() {
+    count = 0;
+}
+```
 
 Then, the new class needs to be registered somehow, so two more files
 need to be created:
 
 ```
-    register_types.h
-    register_types.cpp
+register_types.h
+register_types.cpp
 ```
 
 .. important:
@@ -110,47 +111,47 @@ need to be created:
 These files should contain the following:
 
 ```
-    /* register_types.h */
+/* register_types.h */
 
-    void register_summator_types();
-    void unregister_summator_types();
-    /* yes, the word in the middle must be the same as the module folder name */
+void register_summator_types();
+void unregister_summator_types();
+/* yes, the word in the middle must be the same as the module folder name */
 ```
 
 ```
-    /* register_types.cpp */
+/* register_types.cpp */
 
-    #include "register_types.h"
+#include "register_types.h"
 
-    #include "core/class_db.h"
-    #include "summator.h"
+#include "core/class_db.h"
+#include "summator.h"
 
-    void register_summator_types() {
-        ClassDB::register_class&lt;Summator&gt;();
-    }
+void register_summator_types() {
+    ClassDB::register_class&lt;Summator&gt;();
+}
 
-    void unregister_summator_types() {
-       // Nothing to do here in this example.
-    }
+void unregister_summator_types() {
+   // Nothing to do here in this example.
+}
 ```
 
 Next, we need to create a `SCsub` file so the build system compiles
 this module:
 
 ```
-    # SCsub
+# SCsub
 
-    Import('env')
+Import('env')
 
-    env.add_source_files(env.modules_sources, "*.cpp") # Add all cpp files to the build
+env.add_source_files(env.modules_sources, "*.cpp") # Add all cpp files to the build
 ```
 
 With multiple sources, you can also add each file individually to a Python
 string list:
 
 ```
-    src_list = ["summator.cpp", "other.cpp", "etc.cpp"]
-    env.add_source_files(env.modules_sources, src_list)
+src_list = ["summator.cpp", "other.cpp", "etc.cpp"]
+env.add_source_files(env.modules_sources, src_list)
 ```
 
 This allows for powerful possibilities using Python to construct the file list
@@ -161,8 +162,8 @@ To add include directories for the compiler to look at you can append it to the
 environment's paths:
 
 ```
-    env.Append(CPPPATH=["mylib/include"]) # this is a relative path
-    env.Append(CPPPATH=["#myotherlib/include"]) # this is an 'absolute' path
+env.Append(CPPPATH=["mylib/include"]) # this is a relative path
+env.Append(CPPPATH=["#myotherlib/include"]) # this is an 'absolute' path
 ```
 
 If you want to add custom compiler flags when building your module, you need to clone
@@ -170,30 +171,30 @@ If you want to add custom compiler flags when building your module, you need to 
 Example `SCsub` with custom flags:
 
 ```
-    # SCsub
+# SCsub
 
-    Import('env')
+Import('env')
 
-    module_env = env.Clone()
-    module_env.add_source_files(env.modules_sources, "*.cpp")
-    # Append CCFLAGS flags for both C and C++ code.
-    module_env.Append(CCFLAGS=['-O2'])
-    # If you need to, you can:
-    # - Append CFLAGS for C code only.
-    # - Append CXXFLAGS for C++ code only.
+module_env = env.Clone()
+module_env.add_source_files(env.modules_sources, "*.cpp")
+# Append CCFLAGS flags for both C and C++ code.
+module_env.Append(CCFLAGS=['-O2'])
+# If you need to, you can:
+# - Append CFLAGS for C code only.
+# - Append CXXFLAGS for C++ code only.
 ```
 
 And finally, the configuration file for the module, this is a simple
 python script that must be named `config.py`:
 
 ```
-    # config.py
+# config.py
 
-    def can_build(env, platform):
-        return True
+def can_build(env, platform):
+    return True
 
-    def configure(env):
-        pass
+def configure(env):
+    pass
 ```
 
 The module is asked if it's OK to build for the specific platform (in
@@ -203,12 +204,12 @@ And that's it. Hope it was not too complex! Your module should look like
 this:
 
 ```
-    pandemonium/modules/summator/config.py
-    pandemonium/modules/summator/summator.h
-    pandemonium/modules/summator/summator.cpp
-    pandemonium/modules/summator/register_types.h
-    pandemonium/modules/summator/register_types.cpp
-    pandemonium/modules/summator/SCsub
+pandemonium/modules/summator/config.py
+pandemonium/modules/summator/summator.h
+pandemonium/modules/summator/summator.cpp
+pandemonium/modules/summator/register_types.h
+pandemonium/modules/summator/register_types.cpp
+pandemonium/modules/summator/SCsub
 ```
 
 You can then zip it and share the module with everyone else. When
@@ -225,12 +226,12 @@ Note:
 You can now use your newly created module from any script:
 
 ```
-    var s = Summator.new()
-    s.add(10)
-    s.add(20)
-    s.add(30)
-    print(s.get_total())
-    s.reset()
+var s = Summator.new()
+s.add(10)
+s.add(20)
+s.add(30)
+print(s.get_total())
+s.reset()
 ```
 
 The output will be `60`.
@@ -274,8 +275,8 @@ So if you feel like the independent structure of custom modules is needed, lets
 take our "summator" module and move it to the engine's parent directory:
 
 ```
-    mkdir ../modules
-    mv modules/summator ../modules
+mkdir ../modules
+mv modules/summator ../modules
 ```
 
 Compile the engine with our module by providing `custom_modules` build option
@@ -283,7 +284,7 @@ which accepts a comma-separated list of directory paths containing custom C++
 modules, similar to the following:
 
 ```
-    scons custom_modules=../modules
+scons custom_modules=../modules
 ```
 
 The build system shall detect all modules under the `../modules` directory
@@ -325,41 +326,41 @@ The solution to avoid such a cost is to build our own module as a shared
 library that will be dynamically loaded when starting our game's binary.
 
 ```
-    # SCsub
+# SCsub
 
-    Import('env')
+Import('env')
 
-    sources = [
-        "register_types.cpp",
-        "summator.cpp"
-    ]
+sources = [
+    "register_types.cpp",
+    "summator.cpp"
+]
 
-    # First, create a custom env for the shared library.
-    module_env = env.Clone()
+# First, create a custom env for the shared library.
+module_env = env.Clone()
 
-    # Position-independent code is required for a shared library.
-    module_env.Append(CCFLAGS=['-fPIC'])
+# Position-independent code is required for a shared library.
+module_env.Append(CCFLAGS=['-fPIC'])
 
-    # Don't inject Pandemonium's dependencies into our shared library.
-    module_env['LIBS'] = []
+# Don't inject Pandemonium's dependencies into our shared library.
+module_env['LIBS'] = []
 
-    # Define the shared library. By default, it would be built in the module's
-    # folder, however it's better to output it into `bin` next to the
-    # Pandemonium binary.
-    shared_lib = module_env.SharedLibrary(target='#bin/summator', source=sources)
+# Define the shared library. By default, it would be built in the module's
+# folder, however it's better to output it into `bin` next to the
+# Pandemonium binary.
+shared_lib = module_env.SharedLibrary(target='#bin/summator', source=sources)
 
-    # Finally, notify the main build environment it now has our shared library
-    # as a new dependency.
+# Finally, notify the main build environment it now has our shared library
+# as a new dependency.
 
-    # LIBPATH and LIBS need to be set on the real "env" (not the clone)
-    # to link the specified libraries to the Pandemonium executable.
+# LIBPATH and LIBS need to be set on the real "env" (not the clone)
+# to link the specified libraries to the Pandemonium executable.
 
-    env.Append(LIBPATH=['#bin'])
+env.Append(LIBPATH=['#bin'])
 
-    # SCons wants the name of the library with it custom suffixes
-    # (e.g. ".x11.tools.64") but without the final ".so".
-    shared_lib_shim = shared_lib[0].name.rsplit('.', 1)[0]
-    env.Append(LIBS=[shared_lib_shim])
+# SCons wants the name of the library with it custom suffixes
+# (e.g. ".x11.tools.64") but without the final ".so".
+shared_lib_shim = shared_lib[0].name.rsplit('.', 1)[0]
+env.Append(LIBS=[shared_lib_shim])
 ```
 
 Once compiled, we should end up with a `bin` directory containing both the
@@ -368,8 +369,8 @@ a standard directory (like `/usr/lib`), we have to help our binary find it
 during runtime with the `LD_LIBRARY_PATH` environment variable:
 
 ```
-    export LD_LIBRARY_PATH="$PWD/bin/"
-    ./bin/pandemonium*
+export LD_LIBRARY_PATH="$PWD/bin/"
+./bin/pandemonium*
 ```
 
 Note:
@@ -383,29 +384,29 @@ module as shared library (for development) or as a part of the Pandemonium binar
 using the `ARGUMENT` command:
 
 ```
-    # SCsub
+# SCsub
 
-    Import('env')
+Import('env')
 
-    sources = [
-        "register_types.cpp",
-        "summator.cpp"
-    ]
+sources = [
+    "register_types.cpp",
+    "summator.cpp"
+]
 
-    module_env = env.Clone()
-    module_env.Append(CCFLAGS=['-O2'])
+module_env = env.Clone()
+module_env.Append(CCFLAGS=['-O2'])
 
-    if ARGUMENTS.get('summator_shared', 'no') == 'yes':
-        # Shared lib compilation
-        module_env.Append(CCFLAGS=['-fPIC'])
-        module_env['LIBS'] = []
-        shared_lib = module_env.SharedLibrary(target='#bin/summator', source=sources)
-        shared_lib_shim = shared_lib[0].name.rsplit('.', 1)[0]
-        env.Append(LIBS=[shared_lib_shim])
-        env.Append(LIBPATH=['#bin'])
-    else:
-        # Static compilation
-        module_env.add_source_files(env.modules_sources, sources)
+if ARGUMENTS.get('summator_shared', 'no') == 'yes':
+    # Shared lib compilation
+    module_env.Append(CCFLAGS=['-fPIC'])
+    module_env['LIBS'] = []
+    shared_lib = module_env.SharedLibrary(target='#bin/summator', source=sources)
+    shared_lib_shim = shared_lib[0].name.rsplit('.', 1)[0]
+    env.Append(LIBS=[shared_lib_shim])
+    env.Append(LIBPATH=['#bin'])
+else:
+    # Static compilation
+    module_env.add_source_files(env.modules_sources, sources)
 ```
 
 Now by default `scons` command will build our module as part of Pandemonium's binary
@@ -415,7 +416,7 @@ Finally, you can even speed up the build further by explicitly specifying your
 shared module as target in the SCons command:
 
 ```
-    scons summator_shared=yes platform=x11 bin/libsummator.x11.tools.64.so
+scons summator_shared=yes platform=x11 bin/libsummator.x11.tools.64.so
 ```
 
 ## Writing custom documentation
@@ -434,13 +435,13 @@ There are several steps in order to setup custom docs for the module:
 2. Now, we need to edit `config.py`, add the following snippet:
 
 ```
-    def get_doc_path():
-        return "doc_classes"
+def get_doc_path():
+    return "doc_classes"
 
-    def get_doc_classes():
-        return [
-            "Summator",
-        ]
+def get_doc_classes():
+    return [
+        "Summator",
+    ]
 ```
 
 The `get_doc_path()` function is used by the build system to determine
@@ -461,20 +462,20 @@ Tip:
     untracked files with `git status`. For example:
 
 ```
-    user@host:~/pandemonium$ git status
+user@host:~/pandemonium$ git status
 ```
 
 Example output:
 
 ```
-    Untracked files:
-        (use "git add &lt;file&gt;..." to include in what will be committed)
+Untracked files:
+    (use "git add &lt;file&gt;..." to include in what will be committed)
 
-        doc/classes/MyClass2D.xml
-        doc/classes/MyClass4D.xml
-        doc/classes/MyClass5D.xml
-        doc/classes/MyClass6D.xml
-        ...
+    doc/classes/MyClass2D.xml
+    doc/classes/MyClass4D.xml
+    doc/classes/MyClass5D.xml
+    doc/classes/MyClass6D.xml
+    ...
 ```
 
 3. Now we can generate the documentation:
@@ -488,7 +489,7 @@ to an another folder, and just copy over the files that you need.
 Run command:
 
 ```
-    user@host:~/pandemonium/bin$ ./bin/&lt;pandemonium_binary&gt; --doctool .
+user@host:~/pandemonium/bin$ ./bin/&lt;pandemonium_binary&gt; --doctool .
 ```
 
 Now if you go to the `pandemonium/modules/summator/doc_classes` folder, you will see
@@ -512,8 +513,8 @@ Note that if you don't have write access rights to your supplied `&lt;path&gt;`,
 you might encounter an error similar to the following:
 
 ```
-    ERROR: Can't write doc file: docs/doc/classes/@GDScript.xml
-       At: editor/doc/doc_data.cpp:956
+ERROR: Can't write doc file: docs/doc/classes/@GDScript.xml
+   At: editor/doc/doc_data.cpp:956
 ```
 
 ## Adding custom editor icons
@@ -538,8 +539,8 @@ If you'd like to store your icons somewhere else within your module,
 add the following code snippet to `config.py` to override the default path:
 
 ```
-    def get_icons_path():
-        return "path/to/icons"
+def get_icons_path():
+    return "path/to/icons"
 ```
 
 ## Summing up
@@ -561,3 +562,4 @@ some (hopefully positive) surprises.
    saved/loaded.
 -  By this same logic, you can extend the Editor and almost any area of
    the engine.
+``````

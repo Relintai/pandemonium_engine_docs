@@ -36,22 +36,21 @@ Also, see [the license page on the Pandemonium website](https://pandemoniumengin
 
 **For exporting your games:**
 
-* Windows (and UWP)
+* Windows
 * macOS
-* X11 (Linux, \*BSD)
+* X11 (Linux, \*BSD) (x64, x86, arm32, arm64)
 * Android
 * iOS
 * Web
+* Single Board Computers (FRT, and FRT SDL backends)
+* Eventually UWP. (Currently needs working build containers, and some reworks.)
 
 Both 32- and 64-bit binaries are supported where it makes sense, with 64
 being the default.
 
-Some users also report building and using Pandemonium successfully on ARM-based
-systems with Linux, like the Raspberry Pi.
-
-Additionally, there is some unofficial third-party work being done on building
-for some consoles. However, none of this is included in the default build
-scripts or export templates at this time.
+Just like godot 3.x the codebase should compile for consoles. If you have access
+to godot platform implementations for them, they should be simple to make work
+with pandemonium aswell.
 
 For more on this, see the sections on [exporting](toc-learn-workflow-export)
 and [compiling Pandemonium yourself](toc-devel-compiling).
@@ -68,11 +67,45 @@ the long run, for prototyping, developing Minimum Viable Products (MVPs), and
 focusing on Time-To-Market (TTM), GDScript will provide a fast, friendly, and capable
 way of developing your games.
 
-[Python](https://github.com/Relintai/gdnative_python) and [C++ (GDNative)](https://github.com/Relintai/gdnative_cpp) 
-are available using GDNative.
+### GDNative
 
-[C#](https://github.com/Relintai/mono) is available as an engine module.
-(You need to add it to the engine and recompile it to have it.)
+GDNative is a C interface that lets you create and dynamically load dll-s.
+Code in these dlls can use engine types, and can call engine methods, and 
+they can even create custom classes.
+
+#### Python
+
+Godot's [GDNative Python](https://github.com/Relintai/gdnative_python) ported to work with pandemonium.
+
+It's setup in a self contained way. Can come in handy for tools, 
+as python has access to lots of great libraries, and you can 
+bundle them with your application using this module.
+
+Only has binaries for desktop platforms.
+
+I only recommend it for desktop tools where you want access to some of the python libraries,
+but you also need a self contained application. It's a lot simpler than connecting and managing 
+multiple apps through sockets, but it's still relatively complex to set up.
+
+#### C++
+
+Godot's [GDNative C++](https://github.com/Relintai/gdnative_cpp) ported to work with pandemonium.
+
+Currently under rework to make it's code (hopefully) identical to engine side c++. If successful, 
+engine side module code could be developed with faster recompile times, and even dynamic reloading 
+in some cases.
+
+### C#
+
+[C#](https://github.com/Relintai/mono) is available as an engine module, 
+which means you need to add it to the engine and recompile it to have it.
+
+It comes with lots of complexities.
+
+I only recommend it for tools, and when you need something from the c# ecosystem
+integrated into your application.
+
+Most of the time you are probably better off just writing GDScript, or engine modules in c++ though.
 
 ## What is GDScript and why should I use it?
 

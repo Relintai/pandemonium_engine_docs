@@ -17,7 +17,8 @@ of this documentation, so that you know where to start if you are a beginner or
 where to look if you need info on a specific feature.
 
 Pandemonium Engine is a fork of the [Godot Engine](https://godotengine.org/) (specifically the  
-[3.x](https://github.com/godotengine/godot/commits/3.x) branch). With heavy modifications.
+[3.x](https://github.com/godotengine/godot/commits/3.x) branch), with heavy modifications. You can 
+think of it as an alternate Godot 4.x.
 
 Even though lots of things have been changed, most tutorials for godot should work with minimal tweaks.
 
@@ -41,18 +42,46 @@ if you need a quick writeup about Pandemonium Engine.
     engine to match their expectations. It is supported by the 
     [Software Freedom Conservancy](https://sfconservancy.org) not-for-profit.
 
+Note:
+
+Pandemonium is a 1 person project at the time of this writing.
+
+I use it to build both application and games. It is being developed to solve issues 
+I personally run into / have to do. This has both upsides and downsides, as 
+badly thought out stuff gets caught early, but also I might have to put off 
+features for a while because I have to focus on projects that need something else.
+
 For a more in-depth view of the engine, you are encouraged to read this
 documentation further, especially the 
 [step by step](../index.html#tutorials/stepbystep) tutorial.
 
+### Godot - Pandemonium differences
+
+- Lots of new engine modules were added.
+- Some godot engine modules have been removed.
+- Engine core have been organized into folders.
+- More built-in variant types.
+- Lots of backports.
+- Lots of bug fixes.
+- Lots of work on engine side modulatization.
+- GLES3 backend is currently removed.
+
+For a comprehensive list of changes I recommend reading the engie's 
+[changelog](https://github.com/Relintai/pandemonium_engine/blob/master/CHANGELOG.md) file.
+
 ## About the documentation
 
 This documentation is continuously worked on. It is edited via text files in the
-markdown language and then compiled into a static website / offline document using 
-a simple python script in the repository's 
+markdown language.
+
+It can be compiled into a static website / offline document using 
+a simple python ([md_doc_gen.py](https://github.com/Relintai/pandemonium_engine_docs/tree/master/_tools/md_doc_gen.py)) script in the repository's 
 [_tools](https://github.com/Relintai/pandemonium_engine_docs/tree/master/_tools) folder.
 
 It's using [markdeep](https://casual-effects.com/markdeep/) for rendering it's final html output.
+
+It can also be hosted by the engine's web module using the experimental 
+[pdocs](https://github.com/Relintai/pandemonium_engine_docs/tree/master/_tools/pdocs) project in the `_tools` folder.
 
 Note:
 

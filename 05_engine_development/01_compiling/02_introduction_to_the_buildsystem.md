@@ -3,7 +3,7 @@
 
 ## SCons
 
-Pandemonium uses `SCons ( https://www.scons.org/ )` to build. We love it, we are
+Pandemonium uses [SCons](https://www.scons.org/) to build. We love it, we are
 not changing it for anything else. We are not even sure other build
 systems are up to the task of building Pandemonium. We constantly get requests
 to move the build system to CMake, or Visual Studio, but this is not
@@ -33,10 +33,7 @@ if you are planning to build Pandemonium yourself.
 
 ## Setup
 
-Please refer to the documentation for `doc_compiling_for_android`,
-`doc_compiling_for_ios`, `doc_compiling_for_osx`,
-`doc_compiling_for_uwp`, `doc_compiling_for_web`,
-`doc_compiling_for_windows` and `doc_compiling_for_x11`.
+Please refer to the documentation for the platform you are compiling for.
 
 Note that for **Windows/Visual Studio**, you need to use `x86_x64 Cross Tools
 Command Prompt for VS 2017` or similar, depending on your install, instead of
@@ -94,7 +91,7 @@ The resulting binaries will be placed in the `bin/` subdirectory,
 generally with this naming convention:
 
 ```
-pandemonium.&lt;platform&gt;.[opt].[tools/debug].&lt;architecture&gt;[extension]
+pandemonium.<platform>.[opt].[tools/debug].<architecture>[extension]
 ```
 
 For the previous build attempt, the result would look like this:
@@ -117,7 +114,7 @@ pandemonium.windows.tools.64.exe
 Copy that binary to any location you like, as it contains the project manager,
 editor and all means to execute the game. However, it lacks the data to export
 it to the different platforms. For that the export templates are needed (which
-can be either downloaded from `pandemoniumengine.org ( https://pandemoniumengine.org/ )`, or
+can be either downloaded from [here](https://github.com/Relintai/pandemonium_engine/releases), or
 you can build them yourself).
 
 Aside from that, there are a few standard options that can be set in all
@@ -132,7 +129,7 @@ run projects but that does not include the editor or the project
 manager.
 
 ```
-scons platform=&lt;platform&gt; tools=yes/no
+scons platform=<platform> tools=yes/no
 ```
 
 ## Target
@@ -150,7 +147,7 @@ Target controls optimization and debug flags. Each mode means:
    checks to run.
 
 ```
-scons platform=&lt;platform&gt; target=debug/release_debug/release
+scons platform=<platform> target=debug/release_debug/release
 ```
 
 This flag appends the `.debug` suffix (for debug), or `.tools` (for debug
@@ -168,7 +165,7 @@ else.
 -  **default**: Build for the architecture that matches the host platform.
 
 ```
-scons platform=&lt;platform&gt; bits=default/32/64
+scons platform=<platform> bits=default/32/64
 ```
 
 This flag appends `.32` or `.64` suffixes to resulting binaries when
@@ -194,20 +191,16 @@ scons custom_modules="../modules,/abs/path/to/modules,~/src/pandemonium_modules"
 
 Note:
 
+- If there's any custom module with the exact directory name as a built-in
+  module, the engine will only compile the custom one. This logic can be used
+  to override built-in module implementations.
 
-    If there's any custom module with the exact directory name as a built-in
-    module, the engine will only compile the custom one. This logic can be used
-    to override built-in module implementations.
-
-See also:
-
-
-    `doc_custom_modules_in_c++`
+See also: [Custom modules in C++](../02_cpp/07_custom_modules_in_cpp.md)
 
 ## Cleaning generated files
 
 Sometimes, you may encounter an error due to generated files being present. You
-can remove them by using `scons --clean &lt;options&gt;`, where `&lt;options&gt;` is the
+can remove them by using `scons --clean <options>`, where `<options>` is the
 list of build options you've used to build Pandemonium previously.
 
 Alternatively, you can use `git clean -fixd` which will clean build artifacts
@@ -241,13 +234,7 @@ extra_suffix = "game_title"
 ```
 
 You can also disable some of the builtin modules before compiling, saving some
-time it takes to build the engine. See `doc_optimizing_for_size` page for more details.
-
-See also:
-
-You can use the online `Pandemonium build options generator ( https://pandemonium-build-options-generator.github.io/ )` 
-to generate a `custom.py` file containing SCons options. You can then save this file and place it at the root 
-of your Pandemonium source directory.
+time it takes to build the engine. See [Optimizing a build for size](11_optimizing_for_size.md) page for more details.
 
 Another custom file can be specified explicitly with the `profile` command
 line option, both overriding the default build configuration:
@@ -294,9 +281,8 @@ powershell Windows (powershell)
 
 ## Export templates
 
-Official export templates are downloaded from the Pandemonium Engine site:
-`pandemoniumengine.org ( https://pandemoniumengine.org/ )`. However, you might want
-to build them yourself (in case you want newer ones, you are using custom
+Official export templates can be downloaded from [here](https://github.com/Relintai/pandemonium_engine/releases).
+However, you might want to build them yourself (in case you want newer ones, you are using custom
 modules, or simply don't trust your own shadow).
 
 If you download the official export templates package and unzip it, you
@@ -338,3 +324,4 @@ If you are developing for multiple platforms, macOS is definitely the most
 convenient host platform for cross-compilation, since you can cross-compile for
 almost every target (except for UWP). Linux and Windows come in second place,
 but Linux has the advantage of being the easier platform to set this up.
+

@@ -14,22 +14,28 @@ func _ready() -> void:
 	
 	var file : File = File.new()
 	if !file.file_exists(loc):
-		PLogger.log_message("Database file doesn't exists, will run migrations!")
+		PLogger.log_message("Database file doesn't exists, will run full migrations!")
 		PLogger.log_message("(Editor->Project->Open User Data Folder)")
-		call_deferred("migrate")
+		call_deferred("migrate", true)
 	else:
-		DatabaseManager.call_deferred("initialized")
+		PLogger.log_message("Database file exists, will run normal / update migrations!")
+		call_deferred("migrate", false)
 
 	var db : SQLite3Database = SQLite3Database.new()
 	db.connection_string = loc
 	DatabaseManager.add_database(db)
 
-func migrate() -> void:
-	PLogger.log_message("Running migrations!")
+func migrate(full : bool) -> void:
 	DatabaseManager.connect("migration", self, "_migration")
-	DatabaseManager.migrate(true, false, 0)
 	
-	DatabaseManager.call_deferred("initialized")
+	if full:
+		PLogger.log_message("Running full migrations!")
+		DatabaseManager.migrate(true, false, 0)
+		DatabaseManager.call_deferred("initialized")
+	else:
+		PLogger.log_message("Running update migrations!")
+		DatabaseManager.migrate(false, false, 0)
+		DatabaseManager.initialized()
 
 func on_databases_initialized() -> void:
 	# Load sessions after the databases are initialized
@@ -37,6 +43,10 @@ func on_databases_initialized() -> void:
 	call_deferred("load_data")
 
 func _migration(clear: bool, should_seed: bool, pseed: int) -> void:
+	if !clear:
+		# if clear is false, then we should only update our database table structure if needed
+		return
+	
 	randomize()
 	
 	var tb : TableBuilder = DatabaseManager.ddb.get_connection().get_table_builder()

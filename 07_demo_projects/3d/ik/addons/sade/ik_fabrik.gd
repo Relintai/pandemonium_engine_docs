@@ -259,11 +259,10 @@ func chain_forward():
 		# Apply the new joint position, (potentially with constraints), to the bone node
 		bone_nodes[i + 1].global_transform.origin = curr_origin.linear_interpolate(next_origin, l)
 
-#öüóőúűáéöÖüÜóÓőŐúÚáÁűŰéÉ
+
 # Make all of the bones rotated correctly.
 func chain_apply_rotation():
 	# For each bone in the bone chain
-	öüóőúűáéÖÜÓŐÚŰÁÉ
 	for i in range(0, bones_in_chain.size()):
 		# Get the bone's transform, NOT converted to world space
 		var bone_trans = get_bone_transform(i, false)

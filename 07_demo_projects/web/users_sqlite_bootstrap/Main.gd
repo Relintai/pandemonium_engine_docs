@@ -10,22 +10,28 @@ func _ready() -> void:
 	
 	var file : File = File.new()
 	if !file.file_exists(loc):
-		PLogger.log_message("Database file doesn't exists, will run migrations!")
-		call_deferred("migrate")
+		PLogger.log_message("Database file doesn't exists, will run full migrations!")
+		call_deferred("migrate", true)
 	else:
-		call_deferred("db_initialized")
+		PLogger.log_message("Database file exists, will run normal / update migrations!")
+		call_deferred("migrate", false)
 
 	var db : SQLite3Database = SQLite3Database.new()
 	db.connection_string = loc
 	DatabaseManager.add_database(db)
 	
 
-func migrate() -> void:
-	PLogger.log_message("Running migrations!")
+func migrate(full : bool) -> void:
 	DatabaseManager.connect("migration", self, "_migration")
-	DatabaseManager.migrate(true, false, 0)
 	
-	call_deferred("db_initialized")
+	if full:
+		PLogger.log_message("Running full migrations!")
+		DatabaseManager.migrate(true, false, 0)
+		DatabaseManager.call_deferred("initialized")
+	else:
+		PLogger.log_message("Running update migrations!")
+		DatabaseManager.migrate(false, false, 0)
+		db_initialized()
 	
 func db_initialized() -> void:
 	DatabaseManager.initialized()

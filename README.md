@@ -27,7 +27,7 @@ clicking it. It doesn't need a web server.
 
 #### Using the engine itself
 
-As a little fun, the engine has an http server built in, which can be used to browse and read the docs locally.
+The engine has an http server built in, which can be used to browse and read the docs locally.
 
 Clone the repository (or download as zip):
 

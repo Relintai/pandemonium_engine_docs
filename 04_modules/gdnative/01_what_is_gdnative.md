@@ -8,6 +8,7 @@ Also note that godot gdnative libraries will not compile without changes.
 GDNative python is available for pandemonium:
 
 https://github.com/Relintai/gdnative_python
+
 https://github.com/Relintai/gdnative_python_sample
 
 GDNative cpp is also available for pandemonium:
@@ -15,6 +16,7 @@ GDNative cpp is also available for pandemonium:
 Work is being done to make it more closely resemble the engine internals.
 
 https://github.com/Relintai/gdnative_cpp_sample
+
 https://github.com/Relintai/gdnative_cpp
 
 

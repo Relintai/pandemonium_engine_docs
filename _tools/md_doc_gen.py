@@ -196,7 +196,7 @@ main_body_template = read_file("./_tools/markdeep/main_body.md.html")
 index_body_template = read_file("./_tools/markdeep/index_body.md.html")
 
 ensure_dir(output_folder)
-process_dirs(input_folder, output_folder, 1, [ output_base_folder, "_tools", ".git" ])
+process_dirs(input_folder, output_folder, 1, [ output_base_folder, "_tools", ".git", "07_demo_projects" ])
 
 copyfile("./_tools/markdeep/slate.css", output_folder + "slate.css")
 copyfile("./_tools/markdeep/markdeep.min.js", output_folder + "markdeep.min.js")

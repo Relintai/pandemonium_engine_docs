@@ -39,7 +39,7 @@ Either run `./cp_www.sh`, or create a `www` folder and copy everything (except t
 
 Then open the `_tools/pdocs/` project in a recent version of the pandemonium engine, run the project, and click or open the url shown.
 
-Note that two different version of this docs hoster project is available in the `/07_demo_projects/web/` folder.
+Note that two different version of this docs hoster project is available in the [07_demo_projects/web/](/07_demo_projects/web/) folder.
 
 ## Disclaimer
 

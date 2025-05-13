@@ -2,11 +2,15 @@
 
 This repository contains the source files of [Pandemonium Engine](https://pandemoniumengine.org)'s documentation, in the markdown markup language.
 
+## Reading
+
+### Hosted
+
 This documentation is can be read directly using github (or my gitea mirror).
 
-## Reading locally
+### Locally
 
-### Using python
+#### Using python
 
 If you have python installed, a locally readable version can be easily generated.
 
@@ -21,7 +25,7 @@ Open a terminal in the root of the project, then run:
 A new `out` folder should appear, it has an index.html which can be opened in a browser directly by double
 clicking it. It doesn't need a web server.
 
-### Using the engine itself
+#### Using the engine itself
 
 As a little fun, the engine has an http server built in, which can be used to browse and read the docs locally.
 

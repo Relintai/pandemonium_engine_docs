@@ -6,7 +6,7 @@ This repository contains the source files of [Pandemonium Engine](https://pandem
 
 ### Hosted
 
-This documentation is can be read directly using github (or my gitea mirror).
+This documentation can be read directly using github (or my gitea mirror).
 
 ### Locally
 

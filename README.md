@@ -35,7 +35,15 @@ Clone the repository (or download as zip):
 
 Open a terminal in the `_tools/pdocs/` folder.
 
-Either run `./cp_www.sh`, or create a `www` folder and copy everything (except the `_tools` folder) from the root of the project into it.
+Either:
+
+- Run `./cp_www.sh`
+
+Or:
+
+- create a `www` folder 
+- copy everything (except the `_tools` folder) from the root of the project into it.
+- I also recommend adding an empty file called `.gdignore` into the new `www` folder, this way the editor won't import anything from it.
 
 Then open the `_tools/pdocs/` project in a recent version of the pandemonium engine, run the project, and click or open the url shown.
 

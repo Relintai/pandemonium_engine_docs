@@ -577,7 +577,7 @@ func get_lost_point() -> int:
 	
 	return lost_point
 
-func _generate_texture_image(data: Array) -> ImageTexture:
+func generate_image(data: Array) -> Image:
 	var image : Image = Image.new()
 	image.create(data.size() + 2, data.size() + 2, false, Image.FORMAT_RGB8)
 	image.fill(Color.white)
@@ -594,6 +594,11 @@ func _generate_texture_image(data: Array) -> ImageTexture:
 			image.set_pixel(row + 1, col + 1, color)
 	
 	image.unlock()
+	
+	return image
+
+func _generate_texture_image(data: Array) -> ImageTexture:
+	var image : Image = generate_image(data)
 	
 	var it : ImageTexture = ImageTexture.new()
 	it.create_from_image(image, 0)

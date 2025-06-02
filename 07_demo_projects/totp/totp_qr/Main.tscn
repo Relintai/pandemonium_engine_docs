@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://addons/QRCodeTexture/qr_code_texture_rect.gd" type="Script" id=2]
+
+[sub_resource type="Image" id=3]
+data = {
+"data": PoolByteArray( "////////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAA////////AAAA////AAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAA////////AAAA////////////////////AAAA////////AAAAAAAAAAAA////////AAAA////////////////////AAAA////////AAAA////AAAAAAAAAAAA////AAAA////AAAAAAAA////AAAAAAAA////AAAA////AAAAAAAAAAAA////AAAA////////AAAA////AAAAAAAAAAAA////AAAA////////AAAA////AAAA////////AAAA////AAAAAAAAAAAA////AAAA////////AAAA////AAAAAAAAAAAA////AAAA////////////AAAA////AAAA////AAAA////AAAAAAAAAAAA////AAAA////////AAAA////////////////////AAAA////////////////////AAAA////AAAA////////////////////AAAA////////AAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAA////AAAA////AAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////AAAAAAAA////AAAAAAAA////////////////////////////////////////AAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAA////////////AAAA////////////////AAAA////AAAAAAAA////AAAA////AAAA////AAAAAAAA////////////AAAA////////////AAAAAAAA////////////////////////////AAAA////AAAA////AAAA////AAAA////AAAA////////////AAAA////////////AAAA////////AAAAAAAA////AAAAAAAAAAAA////AAAA////////AAAA////////////AAAA////////////AAAAAAAA////////////////AAAA////////AAAA////AAAA////AAAA////////////AAAA////AAAA////AAAA////AAAA////AAAA////////////////////////////////////////AAAA////AAAAAAAA////AAAA////AAAA////AAAA////AAAA////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAA////AAAAAAAA////AAAAAAAAAAAA////AAAAAAAA////AAAA////////AAAA////////////////////AAAA////AAAAAAAA////AAAAAAAAAAAA////AAAAAAAAAAAA////AAAA////////////AAAA////AAAAAAAAAAAA////AAAA////AAAAAAAAAAAAAAAA////AAAAAAAAAAAA////AAAAAAAA////AAAA////////AAAA////AAAAAAAAAAAA////AAAA////////////AAAA////////////AAAA////////////AAAAAAAA////////////AAAA////AAAAAAAAAAAA////AAAA////AAAA////AAAA////AAAA////////////AAAA////////////AAAA////////AAAA////////////////////AAAA////AAAAAAAAAAAA////////////AAAA////////////AAAA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAAAAAA////AAAA////AAAA////AAAA////AAAA////AAAA////////////////////////////////////////////////////////////////////////////////////////////////" ),
+"format": "RGB8",
+"height": 23,
+"mipmaps": false,
+"width": 23
+}
+
+[sub_resource type="ImageTexture" id=2]
+flags = 0
+flags = 0
+image = SubResource( 3 )
+size = Vector2( 23, 23 )
+
+[node name="Main" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+custom_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 24.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 70.0
+margin_bottom = 19.0
+text = "Secter key:"
+
+[node name="SecretKeyValue" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 74.0
+margin_right = 1010.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+editable = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 44.0
+margin_right = 1010.0
+margin_bottom = 68.0
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_top = 5.0
+margin_right = 74.0
+margin_bottom = 19.0
+text = "otpauth uri:"
+
+[node name="OTPAuthURI" type="LineEdit" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 78.0
+margin_right = 1010.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+editable = false
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 88.0
+margin_right = 1010.0
+margin_bottom = 102.0
+text = "otpauth uri qr code:"
+
+[node name="QRCode" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 122.0
+margin_right = 1010.0
+margin_bottom = 327.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 2 )
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_top = 347.0
+margin_right = 1010.0
+margin_bottom = 361.0
+text = "Current TOTP Values (This needs to match other otp auth clients, like keepass or google authenticator):"
+
+[node name="TOTPValueLog" type="RichTextLabel" parent="VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 381.0
+margin_right = 1010.0
+margin_bottom = 586.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

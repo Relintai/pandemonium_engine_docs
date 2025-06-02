@@ -1,0 +1,61 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": @"QRCode",
+"language": @"GDScript",
+"path": "res://addons/QRCodeTexture/qr_code_generator/qr_code.gd"
+}, {
+"base": "TextureRect",
+"class": @"QRCodeTextureRect",
+"language": @"GDScript",
+"path": "res://addons/QRCodeTexture/qr_code_texture_rect.gd"
+}, {
+"base": "Object",
+"class": @"QRCodeUtils",
+"language": @"GDScript",
+"path": "res://addons/QRCodeTexture/qr_code_generator/qr_code_utils.gd"
+}, {
+"base": "Object",
+"class": @"ReedSolomonGenerator",
+"language": @"GDScript",
+"path": "res://addons/QRCodeTexture/qr_code_generator/reed_solomon_generator.gd"
+} ]
+_global_script_class_icons={
+@"QRCodeTextureRect": "res://addons/QRCodeTexture/icon.png",
+@"QRCode": "",
+@"QRCodeUtils": "",
+@"ReedSolomonGenerator": ""
+}
+
+[application]
+
+config/name="TOTP Test"
+run/main_scene="res://Main.tscn"
+config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/QRCodeTexture/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

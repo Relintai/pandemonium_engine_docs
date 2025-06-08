@@ -11,17 +11,7 @@ enum EditActions {
 	#RENAME, TODO
 }
 
-class BFSNEntry:
-	var uri : String
-	var data : String
-
-var _folder_indexes : Array
-var _folder_uris : PoolStringArray
-var _index : String
-
 var _file_cache : FileCache = FileCache.new()
-
-var _lock : RWLock = RWLock.new()
 
 func _ready():
 	var dir : Directory = Directory.new()
@@ -29,7 +19,8 @@ func _ready():
 	if !dir.dir_exists(serve_folder):
 		dir.make_dir_recursive(serve_folder)
 	
-	load_dir()
+	_file_cache.set_wwwroot(serve_folder)
+	PLogger.log_message("Serve folder set to: %s" % [ serve_folder ])
 
 func _handle_request_main(request : WebServerRequest) -> void:
 	if (web_permission):
@@ -37,11 +28,15 @@ func _handle_request_main(request : WebServerRequest) -> void:
 			return;
 	
 	if request.get_method() == HTTPServerEnums.HTTP_METHOD_POST:
-		var folder_name : String = request.get_path(true, false);
+		var target_folder_url : String = request.get_path(true, false);
 		
-		if !_folder_uris.contains(folder_name):
-			PLogger.log_error("!_folder_uris.contains(folder_name) ! '{0}'".format([ folder_name ]))
-			request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_500_INTERNAL_SERVER_ERROR)
+		# This folder has to exist!
+		var target_folder_abspath : String = _file_cache.wwwroot_get_folder_abspath(target_folder_url)
+		
+		# Folder does not exists!
+		if target_folder_abspath.empty():
+			PLogger.log_error("target_folder_abspath.empty() ! '{0}'".format([ target_folder_abspath ]))
+			request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_404_NOT_FOUND)
 			return
 		
 		var action : int = int(request.get_post_parameter("action"))
@@ -54,24 +49,28 @@ func _handle_request_main(request : WebServerRequest) -> void:
 				request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_500_INTERNAL_SERVER_ERROR)
 				return
 			
-			var www_file_path : String = folder_name.append_path(file_name)
-			var tfp : String = _file_cache.wwwroot_get_simplified_abs_path(www_file_path)
+			var file_path : String = target_folder_url.append_path(file_name)
+			file_path = _file_cache.wwwroot_get_simplified_abs_path(file_path)
 			
-			if tfp.empty():
-				PLogger.log_error("tfp.empty()! " + www_file_path)
+			if file_path.empty():
+				PLogger.log_error("file_path.empty()!")
 				request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_500_INTERNAL_SERVER_ERROR)
 				return
 			
-			request.move_file(0, tfp)
-
-			load_dir()
+			request.move_file(0, file_path, true)
+			PLogger.log_message("File uploaded: %s" % file_path)
 		elif action == EditActions.CREATE_FOLDER:
-			var new_folder_name : String = request.get_post_parameter("folder")
+			var folder : String = request.get_post_parameter("folder")
+			var new_folder_url : String = target_folder_url.append_path(folder)
 			
-			if !new_folder_name.empty():
-				var www_file_path : String = folder_name.append_path(new_folder_name)
-				var full_path : String = _file_cache.wwwroot_get_simplified_abs_path(www_file_path)
-
+			if _file_cache.wwwroot_path_exists(new_folder_url):
+				PLogger.log_error("_file_cache.wwwroot_path_exists(new_folder_url) ! '{0}'".format([ new_folder_url ]))
+				request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_500_INTERNAL_SERVER_ERROR)
+				return
+			
+			if !folder.empty():
+				var full_path : String = _file_cache.wwwroot_get_simplified_abs_path(new_folder_url)
+				
 				if full_path.empty():
 					PLogger.log_error("full_path.empty()!")
 					request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_500_INTERNAL_SERVER_ERROR)
@@ -79,18 +78,17 @@ func _handle_request_main(request : WebServerRequest) -> void:
 				
 				var d : Directory = Directory.new()
 				d.make_dir_recursive(full_path)
-				load_dir()
 		elif action == EditActions.DELETE_FOLDER:
 			var folder : String = request.get_post_parameter("folder")
-			var folder_uri : String = folder_name.append_path(folder)
+			var new_folder_url : String = target_folder_url.append_path(folder)
 			
-			if !_folder_uris.contains(folder_uri):
-				PLogger.log_error("!folder.contains(folder_name) ! '{0}'".format([ folder_uri ]))
+			if !_file_cache.wwwroot_has_folder(new_folder_url):
+				PLogger.log_error("!_file_cache.wwwroot_has_folder(new_folder_url) ! '{0}'".format([ new_folder_url ]))
 				request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_500_INTERNAL_SERVER_ERROR)
 				return
 			
 			if !folder.empty():
-				var full_path : String = serve_folder.append_path(folder_uri)
+				var full_path : String = _file_cache.wwwroot_get_folder_abspath(new_folder_url)
 				
 				if full_path.empty():
 					PLogger.log_error("full_path.empty()!")
@@ -99,21 +97,17 @@ func _handle_request_main(request : WebServerRequest) -> void:
 					
 				var d : Directory = Directory.new()
 				d.remove(full_path)
-				load_dir()
 		elif action == EditActions.DELETE:
 			var file : String = request.get_post_parameter("file")
-			var file_uri_path : String = folder_name.append_path(file)
+			var file_uri_path : String = target_folder_url.append_path(file)
 			
-			_lock.read_lock()
 			if !_file_cache.wwwroot_has_file(file_uri_path):
-					_lock.read_unlock()
 					PLogger.log_error("!_file_cache.wwwroot_has_file(file_uri_path)")
 					request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_500_INTERNAL_SERVER_ERROR)
 					return
-			_lock.read_unlock()
 
 			if !file_uri_path.empty():
-				var full_path : String = serve_folder.append_path(file_uri_path)
+				var full_path : String = _file_cache.wwwroot_get_file_abspath(file_uri_path)
 				
 				if full_path.empty():
 					PLogger.log_error("full_path.empty()!")
@@ -122,7 +116,6 @@ func _handle_request_main(request : WebServerRequest) -> void:
 					
 				var d : Directory = Directory.new()
 				d.remove(full_path)
-				load_dir()
 	
 	var rp : String = request.get_current_path_segment();
 
@@ -143,81 +136,59 @@ func _handle_request_main(request : WebServerRequest) -> void:
 	if (!try_route_request_to_children(request)):
 		handle_request(request);
 
+# This will only get called if we need a folder listing
 func _handle_request(request : WebServerRequest):
-	var file_name : String = request.get_path(true, false);
+	var target_folder_url : String = request.get_path(true, false);
 
-	_lock.read_lock()
+	var target_folder_abspath : String = _file_cache.wwwroot_get_folder_abspath(target_folder_url)
 
-	for e in _folder_indexes:
-		if (e.uri == file_name):
-			render_menu(request);
-			
-			if render_back_arrow:
-				var b : HTMLBuilder = HTMLBuilder.new()
-				
-				b.div("row mb-4")
-				b.div("col-2")
-				b.cdiv()
-					
-				b.div("col-8 pt-2 pb-2 panel_content")
-				
-				b.h4()
-				b.a(get_full_uri_parent()).f().w("<--- back").ca()
-				b.ch4()
-				
-				b.cdiv()
-				
-				b.div("col-2")
-				b.cdiv()
-				b.cdiv()
-				
-				b.write_tag()
-				
-				request.body += b.result
-
-			request.body += e.data.replace("%%csrf_token", request.get_csrf_token());
-			request.compile_and_send_body();
-			
-			_lock.read_unlock()
-			
-			return;
-			
-	_lock.read_unlock()
-
-	request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_404_NOT_FOUND);
-
-func load_dir() -> void:
-	_lock.write_lock()
+	# Folder does not exists!
+	if target_folder_abspath.empty():
+		request.send_error(HTTPServerEnums.HTTP_STATUS_CODE_404_NOT_FOUND);
+		return
+		
+	render_menu(request);
 	
-	_folder_indexes.clear()
-	_folder_uris.clear()
-	
-	_file_cache.clear();
+	if render_back_arrow:
+		var b : HTMLBuilder = HTMLBuilder.new()
+		
+		b.div("row mb-4")
+		b.div("col-2")
+		b.cdiv()
+			
+		b.div("col-8 pt-2 pb-2 panel_content")
+		
+		b.h4()
+		b.a(get_full_uri_parent()).f().w("<--- back").ca()
+		b.ch4()
+		
+		b.cdiv()
+		
+		b.div("col-2")
+		b.cdiv()
+		b.cdiv()
+		
+		b.write_tag()
+		
+		request.body += b.result
 
-	if (serve_folder.empty()):
-		_file_cache.set_wwwroot(serve_folder);
-		_file_cache.clear();
-	else:
-		_file_cache.set_wwwroot(serve_folder);
-		evaluate_dir(_file_cache.get_wwwroot_abs(), true);
-	
-	_lock.write_unlock()
+	request.body += evaluate_dir(request, target_folder_abspath, target_folder_url == "/")
+	request.compile_and_send_body();
 
-func evaluate_dir(path : String, top_level : bool = false) -> void:
+
+func evaluate_dir(request : WebServerRequest, path : String, top_level : bool = false) -> String:
 	var dir : Directory = Directory.new()
 	dir.open(path)
 	
-	var serve_folder : String = _file_cache.get_wwwroot_abs();
+	var serve_folder_abspath : String = _file_cache.get_wwwroot_abs();
 
 	var dir_uri : String
 
 	if (!top_level):
-		dir_uri = path.substr(serve_folder.length(), path.length() - serve_folder.length());
+		dir_uri = path.substr(serve_folder_abspath.length(), path.length() - serve_folder_abspath.length());
 	else:
 		dir_uri = "/";
 		
-	_folder_uris.push_back(dir_uri)
-
 	var folders : PoolStringArray = PoolStringArray()
 	var files : PoolStringArray = PoolStringArray()
 
@@ -227,11 +198,10 @@ func evaluate_dir(path : String, top_level : bool = false) -> void:
 
 	while !file.empty():
 		var np : String = path.append_path(file);
-		var nnp : String = np.substr(serve_folder.length(), np.length() - serve_folder.length());
+		var nnp : String = np.substr(serve_folder_abspath.length(), np.length() - serve_folder_abspath.length());
 
 		if (dir.current_is_dir()):
-			folders.push_back(nnp);
-			evaluate_dir(np);
+			folders.push_back(nnp);2
 		else:
 			files.push_back(nnp);
 
@@ -242,10 +212,10 @@ func evaluate_dir(path : String, top_level : bool = false) -> void:
 	folders.sort();
 	files.sort();
 
-	render_dir_page(dir_uri, folders, files, top_level);
+	return render_dir_page(request, dir_uri, folders, files, top_level);
 
 
-func render_dir_page(dir_uri : String, folders : PoolStringArray, files : PoolStringArray, top_level : bool) -> void:
+func render_dir_page(request : WebServerRequest, dir_uri : String, folders : PoolStringArray, files : PoolStringArray, top_level : bool) -> String:
 	var b : HTMLBuilder = HTMLBuilder.new()
 
 	var uri : String = get_full_uri(false);
@@ -272,7 +242,7 @@ func render_dir_page(dir_uri : String, folders : PoolStringArray, files : PoolSt
 				b.cdiv()
 				
 				if true:
-					b.csrf_token("%%csrf_token")
+					b.csrf_tokenr(request)
 					b.input_hidden("action", str(EditActions.DELETE_FOLDER))
 					b.input_hidden("folder", folders[i].get_file())
 					b.input_submit("X")
@@ -290,7 +260,7 @@ func render_dir_page(dir_uri : String, folders : PoolStringArray, files : PoolSt
 				b.cdiv()
 				
 				if true:
-					b.csrf_token("%%csrf_token")
+					b.csrf_tokenr(request)
 					b.input_hidden("action", str(EditActions.DELETE))
 					b.input_hidden("file", files[i].get_file())
 					b.input_submit("X")
@@ -312,7 +282,7 @@ func render_dir_page(dir_uri : String, folders : PoolStringArray, files : PoolSt
 	b.div("row").f().div("col-2").f().cdiv().div("col-8 pt-2 pb-2")
 	b.form_post(uri + dir_uri).enctype_multipart_form_data()
 	if true:
-		b.csrf_token("%%csrf_token")
+		b.csrf_tokenr(request)
 		b.input_hidden("action", str(EditActions.UPLOAD))
 		b.input_file("file")
 		b.input_submit("Upload")
@@ -326,7 +296,7 @@ func render_dir_page(dir_uri : String, folders : PoolStringArray, files : PoolSt
 	b.div("row").f().div("col-2").f().cdiv().div("col-8 pt-2 pb-2")
 	b.form_post(uri + dir_uri)
 	if true:
-		b.csrf_token("%%csrf_token")
+		b.csrf_tokenr(request)
 		b.input_hidden("action", str(EditActions.CREATE_FOLDER))
 		b.input_text("folder")
 		b.input_submit("Create")
@@ -335,12 +305,5 @@ func render_dir_page(dir_uri : String, folders : PoolStringArray, files : PoolSt
 	
 	b.write_tag()
 
-	var e : BFSNEntry = BFSNEntry.new()
-	e.uri = dir_uri;
-	e.data = b.result;
-
-	_folder_indexes.push_back(e);
-
-	if (dir_uri == "/"):
-		_index = b.result;
+	return b.result;
 

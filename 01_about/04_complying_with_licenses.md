@@ -1,10 +1,9 @@
 
-
 # Complying with licenses
 
 ## What are licenses?
 
-Pandemonium is created and distributed under the `MIT License ( https://opensource.org/licenses/MIT )`.
+Pandemonium is created and distributed under the [MIT License](https://opensource.org/licenses/MIT).
 It doesn't have a sole owner either, as every contributor that submits code to
 the project does it under this same license and keeps ownership of the
 contribution.
@@ -15,7 +14,6 @@ Your game or project can have a different license, but it still needs to comply
 with the original one.
 
 Warning:
-
 
     In your project's credits screen, remember to also list third-party notices
     for assets you're using, such as textures, models, sounds, music and fonts.
@@ -94,31 +92,39 @@ If the game includes printed manuals, license text can be included there.
 
 ### Link to the license
 
-The Pandemonium Engine developers consider that a link to `pandemoniumengine.org/license`
+The Pandemonium Engine developers consider that a link to
+`https://github.com/Relintai/pandemonium_engine/blob/master/LICENSE.txt`
 in your game documentation or credits would be an acceptable way to satisfy
 the license terms.
 
+### License UI implementation
+
+[Here](https://github.com/Relintai/broken_seals/tree/master/game/ui/windows/about) is a
+window implementation that will show all licenses (even third-party ones) and engine information.
+
+Eventually this will likely be implemented as a module on the engine side, so including it
+will become only a few clicks.
+
 ## Third-party licenses
 
-Pandemonium itself contains software written by
-`third parties ( https://github.com/Relintai/pandemonium_engine/blob/master/COPYRIGHT.txt )`.
+Pandemonium itself contains software written by third parties.
 Most of it does not require license inclusion, but some do.
 Make sure to do it if these are compiled in your Pandemonium export template. If
 you're using the official export templates, all libraries are enabled. This
 means you need to provide attribution for all the libraries listed below.
 
-Here's a list of libraries requiring attribution:
+The `Engine` singleton can be used to retrieve the active third party license information.
+See the `Engine.get_license_info()` method.
 
 ### FreeType
 
-Pandemonium uses `FreeType ( https://www.freetype.org/ )` to render fonts. Its license
+Pandemonium uses [FreeType](https://www.freetype.org/) to render fonts. Its license
 requires attribution, so the following text must be included together with the
 Pandemonium license:
 
     Portions of this software are copyright © ( year> The FreeType Project (www.freetype.org).  All rights reserved.
 
 Note:
-
 
     ( year> should correspond to the value from the FreeType version used
     in your build. This information can be found in the editor by opening
@@ -127,9 +133,8 @@ Note:
 
 ### ENet
 
-Pandemonium includes the `ENet ( http://enet.bespin.org/ )` library to handle
+Pandemonium includes the [ENet](http://enet.bespin.org/) library to handle
 high-level multiplayer. ENet has similar licensing terms as Pandemonium:
-
 
     Copyright (c) 2002-2020 Lee Salzman
 
@@ -141,7 +146,8 @@ high-level multiplayer. ENet has similar licensing terms as Pandemonium:
 
 ### mbed TLS
 
-If the project is exported with Pandemonium 3.1 or later, it includes `mbed TLS ( https://tls.mbed.org )`.
+Pandemonium includes [mbed TLS](https://tls.mbed.org).
+
 The Apache license needs to be complied to by including the following text:
 
     Copyright The Mbed TLS Contributors
@@ -158,12 +164,3 @@ The Apache license needs to be complied to by including the following text:
     See the License for the specific language governing permissions and
     limitations under the License.
 
-Keep in mind that Pandemonium 2.x and 3.0 use `OpenSSL ( https://www.openssl.org )` 1.x
-instead. This old OpenSSL version used the OpenSSL license, not the Apache 2 license
-as the latest version of OpenSSL currently uses (as of April 2022).
-
-Note:
-
-    If you exported your project using a
-    `custom build with specific modules disabled ( doc_optimizing_for_size )`,
-    you don't need to list the disabled modules' licenses in your exported project.

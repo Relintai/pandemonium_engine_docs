@@ -1,8 +1,7 @@
 
-
 # Environment and post-processing
 
-Pandemonium 3 provides a redesigned Environment resource, as well as a new
+Pandemonium provides a redesigned Environment resource, as well as a new
 post-processing system with many available effects right out of the box.
 
 ## Environment
@@ -21,9 +20,9 @@ An Environment can be set to a camera. It will have priority over any other sett
 This is mostly useful when wanting to override an existing environment,
 but in general it's a better idea to use the option below.
 
-#### WorldEnvironment node
+#### WorldEnvironment3D node
 
-The WorldEnvironment node can be added to any scene, but only one can exist per
+The WorldEnvironment3D node can be added to any scene, but only one can exist per
 active scene tree. Adding more than one will result in a warning.
 
 ![](img/environment_world.png)
@@ -36,7 +35,7 @@ which makes it quite useful.
 
 A default environment can be set, which acts as a fallback when no Environment
 was set to a Camera or WorldEnvironment.
-Just head to Project Settings -> Rendering -> Environment:
+Just head to Project Settings -&gt; Rendering -&gt; Environment:
 
 ![](img/environment_default.png)
 
@@ -137,7 +136,6 @@ while also avoiding clipping of bright highlights.
 The tone mapping options are:
 
 - **Mode:** The tone mapping mode to use.
-
   - **Linear:** The default tonemapping mode. This is the fastest and simplest
     tonemapping operator, but it causes bright lighting to look blown out, with
     noticeable clipping in the output colors.
@@ -154,12 +152,10 @@ The tone mapping options are:
   - **ACES:** *Deprecated (will be removed in Pandemonium 4.0).* Behaves like ACES,
     but doesn't desaturate lighting as it becomes brighter (which is less realistic).
     It's recommended to use ACES Fitted instead of ACES.
-
 - **Exposure:** Tone mapping exposure which simulates amount of light received
   over time (default: `1.0`). Higher values result in an overall brighter appearance.
   If the scene appears too dark as a result of a tonemapping operator or whitepoint
   change, try increasing this value slightly.
-
 - **White:** Tone mapping whitepoint, which simulates where in the scale white is
   located (default: `1.0`). For photorealistic lighting, recommended values are
   between `6.0` and `8.0`. Higher values result in less blown out highlights,
@@ -373,3 +369,4 @@ white gradient like the following one will produce no effect:
 But creating custom ones will allow to map each channel to a different color:
 
 ![](img/environment_adjusments_custom_gradient.png)
+

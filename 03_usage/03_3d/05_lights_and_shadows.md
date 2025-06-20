@@ -1,5 +1,4 @@
 
-
 # 3D lights and shadows
 
 ## Introduction
@@ -10,12 +9,11 @@ result. Light can come from several types of sources in a scene:
 -  From the Material itself in the form of the emission color (though
    it does not affect nearby objects unless baked).
 -  Light Nodes: Directional, Omni and Spot.
--  Ambient Light in the
-   `Environment`.
--  Baked Light (read `doc_baked_lightmaps`).
+-  Ambient Light in the `Environment`.
+-  Baked Light (read [baked lightmaps](08_baked_lightmaps.md)).
 
 The emission color is a material property. You can read more about it
-in the `doc_spatial_material` tutorial.
+in the [spatial material](04_spatial_material.md) tutorial.
 
 ## Light nodes
 
@@ -62,26 +60,24 @@ Finally, if gaps can't be solved, the **Contact** option can help (at a performa
 Any sort of bias issues can always be fixed by increasing the shadow map resolution,
 although that may lead to decreased performance.
 
-Tip:
+If shadow biasing is a problem in your scene, the following settings are a good starting point:
 
-    If shadow biasing is a problem in your scene, the following settings are a good starting point:
+- Enable **Reverse Cull Face**. This reduces shadow peter-panning significantly
+  and prevents lights from exhibiting shadow acne at grazing angles.
+  The main downside is that it may cause lighting to leak in some corners.
+  The other downside is that materials that have their cull mode set to
+  **Disabled** or MeshInstances with Cast Shadow set to **Double-Sided**
+  may exhibit shadow acne.
+- Set **Bias** to `-0.01`. The bias should be a negative value when
+  **Reverse Cull Face** is enabled, but it should be a positive value when it's disabled.
+- For DirectionalLight, set the directional shadow **Normal Bias** to `0.0`
+  and **Bias Split Scale** to `0.0`. Depending on your scene, you may also
+  want to further decrease **Bias** to a value between `-0.05` and `-0.1`.
 
-    - Enable **Reverse Cull Face**. This reduces shadow peter-panning significantly
-      and prevents lights from exhibiting shadow acne at grazing angles.
-      The main downside is that it may cause lighting to leak in some corners.
-      The other downside is that materials that have their cull mode set to
-      **Disabled** or MeshInstances with Cast Shadow set to **Double-Sided**
-      may exhibit shadow acne.
-    - Set **Bias** to `-0.01`. The bias should be a negative value when
-      **Reverse Cull Face** is enabled, but it should be a positive value when it's disabled.
-    - For DirectionalLight, set the directional shadow **Normal Bias** to `0.0`
-      and **Bias Split Scale** to `0.0`. Depending on your scene, you may also
-      want to further decrease **Bias** to a value between `-0.05` and `-0.1`.
-
-    Following the above tips should make it possible to avoid gaps in shadows without
-    resorting to contact shadows (which have many issues of their own).
-    If shadow acne is still visible after performing the above tweaks,
-    try subdividing your meshes further in your 3D modeling software.
+Following the above tips should make it possible to avoid gaps in shadows without
+resorting to contact shadows (which have many issues of their own).
+If shadow acne is still visible after performing the above tweaks,
+try subdividing your meshes further in your 3D modeling software.
 
 ### Directional light
 
@@ -244,7 +240,7 @@ all lights are around the same size and quadrants may all have the same subdivis
 ### Shadow filter quality
 
 The filter quality of shadows can be tweaked. This can be found in
-Project Settings -> Rendering -> Quality -> Shadows.
+Project Settings -&gt; Rendering -&gt; Quality -&gt; Shadows.
 Pandemonium supports no filter, PCF5 and PCF13.
 
 ![](img/shadow_pcf1.png)
@@ -252,3 +248,4 @@ Pandemonium supports no filter, PCF5 and PCF13.
 It affects the blockyness of the shadow outline:
 
 ![](img/shadow_pcf2.png)
+

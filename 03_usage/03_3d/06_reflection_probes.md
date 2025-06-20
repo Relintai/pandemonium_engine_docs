@@ -1,10 +1,9 @@
 
-
 # Reflection probes
 
 ## Introduction
 
-As stated in the `doc_spatial_material`, objects can show reflected or diffuse light.
+As stated in the [spatial material docs](04_spatial_material.md), objects can show reflected or diffuse light.
 Reflection probes are used as a source of reflected and ambient light for objects inside their area of influence.
 
 A probe of this type captures the surroundings (as a sort of 360 degrees image), and stores versions
@@ -99,8 +98,10 @@ be marked as *exterior* (so it will get sky reflections) while on the inside, it
 
 In the current renderer implementation, all probes are the same size and
 are fit into a Reflection Atlas. The size and amount of probes can be
-customized in Project Settings -> Quality -> Reflections
+customized in Project Settings -&gt; Quality -&gt; Reflections
 
-The default setting of Atlas Subdiv: 8 will allow up to 16 reflection probes in a scene. This value needs to be increased if you need more reflection probes.
+The default setting of Atlas Subdiv: 8 will allow up to 16 reflection probes in a scene.
+This value needs to be increased if you need more reflection probes.
 
 ![](img/refprobe_atlas.png)
+

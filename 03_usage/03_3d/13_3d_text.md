@@ -1,5 +1,4 @@
 
-
 # 3D text
 
 ## Introduction
@@ -10,8 +9,7 @@ methods to do this. The Label3D node and the text mesh for a
 MeshInstance node.
 
 This page does **not** cover how to display a GUI scene in a 3D
-environment. For information on how to do that see `this ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/2d_in_3d )`
-demo project.
+environment. For information on how to do that see [this](../../07_demo_projects/viewport/2d_in_3d/).
 
 ## Label3D
 
@@ -27,8 +25,7 @@ up and shaded by light sources if the shaded flag is enabled, but it
 will not cast a shadow, even with cast shadow turned on under the nodes
 GeometryInstance3D settings. This is because the node is a quad mesh
 (one glyph per quad) with transparent textures and has the same limitations
-as Sprite3D. See `this page ( doc_3d_rendering_limitations_transparency_sorting )`
-for more information.
+as Sprite3D.
 
 ## Text mesh
 
@@ -46,3 +43,4 @@ how it's applied to the mesh.
 
 There are two limitations to text mesh. It can't use bitmap fonts, or fonts
 with self intersection.
+

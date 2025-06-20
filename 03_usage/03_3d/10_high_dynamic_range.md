@@ -1,5 +1,4 @@
 
-
 # High dynamic range lighting
 
 ## Introduction
@@ -30,14 +29,11 @@ through a virtual camera. Here, our virtual camera would apply a particular
 camera rendering transform to the scene data, and the output would be ready
 for display on a particular display type.
 
-Note:
+Note: Pandemonium does not support high dynamic range *output* yet. It can only perform
+lighting in HDR and tonemap the result to a low dynamic range image.
 
-
-    Pandemonium does not support high dynamic range *output* yet. It can only perform
-    lighting in HDR and tonemap the result to a low dynamic range image.
-
-    For advanced users, it is still possible to get a non-tonemapped image
-    of the viewport with full HDR data, which can then be saved to an OpenEXR file.
+For advanced users, it is still possible to get a non-tonemapped image
+of the viewport with full HDR data, which can then be saved to an OpenEXR file.
 
 ## Computer displays
 
@@ -95,9 +91,9 @@ or they don't support it on compressed texture formats (iOS for example).
 
 After all the rendering is done, the scene linear render requires transforming
 to a suitable output such as an sRGB display. To do this, enable sRGB conversion
-in the current `Environment` (more on that below).
+in the current `Environment3D` (more on that below).
 
-Keep in mind that the **sRGB -> Display Linear** and **Display Linear -> sRGB**
+Keep in mind that the **sRGB -&gt; Display Linear** and **Display Linear -&gt; sRGB**
 conversions must always be **both** enabled. Failing to enable one of them will
 result in horrible visuals suitable only for avant-garde experimental
 indie games.
@@ -106,6 +102,7 @@ indie games.
 
 HDR settings can be found in the `Environment`
 resource. Most of the time, these are found inside a
-`WorldEnvironment`
+`WorldEnvironment3D`
 node or set in a Camera node. For more information, see
-`doc_environment_and_post_processing`.
+[environment and post processing](09_environment_and_post_processing.md).
+

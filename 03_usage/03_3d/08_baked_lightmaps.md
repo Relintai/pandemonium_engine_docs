@@ -1,18 +1,17 @@
 
-
 # Baked lightmaps
 
 ## Introduction
 
 Baked lightmaps are an alternative workflow for adding indirect (or fully baked)
-lighting to a scene. Unlike the `doc_gi_probes` approach, baked lightmaps
+lighting to a scene. Unlike the [gi probes](07_gi_probes.md) approach, baked lightmaps
 work fine on low-end PCs and mobile devices, as they consume almost no resources
 at run-time. Also unlike GIProbe, baked lightmaps can optionally be used to
 store direct lighting, which provides even further performance gains.
 
 Unlike GIProbes, Baked Lightmaps are completely static. Once baked, they
 can't be modified at all. They also don't provide the scene with reflections, so
-using `doc_reflection_probes` together with it on interiors (or using a Sky
+using [reflection probes](06_reflection_probes.md) together with it on interiors (or using a Sky
 on exteriors) is a requirement to get good quality.
 
 As they are baked, they have fewer problems than `GIProbe` regarding light
@@ -24,7 +23,7 @@ bake lightmaps only when you actually need to see changes in lighting.
 
 Baking lightmaps will also reserve baked materials' UV2 slot, which means you can
 no longer use it for other purposes in materials (either in the built-in
-`doc_spatial_material` or in custom shaders).
+[spatial material](04_spatial_material.md) or in custom shaders).
 
 In the end, deciding which indirect lighting approach is better depends on your
 use case. In general, GIProbe is easier to set up and works better with dynamic
@@ -68,18 +67,15 @@ final size of the lightmap texture (and, in consequence, the UV padding in the m
 The effect of setting this option is that all meshes within the scene will have
 their UV2 maps properly generated.
 
-Warning:
+Warning: When reusing a mesh within a scene, keep in mind that UVs will be generated
+for the first instance found. If the mesh is re-used with different scales
+(and the scales are wildly different, more than half or twice), this will
+result in inefficient lightmaps. Don't reuse a source mesh at significantly
+different scales if you are planning to use lightmapping.
 
-
-    When reusing a mesh within a scene, keep in mind that UVs will be generated
-    for the first instance found. If the mesh is re-used with different scales
-    (and the scales are wildly different, more than half or twice), this will
-    result in inefficient lightmaps. Don't reuse a source mesh at significantly
-    different scales if you are planning to use lightmapping.
-
-    Also, the `*.unwrap_cache` files should *not* be ignored in version control
-    as these files guarantee that UV2 reimports are consistent across platforms
-    and engine versions.
+Also, the `*.unwrap_cache` files should *not* be ignored in version control
+as these files guarantee that UV2 reimports are consistent across platforms
+and engine versions.
 
 ### Unwrap from within Pandemonium
 
@@ -224,29 +220,25 @@ method and quality selected.
 
 ### Balancing bake times with quality
 
-
 Since high-quality bakes can take very long (up to several hours for large complex scenes),
 it is recommended to use lower quality settings at first. Then, once you are confident
 with your scene's lighting setup, raise the quality settings and perform a "final"
 bake before exporting your project.
 
-Note:
+Note: By default, the lightmap baker will use all the system's logical CPU cores
+to speed up baking. This can reduce system responsiveness. To preserve system
+responsiveness while lightmaps are baking, you can reduce the number of CPU threads
+used to bake lightmaps. Keeping 1 or 2 CPU threads free will help improve
+system responsiveness, which is useful when multi-tasking while lightmaps are
+baking at the cost of slowing down lightmap baking slightly.
 
-
-    By default, the lightmap baker will use all the system's logical CPU cores
-    to speed up baking. This can reduce system responsiveness. To preserve system
-    responsiveness while lightmaps are baking, you can reduce the number of CPU threads
-    used to bake lightmaps. Keeping 1 or 2 CPU threads free will help improve
-    system responsiveness, which is useful when multi-tasking while lightmaps are
-    baking at the cost of slowing down lightmap baking slightly.
-
-    To do so, open **Editor > Editor Settings** and adjust
-    **Editors > 3d > Lightmap Baking Number Of Cpu Threads**.
-    The default value (`0`) uses all of the system's logical CPU cores.
-    Positive values will specify a number of threads to use, while negative
-    values will subtract from the total number of logical CPU cores in the system.
-    For example, on a system with 8 logical CPU cores, adjusting the setting to
-    `-1` will use 7 CPU threads for lightmap baking.
+To do so, open **Editor &gt; Editor Settings** and adjust
+**Editors &gt; 3d &gt; Lightmap Baking Number Of Cpu Threads**.
+The default value (`0`) uses all of the system's logical CPU cores.
+Positive values will specify a number of threads to use, while negative
+values will subtract from the total number of logical CPU cores in the system.
+For example, on a system with 8 logical CPU cores, adjusting the setting to
+`-1` will use 7 CPU threads for lightmap baking.
 
 ### Configuring bake
 
@@ -337,12 +329,9 @@ The Light Data resource can be edited to adjust two additional properties:
   and will use light probes for ambient lighting exclusively. If disabled, both
   environment lighting and light probes are used to light up dynamic objects.
 
-Tip:
-
-
-    The generated EXR file can be viewed and even edited using an image editor
-    to perform post-processing if needed. However, keep in mind that changes to
-    the EXR file will be lost when baking lightmaps again.
+Tip: The generated EXR file can be viewed and even edited using an image editor
+to perform post-processing if needed. However, keep in mind that changes to
+the EXR file will be lost when baking lightmaps again.
 
 ## Dynamic objects
 
@@ -357,3 +346,4 @@ they will be lit accordingly. Of course, you have to make sure you set up your
 scene bounds accordingly or it won't work.
 
 ![](img/baked_light_indirect.gif)
+

@@ -1,5 +1,4 @@
 
-
 # Spatial Material
 
 ## Introduction
@@ -204,15 +203,12 @@ Determines which side of the object is not drawn when backfaces are rendered:
 * **Front:** The front of the object is culled when not visible.
 * **Disabled:** Used for objects that are double-sided (no culling is performed).
 
-Note:
-
-
-    By default, Blender has backface culling disabled on materials and will
-    export materials to match how they render in Blender. This means that
-    materials in Pandemonium will have their cull mode set to **Disabled**. This can
-    decrease performance since backfaces will be rendered, even when they are
-    being culled by other faces. To resolve this, enable **Backface Culling** in
-    Blender's Materials tab, then export the scene to glTF again.
+Note: By default, Blender has backface culling disabled on materials and will
+export materials to match how they render in Blender. This means that
+materials in Pandemonium will have their cull mode set to **Disabled**. This can
+decrease performance since backfaces will be rendered, even when they are
+being culled by other faces. To resolve this, enable **Backface Culling** in
+Blender's Materials tab, then export the scene to glTF again.
 
 ### Depth Draw Mode
 
@@ -327,7 +323,7 @@ the right combination of *Metallic* and *Roughness*.
 ### Emission
 
 *Emission* specifies how much light is emitted by the material (keep in mind this
-does not include light surrounding geometry unless `doc_gi_probes` are used).
+does not include light surrounding geometry unless [gi probes](07_gi_probes.md) are used).
 This value is added to the resulting final image and is not affected by other
 lighting in the scene.
 
@@ -342,17 +338,13 @@ and wider compatibility.
 
 ![](img/spatial_material16.png)
 
-Note:
+Note: Pandemonium requires the normal map to use the X+, Y+ and Z+ coordinates, this is
+known as OpenGL style. If you've imported a material made to be used with
+another engine it may be DirectX style, in which case the normal map needs to
+be converted so its Y axis is flipped.
 
-
-  Pandemonium requires the normal map to use the X+, Y+ and Z+ coordinates, this is
-  known as OpenGL style. If you've imported a material made to be used with
-  another engine it may be DirectX style, in which case the normal map needs to
-  be converted so its Y axis is flipped.
-
-  More information about normal maps (including a coordinate order table for
-  popular engines) can be found
-  `here ( http://wiki.polycount.com/wiki/Normal_Map_Technical_Details )`.
+More information about normal maps (including a coordinate order table for
+popular engines) can be found [here](http://wiki.polycount.com/wiki/Normal_Map_Technical_Details).
 
 ### Rim
 
@@ -382,9 +374,6 @@ This can be seen in the image below where clearcoat is turned on in the
 right.
 
 ![](img/clearcoat_comparison.png)
-
-Note:
- The effect will be more noticeable in Pandemonium 4.
 
 ### Anisotropy
 
@@ -466,16 +455,13 @@ Blend Mode: These four modes control how the textures are blended together.
 - Mix: Combines pixel values of both textures. At black, only show the material texture,
   at white, only show the detail texture. Values of gray create a smooth blend between
   the two.
-
 - Add: Adds pixel values of one Texture with the other. Unlike mix mode
   both textures are completely mixed at white parts of a mask and not at gray
   parts. The original texture is mostly unchanged at black
-
 - Sub: Subtracts pixel values of one texture with the other. The second
   texture is completely subtracted at white parts of a mask with only a little
   subtraction in black parts, gray parts being different levels of subtraction
   based on the exact texture.
-
 - Mul: Multiplies the RGB channel numbers for each pixel from the top texture
   with the values for the corresponding pixel from the bottom texture.
 
@@ -522,3 +508,4 @@ entire scene is usually not a good idea.
 The rendering order of objects can be changed, although this is mostly
 useful for transparent objects (or opaque objects that perform depth draw
 but no color draw, such as cracks on the floor).
+

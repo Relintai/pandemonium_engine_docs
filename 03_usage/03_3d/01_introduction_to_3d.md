@@ -11,7 +11,7 @@ the 3D platformer tutorial, or the 3D kinematic character tutorials,
 which are almost identical to their 2D counterparts.
 
 In 3D, math is a little more complex than in 2D, so also checking the
-`doc_vector_math` entry in the wiki (which was especially created for game
+[vector math](../01_math/01_vector_math.md) entry in the wiki (which was especially created for game
 developers, not mathematicians or engineers) will help pave the way for you
 to develop 3D games efficiently.
 
@@ -43,11 +43,8 @@ Pandemonium. This is required since 3D formats are not as standardized as images
 
 ## DCC-created models
 
-.. FIXME: Needs update to properly description Pandemonium 3.x workflow
-   (used to reference a non existing doc_importing_3d_meshes importer).
-
 There are two pipelines to import 3D models in Pandemonium. The first and most
-common one is by `doc_importing_3d_scenes`, which allows you to import
+common one is by [importing 3d scenes](../21_assets_pipeline/06_exporting_3d_scenes.md), which allows you to import
 entire scenes (just as they look in the DCC), including animation,
 skeletal rigs, blend shapes, etc.
 
@@ -115,7 +112,7 @@ similar to other tools in the Editor Settings:
 
 ## Coordinate system
 
-Pandemonium uses the `metric ( https://en.wikipedia.org/wiki/Metric_system )`
+Pandemonium uses the [metric](https://en.wikipedia.org/wiki/Metric_system)
 system for everything in 3D, with 1 unit being equal to 1 meter.
 Physics and other areas are tuned for this scale. Therefore, attempting to use a
 different scale is usually a bad idea (unless you know what you are doing).
@@ -148,9 +145,9 @@ Vector3, Color, etc.).
 
 Some useful keybindings:
 
--  To snap placement or rotation, press :kbd:`Ctrl` while moving, scaling
+-  To snap placement or rotation, press `Ctrl` while moving, scaling
    or rotating.
--  To center the view on the selected object, press :kbd:`F`.
+-  To center the view on the selected object, press `F`.
 
 ## View menu
 
@@ -211,3 +208,4 @@ Pandemonium has a limit of up to 8 lights per mesh. Aside from that, there
 is no limitation on the number of lights, nor of types of lights, in
 Pandemonium. As many as desired can be added, as long as performance allows,
 and no more than 8 lights shine on a single mesh.
+

@@ -1,16 +1,14 @@
 
-
 # Using GIProbe
 
 ## Introduction
 
-Note:
- This feature is only available when using the GLES3 backend.
-          `doc_baked_lightmaps` can be used as an alternative
-          when using the GLES2 renderer.
+Note: This feature is only available when using the GLES3 backend.
+[baked lightmaps](08_baked_lightmaps.md) can be used as an alternative
+when using the GLES2 renderer.
 
-Just like with `doc_reflection_probes`, and as stated in
-the `doc_spatial_material`, objects can show reflected or diffuse light.
+Just like with [reflection probes](06_reflection_probes.md), and as stated in
+the [spatial material](04_spatial_material.md), objects can show reflected or diffuse light.
 GI Probes are similar to Reflection Probes, but they use a different and more
 complex technique to produce indirect light and reflections.
 
@@ -49,12 +47,9 @@ toolbar to begin the pre-baking process:
 
 ![](img/giprobe_bake.png)
 
-Warning:
-
-
-    Meshes should have sufficiently thick walls to avoid light leaks (avoid
-    one-sided walls). For interior levels, enclose your level geometry in a
-    sufficiently large box and bridge the loops to close the mesh.
+Warning: Meshes should have sufficiently thick walls to avoid light leaks (avoid
+one-sided walls). For interior levels, enclose your level geometry in a
+sufficiently large box and bridge the loops to close the mesh.
 
 ## Adding lights
 
@@ -83,7 +78,7 @@ Probes or Screen Space Reflections, but fully reflect volumetrically.
 
 ![](img/giprobe_voxel_reflections.png)
 
-`GIProbe`\ s can be easily mixed with Reflection Probes and Screen Space Reflections,
+`GIProbe`s can be easily mixed with Reflection Probes and Screen Space Reflections,
 as a full 3-stage fallback-chain. This allows to have precise reflections where needed:
 
 ![](img/giprobe_ref_blending.png)
@@ -122,7 +117,8 @@ GI Probes support a few parameters for tweaking:
 
 ## Quality
 
-`GIProbe`\ s are quite demanding. It is possible to use lower quality voxel cone
+`GIProbe`s are quite demanding. It is possible to use lower quality voxel cone
 tracing in exchange for more performance.
 
 ![](img/giprobe_quality.png)
+

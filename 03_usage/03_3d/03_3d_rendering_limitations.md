@@ -1,13 +1,8 @@
 
-
 # 3D rendering limitations
 
-See also:
-
-
-    In addition to the limitations below, mobile platforms have even more
-    limitations on 3D rendering compared to desktop platforms.
-    See `doc_mobile_rendering_limitations` for more information.
+See also: In addition to the limitations below, mobile platforms have even more
+limitations on 3D rendering compared to desktop platforms.
 
 ## Introduction
 
@@ -19,7 +14,7 @@ limitations, you need to understand them.
 
 On desktops and laptops, textures larger than 8192×8192 may not be supported on
 older devices. You can check your target GPU's limitations on
-`GPUinfo.org ( https://www.gpuinfo.org/ )`.
+[GPUinfo.org](https://www.gpuinfo.org/).
 
 Mobile GPUs are typically limited to 4096×4096 textures. Also, some mobile GPUs
 don't support repeating non-power-of-two-sized textures. Therefore, if you want
@@ -29,7 +24,7 @@ to repeat.
 
 ## Color banding
 
-When using the GLES3 or Vulkan renderers, Pandemonium's 3D engine renders internally
+When using the GLES3 renderer, Pandemonium's 3D engine renders internally
 in HDR. However, the rendering output will be tonemapped to a low dynamic range
 so it can be displayed on the screen. This can result in visible banding,
 especially when using untextured materials. This can also be seen in 2D projects
@@ -43,15 +38,12 @@ There are two main ways to alleviate banding:
   It also requires HDR to be enabled in the Project Settings (which is the default).
 - Alternatively, bake some noise into your textures. This is mainly effective in 2D,
   e.g. for vignetting effects. In 3D, you can also use a
-  `custom debanding shader ( https://github.com/fractilegames/pandemonium-gles2-debanding-material )`
+  [custom debanding shader](https://github.com/fractilegames/pandemonium-gles2-debanding-material)
   to be applied on your *materials*. This technique works even if your project is
   rendered in LDR, which means it will work when using the GLES2 renderer.
 
-See also:
-
-
-    See `Banding in Games: A Noisy Rant ( http://loopit.dk/banding_in_games.pdf )`
-    for more details about banding and ways to combat it.
+See also: See [Banding in Games: A Noisy Rant](http://loopit.dk/banding_in_games.pdf)
+for more details about banding and ways to combat it.
 
 ## Depth buffer precision
 
@@ -79,8 +71,6 @@ Depending on the scene and viewing conditions, you may also be able to move the
 Z-fighting objects further apart without the difference being visible to the
 player.
 
-
-
 ## Transparency sorting
 
 In Pandemonium, transparent materials are drawn after opaque materials. Transparent
@@ -99,19 +89,16 @@ this feature. There are still several ways to avoid this problem:
   has a small transparent part, consider splitting it into a separate material.
   This will allow the opaque part to cast shadows and may also improve
   performance.
-
 - If your texture mostly has fully opaque and fully transparent areas, you can
   use alpha testing instead of alpha blending. This transparency mode is faster
   to render and doesn't suffer from transparency issues. Enable
-  **Parameters > Use Alpha Scissor** in SpatialMaterial, and adjust
+  **Parameters &gt; Use Alpha Scissor** in SpatialMaterial, and adjust
   **Alpha Scissor Threshold** accordingly if needed. Note that MSAA will not
   anti-alias the texture's edges, but FXAA will.
-
 - If you need to render semi-transparent areas of the texture, alpha scissor
   isn't suitable. Instead, setting the SpatialMaterial's
-  **Parameters > Depth Draw Mode** property to **Opaque Pre-Pass** can sometimes
+  **Parameters &gt; Depth Draw Mode** property to **Opaque Pre-Pass** can sometimes
   work (at a performance cost).
-
 - If you want a material to fade with distance, use the SpatialMaterial
   distance fade mode **Pixel Dither** or **Object Dither** instead of
   **PixelAlpha**. This will make the material opaque. This way, it can also
@@ -130,15 +117,14 @@ samples used to render a scene. Here's what this means in practice:
 There are several ways to work around this limitation depending on your performance budget:
 
 - To make specular aliasing less noticeable, open the Project Settings and enable
-  **Rendering > Quality > Screen Space Filters > Screen Space Roughness Limiter**.
+  **Rendering &gt; Quality &gt; Screen Space Filters &gt; Screen Space Roughness Limiter**.
   This filter has a moderate cost on performance. It should be enabled only if
   you actually need it.
-
 - Enable FXAA in addition to (or instead of) MSAA. Since FXAA is a screen-space
   antialiasing method, it will smooth out anything. As a downside, it will also
   make the scene appear blurrier, especially at resolutions below 1440p.
-
 - Render the scene at a higher resolution, then display it in a ViewportTexture
   that matches the window size. Make sure to enable **Filter** on the
   ViewportTexture flags. This technique is called *supersampling* and is very
   slow. Its use is generally only recommended for offline rendering.
+

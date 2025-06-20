@@ -1,5 +1,4 @@
 
-
 # Creating the player scene
 
 With the project settings in place, we can start working on the
@@ -13,8 +12,8 @@ we've created other parts of the game.
 
 To begin, we need to choose a root node for the player object. As a general
 rule, a scene's root node should reflect the object's desired functionality -
-what the object *is*. Click the "Other Node" button and add an `Area2D
-( Area2D )` node to the scene.
+what the object *is*. Click the "Other Node" button and add an `Area2D`
+node to the scene.
 
 ![](img/add_node.png)
 
@@ -33,27 +32,25 @@ children are not selectable."
 
 ![](img/lock_children.png)
 
-Save the scene. Click Scene -> Save, or press :kbd:`Ctrl + S` on Windows/Linux
-or :kbd:`Cmd + S` on macOS.
+Save the scene. Click Scene -&gt; Save, or press `Ctrl + S` on Windows/Linux
+or `Cmd + S` on macOS.
 
 Note:
 
 For this project, we will be following the Pandemonium naming conventions.
 
-  - **GDScript**: Classes (nodes) use PascalCase, variables and
-    functions use snake_case, and constants use ALL_CAPS (See
-    `doc_gdscript_styleguide`).
-
+**GDScript**: Classes (nodes) use PascalCase, variables and
+functions use snake_case, and constants use ALL_CAPS ([See](../../03_usage/15_scripting/gdscript/04_gdscript_styleguide.md)).
 
 ## Sprite animation
 
-Click on the `Player` node and add an `AnimatedSprite
-( AnimatedSprite )` node as a child. The `AnimatedSprite` will handle the
+Click on the `Player` node and add an `AnimatedSprite`
+node as a child. The `AnimatedSprite` will handle the
 appearance and animations for our player. Notice that there is a warning symbol
-next to the node. An `AnimatedSprite` requires a `SpriteFrames
-( SpriteFrames )` resource, which is a list of the animations it can
+next to the node. An `AnimatedSprite` requires a `SpriteFrames`
+resource, which is a list of the animations it can
 display. To create one, find the `Frames` property in the Inspector and click
-"[empty]" -> "New SpriteFrames". Click again to open the "SpriteFrames" panel:
+"[empty]" -&gt; "New SpriteFrames". Click again to open the "SpriteFrames" panel:
 
 ![](img/spriteframes_panel.png)
 
@@ -92,3 +89,4 @@ Make sure to save the scene again after these changes.
 In the next part, we'll add a script to the player node to move and animate it.
 Then, we'll set up collision detection to know when the player got hit by
 something.
+

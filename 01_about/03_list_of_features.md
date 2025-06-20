@@ -3,6 +3,8 @@
 
 This page aims to list the more notable features currently supported by Pandemonium.
 
+Note that this list needs to be updated.
+
 ## Features
 
 ### Platforms

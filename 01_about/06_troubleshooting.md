@@ -1,17 +1,16 @@
 
-
 # Troubleshooting
 
 This page lists common issues encountered when using Pandemonium and possible solutions.
 
 See also:
 
-    See `doc_using_the_web_editor` for caveats specific to the HTML5 version
+    See [using the web editor](../03_usage/18_editor/04_using_the_web_editor.md) for caveats specific to the HTML5 version
     of the Pandemonium editor.
 
 ## Everything I do in the editor or project manager appears delayed by one frame.
 
-This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/23069 )` on
+This is a [known bug](https://github.com/godotengine/godot/issues/23069) on
 Intel graphics drivers on Windows. Updating to the latest graphics driver
 version *provided by Intel* should fix the issue.
 
@@ -21,7 +20,7 @@ outdated.
 
 ## The grid disappears and meshes turn black when I rotate the 3D camera in the editor.
 
-This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/30330 )` on
+This is a [known bug](https://github.com/godotengine/godot/issues/30330) on
 Intel graphics drivers on Windows.
 
 The only workaround, for now, is to switch to the GLES2 renderer. You can switch
@@ -32,7 +31,7 @@ Optimus, you can use the dedicated graphics card to run Pandemonium.
 
 ## The editor or project takes a very long time to start.
 
-This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/20566 )` on
+This is a [known bug](https://github.com/godotengine/godot/issues/20566) on
 Windows when you have specific USB peripherals connected. In particular,
 Corsair's iCUE software seems to cause the bug. Try updating your USB
 peripherals' drivers to their latest version. If the bug persists, you need to
@@ -41,7 +40,7 @@ connect the peripheral again.
 
 ## Editor tooltips in the Inspector and Node docks blink when they're displayed.
 
-This is a `known issue ( https://github.com/Relintai/pandemonium_engine/issues/32990 )`
+This is a [known issue](https://github.com/godotengine/godot/issues/32990)
 caused by the third-party Stardock Fences application on Windows.
 The only known workaround is to disable Stardock Fences while using Pandemonium.
 
@@ -73,14 +72,14 @@ done to improve performance, especially on integrated graphics, where rendering
 
 To resolve this, open **Project > Project Settings** and enable **Display >
 Window > Dpi > Allow Hidpi**. On top of that, make sure your project is
-configured to support `multiple resolutions ( doc_multiple_resolutions )`.
+configured to support [multiple resolutions](../03_usage/14_rendering/02_multiple_resolutions.md).
 
 ## The project window doesn't appear centered when I run the project.
 
-This is a `known bug ( https://github.com/Relintai/pandemonium_engine/issues/13017 )`. To
+This is a [known bug](https://github.com/godotengine/godot/issues/13017). To
 resolve this, open **Project > Project Settings** and enable **Display > Window
 > Dpi > Allow Hidpi**. On top of that, make sure your project is configured to
-support `multiple resolutions ( doc_multiple_resolutions )`.
+support [multiple resolutions](../03_usage/14_rendering/02_multiple_resolutions.md).
 
 ## The project works when run from the editor, but fails to load some files when running from an exported copy.
 
@@ -88,11 +87,12 @@ This is usually caused by forgetting to specify a filter for non-resource files
 in the Export dialog. By default, Pandemonium will only include actual *resources*
 into the PCK file. Some files commonly used, such as JSON files, are not
 considered resources. For example, if you load `test.json` in the exported
-project, you need to specify `*.json` in the non-resource export filter. See
-`doc_exporting_projects_export_mode` for more information.
+project, you need to specify `*.json` in the non-resource export filter.
+[See](../03_usage/20_export/02_exporting_projects.md#resource-options) for more information.
 
-On Windows, this can also be due to `case sensitivity
-( doc_project_organization_case_sensitivity )` issues. If you reference a resource
+On Windows, this can also be due to
+[case sensitivity](../03_usage/22_best_practices/11_project_organization.md#case-sensitivity)
+issues. If you reference a resource
 in your script with a different case than on the filesystem, loading will fail
 once you export the project. This is because the virtual PCK filesystem is
 case-sensitive, while Windows's filesystem is case-insensitive by default.

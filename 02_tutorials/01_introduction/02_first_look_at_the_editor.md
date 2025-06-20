@@ -15,12 +15,6 @@ ones, and more.
 
 ![](img/editor_intro_project_manager.png)
 
-At the top of the window, there is another tab named "Asset Library Projects".
-In the open-source asset library you can search for demo projects, templates,
-and completed projects, including many that are developed by the community.
-
-![](img/editor_intro_project_templates.png)
-
 You can also change the editor's language using the drop-down menu to the right
 of the engine's version in the window's top-right corner. By default, it is in
 English (EN).

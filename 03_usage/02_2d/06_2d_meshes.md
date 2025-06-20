@@ -1,5 +1,4 @@
 
-
 # 2D meshes
 
 ## Introduction
@@ -7,9 +6,6 @@
 In 3D, meshes are used to display the world. In 2D, they are rare as images are used more often.
 Pandemonium's 2D engine is a pure two-dimensional engine, so it can't really display 3D meshes directly (although it can be done
 via `Viewport` and `ViewportTexture`).
-
-See also:
- If you are interested in displaying 3D meshes on a 2D viewport, see the `doc_viewport_as_texture` tutorial.
 
 2D meshes are meshes that contain two-dimensional geometry (Z can be omitted or ignored) instead of 3D.
 You can experiment creating them yourself using `SurfaceTool` from code and displaying them in a `MeshInstance2D` node.
@@ -47,3 +43,4 @@ The default values are good enough for many cases, but you can change growth and
 Finally, push the `Convert 2D Mesh` button and your Sprite will be replaced:
 
 ![](img/mesh2d5.png)
+

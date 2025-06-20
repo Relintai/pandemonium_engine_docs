@@ -1,5 +1,4 @@
 
-
 # Viewport and canvas transforms
 
 ## Introduction
@@ -10,15 +9,15 @@ the screen. This overview discusses very low level details of the engine.
 
 ## Canvas transform
 
-As mentioned in the previous tutorial, `doc_canvas_layers`, every
+As mentioned in the previous tutorial, every
 CanvasItem node (remember that Node2D and Control based nodes use
 CanvasItem as their common root) will reside in a *Canvas Layer*. Every
 canvas layer has a transform (translation, rotation, scale, etc.) that
 can be accessed as a `Transform2D`.
 
 Also covered in the previous tutorial, nodes are drawn by default in Layer 0,
-in the built-in canvas. To put nodes in a different layer, a `CanvasLayer
-( CanvasLayer )` node can be used.
+in the built-in canvas. To put nodes in a different layer, a `CanvasLayer`
+node can be used.
 
 ## Global canvas transform
 
@@ -32,7 +31,7 @@ in Pandemonium's editor.
 
 Finally, viewports have a *Stretch Transform*, which is used when
 resizing or stretching the screen. This transform is used internally (as
-described in `doc_multiple_resolutions`), but can also be manually set
+described in [handling multiple resolutions](../14_rendering/02_multiple_resolutions.md)), but can also be manually set
 on each viewport.
 
 Input events received in the `MainLoop._input_event()`
@@ -61,8 +60,6 @@ Obtaining each transform can be achieved with the following functions:
 Finally, then, to convert a CanvasItem local coordinates to screen
 coordinates, just multiply in the following order:
 
-gdscript GDScript
-
 ```
 var screen_coord = get_viewport_transform() * (get_global_transform() * local_pos)
 ```
@@ -78,8 +75,6 @@ It is often desired to feed custom input events to the scene tree. With
 the above knowledge, to correctly do this, it must be done the following
 way:
 
-gdscript GDScript
-
 ```
 var local_pos = Vector2(10, 20) # local to Control/Node2D
 var ie = InputEventMouseButton.new()
@@ -87,3 +82,4 @@ ie.button_index = BUTTON_LEFT
 ie.position = get_viewport_transform() * (get_global_transform() * local_pos)
 get_tree().input_event(ie)
 ```
+

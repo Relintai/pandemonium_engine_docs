@@ -1,5 +1,4 @@
 
-
 # Canvas layers
 
 ## Viewport and Canvas items
@@ -25,10 +24,11 @@ more efficient than moving the root canvas item and the entire scene with it.
 Usually though, we don't want *everything* in the game or app to be subject to the canvas
 transform. For example:
 
--  **Parallax Backgrounds**: Backgrounds that move slower than the rest
-   of the stage.
--  **UI**: Think of a user interface (UI) or head-up display (HUD) superimposed on our view of the game world. We want a life counter, score display and other elements to retain their screen positions even when our view of the game world changes.
--  **Transitions**: We may want visual effects used for transitions (fades, blends) to remain at a fixed screen location.
+- **Parallax Backgrounds**: Backgrounds that move slower than the rest
+  of the stage.
+- **UI**: Think of a user interface (UI) or head-up display (HUD) superimposed on our view of the game world.
+  We want a life counter, score display and other elements to retain their screen positions even when our view of the game world changes.
+- **Transitions**: We may want visual effects used for transitions (fades, blends) to remain at a fixed screen location.
 
 How can these problems be solved in a single scene tree?
 
@@ -54,10 +54,9 @@ Here's a diagram of how it looks:
 CanvasLayers are independent of tree order, and they only depend on
 their layer number, so they can be instantiated when needed.
 
-Note:
+Note: CanvasLayers aren't necessary to control the drawing order of nodes.
+The standard way to ensuring that a node is  correctly drawn 'in front' or 'behind' others is to manipulate the
+order of the nodes in the scene panel. Perhaps counterintuitively, the topmost nodes in the scene panel are drawn
+on *behind* lower ones in the viewport. 2d nodes also have a property for controlling their drawing order
+(see `Node2D.z_index`).
 
-   CanvasLayers aren't necessary to control the drawing order of nodes.
-            The standard way to ensuring that a node is  correctly drawn 'in front' or 'behind' others is to manipulate the
-            order of the nodes in the scene panel. Perhaps counterintuitively, the topmost nodes in the scene panel are drawn
-            on *behind* lower ones in the viewport. 2d nodes also have a property for controlling their drawing order
-            (see `Node2D.z_index`).

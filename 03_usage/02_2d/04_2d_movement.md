@@ -1,5 +1,4 @@
 
-
 # 2D movement overview
 
 ## Introduction
@@ -19,8 +18,8 @@ Each example below uses the same scene setup. Start with a `KinematicBody2D` wit
 children: `Sprite` and `CollisionShape2D`. You can use the Pandemonium icon ("icon.png)")
 for the Sprite's texture or use any other 2D image you have.
 
-Open `Project -> Project Settings` and select the "Input Map" tab. Add the following
-input actions (see `InputEvent ( doc_inputevent )` for details):
+Open `Project -&gt; Project Settings` and select the "Input Map" tab. Add the following
+input actions:
 
 ![](img/movement_inputs.png)
 
@@ -33,8 +32,6 @@ fact that the player can move diagonally by pressing two keys at the same time.
 ![](img/movement_8way.gif)
 
 Add a script to the kinematic body and add the following code:
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -68,16 +65,8 @@ due to the two directions being added together.
 We can prevent that if we *normalize* the velocity, which means we set
 its *length* to `1`, and multiply by the desired speed.
 
-Tip:
- If you've never used vector math before, or need a refresher,
-         you can see an explanation of vector usage in Pandemonium at `doc_vector_math`.
-
-Note:
-
-
-    If the code above does nothing when you press the keys, double-check that
-    you've set up input actions correctly as described in the
-    `doc_2d_movement_setup` part of this tutorial.
+Tip: If you've never used vector math before, or need a refresher,
+you can see an explanation of vector usage in Pandemonium at `doc_vector_math`.
 
 ## Rotation + movement
 
@@ -86,8 +75,6 @@ how that classic arcade game worked. Pressing left/right rotates the character,
 while up/down moves it forward or backward in whatever direction it's facing.
 
 ![](img/movement_rotate1.gif)
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -133,8 +120,6 @@ is set by the mouse position instead of the keyboard. The character will always
 
 ![](img/movement_rotate2.gif)
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -159,8 +144,6 @@ Here we're using the `Node2D` `look_at()` method to
 point the player towards a given position. Without this function, you
 could get the same effect by setting the angle like this:
 
-gdscript GDScript
-
 ```
 rotation = get_global_mouse_position().angle_to_point(position)
 ```
@@ -172,8 +155,6 @@ This last example uses only the mouse to control the character. Clicking
 on the screen will cause the player to move to the target location.
 
 ![](img/movement_click.gif)
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -203,14 +184,13 @@ repeat.
 Uncommenting the `look_at()` line will also turn the body to point in its
 direction of motion if you prefer.
 
-Tip:
- This technique can also be used as the basis of a "following" character.
-         The `target` position can be that of any object you want to move to.
+Tip: This technique can also be used as the basis of a "following" character.
+The `target` position can be that of any object you want to move to.
 
 ## Summary
 
 You may find these code samples useful as starting points for your own projects.
 Feel free to use them and experiment with them to see what you can make.
 
-You can download this sample project here:
-:download:`2D_movement_demo.zip (files/2D_movement_demo.zip )`
+You can download this sample project [here](../../07_demo_projects/2d/2d_movement_demo/).
+

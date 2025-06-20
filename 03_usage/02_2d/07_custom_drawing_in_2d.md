@@ -1,5 +1,4 @@
 
-
 # Custom drawing in 2D
 
 ## Introduction
@@ -8,8 +7,7 @@ Pandemonium has nodes to draw sprites, polygons, particles, and all sorts of
 stuff. For most cases, this is enough; but not always. Before crying in fear,
 angst, and rage because a node to draw that specific *something* does not exist...
 it would be good to know that it is possible to easily make any 2D node (be it
-`Control`
-based) draw custom commands. It is *really* easy to do it, too.
+`Control` based) draw custom commands. It is *really* easy to do it, too.
 
 Custom drawing in a 2D node is *really* useful. Here are some use cases:
 
@@ -27,11 +25,8 @@ Custom drawing in a 2D node is *really* useful. Here are some use cases:
 
 ## Drawing
 
-Add a script to any `CanvasItem`
-derived node, like `Control` or
+Add a script to any `CanvasItem` derived node, like `Control` or
 `Node2D`. Then override the `draw()` function.
-
-gdscript GDScript
 
 ```
 extends Node2D
@@ -50,13 +45,10 @@ The `draw()` function is only called once, and then the draw commands
 are cached and remembered, so further calls are unnecessary.
 
 If re-drawing is required because a state or something else changed,
-call `CanvasItem.update()`
-in that same node and a new `draw()` call will happen.
+call `CanvasItem.update()` in that same node and a new `draw()` call will happen.
 
 Here is a little more complex example, a texture variable that will be
 redrawn if modified:
-
-gdscript GDScript
 
 ```
 extends Node2D
@@ -75,8 +67,6 @@ func _draw():
 
 In some cases, it may be desired to draw every frame. For this, just
 call `update()` from the `process()` callback, like this:
-
-gdscript GDScript
 
 ```
 extends Node2D
@@ -112,8 +102,6 @@ it being angular-looking. On the contrary, if your shape is small (or in 3D, far
 you may decrease its number of points to save processing costs; this is known as *Level of Detail (LOD)*.
 In our example, we will simply use a fixed number of points, no matter the radius.
 
-gdscript GDScript
-
 ```
 func draw_circle_arc(center, radius, angle_from, angle_to, color):
     var nb_points = 32
@@ -130,7 +118,7 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 
 Remember the number of points our shape has to be decomposed into? We fixed this
 number in the `nb_points` variable to a value of `32`. Then, we initialize an empty
-`PoolVector2Array`, which is simply an array of `Vector2`\ s.
+`PoolVector2Array`, which is simply an array of `Vector2`s.
 
 The next step consists of computing the actual positions of these 32 points that
 compose an arc. This is done in the first for-loop: we iterate over the number of
@@ -165,8 +153,6 @@ increase the number of points.
 We now have a function that draws stuff on the screen;
 it is time to call it inside the `draw()` function:
 
-gdscript GDScript
-
 ```
 func _draw():
     var center = Vector2(200, 200)
@@ -186,8 +172,6 @@ Result:
 We can take this a step further and not only write a function that draws the plain
 portion of the disc defined by the arc, but also its shape. The method is exactly
 the same as before, except that we draw a polygon instead of lines:
-
-gdscript GDScript
 
 ```
 func draw_circle_arc_poly(center, radius, angle_from, angle_to, color):
@@ -216,8 +200,6 @@ First, we have to make both angle_from and angle_to variables global at the top
 of our script. Also note that you can store them in other nodes and access them
 using `get_node()`.
 
-gdscript GDScript
-
 ```
 extends Node2D
 
@@ -238,8 +220,6 @@ When this happens, Pandemonium may crash or produce unexpected behavior.
 Finally, we must not forget to call the `update()` function, which automatically
 calls `draw()`. This way, you can control when you want to refresh the frame.
 
-gdscript GDScript
-
 ```
 func _process(delta):
     angle_from += rotation_angle
@@ -253,8 +233,6 @@ func _process(delta):
 ```
 
 Also, don't forget to modify the `draw()` function to make use of these variables:
-
-gdscript GDScript
 
 ```
 func _draw():
@@ -280,8 +258,6 @@ In our case, we simply need to multiply our `rotation_angle` variable by `delta`
 in the `process()` function. This way, our 2 angles will be increased by a much
 smaller value, which directly depends on the rendering speed.
 
-gdscript GDScript
-
 ```
 func _process(delta):
     angle_from += rotation_angle * delta
@@ -298,19 +274,15 @@ Let's run again! This time, the rotation displays fine!
 
 #### Antialiased drawing
 
-Pandemonium offers method parameters in `draw_line( CanvasItem_method_draw_line )`
+Pandemonium offers method parameters in `draw_line`
 to enable antialiasing, but it doesn't work reliably in all situations
 (for instance, on mobile/web platforms, or when HDR is enabled).
 There is also no `antialiased` parameter available in
-`draw_polygon( CanvasItem_method_draw_polygon )`.
-
-As a workaround, install and use the
-`Antialiased Line2D add-on ( https://github.com/pandemonium-extended-libraries/pandemonium-antialiased-line2d )`
-(which also supports antialiased Polygon2D drawing). Note that this add-on relies
-on high-level nodes, rather than low-level `draw()` functions.
+`draw_polygon`.
 
 ## Tools
 
 Drawing your own nodes might also be desired while running them in the
 editor. This can be used as a preview or visualization of some feature or
-behavior. See `doc_running_code_in_the_editor` for more information.
+behavior.
+

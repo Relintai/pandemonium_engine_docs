@@ -1,5 +1,4 @@
 
-
 # 2D Sprite animation
 
 ## Introduction
@@ -14,9 +13,7 @@ animate a collection of individual images. Then we will animate a sprite sheet u
 with `AnimationPlayer` and the *Animation*
 property of `Sprite`.
 
-Note:
- Art for the following examples by https://opengameart.org/users/ansimuz and by
-                                           https://opengameart.org/users/tgfcoder
+Note: Art for the following examples by https://opengameart.org/users/ansimuz and by https://opengameart.org/users/tgfcoder
 
 ## Individual images with AnimatedSprite
 
@@ -26,21 +23,17 @@ animation:
 
 ![](img/2d_animation_run_preview.gif)
 
-You can download the images here:
-:download:`run_animation.zip (files/run_animation.zip )`
+You can download the images here: [run_animation.zip](files/run_animation.zip)
 
 Unzip the images and place them in your project folder. Set up your scene tree
 with the following nodes:
 
 ![](img/2d_animation_tree1.png)
 
-Note:
- The root node could also be `Area2D` or
-          `RigidBody2D`. The animation will still be
-          made in the same way. Once the animation is completed, you can
-          assign a shape to the CollisionShape2D. See
-          `Physics Introduction ( doc_physics_introduction )` for more
-          information.
+Note: The root node could also be `Area2D` or
+`RigidBody2D`. The animation will still be
+made in the same way. Once the animation is completed, you can
+assign a shape to the CollisionShape2D.
 
 Now select the `AnimatedSprite` and in its *SpriteFrames* property, select
 "New SpriteFrames".
@@ -72,8 +65,6 @@ the `play()` and `stop()` methods. Here is a brief example to play the
 animation while the right arrow key is held, and stop it when the key is
 released.
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -104,11 +95,14 @@ Click on the new SpriteFrames resource. This time, when the bottom panel appears
 
 You will be prompted to open a file. Select your sprite sheet.
 
-A new window will open, showing your sprite sheet. The first thing you will need to do is to change the number of vertical and horizontal images in your sprite sheet. In this sprite sheet, we have four images horizontally and two images vertically.
+A new window will open, showing your sprite sheet. The first thing you will need to do is to change the number of
+vertical and horizontal images in your sprite sheet. In this sprite sheet, we have four images horizontally
+and two images vertically.
 
 ![](img/2d_animation_spritesheet_select_rows.png)
 
-Next, select the frames from the sprite sheet that you want to include in your animation. We will select the top four, then click "Add 4 frames" to create the animation.
+Next, select the frames from the sprite sheet that you want to include in your animation. We will select the top four,
+then click "Add 4 frames" to create the animation.
 
 ![](img/2d_animation_spritesheet_selectframes.png)
 
@@ -139,13 +133,10 @@ setting up your scene tree:
 
 ![](img/2d_animation_tree2.png)
 
-Note:
- The root node could also be `Area2D` or
-          `RigidBody2D`. The animation will still be
-          made in the same way. Once the animation is completed, you can
-          assign a shape to the CollisionShape2D. See
-          `Physics Introduction ( doc_physics_introduction )` for more
-          information.
+Note: The root node could also be `Area2D` or
+`RigidBody2D`. The animation will still be
+made in the same way. Once the animation is completed, you can
+assign a shape to the CollisionShape2D.
 
 Drag the spritesheet into the Sprite's *Texture* property, and you'll see the
 whole sheet displayed on the screen. To slice it up into individual frames,
@@ -186,8 +177,6 @@ the `play()` and `stop()` methods. Again, here is an example to play the
 animation while the right arrow key is held, and stop it when the key is
 released.
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -200,20 +189,21 @@ func _process(_delta):
         _animation_player.stop()
 ```
 
-Note:
- If updating both an animation and a separate property at once
-          (for example, a platformer may update the sprite's `h_flip`/`v_flip`
-          properties when a character turns while starting a 'turning' animation),
-          it's important to keep in mind that `play()` isn't applied instantly.
-          Instead, it's applied the next time the `AnimationPlayer` is processed.
-          This may end up being on the next frame, causing a 'glitch' frame,
-          where the property change was applied but the animation was not.
-          If this turns out to be a problem, after calling `play()`, you can call `advance(0)`
-          to update the animation immediately.
+Note: If updating both an animation and a separate property at once
+(for example, a platformer may update the sprite's `h_flip`/`v_flip`
+properties when a character turns while starting a 'turning' animation),
+it's important to keep in mind that `play()` isn't applied instantly.
+Instead, it's applied the next time the `AnimationPlayer` is processed.
+This may end up being on the next frame, causing a 'glitch' frame,
+where the property change was applied but the animation was not.
+If this turns out to be a problem, after calling `play()`, you can call `advance(0)`
+to update the animation immediately.
 
 ## Summary
 
 These examples illustrate the two classes you can use in Pandemonium for
 2D animation. `AnimationPlayer` is
 a bit more complex than `AnimatedSprite`, but it provides additional functionality, since you can also
-animate other properties like position or scale. The class `AnimationPlayer` can also be used with an `AnimatedSprite`. Experiment to see what works best for your needs.
+animate other properties like position or scale. The class `AnimationPlayer` can also be used with
+an `AnimatedSprite`. Experiment to see what works best for your needs.
+

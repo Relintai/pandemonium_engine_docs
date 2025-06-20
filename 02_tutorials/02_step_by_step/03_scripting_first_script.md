@@ -1,28 +1,20 @@
 
-
 # Creating your first script
 
 In this lesson, you will code your first script to make the Pandemonium icon turn in
-circles using GDScript. As we mentioned `in the introduction
-(toc-learn-introduction )`, we assume you have programming foundations.
-The equivalent C# code has been included in another tab for convenience.
+circles using GDScript. As we mentioned [in the introduction](../01_introduction/),
+we assume you have programming foundations.
+
 
 ![](img/scripting_first_script_rotating_pandemonium.gif)
 
-See also:
- To learn more about GDScript, its keywords, and its syntax, head to
-             the `GDScript reference( doc_gdscript )`.
-
-See also:
- To learn more about C#, head to the `C# basics ( doc_c_sharp )` page.
+See also: To learn more about GDScript, its keywords, and its syntax, head to
+the [GDScript reference](../../03_usage/15_scripting/gdscript/).
 
 ## Project setup
 
 Please create a new project to start with a clean slate. Your project should
-contain one picture: the Pandemonium icon, which we often use for prototyping in the
-community.
-
-.. Pandemonium icon
+contain one picture: the Pandemonium icon.
 
 We need to create a Sprite node to display it in the game. In the Scene dock,
 click the Other Node button.
@@ -40,17 +32,14 @@ Your Scene tab should now only have a Sprite node.
 
 A Sprite node needs a texture to display. In the Inspector on the right, you can
 see that the Texture property says "[empty]". To display the Pandemonium icon, click
-and drag the file `icon.png)` from the FileSystem dock onto the Texture slot.
+and drag the file `icon.png` from the FileSystem dock onto the Texture slot.
 
 ![](img/scripting_first_script_setting_texture.png)
 
-Note:
+Note: You can create Sprite nodes automatically by dragging and dropping images on
+the viewport.
 
-
-    You can create Sprite nodes automatically by dragging and dropping images on
-    the viewport.
-
-    ![](img/scripting_first_script_dragging_sprite.png)
+![](img/scripting_first_script_dragging_sprite.png)
 
 Then, click and drag the icon in the viewport to center it in the game view.
 
@@ -86,23 +75,19 @@ our script will get access to all the properties and functions of the Sprite
 node, including classes it extends, like `Node2D`, `CanvasItem`, and
 `Node`.
 
-Note:
- In GDScript, if you omit the line with the `extends` keyword, your
-          class will implicitly extend `Reference`, which
-          Pandemonium uses to manage your application's memory.
+Note: In GDScript, if you omit the line with the `extends` keyword, your
+class will implicitly extend `Reference`, which
+Pandemonium uses to manage your application's memory.
 
 Inherited properties include the ones you can see in the Inspector dock, like
 our node's `texture`.
 
-Note:
+Note: By default, the Inspector displays a node's properties in "Title Case", with
+capitalized words separated by a space. In GDScript code, these properties
+are in "snake_case", which is lowercase with words separated by an underscore.
 
-
-    By default, the Inspector displays a node's properties in "Title Case", with
-    capitalized words separated by a space. In GDScript code, these properties
-    are in "snake_case", which is lowercase with words separated by an underscore.
-
-    You can hover any property's name in the Inspector to see a description and
-    its identifier in code.
+You can hover any property's name in the Inspector to see a description and
+its identifier in code.
 
 ## Hello, world!
 
@@ -124,20 +109,18 @@ Let's break it down. The `func` keyword defines a new function named
 `init()` on every object or node upon creating it in memory, if you define
 this function.
 
-Note:
- GDScript is an indent-based language. The tab at the start of the line
-          that says `print()` is necessary for the code to work. If you omit
-          it or don't indent a line correctly, the editor will highlight it in
-          red and display the following error message: "Indented block expected".
+Note: GDScript is an indent-based language. The tab at the start of the line
+that says `print()` is necessary for the code to work. If you omit
+it or don't indent a line correctly, the editor will highlight it in
+red and display the following error message: "Indented block expected".
 
-Save the scene if you haven't already, then press :kbd:`F6` (:kbd:`Cmd + R` on macOS)
+Save the scene if you haven't already, then press `F6` (`Cmd + R` on macOS)
 to run it. Look at the **Output** bottom panel that expands.
 It should display "Hello, world!".
 
 ![](img/scripting_first_script_print_hello_world.png)
 
-Delete the `init()` function, so you're only left with the line `extends
-Sprite`.
+Delete the `init()` function, so you're only left with the line `extends Sprite`.
 
 ## Turning around
 
@@ -157,10 +140,9 @@ but before functions. Every node
 instance with this script attached to it will have its own copy of the `speed`
 and `angular_speed` properties.
 
-Note:
- Angles in Pandemonium work in radians by default,
-          but you have built-in functions and properties available if you prefer
-          to calculate angles in degrees instead.
+Note: Angles in Pandemonium work in radians by default,
+but you have built-in functions and properties available if you prefer
+to calculate angles in degrees instead.
 
 To move our icon, we need to update its position and rotation every frame in the
 game loop. We can use the `process()` virtual function of the `Node` class.
@@ -168,23 +150,18 @@ If you define it in any class that extends the Node class, like Sprite, Pandemon
 will call the function every frame and pass it an argument named `delta`, the
 time elapsed since the last frame.
 
-Note:
+Note: Games work by rendering many images per second, each called a frame, and
+they do so in a loop. We measure the rate at which a game produces images in
+Frames Per Second (FPS). Most games aim for 60 FPS, although you might find
+figures like 30 FPS on slower mobile devices or 90 to 240 for virtual
+reality games.
 
-
-    Games work by rendering many images per second, each called a frame, and
-    they do so in a loop. We measure the rate at which a game produces images in
-    Frames Per Second (FPS). Most games aim for 60 FPS, although you might find
-    figures like 30 FPS on slower mobile devices or 90 to 240 for virtual
-    reality games.
-
-    The engine and game developers do their best to update the game world and
-    render images at a constant time interval, but there are always small
-    variations in frame render times. That's why the engine provides us with
-    this delta time value, making our motion independent of our framerate.
+The engine and game developers do their best to update the game world and
+render images at a constant time interval, but there are always small
+variations in frame render times. That's why the engine provides us with
+this delta time value, making our motion independent of our framerate.
 
 At the bottom of the script, define the function:
-
-gdscript GDScript
 
 ```
 func _process(delta):
@@ -196,21 +173,19 @@ function's name and arguments it takes in parentheses. A colon ends the
 definition, and the indented blocks that follow are the function's content or
 instructions.
 
-Note:
- Notice how `process()`, like `init()`, starts with a leading
-          underscore. By convention, Pandemonium's virtual functions, that is to say,
-          built-in functions you can override to communicate with the engine,
-          start with an underscore.
+Note: Notice how `process()`, like `init()`, starts with a leading
+underscore. By convention, Pandemonium's virtual functions, that is to say,
+built-in functions you can override to communicate with the engine,
+start with an underscore.
 
 The line inside the function, `rotation += angular_speed * delta`, increments
 our sprite's rotation every frame. Here, `rotation` is a property inherited
 from the class `Node2D`, which `Sprite` extends. It controls the rotation of
 our node and works with radians.
 
-Tip:
- In the code editor, you can ctrl-click on any built-in property or
-         function like `position`, `rotation`, or `process` to open the
-         corresponding documentation in a new tab.
+Tip: In the code editor, you can ctrl-click on any built-in property or
+function like `position`, `rotation`, or `process` to open the
+corresponding documentation in a new tab.
 
 Run the scene to see the Pandemonium icon turn in-place.
 
@@ -221,8 +196,6 @@ Run the scene to see the Pandemonium icon turn in-place.
 Let's now make the node move. Add the following two lines to the `process()`
 function, ensuring the new lines are indented the same way as the one before
 them.
-
-gdscript GDScript
 
 ```
 var velocity = Vector2.UP.rotated(rotation) * speed
@@ -249,13 +222,12 @@ Run the scene to see the Pandemonium head run in circles.
 
 ![](img/scripting_first_script_rotating_pandemonium.gif)
 
-Note:
- Moving a node like that does not take into account colliding with
-          walls or the floor. In `doc_your_first_2d_game`, you will learn
-          another approach to moving objects while detecting collisions.
+Note: Moving a node like that does not take into account colliding with
+walls or the floor. In [your first 2d game](../03_first_2d_game/), you will learn
+another approach to moving objects while detecting collisions.
 
 Our node currently moves by itself. In the next part
-`doc_scripting_player_input`, we'll use player input to control it.
+we'll use player input to control it.
 
 ## Complete script
 
@@ -277,3 +249,4 @@ func _process(delta):
 
     position += velocity * delta
 ```
+

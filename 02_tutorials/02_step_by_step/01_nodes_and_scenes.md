@@ -1,16 +1,11 @@
-.. The goal of this page is to explain more than doc_key_concepts_overview about nodes and scenes, get the user to create their first concrete scene.
 
+# Nodes and Scenes
 
-
-Nodes and Scenes
-================
-
-In `doc_key_concepts_overview`, we saw that a Pandemonium game is a tree of
+In [key concepts overview](../01_introduction/04_key_concepts_overview.md), we saw that a Pandemonium game is a tree of
 scenes and that each scene is a tree of nodes. In this lesson, we explain a bit
 more about them. You will also create your first scene.
 
-Nodes
------
+## Nodes
 
 **Nodes are the fundamental building blocks of your game**. They are like the
 ingredients in a recipe. There are dozens of kinds that can display an image,
@@ -34,8 +29,7 @@ playable character the camera follows using a kinematic body node named
 
 ![](img/nodes_and_scenes_character_nodes.png)
 
-Scenes
-------
+## Scenes
 
 When you organize nodes in a tree, like our character, we call this construct a
 scene. Once saved, scenes work like new node types in the editor, where you can
@@ -61,8 +55,7 @@ On top of acting like nodes, scenes have the following attributes:
 3. You can create as many instances of a scene as you'd like. You could have
    five or ten characters in your game, created from your Character scene.
 
-Creating your first scene
--------------------------
+## Creating your first scene
 
 Let's create our first scene with a single node. To do so, you will need to
 create a new project first. After opening the project, you should see an empty
@@ -103,8 +96,7 @@ workspace because Label is a 2D node type. The Label appears, selected, in the
 top-left corner of the viewport. The node appears in the Scene dock on the left,
 and the node's properties appear in the Inspector dock on the right.
 
-Changing a node's properties
-----------------------------
+## Changing a node's properties
 
 The next step is to change the Label's "Text" property. Let's change it to
 "Hello World".
@@ -126,11 +118,10 @@ move it to the center of the view delimited by the rectangle.
 
 ![](img/nodes_and_scenes_08_hello_world_text.png)
 
-Running the scene
------------------
+## Running the scene
 
 Everything's ready to run the scene! Press the Play Scene button in the
-top-right of the screen or press :kbd:`F6` (:kbd:`Cmd + R` on macOS).
+top-right of the screen or press `F6` (`Cmd + R` on macOS).
 
 ![](img/nodes_and_scenes_09_play_scene_button.png)
 
@@ -143,32 +134,27 @@ button to save it as "Label.tscn".
 
 ![](img/nodes_and_scenes_11_save_scene_as.png)
 
-Note:
- The Save Scene As dialog, like other file dialogs in the editor, only
-          allows you to save files inside the project. The `res://` path at
-          the top of the window represents the project's root directory and
-          stands for "resource path". For more information about file paths in
-          Pandemonium, see `doc_filesystem`.
+Note: The Save Scene As dialog, like other file dialogs in the editor, only
+allows you to save files inside the project. The `res://` path at
+the top of the window represents the project's root directory and
+stands for "resource path". For more information about file paths in
+Pandemonium, [see](../../03_usage/15_scripting/11_filesystem.md).
 
 The application should open in a new window and display the text "Hello World".
 
 ![](img/nodes_and_scenes_12_final_result.png)
 
-Close the window or press :kbd:`F8` to quit the running scene.
+Close the window or press `F8` to quit the running scene.
 
-Note:
+Note: If this doesn't immediately work and you have a hiDPI display on at least
+one of your monitors, go to Project -&gt; Project Settings -&gt; Display -&gt; Window
+then enable Allow Hidpi under Dpi.
 
-
-    If this doesn't immediately work and you have a hiDPI display on at least
-    one of your monitors, go to Project -> Project Settings -> Display ->
-    Window then enable Allow Hidpi under Dpi.
-
-Setting the main scene
-----------------------
+## Setting the main scene
 
 To run our test scene, we used the Play Scene button. Another button next to it
-allows you to set and run the project's main scene. You can press :kbd:`F5`
-(:kbd:`Cmd + B` on macOS) to do so.
+allows you to set and run the project's main scene. You can press `F5`
+(`Cmd + B` on macOS) to do so.
 
 ![](img/nodes_and_scenes_13_play_button.png)
 
@@ -184,11 +170,11 @@ Label.tscn.
 The demo should run again. Moving forward, every time you run the project, Pandemonium
 will use this scene as a starting point.
 
-Note:
- The editor saves the main scene's path in a project.pandemonium file in your
-          project's directory. While you can edit this text file directly to
-          change project settings, you can also use the "Project -> Project
-          Settings" window to do so.
+Note: The editor saves the main scene's path in a project.pandemonium file in your
+project's directory. While you can edit this text file directly to
+change project settings, you can also use the "Project -&gt; Project Settings"
+window to do so.
 
 In the next part, we will discuss another key concept in games and in Pandemonium:
 creating instances of a scene.
+

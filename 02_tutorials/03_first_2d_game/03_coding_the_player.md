@@ -1,5 +1,4 @@
 
-
 # Coding the player
 
 In this lesson, we'll add player movement, animation, and set it up to detect
@@ -16,14 +15,7 @@ click "Create":
 
 ![](img/attach_node_window.png)
 
-Note:
-
-  - If this is your first time encountering GDScript, please read
-    `doc_scripting` before continuing.
-
 Start by declaring the member variables this object will need:
-
-gdscript GDScript
 
 ```
 extends Area2D
@@ -64,7 +56,7 @@ Settings under "Input Map". Here, you can define custom events and assign
 different keys, mouse events, or other inputs to them. For this game, we will
 map the arrow keys to the four directions.
 
-Click on *Project -> Project Settings* to open the project settings window and
+Click on *Project -&gt; Project Settings* to open the project settings window and
 click on the *Input Map* tab at the top. Type "move_right" in the top bar and
 click the "Add" button to add the `move_right` action.
 
@@ -88,15 +80,12 @@ Your input map tab should look like this:
 
 Click the "Close" button to close the project settings.
 
-Note:
-
-  - We only mapped one key to each input action, but you can map multiple keys,
-    joystick buttons, or mouse buttons to the same input action.
+Note: We only mapped one key to each input action, but you can map multiple keys,
+joystick buttons, or mouse buttons to the same input action.
 
 You can detect whether a key is pressed using `Input.is_action_pressed()`,
 which returns `true` if it's pressed or `false` if it isn't.
 
-gdscript GDScript
 ```
 func _process(delta):
     var velocity = Vector2.ZERO # The player's movement vector.
@@ -127,29 +116,23 @@ We can prevent that if we *normalize* the velocity, which means we set its
 *length* to `1`, then multiply by the desired speed. This means no more fast
 diagonal movement.
 
-Tip:
-
-  - If you've never used vector math before, or need a refresher, you can
-    see an explanation of vector usage in Pandemonium at `doc_vector_math`.
-    It's good to know but won't be necessary for the rest of this tutorial.
+Tip: If you've never used vector math before, or need a refresher, you can
+see an explanation of vector usage in Pandemonium [here](../../03_usage/01_math/01_vector_math.md).
+It's good to know but won't be necessary for the rest of this tutorial.
 
 We also check whether the player is moving so we can call `play()` or
 `stop()` on the AnimatedSprite.
 
-Tip:
-
-  - `$` is shorthand for `get_node()`. So in the code above, `$AnimatedSprite.play()` is the same as
-    `get_node("AnimatedSprite").play()`.
-
-  - In GDScript, `$` returns the node at the relative path from the current node, or returns `null` if the node is not found. Since
-    AnimatedSprite is a child of the current node, we can use`$AnimatedSprite`.
+- `$` is shorthand for `get_node()`. So in the code above, `$AnimatedSprite.play()` is the same as
+  `get_node("AnimatedSprite").play()`.
+- In GDScript, `$` returns the node at the relative path from the current node, or returns `null` if the node is not found. Since
+  AnimatedSprite is a child of the current node, we can use`$AnimatedSprite`.
 
 Now that we have a movement direction, we can update the player's position. We
 can also use `clamp()` to prevent it from leaving the screen. *Clamping* a
 value means restricting it to a given range. Add the following to the bottom of
 the `process` function (make sure it's not indented under the `else`):
 
-gdscript GDScript
 
 ```
 position += velocity * delta
@@ -157,22 +140,19 @@ position.x = clamp(position.x, 0, screen_size.x)
 position.y = clamp(position.y, 0, screen_size.y)
 ```
 
-Tip:
+- The `delta` parameter in the `process()` function refers to the *frame length* - the amount of time that the previous frame took to complete.
+  Using this value ensures that your movement will remain consistent evenif the frame rate changes.
 
-  - The `delta` parameter in the `process()` function refers to the *frame length* - the amount of time that the previous frame took to complete.
-    Using this value ensures that your movement will remain consistent evenif the frame rate changes.
-
-Click "Play Scene" (:kbd:`F6`, :kbd:`Cmd + R` on macOS) and confirm you can move
+Click "Play Scene" (`F6`, `Cmd + R` on macOS) and confirm you can move
 the player around the screen in all directions.
 
 Warning:
 
 If you get an error in the "Debugger" panel that says
 
-  - `Attempt to call function 'play' in base 'null instance' on a null instance`
-
-  - this likely means you spelled the name of the AnimatedSprite node wrong. Node names are case-sensitive and `$NodeName` must match
-    the name you see in the scene tree.
+- `Attempt to call function 'play' in base 'null instance' on a null instance`
+- this likely means you spelled the name of the AnimatedSprite node wrong. Node names are case-sensitive and `$NodeName` must match
+  the name you see in the scene tree.
 
 ## Choosing animations
 
@@ -183,7 +163,6 @@ horizontally using the `flip_h` property for left movement. We also have the
 "up" animation, which should be flipped vertically with `flip_v` for downward
 movement. Let's place this code at the end of the `process()` function:
 
-gdscript GDScript
 
 ```
 if velocity.x != 0:
@@ -196,10 +175,8 @@ elif velocity.y != 0:
     $AnimatedSprite.flip_v = velocity.y > 0
 ```
 
-Note:
-
-  - The boolean assignments in the code above are a common shorthand for programmers. Since we're doing a comparison test (boolean) and also
-    *assigning* a boolean value, we can do both at the same time. Consider this code versus the one-line boolean assignment above:
+Note: The boolean assignments in the code above are a common shorthand for programmers. Since we're doing a comparison test (boolean) and also
+*assigning* a boolean value, we can do both at the same time. Consider this code versus the one-line boolean assignment above:
 
 ```
 if velocity.x < 0:
@@ -208,19 +185,16 @@ else:
     $AnimatedSprite.flip_h = false
 ```
 
-Play the scene again and check that the animations are correct in each of the
-directions.
+Play the scene again and check that the animations are correct in each of the directions.
 
-Tip:
- A common mistake here is to type the names of the animations wrong. The
-        animation names in the SpriteFrames panel must match what you type in
-        the code. If you named the animation `"Walk"`, you must also use a
-        capital "W" in the code.
+A common mistake here is to type the names of the animations wrong. The
+animation names in the SpriteFrames panel must match what you type in
+the code. If you named the animation `"Walk"`, you must also use a
+capital "W" in the code.
 
 When you're sure the movement is working correctly, add this line to
 `ready()`, so the player will be hidden when the game starts:
 
-gdscript GDScript
 
 ```
 hide()
@@ -233,8 +207,6 @@ enemies yet! That's OK, because we're going to use Pandemonium's *signal*
 functionality to make it work.
 
 Add the following at the top of the script, after `extends Area2D`:
-
-gdscript GDScript
 
 ```
 signal hit
@@ -259,8 +231,6 @@ your player's script.
 Note the green icon indicating that a signal is connected to this function. Add
 this code to the function:
 
-gdscript GDScript
-
 ```
 func _on_Player_body_entered(body):
     hide() # Player disappears after being hit.
@@ -273,16 +243,13 @@ Each time an enemy hits the player, the signal is going to be emitted. We need
 to disable the player's collision so that we don't trigger the `hit` signal
 more than once.
 
-Note:
- Disabling the area's collision shape can cause an error if it happens
-          in the middle of the engine's collision processing. Using
-          `set_deferred()` tells Pandemonium to wait to disable the shape until it's
-          safe to do so.
+Note: Disabling the area's collision shape can cause an error if it happens
+in the middle of the engine's collision processing. Using
+`set_deferred()` tells Pandemonium to wait to disable the shape until it's
+safe to do so.
 
 The last piece is to add a function we can call to reset the player when
 starting a new game.
-
-gdscript GDScript
 
 ```
 func start(pos):
@@ -292,3 +259,4 @@ func start(pos):
 ```
 
 With the player working, we'll work on the enemy in the next lesson.
+

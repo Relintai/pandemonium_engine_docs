@@ -3,10 +3,8 @@
 
 This page lists common issues encountered when using Pandemonium and possible solutions.
 
-See also:
-
-    See [using the web editor](../03_usage/18_editor/04_using_the_web_editor.md) for caveats specific to the HTML5 version
-    of the Pandemonium editor.
+See also: [using the web editor](../03_usage/18_editor/04_using_the_web_editor.md) for caveats specific to the HTML5 version
+of the Pandemonium editor.
 
 ## Everything I do in the editor or project manager appears delayed by one frame.
 

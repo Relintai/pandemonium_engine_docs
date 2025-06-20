@@ -1,13 +1,11 @@
 
-
 # Jumping and squashing monsters
 
 In this part, we'll add the ability to jump, to squash the monsters. In the next
 lesson, we'll make the player die when a monster hits them on the ground.
 
 First, we have to change a few settings related to physics interactions. Enter
-the world of `physics layers
-( doc_physics_introduction_collision_layers_and_masks )`.
+the world of physics layers.
 
 ## Controlling physics interactions
 
@@ -32,11 +30,11 @@ track of what's what.
 
 ### Setting layer names
 
-Let's give our physics layers a name. Go to *Project -> Project Settings*.
+Let's give our physics layers a name. Go to *Project -&gt; Project Settings*.
 
 ![](img/06.jump_and_squash/02.project_settings.png)
 
-In the left menu, navigate down to *Layer Names -> 3D Physics*. You can see a
+In the left menu, navigate down to *Layer Names -&gt; 3D Physics*. You can see a
 list of layers with a field next to each of them on the right. You can set their
 names there. Name the first three layers *player*, *enemies*, and *world*,
 respectively.
@@ -81,7 +79,7 @@ Select the *Player* node and set its *Collision -> Mask* to both "enemies" and
 Then, open the *Mob* scene by double-clicking on `Mob.tscn` and select the
 *Mob* node.
 
-Set its *Collision -> Layer* to "enemies" and unset its *Collision -> Mask*,
+Set its *Collision -&gt; Layer* to "enemies" and unset its *Collision -&gt; Mask*,
 leaving the mask empty.
 
 ![](img/06.jump_and_squash/08.mob_physics_mask.png)
@@ -90,10 +88,8 @@ These settings mean the monsters will move through one another. If you want the
 monsters to collide with and slide against each other, turn on the "enemies"
 mask.
 
-Note:
-
-    The mobs don't need to mask the "world" layer because they only move
-    on the XZ plane. We don't apply any gravity to them by design.
+Note: The mobs don't need to mask the "world" layer because they only move
+on the XZ plane. We don't apply any gravity to them by design.
 
 ## Jumping
 
@@ -104,8 +100,6 @@ script. We need a value to control the jump's strength and update
 After the line that defines `fall_acceleration`, at the top of the script, add
 the `jump_impulse`.
 
-gdscript GDScript
-
 ```
 #...
 # Vertical impulse applied to the character upon jumping in meters per second.
@@ -114,8 +108,6 @@ export var jump_impulse = 20
 
 Inside `physics_process()`, add the following code before the line where we
 called `move_and_slide()`.
-
-gdscript GDScript
 
 ```
 func _physics_process(delta):
@@ -149,8 +141,7 @@ Let's add the squash mechanic next. We're going to make the character bounce
 over monsters and kill them at the same time.
 
 We need to detect collisions with a monster and to differentiate them from
-collisions with the floor. To do so, we can use Pandemonium's `group
-( doc_groups )` tagging feature.
+collisions with the floor. To do so, we can use Pandemonium's group tagging feature.
 
 Open the scene `Mob.tscn` again and select the *Mob* node. Go to the *Node*
 dock on the right to see a list of signals. The *Node* dock has two tabs:
@@ -178,8 +169,6 @@ At the top of the script, we need another property, `bounce_impulse`. When
 squashing an enemy, we don't necessarily want the character to go as high up as
 when jumping.
 
-gdscript GDScript
-
 ```
 # Vertical impulse applied to the character upon bouncing over a mob in
 # meters per second.
@@ -195,8 +184,6 @@ In every iteration of the loop, we check if we landed on a mob. If so, we kill
 it and bounce.
 
 With this code, if no collisions occurred on a given frame, the loop won't run.
-
-gdscript GDScript
 
 ```
 func _physics_process(delta):
@@ -214,22 +201,18 @@ func _physics_process(delta):
                 velocity.y = bounce_impulse
 ```
 
- That's a lot of new functions. Here's some more information about them.
+That's a lot of new functions. Here's some more information about them.
 
 The functions `get_slide_count()` and `get_slide_collision()` both come from
-the `KinematicBody( KinematicBody )` class and are related to
+the `KinematicBody` class and are related to
 `move_and_slide()`.
 
-`get_slide_collision()` returns a
-`KinematicCollision( KinematicCollision )` object that holds
+`get_slide_collision()` returns a `KinematicCollision` object that holds
 information about where and how the collision occurred. For example, we use its
 `collider` property to check if we collided with a "mob" by calling
 `is_in_group()` on it: `collision.collider.is_in_group("mob")`.
 
-Note:
-
-
-    The method `is_in_group()` is available on every `Node( Node )`.
+Note: The method `is_in_group()` is available on every `Node`.
 
 To check that we are landing on the monster, we use the vector dot product:
 `Vector3.UP.dot(collision.normal) > 0.1`. The collision normal is a 3D vector
@@ -248,8 +231,6 @@ the top of the script, we want to define a new signal named `squashed`. And at
 the bottom, you can add the squash function, where we emit the signal and
 destroy the mob.
 
-gdscript GDScript
-
 ```
 # Emitted when the player jumped on the mob.
 signal squashed
@@ -265,7 +246,7 @@ func squash():
 We will use the signal to add points to the score in the next lesson.
 
 With that, you should be able to kill monsters by jumping on them. You can press
-:kbd:`F5` to try the game and set `Main.tscn` as your project's main scene.
+`F5` to try the game and set `Main.tscn` as your project's main scene.
 
 However, the player won't die yet. We'll work on that in the next part.
 

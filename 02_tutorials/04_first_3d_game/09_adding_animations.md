@@ -1,5 +1,4 @@
 
-
 # Character animation
 
 In this final lesson, we'll use Pandemonium's built-in animation tools to make our
@@ -25,7 +24,7 @@ It features a toolbar and the animation drop-down menu at the top, a track
 editor in the middle that's currently empty, and filter, snap, and zoom options
 at the bottom.
 
-Let's create an animation. Click on *Animation -> New*.
+Let's create an animation. Click on *Animation -&gt; New*.
 
 ![](img/09.adding_animations/02.new_animation.png)
 
@@ -102,21 +101,18 @@ seconds by dragging it on the timeline.
 
 ![](img/09.adding_animations/13.second_keys.png)
 
-Note:
-
-
-    A lecture on the principles of animation is beyond the scope of this
-    tutorial. Just note that you don't want to time and space everything evenly.
-    Instead, animators play with timing and spacing, two core animation
-    principles. You want to offset and contrast in your character's motion to
-    make them feel alive.
+Note: A lecture on the principles of animation is beyond the scope of this
+tutorial. Just note that you don't want to time and space everything evenly.
+Instead, animators play with timing and spacing, two core animation
+principles. You want to offset and contrast in your character's motion to
+make them feel alive.
 
 Move the time cursor to the end of the animation, at `1.2` seconds. Set the Y
 translation to about `0.35` and the X rotation to `-9` degrees. Once again,
 create a key for both properties.
 
-You can preview the result by clicking the play button or pressing :kbd:`Shift + D`.
-Click the stop button or press :kbd:`S` to stop playback.
+You can preview the result by clicking the play button or pressing `Shift + D`.
+Click the stop button or press `S` to stop playback.
 
 ![](img/09.adding_animations/14.play_button.png)
 
@@ -157,15 +153,12 @@ Your animation should look something like this.
 
 ![](img/09.adding_animations/20.float_animation.gif)
 
-Note:
-
-
-    Animations update the properties of the animated nodes every frame,
-    overriding initial values. If we directly animated the *Player* node, it
-    would prevent us from moving it in code. This is where the *Pivot* node
-    comes in handy: even though we animated the *Character*, we can still move
-    and rotate the *Pivot* and layer changes on top of the animation in a
-    script.
+Note: Animations update the properties of the animated nodes every frame,
+overriding initial values. If we directly animated the *Player* node, it
+would prevent us from moving it in code. This is where the *Pivot* node
+comes in handy: even though we animated the *Character*, we can still move
+and rotate the *Pivot* and layer changes on top of the animation in a
+script.
 
 If you play the game, the player's creature will now float!
 
@@ -184,8 +177,6 @@ Open the *Player*'s script by clicking the script icon next to it.
 In `physics_process()`, after the line where we check the `direction`
 vector, add the following code.
 
-gdscript GDScript
-
 ```
 func _physics_process(delta):
     #...
@@ -203,8 +194,6 @@ We mentioned that the pivot could layer transforms on top of the animation. We
 can make the character arc when jumping using the following line of code. Add it
 at the end of `physics_process()`.
 
-gdscript GDScript
-
 ```
 func _physics_process(delta):
     #...
@@ -220,15 +209,13 @@ For example, both the *Mob* and the *Player* scenes have a *Pivot* and a
 *Character* node, so we can reuse animations between them.
 
 Open the *Player* scene, select the animation player node and open the "float" animation.
-Next, click on **Animation > Copy**. Then open `Mob.tscn` and open its animation
-player. Click **Animation > Paste**. That's it; all monsters will now play the float
+Next, click on **Animation &gt; Copy**. Then open `Mob.tscn` and open its animation
+player. Click **Animation &gt; Paste**. That's it; all monsters will now play the float
 animation.
 
 We can change the playback speed based on the creature's `random_speed`. Open
 the *Mob*'s script and at the end of the `initialize()` function, add the
 following line.
-
-gdscript GDScript
 
 ```
 func initialize(start_position, player_position):
@@ -245,8 +232,6 @@ to keep learning more. But for now, here are the complete `Player.gd` and
 `Mob.gd` so you can check your code against them.
 
 Here's the *Player* script.
-
-gdscript GDScript
 
 ```
 extends KinematicBody
@@ -317,8 +302,6 @@ func _on_MobDetector_body_entered(_body):
 
 And the *Mob*'s script.
 
-gdscript GDScript
-
 ```
 extends KinematicBody
 
@@ -356,4 +339,5 @@ func initialize(start_position, player_position):
 func _on_VisibilityNotifier_screen_exited():
     queue_free()
 ```
+
 

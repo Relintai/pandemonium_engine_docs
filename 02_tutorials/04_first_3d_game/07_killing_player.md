@@ -1,5 +1,4 @@
 
-
 # Killing the player
 
 We can kill enemies by jumping on them, but the player still can't die.
@@ -39,7 +38,7 @@ The wider the cylinder, the more easily the player will get killed.
 Next, select the *MobDetector* node again, and in the *Inspector*, turn
 off its *Monitorable* property. This makes it so other physics nodes
 cannot detect the area. The complementary *Monitoring* property allows
-it to detect collisions. Then, remove the *Collision -> Layer* and set
+it to detect collisions. Then, remove the *Collision -&gt; Layer* and set
 the mask to the "enemies" layer.
 
 ![](img/07.killing_player/04.mob_detector_properties.png)
@@ -58,8 +57,6 @@ Code-wise, we're going to do two things: emit a signal we'll later use
 to end the game and destroy the player. We can wrap these operations in
 a `die()` function that helps us put a descriptive label on the code.
 
-gdscript GDScript
-
 ```
 # Emitted when the player was hit by a mob.
 # Put this at the top of the script.
@@ -76,16 +73,16 @@ func _on_MobDetector_body_entered(_body):
     die()
 ```
 
-Try the game again by pressing :kbd:`F5`. If everything is set up correctly,
+Try the game again by pressing `F5`. If everything is set up correctly,
 the character should die when an enemy runs into it.
 
 However, note that this depends entirely on the size and position of the
-*Player* and the *Mob*\ 's collision shapes. You may need to move them
+*Player* and the *Mob*'s collision shapes. You may need to move them
 and resize them to achieve a tight game feel.
 
 ## Ending the game
 
-We can use the *Player*\ 's `hit` signal to end the game. All we need
+We can use the *Player*'s `hit` signal to end the game. All we need
 to do is connect it to the *Main* node and stop the *MobTimer* in
 reaction.
 
@@ -95,8 +92,6 @@ connect its `hit` signal to the *Main* node.
 ![](img/07.killing_player/06.player_hit_signal.png)
 
 Get and stop the timer in the `on_Player_hit()` function.
-
-gdscript GDScript
 
 ```
 func _on_Player_hit():
@@ -119,8 +114,6 @@ Here are the complete scripts for the *Main*, *Mob*, and *Player* nodes,
 for reference. You can use them to compare and check your code.
 
 Starting with `Main.gd`.
-
-gdscript GDScript
 
 ```
 extends Node
@@ -154,8 +147,6 @@ func _on_Player_hit():
 ```
 
 Next is `Mob.gd`.
-
-gdscript GDScript
 
 ```
 extends KinematicBody
@@ -194,8 +185,6 @@ func _on_VisibilityNotifier_screen_exited():
 ```
 
 Finally, the longest script, `Player.gd`.
-
-gdscript GDScript
 
 ```
 extends KinematicBody

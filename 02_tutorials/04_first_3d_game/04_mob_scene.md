@@ -1,5 +1,4 @@
 
-
 # Designing the mob scene
 
 In this part, you're going to code the monsters, which we'll call mobs. In the
@@ -58,17 +57,14 @@ Pandemonium has a node that detects when objects leave the screen,
 
 Note:
 
-
-    When you keep instancing an object in games, there's a technique you can
-    use to avoid the cost of creating and destroying instances all the time
-    called pooling. It consists of pre-creating an array of objects and reusing
-    them over and over.
-
-    When working with GDScript, you don't need to worry about this. The main
-    reason to use pools is to avoid freezes with garbage-collected languages
-    like C# or Lua. GDScript uses a different technique to manage memory,
-    reference counting, which doesn't have that caveat. You can learn more
-    about that here `doc_gdscript_basics_memory_management`.
+- When you keep instancing an object in games, there's a technique you can
+  use to avoid the cost of creating and destroying instances all the time
+  called pooling. It consists of pre-creating an array of objects and reusing
+  them over and over.
+- When working with GDScript, you don't need to worry about this. The main
+  reason to use pools is to avoid freezes with garbage-collected languages
+  like C# or Lua. GDScript uses a different technique to manage memory,
+  reference counting, which doesn't have that caveat.
 
 Select the *Mob* node and add a *VisibilityNotifier* as a child of it. Another
 box, pink this time, appears. When this box completely leaves the screen, the
@@ -95,8 +91,6 @@ Here's the movement code to start with. We define two properties, `min_speed`
 and `max_speed`, to define a random speed range. We then define and initialize
 the `velocity`.
 
-gdscript GDScript
-
 ```
 extends KinematicBody
 
@@ -113,7 +107,7 @@ func _physics_process(_delta):
 ```
 
 Similarly to the player, we move the mob every frame by calling
-`KinematicBody`\ 's `move_and_slide()` method. This time, we don't update
+`KinematicBody`'s `move_and_slide()` method. This time, we don't update
 the `velocity` every frame: we want the monster to move at a constant speed
 and leave the screen, even if it were to hit an obstacle.
 
@@ -121,8 +115,7 @@ You may see a warning in GDScript that the return value from
 `move_and_slide()` is unused. This is expected. You can simply ignore the
 warning or, if you want to hide it entirely, add the comment
 `# warning-ignore:return_value_discarded` just above the
-`move_and_slide(velocity)` line. To read more about the GDScript warning
-system, see `doc_gdscript_warning_system`.
+`move_and_slide(velocity)` line.
 
 We need to define another function to calculate the start velocity. This
 function will turn the monster towards the player and randomize both its angle
@@ -135,8 +128,6 @@ We position the mob at `start_position` and turn it towards the player using
 the `look_at_from_position()` method, and randomize the angle by rotating a
 random amount around the Y axis. Below, `rand_range()` outputs a random value
 between `-PI / 4` radians and `PI / 4` radians.
-
-gdscript GDScript
 
 ```
 # We will call this function from the Main scene.
@@ -153,8 +144,6 @@ to calculate the velocity.
 We start by creating a 3D vector pointing forward, multiply it by our
 `random_speed`, and finally rotate it using the `Vector3` class's
 `rotated()` method.
-
-gdscript GDScript
 
 ```
 func initialize(start_position, player_position):
@@ -174,7 +163,7 @@ We still have to destroy the mobs when they leave the screen. To do so, we'll
 connect our *VisibilityNotifier* node's `screen_exited` signal to the *Mob*.
 
 Head back to the 3D viewport by clicking on the *3D* label at the top of the
-editor. You can also press :kbd:`Ctrl + F2` (:kbd:`Alt + 2` on macOS).
+editor. You can also press `Ctrl + F2` (`Alt + 2` on macOS).
 
 ![](img/04.mob_scene/09.switch_to_3d_workspace.png)
 
@@ -189,10 +178,8 @@ Connect the signal to the *Mob*.
 
 This will take you back to the script editor and add a new function for you,
 `on_VisibilityNotifier_screen_exited()`. From it, call the `queue_free()`
-method. This will destroy the mob instance when the *VisibilityNotifier* \'s box
+method. This will destroy the mob instance when the *VisibilityNotifier*'s box
 leaves the screen.
-
-gdscript GDScript
 
 ```
 func _on_VisibilityNotifier_screen_exited():
@@ -203,8 +190,6 @@ Our monster is ready to enter the game! In the next part, you will spawn
 monsters in the game level.
 
 Here is the complete `Mob.gd` script for reference.
-
-gdscript GDScript
 
 ```
 extends KinematicBody
@@ -232,3 +217,4 @@ func initialize(start_position, player_position):
 func _on_VisibilityNotifier_screen_exited():
     queue_free()
 ```
+

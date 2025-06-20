@@ -1,5 +1,4 @@
 
-
 # Score and replay
 
 In this part, we'll add the score, music playback, and the ability to restart
@@ -44,7 +43,7 @@ to set our game's font.
 ## Creating a UI theme
 
 Once again, select the *UserInterface* node. In the *Inspector*, create a new
-theme resource in *Theme -> Theme*.
+theme resource in *Theme -&gt; Theme*.
 
 ![](img/08.score_and_replay/03.creating_theme.png)
 
@@ -54,12 +53,6 @@ of how all the built-in UI widgets will look with your theme resource.
 ![](img/08.score_and_replay/04.theme_preview.png)
 
 By default, a theme only has one property, the *Default Font*.
-
-See also:
-
-    You can add more properties to the theme resource to design complex user
-    interfaces, but that is beyond the scope of this series. To learn more about
-    creating and editing themes, see `doc_gui_skinning`.
 
 Click the *Default Font* property and create a new *DynamicFont*.
 
@@ -76,13 +69,13 @@ DynamicFont supports the following formats:
 - TrueType (`.ttf`)
 - OpenType (`.otf`)
 - Web Open Font Format 1 (`.woff`)
-- Web Open Font Format 2 (`.woff2`, since Pandemonium 3.5)
+- Web Open Font Format 2 (`.woff2`)
 
 In the *FileSystem* dock, expand the `fonts` directory and click and drag the
 `Montserrat-Medium.ttf` file we included in the project onto the *Font Data*.
 The text will reappear in the theme preview.
 
-The text is a bit small. Set the *Settings -> Size* to `22` pixels to increase
+The text is a bit small. Set the *Settings -&gt; Size* to `22` pixels to increase
 the text's size.
 
 ![](img/08.score_and_replay/07.font_size.png)
@@ -91,8 +84,6 @@ the text's size.
 
 Let's work on the score next. Attach a new script to the *ScoreLabel* and define
 the `score` variable.
-
-gdscript GDScript
 
 ```
 extends Label
@@ -118,8 +109,6 @@ dock.
 At the bottom of the `on_MobTimer_timeout()` function, add the following
 line.
 
-gdscript GDScript
-
 ```
 func _on_MobTimer_timeout():
     #...
@@ -135,8 +124,6 @@ callback function.
 
 There, we increment the score and update the displayed text.
 
-gdscript GDScript
-
 ```
 func _on_Mob_squashed():
     score += 1
@@ -148,23 +135,16 @@ placeholder `%s`. When using this feature, Pandemonium automatically converts va
 to text, which is convenient to output text in labels or using the `print()`
 function.
 
-See also:
-
-    You can learn more about string formatting here: `doc_gdscript_printf`.
-
 You can now play the game and squash a few enemies to see the score
 increase.
 
 ![](img/08.score_and_replay/09.score_in_game.png)
 
-Note:
-
-
-    In a complex game, you may want to completely separate your user interface
-    from the game world. In that case, you would not keep track of the score on
-    the label. Instead, you may want to store it in a separate, dedicated
-    object. But when prototyping or when your project is simple, it is fine to
-    keep your code simple. Programming is always a balancing act.
+Note: In a complex game, you may want to completely separate your user interface
+from the game world. In that case, you would not keep track of the score on
+the label. Instead, you may want to store it in a separate, dedicated
+object. But when prototyping or when your project is simple, it is fine to
+keep your code simple. Programming is always a balancing act.
 
 ## Retrying the game
 
@@ -194,7 +174,7 @@ This is because UI nodes (all the ones with a green icon) work with anchors and
 margins relative to their parent's bounding box. Here, the *UserInterface* node
 has a small size and the *Retry* one is limited by it.
 
-Select the *UserInterface* and apply *Layout -> Full Rect* to it as well. The
+Select the *UserInterface* and apply *Layout -&gt; Full Rect* to it as well. The
 *Retry* node should now span the whole viewport.
 
 Let's change its color so it darkens the game area. Select *Retry* and in the
@@ -209,7 +189,7 @@ retry."
 
 ![](img/08.score_and_replay/14.retry_node.png)
 
-To move it and anchor it in the center of the screen, apply *Layout -> Center*
+To move it and anchor it in the center of the screen, apply *Layout -&gt; Center*
 to it.
 
 ![](img/08.score_and_replay/15.layout_center.png)
@@ -222,8 +202,6 @@ dies and plays again.
 Open the script `Main.gd`. First, we want to hide the overlay at the start of
 the game. Add this line to the `ready()` function.
 
-gdscript GDScript
-
 ```
 func _ready():
     #...
@@ -231,8 +209,6 @@ func _ready():
 ```
 
 Then, when the player gets hit, we show the overlay.
-
-gdscript GDScript
 
 
 ```
@@ -248,8 +224,6 @@ input and restart the game if they press enter. To do this, we use the built-in
 If the player pressed the predefined `ui_accept` input action and *Retry* is
 visible, we reload the current scene.
 
-gdscript GDScript
-
 ```
 func _unhandled_input(event):
     if event.is_action_pressed("ui_accept") and $UserInterface/Retry.visible:
@@ -257,14 +231,13 @@ func _unhandled_input(event):
         get_tree().reload_current_scene()
 ```
 
-The function `get_tree()` gives us access to the global `SceneTree
-( SceneTree )` object, which allows us to reload and restart the current
-scene.
+The function `get_tree()` gives us access to the global `SceneTree`
+object, which allows us to reload and restart the current scene.
 
 ## Adding music
 
 To add music that plays continuously in the background, we're going to use
-another feature in Pandemonium: `autoloads ( doc_singletons_autoload )`.
+another feature in Pandemonium: autoloads.
 
 To play audio, all you need to do is add an *AudioStreamPlayer* node to your
 scene and attach an audio file to it. When you start the scene, it can play
@@ -284,8 +257,8 @@ Click the *Other Node* button to create an *AudioStreamPlayer* and rename it to
 
 ![](img/08.score_and_replay/17.music_player_node.png)
 
-We included a music soundtrack in the `art/` directory, `House In a Forest
-Loop.ogg`. Click and drag it onto the *Stream* property in the *Inspector*.
+We included a music soundtrack in the `art/` directory, `House In a Forest Loop.ogg`.
+Click and drag it onto the *Stream* property in the *Inspector*.
 Also, turn on *Autoplay* so the music plays automatically at the start of the
 game.
 
@@ -293,7 +266,7 @@ game.
 
 Save the scene as `MusicPlayer.tscn`.
 
-We have to register it as an autoload. Head to the *Project -> Project
+We have to register it as an autoload. Head to the *Project -&gt; Project
 Settings…* menu and click on the *Autoload* tab.
 
 In the *Path* field, you want to enter the path to your scene. Click the folder
@@ -324,8 +297,6 @@ And that does it for this lesson. In the next part, we'll add an animation to
 make the game both look and feel much nicer.
 
 Here is the complete `Main.gd` script for reference.
-
-gdscript GDScript
 
 ```
 extends Node
@@ -360,4 +331,5 @@ func _on_Player_hit():
     $MobTimer.stop()
     $UserInterface/Retry.show()
 ```
+
 

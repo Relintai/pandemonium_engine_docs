@@ -1,5 +1,4 @@
 
-
 # Spawning monsters
 
 In this part, we're going to spawn monsters along a path randomly. By the end,
@@ -13,11 +12,11 @@ Before drawing the path, we're going to change the game resolution. Our game has
 a default window size of `1024x600`. We're going to set it to `720x540`, a
 nice little box.
 
-Go to *Project -> Project Settings*.
+Go to *Project -&gt; Project Settings*.
 
 ![](img/05.spawning_mobs/02.project_settings.png)
 
-In the left menu, navigate down to *Display -> Window*. On the right, set the
+In the left menu, navigate down to *Display -&gt; Window*. On the right, set the
 *Width* to `720` and the *Height* to `540`.
 
 ![](img/05.spawning_mobs/03.window_settings.png)
@@ -33,7 +32,7 @@ a path, we won't see it from the camera preview.
 
 To find the view's limits, we can use some placeholder meshes. Your viewport
 should still be split into two parts, with the camera preview at the bottom. If
-that isn't the case, press :kbd:`Ctrl + 2` (:kbd:`Cmd + 2` on macOS) to split the view into two.
+that isn't the case, press `Ctrl + 2` (`Cmd + 2` on macOS) to split the view into two.
 Select the *Camera* node and click the *Preview* checkbox in the bottom
 viewport.
 
@@ -73,11 +72,11 @@ corner.
 ![](img/05.spawning_mobs/10.place_first_cylinder.png)
 
 We're going to create copies of the mesh and place them around the game area.
-Press :kbd:`Ctrl + D` (:kbd:`Cmd + D` on macOS) to duplicate the node. You can also right-click
+Press `Ctrl + D` (`Cmd + D` on macOS) to duplicate the node. You can also right-click
 the node in the *Scene* dock and select *Duplicate*. Move the copy down along
 the blue Z axis until it's right outside the camera's preview.
 
-Select both cylinders by pressing the :kbd:`Shift` key and clicking on the unselected
+Select both cylinders by pressing the `Shift` key and clicking on the unselected
 one and duplicate them.
 
 ![](img/05.spawning_mobs/11.both_cylinders_selected.png)
@@ -123,8 +122,7 @@ the *Add Point* tool, the icon with the green "+" sign.
 
 ![](img/05.spawning_mobs/17.points_options.png)
 
-Note:
- You can hover any icon to see a tooltip describing the tool.
+Note: You can hover any icon to see a tooltip describing the tool.
 
 Click in the center of each cylinder to create a point. Then, click the *Close
 Curve* icon in the toolbar to close the path. If any point is a bit off, you can
@@ -154,8 +152,6 @@ or any other monster to it.
 Then, as we're going to spawn the monsters procedurally, we want to randomize
 numbers every time we play the game. If we don't do that, the monsters will
 always spawn following the same sequence.
-
-gdscript GDScript
 
 ```
 extends Node
@@ -211,7 +207,6 @@ Let's code the mob spawning logic. We're going to:
    the player's position.
 5. Add the mob as a child of the *Main* node.
 
-gdscript GDScript
 ```
 func _on_MobTimer_timeout():
     # Create a new instance of the Mob scene.
@@ -234,8 +229,6 @@ what the *PathFollow* node's `unit_offset` expects.
 
 Here is the complete `Main.gd` script so far, for reference.
 
-gdscript GDScript
-
 ```
 extends Node
 
@@ -257,7 +250,7 @@ func _on_MobTimer_timeout():
     add_child(mob)
 ```
 
-You can test the scene by pressing :kbd:`F6`. You should see the monsters spawn and
+You can test the scene by pressing `F6`. You should see the monsters spawn and
 move in a straight line.
 
 ![](img/05.spawning_mobs/25.spawn_result.png)

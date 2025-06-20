@@ -15,8 +15,6 @@ Let's start with the class's properties. We're going to define a movement speed,
 a fall acceleration representing gravity, and a velocity we'll use to move the
 character.
 
-gdscript GDScript
-
 ```
 extends KinematicBody
 
@@ -33,16 +31,12 @@ These are common properties for a moving body. The `velocity` is a 3D vector
 combining a speed with a direction. Here, we define it as a property because
 we want to update and reuse its value across frames.
 
-Note:
-
-    The values are quite different from 2D code because distances are in meters.
-    While in 2D, a thousand units (pixels) may only correspond to half of your
-    screen's width, in 3D, it's a kilometer.
+Note: The values are quite different from 2D code because distances are in meters.
+While in 2D, a thousand units (pixels) may only correspond to half of your
+screen's width, in 3D, it's a kilometer.
 
 Let's code the movement now. We start by calculating the input direction vector
 using the global `Input` object, in `physics_process()`.
-
-gdscript GDScript
 
 ```
 func _physics_process(delta):
@@ -67,11 +61,6 @@ virtual function. Like `process()`, it allows you to update the node every
 frame, but it's designed specifically for physics-related code like moving a
 kinematic or rigid body.
 
-See also:
-
-    To learn more about the difference between `process()` and
-    `physics_process()`, see `doc_idle_and_physics_processing`.
-
 We start by initializing a `direction` variable to `Vector3.ZERO`. Then, we
 check if the player is pressing one or more of the `move_*` inputs and update
 the vector's `x` and `z` components accordingly. These correspond to the
@@ -83,8 +72,6 @@ In case the player presses, say, both W and D simultaneously, the vector will
 have a length of about `1.4`. But if they press a single key, it will have a
 length of `1`. We want the vector's length to be consistent. To do so, we can
 call its `normalize()` method.
-
-gdscript GDScript
 
 ```
 #func _physics_process(delta):
@@ -102,11 +89,9 @@ In this case, we also get the *Pivot* node and call its `look_at()` method.
 This method takes a position in space to look at in global coordinates and the
 up direction. In this case, we can use the `Vector3.UP` constant.
 
-Note:
-
-    A node's local coordinates, like `translation`, are relative to their
-    parent. Global coordinates are relative to the world's main axes you can see
-    in the viewport instead.
+Note: A node's local coordinates, like `translation`, are relative to their
+parent. Global coordinates are relative to the world's main axes you can see
+in the viewport instead.
 
 In 3D, the property that contains a node's position is `translation`. By
 adding the `direction` to it, we get a position to look at that's one meter
@@ -115,8 +100,6 @@ away from the *Player*.
 Then, we update the velocity. We have to calculate the ground velocity and the
 fall speed separately. Be sure to go back one tab so the lines are inside the
 `physics_process()` function but outside the condition we just wrote.
-
-gdscript GDScript
 
 ```
 func _physics_process(delta):
@@ -160,8 +143,6 @@ big the character would move through the ground slab after a while.
 And that's all the code you need to move the character on the floor.
 
 Here is the complete `Player.gd` code for reference.
-
-gdscript GDScript
 
 ```
 extends KinematicBody
@@ -237,7 +218,7 @@ Let's first split the 3D view to be able to freely navigate the scene and see
 what the camera sees.
 
 In the toolbar right above the viewport, click on *View*, then *2 Viewports*.
-You can also press :kbd:`Ctrl + 2` (:kbd:`Cmd + 2` on macOS).
+You can also press `Ctrl + 2` (`Cmd + 2` on macOS).
 
 ![](img/03.player_movement_code/06.two_viewports.png)
 
@@ -257,7 +238,7 @@ if it was attached to a crane.
 
 ![](img/03.player_movement_code/09.camera_rotated.png)
 
-You can run the scene by pressing :kbd:`F6` and press the arrow keys to move the
+You can run the scene by pressing `F6` and press the arrow keys to move the
 character.
 
 ![](img/03.player_movement_code/10.camera_perspective.png)
@@ -275,3 +256,4 @@ the ground should fill the background.
 
 With that, we have both player movement and the view in place. Next, we will
 work on the monsters.
+

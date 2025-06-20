@@ -18,7 +18,8 @@ to the Camera2D node and code the shake.
 ## Available scripting languages
 
 Pandemonium offers: GDScript, and via its GDNative technology, C and C++, and python.
-C# is also available via a separate module, but it have to be compiled separately.
+
+C# is also available via an engine module, but it have to be compiled separately.
 
 You can use multiple languages in a single project.
 

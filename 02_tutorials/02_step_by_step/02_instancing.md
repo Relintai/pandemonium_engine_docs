@@ -38,7 +38,7 @@ scene.
 
 Let's use instancing in practice to see how it works in Pandemonium. We invite
 you to download the ball's sample project we prepared for you:
-[instancing](files/instancing.zip).
+[instancing.zip](files/instancing.zip).
 
 Extract the archive on your computer. Then, open Pandemonium, and in the project
 manager, click the Import button to import the project.

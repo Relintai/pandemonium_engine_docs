@@ -1,5 +1,4 @@
 
-
 # Interpolation
 
 Interpolation is a very basic operation in graphics programming. It's good to become familiar with it in order to expand your horizons as a graphics developer.
@@ -33,8 +32,6 @@ For cubic interpolation, there are also `Vector2.cubic_interpolate()` style inte
 
 Here is simple pseudo-code for going from point A to B using interpolation:
 
-gdscript GDScript
-
 ```
 var t = 0.0
 
@@ -59,8 +56,6 @@ Here is an example of transforming a monkey from Position1 to Position2:
 
 Using the following pseudocode:
 
-gdscript GDScript
-
 ```
 var t = 0.0
 
@@ -79,8 +74,6 @@ And again, it will produce the following motion:
 
 Interpolation can be used to smooth movement, rotation, etc. Here is an example of a circle following the mouse using smoothed motion:
 
-gdscript GDScript
-
 ```
 const FOLLOW_SPEED = 4.0
 
@@ -95,3 +88,4 @@ Here is how it looks:
 ![](img/interpolation_follow.gif)
 
 This useful for smoothing camera movement, allies following you (ensuring they stay within a certain range), and many other common game patterns.
+

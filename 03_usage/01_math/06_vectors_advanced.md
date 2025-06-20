@@ -1,5 +1,4 @@
 
-
 # Advanced vector math
 
 ### Planes
@@ -33,8 +32,6 @@ Now that it's clear what a plane is, let's go back to the dot product.
 The dot product between a **unit vector** and any **point in space**
 (yes, this time we do dot product between vector and position), returns
 the **distance from the point to the plane**:
-
-gdscript GDScript
 
 ```
 var distance = normal.dot(point)
@@ -72,8 +69,6 @@ for both. It's the same as before, but D is the distance from the origin
 to the plane, travelling in N direction. As an example, imagine you want
 to reach a point in the plane, you will just do:
 
-gdscript GDScript
-
 ```
 var point_in_plane = N*D
 ```
@@ -83,15 +78,11 @@ plane. This math might seem confusing, but it's actually much simpler
 than it seems. If we want to tell, again, the distance from the point to
 the plane, we do the same but adjusting for distance:
 
-gdscript GDScript
-
 ```
 var distance = N.dot(point) - D
 ```
 
 The same thing, using a built-in function:
-
-gdscript GDScript
 
 ```
 var distance = plane.distance_to(point)
@@ -103,8 +94,6 @@ Flipping the polarity of the plane can be done by negating both
 N and D. This will result in a plane in the same position, but with
 inverted negative and positive half spaces:
 
-gdscript GDScript
-
 ```
 N = -N
 D = -D
@@ -112,8 +101,6 @@ D = -D
 
 Of course, Pandemonium also implements this operator in `Plane`,
 so doing:
-
-gdscript GDScript
 
 ```
 var inverted_plane = -plane
@@ -136,8 +123,6 @@ In the case of a normal and a point, most of the work is done, as the
 normal is already computed, so just calculate D from the dot product of
 the normal and the point.
 
-gdscript GDScript
-
 ```
 var N = normal
 var D = normal.dot(point)
@@ -148,8 +133,6 @@ them, sharing the same space but with normal pointing to the opposite
 directions. To compute the normal from the two points, the direction
 vector must be obtained first, and then it needs to be rotated 90°
 degrees to either side:
-
-gdscript GDScript
 
 ```
 # Calculate vector from `a` to `b`.
@@ -162,8 +145,6 @@ var normal = Vector2(dvec.y, -dvec.x)
 
 The rest is the same as the previous example, either point_a or
 point_b will work since they are in the same plane:
-
-gdscript GDScript
 
 ```
 var N = normal
@@ -178,7 +159,7 @@ further down.
 ## Some examples of planes
 
 Here is a simple example of what planes are useful for. Imagine you have
-a `convex ( https://www.mathsisfun.com/definitions/convex.html )`
+a [convex](https://www.mathsisfun.com/definitions/convex.html)
 polygon. For example, a rectangle, a trapezoid, a triangle, or just any
 polygon where no faces bend inwards.
 
@@ -193,8 +174,6 @@ can't, then the point is inside.
 ![](img/tutovec13.png)
 
 Code should be something like this:
-
-gdscript GDScript
 
 ```
 var inside = true
@@ -220,8 +199,6 @@ the planes of B against the points of A:
 ![](img/tutovec14.png)
 
 Code should be something like this:
-
-gdscript GDScript
 
 ```
 var overlapping = true
@@ -298,8 +275,6 @@ edges of polygon B
 
 So the final algorithm is something like:
 
-gdscript GDScript
-
 ```
 var overlapping = true
 
@@ -372,10 +347,7 @@ if (overlapping):
 
 ### More information
 
-For more information on using vector math in Pandemonium, see the following article:
-
-- `doc_matrices_and_transforms`
-
 If you would like additional explanation, you should check out
 3Blue1Brown's excellent video series "Essence of Linear Algebra":
 https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab
+

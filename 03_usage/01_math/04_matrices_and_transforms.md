@@ -1,11 +1,10 @@
 
-
 # Matrices and transforms
 
 ## Introduction
 
 Before reading this tutorial, we recommend that you thoroughly read
-and understand the `doc_vector_math` tutorial, as this tutorial
+and understand the [Vector math](01_vector_math.md) tutorial, as this tutorial
 requires a knowledge of vectors.
 
 This tutorial is about *transformations* and how we represent them
@@ -16,17 +15,15 @@ and scale, so we will focus on how to represent those with matrices.
 Most of this guide focuses on 2D, using `Transform2D` and
 `Vector2`, but the way things work in 3D is very similar.
 
-Note:
- As mentioned in the previous tutorial, it is important to
-          remember that in Pandemonium, the Y axis points *down* in 2D.
-          This is the opposite of how most schools teach linear
-          algebra, with the Y axis pointing up.
+Note: As mentioned in the previous tutorial, it is important to
+remember that in Pandemonium, the Y axis points *down* in 2D.
+This is the opposite of how most schools teach linear
+algebra, with the Y axis pointing up.
 
-Note:
- The convention is that the X axis is red, the Y axis is
-          green, and the Z axis is blue. This tutorial is color-coded
-          to match these conventions, but we will also represent
-          the origin vector with a blue color.
+Note: The convention is that the X axis is red, the Y axis is
+green, and the Z axis is blue. This tutorial is color-coded
+to match these conventions, but we will also represent
+the origin vector with a blue color.
 
 ### Matrix components and the Identity matrix
 
@@ -70,8 +67,6 @@ becomes 2, and 0 times 2 becomes 0, so we end up with this:
 
 To do this in code, we can simply multiply each of the vectors:
 
-gdscript GDScript
-
 ```
 var t = Transform2D()
 # Scale
@@ -87,9 +82,7 @@ a transformation matrix.
 To calculate the object's scale from an existing transformation
 matrix, you can use `length()` on each of the column vectors.
 
-Note:
- In actual projects, you can use the `scaled()`
-          method to perform scaling.
+Note: In actual projects, you can use the `scaled()` method to perform scaling.
 
 ### Rotating the transformation matrix
 
@@ -127,18 +120,16 @@ hardest thing you need to know.
 
 ![](img/matrices_and_transforms/rotate2.png)
 
-Note:
- Pandemonium represents all rotations with radians, not degrees.
-          A full turn is `TAU` or `PI*2` radians, and a quarter
-          turn of 90 degrees is `TAU/4` or `PI/2` radians. Working
-          with `TAU` usually results in more readable code.
+Note: Pandemonium represents all rotations with radians, not degrees.
+A full turn is `TAU` or `PI*2` radians, and a quarter
+turn of 90 degrees is `TAU/4` or `PI/2` radians. Working
+with `TAU` usually results in more readable code.
 
-Note:
- Fun fact: In addition to Y being *down* in Pandemonium, rotation
-          is represented clockwise. This means that all the math and
-          trig functions behave the same as a Y-is-up CCW system,
-          since these differences "cancel out". You can think of
-          rotations in both systems being "from X to Y".
+Fun fact: In addition to Y being *down* in Pandemonium, rotation
+is represented clockwise. This means that all the math and
+trig functions behave the same as a Y-is-up CCW system,
+since these differences "cancel out". You can think of
+rotations in both systems being "from X to Y".
 
 In order to perform a rotation of 0.5 radians (about 28.65 degrees),
 we simply plug in a value of 0.5 to the formula above and evaluate
@@ -147,8 +138,6 @@ to find what the actual values should be:
 ![](img/matrices_and_transforms/rotate3.png)
 
 Here's how that would be done in code (place the script on a Node2D):
-
-gdscript GDScript
 
 ```
 var rot = 0.5 # The rotation to apply.
@@ -163,9 +152,7 @@ transform = t # Change the node's transform to what we just calculated.
 To calculate the object's rotation from an existing transformation
 matrix, you can use `atan2(t.x.y, t.x.x)`, where t is the Transform2D.
 
-Note:
- In actual projects, you can use the `rotated()`
-          method to perform rotations.
+Note: In actual projects, you can use the `rotated()` method to perform rotations.
 
 ### Basis of the transformation matrix
 
@@ -212,9 +199,8 @@ method will translate the object *relative to its own rotation*.
 For example, an object rotated 90 degrees clockwise will move to
 the right when `translated()` with `Vector2.UP`.
 
-Note:
- Pandemonium's 2D uses coordinates based on pixels, so in actual
-          projects you will want to translate by hundreds of units.
+Note: Pandemonium's 2D uses coordinates based on pixels, so in actual
+projects you will want to translate by hundreds of units.
 
 ### Putting it all together
 
@@ -227,8 +213,6 @@ I've posted a screenshot, and the code to reproduce it, but I encourage
 you to try and reproduce the screenshot without looking at the code!
 
 ![](img/matrices_and_transforms/putting-all-together.png)
-
-gdscript GDScript
 
 ```
 var t = Transform2D()
@@ -248,11 +232,10 @@ transform = t # Change the node's transform to what we just calculated.
 
 ### Shearing the transformation matrix (advanced)
 
-Note:
- If you are only looking for how to *use* transformation matrices,
-          feel free to skip this section of the tutorial. This section
-          explores an uncommonly used aspect of transformation matrices
-          for the purpose of building an understanding of them.
+Note: If you are only looking for how to *use* transformation matrices,
+feel free to skip this section of the tutorial. This section
+explores an uncommonly used aspect of transformation matrices
+for the purpose of building an understanding of them.
 
 You may have noticed that a transform has more degrees of freedom than
 the combination of the above actions. The basis of a 2D transformation
@@ -280,8 +263,6 @@ As an example, let's set Y to (1, 1):
 
 ![](img/matrices_and_transforms/shear.png)
 
-gdscript GDScript
-
 ```
 var t = Transform2D()
 # Shear by setting Y to (1, 1)
@@ -289,9 +270,8 @@ t.y = Vector2.ONE
 transform = t # Change the node's transform to what we just calculated.
 ```
 
-Note:
- You can't set the raw values of a Transform2D in the editor,
-          so you *must* use code if you want to shear the object.
+Note: You can't set the raw values of a Transform2D in the editor,
+so you *must* use code if you want to shear the object.
 
 Due to the vectors no longer being perpendicular, the object has been
 sheared. The bottom-center of the grid, which is (0, 1) relative
@@ -318,10 +298,9 @@ Hopefully you now fully understand the how a transformation matrix affects
 the object, and the relationship between the basis vectors and how the
 object's "UV" or "intra-coordinates" have their world position changed.
 
-Note:
- In Pandemonium, all transform math is done relative to the parent node.
-          When we refer to "world position", that would be relative to the
-          node's parent instead, if the node had a parent.
+Note: In Pandemonium, all transform math is done relative to the parent node.
+When we refer to "world position", that would be relative to the
+node's parent instead, if the node had a parent.
 
 If you would like additional explanation, you should check out
 3Blue1Brown's excellent video about linear transformations:
@@ -347,8 +326,6 @@ have a world position and want to know where it is relative to the player.
 We can find what a vector relative to the player would be defined in
 world space as using the "xform" method:
 
-gdscript GDScript
-
 ```
 # World space vector 100 units below the player.
 print(transform.xform(Vector2(0, 100)))
@@ -357,23 +334,20 @@ print(transform.xform(Vector2(0, 100)))
 And we can use the "xform_inv" method to find a what world space position
 would be if it was instead defined relative to the player:
 
-gdscript GDScript
-
 ```
 # Where is (0, 100) relative to the player?
 print(transform.xform_inv(Vector2(0, 100)))
 ```
 
-Note:
- If you know in advance that the transform is positioned at
-          (0, 0), you can use the "basis_xform" or "basis_xform_inv"
-          methods instead, which skip dealing with translation.
+Note: If you know in advance that the transform is positioned at
+(0, 0), you can use the "basis_xform" or "basis_xform_inv"
+methods instead, which skip dealing with translation.
 
 ### Moving an object relative to itself
 
 A common operation, especially in 3D games, is to move an object relative
 to itself. For example, in first-person shooter games, you would want the
-character to move forward (-Z axis) when you press :kbd:`W`.
+character to move forward (-Z axis) when you press `W`.
 
 Since the basis vectors are the orientation relative to the parent,
 and the origin vector is the position relative to the parent, we can simply
@@ -381,17 +355,14 @@ add multiples of the basis vectors to move an object relative to itself.
 
 This code moves an object 100 units to its own right:
 
-gdscript GDScript
-
 ```
 transform.origin += transform.x * 100
 ```
 
 For moving in 3D, you would need to replace "x" with "basis.x".
 
-Note:
- In actual projects, you can use `translate_object_local` in 3D
-          or `move_local_x` and `move_local_y` in 2D to do this.
+Note: In actual projects, you can use `translate_object_local` in 3D
+or `move_local_x` and `move_local_y` in 2D to do this.
 
 ### Applying transforms onto transforms
 
@@ -423,8 +394,6 @@ basis vectors.
 To calculate a child transform's world space transform manually, this is
 the code we would use:
 
-gdscript GDScript
-
 ```
 # Set up transforms just like in the image, except make positions be 100 times bigger.
 var parent = Transform2D(Vector2(2, 0), Vector2(0, 1), Vector2(100, 200))
@@ -445,8 +414,6 @@ transform = Transform2D(basis_x, basis_y, origin)
 In actual projects, we can find the world transform of the child by
 applying one transform onto another using the `*` operator:
 
-gdscript GDScript
-
 ```
 # Set up transforms just like in the image, except make positions be 100 times bigger.
 var parent = Transform2D(Vector2(2, 0), Vector2(0, 1), Vector2(100, 200))
@@ -456,8 +423,7 @@ var child = Transform2D(Vector2(0.5, 0), Vector2(0, 0.5), Vector2(100, 100))
 transform = parent * child
 ```
 
-Note:
- When multiplying matrices, order matters! Don't mix them up.
+Note: When multiplying matrices, order matters! Don't mix them up.
 
 Lastly, applying the identity transform will always do nothing.
 
@@ -474,8 +440,6 @@ easier to just provide a few examples.
 Multiplying an inverse transform by the normal transform undoes all
 transformations:
 
-gdscript GDScript
-
 ```
 var ti = transform.affine_inverse()
 var t = ti * transform
@@ -484,8 +448,6 @@ var t = ti * transform
 
 Transforming a position by a transform and its inverse results in the
 same position (same for "xform_inv"):
-
-gdscript GDScript
 
 ```
 var ti = transform.affine_inverse()
@@ -516,18 +478,7 @@ If you would like, it's a good idea to play around with transforms
 to get an understanding of how they work. Pandemonium allows you to edit
 3D transform matrices directly from the inspector. You can download
 this project which has colored lines and cubes to help visualize the
-`Basis` vectors and the origin in both 2D and 3D:
-https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/misc/matrix_transform
-
-Note:
- Spatial's "Matrix" section in Pandemonium 3.2's inspector
-          displays the matrix as transposed, with the columns
-          horizontal and the rows vertical. This may be changed
-          to be less confusing in a future release of Pandemonium.
-
-Note:
- You cannot edit Node2D's transform matrix directly in Pandemonium 3.2's
-          inspector. This may be changed in a future release of Pandemonium.
+`Basis` vectors and the origin in both 2D and 3D: [Here](../../07_demo_projects/misc/matrix_transform/).
 
 If you would like additional explanation, you should check out
 3Blue1Brown's excellent video about 3D linear transformations:
@@ -558,3 +509,4 @@ https://www.youtube.com/watch?v=mvmuCPvRoWQ
 https://www.youtube.com/watch?v=d4EgbgTm0Bg
 
 https://eater.net/quaternions
+

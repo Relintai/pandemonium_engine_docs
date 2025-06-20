@@ -1,5 +1,4 @@
 
-
 # Vector math
 
 ### Introduction
@@ -10,11 +9,10 @@ their uses. Vectors have many applications in both 2D and 3D development
 and Pandemonium uses them extensively. Developing a good understanding of vector
 math is essential to becoming a strong game developer.
 
-Note:
- This tutorial is **not** a formal textbook on linear algebra. We
-          will only be looking at how it is applied to game development.
-          For a broader look at the mathematics,
-          see https://www.khanacademy.org/math/linear-algebra
+Note: This tutorial is **not** a formal textbook on linear algebra. We
+will only be looking at how it is applied to game development.
+For a broader look at the mathematics,
+see https://www.khanacademy.org/math/linear-algebra
 
 ### Coordinate systems (2D)
 
@@ -24,11 +22,10 @@ as a pair of values such as `(4, 3)`.
 
 ![](img/vector_axis1.png)
 
-Note:
- If you're new to computer graphics, it might seem odd that the
-          positive `y` axis points **downwards** instead of upwards,
-          as you probably learned in math class. However, this is common
-          in most computer graphics applications.
+Note: If you're new to computer graphics, it might seem odd that the
+positive `y` axis points **downwards** instead of upwards,
+as you probably learned in math class. However, this is common
+in most computer graphics applications.
 
 Any position in the 2D plane can be identified by a pair of numbers in this
 way. However, we can also think of the position `(4, 3)` as an **offset**
@@ -61,8 +58,6 @@ coordinate notation. For example, in Pandemonium, the origin is the top-left
 corner of the screen, so to place a 2D node named `Node2D` 400 pixels to the right and
 300 pixels down, use the following code:
 
-gdscript GDScript
-
 ```
 $Node2D.position = Vector2(400, 300)
 ```
@@ -74,8 +69,6 @@ mathematical rules discussed in this article apply to both types.
 ## Member access
 
 The individual components of the vector can be accessed directly by name.
-
-gdscript GDScript
 
 ```
 # create a vector with coordinates (2, 5)
@@ -90,8 +83,6 @@ b.y = 1
 
 When adding or subtracting two vectors, the corresponding components are added:
 
-gdscript GDScript
-
 ```
 var c = a + b  # (2, 5) + (3, 1) = (5, 6)
 ```
@@ -105,13 +96,10 @@ Note that adding `a + b` gives the same result as `b + a`.
 
 ## Scalar multiplication
 
-Note:
- Vectors represent both direction and magnitude. A value
-          representing only magnitude is called a **scalar**.
+Note: Vectors represent both direction and magnitude. A value
+representing only magnitude is called a **scalar**.
 
 A vector can be multiplied by a **scalar**:
-
-gdscript GDScript
 
 ```
 var c = a * 2  # (2, 5) * 2 = (4, 10)
@@ -119,10 +107,8 @@ var d = b / 3  # (3, 6) / 3 = (1, 2)
 ```
 
 ![](img/vector_mult1.png)
-
-Note:
- Multiplying a vector by a scalar does not change its direction,
-          only its magnitude. This is how you **scale** a vector.
+Note: Multiplying a vector by a scalar does not change its direction,
+only its magnitude. This is how you **scale** a vector.
 
 ### Practical applications
 
@@ -138,9 +124,8 @@ the velocity to the current position.
 
 ![](img/vector_movement1.png)
 
-Tip:
- Velocity measures the **change** in position per unit of time. The
-         new position is found by adding velocity to the previous position.
+Tip: Velocity measures the **change** in position per unit of time. The
+new position is found by adding velocity to the previous position.
 
 ## Pointing toward a target
 
@@ -150,8 +135,7 @@ vector pointing from the tank to the robot.
 
 ![](img/vector_subtract2.png)
 
-Tip:
- To find a vector pointing from `A` to `B` use `B - A`.
+Tip: To find a vector pointing from `A` to `B` use `B - A`.
 
 ### Unit vectors
 
@@ -166,17 +150,13 @@ preserving its direction. This is done by dividing each of its components
 by its magnitude. Because this is such a common operation,
 `Vector2` and `Vector3` provide a method for normalizing:
 
-gdscript GDScript
-
 ```
 a = a.normalized()
 ```
 
-Warning:
-
- Because normalization involves dividing by the vector's length,
-             you cannot normalize a vector of length `0`. Attempting to
-             do so will result in an error.
+Warning: Because normalization involves dividing by the vector's length,
+you cannot normalize a vector of length `0`. Attempting to
+do so will result in an error.
 
 ## Reflection
 
@@ -197,8 +177,6 @@ Pandemonium, the `Vector2` class has a `bounce()` method
 to handle this. Here is a GDScript example of the diagram above using a
 `KinematicBody2D`:
 
-
-gdscript GDScript
 
 ```
 # object "collision" contains information about the collision
@@ -226,8 +204,6 @@ and
 
 However, in most cases it is easiest to use the built-in method. Note that
 the order of the two vectors does not matter:
-
-gdscript GDScript
 
 ```
 var c = a.dot(b)
@@ -261,8 +237,6 @@ the player.
 
 In code it would look like this:
 
-gdscript GDScript
-
 ```
 var AP = A.direction_to(P)
 if AP.dot(fA) > 0:
@@ -282,8 +256,6 @@ If two vectors are parallel, the result of their cross product will be a null ve
 
 The cross product is calculated like this:
 
-gdscript GDScript
-
 ```
 var c = Vector3()
 c.x = (a.y * b.z) - (a.z * b.y)
@@ -293,16 +265,13 @@ c.z = (a.x * b.y) - (a.y * b.x)
 
 With Pandemonium, you can use the built-in method:
 
-gdscript GDScript
-
 ```
 var c = a.cross(b)
 ```
 
-Note:
- In the cross product, order matters. `a.cross(b)` does not
-          give the same result as `b.cross(a)`. The resulting vectors
-          point in **opposite** directions.
+Note: In the cross product, order matters. `a.cross(b)` does not
+give the same result as `b.cross(a)`. The resulting vectors
+point in **opposite** directions.
 
 ## Calculating normals
 
@@ -312,8 +281,6 @@ subtraction to find two edges `AB` and `AC`. Using the cross product,
 `AB x AC` produces a vector perpendicular to both: the surface normal.
 
 Here is a function to calculate a triangle's normal:
-
-gdscript GDScript
 
 ```
 func get_triangle_normal(a, b, c):
@@ -333,9 +300,3 @@ calculating the cross product of the current facing direction and the
 target direction. The resulting perpendicular vector is the axis of
 rotation.
 
-### More information
-
-For more information on using vector math in Pandemonium, see the following articles:
-
-- `doc_vectors_advanced`
-- `doc_matrices_and_transforms`

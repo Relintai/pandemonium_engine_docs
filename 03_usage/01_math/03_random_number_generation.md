@@ -1,5 +1,4 @@
 
-
 # Random number generation
 
 Many games rely on randomness to implement core game mechanics. This page
@@ -10,11 +9,8 @@ After giving you a brief overview of useful functions that generate random
 numbers, you will learn how to get random elements from arrays, dictionaries,
 and how to use a noise generator in GDScript.
 
-Note:
-
-    Computers cannot generate "true" random numbers. Instead, they rely on
-    `pseudorandom number generators
-    ( https://en.wikipedia.org/wiki/Pseudorandom_number_generator )` (PRNGs).
+Note: Computers cannot generate "true" random numbers. Instead, they rely on
+[pseudorandom number generators](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) (PRNGs).
 
 ## Global scope versus RandomNumberGenerator class
 
@@ -23,36 +19,28 @@ using the `RandomNumberGenerator` class.
 
 Global scope methods are easier to set up, but they don't offer as much control.
 
-RandomNumberGenerator requires more code to use, but exposes many methods not
-found in global scope such as `randi_range()
-( RandomNumberGenerator_method_randi_range )` and `randfn()
-( RandomNumberGenerator_method_randfn )`. On top of that, it allows creating
-multiple instances each with their own seed.
+`RandomNumberGenerator` requires more code to use, but exposes many methods not
+found in global scope such as `randi_range()` and `randfn()`.
+On top of that, it allows creating multiple instances each with their own seed.
 
 This tutorial uses global scope methods, except when the method only exists in
-the RandomNumberGenerator class.
+the `RandomNumberGenerator` class.
 
 ## The randomize() method
 
-In global scope, you can find a `randomize()
-( @GDScript_method_randomize )` method. **This method should be called only
-once when your project starts to initialize the random seed.** Calling it
-multiple times is unnecessary and may impact performance negatively.
+In global scope, you can find a `randomize()` method.
+**This method should be called only once when your project starts to initialize the random seed.**
+Calling it multiple times is unnecessary and may impact performance negatively.
 
 Putting it in your main scene script's `ready()` method is a good choice:
-
-gdscript GDScript
 
 ```
 func _ready():
     randomize()
 ```
 
-You can also set a fixed random seed instead using `seed()
-( @GDScript_method_seed )`. Doing so will give you *deterministic* results
-across runs:
-
-gdscript GDScript
+You can also set a fixed random seed instead using `seed()`.
+Doing so will give you *deterministic* results across runs:
 
 ```
 func _ready():
@@ -61,10 +49,8 @@ func _ready():
     seed("Hello world".hash())
 ```
 
-When using the RandomNumberGenerator class, you should call `randomize()` on
+When using the `RandomNumberGenerator` class, you should call `randomize()` on
 the instance since it has its own seed:
-
-gdscript GDScript
 
 ```
 var random = RandomNumberGenerator.new()
@@ -78,11 +64,9 @@ Let's look at some of the most commonly used functions and methods to generate
 random numbers in Pandemonium.
 
 The function `randi()` returns a random
-number between 0 and 2^32-1. Since the maximum value is huge, you most likely
+number between `0` and `2^32-1`. Since the maximum value is huge, you most likely
 want to use the modulo operator (`%`) to bound the result between 0 and the
 denominator:
-
-gdscript GDScript
 
 ```
 # Prints a random integer between 0 and 49.
@@ -95,16 +79,13 @@ print(randi() % 51 + 10)
 
 `randf()` returns a random floating-point
 number between 0 and 1. This is useful to implement a
-`doc_random_number_generation_weighted_random_probability` system, among
+random number generation weighted random probability system, among
 other things.
 
 `randfn()` returns a random
-floating-point number following a `normal distribution
-( https://en.wikipedia.org/wiki/Normal_distribution )`. This means the returned
-value is more likely to be around the mean (0.0 by default),
+floating-point number following a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution).
+This means the returned value is more likely to be around the mean (0.0 by default),
 varying by the deviation (1.0 by default):
-
-gdscript GDScript
 
 ```
 # Prints a random floating-point number from a normal distribution with a mean 0.0 and deviation 1.0.
@@ -117,18 +98,13 @@ print(random.randfn())
 `from` and `to`, and returns a random floating-point number between `from`
 and `to`:
 
-gdscript GDScript
-
 ```
 # Prints a random floating-point number between -4 and 6.5.
 print(rand_range(-4, 6.5))
 ```
 
-`RandomNumberGenerator.randi_range()
-( RandomNumberGenerator_method_randi_range )` takes two arguments `from`
+`RandomNumberGenerator.randi_range()` takes two arguments `from`
 and `to`, and returns a random integer between `from` and `to`:
-
-gdscript GDScript
 
 ```
 # Prints a random integer between -10 and 10.
@@ -140,8 +116,6 @@ print(random.randi_range(-10, 10))
 ## Get a random array element
 
 We can use random integer generation to get a random element from an array:
-
-gdscript GDScript
 
 ```
 var _fruits = ["apple", "orange", "pear", "banana"]
@@ -163,8 +137,6 @@ func get_fruit():
 
 To prevent the same fruit from being picked more than once in a row, we can add
 more logic to this method:
-
-gdscript GDScript
 
 ```
 var _fruits = ["apple", "orange", "pear", "banana"]
@@ -197,14 +169,11 @@ func get_fruit():
 
 This approach can be useful to make random number generation feel less
 repetitive. Still, it doesn't prevent results from "ping-ponging" between a
-limited set of values. To prevent this, use the `shuffle bag
-( doc_random_number_generation_shuffle_bags )` pattern instead.
+limited set of values. To prevent this, use the `shuffle bag` pattern instead.
 
 ## Get a random dictionary value
 
 We can apply similar logic from arrays to dictionaries as well:
-
-gdscript GDScript
 
 ```
 var metals = {
@@ -233,8 +202,6 @@ func get_metal():
 The `randf()` method returns a
 floating-point number between 0.0 and 1.0. We can use this to create a
 "weighted" probability where different outcomes have different likelihoods:
-
-gdscript GDScript
 
 ```
 func _ready():
@@ -313,8 +280,6 @@ especially popular in procedural generation to generate realistic-looking
 terrain. Pandemonium provides `opensimplexnoise` for this, which supports
 1D, 2D, 3D, and 4D noise. Here's an example with 1D noise:
 
-gdscript GDScript
-
 ```
 var _noise = OpenSimplexNoise.new()
 
@@ -331,3 +296,4 @@ func _ready():
         # between -1.0 and 1.0.
         print(_noise.get_noise_1d(i))
 ```
+

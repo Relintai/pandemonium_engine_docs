@@ -12,8 +12,8 @@ You can create as many scenes as you'd like and save them as files with the
 the previous lesson was an example. We call those files "Packed Scenes" as they
 pack information about your scene's content.
 
-Here's an example of a ball. It's composed of a `RigidBody2D
-( RigidBody2D )` node as its root named Ball, which allows the ball to fall
+Here's an example of a ball. It's composed of a `RigidBody2D`
+node as its root named Ball, which allows the ball to fall
 and bounce on walls, a `Sprite` node, and a
 `CollisionShape2D`.
 
@@ -38,7 +38,7 @@ scene.
 
 Let's use instancing in practice to see how it works in Pandemonium. We invite
 you to download the ball's sample project we prepared for you:
-:download:`instancing.zip (files/instancing.zip )`.
+[instancing](files/instancing.zip).
 
 Extract the archive on your computer. Then, open Pandemonium, and in the project
 manager, click the Import button to import the project.
@@ -85,7 +85,7 @@ Click on it and drag it towards the center of the view.
 Play the game by pressing F5. You should see it fall.
 
 Now, we want to create more instances of the Ball node. With the ball still
-selected, press :kbd:`Ctrl-D` (:kbd:`Cmd-D` on macOS) to call the duplicate
+selected, press `Ctrl-D` (`Cmd-D` on macOS) to call the duplicate
 command. Click and drag to move the new ball to a different location.
 
 ![](img/instancing_ball_duplicated.png)
@@ -108,9 +108,8 @@ There is more to instances. With this feature, you can:
    and making a change to the Ball node there. Upon saving, all instances of the
    Ball in the project will see their values update.
 
-Note:
- Changing a property on an instance always overrides values from the
-          corresponding packed scene.
+Note: Changing a property on an instance always overrides values from the
+corresponding packed scene.
 
 Let's try this. Open `Ball.tscn` and select the Ball node. In the Inspector on
 the right, click on the PhysicsMaterial property to expand it.
@@ -118,11 +117,11 @@ the right, click on the PhysicsMaterial property to expand it.
 ![](img/instancing_physics_material_expand.png)
 
 Set its Bounce property to `2` by clicking on the number field, typing `2`,
-and pressing :kbd:`Enter`.
+and pressing `Enter`.
 
 ![](img/instancing_property_bounce_updated.png)
 
-Play the game by pressing :kbd:`F5` and notice how all balls now bounce a lot
+Play the game by pressing `F5` and notice how all balls now bounce a lot
 more. As the Ball scene is a template for all instances, modifying it and saving
 causes all instances to update accordingly.
 
@@ -147,15 +146,14 @@ property to the value in the saved scene.
 
 Rerun the game and notice how this ball now falls much faster than the others.
 
-Note:
- If you change a value on the `PhysicsMaterial` of one instance, it
-          will affect all the others. This is because `PhysicsMaterial` is a
-          resource, and resources are shared between instances. To make a
-          resource unique for one instance, right-click on it in the Inspector
-          and click Make Unique in the contextual menu.
+Note: If you change a value on the `PhysicsMaterial` of one instance, it
+will affect all the others. This is because `PhysicsMaterial` is a
+resource, and resources are shared between instances. To make a
+resource unique for one instance, right-click on it in the Inspector
+and click Make Unique in the contextual menu.
 
-          Resources are another essential building block of Pandemonium games we will
-          cover in a later lesson.
+Resources are another essential building block of Pandemonium games we will
+cover in a later lesson.
 
 ## Scene instances as a design language
 
@@ -214,3 +212,4 @@ uses. With scenes, it gives you:
 - The ability to divide your game into reusable components.
 - A tool to structure and encapsulate complex systems.
 - A language to think about your game project's structure in a natural way.
+

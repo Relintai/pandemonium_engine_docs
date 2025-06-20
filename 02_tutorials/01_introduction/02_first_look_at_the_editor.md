@@ -1,23 +1,13 @@
-.. This page is only here to introduce the interface to the user broadly. To
-   cover individual areas in greater detail, write the corresponding pages in
-   the most appropriate section, and link them. E.g. the animation editor goes
-   to the animation section. General pages, for instance, about the project
-   manager, should go in the editor manual.
 
-
-
-First look at Pandemonium's editor
-============================
+# First look at Pandemonium's editor
 
 This page will give you a brief overview of Pandemonium's interface. We're going to
 look at the different main screens and docks to help you situate yourself.
 
-See also:
- For a comprehensive breakdown of the editor's interface and how to
-             use it, see the `Editor manual ( toc-learn-editor )`.
+For a comprehensive breakdown of the editor's interface and how to
+use it, see the [Editor manual](../../03_usage/18_editor/).
 
-The Project manager
--------------------
+## The Project manager
 
 When you launch Pandemonium, the first window you see is the Project Manager. In the
 default tab, "Projects," you can manage existing projects, import or create new
@@ -37,8 +27,7 @@ English (EN).
 
 ![](img/editor_intro_language.png)
 
-First look at Pandemonium's editor
-----------------------------
+## First look at Pandemonium's editor
 
 When you open a new or an existing project, the editor's interface appears.
 Let's look at its main areas.
@@ -89,8 +78,7 @@ When you click on one, it expands vertically. Below, you can see the animation e
 
 ![](img/editor_intro_bottom_panel_animation.png)
 
-The four main screens
----------------------
+## The four main screens
 
 There are four main screen buttons centered at the top of the editor:
 2D, 3D, Script, and AssetLib.
@@ -110,38 +98,28 @@ options related to the 3D view.
 
 ![](img/editor_intro_3d_viewport_perspective.png)
 
-Note:
- Read `doc_introduction_to_3d` for more detail about the **3D
-          main screen**.
+Note: Read [Introduction to 3d](../../03_usage/03_3d/01_introduction_to_3d.md) for more detail about the **3D main screen**.
 
 The **Script screen** is a complete code editor with a debugger, rich
 auto-completion, and built-in code reference.
 
 ![](img/editor_intro_workspace_script.png)
 
-Finally, the **AssetLib** is a library of free and open-source add-ons, scripts,
-and assets to use in your projects.
 
-![](img/editor_intro_workspace_assetlib.png)
+Finally there is a text editor screen, which is an editor for changing text files.
 
-See also:
- You can learn more about the asset library in
-             `doc_what_is_assetlib`.
-
-Integrated class reference
---------------------------
+## Integrated class reference
 
 Pandemonium comes with a built-in class reference.
 
 You can search for information about a class, method, property, constant, or
 signal by any one of the following methods:
 
-* Pressing :kbd:`F1` (or :kbd:`Alt + Space` on macOS) anywhere in the editor.
+* Pressing `F1` (or `Alt + Space` on macOS) anywhere in the editor.
 * Clicking the "Search Help" button in the top-right of the Script main screen.
 * Clicking on the Help menu and Search Help.
-* Clicking while pressing the :kbd:`Ctrl` key on a class name, function name, 
+* Clicking while pressing the `Ctrl` key on a class name, function name,
   or built-in variable in the script editor.
-
 
 ![](img/editor_intro_search_help_button.png)
 
@@ -153,3 +131,4 @@ also use it to browse available objects and methods.
 Double-click on an item to open the corresponding page in the script main screen.
 
 ![](img/editor_intro_help_class_animated_sprite.png)
+

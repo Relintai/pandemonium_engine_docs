@@ -17,30 +17,13 @@ to the Camera2D node and code the shake.
 
 ## Available scripting languages
 
-Pandemonium offers **five gameplay programming languages**: GDScript, C#,
-VisualScript, and, via its GDNative technology, C and C++. There are more
-`community-supported languages ( doc_what_is_gdnative_third_party_bindings )`,
-but these are the official ones.
+Pandemonium offers: GDScript, and via its GDNative technology, C and C++, and python.
+C# is also available via a separate module, but it have to be compiled separately.
 
-You can use multiple languages in a single project. For instance, in a team, you
-could code gameplay logic in GDScript as it's fast to write, let level designers
-script quests in the graphical language VisualScript, and use C# or C++ to
-implement complex algorithms and maximize their performance. Or you can write
-everything in GDScript or C#. It's your call.
+You can use multiple languages in a single project.
 
 We provide this flexibility to answer the needs of different game projects and
 developers.
-
-Warning:
-
-
-    `Pandemonium 4.0 will remove VisualScript from core entirely. ( https://pandemoniumengine.org/article/pandemonium-4-will-discontinue-visual-scripting )`
-    As a result, creating new projects using visual scripting in Pandemonium is not recommended.
-    Future Pandemonium 4.x releases may have VisualScript reimplemented as an extension.
-
-    While Pandemonium 3.x will keep VisualScript supported, we recommend
-    `trying out GDScript ( toc-learn-scripting-gdscript )` instead,
-    especially if you intend to migrate your project to Pandemonium 4.
 
 ## Which language should I use?
 
@@ -51,19 +34,13 @@ with Pandemonium.
 
 ![](img/scripting_gdscript.png)
 
-For C#, you will need an external code editor like
-`VSCode ( https://code.visualstudio.com/ )` or Visual Studio. While C# support is
-now mature, you will find fewer learning resources for it compared to
-GDScript. That's why we recommend C# mainly to users who already have experience
-with the language.
-
 Let's look at each language's features, as well as its pros and cons.
 
 ### GDScript
 
-`GDScript( doc_gdscript )` is an
-`object-oriented ( https://en.wikipedia.org/wiki/Object-oriented_programming )` and
-`imperative ( https://en.wikipedia.org/wiki/Imperative_programming )`
+GDScript is an
+[object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming) and
+[imperative](https://en.wikipedia.org/wiki/Imperative_programming)
 programming language built for Pandemonium. It's made by and for game developers
 to save you time coding games. Its features include:
 
@@ -74,12 +51,11 @@ to save you time coding games. Its features include:
 - Built-in vector and transform types, making it efficient for heavy use of
   linear algebra, a must for games.
 - Supports multiple threads as efficiently as statically typed languages.
-- No `garbage collection
-  ( https://en.wikipedia.org/wiki/Garbage_collection_(computer_science) )`, as
+- No [garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)), as
   this feature eventually gets in the way when creating games. The engine counts
   references and manages the memory for you in most cases by default, but you
   can also control memory if you need to.
-- `Gradual typing ( https://en.wikipedia.org/wiki/Gradual_typing )`. Variables
+- [Gradual typing](https://en.wikipedia.org/wiki/Gradual_typing). Variables
   have dynamic types by default, but you also can use type hints for strong type
   checks.
 
@@ -89,47 +65,16 @@ languages, including Squirrel, Lua, and Python.
 
 Note:
 
+Why don't we use Python or Lua directly?
 
-    Why don't we use Python or Lua directly?
+Years ago, Pandemonium (godot) used Python, then Lua. Both languages' integration took a
+lot of work and had severe limitations. For example, threading support was a
+big challenge with Python.
 
-    Years ago, Pandemonium used Python, then Lua. Both languages' integration took a
-    lot of work and had severe limitations. For example, threading support was a
-    big challenge with Python.
-
-    Developing a dedicated language doesn't take us more work and we can tailor
-    it to game developers' needs. We're now working on performance optimizations
-    and features that would've been difficult to offer with third-party
-    languages.
-
-### .NET / C#
-
-As Microsoft's `C#
-( https://en.wikipedia.org/wiki/C_Sharp_(programming_language) )` is a favorite
-amongst game developers, we officially support it. C# is a mature and flexible
-language with tons of libraries written for it. We could add support for it
-thanks to a generous donation from Microsoft.
-
-![](img/scripting_csharp.png)
-
-C# offers a good tradeoff between performance and ease of use, although you
-should be aware of its garbage collector.
-
-Note:
- You must use the Mono edition of the Pandemonium editor to script in C#. You
-          can download it on the Pandemonium website's `download
-          ( https://pandemoniumengine.org/download/ )` page.
-
-Since Pandemonium uses the `Mono ( https://mono-project.com )` .NET runtime, in theory,
-you can use any third-party .NET library or framework in Pandemonium, as well as any
-Common Language Infrastructure-compliant programming language, such as F#, Boo,
-or ClojureCLR. However, C# is the only officially supported .NET option.
-
-Note:
- GDScript code itself doesn't execute as fast as compiled C# or C++.
-          However, most script code calls functions written with fast algorithms
-          in C++ code inside the engine. In many cases, writing gameplay logic
-          in GDScript, C#, or C++ won't have a significant impact on
-          performance.
+Developing a dedicated language doesn't take us more work and we can tailor
+it to game developers' needs. We're now working on performance optimizations
+and features that would've been difficult to offer with third-party
+languages.
 
 ### C and C++ via GDNative
 
@@ -157,4 +102,5 @@ Pandemonium supports five official scripting languages, offering you flexibility
 between performance and ease of use.
 
 You can mix languages, for instance, to implement demanding algorithms with C or
-C++ and write most of the game logic with GDScript or C#.
+C++ and write most of the game logic with GDScript.
+

@@ -2,11 +2,6 @@
 
 # Introduction
 
-```
-func _ready():
-    $Label.text = "Hello world!"
-```
-
 Welcome to the official documentation of Pandemonium Engine, the free and open source
 community-driven 2D and 3D game engine! Behind this mouthful, you will find a
 powerful yet user-friendly tool that you can use to develop any kind of game,
@@ -16,8 +11,8 @@ This page gives a broad presentation of the engine and of the contents
 of this documentation, so that you know where to start if you are a beginner or
 where to look if you need info on a specific feature.
 
-Pandemonium Engine is a fork of the [Godot Engine](https://godotengine.org/) (specifically the  
-[3.x](https://github.com/godotengine/godot/commits/3.x) branch), with heavy modifications. You can 
+Pandemonium Engine is a fork of the [Godot Engine](https://godotengine.org/) (specifically the
+[3.x](https://github.com/godotengine/godot/commits/3.x) branch), with heavy modifications. You can
 think of it as an alternate Godot 4.x.
 
 Even though lots of things have been changed, most tutorials for godot should work with minimal tweaks.
@@ -39,21 +34,17 @@ if you need a quick writeup about Pandemonium Engine.
     license. No strings attached, no royalties, nothing. Users' games are
     theirs, down to the last line of engine code. Pandemonium's development is fully
     independent and community-driven, empowering users to help shape their
-    engine to match their expectations. It is supported by the 
+    engine to match their expectations. It is supported by the
     [Software Freedom Conservancy](https://sfconservancy.org) not-for-profit.
 
 Note:
 
 Pandemonium is a 1 person project at the time of this writing.
 
-I use it to build both application and games. It is being developed to solve issues 
-I personally run into / have to do. This has both upsides and downsides, as 
-badly thought out stuff gets caught early, but also I might have to put off 
+I use it to build both application and games. It is being developed to solve issues
+I personally run into / have to do. This has both upsides and downsides, as
+badly thought out stuff gets caught early, but also I might have to put off
 features for a while because I have to focus on projects that need something else.
-
-For a more in-depth view of the engine, you are encouraged to read this
-documentation further, especially the 
-[step by step](../index.html#tutorials/stepbystep) tutorial.
 
 ### Godot - Pandemonium differences
 
@@ -64,9 +55,8 @@ documentation further, especially the
 - Lots of backports.
 - Lots of bug fixes.
 - Lots of work on engine side modulatization.
-- GLES3 backend is currently removed.
 
-For a comprehensive list of changes I recommend reading the engie's 
+For a comprehensive list of changes I recommend reading the engie's
 [changelog](https://github.com/Relintai/pandemonium_engine/blob/master/CHANGELOG.md) file.
 
 ## About the documentation
@@ -74,14 +64,16 @@ For a comprehensive list of changes I recommend reading the engie's
 This documentation is continuously worked on. It is edited via text files in the
 markdown language.
 
-It can be compiled into a static website / offline document using 
-a simple python ([md_doc_gen.py](https://github.com/Relintai/pandemonium_engine_docs/tree/master/_tools/md_doc_gen.py)) script in the repository's 
-[_tools](https://github.com/Relintai/pandemonium_engine_docs/tree/master/_tools) folder.
+It can be compiled into a static website / offline document using
+a simple python ([md_doc_gen.py](../_tools/md_doc_gen.py)) script in the repository's
+[_tools](../_tools) folder.
 
 It's using [markdeep](https://casual-effects.com/markdeep/) for rendering it's final html output.
 
-It can also be hosted by the engine's web module using the experimental 
-[pdocs](https://github.com/Relintai/pandemonium_engine_docs/tree/master/_tools/pdocs) project in the `_tools` folder.
+It can also be hosted by the engine's web module using the experimental
+[pdocs](../_tools/pdocs) project in the `_tools` folder.
+
+The [README](../README.md) contains a section on how to use these scripts.
 
 Note:
 
@@ -99,26 +91,25 @@ This documentation is organized in five sections with an impressively
 unbalanced distribution of contents – but the way it is split up should be
 relatively intuitive:
 
-- The [About](../index.html#about) section contains this introduction as well as
+- The `About` section contains this introduction as well as
   information about the engine, its history, its licensing, authors, etc. It
-  also contains the [FAQ](02_faq.md.html).
-- The [Tutorials](../index.html#tutorials) section can be read as needed,
+  also contains the [FAQ](02_faq.md).
+- The [Tutorials](../02_tutorials) section can be read as needed,
   in any order. It contains feature-specific tutorials and documentation.
-- The [Usage](../index.html#usage) section is the *raison d'être* of this
+- The [Usage](../03_usage) section is the *raison d'être* of this
   documentation, as it contains all the necessary information on using the
   engine to make games.
-- [Modules](../index.html#modules). Some of the engine's functionality is in modules that can be turned on or off 
+- [Modules](../04_modules). Some of the engine's functionality is in modules that can be turned on or off
   when compiling. This section contains information about these.
-- The [Engine Development](../index.html#enginedevelopment) section is intended for advanced users and contributors
+- The [Engine Development](../05_engine_development) section is intended for advanced users and contributors
   to the engine development, with information on compiling the engine,
   developing C++ modules or editor plugins.
-- The [Community](../index.html#community) section gives information related to contributing to
+- The [Community](../06_community) section gives information related to contributing to
   engine development and the life of its community, e.g. how to report bugs,
   help with the documentation, etc. It also points to various community channels
   like IRC and Discord and contains a list of recommended third-party tutorials
   outside of this documentation.
-
-In addition to this documentation you may also want to take a look at the
-various [Pandemonium demo projects](https://github.com/Relintai/pandemonium_demo_projects).
+- The [Demo Projects](../07_demo_projects) folder / section contains various
+  projects using the engine.
 
 Have fun reading and making games with Pandemonium Engine!

@@ -497,7 +497,7 @@ useful, except for trivial cases.
 
 In 3D we do not typically use angles, we either use a transformation basis
 (used pretty much everywhere in Pandemonium), or we use quaternions. Pandemonium can
-represent quaternions using the `Quat` struct. My suggestion
+represent quaternions using the `Quaternion` struct. My suggestion
 to you is to completely ignore how they work under-the-hood, because
 they are very complicated and unintuitive.
 

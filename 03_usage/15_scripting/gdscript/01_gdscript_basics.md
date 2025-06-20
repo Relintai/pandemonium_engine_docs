@@ -338,7 +338,7 @@ be accessed as an array.
 3D Plane type in normalized form that contains a `normal` vector field
 and a `d` scalar distance.
 
-#### `Quat`
+#### `Quaternion`
 
 Quaternion is a datatype used for representing a 3D rotation. It's
 useful for interpolating rotations.
@@ -946,7 +946,7 @@ match x:
 
     Every subpattern has to be comma-separated.
 
-    
+
 ```
 match x:
     []:
@@ -972,7 +972,7 @@ match x:
 
     A value pattern is separated from the key pattern with a `:`.
 
-    
+
 ```
 match x:
     {}:
@@ -990,7 +990,7 @@ match x:
 - Multiple patterns
     You can also specify multiple patterns separated by a comma. These patterns aren't allowed to have any bindings in them.
 
-    
+
 ```
 match x:
     1, 2, 3:

@@ -156,7 +156,7 @@ This field is padded to 4 bytes.
 | 16       | 4     | Float   | Distance      |
 
 
-### 10: `Quat( quat )`
+### 10: `Quaternion( quaternion )`
 
 
 | Offset   | Len   | Type    | Description   |

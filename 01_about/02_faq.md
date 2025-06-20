@@ -52,8 +52,8 @@ Just like godot 3.x the codebase should compile for consoles. If you have access
 to godot platform implementations for them, they should be simple to make work
 with pandemonium aswell.
 
-For more on this, see the sections on [exporting](toc-learn-workflow-export)
-and [compiling Pandemonium yourself](toc-devel-compiling).
+For more on this, see the sections on [exporting](../03_usage/20_export/)
+and [compiling Pandemonium yourself](../05_engine_development/01_compiling).
 
 ## Which programming languages are supported in Pandemonium?
 
@@ -335,7 +335,7 @@ This is mostly needed for 2D, as in 3D it's just a matter of Camera XFov or YFov
    to stretch vertically or horizontally for different aspect ratios, or
    if there is one aspect ratio and you want black bars to appear
    instead. This is also explained in [multiple resolutions](../03_usage/14_rendering/02_multiple_resolutions.md).
-4. For user interfaces, use the [anchoring](../03_usage/01_size_and_anchors.md)
+4. For user interfaces, use the [anchoring](../03_usage/04_ui/01_size_and_anchors.md)
    to determine where controls should stay and move. If UIs are more
    complex, consider learning about Containers.
 
@@ -349,7 +349,7 @@ certain screen sizes in the App Store or Google Play.
 ## How can I extend Pandemonium?
 
 For extending Pandemonium, like creating Pandemonium Editor plugins or adding support
-for additional languages, take a look at [EditorPlugins](../03_usage/19_plugins/02_making_plugins.md)
+for additional languages, take a look at [EditorPlugins](../03_usage/19_plugins/editor/02_making_plugins.md)
 and tool scripts.
 
 You can also take a look at the GDScript implementation, and the Pandemonium modules.
@@ -420,7 +420,7 @@ but you can still use Pandemonium to create non-game applications by using the e
 Like many other libraries (Qt as an example), Pandemonium does not make use of STL.
 STL might be okay for small programs, I personally don't believe it should be used
 for any program bigger than a few hundred lines due to it's design. (This is actually
-why [SFW](https://github.com/Relintai/sfw) was created.)
+one of the reasons why [SFW](https://github.com/Relintai/sfw) was created.)
 
 * STL templates create very large symbols, which results in huge debug binaries. We use few templates with very short names instead.
 * Most of our containers cater to special needs, like Vector, which uses copy on write and we use to pass data around,
@@ -441,7 +441,7 @@ And that is why lots of serious codebases opt not to use them.
 The issue is that people in most mainstream places thinking that since they are available
 they should be used no matter what. This isn't proper engineering. Thinking like this is going to cost you in the long term.
 
-Even in java poeple sometimes implement their own data structures. (Just take a look at LibGDX.)
+Even in java people sometimes implement their own data structures. (Just take a look at LibGDX.)
 
 On the bright side, in c++ we are not stuck using default implementations from anything. (Think java and c# immutable Strings.)
 

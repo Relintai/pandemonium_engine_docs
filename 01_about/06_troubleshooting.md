@@ -59,8 +59,8 @@ This is caused by the NVIDIA graphics driver injecting an overlay to display inf
 To disable this overlay on Windows, restore your graphics driver settings to the
 default values in the NVIDIA Control Panel.
 
-To disable this overlay on Linux, open `nvidia-settings`, go to **X Screen 0 >
-OpenGL Settings** then uncheck **Enable Graphics API Visual Indicator**.
+To disable this overlay on Linux, open `nvidia-settings`, go to
+**X Screen 0 &gt; OpenGL Settings** then uncheck **Enable Graphics API Visual Indicator**.
 
 ## The project window appears blurry, unlike the editor.
 
@@ -68,15 +68,16 @@ Unlike the editor, the project isn't marked as DPI-aware by default. This is
 done to improve performance, especially on integrated graphics, where rendering
 3D scenes in hiDPI is slow.
 
-To resolve this, open **Project > Project Settings** and enable **Display >
-Window > Dpi > Allow Hidpi**. On top of that, make sure your project is
+To resolve this, open **Project &gt; Project Settings** and enable
+**Display &gt; Window &gt; Dpi &gt; Allow Hidpi**. On top of that, make sure your project is
 configured to support [multiple resolutions](../03_usage/14_rendering/02_multiple_resolutions.md).
 
 ## The project window doesn't appear centered when I run the project.
 
 This is a [known bug](https://github.com/godotengine/godot/issues/13017). To
-resolve this, open **Project > Project Settings** and enable **Display > Window
-> Dpi > Allow Hidpi**. On top of that, make sure your project is configured to
+resolve this, open **Project &gt; Project Settings** and enable
+**Display &gt; Window &gt; Dpi &gt; Allow Hidpi**. On top of that, make sure your
+project is configured to
 support [multiple resolutions](../03_usage/14_rendering/02_multiple_resolutions.md).
 
 ## The project works when run from the editor, but fails to load some files when running from an exported copy.

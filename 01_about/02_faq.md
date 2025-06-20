@@ -3,7 +3,7 @@
 
 ## What can I do with Pandemonium? How much does it cost? What are the license terms?
 
-Pandemonium is [Free and Open-Source Software]( https://en.wikipedia.org/wiki/Free_and_open-source_software) available under the 
+Pandemonium is [Free and Open-Source Software]( https://en.wikipedia.org/wiki/Free_and_open-source_software) available under the
 [OSI-approved](https://opensource.org/licenses/MIT) MIT license. This means it is free as in "free speech" as well as in "free beer."
 
 In short:
@@ -31,7 +31,7 @@ Also, see [the license page on the Pandemonium website](https://pandemoniumengin
 * Windows
 * macOS
 * X11 (Linux, \*BSD)
-* [Web](doc_using_the_web_editor)
+* [Web](../03_usage/18_editor/04_using_the_web_editor.md)
 * Android (experimental)
 
 **For exporting your games:**
@@ -57,8 +57,7 @@ and [compiling Pandemonium yourself](toc-devel-compiling).
 
 ## Which programming languages are supported in Pandemonium?
 
-The officially supported languages for Pandemonium are GDScript, and C++. 
-See the subcategories for each language in the [scripting](toc-learn-scripting) section.
+The officially supported languages for Pandemonium are GDScript, and C++.
 
 If you are just starting out with either Pandemonium or game development in general,
 GDScript is the recommended language to learn and use since it is native to Pandemonium.
@@ -70,34 +69,34 @@ way of developing your games.
 ### GDNative
 
 GDNative is a C interface that lets you create and dynamically load dll-s.
-Code in these dlls can use engine types, and can call engine methods, and 
+Code in these dlls can use engine types, and can call engine methods, and
 they can even create custom classes.
 
 #### Python
 
 Godot's [GDNative Python](https://github.com/Relintai/gdnative_python) ported to work with pandemonium.
 
-It's setup in a self contained way. Can come in handy for tools, 
-as python has access to lots of great libraries, and you can 
+It's setup in a self contained way. Can come in handy for tools,
+as python has access to lots of great libraries, and you can
 bundle them with your application using this module.
 
 Only has binaries for desktop platforms.
 
 I only recommend it for desktop tools where you want access to some of the python libraries,
-but you also need a self contained application. It's a lot simpler than connecting and managing 
+but you also need a self contained application. It's a lot simpler than connecting and managing
 multiple apps through sockets, but it's still relatively complex to set up.
 
 #### C++
 
 Godot's [GDNative C++](https://github.com/Relintai/gdnative_cpp) ported to work with pandemonium.
 
-Currently under rework to make it's code (hopefully) identical to engine side c++. If successful, 
-engine side module code could be developed with faster recompile times, and even dynamic reloading 
+Currently under rework to make it's code (hopefully) identical to engine side c++. If successful,
+engine side module code could be developed with faster recompile times, and even dynamic reloading
 in some cases.
 
 ### C#
 
-[C#](https://github.com/Relintai/mono) is available as an engine module, 
+[C#](https://github.com/Relintai/mono) is available as an engine module,
 which means you need to add it to the engine and recompile it to have it.
 
 It comes with lots of complexities.
@@ -114,7 +113,7 @@ up to maximize Pandemonium's potential in the least amount of code, affording bo
 and expert developers alike to capitalize on Pandemonium's strengths as fast as possible.
 If you've ever written anything in a language like Python before then you'll feel
 right at home. For examples, history, and a complete overview of the power GDScript
-offers you, check out the [GDScript scripting guide](doc_gdscript).
+offers you, check out the [GDScript scripting guide](../03_usage/15_scripting/gdscript).
 
 There are several reasons to use GDScript--especially when you are prototyping, in
 alpha/beta stages of your project, or are not creating the next AAA title--but the
@@ -137,9 +136,6 @@ you haven't given GDScript a try, try it for **three days**. Just like Pandemoni
 once you see how powerful it is and rapid your development becomes, we think GDScript
 will grow on you.
 
-More information about getting comfortable with GDScript or dynamically typed
-languages can be found in the `doc_gdscript_more_efficiently` tutorial.
-
 ## What were the motivations behind creating GDScript?
 
 In the early days, the engine used the [Lua](https://www.lua.org)
@@ -150,10 +146,10 @@ enormous amount of code. After some experiments with
 
 The main reasons for creating a custom scripting language for Godot were:
 
-1. Poor threading support in most script VMs, and Godot uses threads
+1. Poor threading support in most script VMs, and Pandemonium uses threads
    (Lua, Python, Squirrel, JavaScript, ActionScript, etc.).
 2. Poor class-extending support in most script VMs, and adapting to
-   the way Godot works is highly inefficient (Lua, Python, JavaScript).
+   the way Pandemonium works is highly inefficient (Lua, Python, JavaScript).
 3. Many existing languages have horrible interfaces for binding to C++, resulting in large amount of
    code, bugs, bottlenecks, and general inefficiency (Lua, Python,
    Squirrel, JavaScript, etc.) We wanted to focus on a great engine, not a great amount of integrations.
@@ -172,10 +168,10 @@ GDScript was designed to curtail the issues above, and more.
 
 Currently Pandemonium supports glTF and OBJ.
 
-FBX support was removed to reduce engine bloat, because glTF turned out to be easier to 
+FBX support was removed to reduce engine bloat, because glTF turned out to be easier to
 use most of the time. Also FBX is proprietary format. The FBX2glTF tool can easily convert it.
 
-However note that FBX support can be added back relatively easily from 
+However note that FBX support can be added back relatively easily from
 [Godot](https://github.com/godotengine/godot/tree/3.x/modules/fbx) if needed.
 
 ## Will [insert closed SDK such as FMOD, GameWorks, etc.] be supported in Pandemonium?
@@ -228,7 +224,7 @@ to the Dock if desired. Spotlight will be able to find Pandemonium as long as it
   This is typically `/usr/local/bin/pandemonium` or `/usr/bin/pandemonium`.
   Doing this requires administrator privileges,
   but this also allows you to
-  `run the Pandemonium editor from a terminal ( doc_command_line_tutorial )` by entering `pandemonium`.
+  [run the Pandemonium editor from a terminal](../03_usage/18_editor/01_command_line_tutorial.md) by entering `pandemonium`.
 
   - If you cannot move the Pandemonium editor binary to a protected location, you can
     keep the binary somewhere in your home directory, and modify the `Path=`
@@ -249,33 +245,27 @@ administrator privileges.
 However, configuration files will be written to the user-wide configuration or
 data directory. This is usually a good approach, but this means configuration files
 will not carry across machines if you copy the folder containing the Pandemonium executable.
-See `doc_data_paths` for more information.
+See [this](../03_usage/07_io/02_data_paths.md) for more information.
 
 If *true* portable operation is desired (e.g. for use on an USB stick),
-follow the steps in `doc_data_paths_self_contained_mode`.
+follow the steps [here](../03_usage/07_io/02_data_paths.md#self-contained-mode).
 
-## Why does Pandemonium use Vulkan or OpenGL instead of Direct3D?
+## Why does Pandemonium use OpenGL instead of Direct3D?
 
 Pandemonium aims for cross-platform compatibility and open standards first and
-foremost. OpenGL and Vulkan are the technologies that are both open and
+foremost. OpenGL is the technology that are both open and
 available (nearly) on all platforms. Thanks to this design decision, a project
 developed with Pandemonium on Windows will run out of the box on Linux, macOS, and
 more.
 
-Since Pandemonium only has a few people working on its renderer, we would prefer
-having fewer rendering backends to maintain. On top of that, using a single API
+On top of this, using a single API
 on all platforms allows for greater consistency with fewer platform-specific
 issues.
 
-In the long term, we may develop a Direct3D 12 renderer for Pandemonium (mainly for
-the Xbox's purposes), but Vulkan and OpenGL will remain the default rendering
-backends on all platforms, including Windows.
+## Is Pandemonium aim to keep its core feature set small?
 
-## Why does Pandemonium aim to keep its core feature set small?
-
-Pandemonium intentionally does not include features that can be implemented by add-ons
-unless they are used very often. One example of this would be advanced
-artificial intelligence functionality.
+Pandemonium intentionally tries not include features that can be implemented by add-ons
+unless they are used very often.
 
 There are several reasons for this:
 
@@ -286,17 +276,14 @@ There are several reasons for this:
   question. This can lead to poorly maintained features with bugs that are never
   fixed. On top of that, the "API surface" that needs to be tested and checked
   for regressions keeps increasing over time.
-
 - **Ease of contribution.** By keeping the codebase small and tidy, it can remain
   fast and easy to compile from source. This makes it easier for new
   contributors to get started with Pandemonium, without requiring them to purchase
   high-end hardware.
-
 - **Keeping the binary size small for the editor.** Not everyone has a fast Internet
   connection. Ensuring that everyone can download the Pandemonium editor, extract it
   and run it in less than 5 minutes makes Pandemonium more accessible to developers in
   all countries.
-
 - **Keeping the binary size small for export templates.** This directly impacts the
   size of projects exported with Pandemonium. On mobile and web platforms, keeping
   file sizes low is primordial to ensure fast installation and loading on
@@ -305,12 +292,20 @@ There are several reasons for this:
   often in effect in those countries.
 
 For all the reasons above, we have to be selective of what we can accept as core
-functionality in Pandemonium. This is why we are aiming to move some core
-functionality to officially supported add-ons in future versions of Pandemonium. In
-terms of binary size, this also has the advantage of making you pay only for what
-you actually use in your project. (In the meantime, you can
-`compile custom export templates with unused features disabled ( doc_optimizing_for_size )`
-to optimize the distribution size of your project.)
+functionality in Pandemonium.
+
+Of course "used very often" is relative to the point of view of any given observer.
+It really depend on what kind of projects you are working on.
+
+So please note that Pandemonium includes lots of features
+that would be considered unconventional. (Web server, databases, smtp client, totp,
+ai framework, etc.). It also includes things like a voxel engine, terrain engine,
+an entity spell system. Most of these would be either impossible or just extremely
+difficult to implement using the scripting languages.
+
+However these are all modules, which means they can be disabled when compiling the engine.
+You can (and probably should)
+[compile your own custom export templates with unused features disabled](../05_engine_development/01_compiling/11_optimizing_for_size.md).
 
 ## How should assets be created to handle multiple resolutions and aspect ratios?
 
@@ -333,17 +328,14 @@ This is mostly needed for 2D, as in 3D it's just a matter of Camera XFov or YFov
    (1920x1080) or 720p (1280x720). Keep in mind the higher the
    resolution, the larger your assets, the more memory they will take
    and the longer the time it will take for loading.
-
 2. Use the stretch options in Pandemonium; 2D stretching while keeping aspect
-   ratios works best. Check the `doc_multiple_resolutions` tutorial
+   ratios works best. Check the [multiple resolutions](../03_usage/14_rendering/02_multiple_resolutions.md) tutorial
    on how to achieve this.
-
 3. Determine a minimum resolution and then decide if you want your game
    to stretch vertically or horizontally for different aspect ratios, or
    if there is one aspect ratio and you want black bars to appear
-   instead. This is also explained in `doc_multiple_resolutions`.
-
-4. For user interfaces, use the `anchoring ( doc_size_and_anchors )`
+   instead. This is also explained in [multiple resolutions](../03_usage/14_rendering/02_multiple_resolutions.md).
+4. For user interfaces, use the [anchoring](../03_usage/01_size_and_anchors.md)
    to determine where controls should stay and move. If UIs are more
    complex, consider learning about Containers.
 
@@ -357,22 +349,16 @@ certain screen sizes in the App Store or Google Play.
 ## How can I extend Pandemonium?
 
 For extending Pandemonium, like creating Pandemonium Editor plugins or adding support
-for additional languages, take a look at [EditorPlugins](doc_making_plugins)
+for additional languages, take a look at [EditorPlugins](../03_usage/19_plugins/02_making_plugins.md)
 and tool scripts.
 
-Also, see the official blog posts on these topics:
-
-* [A look at the GDNative architecture]( https://pandemoniumengine.org/article/look-gdnative-architecture )`
-* [GDNative is here!]( https://pandemoniumengine.org/article/dlscript-here )`
-
-You can also take a look at the GDScript implementation, the Pandemonium modules,
-as well as the [unofficial Python support]( https://github.com/touilleMan/pandemonium-python ) for Pandemonium.
+You can also take a look at the GDScript implementation, and the Pandemonium modules.
 This would be a good starting point to see how another third-party library
 integrates with Pandemonium.
 
 ## When is the next release of Pandemonium out?
 
-When it's ready! See `doc_release_policy_when_is_next_release_out` for more
+When it's ready! See [release policy](05_release_policy.md) for more
 information.
 
 ## I would like to contribute! How can I get started?
@@ -380,46 +366,9 @@ information.
 Awesome! As an open-source project, Pandemonium thrives off of the innovation and
 ambition of developers like you.
 
-The first place to get started is in the `issues ( https://github.com/Relintai/pandemonium_engine/issues )`.
-Find an issue that resonates with you, then proceed to the `How to Contribute ( https://github.com/Relintai/pandemonium_engine/blob/master/CONTRIBUTING.md#contributing-pull-requests )`
+The first place to get started is in the [issues](https://github.com/Relintai/pandemonium_engine/issues).
+Find an issue that resonates with you, then proceed to the [How to Contribute](https://github.com/Relintai/pandemonium_engine/blob/master/CONTRIBUTING.md#contributing-pull-requests)
 guide to learn how to fork, modify, and submit a Pull Request (PR) with your changes.
-
-## I have a great idea for Pandemonium. How can I share it?
-
-It might be tempting to want to bring ideas to Pandemonium, like ones that
-result in massive core changes, some sort of mimicry of what another
-game engine does, or alternative workflows that you'd like built into
-the editor. These are great, and we are thankful to have such motivated
-people want to contribute, but Pandemonium's focus is and always will be the
-core functionality as outlined in the `Roadmap ( https://github.com/Relintai/pandemonium_engine-roadmap/blob/master/ROADMAP.md )`,
-`squashing bugs and addressing issues ( https://github.com/Relintai/pandemonium_engine/issues )`,
-and conversations between Pandemonium community members.
-
-Most developers in the Pandemonium community will be more interested to learn
-about things like:
-
--  Your experience using the software and the problems you have (we
-   care about this much more than ideas on how to improve it).
--  The features you would like to see implemented because you need them
-   for your project.
--  The concepts that were difficult to understand while learning the software.
--  The parts of your workflow you would like to see optimized.
--  Parts where you missed clear tutorials or where the documentation wasn't clear.
-
-Please don't feel like your ideas for Pandemonium are unwelcome. Instead,
-try to reformulate them as a problem first, so developers and the community
-have a functional foundation to ground your ideas on.
-
-A good way to approach sharing your ideas and problems with the community
-is as a set of user stories. Explain what you are trying to do, what behavior
-you expect to happen, and then what behavior actually happened. Framing problems
-and ideas this way will help the whole community stay focused on improving
-developer experiences as a whole.
-
-Bonus points for bringing screenshots, concrete numbers, test cases, or example
-projects (if applicable).
-
-
 
 ## Is it possible to use Pandemonium to create non-game applications?
 
@@ -427,19 +376,11 @@ Yes! Pandemonium features an extensive built-in UI system, and its small distrib
 size can make it a suitable alternative to frameworks like Electron or Qt.
 
 When creating a non-game application, make sure to enable
-`low-processor mode`
-in the Project Settings to decrease CPU and GPU usage.
+`low-processor mode` in the Project Settings to decrease CPU and GPU usage.
 
-That said, we wouldn't recommend using Pandemonium to create a *mobile* application
-since low-processor mode isn't supported on mobile platforms yet.
-
-Check out `Material Maker ( https://github.com/RodZill4/material-maker )` and
-`Pixelorama ( https://github.com/Orama-Interactive/Pixelorama )` for examples of
-open source applications made with Pandemonium.
-
-https://github.com/Relintai/pandemonium_cms
-
-https://github.com/Relintai/uml_generator
+Check out [pandemonium cms](https://github.com/Relintai/pandemonium_cms)
+and [uml_generator](https://github.com/Relintai/uml_generator)
+for examples of open source applications made with Pandemonium.
 
 ## Is it possible to use Pandemonium as a library?
 
@@ -449,15 +390,18 @@ Pandemonium usable as a library, as it would make the rest of the engine more
 convoluted and difficult to use for casual users.
 
 If you want to use a rendering library, look into using an established rendering
-engine instead. Keep in mind rendering engines usually have smaller communities
-compared to Pandemonium. This will make it more difficult to find answers to your
-questions.
+engine instead.
+
+[SFW](https://github.com/Relintai/sfw) is also available.
+it uses Pandemonium's core classes, it has a version with a simple renderer.
+It is designed to be extremely simple to copmile and use
+(the version with the rendrer is amalgamated into 3 files).
 
 ## What user interface toolkit does Pandemonium use?
 
-Pandemonium does not use a standard :abbr:`GUI (Graphical User Interface)` toolkit
+Pandemonium does not use a standard GUI (Graphical User Interface) toolkit
 like GTK, Qt or wxWidgets. Instead, Pandemonium uses its own user interface toolkit,
-rendered using OpenGL ES or Vulkan. This toolkit is exposed in the form of
+rendered using OpenGL ES. This toolkit is exposed in the form of
 Control nodes, which are used to render the editor (which is written in C++).
 These Control nodes can also be used in projects from any scripting language
 supported by Pandemonium.
@@ -468,23 +412,38 @@ have to deal with the LGPL licensing caveats that come with GTK or Qt. Lastly,
 this means Pandemonium is "eating its own dog food" since the editor itself is one of
 the most complex users of Pandemonium's UI system.
 
-This custom UI toolkit `can't be used as a library ( doc_faq_use_pandemonium_as_library )`,
-but you can still
-`use Pandemonium to create non-game applications by using the editor ( doc_faq_non_game_applications )`.
-
-
+This custom UI toolkit can't be used as a library,
+but you can still use Pandemonium to create non-game applications by using the editor.
 
 ## Why does Pandemonium not use STL (Standard Template Library)?
 
-Like many other libraries (Qt as an example), Pandemonium does not make use of
-STL. We believe STL is a great general purpose library, but we had special
-requirements for Pandemonium.
+Like many other libraries (Qt as an example), Pandemonium does not make use of STL.
+STL might be okay for small programs, I personally don't believe it should be used
+for any program bigger than a few hundred lines due to it's design. (This is actually
+why [SFW](https://github.com/Relintai/sfw) was created.)
 
 * STL templates create very large symbols, which results in huge debug binaries. We use few templates with very short names instead.
-* Most of our containers cater to special needs, like Vector, which uses copy on write and we use to pass data around, or the RID system, which requires O(1) access time for performance. Likewise, our hash map implementations are designed to integrate seamlessly with internal engine types.
-* Our containers have memory tracking built-in, which helps better track memory usage.
+* Most of our containers cater to special needs, like Vector, which uses copy on write and we use to pass data around,
+  or the RID system, which requires O(1) access time for performance. Likewise, our hash map implementations are designed
+  to integrate seamlessly with internal engine types.
+* Our containers have memory tracking built-in, which helps better track memory usage. They also doens't allow over and under indexing.
 * For large arrays, we use pooled memory, which can be mapped to either a preallocated buffer or virtual memory.
 * We use our custom String type, as the one provided by STL is too basic and lacks proper internationalization support.
+* STL templates have extremely limited functionality, while at the same time being extremely bloated code-wise. They are also slow.
+* STL template apis are hard to use properly, are hard on the eyes, and they are easy to misuse to cause memory corruption issues.
+* Their compile errors are hard to read.
+
+And unfortunately this list could go on.
+
+So please keep in mind, STL containers are what they are. They should be used for what they are good at.
+And that is why lots of serious codebases opt not to use them.
+
+The issue is that people in most mainstream places thinking that since they are available
+they should be used no matter what. This isn't proper engineering. Thinking like this is going to cost you in the long term.
+
+Even in java poeple sometimes implement their own data structures. (Just take a look at LibGDX.)
+
+On the bright side, in c++ we are not stuck using default implementations from anything. (Think java and c# immutable Strings.)
 
 ## Why does Pandemonium not use exceptions?
 
@@ -494,13 +453,16 @@ script), but then it will try to recover as gracefully as possible and keep
 going.
 
 Additionally, exceptions significantly increase binary size for the
-executable.
+executable, they are also very slow.
 
-## Why does Pandemonium not enforce RTTI?
+## Why does Pandemonium not use RTTI by default?
 
 Pandemonium provides its own type-casting system, which can optionally use RTTI
 internally. Disabling RTTI in Pandemonium means considerably smaller binary sizes can
-be achieved, at a little performance cost.
+be achieved.
+
+Also apprently the built-in casting is 7x faster than `dynamic_cast`.
+[See this godot pull request](https://github.com/godotengine/godot/pull/103708).
 
 ## Why does Pandemonium not force users to implement DoD (Data oriented Design)?
 
@@ -522,10 +484,3 @@ If a game that really needs to process such large amount of objects is
 needed, our recommendation is to use C++ and GDNative for the high
 performance parts and GDScript (or C#) for the rest of the game.
 
-## How can I support Pandemonium development or contribute?
-
-See `doc_ways_to_contribute`.
-
-## Who is working on Pandemonium? How can I contact you?
-
-See the corresponding page on the [Pandemonium website]( https://pandemoniumengine.org/contact ).

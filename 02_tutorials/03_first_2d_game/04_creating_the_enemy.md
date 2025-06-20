@@ -1,5 +1,4 @@
 
-
 # Creating the enemy
 
 Now it's time to make the enemies our player will have to dodge. Their behavior
@@ -11,7 +10,7 @@ of independent mobs in the game.
 
 ## Node setup
 
-Click Scene -> New Scene and add the following nodes:
+Click Scene -&gt; New Scene and add the following nodes:
 
 - `RigidBody2D` (named `Mob`)
 - `AnimatedSprite`
@@ -54,16 +53,12 @@ Save the scene.
 
 Add a script to the `Mob` like this:
 
-gdscript GDScript
-
 ```
 extends RigidBody2D
 ```
 
 Now let's look at the rest of the script. In `ready()` we play the animation
 and randomly choose one of the three animation types:
-
-gdscript GDScript
 
 ```
 func _ready():
@@ -80,16 +75,13 @@ We then need to pick a random number between `0` and `2` to select one of
 these names from the list (array indices start at `0`). `randi() % n`
 selects a random integer between `0` and `n-1`.
 
-Note:
- You must use `randomize()` if you want your sequence of "random"
-            numbers to be different every time you run the scene. We're going to
-            use `randomize()` in our `Main` scene, so we won't need it here.
+Note: You must use `randomize()` if you want your sequence of "random"
+numbers to be different every time you run the scene. We're going to
+use `randomize()` in our `Main` scene, so we won't need it here.
 
 The last piece is to make the mobs delete themselves when they leave the screen.
 Connect the `screen_exited()` signal of the `VisibilityNotifier2D` node and
 add this code:
-
-gdscript GDScript
 
 ```
 func _on_VisibilityNotifier2D_screen_exited():
@@ -101,3 +93,4 @@ This completes the `Mob` scene.
 With the player and enemies ready, in the next part, we'll bring them together
 in a new scene. We'll make enemies spawn randomly around the game board and move
 forward, turning our project into a playable game.
+

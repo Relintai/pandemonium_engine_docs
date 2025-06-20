@@ -1,5 +1,4 @@
 
-
 # The main game scene
 
 Now it's time to bring everything we did together into a playable game scene.
@@ -8,22 +7,17 @@ Create a new scene and add a `Node` named `Main`.
 (The reason we are using Node instead of Node2D is because this node will
 be a container for handling game logic. It does not require 2D functionality itself.)
 
-Click the **Instance** button (represented by a chain link icon) and select your saved
-`Player.tscn`.
+Click the **Instance** button (represented by a chain link icon) and select your saved `Player.tscn`.
 
 ![](img/instance_scene.png)
 
 Now, add the following nodes as children of `Main`, and name them as shown
 (values are in seconds):
 
-- `Timer` (named `MobTimer`) - to control how often mobs
-  spawn
-- `Timer` (named `ScoreTimer`) - to increment the score
-  every second
-- `Timer` (named `StartTimer`) - to give a delay before
-  starting
-- `Position2D` (named `StartPosition`) - to indicate
-  the player's start position
+- `Timer` (named `MobTimer`) - to control how often mobs spawn
+- `Timer` (named `ScoreTimer`) - to increment the score every second
+- `Timer` (named `StartTimer`) - to give a delay before starting
+- `Position2D` (named `StartPosition`) - to indicate the player's start position
 
 Set the `Wait Time` property of each of the `Timer` nodes as follows:
 
@@ -51,8 +45,8 @@ intersecting lines, respectively.
 
 ![](img/grid_snap_button.png)
 
-.. important:: Draw the path in *clockwise* order, or your mobs will spawn
-               pointing *outwards* instead of *inwards*!
+Important: Draw the path in *clockwise* order, or your mobs will spawn
+pointing *outwards* instead of *inwards*!
 
 ![](img/draw_path2d.gif)
 
@@ -70,10 +64,8 @@ Your scene should look like this:
 
 ## Main script
 
-Add a script to `Main`. At the top of the script, we use `export
-(PackedScene)` to allow us to choose the Mob scene we want to instance.
-
-gdscript GDScript
+Add a script to `Main`. At the top of the script, we use `export(PackedScene)`
+to allow us to choose the Mob scene we want to instance.
 
 ```
 extends Node
@@ -84,8 +76,6 @@ var score
 
 We also add a call to `randomize()` here so that the random number
 generator generates different random numbers each time the game is run:
-
-gdscript GDScript
 
 ```
 func _ready():
@@ -113,8 +103,6 @@ signal connection dialog and click "Connect". Add the following code to the new
 function, as well as a `new_game` function that will set everything up for a
 new game:
 
-gdscript GDScript
-
 ```
 func game_over():
     $ScoreTimer.stop()
@@ -129,8 +117,6 @@ func new_game():
 Now connect the `timeout()` signal of each of the Timer nodes (`StartTimer`,
 `ScoreTimer` , and `MobTimer`) to the main script. `StartTimer` will start
 the other two timers. `ScoreTimer` will increment the score by 1.
-
-gdscript GDScript
 
 ```
 func _on_ScoreTimer_timeout():
@@ -150,8 +136,6 @@ When we spawn a mob, we'll pick a random value between `150.0` and
 all moving at the same speed).
 
 Note that a new instance must be added to the scene using `add_child()`.
-
-gdscript GDScript
 
 ```
 func _on_MobTimer_timeout():
@@ -180,19 +164,17 @@ func _on_MobTimer_timeout():
     add_child(mob)
 ```
 
-.. important:: Why `PI`? In functions requiring angles, Pandemonium uses *radians*,
-               not degrees. Pi represents a half turn in radians, about
-               `3.1415` (there is also `TAU` which is equal to `2 * PI`).
-               If you're more comfortable working with degrees, you'll need to
-               use the `deg2rad()` and `rad2deg()` functions to convert
-               between the two.
+Important: Why `PI`? In functions requiring angles, Pandemonium uses *radians*,
+not degrees. Pi represents a half turn in radians, about
+`3.1415` (there is also `TAU` which is equal to `2 * PI`).
+If you're more comfortable working with degrees, you'll need to
+use the `deg2rad()` and `rad2deg()` functions to convert
+between the two.
 
 ## Testing the scene
 
 Let's test the scene to make sure everything is working. Add this `new_game`
 call to `ready()`:
-
-gdscript GDScript
 
 ```
 func _ready():
@@ -204,9 +186,8 @@ Let's also assign `Main` as our "Main Scene" - the one that runs automatically
 when the game launches. Press the "Play" button and select `Main.tscn` when
 prompted.
 
-Tip:
- If you had already set another scene as the "Main Scene", you can right
-         click `Main.tscn` in the FileSystem dock and select "Set As Main Scene".
+Tip: If you had already set another scene as the "Main Scene", you can right
+click `Main.tscn` in the FileSystem dock and select "Set As Main Scene".
 
 You should be able to move the player around, see mobs spawning, and see the
 player disappear when hit by a mob.
@@ -216,3 +197,4 @@ When you're sure everything is working, remove the call to `new_game()` from
 
 What's our game lacking? Some user interface. In the next lesson, we'll add a
 title screen and display the player's score.
+

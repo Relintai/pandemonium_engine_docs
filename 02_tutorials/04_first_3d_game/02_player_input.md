@@ -1,13 +1,9 @@
 
-
 # Player scene and input actions
 
 In the next two lessons, we will design the player scene, register custom input
 actions, and code player movement. By the end, you'll have a playable character
 that moves in eight directions.
-
-.. TODO: add player animated gif?
-.. player_movement.gif)
 
 Create a new scene by going to the Scene menu in the top-left and clicking *New
 Scene*. Create a *KinematicBody* node as the root and name it *Player*.
@@ -19,12 +15,6 @@ game tutorial. Like rigid bodies, they can move and collide with the
 environment, but instead of being controlled by the physics engine, you dictate
 their movement. You will see how we use the node's unique features when we code
 the jump and squash mechanics.
-
-See also:
-
-
-    To learn more about the different physics node types, see the
-    `doc_physics_introduction`.
 
 For now, we're going to create a basic rig for our character's 3D model. This
 will allow us to rotate the model later via code while it plays an animation.
@@ -40,12 +30,10 @@ This should instantiate the model as a child of *Pivot*. You can rename it to
 
 ![](img/02.player_input/03.scene_structure.png)
 
-Note:
-
-    The `.glb` files contain 3D scene data based on the open-source GLTF 2.0
-    specification. They're a modern and powerful alternative to a proprietary format
-    like FBX, which Pandemonium also supports. To produce these files, we designed the
-    model in `Blender 3D ( https://www.blender.org/ )` and exported it to GLTF.
+Note: The `.glb` files contain 3D scene data based on the open-source GLTF 2.0
+specification. They're a modern and powerful alternative to a proprietary format
+like FBX. To produce these files, we designed the
+model in [Blender 3D](https://www.blender.org/) and exported it to GLTF.
 
 As with all kinds of physics nodes, we need a collision shape for our character
 to collide with the environment. Select the *Player* node again and add a

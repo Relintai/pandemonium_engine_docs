@@ -1,5 +1,0 @@
-
-
-# Documentation changelog
-
-Not yet.

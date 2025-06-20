@@ -1,13 +1,7 @@
-.. Intention: only introduce one necessary input method at this point. The
-   Inputs section of the docs should provide more guides comparing the various
-   tools you have to manage the complexity of user input.
 
+# Listening to player input
 
-
-Listening to player input
-=========================
-
-Building upon the previous lesson `doc_scripting_first_script`, let's look
+Building upon the previous lesson [scripting first script](03_scripting_first_script.md), let's look
 at another important feature of any game: giving control to the player.
 To add this, we need to modify our `Sprite.gd` code.
 
@@ -18,8 +12,8 @@ You have two main tools to process the player's input in Pandemonium:
 1. The built-in input callbacks, mainly `unhandled_input()`. Like
    `process()`, it's a built-in virtual function that Pandemonium calls every time
    the player presses a key. It's the tool you want to use to react to events
-   that don't happen every frame, like pressing :kbd:`Space` to jump. To learn
-   more about input callbacks, see `doc_inputevent`.
+   that don't happen every frame, like pressing `Space` to jump. To learn
+   more about input callbacks, [see](../../03_usage/06_inputs/01_inputevent.md).
 2. The `Input` singleton. A singleton is a globally accessible object. Pandemonium
    provides access to several in scripts. It's the right tool to check for input
    every frame.
@@ -30,8 +24,6 @@ wants to turn or move every frame.
 For turning, we should use a new variable: `direction`. In our `process()`
 function, replace the `rotation += angular_speed * delta` line with the
 code below.
-
-gdscript GDScript
 
 ```
 var direction = 0
@@ -60,23 +52,19 @@ The two actions we use above, "ui_left" and "ui_right", are predefined in every
 Pandemonium project. They respectively trigger when the player presses the left and
 right arrows on the keyboard or left and right on a gamepad's D-pad.
 
-Note:
- You can see and edit input actions in your project by going to Project
-          -> Project Settings and clicking on the Input Map tab.
+Note: You can see and edit input actions in your project by going to
+Project -&gt; Project Settings and clicking on the Input Map tab.
 
 Finally, we use the `direction` as a multiplier when we update the node's
 `rotation`: `rotation += angular_speed * direction * delta`.
 
 If you run the scene with this code, the icon should rotate when you press
-:kbd:`Left` and :kbd:`Right`.
+`Left` and `Right`.
 
-Moving when pressing "up"
--------------------------
+## Moving when pressing "up"
 
 To only move when pressing a key, we need to modify the code that calculates the
 velocity. Replace the line starting with `var velocity` with the code below.
-
-gdscript GDScript
 
 ```
 var velocity = Vector2.ZERO
@@ -90,12 +78,9 @@ constant of the built-in `Vector` type representing a 2D vector of length 0.
 If the player presses the "ui_up" action, we then update the velocity's value,
 causing the sprite to move forward.
 
-Complete script
----------------
+## Complete script
 
 Here is the complete `Sprite.gd` file for reference.
-
-gdscript GDScript
 
 ```
 extends Sprite
@@ -121,12 +106,11 @@ func _process(delta):
 ```
 
 If you run the scene, you should now be able to rotate with the left and right
-arrow keys and move forward by pressing :kbd:`Up`.
+arrow keys and move forward by pressing `Up`.
 
 ![](img/scripting_first_script_moving_with_input.gif)
 
-Summary
--------
+## Summary
 
 In summary, every script in Pandemonium represents a class and extends one of the
 engine's built-in classes. The node types your classes inherit from give you
@@ -145,5 +129,6 @@ button presses from the users. There are quite a few more.
 The `Input` singleton allows you to react to the players' input anywhere in
 your code. In particular, you'll get to use it in the `process()` loop.
 
-In the next lesson `doc_signals`, we'll build upon the relationship between
+In the next lesson, we'll build upon the relationship between
 scripts and nodes by having our nodes trigger code in scripts.
+

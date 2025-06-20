@@ -1,5 +1,4 @@
 
-
 # Setting up the game area
 
 In this first part, we're going to set up the game area. Let's get started by
@@ -7,8 +6,7 @@ importing the start assets and setting up the game scene.
 
 We've prepared a Pandemonium project with the 3D models and sounds we'll use for this
 tutorial, linked in the index page. If you haven't done so yet, you can download
-the archive here: `Squash the Creeps assets
-( https://github.com/GDQuest/pandemonium-3d-dodge-the-creeps/releases/tag/1.0.0 )`.
+the archive here: [Squash the Creeps assets](files/squash_the_creeps.zip).
 
 Once you downloaded it, extract the .zip archive on your computer. Open the
 Pandemonium project manager and click the *Import* button.
@@ -16,7 +14,7 @@ Pandemonium project manager and click the *Import* button.
 ![](img/01.game_setup/01.import_button.png)
 
 In the import popup, enter the full path to the freshly created directory
-`squash_the_creeps_start/`. You can click the *Browse* button on the right to
+`squash_the_creeps/`. You can click the *Browse* button on the right to
 open a file browser and navigate to the `project.pandemonium` file the folder
 contains.
 
@@ -39,11 +37,11 @@ belong to these models, and a music track.
 We're going to create our main scene with a plain *Node* as its root. In the
 *Scene* dock, click the *Add Node* button represented by a "+" icon in the
 top-left and double-click on *Node*. Name the node "Main". Alternatively, to add
-a node to the scene, you can press :kbd:`Ctrl + a` (or :kbd:`Cmd + a` on macOS).
+a node to the scene, you can press `Ctrl + a` (or `Cmd + a` on macOS).
 
 ![](img/01.game_setup/05.main_node.png)
 
-Save the scene as `Main.tscn` by pressing :kbd:`Ctrl + s` (:kbd:`Cmd + s` on macOS).
+Save the scene as `Main.tscn` by pressing `Ctrl + s` (`Cmd + s` on macOS).
 
 We'll start by adding a floor that'll prevent the characters from falling. To
 create static colliders like the floor, walls, or ceilings, you can use
@@ -75,13 +73,10 @@ the Z axis.
 
 ![](img/01.game_setup/09.box_extents.png)
 
-Note:
-
-
-    In 3D, translation and size units are in meters. The box's total size is
-    twice its extents: `60` by `60` meters on the ground plane and `2`
-    units tall. The ground plane is defined by the X and Z axes, while the Y
-    axis represents the height.
+Note: In 3D, translation and size units are in meters. The box's total size is
+twice its extents: `60` by `60` meters on the ground plane and `2`
+units tall. The ground plane is defined by the X and Z axes, while the Y
+axis represents the height.
 
 Collision shapes are invisible. We need to add a visual floor that goes along
 with it. Select the *Ground* node and add a *MeshInstance* as its child.
@@ -104,16 +99,13 @@ You should see a wide grey slab that covers the grid and blue and red axes in
 the viewport.
 
 We're going to move the ground down so we can see the floor grid. Select the
-*Ground* node, hold the :kbd:`Ctrl` key down to turn on grid snapping (:kbd:`Cmd` on macOS),
+*Ground* node, hold the `Ctrl` key down to turn on grid snapping (`Cmd` on macOS),
 and click and drag down on the Y axis. It's the green arrow in the move gizmo.
 
 ![](img/01.game_setup/13.move_gizmo_y_axis.png)
 
-Note:
-
-
-    If you can't see the 3D object manipulator like on the image above, ensure
-    the *Select Mode* is active in the toolbar above the view.
+Note: If you can't see the 3D object manipulator like on the image above, ensure
+the *Select Mode* is active in the toolbar above the view.
 
 ![](img/01.game_setup/14.select_mode_icon.png)
 
@@ -122,12 +114,9 @@ viewport tells you how much you're translating the node.
 
 ![](img/01.game_setup/15.translation_amount.png)
 
-Note:
-
-
-    Moving the *Ground* node down moves both children along with it.
-    Ensure you move the *Ground* node, **not** the *MeshInstance* or the
-    *CollisionShape*.
+Note: Moving the *Ground* node down moves both children along with it.
+Ensure you move the *Ground* node, **not** the *MeshInstance* or the
+*CollisionShape*.
 
 Let's add a directional light so our scene isn't all grey. Select the *Main*
 node and add a *DirectionalLight* as a child of it. We need to move it and
@@ -135,7 +124,7 @@ rotate it. Move it up by clicking and dragging on the manipulator's green arrow
 and click and drag on the red arc to rotate it around the X axis, until the
 ground is lit.
 
-In the *Inspector*, turn on *Shadow -> Enabled* by clicking the checkbox.
+In the *Inspector*, turn on *Shadow -&gt; Enabled* by clicking the checkbox.
 
 ![](img/01.game_setup/16.turn_on_shadows.png)
 
@@ -145,5 +134,4 @@ At this point, your project should look like this.
 
 That's our starting point. In the next part, we will work on the player scene
 and base movement.
-
 

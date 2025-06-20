@@ -1,5 +1,4 @@
 
-
 # Finishing up
 
 We have now completed all the functionality for our game. Below are some
@@ -13,7 +12,7 @@ The default gray background is not very appealing, so let's change its color.
 One way to do this is to use a `ColorRect` node. Make it
 the first node under `Main` so that it will be drawn behind the other nodes.
 `ColorRect` only has one property: `Color`. Choose a color you like and
-select "Layout" -> "Full Rect" so that it covers the screen.
+select "Layout" -&gt; "Full Rect" so that it covers the screen.
 
 You could also add a background image, if you have one, by using a
 `TextureRect` node instead.
@@ -46,7 +45,7 @@ will create a similar input action to map to the start button.
 
 Select "Project" -> "Project Settings" and then click on the "Input Map"
 tab. In the same way you created the movement input actions, create a new
-input action called `start_game` and add a key mapping for the :kbd:`Enter`
+input action called `start_game` and add a key mapping for the `Enter`
 key.
 
 In the `HUD` scene, select the `StartButton` and find its *Shortcut*
@@ -57,7 +56,7 @@ the name `start_game`.
 
 ![](img/start_button_shortcut.png)
 
-Now when the start button appears, you can either click it or press :kbd:`Enter`
+Now when the start button appears, you can either click it or press `Enter`
 to start the game.
 
 And with that, you completed your first 2D game in Pandemonium.
@@ -71,5 +70,6 @@ interface, sounds, and more. Congratulations!
 There's still much to learn, but you can take a moment to appreciate what you
 achieved.
 
-And when you're ready, you can move on to `doc_your_first_3d_game` to learn
+And when you're ready, you can move on to [your first 3d game](../04_first_3d_game/00_intro.md) to learn
 to create a complete 3D game from scratch, in Pandemonium.
+

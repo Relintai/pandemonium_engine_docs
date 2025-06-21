@@ -1,5 +1,4 @@
 
-
 # Shaders style guide
 
 This style guide lists conventions to write elegant shaders. The goal is to
@@ -10,7 +9,7 @@ auto-formatting tools.
 Since the Pandemonium shader language is close to C-style languages and GLSL, this
 guide is inspired by Pandemonium's own GLSL formatting. You can view an example of a
 GLSL file in Pandemonium's source code
-`here ( https://github.com/Relintai/pandemonium_engine/blob/master/drivers/gles2/shaders/copy.glsl )`.
+[here](https://github.com/Relintai/pandemonium_engine/blob/master/drivers/gles2/shaders/copy.glsl).
 
 Style guides aren't meant as hard rulebooks. At times, you may not be able to
 apply some of the guidelines below. When that happens, use your best judgment,
@@ -19,9 +18,8 @@ and ask fellow developers for insights.
 In general, keeping your code consistent in your projects and within your team is
 more important than following this guide to a tee.
 
-Note:
- Pandemonium's built-in shader editor uses a lot of these conventions
-          by default. Let it help you.
+Note: Pandemonium's built-in shader editor uses a lot of these conventions
+by default. Let it help you.
 
 Here is a complete shader example based on these guidelines:
 
@@ -52,7 +50,7 @@ void fragment() {
 
 * Use line feed (**LF**) characters to break lines, not CRLF or CR. *(editor default)*
 * Use one line feed character at the end of each file. *(editor default)*
-* Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`. *(editor default)*
+* Use **UTF-8** encoding without a [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark). *(editor default)*
 * Use **Tabs** instead of spaces for indentation. *(editor default)*
 
 ### Indentation
@@ -98,7 +96,7 @@ vec2 st = vec2(
 ### Line breaks and blank lines
 
 For a general indentation rule, follow
-`the "1TBS Style" ( https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS) )`
+[the "1TBS Style"](https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS))
 which recommends placing the brace associated with a control statement on the
 same line. Always use braces for statements, even if they only span one line.
 This makes them easier to refactor and avoids mistakes when adding more lines to
@@ -203,12 +201,9 @@ Don't use multiline comment syntax if your comment can fit on a single line:
 /* This is another comment. */
 ```
 
-Note:
-
-
-   In the shader editor, to make the selected code a comment (or uncomment it),
-   press :kbd:`Ctrl + K`. This feature adds or removes `//` at the start of
-   the selected lines.
+Note: In the shader editor, to make the selected code a comment (or uncomment it),
+press `Ctrl + K`. This feature adds or removes `//` at the start of
+the selected lines.
 
 ### Whitespace
 
@@ -287,7 +282,7 @@ code.
 
 ### Functions and variables
 
-Use snake\_case to name functions and variables:
+Use snake_case to name functions and variables:
 
 ```
 void some_function() {
@@ -297,8 +292,8 @@ void some_function() {
 
 ### Constants
 
-Write constants with CONSTANT\_CASE, that is to say in all caps with an
-underscore (\_) to separate words:
+Write constants with CONSTANT_CASE, that is to say in all caps with an
+underscore (_) to separate words:
 
 ```
 const float GOLDEN_RATIO = 1.618;
@@ -338,3 +333,4 @@ This code order follows two rules of thumb:
 Declare local variables as close as possible to their first use. This makes it
 easier to follow the code, without having to scroll too much to find where the
 variable was declared.
+

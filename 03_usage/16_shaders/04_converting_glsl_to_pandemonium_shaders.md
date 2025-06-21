@@ -1,13 +1,9 @@
 
-
 # Converting GLSL to Pandemonium shaders
 
 This document explains the differences between Pandemonium's shading language and GLSL
 and gives practical advice on how to migrate shaders from other sources, such as
 Shadertoy and The Book of Shaders, into Pandemonium shaders.
-
-For detailed information on Pandemonium's shading language, please refer to the
-`Shading Language ( doc_shading_language )` reference.
 
 ## GLSL
 
@@ -31,8 +27,7 @@ programs cannot share variables except when varyings are used.
 In GLSL, you can pass in per-vertex information using attributes and have the
 flexibility to pass in as much or as little as you want. In Pandemonium, you have a
 set number of input attributes, including `VERTEX` (position), `COLOR`,
-`UV`, `UV2`, `NORMAL`. For a complete list, see the `Shading language
-reference ( doc_shading_language )`.
+`UV`, `UV2`, `NORMAL`.
 
 #### gl_Position
 
@@ -80,7 +75,6 @@ is no equivalent because they run during the pre-processing stage of
 compilation.
 
 #### Variables
-^^^^^^^^^
 
 GLSL has many built-in variables that are hard-coded. These variables are not
 uniforms, so they are not editable from the main program.
@@ -108,14 +102,12 @@ In GLSL, you can define the precision of a given type (float or int) at the top
 of the shader with the `precision` keyword. In Pandemonium, you can set the
 precision of individual variables as you need by placing precision qualifiers
 `lowp`, `mediump`, and `highp` before the type when defining the variable.
-For more information, see the `Shading Language ( doc_shading_language )`
-reference.
 
 #### Shadertoy
 
-`Shadertoy ( https://www.shadertoy.com/results?query=&sort=popular&from=10&num=4 )`
+[Shadertoy](https://www.shadertoy.com/results?query=&sort=popular&from=10&num=4)
 is a website that makes it easy to write fragment shaders and
-create `pure magic ( https://www.shadertoy.com/view/4tjGRh )`.
+create [pure magic](https://www.shadertoy.com/view/4tjGRh).
 
 Shadertoy does not give the user full control over the shader. It handles all
 the input and uniforms and only lets the user write the fragment shader.
@@ -162,19 +154,18 @@ what they can pass in as a substitute.
 
 #### Coordinates
 
-`fragCoord` behaves the same as `gl_FragCoord` in `GLSL
-(glsl_coordinates )` and `FRAGCOORD` in Pandemonium.
+`fragCoord` behaves the same as `gl_FragCoord` in `GLSL` and `FRAGCOORD` in Pandemonium.
 
 
 ## The Book of Shaders
 
-Similar to Shadertoy, `The Book of Shaders ( https://thebookofshaders.com )`
+Similar to Shadertoy, [The Book of Shaders](https://thebookofshaders.com)
 provides access to a fragment shader in the web browser, with which the user may
 interact. The user is restricted to writing fragment shader code with a set list
 of uniforms passed in and with no ability to add additional uniforms.
 
 For further help on porting shaders to various frameworks generally, The Book of
-Shaders provides a `page ( https://thebookofshaders.com/04 )` on running shaders
+Shaders provides a [page](https://thebookofshaders.com/04) on running shaders
 in various frameworks.
 
 #### Types
@@ -206,5 +197,5 @@ implements fewer uniforms than Shadertoy.
 
 #### Coordinates
 
-The Book of Shaders uses the same coordinate system as
-`GLSL ( glsl_coordinates )`.
+The Book of Shaders uses the same coordinate system as `GLSL`.
+

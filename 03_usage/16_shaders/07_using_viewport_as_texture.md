@@ -1,5 +1,4 @@
 
-
 # Using a Viewport as a texture
 
 ## Introduction
@@ -10,13 +9,10 @@ of making a procedural planet like the one below:
 
 ![](img/planet_example.png)
 
-Note:
- This tutorial does not cover how to code a dynamic atmosphere like the one this planet has.
+Note: This tutorial does not cover how to code a dynamic atmosphere like the one this planet has.
 
 This tutorial assumes you are familiar with how to set up a basic scene including:
-a `Camera`, a
-`Mesh Instance`,
-and applying a `SpatialMaterial` to the mesh. The focus will be on using
+a `Camera`, a `Mesh Instance`, and applying a `SpatialMaterial` to the mesh. The focus will be on using
 the `Viewport` to dynamically create textures that can be applied to the mesh.
 
 In this tutorial, we'll cover the following topics:
@@ -48,13 +44,12 @@ will ensure that the `ColorRect`.
 
 ![](img/planet_new_colorrect.png)
 
-Next, we add a `Shader Material `New ShaderMaterial`).
+Next, we add a Shader Material `New ShaderMaterial`.
 
-Note:
- Basic familiarity with shading is recommended for this tutorial. However, even if you are new
-          to shaders, all the code will be provided, so you should have no problem following along.
+Note: Basic familiarity with shading is recommended for this tutorial. However, even if you are new
+to shaders, all the code will be provided, so you should have no problem following along.
 
-ColorRect > CanvasItem > Material > Material > click / Edit > ShaderMaterial > Shader > `New Shader` > click / Edit:
+ColorRect &gt; CanvasItem &gt; Material &gt; Material &gt; click / Edit &gt; ShaderMaterial &gt; Shader &gt; `New Shader` > click / Edit:
 
 ```
 shader_type canvas_item;
@@ -73,13 +68,13 @@ apply to the sphere.
 
 ## Applying the texture
 
-MeshInstance > GeometryInstance > Geometry > Material Override > `New SpatialMaterial`:
+MeshInstance &gt; GeometryInstance &gt; Geometry &gt; Material Override &gt; `New SpatialMaterial`:
 
 Now we go into the `Mesh Instance`
 to it. No need for a special `Shader Material` (although that would be a good idea
 for more advanced effects, like the atmosphere in the example above).
 
-MeshInstance > GeometryInstance > Geometry > Material Override > `click` / `Edit`:
+MeshInstance &gt; GeometryInstance &gt; Geometry &gt; Material Override &gt; `click` / `Edit`:
 
 Open the newly created `SpatialMaterial` and scroll down to the "Albedo" section
 and click beside the "Texture" property to add an Albedo Texture. Here we will apply the texture we made.
@@ -119,11 +114,10 @@ have pinching at the poles. This pinching is due to the way Pandemonium maps tex
 `SpatialMaterial`. It uses a projection technique called equirectangular
 projection, which translates a spherical map onto a 2D plane.
 
-Note:
- If you are interested in a little extra information on the technique, we will be converting from
-          spherical coordinates into Cartesian coordinates. Spherical coordinates map the longitude and
-          latitude of the sphere, while Cartesian coordinates are, for all intents and purposes, a
-          vector from the center of the sphere to the point.
+Note: If you are interested in a little extra information on the technique, we will be converting from
+spherical coordinates into Cartesian coordinates. Spherical coordinates map the longitude and
+latitude of the sphere, while Cartesian coordinates are, for all intents and purposes, a
+vector from the center of the sphere to the point.
 
 For each pixel, we will calculate its 3D position on the sphere. From that, we will use
 3D noise to determine a color value. By calculating the noise in 3D, we solve the problem
@@ -149,7 +143,7 @@ And if we use `unit` as an output `COLOR` value, we get:
 ![](img/planet_normals.png)
 
 Now that we can calculate the 3D position of the surface of the sphere, we can use 3D noise
-to make the planet. We will be using this noise function directly from a `Shadertoy ( https://www.shadertoy.com/view/Xsl3Dl )`:
+to make the planet. We will be using this noise function directly from a [Shadertoy](https://www.shadertoy.com/view/Xsl3Dl):
 
 ```
 vec3 hash(vec3 p) {
@@ -176,8 +170,7 @@ float noise(vec3 p) {
 }
 ```
 
-Note:
- All credit goes to the author, Inigo Quilez. It is published under the `MIT` licence.
+Note: All credit goes to the author, Inigo Quilez. It is published under the `MIT` licence.
 
 Now to use `noise`, add the following to the    `fragment` function:
 
@@ -188,8 +181,7 @@ COLOR.xyz = vec3(n * 0.5 + 0.5);
 
 ![](img/planet_noise.png)
 
-Note:
- In order to highlight the texture, we set the material to unshaded.
+Note: In order to highlight the texture, we set the material to unshaded.
 
 You can see now that the noise indeed wraps seamlessly around the sphere. Although this
 looks nothing like the planet you were promised. So let's move onto something more colorful.
@@ -301,3 +293,4 @@ effect of the reflections on the ocean.
 ![](img/planet_ocean_reflect.png)
 
 And there you have it. A procedural planet generated using a `Viewport`.
+

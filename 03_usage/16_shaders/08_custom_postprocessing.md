@@ -11,27 +11,23 @@ your scene into a `Viewport`, then render the `Viewport`
 inside a `ViewportTexture` and show it on the screen.
 
 The easiest way to implement a custom post-processing shader is to use Pandemonium's built-in ability to read from
-the screen texture. If you're not familiar with this, you should read the `Screen Reading Shaders
-Tutorial ( doc_screen-reading_shaders )` first.
+the screen texture. If you're not familiar with this, you should read the
+[Screen Reading Shaders Tutorial](03_screen_reading_shaders.md) first.
 
-Note:
-
-    As of the time of writing, Pandemonium does not support rendering to multiple buffers at the same time. Your
-    post-processing shader will not have access to normals or other render passes. You only have
-    access to the rendered frame.
+Note: As of the time of writing, Pandemonium does not support rendering to multiple buffers at the same time. Your
+post-processing shader will not have access to normals or other render passes. You only have
+access to the rendered frame.
 
 ## Single pass post-processing
 
 You will need a `Viewport` to render your scene to, and a scene to render your
-`Viewport` on the screen. You can use a `ViewportContainer
-( ViewportContainer )` to display your `Viewport` on the entire screen or inside
+`Viewport` on the screen. You can use a `ViewportContainer`
+to display your `Viewport` on the entire screen or inside
 another `Control` node.
 
-Note:
-
-    Rendering using a `Viewport` gives you control over
-    how the scene render, including the framerate, and you can use the
-    `ViewportContainer` to render 3D objects in a 2D scene.
+Note: Rendering using a `Viewport` gives you control over
+how the scene render, including the framerate, and you can use the
+`ViewportContainer` to render 3D objects in a 2D scene.
 
 For this demo, we will use a `Node2D` with a `ViewportContainer` and finally a
 `Viewport`. Your **Scene** tab should look like this:
@@ -46,27 +42,25 @@ your main scene. For this tutorial, we will use a field of random boxes:
 Add a new `ShaderMaterial` to the `ViewportContainer`, and assign a new
 shader resource to it. You can access your rendered `Viewport` with the built-in `TEXTURE` uniform.
 
-Note:
+Note: You can choose not to use a `ViewportContainer`, but if you do so, you will
+need to create your own uniform in the shader and pass the `Viewport` texture in
+manually, like so:
 
-    You can choose not to use a `ViewportContainer`, but if you do so, you will
-    need to create your own uniform in the shader and pass the `Viewport` texture in
-    manually, like so:
-
-    ```
+```
 // Inside the Shader.
 uniform sampler2D ViewportTexture;
 ```
 
-    And you can pass the texture into the shader from GDScript like so:
+And you can pass the texture into the shader from GDScript like so:
 
-    ```
+```
 # In GDScript.
 func _ready():
   $Sprite.material.set_shader_param("ViewportTexture", $Viewport.get_texture())
 ```
 
 Copy the following code to your shader. The above code is a single pass edge detection filter, a
-`Sobel filter ( https://en.wikipedia.org/wiki/Sobel_operator )`.
+[Sobel filter](https://en.wikipedia.org/wiki/Sobel_operator).
 
 ```
 shader_type canvas_item;
@@ -85,14 +79,12 @@ void fragment() {
 }
 ```
 
-Note:
+Note: The Sobel filter reads pixels in a 9x9 grid around the current pixel and adds them together, using weight.
+What makes it interesting is that it assigns weights to each pixel; +1 for each of the eight around the
+center and -8 for the center pixel. The choice of weights is called a "kernel". You can use different
+kernels to create edge detection filters, outlines, and all sorts of effects.
 
-    The Sobel filter reads pixels in a 9x9 grid around the current pixel and adds them together, using weight.
-    What makes it interesting is that it assigns weights to each pixel; +1 for each of the eight around the
-    center and -8 for the center pixel. The choice of weights is called a "kernel". You can use different
-    kernels to create edge detection filters, outlines, and all sorts of effects.
-
-    ![](img/post_outline.png)
+![](img/post_outline.png)
 
 ## Multi-pass post-processing
 
@@ -113,10 +105,8 @@ Pandemonium will render the bottom `Viewport` node first. So if the order of the
 shaders, make sure that you assign the shader you want to apply first to the lowest `ViewportContainer` in
 the tree.
 
-Note:
-
-    You can also render your Viewports separately without nesting them like this. You just
-    need to use two Viewports and to render them one after the other.
+Note: You can also render your Viewports separately without nesting them like this. You just
+need to use two Viewports and to render them one after the other.
 
 Apart from the node structure, the steps are the same as with the single-pass post-processing shader.
 
@@ -164,4 +154,4 @@ Using the above code, you should end up with a full screen blur effect like belo
 
 ![](img/post_blur.png)
 
-For more information on how `Viewport` nodes work, see the `Viewports Tutorial ( doc_viewports )`.
+

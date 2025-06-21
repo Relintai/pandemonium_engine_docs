@@ -1,5 +1,4 @@
 
-
 # Shader materials
 
 ## Introduction
@@ -23,8 +22,7 @@ Examples of this are:
 
 Pandemonium provides built in functionality to make frequent operations
 easier. Additionally, Pandemonium's shader editor will detect errors as you
-type, so you can see your edited shaders in real-time. It is also
-possible to edit shaders using a visual, node-based graph editor.
+type, so you can see your edited shaders in real-time.
 
 ## Creating a ShaderMaterial
 
@@ -34,33 +32,14 @@ Create a new ShaderMaterial in some object of your choice. Go to the
 ![](img/shader_material_create.png)
 
 Next, click on the shader material to see its properties. From here you
-can create a shader or visual shader. Regular shaders use code to set
-their properties while a visual shader uses a node based workflow.
-
-If you need to you can convert a visual shader to a text shader.
-However you can't convert a text shader to a visual shader.
-
-Choose one of them and you can start editing your shader.
+can create a shader. Regular shaders use code to set
+their properties.
 
 ![](img/shader_create.png)
 
 If you create a regular shader click on it and the shader editor will open.
 
 ![](img/shader_material_editor.png)
-
-If you create a visual shader the visual shader editor will open automatically.
-
-![](img/visual_shader_editor.png)
-
-In the visual shader editor you can click a button and see what your visual
-shader looks like as shader code. This can be useful if you're trying to
-replicate a text shader as nodes, or it can be used as a preview for converting
-your visual shader to a text shader.
-
-![](img/visual_shader_code.png)
-
-Note:
-   To learn more about visual shaders, read `doc_visual_shaders`.
 
 ## Converting to ShaderMaterial
 
@@ -70,7 +49,6 @@ and select the convert option.
 
 ![](img/shader_material_convert.png)
 
-Note:
+Note: Using the convert option will turn the SpatialMaterial into a ShaderMaterial
+with a text shader, not a visual shader.
 
-   Using the convert option will turn the SpatialMaterial into a ShaderMaterial
-   with a text shader, not a visual shader.

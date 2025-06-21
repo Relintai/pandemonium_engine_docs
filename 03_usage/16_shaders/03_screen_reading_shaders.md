@@ -16,7 +16,7 @@ few tools that make this process easy.
 
 ### SCREEN_TEXTURE built-in texture
 
-Pandemonium `doc_shading_language` has a special texture, `SCREEN_TEXTURE` (and `DEPTH_TEXTURE` for depth, in the case of 3D).
+Pandemonium's shading language has a special texture, `SCREEN_TEXTURE` (and `DEPTH_TEXTURE` for depth, in the case of 3D).
 It takes as argument the UV of the screen and returns a vec3 RGB with the color. A
 special built-in varying: SCREEN_UV can be used to obtain the UV for
 the current fragment. As a result, this simple canvas_item fragment shader:
@@ -35,11 +35,8 @@ a chunk of the screen, it also does an efficient separatable gaussian blur to it
 This allows for not only reading from the screen, but reading from it with different amounts
 of blur at no cost.
 
-Note:
-
-
-   Mipmaps are not generated in GLES2 due to poor performance and compatibility with older
-   devices.
+Note: Mipmaps are not generated in GLES2 due to poor performance and compatibility with older
+devices.
 
 ### SCREEN_TEXTURE example
 
@@ -96,12 +93,10 @@ With correct back-buffer copying, the two spheres blend correctly:
 
 ![](img/texscreen_demo2.png)
 
-Warning:
-
-    Materials that use `SCREEN_TEXTURE` are considered transparent themselves and
-    will not appear in the resulting `SCREEN_TEXTURE` of other materials.
-    If you plan to instance a scene that uses a material with `SCREEN_TEXTURE`,
-    you will need to use a BackBufferCopy node.
+Warning: Materials that use `SCREEN_TEXTURE` are considered transparent themselves and
+will not appear in the resulting `SCREEN_TEXTURE` of other materials.
+If you plan to instance a scene that uses a material with `SCREEN_TEXTURE`,
+you will need to use a BackBufferCopy node.
 
 In 3D, there is less flexibility to solve this particular issue because the
 `SCREEN_TEXTURE` is only captured once. Be careful when using
@@ -149,3 +144,4 @@ void fragment() {
     vec3 pixel_position = upos.xyz / upos.w;
 }
 ```
+

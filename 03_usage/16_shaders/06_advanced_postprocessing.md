@@ -1,5 +1,4 @@
 
-
 # Advanced post-processing
 
 ## Introduction
@@ -7,7 +6,8 @@
 This tutorial describes an advanced method for post-processing in Pandemonium.
 In particular, it will explain how to write a post-processing shader that
 uses the depth buffer. You should already be familiar with post-processing
-generally and, in particular, with the methods outlined in the `custom post-processing tutorial ( doc_custom_postprocessing )`.
+generally and, in particular, with the methods outlined in the
+[custom post-processing tutorial](06_custom_postprocessing.md).
 
 In the previous post-processing tutorial, we rendered the scene to a `Viewport`
 and then rendered the Viewport in a `ViewportContainer`
@@ -17,7 +17,7 @@ Viewports do not maintain depth information.
 
 ## Full screen quad
 
-In the `custom post-processing tutorial ( doc_custom_postprocessing )`, we
+In the [custom post-processing tutorial](06_custom_postprocessing.md), we
 covered how to use a Viewport to make custom post-processing effects. There are
 two main drawbacks of using a Viewport:
 
@@ -78,10 +78,9 @@ the uniform variable `DEPTH_TEXTURE`.
 float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
 ```
 
-Note:
- Similar to accessing the screen texture, accessing the depth texture is only
-          possible when reading from the current viewport. The depth texture cannot be
-          accessed from another viewport to which you have rendered.
+Note: Similar to accessing the screen texture, accessing the depth texture is only
+possible when reading from the current viewport. The depth texture cannot be
+accessed from another viewport to which you have rendered.
 
 The values returned by `DEPTH_TEXTURE` are between `0` and `1` and are nonlinear.
 When displaying depth directly from the `DEPTH_TEXTURE`, everything will look almost
@@ -142,7 +141,7 @@ void fragment() {
 ## An optimization
 
 You can benefit from using a single large triangle rather than using a full
-screen quad. The reason for this is explained `here ( https://michaldrobot.com/2014/04/01/gcn-execution-patterns-in-full-screen-passes )`.
+screen quad. The reason for this is explained [here](https://michaldrobot.com/2014/04/01/gcn-execution-patterns-in-full-screen-passes).
 However, the benefit is quite small and only beneficial when running especially
 complex fragment shaders.
 
@@ -172,12 +171,11 @@ func _ready():
   mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, mesh_array)
 ```
 
-Note:
- The triangle is specified in normalized device coordinates. Recall, NDC run
-          from `-1` to `1` in both the `x` and `y` directions. This makes the screen
-          `2` units wide and `2` units tall. In order to cover the entire screen with
-          a single triangle, use a triangle that is `4` units wide and `4`
-          units tall, double its height and width.
+Note: The triangle is specified in normalized device coordinates. Recall, NDC run
+from `-1` to `1` in both the `x` and `y` directions. This makes the screen
+`2` units wide and `2` units tall. In order to cover the entire screen with
+a single triangle, use a triangle that is `4` units wide and `4`
+units tall, double its height and width.
 
 Assign the same vertex shader from above and everything should look exactly the same.
 
@@ -185,3 +183,4 @@ The one drawback to using an ArrayMesh over using a QuadMesh is that the ArrayMe
 is not visible in the editor because the triangle is not constructed until the scene
 is run. To get around that, construct a single triangle Mesh in a modelling program
 and use that in the MeshInstance instead.
+

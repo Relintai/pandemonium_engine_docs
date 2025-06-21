@@ -1,10 +1,8 @@
 
-
 # Introduction to shaders
 
 This page explains what shaders are and will give you an overview of how they
-work in Pandemonium. For a detailed reference of the engine's shading language, see
-`doc_shading_language`.
+work in Pandemonium.
 
 Shaders are a special kind of program that runs on Graphics Processing Units
 (GPUs). They were initially used to shade 3D scenes but can nowadays do much
@@ -39,9 +37,7 @@ void fragment() {
 }
 ```
 
-Note:
-
-   The graphics card calls the `fragment()` function once or more for each pixel it has to draw. More on that below.
+Note: The graphics card calls the `fragment()` function once or more for each pixel it has to draw. More on that below.
 
 ## Shaders in Pandemonium
 
@@ -54,21 +50,16 @@ In Pandemonium, shaders are made up of three main functions: `vertex()`,
 
 1. The `vertex()` function runs over all the vertices in the mesh and sets
    their positions and some other per-vertex variables.
-
 2. The `fragment()` function runs for every pixel covered by the mesh. It uses
    values output by the `vertex()` function, interpolated between the
    vertices.
-
 3. The `light()` function runs for every pixel and for every light. It takes
    variables from the `fragment()` function and from its previous runs.
 
-Warning:
-
-
-    The `light()` function won't run if the `vertex_lighting` render mode is
-    enabled, or if **Rendering > Quality > Shading > Force Vertex Shading** is
-    enabled in the Project Settings. It's enabled by default on mobile
-    platforms.
+Warning: The `light()` function won't run if the `vertex_lighting` render mode is
+enabled, or if **Rendering &gt; Quality &gt; Shading &gt; Force Vertex Shading** is
+enabled in the Project Settings. It's enabled by default on mobile
+platforms.
 
 ## Shader types
 
@@ -84,9 +75,9 @@ shader_type spatial;
 
 Here are the available types:
 
-* `spatial ( doc_spatial_shader )` for 3D rendering.
-* `canvas_item ( doc_canvas_item_shader )` for 2D rendering.
-* `particles ( doc_particle_shader )` for particle systems.
+* `spatial` for 3D rendering.
+* `canvas_item` for 2D rendering.
+* `particles` for particle systems.
 
 ## Render modes
 
@@ -123,8 +114,7 @@ can also use it to send extra data to the fragment function using varyings.
 
 By default, Pandemonium transforms your vertex information for you, which is necessary
 to project geometry onto the screen. You can use render modes to transform the
-data yourself; see the `Spatial shader doc ( doc_spatial_shader )` for an
-example.
+data yourself;
 
 #### Fragment processor
 
@@ -152,6 +142,6 @@ exists as a function called inside the `fragment()` processor and typically
 operates on the material properties setup inside the `fragment()` function.
 
 The `light()` processor works differently in 2D than it does in 3D; for a
-description of how it works in each, see their documentation, `CanvasItem
-shaders ( doc_canvas_item_shader )` and `Spatial shaders
-( doc_spatial_shader )`, respectively.
+description of how it works in each, see their documentation.
+
+

@@ -1,5 +1,4 @@
 
-
 # Procedural geometry
 
 There are many ways to procedurally generate geometry in Pandemonium. In this tutorial series
@@ -42,7 +41,7 @@ instance, but all the instances of each surface use the same material.
 
 A Mesh is composed of one or more surfaces. A surface is an array composed of multiple sub-arrays
 containing vertices, normals, UVs, etc. Normally the process of constructing surfaces and meshes is
-hidden from the user in the `VisualServer`, but with ArrayMeshes, the user can construct a Mesh
+hidden from the user in the `RenderingServer`, but with ArrayMeshes, the user can construct a Mesh
 manually by passing in an array containing the surface information.
 
 ### Surfaces
@@ -55,7 +54,7 @@ in the Mesh when you use a MeshInstance using the `material_override` property.
 The surface array is an array of length `ArrayMesh.ARRAY_MAX`. Each position in the array is
 filled with a sub-array containing per-vertex information. For example, the array located at
 `ArrayMesh.ARRAY_NORMAL` is a `PoolVector3Array` of vertex normals.
-See `Mesh.ArrayType (enum_Mesh_ArrayType )` for more information.
+See `Mesh.ArrayType` for more information.
 
 The surface array can be indexed or non-indexed. Creating a non-indexed array is as easy as not assigning
 an array at the index `ArrayMesh.ARRAY_INDEX`. A non-indexed array stores unique vertex information for
@@ -75,20 +74,14 @@ be provided in the following tutorials.
 The ArrayMesh resource extends Mesh to add a few different quality of life functions and, most
 importantly, the ability to construct a Mesh surface through scripting.
 
-For more information about the ArrayMesh, please see the `ArrayMesh tutorial ( doc_arraymesh )`.
-
 ### MeshDataTool
 
 The MeshDataTool is a resource that converts Mesh data into arrays of vertices, faces, and edges that can
 be modified at runtime.
 
-For more information about the MeshDataTool, please see the `MeshDataTool tutorial ( doc_meshdatatool )`.
-
 ### SurfaceTool
 
 The SurfaceTool allows the creation of Meshes using an OpenGL 1.x immediate mode style interface.
-
-For more information about the SurfaceTool, please see the `SurfaceTool tutorial ( doc_surfacetool )`.
 
 ### ImmediateGeometry
 
@@ -100,8 +93,6 @@ to a MeshInstance to be seen.
 ImmediateGeometry is useful for prototyping because of its straightforward API, but it is slow because the geometry
 is rebuilt every frame. It is most useful for adding simple geometry for visual debugging (e.g. by drawing lines to
 visualize physics raycasts etc.).
-
-For more information about ImmediateGeometry, please see the `ImmediateGeometry tutorial ( doc_immediategeometry )`.
 
 ## Which one should I use?
 
@@ -120,3 +111,4 @@ The MeshDataTool is not fast, but it gives you access to all kinds of properties
 (edges, faces, etc.). It is incredibly useful when you need that sort of data to transform the mesh, but it is not a good idea
 to use it if that extra information is not needed. The MeshDataTool is best used if you are going to be using an algorithm that requires
 access to the face or edge array.
+

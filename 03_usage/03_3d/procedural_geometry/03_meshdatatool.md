@@ -1,5 +1,4 @@
 
-
 # Using the MeshDataTool
 
 The `MeshDataTool` is not used to generate geometry. But it is helpful for dynamically altering geometry, for example
@@ -16,9 +15,8 @@ Note:
 We initialize the MeshDataTool from an ArrayMesh by calling `create_from_surface()`. If there is already data initialized in the MeshDataTool,
 calling `create_from_surface()` will clear it for you. Alternatively, you can call `clear()` yourself before re-using the MeshDataTool.
 
-In the examples below, assume an ArrayMesh called `mesh` has already been created. See `ArrayMesh tutorial ( doc_arraymesh )` for an example of mesh generation.
-
-gdscript GDScript
+In the examples below, assume an ArrayMesh called `mesh` has already been created.
+See [Array Mesh tutorial](02_arraymesh.md) for an example of mesh generation.
 
 ```
 var mdt = MeshDataTool.new()
@@ -39,8 +37,6 @@ with each vertex.
 
 To access information from these arrays you use a function of the form `get_****()`:
 
-gdscript GDScript
-
 ```
 mdt.get_vertex_count() # Returns number of vertices in vertex array.
 mdt.get_vertex_faces(0) # Returns array of faces that contain vertex[0].
@@ -50,8 +46,6 @@ mdt.get_edge_vertex(10, 1) # Returns the second vertex comprising the edge at in
 
 What you choose to do with these functions is up to you. A common use case is to iterate over all vertices
 and transform them in some way:
-
-gdscript GDScript
 
 ```
 for i in range(get_vertex_count):
@@ -63,17 +57,13 @@ for i in range(get_vertex_count):
 These modifications are not done in place on the ArrayMesh. If you are dynamically updating an existing ArrayMesh,
 first delete the existing surface before adding a new one using `commit_to_surface()`:
 
-gdscript GDScript
-
 ```
 mesh.surface_remove(0) # Deletes the first surface of the mesh.
 mdt.commit_to_surface(mesh)
 ```
 
 Below is a complete example that turns a spherical mesh called `mesh` into a randomly deformed blob complete with updated normals and vertex colors.
-See `ArrayMesh tutorial ( doc_arraymesh )` for how to generate the base mesh.
-
-gdscript GDScript
+See `ArrayMesh tutorial` for how to generate the base mesh.
 
 ```
 extends MeshInstance
@@ -120,3 +110,4 @@ func _ready():
     mesh.surface_remove(0)
     mdt.commit_to_surface(mesh)
 ```
+

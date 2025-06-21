@@ -1,5 +1,4 @@
 
-
 # Using the ArrayMesh
 
 This tutorial will present the basics of using an `ArrayMesh`.
@@ -9,14 +8,14 @@ which takes up to four parameters. The first two are required, while the second 
 
 The first parameter is the `PrimitiveType`, an OpenGL concept that instructs the GPU
 how to arrange the primitive based on the vertices given, i.e. whether they represent triangles,
-lines, points, etc. See `Mesh.PrimitiveType (enum_Mesh_PrimitiveType )` for the options available.
+lines, points, etc. See `Mesh.PrimitiveType` for the options available.
 
 The second parameter, `arrays`, is the actual Array that stores the mesh information. The array is a
 normal Pandemonium array that is constructed with empty brackets `[]`. It stores a `Pool**Array`
 (e.g. PoolVector3Array, PoolIntArray, etc.) for each type of information that will be used to build the surface.
 
 The possible elements of `arrays` are listed below, together with the position they must have within `arrays`.
-See also `Mesh.ArrayType (enum_Mesh_ArrayType )`.
+See also `Mesh.ArrayType`.
 
 
 | Index | Mesh.ArrayType Enum |  Array type        |
@@ -49,8 +48,6 @@ Next, add a script to the MeshInstance.
 
 Under `ready()`, create a new Array.
 
-gdscript GDScript
-
 ```
 var surface_array = []
 ```
@@ -59,16 +56,12 @@ This will be the array that we keep our surface information in - it will hold
 all the arrays of data that the surface needs. Pandemonium will expect it to be of
 size `Mesh.ARRAY_MAX`, so resize it accordingly.
 
-gdscript GDScript
-
 ```
 var surface_array = []
 surface_array.resize(Mesh.ARRAY_MAX)
 ```
 
 Next create the arrays for each data type you will use.
-
-gdscript GDScript
 
 ```
 var verts = PoolVector3Array()
@@ -80,8 +73,6 @@ var indices = PoolIntArray()
 Once you have filled your data arrays with your geometry you can create a mesh
 by adding each array to `surface_array` and then committing to the mesh.
 
-gdscript GDScript
-
 ```
 surface_array[Mesh.ARRAY_VERTEX] = verts
 surface_array[Mesh.ARRAY_TEX_UV] = uvs
@@ -91,13 +82,10 @@ surface_array[Mesh.ARRAY_INDEX] = indices
 mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array) # No blendshapes or compression used.
 ```
 
-Note:
- In this example, we used `Mesh.PRIMITIVE_TRIANGLES`, but you can use any primitive type
-          available from mesh.
+Note: In this example, we used `Mesh.PRIMITIVE_TRIANGLES`, but you can use any primitive type
+available from mesh.
 
 Put together, the full code looks like:
-
-gdscript GDScript
 
 ```
 extends MeshInstance
@@ -137,8 +125,6 @@ This implementation has nothing in particular to do with ArrayMeshes and is just
 generic approach to generating a sphere. If you are having trouble understanding it
 or want to learn more about procedural geometry in general, you can use any tutorial
 that you find online.
-
-gdscript GDScript
 
 ```
 extends MeshInstance
@@ -204,9 +190,8 @@ func _ready():
 Finally, we can use the `ResourceSaver` class to save the ArrayMesh.
 This is useful when you want to generate a mesh and then use it later without having to re-generate it.
 
-gdscript GDScript
-
 ```
 # Saves mesh to a .tres file with compression enabled.
 ResourceSaver.save("res://sphere.tres", mesh, ResourceSaver.FLAG_COMPRESS)
 ```
+

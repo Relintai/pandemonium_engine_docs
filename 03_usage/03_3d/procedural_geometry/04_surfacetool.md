@@ -10,8 +10,6 @@ The SurfaceTool also provides some useful helper functions like `index()` and `g
 
 Attributes are added before each vertex is added:
 
-gdscript GDScript
-
 ```
 st.add_normal() # Overwritten by normal below.
 st.add_normal() # Added to next vertex.
@@ -25,8 +23,6 @@ call `commit()` to finish generating the mesh. If an `ArrayMesh` is passed
 to `commit()` then it appends a new surface to the end of the ArrayMesh. While if nothing is passed
 in, `commit()` returns an ArrayMesh.
 
-gdscript GDScript
-
 ```
 st.commit(mesh)
 # Or:
@@ -34,8 +30,6 @@ var mesh = st.commit()
 ```
 
 Code creates a triangle with indices
-
-gdscript GDScript
 
 ```
 var st = SurfaceTool.new()
@@ -64,8 +58,6 @@ You can optionally add an index array, either by calling `add_index()` and addin
 vertices to the index array or by calling `index()` which shrinks the vertex array
 to remove duplicate vertices.
 
-gdscript GDScript
-
 ```
 # Creates a quad from four corner vertices.
 # Add_index does not need to be called before add_vertex.
@@ -84,8 +76,6 @@ st.index()
 Similarly, if you have an index array, but you want each vertex to be unique (e.g. because
 you want to use unique normals or colors per face instead of per-vertex), you can call `deindex()`.
 
-gdscript GDScript
-
 ```
 st.deindex()
 ```
@@ -98,8 +88,6 @@ note, `generate_normals()` only works if the primitive type is set to `Mesh.PRIM
 If you don't add custom tangents, they can be added with `generate_tangents()`, but it requires
 that each vertex have UVs and normals set already.
 
-gdscript GDScript
-
 ```
 st.generate_normals()
 st.generate_tangents()
@@ -109,3 +97,4 @@ By default, when generating normals, they will be calculated on a per-face basis
 smooth vertex normals, when adding vertices, call `add_smooth_group()`. `add_smooth_group()`
 needs to be called while building the geometry, e.g. before the call to `add_vertex()`
 (if non-indexed) or `add_index()` (if indexed).
+

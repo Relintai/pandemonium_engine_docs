@@ -1,5 +1,4 @@
 
-
 # Using ImmediateGeometry
 
 Unlike the SurfaceTool or ArrayMesh, `ImmediateGeometry` is an actual
@@ -22,8 +21,6 @@ Once you have called `begin()` you are ready to start adding vertices. You add v
 First you add vertex specific attributes such as normals or UVs using `set_****()` (e.g. `set_normal()`).
 Then you call `add_vertex()` to add a vertex with those attributes. For example:
 
-gdscript GDScript
-
 ```
 # Add a vertex with normal and uv.
 set_normal(Vector3(0, 1, 0))
@@ -36,8 +33,6 @@ Only attributes added before the call to `add_vertex()` will be included in that
 Finally, once you have added all your vertices call `end()` to signal that you have finished generating the mesh.
 
 The example code below draws a single triangle.
-
-gdscript GDScript
 
 ```
 extends ImmediateGeometry
@@ -66,3 +61,4 @@ func _process(_delta):
     # End drawing.
     end()
 ```
+

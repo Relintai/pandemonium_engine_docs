@@ -1,23 +1,16 @@
 
-
 # HTTP client class
 
 `HTTPClient` provides low-level access to HTTP communication.
-For a higher-level interface, you may want to take a look at `HTTPRequest` first,
-which has a tutorial available `here ( doc_http_request_class )`.
+For a higher-level interface, you may want to take a look at `HTTPRequest` first.
 
-Warning:
-
-
-    When exporting to Android, make sure to enable the `INTERNET`
-    permission in the Android export preset before exporting the project or
-    using one-click deploy. Otherwise, network communication of any kind will be
-    blocked by Android.
+Warning: When exporting to Android, make sure to enable the `INTERNET`
+permission in the Android export preset before exporting the project or
+using one-click deploy. Otherwise, network communication of any kind will be
+blocked by Android.
 
 Here's an example of using the `HTTPClient`
 class. It's just a script, so it can be run by executing:
-
-console GDScript
 
 ```
 c:\pandemonium> pandemonium -s http_test.gd
@@ -25,8 +18,6 @@ c:\pandemonium> pandemonium -s http_test.gd
 
 
 It will connect and fetch a website.
-
-gdscript GDScript
 
 ```
 extends SceneTree
@@ -118,3 +109,4 @@ func _init():
 
     quit()
 ```
+

@@ -1,5 +1,4 @@
 
-
 # WebSocket
 
 ## HTML5 and WebSocket
@@ -19,11 +18,10 @@ WebSocket is implemented in Pandemonium via three main classes `WebSocketClient`
 
 Warning:
 
-
-    When exporting to Android, make sure to enable the `INTERNET`
-    permission in the Android export preset before exporting the project or
-    using one-click deploy. Otherwise, network communication of any kind will be
-    blocked by Android.
+When exporting to Android, make sure to enable the `INTERNET`
+permission in the Android export preset before exporting the project or
+using one-click deploy. Otherwise, network communication of any kind will be
+blocked by Android.
 
 #### Minimal client example
 
@@ -158,4 +156,10 @@ Got data from client 1348090059: Test packet ... echoing
 
 #### Advanced chat demo
 
-A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer demo are available in the `pandemonium demo projects ( https://github.com/Relintai/pandemonium_engine-demo-projects )` under `networking/websocket_chat` and `networking/websocket_multiplayer`.
+A more advanced chat demo which optionally uses the multiplayer mid-level abstraction and a high level multiplayer
+demo are available:
+
+- [websocket_chat](../../07_demo_projects/networking/websocket_chat/)
+- [websocket_multiplayer](../../07_demo_projects/networking/websocket_multiplayer/)
+
+

@@ -1,10 +1,9 @@
 
-
 # Using the theme editor
 
 This articles explains how to create and manage UI themes using the Pandemonium
 editor and its theme editor tool. We recommend getting familiar with the
-basics behind GUI skinning/theming by reading `doc_gui_skinning` before starting.
+basics behind GUI skinning/theming by reading [gui skinning](01_gui_skinning.md) before starting.
 
 The theme editor is a bottom panel tool that activates automatically, when
 a `Theme` resource is selected for editing. It contains
@@ -138,3 +137,4 @@ will create the items of the corresponding data type and name, but will leave th
 creating a template of a theme in a way.
 
 ![](img/import_items.png)
+

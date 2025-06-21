@@ -1,5 +1,4 @@
 
-
 # BBCode in RichTextLabel
 
 ## Introduction
@@ -12,9 +11,6 @@ a `RichTextLabel`.
 
 `RichTextLabel` allows the display of complex text markup in a Control.
 It has a built-in API for generating the markup, but can also parse a BBCode.
-
-Note that the BBCode tags can also be used, to some extent, in the
-`XML source of the class reference ( doc_updating_the_class_reference )`.
 
 ## Using BBCode
 
@@ -36,13 +32,10 @@ property now has the text without the BBCode. While the text property will be up
 by the BBCode property, you can't edit the text property or you'll lose the BBCode
 markup. All changes to the text must be done in the BBCode parameter.
 
-Note:
+Note: For BBCode tags such as `[b]` (bold), `[i]` (italics) or `[code]` to
+work, you must set up custom fonts for the RichTextLabel node first.
 
-
-    For BBCode tags such as `[b]` (bold), `[i]` (italics) or `[code]` to
-    work, you must set up custom fonts for the RichTextLabel node first.
-
-    There are no BBCode tags to control vertical centering of text yet.
+There are no BBCode tags to control vertical centering of text yet.
 
 ## Reference
 
@@ -192,12 +185,9 @@ within the editor itself. The RichTextLabel does not need to have a script attac
 nor does it need to be running in `tool` mode. The new effect will be activable in
 the Inspector through the **Custom Effects** property.
 
-Warning:
-
-
-    If the custom effect is not registered within the RichTextLabel's
-    **Custom Effects** property, no effect will be visible and the original
-    tag will be left as-is.
+Warning: If the custom effect is not registered within the RichTextLabel's
+**Custom Effects** property, no effect will be visible and the original
+tag will be left as-is.
 
 There is only one function that you need to extend: `process_custom_fx(char_fx)`.
 Optionally, you can also provide a custom BBCode identifier simply by adding a member
@@ -323,3 +313,5 @@ This will add a few new BBCode commands, which can be used like so:
 [center][ghost]This is a custom [matrix]effect[/matrix][/ghost] made in
 [pulse freq=5.0 height=2.0][pulse color=#00FFAA freq=2.0]GDScript[/pulse][/pulse].[/center]
 ```
+
+

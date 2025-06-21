@@ -1,5 +1,4 @@
 
-
 # Custom GUI controls
 
 ## So many controls...
@@ -13,15 +12,14 @@ create these controls easily from script.
 
 ## Drawing
 
-For drawing, it is recommended to check the `doc_custom_drawing_in_2d` tutorial.
+For drawing, it is recommended to check the [custom drawing in 2d](../02_2d/07_custom_drawing_in_2d.md) tutorial.
 The same applies. Some functions are worth mentioning due to their
 usefulness when drawing, so they will be detailed next:
 
 ### Checking control size
 
 Unlike 2D nodes, "size" is important with controls, as it helps to
-organize them in proper layouts. For this, the
-`Control.rect_size`
+organize them in proper layouts. For this, the `Control.rect_size`
 property is provided. Checking it during `draw()` is vital to ensure
 everything is kept in-bounds.
 
@@ -29,15 +27,11 @@ everything is kept in-bounds.
 
 Some controls (such as buttons or text editors) might provide input
 focus for keyboard or joypad input. Examples of this are entering text
-or pressing a button. This is controlled with the
-`Control.focus_mode`
+or pressing a button. This is controlled with the `Control.focus_mode`
 property. When drawing, and if the control supports input focus, it is
 always desired to show some sort of indicator (highlight, box, etc.) to
 indicate that this is the currently focused control. To check for this
-status, the `Control.has_focus()` method
-exists. Example
-
-gdscript GDScript
+status, the `Control.has_focus()` method exists. Example
 
 ```
 func _draw():
@@ -57,11 +51,8 @@ each other using a `VBoxContainer`,
 the minimum size will make sure your custom control is not squished by
 the other controls in the container.
 
-To provide this callback, just override
-`Control.get_minimum_size()`,
+To provide this callback, just override `Control.get_minimum_size()`,
 for example:
-
-gdscript GDScript
 
 ```
 func get_minimum_size():
@@ -69,8 +60,6 @@ func get_minimum_size():
 ```
 
 Alternatively, set it using a function:
-
-gdscript GDScript
 
 ```
 func _ready():
@@ -94,11 +83,8 @@ when:
 -  Control provides keyboard/joypad focus via
    `Control.focus_mode`.
 
-This function is
-`Control._gui_input()`.
+This function is `Control._gui_input()`.
 Simply override it in your control. No processing needs to be set.
-
-gdscript GDScript
 
 ```
 extends Control
@@ -108,15 +94,12 @@ func _gui_input(event):
        print("Left mouse button was pressed!")
 ```
 
-For more information about events themselves, check the `doc_inputevent`
-tutorial.
+For more information about events themselves, check the [inputevent](../06_inputs/01_inputevent.md) tutorial.
 
 ### Notifications
 
 Controls also have many useful notifications for which no dedicated callback
 exists, but which can be checked with the _notification callback:
-
-gdscript GDScript
 
 ```
 func _notification(what):
@@ -142,3 +125,4 @@ func _notification(what):
             pass # For modal pop-ups, notification
             # that the pop-up was closed.
 ```
+

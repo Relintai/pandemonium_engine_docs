@@ -1,5 +1,4 @@
 
-
 # Introduction to GUI skinning
 
 It is essential for a game to provide clear, informative, and yet visually
@@ -33,47 +32,31 @@ the built-in control nodes. This is what gives the controls their distinct look
 out of the box. A theme only describes the configuration, however, and it is still
 the job of each individual control to use that configuration in the way it requires
 to display itself. This is important to remember when implementing
-`your own custom controls doc_custom_gui_controls )`.
+your own custom controls.
 
-Note:
-
-   Even the Pandemonium editor itself relies on the default theme. But it doesn't look the
-   same as a Pandemonium project, because it applies its own heavily customized theme on top
-   of the default one. In principle, this works exactly like it would in your game
-   as explained `below doc_gui_theme_in_project )`.
+Note: Even the Pandemonium editor itself relies on the default theme. But it doesn't look the
+same as a Pandemonium project, because it applies its own heavily customized theme on top
+of the default one. In principle, this works exactly like it would in your game
+as explained below.
 
 ### Theme items
 
 The configuration that is stored in a theme consists of theme items. Each item has
 a unique name and must be one of the following data types:
 
--  **Color**
-
-   A `color` value, which is often used for fonts
+-  **Color** A `color` value, which is often used for fonts
    and backgrounds. Colors can also be used for modulation of controls
    and icons.
-
--  **Constant**
-
-   An integer value, which can be used either for numeric properties of
+-  **Constant** An integer value, which can be used either for numeric properties of
    controls (such as the item separation in a `BoxContainer`),
    or for boolean flags (such as the drawing of relationship lines in a `Tree`).
-
--  **Font**
-
-   A `font` resource, which is used by controls that
+-  **Font** A `font` resource, which is used by controls that
    display text. Fonts contain most text rendering settings, except for
    its size and color. On top of that, alignment and text direction are
    controlled by individual controls.
-
--  **Icon**
-
-   A `texture` resource, which is normally used
+-  **Icon** A `texture` resource, which is normally used
    to display an icon (on a `Button`, for example).
-
--  **StyleBox**
-
-   A `StyleBox` resource, a collection of configuration
+-  **StyleBox** A `StyleBox` resource, a collection of configuration
    options which define the way a UI panel should be displayed. This is
    not limited to the `Panel` control, as styleboxes
    are used by many controls for their backgrounds and overlays.
@@ -95,25 +78,22 @@ which items are available to it and its child classes.
 
 Note:
 
-   Child classes can use theme items defined for their parent class (`Button`
-   and its derivatives being a good example of that). In fact, every control can
-   use every theme item of any theme type, if it needs to (but for the clarity and
-   predictability we try to avoid that in the engine).
-
-   It is important to remember that for child classes that process is automated.
-   Whenever a built-in control requests a theme item from the theme it can omit
-   the theme type, and its class name will be used instead. On top of that,
-   the class names of its parent classes will also be used in turn. This allows
-   changes to the parent class, such as `Button`, to affect all derived
-   classes without the need to customize every one of them.
+- Child classes can use theme items defined for their parent class (`Button`
+  and its derivatives being a good example of that). In fact, every control can
+  use every theme item of any theme type, if it needs to (but for the clarity and
+  predictability we try to avoid that in the engine).
+- It is important to remember that for child classes that process is automated.
+  Whenever a built-in control requests a theme item from the theme it can omit
+  the theme type, and its class name will be used instead. On top of that,
+  the class names of its parent classes will also be used in turn. This allows
+  changes to the parent class, such as `Button`, to affect all derived
+  classes without the need to customize every one of them.
 
 You can also define your own theme types, and additionally customize both built-in
 controls and your own controls. Because built-in controls have no knowledge of
 your custom theme types, you must utilize scripts to access those items. All control
 nodes have several methods that allow to fetch theme items from the theme that
 is applied to them. Those methods accept the theme type as one of the arguments.
-
-gdscript
 
 ```
 var accent_color = get_color("accent_color", "MyType")
@@ -129,15 +109,13 @@ requested from a theme this variation will be used before any other type. This
 allows to store various presets of theme items for the same class of the
 control node in the single `Theme` resource.
 
-Warning:
-
-   Only variations available from the default theme or defined in the custom
-   project theme are shown in the Inspector dock as options. You can still
-   input manually the name of a variation that is defined outside of those
-   two places, but it is recommended to keep all variations to the project theme.
+Warning: Only variations available from the default theme or defined in the custom
+project theme are shown in the Inspector dock as options. You can still
+input manually the name of a variation that is defined outside of those
+two places, but it is recommended to keep all variations to the project theme.
 
 You can learn more about creating and using theme type variations in a
-`dedicated article doc_gui_theme_type_variations )`.
+[dedicated article](03_gui_theme_type_variations.md).
 
 ## Customizing a control
 
@@ -160,8 +138,6 @@ stores its customizable margins in its theme items.
 Whenever a control has a local theme item override, this is the value that
 it uses. Values provided by the theme are ignored.
 
-
-
 ## Customizing a project
 
 Out of the box each project adopts the default project theme provided by Pandemonium. The
@@ -170,8 +146,8 @@ with a custom theme. Custom themes can be applied in two ways: as a project sett
 and as a node property throughout the tree of control nodes.
 
 There are two project settings that can be adjusted to affect your entire project:
-`gui/theme/customclass_ProjectSettings_property_gui/theme/custom )` allows you to
-set a custom project-wide theme, and `gui/theme/custom_fontclass_ProjectSettings_property_gui/theme/custom_font )`
+`ProjectSettings/gui/theme/custom` allows you to
+set a custom project-wide theme, and `ProjectSettings/gui/theme/custom_font`
 does the same to the default fallback font. When a theme item is requested by a control
 node the custom project theme, if present, is checked first. Only if it doesn't have
 the item the default theme is checked.
@@ -183,13 +159,11 @@ custom theme for the branch of nodes starting with that control. This means that
 control and all of its children, and their children in turn, would first check that
 custom theme resource before falling back on the project and the default themes.
 
-Note:
-
-   Instead of changing the project setting you can set the custom theme resource to the
-   root-most control node of your entire UI branch to almost the same effect. While in the
-   running project it will behave as expected, individual scenes will still display
-   using the default theme when previewing or running them directly. To fix that you
-   can set the same theme resource to the root control of each individual scene.
+Note: Instead of changing the project setting you can set the custom theme resource to the
+root-most control node of your entire UI branch to almost the same effect. While in the
+running project it will behave as expected, individual scenes will still display
+using the default theme when previewing or running them directly. To fix that you
+can set the same theme resource to the root control of each individual scene.
 
 For example, you can have a certain style for buttons in your project theme, but want
 a different look for buttons inside of a popup dialog. You can set a custom theme
@@ -202,16 +176,14 @@ using the project-wide theme and the default theme styles.
 To sum it up, for an arbitrary control its theme item lookup would look something
 like this:
 
-#. Check for local overrides of the same data type and name.
-#. Using control's class name and parent class names:
-
+1. Check for local overrides of the same data type and name.
+2. Using control's class name and parent class names:
    a. Check every control starting from itself and see if it has a theme property set;
    b. If it does, check that theme for the matching item of the same name, data and theme type;
    c. If there is no custom theme or it doesn't have the item, move to the parent control;
    d. Repeat steps a-c. until the root of the tree is reached, or a non-control node is reached.
-
-#. Using control's class name check the project-wide theme, if it's present.
-#. Using control's class name check the default theme.
+3. Using control's class name check the project-wide theme, if it's present.
+4. Using control's class name check the default theme.
 
 Even if the item doesn't exist in any theme, a corresponding default value for that
 data type will be returned.
@@ -228,3 +200,4 @@ resource can define a collection of colors, and sprites (with a help from script
 can use those colors to draw the texture. The main benefit being that you
 could make different themes using the same theme items for red, blue, and
 green teams, and swap them with a single resource change.
+

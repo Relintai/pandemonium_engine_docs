@@ -1,5 +1,4 @@
 
-
 # Size and anchors
 
 If a game was always going to be run on the same device and at the same
@@ -69,3 +68,4 @@ toolbar's Layout menu, above the viewport. Besides centering, it gives you many
 options to align and resize control nodes.
 
 ![](img/layout_dropdown_menu.png)
+

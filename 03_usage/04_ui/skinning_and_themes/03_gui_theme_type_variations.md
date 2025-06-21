@@ -1,5 +1,4 @@
 
-
 # Theme type variations
 
 When designing a user interface there may be times when a `Control` node
@@ -14,7 +13,7 @@ between several controls. Imagine that you use gray, blue, and red variants of `
 throughout your project. Setting it up every time you add a new button element to your interface
 is a tedious task.
 
-To help with the organization and to better utilize the `power of themes doc_gui_skinning )`
+To help with the organization and to better utilize the power of themes
 you can use theme type variations. These work like normal theme types, but instead
 of being self-sufficient and standalone they extend another, base type.
 
@@ -28,12 +27,6 @@ They can also define properties that the base style hasn't defined. For example,
 your `GrayButton` can override the `normal` style from the base `Button`
 and add `font_color` that `Button` has never defined. The control will use
 a combination of both types giving priority to the type variation.
-
-Note:
-
-   The way controls resolve what theme items they use from each type and each
-   theme is better described in the `Customizing a project doc_gui_theme_in_project )`
-   section of the "Introduction to GUI skinning" article.
 
 ## Creating a type variation
 
@@ -69,3 +62,4 @@ any other case you have to input the name of the variation manually. Click on
 the pencil icon to the right. Then type in the name of the type variation and click the
 check mark icon or press enter. If a type variation with that name exists it
 will now be used by the node.
+

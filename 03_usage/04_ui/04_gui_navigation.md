@@ -5,8 +5,7 @@ It is a common requirement for a user interface to have full keyboard
 and controller support for navigation and interaction. There are two main
 reasons why this is beneficial for projects: improved accessibility (not everyone
 can use mouse or touch controls for interactions), and getting your project
-ready for `consoles doc_consoles )` (or just for people who prefer
-to game with a controller on PC).
+ready for consoles (or just for people who prefer to game with a controller on PC).
 
 Navigating between UI elements with keyboard or controller is done by
 changing which node is actively selected. This is also called changing UI focus.
@@ -15,11 +14,8 @@ By default, some control nodes have the ability to automatically grab focus
 reacting to built-in UI actions such as `ui_up`, `ui_down`, `ui_focus_next`, etc.
 These actions can be seen in the project settings in the input map and can be modified.
 
-Warning:
-
-
-    Because these actions are used for focus they should not be used for any
-    gameplay code.
+Warning: Because these actions are used for focus they should not be used for any
+gameplay code.
 
 ## Node settings
 
@@ -35,11 +31,9 @@ Neighbor options are used to define nodes for 4-directional navigation, such
 as using arrow keys or a D-pad on a controller. For example, the bottom neighbor
 will be used when navigating down with the down arrow or by pushing down on
 the D-pad. The "Next" and "Previous" options are used with the focus shift button,
-such as :kbd:`Tab` on desktop operating systems.
+such as `Tab` on desktop operating systems.
 
-Note:
-
-    A node can lose focus if it becomes hidden.
+Note: A node can lose focus if it becomes hidden.
 
 The mode setting defines how a node can be focused. **All** means a node can
 be focused by clicking on it with the mouse, or selecting it with a keyboard
@@ -60,8 +54,6 @@ For keyboard and controller navigation to work correctly, any node must be focus
 using code when the scene starts. Without doing this, pressing buttons or keys won't
 do anything. Here is a basic example of setting initial focus with code:
 
-gdscript GDScript
-
 ```
 func _ready():
     $StartButton.grab_focus()
@@ -69,3 +61,4 @@ func _ready():
 
 Now when the scene starts the "Start Button" node will be focused, and the keyboard
 or a controller can be used to navigate between it and other UI elements.
+

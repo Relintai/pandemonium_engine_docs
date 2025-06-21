@@ -4,7 +4,7 @@
 This page documents the differences between GLES2 and GLES3 that are by design and are not the result
 of bugs. There may be differences that are unintentional, but they should be reported as bugs.
 
-Note: "GLES2" and "GLES3" are the names used in Godot for the two OpenGL-based rendering backends.
+Note: "GLES2" and "GLES3" are the names used in Pandemonium for the two OpenGL-based rendering backends.
 In terms of graphics APIs, the GLES2 backend maps to OpenGL 2.1 on desktop, OpenGL ES 2.0 on
 mobile and WebGL 1.0 on the web. The GLES3 backend maps to OpenGL 3.3 on desktop, OpenGL ES
 3.0 on mobile and WebGL 2.0 on the web.
@@ -40,7 +40,7 @@ statement check and see if the output is in sRGB, using `OUTPUT_IS_SRGB`. `OUTPU
 ## HDR
 
 GLES2 is not capable of using High Dynamic Range (HDR) rendering features. If HDR is set for your
-project, or for a given viewport, Godot will still use Low Dynamic Range (LDR) which limits
+project, or for a given viewport, Pandemonium will still use Low Dynamic Range (LDR) which limits
 viewport values to the `0-1` range.
 
 The Viewport **Debanding** property and associated project setting will also have
@@ -136,7 +136,7 @@ that are not available or are have limited support in GLES2.
 | vec_type **dFdy** ( vec_type p )                                                            |                                                  |
 | vec_type **fwidth** ( vec_type p )                                                          |                                                  |
 
-Note: Functions not in GLES2's GLSL were added with Godots own shader standard library. These functions may perform worse in GLES2 compared to GLES3.
+Note: Functions not in GLES2's GLSL were added with Pandemoniums own shader standard library. These functions may perform worse in GLES2 compared to GLES3.
 
 ### `textureSize()` workaround
 
@@ -157,7 +157,7 @@ material_name.set_shader_param("textureName_size", my_texture_size)
 
 ## Built in variables and render modes
 
-Godot also provides many built-in variables and render modes. Some cannot be supported in GLES2. Below is a list of
+Pandemonium also provides many built-in variables and render modes. Some cannot be supported in GLES2. Below is a list of
 built-in variables and render modes that, when written to, will have no effect or could even cause issues when using
 the GLES2 backend.
 

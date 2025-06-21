@@ -1,5 +1,4 @@
 
-
 # Using Viewports
 
 ## Introduction
@@ -42,20 +41,18 @@ the input.
 
 ![](img/input.png)
 
-For more information on how Pandemonium handles input, please read the `Input Event Tutorial( doc_inputevent )`.
-
 ## Listener
 
-Pandemonium supports 3D sound (in both 2D and 3D nodes); more on this can be
-found in the `Audio Streams Tutorial( doc_audio_streams )`. For this type of sound to be
+Pandemonium supports 3D sound (in both 2D and 3D nodes);
+
+For this type of sound to be
 audible, the `Viewport` needs to be enabled as a listener (for 2D or 3D).
 If you are using a custom `Viewport`, don't forget
 to enable this!
 
 ## Cameras (2D & 3D)
 
-When using a `Camera` /
-`Camera2D`, cameras will always display on the
+When using a `Camera` / `Camera2D`, cameras will always display on the
 closest parent `Viewport` (going towards the root). For example, in the
 following hierarchy:
 
@@ -77,13 +74,11 @@ camera.make_current()
 
 By default, cameras will render all objects in their world. In 3D, cameras can use their
 `cull_mask` property combined with the
-`VisualInstance's`
-property to restrict which objects are rendered.
+`VisualInstance's` property to restrict which objects are rendered.
 
 ## Scale & stretching
 
-`Viewports`
-in pixels. For `Viewports`,
+`Viewports` in pixels. For `Viewports`,
 these values are overridden, but for all others, this sets their resolution.
 
 It is also possible to scale the 2D content and make the `Viewport` resolution
@@ -95,17 +90,15 @@ viewport.set_size_override_stretch(true) # Enable stretch for custom size.
 ```
 
 The root `Viewport` uses this for the stretch options in the project
-settings. For more information on scaling and stretching visit the `Multiple Resolutions Tutorial ( doc_multiple_resolutions )`
+settings.
 
 ## Worlds
 
 For 3D, a `Viewport`. This
 is basically the universe that links physics and rendering together.
 Spatial-based nodes will register using the `World` of the closest
-`Viewport` but
-use the same as their parent `Viewport` always contains a
-`World` can
-be set in a `Viewport` using the "world" property, and that will separate
+`Viewport` but use the same as their parent `Viewport` always contains a
+`World` can be set in a `Viewport` using the "world" property, and that will separate
 all children nodes of that `Viewport` from interacting with the parent
 `Viewport's`. This is especially useful in scenarios where, for
 example, you might want to show a separate character in 3D imposed over
@@ -119,8 +112,6 @@ instance 3D characters or objects in a 2D `World`.
 For 2D, each `Viewport`.
 This suffices in most cases, but in case sharing them may be desired, it
 is possible to do so by setting the `Viewport's` manually.
-
-For an example of how this works, see the demo projects `3D in 2D ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/3d_in_2d )` and `2D in 3D ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/2d_in_3d )` respectively.
 
 ## Capture
 
@@ -158,7 +149,7 @@ If the `Viewport`, it will become active and display anything it has inside. The
 ![](img/container.png)
 
 The `Viewport` completely
-if `Stretch( viewportcontainer_property_stretch )` is set to `true` in `ViewportContainer`.
+if `Stretch` is set to `true` in `ViewportContainer`.
 Note: The size of the `ViewportContainer`.
 
 ## Rendering
@@ -172,11 +163,8 @@ If you know how the `Viewport` is going to be used, you can set its Usage to eit
 restrict how the `Viewport` is drawn to in accordance with your choice; default is 3D.
 The 2D usage mode is slightly faster and uses less memory compared to the 3D one. It's a good idea to set the `Viewport`'s Usage property to 2D if your viewport doesn't render anything in 3D.
 
-Note:
-
-
-    If you need to render 3D shadows in the viewport, make sure to set the viewport's *Shadow Atlas Size* property to a value higher than 0.
-    Otherwise, shadows won't be rendered. For reference, the Project Settings define it to 4096 by default.
+Note: If you need to render 3D shadows in the viewport, make sure to set the viewport's *Shadow Atlas Size* property to a value higher than 0.
+Otherwise, shadows won't be rendered. For reference, the Project Settings define it to 4096 by default.
 
 Pandemonium also provides a way of customizing how everything is drawn inside `Viewports` using “Debug Draw”.
 Debug Draw allows you to specify one of four options for how the `Viewport` will display things drawn
@@ -202,10 +190,7 @@ Overdraw draws the meshes semi-transparent with an additive blend so you can see
 
 Lastly, Wireframe draws the scene using only the edges of triangles in the meshes.
 
-Note:
-
-
-    The effects of the Wireframe mode are only visible in the editor, not while the project is running.
+Note: The effects of the Wireframe mode are only visible in the editor, not while the project is running.
 
 ## Render target
 
@@ -228,7 +213,8 @@ and then selecting the `Viewport` you want to use.
 ![](img/texturepath.png)
 
 Every frame, the `Viewport`'s texture is cleared away with the default clear color (or a transparent
-color if `Transparent Bg( Viewport_property_transparent_bg )` is set to `true`). This can be changed by setting `Clear Mode( Viewport_property_render_target_clear_mode )` to Never or Next Frame.
+color if `Transparent Bg` is set to `true`). This can be changed by
+setting `Clear Mode` to Never or Next Frame.
 As the name implies, Never means the texture will never be cleared, while next frame will
 clear the texture on the next frame and then set itself to Never.
 
@@ -240,6 +226,5 @@ allows users to render an image once and then use the texture without
 incurring the cost of rendering every frame.
 
 
-Make sure to check the Viewport demos! Viewport folder in the demos
-archive available to download, or
-https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport
+Make sure to check the Viewport demos!
+

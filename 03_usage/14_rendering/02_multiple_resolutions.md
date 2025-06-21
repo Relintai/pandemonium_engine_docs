@@ -1,5 +1,4 @@
 
-
 # Multiple resolutions
 
 ## The problem of multiple resolutions
@@ -35,9 +34,9 @@ Another method must be used.
 
 The most common approach is to use a single *base* resolution and
 then fit it to everything else. This resolution is how most players are expected
-to play the game (given their hardware). For mobile, Google has useful `stats
-( https://developer.android.com/about/dashboards )` online, and for desktop,
-Steam `also does ( https://store.steampowered.com/hwsurvey/ )`.
+to play the game (given their hardware). For mobile, Google has useful
+[stats](https://developer.android.com/about/dashboards) online, and for desktop,
+Steam [also does](https://store.steampowered.com/hwsurvey/).
 
 As an example, Steam shows that the most common *primary display resolution* is
 1920×1080, so a sensible approach is to develop a game for this resolution, then
@@ -63,23 +62,22 @@ that are different from this base size. Pandemonium offers many ways to
 control how the viewport will be resized and stretched to different
 screen sizes.
 
-Note:
+### Note:
 
+Pandemonium follows a modern approach to multiple resolutions. The engine will
+never change the monitor's resolution on its own. While changing the
+monitor's resolution is the most efficient approach, it's also the least
+reliable approach as it can leave the monitor stuck on a low resolution if
+the game crashes. This is especially common on macOS or Linux which don't
+handle resolution changes as well as Windows.
 
-   Pandemonium follows a modern approach to multiple resolutions. The engine will
-   never change the monitor's resolution on its own. While changing the
-   monitor's resolution is the most efficient approach, it's also the least
-   reliable approach as it can leave the monitor stuck on a low resolution if
-   the game crashes. This is especially common on macOS or Linux which don't
-   handle resolution changes as well as Windows.
+Changing the monitor's resolution also removes any control from the game
+developer over filtering and aspect ratio stretching, which can be important
+to ensure correct display for pixel art games.
 
-   Changing the monitor's resolution also removes any control from the game
-   developer over filtering and aspect ratio stretching, which can be important
-   to ensure correct display for pixel art games.
-
-   On top of that, changing the monitor's resolution makes alt-tabbing in and
-   out of a game much slower since the monitor has to change resolutions every
-   time this is done.
+On top of that, changing the monitor's resolution makes alt-tabbing in and
+out of a game much slower since the monitor has to change resolutions every
+time this is done.
 
 ## Resizing
 
@@ -117,8 +115,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
 
 ![](img/stretch_demo_scene.png)
 
-.. Animated GIFs are generated from:
-.. https://github.com/ttencate/pandemonium_scaling_mode
+Animated GIFs are generated from: https://github.com/ttencate/godot_scaling_mode
 
 -  **Stretch Mode = Disabled** (default): No stretching happens. One
    unit in the scene corresponds to one pixel on the screen. In this
@@ -183,8 +180,7 @@ to the region outside the blue frame you see in the 2D editor.
    You can also think of this as "Expand Vertically".
 
    This is usually the best option for creating GUIs or HUDs that scale,
-   so some controls can be anchored to the bottom
-   (`doc_size_and_anchors`).
+   so some controls can be anchored to the bottom.
 
    ![](img/stretch_viewport_keep_width.gif)
 
@@ -211,16 +207,15 @@ to the region outside the blue frame you see in the 2D editor.
 
 Tip:
 
+To support both portrait and landscape mode with a similar automatically
+determined scale factor, set your project's base resolution to be a *square*
+(1:1 aspect ratio) instead of a rectangle. For instance, if you wish to design
+for 1280×720 as the base resolution but wish to support both portrait and
+landscape mode, use 720×720 as the project's base window size in the
+Project Settings.
 
-    To support both portrait and landscape mode with a similar automatically
-    determined scale factor, set your project's base resolution to be a *square*
-    (1:1 aspect ratio) instead of a rectangle. For instance, if you wish to design
-    for 1280×720 as the base resolution but wish to support both portrait and
-    landscape mode, use 720×720 as the project's base window size in the
-    Project Settings.
-
-    To allow the user to choose their preferred screen orientation at run-time,
-    remember to set **Display > Window > Handheld > Orientation** to `sensor`.
+To allow the user to choose their preferred screen orientation at run-time,
+remember to set **Display > Window > Handheld > Orientation** to `sensor`.
 
 #### Stretch Shrink
 
@@ -260,9 +255,7 @@ ratios well.
   window width to `3840` and window height to `2160`.
   This allows you to provide higher resolution 2D assets, resulting in crisper
   visuals at the cost of higher memory usage and file sizes.
-  Note that this will make non-mipmapped textures grainy on low resolution devices,
-  so make sure to follow the instructions described in
-  `doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
+  Note that this will make non-mipmapped textures grainy on low resolution devices.
 - Set the stretch mode to `2d`.
 - Set the stretch aspect to `expand`. This allows for supporting multiple aspect ratios
   and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
@@ -283,17 +276,17 @@ ratios well.
 
 Note:
 
+The `viewport` stretch mode provides low-resolution rendering that is then
+stretched to the final window size. If you are OK with sprites being able to
+move or rotate in "sub-pixel" positions or wish to have a high resolution 3D
+viewport, you should use the `2d` stretch mode instead of the `viewport`
+stretch mode.
 
-    The `viewport` stretch mode provides low-resolution rendering that is then
-    stretched to the final window size. If you are OK with sprites being able to
-    move or rotate in "sub-pixel" positions or wish to have a high resolution 3D
-    viewport, you should use the `2d` stretch mode instead of the `viewport`
-    stretch mode.
-
-    Pandemonium currently doesn't have a way to enforce integer scaling when using the
-    `2d` or `viewport` stretch mode, which means pixel art may look bad if the
-    final window size is not a multiple of the base window size.
-    To fix this, use an add-on such as the `Integer Resolution Handler ( https://github.com/Yukitty/pandemonium-addon-integer_resolution_handler )`.
+Pandemonium currently doesn't have a way to enforce integer scaling when using the
+`2d` or `viewport` stretch mode, which means pixel art may look bad if the
+final window size is not a multiple of the base window size.
+To fix this, use an add-on such as
+the [Integer Resolution Handler](https://github.com/Yukitty/pandemonium-addon-integer_resolution_handler).
 
 #### Mobile game in landscape mode
 
@@ -307,9 +300,7 @@ to change the display orientation project setting.
   visuals at the cost of higher memory usage and file sizes. Many devices have
   even higher resolution displays (1440p), but the difference with 1080p is
   barely visible given the small size of smartphone displays.
-  Note that this will make non-mipmapped textures grainy on low resolution devices,
-  so make sure to follow the instructions described in
-  `doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
+  Note that this will make non-mipmapped textures grainy on low resolution devices.
 - Set the stretch mode to `2d`.
 - Set the stretch aspect to `expand`. This allows for supporting multiple aspect ratios
   and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
@@ -324,10 +315,8 @@ to change the display orientation project setting.
   visuals at the cost of higher memory usage and file sizes. Many devices have
   even higher resolution displays (1440p), but the difference with 1080p is
   barely visible given the small size of smartphone displays.
-  Note that this will make non-mipmapped textures grainy on low resolution devices,
-  so make sure to follow the instructions described in
-  `doc_multiple_resolutions_reducing_aliasing_on_downsampling`.
-- Set **Display > Window > Handheld > Orientation** to `portrait`.
+  Note that this will make non-mipmapped textures grainy on low resolution devices.
+- Set **Display &gt; Window &gt; Handheld &gt; Orientation** to `portrait`.
 - Set the stretch mode to `2d`.
 - Set the stretch aspect to `expand`. This allows for supporting multiple aspect ratios
   and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
@@ -346,11 +335,10 @@ to change the display orientation project setting.
 
 Note:
 
-
-    Pandemonium doesn't support manually overriding the 2D scale factor yet, so it is
-    not possible to have hiDPI support in non-game applications. Due to this, it
-    is recommended to leave **Allow Hidpi** disabled in non-game applications to
-    allow for the OS to use its low-DPI fallback.
+Pandemonium doesn't support manually overriding the 2D scale factor yet, so it is
+not possible to have hiDPI support in non-game applications. Due to this, it
+is recommended to leave **Allow Hidpi** disabled in non-game applications to
+allow for the OS to use its low-DPI fallback.
 
 ## hiDPI support
 
@@ -361,7 +349,7 @@ itself (even when using the `viewport` stretch mode).
 
 However, the OS-provided DPI fallback scaling doesn't play well with fullscreen
 mode. If you want crisp visuals on hiDPI displays or if project uses fullscreen,
-it's recommended to enable **Display > Window > Dpi > Allow Hidpi** in the
+it's recommended to enable **Display &gt; Window &gt; Dpi &gt; Allow Hidpi** in the
 Project Settings.
 
 **Allow Hidpi** is only effective on Windows and macOS. It's ignored on all
@@ -369,12 +357,9 @@ other platforms.
 
 Note:
 
-
-    The Pandemonium editor itself is always marked as DPI-aware. Running the project
-    from the editor will only be DPI-aware if **Allow Hidpi** is enabled in the
-    Project Settings.
-
-
+The Pandemonium editor itself is always marked as DPI-aware. Running the project
+from the editor will only be DPI-aware if **Allow Hidpi** is enabled in the
+Project Settings.
 
 ## Reducing aliasing on downsampling
 
@@ -385,7 +370,7 @@ upon loading. This can be done by calling the method below before
 the game data is loaded:
 
 ```
-VisualServer.texture_set_shrink_all_x2_on_set_data(true)
+RenderingServer.texture_set_shrink_all_x2_on_set_data(true)
 ```
 
 Alternatively, you can also enable mipmaps on all your 2D textures. However,
@@ -396,8 +381,7 @@ mobile devices.
 
 Once scaling for different resolutions is accounted for, make sure that
 your *user interface* also scales for different aspect ratios. This can be
-done using `anchors ( doc_size_and_anchors )` and/or `containers
-( doc_gui_containers )`.
+done using `anchors` and/or `containers`.
 
 ## Field of view scaling
 
@@ -426,5 +410,6 @@ that it allows enable linear filtering. This makes scaled 3D viewports look
 better in many cases.
 
 See the
-`3D viewport scaling demo ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/3d_scaling )`
+[3D viewport scaling demo](../../07_demo_projects/viewport/3d_scaling/)
 for examples.
+

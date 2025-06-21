@@ -1,5 +1,4 @@
 
-
 # Fixing jitter and stutter
 
 ## What are jitter and stutter?
@@ -29,19 +28,10 @@ There can be many causes of jitter, the most typical one happens when the game *
 at a different resolution than the monitor refresh rate. Check whether your monitor refresh rate is different from 60 Hz.
 
 This is generally not a problem, given that most monitors are 60 Hz, and
-starting with Pandemonium 3.1, a frame timer was introduced that tries to synchronize with refresh as well as possible.
+a frame timer tries to synchronize with refresh as well as possible.
 
 Sometimes only some objects appear to jitter (character or background). This happens when they are processed in different
-time sources (one is processed in the physics step while another is processed in the idle step). Pandemonium 3.1 does some
-improvements to this, from allowing kinematic bodies to be animated in the regular _process loop, to further fixes in the
-frame timer.
-
-Note:
-
-
-    You can use physics interpolation to mitigate physics-related jittering.
-    See `lawnjelly's smoothing-addon ( https://github.com/lawnjelly/smoothing-addon )`
-    for an add-on that can be dropped into any project to enable physics interpolation.
+time sources (one is processed in the physics step while another is processed in the idle step).
 
 ## Stutter
 
@@ -96,3 +86,4 @@ clearly all the information possible about device, operating system, driver vers
 
 Also make sure to use the correct term (jitter or stutter) based on the exhibited behavior. This will help understand your issue much faster.
 Provide a project that can be used to reproduce the issue, and if possible a screen capture demonstrating the bug.
+

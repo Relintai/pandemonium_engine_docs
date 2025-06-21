@@ -8,7 +8,7 @@ used with care.
 
 ## Explanation
 
-Usually individual meshes in Godot are represented by their own
+Usually individual meshes in Pandemonium are represented by their own
 `VisualInstance` in the
 `SceneTree`, such as `MeshInstance`.
 These:
@@ -97,7 +97,7 @@ pirate ship, there may be exceptions - meshes that you *do not* want merged.
 This may be because, for instance, you may want them to move independently of
 the `MergeGroup`. An example might be a steering wheel, or sail.
 
-Godot allows you fine control over exactly which nodes should be considered for
+Pandemonium allows you fine control over exactly which nodes should be considered for
 merging, via the `merging_mode` property which is present in the inspector
 for every `Spatial`, inside the `Misc` tab.
 

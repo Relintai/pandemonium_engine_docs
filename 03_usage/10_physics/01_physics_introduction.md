@@ -1,5 +1,4 @@
 
-
 # Physics introduction
 
 In game development, you often need to know when two objects in the game
@@ -18,42 +17,43 @@ In this guide, you will learn:
 -   How each collision object works
 -   When and why to choose one type over another
 
-Note:
- This document's examples will use 2D objects. Every 2D physics object
-          and collision shape has a direct equivalent in 3D and in most cases
-          they work in much the same way.
+Note: This document's examples will use 2D objects. Every 2D physics object
+and collision shape has a direct equivalent in 3D and in most cases
+they work in much the same way.
 
 ## Collision objects
 
 Pandemonium offers four kinds of physics bodies, extending `CollisionObject2D`:
 
-- `Area2D`
-    `Area2D` nodes provide **detection** and **influence**. They can detect when
-    objects overlap and can emit signals when bodies enter or exit. An `Area2D`
-    can also be used to override physics properties, such as gravity or damping,
-    in a defined area.
+### `Area2D`
 
-The other three bodies extend `PhysicsBody2D`:
+`Area2D` nodes provide **detection** and **influence**. They can detect when
+objects overlap and can emit signals when bodies enter or exit. An `Area2D`
+can also be used to override physics properties, such as gravity or damping,
+in a defined area.
 
-- `StaticBody2D`
-    A static body is one that is not moved by the physics engine. It participates
-    in collision detection, but does not move in response to the collision. They
-    are most often used for objects that are part of the environment or that do
-    not need to have any dynamic behavior.
+### `StaticBody2D` (extends `PhysicsBody2D`)
 
-- `RigidBody2D`
-    This is the node that implements simulated 2D physics. You do not control a
-    `RigidBody2D` directly, but instead you apply forces to it (gravity, impulses,
-    etc.) and the physics engine calculates the resulting movement. `Read more about using rigid bodies. ( doc_rigid_body )`
+A static body is one that is not moved by the physics engine. It participates
+in collision detection, but does not move in response to the collision. They
+are most often used for objects that are part of the environment or that do
+not need to have any dynamic behavior.
 
-- `KinematicBody2D`
-    A body that provides collision detection, but no physics. All movement and
-    collision response must be implemented in code.
+### `RigidBody2D` (extends `PhysicsBody2D`)
+
+This is the node that implements simulated 2D physics. You do not control a
+`RigidBody2D` directly, but instead you apply forces to it (gravity, impulses,
+etc.) and the physics engine calculates the resulting movement.
+
+### `KinematicBody2D` (extends `PhysicsBody2D`)
+
+A body that provides collision detection, but no physics. All movement and
+collision response must be implemented in code.
 
 ### Physics material
 
-Static bodies and rigid bodies can be configured to use a `physics material
-( PhysicsMaterial )`. This allows adjusting the friction and bounce of an object,
+Static bodies and rigid bodies can be configured to use a `physics material`.
+This allows adjusting the friction and bounce of an object,
 and set if it's absorbent and/or rough.
 
 ### Collision shapes
@@ -62,21 +62,23 @@ A physics body can hold any number of `Shape2D` objects
 as children. These shapes are used to define the object's collision bounds
 and to detect contact with other objects.
 
-Note:
- In order to detect collisions, at least one `Shape2D` must be
-          assigned to the object.
+![](img/player_coll_shape.png)
+
+#### Note:
+
+In order to detect collisions, at least one `Shape2D` must be assigned to the object.
 
 The most common way to assign a shape is by adding a `CollisionShape2D`
 or `CollisionPolygon2D` as a child of the object.
 These nodes allow you to draw the shape directly in the editor workspace.
 
-.. important:: Be careful to never scale your collision shapes in the editor.
-                The "Scale" property in the Inspector should remain `(1, 1)`. When changing
-                the size of the collision shape, you should always use the size handles, **not**
-                the `Node2D` scale handles. Scaling a shape can result in unexpected
-                collision behavior.
+#### Important!
 
-![](img/player_coll_shape.png)
+Be careful to never scale your collision shapes in the editor.
+The "Scale" property in the Inspector should remain `(1, 1)`. When changing
+the size of the collision shape, you should always use the size handles, **not**
+the `Node2D` scale handles. Scaling a shape can result in unexpected
+collision behavior.
 
 ### Physics process callback
 
@@ -93,14 +95,11 @@ parameter, which is a floating-point number equal to the time passed in
 *seconds* since the last step. When using the default 60 Hz physics update rate,
 it will typically be equal to `0.01666...` (but not always, see below).
 
-Note:
+#### Note
 
-
-    It's recommended to always use the `delta` parameter when relevant in your
-    physics calculations, so that the game behaves correctly if you change the
-    physics update rate or if the player's device can't keep up.
-
-
+It's recommended to always use the `delta` parameter when relevant in your
+physics calculations, so that the game behaves correctly if you change the
+physics update rate or if the player's device can't keep up.
 
 ### Collision layers and masks
 
@@ -112,20 +111,17 @@ it can interact with.
 
 Let's look at each of the properties in turn:
 
-- collision_layer
-    This describes the layers that the object appears **in**. By default, all
-    bodies are on layer `1`.
-
-- collision_mask
-    This describes what layers the body will **scan** for collisions. If an
-    object isn't in one of the mask layers, the body will ignore it. By default,
-    all bodies scan layer `1`.
+- collision_layer: This describes the layers that the object appears **in**. By default, all
+  bodies are on layer `1`.
+- collision_mask: This describes what layers the body will **scan** for collisions. If an
+  object isn't in one of the mask layers, the body will ignore it. By default,
+  all bodies scan layer `1`.
 
 These properties can be configured via code, or by editing them in the Inspector.
 
 Keeping track of what you're using each layer for can be difficult, so you
 may find it useful to assign names to the layers you're using. Names can
-be assigned in Project Settings -> Layer Names.
+be assigned in Project Settings -&gt; Layer Names.
 
 ![](img/physics_layer_names.png)
 
@@ -143,8 +139,6 @@ interact with. For example, the Player's settings would look like this:
 
 ![](img/player_collision_layers.png)
 ![](img/player_collision_mask.png)
-
-
 
 #### Code example
 
@@ -219,7 +213,7 @@ You can modify a rigid body's behavior via properties such as "Mass",
 "Friction", or "Bounce", which can be set in the Inspector.
 
 The body's behavior is also affected by the world's properties, as set in
-`Project Settings -> Physics`, or by entering an `Area2D`
+`Project Settings -&gt; Physics`, or by entering an `Area2D`
 that is overriding the global physics properties.
 
 When a rigid body is at rest and hasn't moved for a while, it goes to sleep.
@@ -255,8 +249,6 @@ the physics engine.
 
 For example, here is the code for an "Asteroids" style spaceship:
 
-gdscript GDScript
-
 ```
 extends RigidBody2D
 
@@ -280,12 +272,11 @@ Note that we are not setting the `linear_velocity` or `angular_velocity`
 properties directly, but rather applying forces (`thrust` and `torque`) to
 the body and letting the physics engine calculate the resulting movement.
 
-Note:
- When a rigid body goes to sleep, the `integrate_forces()`
-          function will not be called. To override this behavior, you will
-          need to keep the body awake by creating a collision, applying a
-          force to it, or by disabling the `can_sleep`
-          property. Be aware that this can have a negative effect on performance.
+Note: When a rigid body goes to sleep, the `integrate_forces()`
+function will not be called. To override this behavior, you will
+need to keep the body awake by creating a collision, applying a
+force to it, or by disabling the `can_sleep`
+property. Be aware that this can have a negative effect on performance.
 
 ### Contact reporting
 
@@ -329,8 +320,6 @@ information to determine the response.
 For example, if you want to find the point in space where the collision
 occurred:
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -343,8 +332,6 @@ func _physics_process(delta):
 ```
 
 Or to bounce off of the colliding object:
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -365,15 +352,12 @@ possible to code this response yourself after using `move_and_collide()`,
 `move_and_slide()` provides a convenient way to implement sliding movement
 without writing much code.
 
-Warning:
- `move_and_slide()` automatically includes the timestep in its
-             calculation, so you should **not** multiply the velocity vector
-             by `delta`.
+Warning: `move_and_slide()` automatically includes the timestep in its
+calculation, so you should **not** multiply the velocity vector
+by `delta`.
 
 For example, use the following code to make a character that can walk along
 the ground (including slopes) and jump when standing on the ground:
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -406,3 +390,4 @@ func _physics_process(delta):
 
 See `doc_kinematic_character_2d` for more details on using `move_and_slide()`,
 including a demo project with detailed code.
+

@@ -1,5 +1,4 @@
 
-
 # Collision shapes (3D)
 
 This guide explains:
@@ -16,11 +15,8 @@ You can define the shape of a `PhysicsBody` by adding one or more
 add a `Shape` *resource* to collision shape nodes in the Inspector
 dock.
 
-Note:
-
-
-    When you add multiple collision shapes to a single PhysicsBody, you don't
-    have to worry about them overlapping. They won't "collide" with each other.
+Note: When you add multiple collision shapes to a single PhysicsBody, you don't
+have to worry about them overlapping. They won't "collide" with each other.
 
 ## Primitive collision shapes
 
@@ -63,7 +59,6 @@ viewport. The editor exposes two generation modes:
   creates one CollisionShape node with an automatically generated convex
   collision shape. Since it only generates a single shape, it provides good
   performance and is ideal for small objects.
-
 - **Create Multiple Convex Collision Siblings** uses the V-HACD algorithm. It
   creates several CollisionShape nodes, each with a convex shape. Since it
   generates multiple shapes, it is more accurate for concave objects at the cost
@@ -78,11 +73,8 @@ triangles. Concave shapes are the slowest option but are also the most accurate
 in Pandemonium. **You can only use concave shapes within StaticBodies.** They will not
 work with KinematicBodies or RigidBodies unless the RigidBody's mode is Static.
 
-Note:
-
-
-    Even though concave shapes offer the most accurate *collision*, contact
-    reporting can be less precise than primitive shapes.
+Note: Even though concave shapes offer the most accurate *collision*, contact
+reporting can be less precise than primitive shapes.
 
 When not using GridMaps for level design, concave shapes are the best approach
 for a level's collision. That said, if your level has small details, you may
@@ -100,29 +92,26 @@ editor exposes two options:
 
 - **Create Trimesh Static Body** is a convenient option. It creates a StaticBody
   containing a concave shape matching the mesh's geometry.
-
 - **Create Trimesh Collision Sibling** creates a CollisionShape node with a
   concave shape matching the mesh's geometry.
 
-Note:
+### Note:
 
+Suppose you need to make a RigidBody *slide* on a concave collision shape.
+In that case, you may notice that sometimes, the RigidBody will bump
+upwards. To solve this, open **Project > Project Settings** and enable
+**Physics &gt; 3d &gt; Smooth Trimesh Collision**.
 
-    Suppose you need to make a RigidBody *slide* on a concave collision shape.
-    In that case, you may notice that sometimes, the RigidBody will bump
-    upwards. To solve this, open **Project > Project Settings** and enable
-    **Physics > 3d > Smooth Trimesh Collision**.
+Once you've enabled smooth trimesh collision, make sure the concave shape is
+the only shape of your StaticBody and that it's located at its origin
+without any rotation. This way, the RigidBody should slide perfectly on the
+StaticBody.
 
-    Once you've enabled smooth trimesh collision, make sure the concave shape is
-    the only shape of your StaticBody and that it's located at its origin
-    without any rotation. This way, the RigidBody should slide perfectly on the
-    StaticBody.
+### See also:
 
-See also:
-
-
-    Pandemonium can generate collision shapes for your imported 3D scenes
-    automatically. See `doc_importing_scenes_import_hints` in the
-    documentation for more information.
+Pandemonium can generate collision shapes for your imported 3D scenes
+automatically. See [importing scenes](../21_assets_pipeline/05_importing_scenes.md) in the
+documentation for more information.
 
 ## Performance caveats
 
@@ -142,3 +131,4 @@ If you run into performance issues, you may have to make tradeoffs in terms of
 accuracy. Most games out there don't have a 100% accurate collision. They find
 creative ways to hide it or otherwise make it unnoticeable during normal
 gameplay.
+

@@ -1,5 +1,4 @@
 
-
 # Kinematic character (2D)
 
 ### Introduction
@@ -51,8 +50,6 @@ per second, always. This makes physics and motion calculation work in a
 more predictable way than using regular process, which might have spikes
 or lose precision if the frame rate is too high or too low.
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -64,14 +61,14 @@ func _physics_process(delta):
 ### Scene setup
 
 To have something to test, here's the scene (from the tilemap tutorial):
-:download:`kbscene.zip (files/kbscene.zip )`. We'll be creating a new scene
+[kbscene.zip](files/kbscene.zip). We'll be creating a new scene
 for the character. Use the robot sprite and create a scene like this:
 
 ![](img/kbscene.png)
 
 You'll notice that there's a warning icon next to our CollisionShape2D node;
 that's because we haven't defined a shape for it. Create a new CircleShape2D
-in the shape property of CollisionShape2D. Click on <CircleShape2D> to go to the
+in the shape property of CollisionShape2D. Click on `CircleShape2D` to go to the
 options for it, and set the radius to 30:
 
 ![](img/kbradius.png)
@@ -103,8 +100,6 @@ collision happens, it stops right at the moment of the collision.
 
 So, let's move our sprite downwards until it hits the floor:
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -117,8 +112,6 @@ hitting the floor. Pretty cool, huh?
 
 The next step will be adding gravity to the mix, this way it behaves a
 little more like a regular game character:
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -138,8 +131,6 @@ and right when touching the directional keys. Remember that the values
 being used (for speed at least) are pixels/second.
 
 This adds simple walking support by pressing left and right:
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -168,6 +159,6 @@ func _physics_process(delta):
 
 And give it a try.
 
-This is a good starting point for a platformer. A more complete demo can be found in the demo zip distributed with the
-engine, or in the
-https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/2d/kinematic_character.
+This is a good starting point for a platformer. A more complete demo can be found
+[here](../../07_demo_projects/2d/kinematic_character/).
+

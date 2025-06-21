@@ -1,5 +1,4 @@
 
-
 # Ray-casting
 
 ## Introduction
@@ -11,8 +10,7 @@ do this in 2D and 3D.
 
 Pandemonium stores all the low level game information in servers, while the
 scene is just a frontend. As such, ray casting is generally a
-lower-level task. For simple raycasts, node such as
-`RayCast`
+lower-level task. For simple raycasts, node such as `RayCast`
 will work, as they will return every frame what the result of a raycast
 is.
 
@@ -41,13 +39,10 @@ callback. Accessing it from outside this function may result in an error
 due to space being *locked*.
 
 To perform queries into physics space, the
-`Physics2DDirectSpaceState`
-and `PhysicsDirectSpaceState`
+`Physics2DDirectSpaceState` and `PhysicsDirectSpaceState`
 must be used.
 
 Use the following code in 2D:
-
-gdscript GDscript
 
 ```
 func _physics_process(delta):
@@ -57,16 +52,12 @@ func _physics_process(delta):
 
 Or more directly:
 
-gdscript GDScript
-
 ```
 func _physics_process(delta):
     var space_state = get_world_2d().direct_space_state
 ```
 
 And in 3D:
-
-gdscript GDScript
 
 ```
 func _physics_process(delta):
@@ -79,8 +70,6 @@ For performing a 2D raycast query, the method
 `Physics2DDirectSpaceState.intersect_ray()`
 may be used. For example:
 
-gdscript GDScript
-
 ```
 func _physics_process(delta):
     var space_state = get_world_2d().direct_space_state
@@ -90,8 +79,6 @@ func _physics_process(delta):
 
 The result is a dictionary. If the ray didn't hit anything, the dictionary will
 be empty. If it did hit something, it will contain collision information:
-
-gdscript GDScript
 
 ```
 if result:
@@ -129,8 +116,6 @@ optional third parameter which is an array of exceptions. This is an
 example of how to use it from a KinematicBody2D or any other
 collision object node:
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -151,8 +136,6 @@ The optional fourth argument for `intersect_ray()` is a collision mask. For
 example, to use the same mask as the parent body, use the `collision_mask`
 member variable:
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -161,8 +144,6 @@ func _physics_process(delta):
     var result = space_state.intersect_ray(global_position, enemy_position,
                             [self], collision_mask)
 ```
-
-See `doc_physics_introduction_collision_layer_code_example` for details on how to set the collision mask.
 
 ## 3D ray casting from screen
 
@@ -182,8 +163,6 @@ obtained. This is because `origin` changes in orthogonal mode, while
 
 To obtain it using a camera, the following code can be used:
 
-gdscript GDScript
-
 ```
 const ray_length = 1000
 
@@ -197,3 +176,4 @@ func _input(event):
 
 Remember that during `input()`, the space may be locked, so in practice
 this query should be run in `physics_process()`.
+

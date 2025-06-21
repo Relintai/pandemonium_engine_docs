@@ -1,5 +1,4 @@
 
-
 # Using KinematicBody2D
 
 ## Introduction
@@ -11,9 +10,8 @@ works and what their pros and cons are. In this tutorial, we'll look at the
 `KinematicBody2D` node and show some examples
 of how to use it.
 
-Note:
- This document assumes you're familiar with Pandemonium's various physics
-          bodies. Please read `doc_physics_introduction` first.
+Note: This document assumes you're familiar with Pandemonium's various physics
+bodies.
 
 ## What is a kinematic body?
 
@@ -23,10 +21,9 @@ engine physics properties, like gravity or friction. While this means that you
 have to write some code to create their behavior, it also means you have more
 precise control over how they move and react.
 
-Tip:
- A `KinematicBody2D` can be affected by gravity and other forces,
-        but you must calculate the movement in code. The physics engine will
-        not move a `KinematicBody2D`.
+Tip: A `KinematicBody2D` can be affected by gravity and other forces,
+but you must calculate the movement in code. The physics engine will
+not move a `KinematicBody2D`.
 
 ## Movement and collision
 
@@ -36,8 +33,7 @@ These methods move the body along a given vector and instantly stop if
 a collision is detected with another body. After a KinematicBody2D has collided,
 any *collision response* must be coded manually.
 
-Warning:
- You should only do Kinematic body movement in the `physics_process()` callback.
+Warning: You should only do Kinematic body movement in the `physics_process()` callback.
 
 The two movement methods serve different purposes, and later in this tutorial, you'll
 see examples of how they work.
@@ -60,39 +56,29 @@ The `move_and_slide()` method is intended to simplify the collision
 response in the common case where you want one body to slide along the other.
 It is especially useful in platformers or top-down games, for example.
 
-Tip:
- `move_and_slide()` automatically calculates frame-based movement
-         using `delta`. Do *not* multiply your velocity vector by `delta`
-         before passing it to `move_and_slide()`.
+Tip: `move_and_slide()` automatically calculates frame-based movement
+using `delta`. Do *not* multiply your velocity vector by `delta`
+before passing it to `move_and_slide()`.
 
 In addition to the velocity vector, `move_and_slide()` takes a number of
 other parameters allowing you to customize the slide behavior:
 
 - `up_direction` - *default value:* `Vector2( 0, 0 )`
-
-    This parameter allows you to define what surfaces the engine should consider
-    being the floor. Setting this lets you use the `is_on_floor()`, `is_on_wall()`,
-    and `is_on_ceiling()` methods to detect what type of surface the body is
-    in contact with. The default value means that all surfaces are considered walls.
-
+  This parameter allows you to define what surfaces the engine should consider
+  being the floor. Setting this lets you use the `is_on_floor()`, `is_on_wall()`,
+  and `is_on_ceiling()` methods to detect what type of surface the body is
+  in contact with. The default value means that all surfaces are considered walls.
 - `stop_on_slope` - *default value:* `false`
-
-    This parameter prevents a body from sliding down slopes when standing still.
-
+  This parameter prevents a body from sliding down slopes when standing still.
 - `max_slides` - *default value:* `4`
-
-    This parameter is the maximum number of collisions before the body stops moving. Setting
-    it too low may prevent movement entirely.
-
+  This parameter is the maximum number of collisions before the body stops moving. Setting
+  it too low may prevent movement entirely.
 - `floor_max_angle` - *default value:* `0.785398` (in radians, equivalent to `45` degrees)
-
-    This parameter is the maximum angle before a surface is no longer considered a "floor."
-
+  This parameter is the maximum angle before a surface is no longer considered a "floor."
 - `infinite_inertia` - *default value:* `true`
-
-When this parameter is `true`, the body can push `RigidBody2D`
-nodes, ignoring their mass, but won't detect collisions with them. If it's `false`
-the body will collide with rigid bodies and stop.
+  When this parameter is `true`, the body can push `RigidBody2D`
+  nodes, ignoring their mass, but won't detect collisions with them. If it's `false`
+  the body will collide with rigid bodies and stop.
 
 ### `move_and_slide_with_snap`
 
@@ -102,7 +88,6 @@ body will remain attached to the surface. Note that this means you must disable
 snapping when jumping, for example. You can do this either by setting `snap`
 to `Vector2.ZERO` or by using `move_and_slide()` instead.
 
-
 ## Detecting collisions
 
 When using `move_and_collide()` the function returns a `KinematicCollision2D`
@@ -111,8 +96,6 @@ directly, and you can use this in your code.
 When using `move_and_slide()` it's possible to have multiple collisions occur,
 as the slide response is calculated. To process these collisions, use `get_slide_count()`
 and `get_slide_collision()`:
-
-gdscript GDScript
 
 ```
 # Using move_and_collide.
@@ -127,11 +110,9 @@ for i in get_slide_count():
     print("I collided with ", collision.collider.name)
 ```
 
-Note:
- `get_slide_count()` only counts times the body has collided and changed direction.      
+Note: `get_slide_count()` only counts times the body has collided and changed direction.
 
-See `KinematicCollision2D` for details on what
-collision data is returned.
+See `KinematicCollision2D` for details on what collision data is returned.
 
 ## Which movement method to use?
 
@@ -143,8 +124,6 @@ is more general. For example, the following two code snippets result in
 the same collision response:
 
 ![](img/k2d_compare.gif)
-
-gdscript GDScript
 
 ```
 # using move_and_collide
@@ -178,7 +157,7 @@ variable, and use on the next frame.
 ## Examples
 
 To see these examples in action, download the sample project:
-:download:`using_kinematic2d.zip (files/using_kinematic2d.zip )`.
+[using_kinematic2d.zip](files/using_kinematic2d.zip).
 
 ### Movement and walls
 
@@ -190,12 +169,7 @@ from the Filesystem dock to the *Texture* property of the `Sprite`). In the
 `CollisionShape2D`'s *Shape* property, select "New RectangleShape2D" and
 size the rectangle to fit over the sprite image.
 
-Note:
- See `doc_2d_movement` for examples of implementing 2D movement schemes.
-
 Attach a script to the KinematicBody2D and add the following code:
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -255,8 +229,6 @@ The Bullet and Wall are separate scenes so that they can be instanced.
 The Player is controlled by the `w` and `s` keys for forward and back. Aiming
 uses the mouse pointer. Here is the code for the Player, using `move_and_slide()`:
 
-gdscript GDScript
-
 ```
 extends KinematicBody2D
 
@@ -291,8 +263,6 @@ func _physics_process(delta):
 
 
 And the code for the Bullet:
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -340,9 +310,6 @@ They can be any shape and size. In the sample project, we're using
 `Polygon2D` to create the platform shapes.
 
 Here's the code for the player body:
-
-
-gdscript GDScript
 
 ```
 extends KinematicBody2D
@@ -394,3 +361,4 @@ vector. You can control the maximum angle by setting `floor_max_angle`.
 
 This angle also allows you to implement other features like wall jumps using
 `is_on_wall()`, for example.
+

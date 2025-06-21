@@ -1,5 +1,4 @@
 
-
 # Using Area2D
 
 ## Introduction
@@ -10,9 +9,8 @@ You can avoid problems and simplify development if you understand how each of th
 works and what their pros and cons are. In this tutorial, we'll look at the
 `Area2D` node and show some examples of how it can be used.
 
-Note:
- This document assumes you're familiar with Pandemonium's various physics
-          bodies. Please read `doc_physics_introduction` first.
+Note: This document assumes you're familiar with Pandemonium's various physics
+bodies.
 
 ## What is an area?
 
@@ -61,11 +59,7 @@ use `area_entered`. However, let's assume our player is a `KinematicBody2D`
 (and therefore a `CollisionObject2D` type), so we'll connect the
 `body_entered` signal.
 
-Note:
- If you're not familiar with using signals, see `doc_signals` for
-          an introduction.
-
-gdscript GDScript
+Note: If you're not familiar with using signals, see `doc_signals` for an introduction.
 
 ```
 extends Area2D
@@ -81,8 +75,6 @@ Some other usage examples:
 - Areas are great for bullets and other projectiles that hit and deal damage, but don't need any other physics such as bouncing.
 - Use a large circular area around an enemy to define its "detect" radius. When the player is outside the area, the enemy can't "see" it.
 - "Security cameras" - In a large level with multiple cameras, attach areas to each camera and activate them when the player enters.
-
-See the `doc_your_first_2d_game` for an example of using Area2D in a game.
 
 ## Area influence
 
@@ -121,4 +113,5 @@ override.
 ![](img/area2d_override.gif)
 
 You can download this project here:
-:download:`using_area_2d.zip (files/using_area_2d.zip )`
+[using_area_2d.zip](files/using_area_2d.zip)
+

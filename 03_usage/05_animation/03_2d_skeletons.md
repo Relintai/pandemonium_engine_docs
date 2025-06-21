@@ -1,5 +1,4 @@
 
-
 # 2D skeletons
 
 ## Introduction
@@ -26,21 +25,14 @@ The following tutorial will, then, explain 2D skeletal deformations.
 
 ## Setup
 
-See also:
-
-
-   Before starting, we recommend you to go through the
-   `doc_cutout_animation` tutorial to gain a general understanding of
-   animating within Pandemonium.
-
 For this tutorial, we will be using a single image to construct our character.
-Download it from :download:`gBot_pieces.png) (img/gBot_pieces.png) )` or save the
+Download it from [gBot_pieces.png](img/gBot_pieces.png) or save the
 image below.
 
 ![](img/gBot_pieces.png)
 
 It is also advised to download the final character image
-:download:`gBot_complete.png) (img/gBot_complete.png) )` to have a good reference
+[gBot_complete.png](img/gBot_complete.png) to have a good reference
 for putting the different pieces together.
 
 ![](img/gBot_complete.png)
@@ -79,7 +71,7 @@ When you duplicate nodes and the next piece has a similar shape, you can edit
 the previous polygon instead of drawing a new one.
 
 After moving the polygon, remember to update the UV by selecting Edit -> "Polygon
--> UV" in the Polygon 2D UV Editor.
+-&gt; UV" in the Polygon 2D UV Editor.
 
 ![](img/skel2d5.png)
 
@@ -227,3 +219,4 @@ painting! Go to the *Bones* section again to assign them to the right bones.
 Once you are all set, you will get much better results:
 
 ![](img/skel2d25.gif)
+

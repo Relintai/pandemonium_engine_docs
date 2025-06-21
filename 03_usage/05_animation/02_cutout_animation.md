@@ -1,11 +1,10 @@
 
-
 # Cutout animation
 
 ### What is it?
 
-Traditionally, `cutout animation ( https://en.wikipedia.org/wiki/Cutout_animation )`
-is a type of `stop motion animation ( https://en.wikipedia.org/wiki/Stop_motion )`
+Traditionally, [cutout animation](https://en.wikipedia.org/wiki/Cutout_animation)
+is a type of [stop motion animation](https://en.wikipedia.org/wiki/Stop_motion)
 in which pieces of paper (or other thin material) are cut into special shapes
 and arranged in two-dimensional representations of characters and objects.
 Characters' bodies are usually made out of several pieces. The pieces are
@@ -14,12 +13,12 @@ and rotates the parts in small increments between each shot to create the
 illusion of movement when the images are played back quickly in sequence.
 
 Simulations of cutout animation can now be created using software as seen in
-`South Park ( https://en.wikipedia.org/wiki/South_Park )` and `Jake and the Never
-Land Pirates ( https://en.wikipedia.org/wiki/Jake_and_the_Never_Land_Pirates )`.
+[South Park](https://en.wikipedia.org/wiki/South_Park) and [Jake and the Never
+Land Pirates](https://en.wikipedia.org/wiki/Jake_and_the_Never_Land_Pirates).
 
 In video games, this technique has also become popular. Examples of
-this are `Paper Mario ( https://en.wikipedia.org/wiki/Super_Paper_Mario )` or
-`Rayman Origins ( https://en.wikipedia.org/wiki/Rayman_Origins )` .
+this are [Paper Mario](https://en.wikipedia.org/wiki/Super_Paper_Mario) or
+[Rayman Origins](https://en.wikipedia.org/wiki/Rayman_Origins).
 
 ### Cutout animation in Pandemonium
 
@@ -36,8 +35,7 @@ Pandemonium provides tools for working with cutout rigs, and is ideal for the wo
    selectively for complex parts such as hands, feet, changing facial expressions,
    etc.
 -  **Custom Shaped Elements**: Custom shapes can be created with
-   `Polygon2D`
-   allowing UV animation, deformations, etc.
+   `Polygon2D` allowing UV animation, deformations, etc.
 -  **Particle Systems**: A cutout animation rig can be combined with particle
    systems. This can be useful for magic effects, jetpacks, etc.
 -  **Custom Colliders**: Set colliders and influence areas in different
@@ -50,12 +48,12 @@ And much more!
 ### Making of GBot
 
 For this tutorial, we will use as demo content the pieces of the
-`GBot ( https://www.youtube.com/watch?v=S13FrWuBMx4&list=UUckpus81gNin1aV8WSffRKw )`
+[GBot](https://www.youtube.com/watch?v=S13FrWuBMx4&list=UUckpus81gNin1aV8WSffRKw)
 character, created by Andreas Esau.
 
 ![](img/tuto_cutout_walk.gif)
 
-Get your assets: :download:`gbot_resources.zip (files/gbot_resources.zip )`.
+Get your assets: [gbot_resources.zip](files/gbot_resources.zip).
 
 ### Setting up the rig
 
@@ -75,15 +73,14 @@ create a child sprite and load the torso texture, later accommodate it properly:
 ![](img/tuto_cutout3.png)
 
 This looks good. Let's see if our hierarchy works as a skeleton by
-rotating the torso. We can do this be pressing :kbd:`E` to enter rotate mode,
-and dragging with the left mouse button. To exit rotate mode hit :kbd:`ESC`.
+rotating the torso. We can do this be pressing `E` to enter rotate mode,
+and dragging with the left mouse button. To exit rotate mode hit `ESC`.
 
 ![](img/tutovec_torso1.gif)
 
 The rotation pivot is wrong and needs to be adjusted.
 
-This small cross in the middle of the `Sprite` is
-the rotation pivot:
+This small cross in the middle of the `Sprite` is the rotation pivot:
 
 ![](img/tuto_cutout4.png)
 
@@ -95,7 +92,7 @@ Sprite:
 ![](img/tuto_cutout5.png)
 
 The pivot can also be adjusted *visually*. While hovering over the
-desired pivot point,  press :kbd:`V` to move the pivot there for the
+desired pivot point,  press `V` to move the pivot there for the
 selected Sprite. There is also a tool in the tool bar that has a
 similar function.
 
@@ -118,9 +115,8 @@ the hip node in the scene hierarchy), but then the left arm is no longer in its
 proper place in the hierarchy. This means it wouldn't be affected by the movement
 of the torso. We'll fix this problem with `RemoteTransform2D` nodes.
 
-Note:
- You can also fix depth ordering problems by adjusting the Z property
-   of any node inheriting from Node2D.
+Note: You can also fix depth ordering problems by adjusting the Z property
+of any node inheriting from Node2D.
 
 ### RemoteTransform2D node
 
@@ -237,7 +233,7 @@ leg, select the following:
 
 ![](img/tuto_cutout17.png)
 
-Then enable this chain for IK. Go to Edit > Make IK Chain.
+Then enable this chain for IK. Go to Edit &gt; Make IK Chain.
 
 ![](img/tuto_cutout18.png)
 
@@ -255,7 +251,7 @@ adjust its position.
 
 The following section will be a collection of tips for creating animation for
 your cutout rigs. For more information on how the animation system in Pandemonium
-works, see `doc_introduction_animation`.
+works, see [animation introduction](01_introduction.md).
 
 ## Setting keyframes and excluding properties
 
@@ -285,18 +281,14 @@ Think of a rest pose as a default pose that your cutout rig should be set to
 when no other pose is active in your game. Create a rest pose as follows:
 
 1. Make sure the rig parts are positioned in what looks like a "resting"
-arrangement.
-
+   arrangement.
 2. Create a new animation, rename it "rest".
-
 3. Select all nodes in your rig (box selection should work fine).
-
 4. Make sure the "loc", "rot", and "scl" toggle buttons are all active in the
-toolbar.
-
+   toolbar.
 5. Press the key button. Keys will be inserted for all selected parts storing
-their current arrangement. This pose can now be recalled when necessary in
-your game by playing the "rest" animation you've created.
+   their current arrangement. This pose can now be recalled when necessary in
+   your game by playing the "rest" animation you've created.
 
 ![](img/tuto_cutout21.png)
 
@@ -351,4 +343,3 @@ To apply the same easing curve to multiple keyframes at once:
 Skeletal deform can be used to augment a cutout rig, allowing single pieces to
 deform organically (e.g. antennae that wobble as an insect character walks).
 
-This process is described in a `separate tutorial ( doc_2d_skeletons )`.

@@ -1,5 +1,4 @@
 
-
 # Using AnimationTree
 
 ## Introduction
@@ -26,7 +25,7 @@ At the end, the imported Pandemonium scene will contain the animations in a `Ani
 As you rarely use imported scenes directly in Pandemonium (they are either instantiated or inherited from), you can place the `AnimationTree` node in your
 new scene which contains the imported one. Afterwards, point the `AnimationTree` node to the `AnimationPlayer` that was created in the imported scene.
 
-This is how it's done in the `Third Person Shooter demo ( https://github.com/pandemoniumengine/tps-demo )`, for reference:
+This is how it's done in the Third Person Shooter demo, for reference:
 
 ![](img/animtree1.png)
 
@@ -47,7 +46,8 @@ To set a root node in `AnimationTree`, a few types are available:
 
 * `AnimationNodeAnimation`: Selects an animation from the list and plays it. This is the simplest root node, and generally not used directly as root.
 * `AnimationNodeBlendTree`: Contains many *blend* type nodes, such as mix, blend2, blend3, one shot, etc. This is one of the most commonly used roots.
-* `AnimationNodeStateMachine`: Contains multiple root nodes as children in a graph. Each node is used as a *state*, and provides multiple functions to alternate between states.
+* `AnimationNodeStateMachine`: Contains multiple root nodes as children in a graph. Each node is used as a *state*, and provides
+  multiple functions to alternate between states.
 * `AnimationNodeBlendSpace2D`: Allows placing root nodes in a 2D blend space. Control the blend position in 2D to mix between multiple animations.
 * `AnimationNodeBlendSpace1D`: Simplified version of the above (1D).
 
@@ -88,11 +88,11 @@ This node will execute a sub-animation and return once it finishes. Blend times 
 
 #### Seek
 
-This node can be used to cause a seek command to happen to any sub-children of the animation graph. Use this node type to play an `Animation` from the start or a certain playback position inside the `AnimationNodeBlendTree`.
+This node can be used to cause a seek command to happen to any sub-children of the animation graph. Use this node type
+to play an `Animation` from the start or a certain playback position inside the `AnimationNodeBlendTree`.
 
-After setting the time and changing the animation playback, the seek node automatically goes into sleep mode on the next process frame by setting its `seek_position` value to `-1.0`.
-
-gdscript GDScript
+After setting the time and changing the animation playback, the seek node automatically goes into sleep mode on the next
+process frame by setting its `seek_position` value to `-1.0`.
 
 ```
 # Play child animation from the start.
@@ -112,7 +112,8 @@ Allows scaling the speed of the animation (or reverse it) in any children nodes.
 
 #### Transition
 
-Very simple state machine (when you don't want to cope with a `StateMachine` node). Animations can be connected to the outputs and transition times can be specified.
+Very simple state machine (when you don't want to cope with a `StateMachine` node). Animations can be
+connected to the outputs and transition times can be specified.
 
 #### BlendSpace2D
 
@@ -165,7 +166,8 @@ Transitions also have a few properties. Click any transition and it will be disp
 * *Advance Condition* will turn on auto advance when this condition is set. This is a custom text field that can be filled with a variable name.
   The variable can be modified from code (more on this later).
 * *Xfade Time* is the time to cross-fade between this state and the next.
-* *Priority* is used together with the `travel()` function from code (more on this later). Lower priority transitions are preferred when travelling through the tree.
+* *Priority* is used together with the `travel()` function from code (more on this later). Lower priority transitions
+  are preferred when travelling through the tree.
 * *Disabled* toggles disabling this transition (when disabled, it will not be used during travel or auto advance).
 
 
@@ -180,8 +182,6 @@ transformation visually (the animation will stay in place).
 ![](img/animtree14.png)
 
 Afterwards, the actual motion can be retrieved via the `AnimationTree` API as a transform:
-
-gdscript GDScript
 
 ```
 anim_tree.get_root_motion_transform()
@@ -218,8 +218,6 @@ To modify these values from code, the property path must be obtained. This is do
 
 Which allows setting them or reading them:
 
-gdscript GDScript
-
 ```
 anim_tree.set("parameters/eye_blend/blend_amount", 1.0)
 # Simpler alternative form:
@@ -238,15 +236,11 @@ To use the travel ability, you should first retrieve the `AnimationNodeStateMach
 object from the `AnimationTree` node (it is exported as a property).
 
 
-gdscript GDScript
-
 ```
 var state_machine = anim_tree["parameters/playback"]
 ```
 
 Once retrieved, it can be used by calling one of the many functions it offers:
-
-gdscript GDScript
 
 ```
 state_machine.travel("SomeState")
@@ -255,3 +249,4 @@ state_machine.travel("SomeState")
 The state machine must be running before you can travel. Make sure to either call `start()` or choose a node to **Autoplay on Load**.
 
 ![](img/animtree18.png)
+

@@ -1,5 +1,4 @@
 
-
 # Playing videos
 
 Pandemonium supports video playback with the `VideoPlayer` node.
@@ -15,29 +14,19 @@ by software patents. AV1 is royalty-free, but it remains slow to decode on the
 CPU and hardware decoding support isn't readily available on all GPUs in use
 yet.
 
-WebM is supported in core in Pandemonium 3.x, but support for it will be removed in 4.0
-as it proved to be too buggy and difficult to maintain.
-Therefore, **using WebM is not recommended**.
-
-Note:
-
-
-    You may find videos with an `.ogg` or `.ogx` extensions, which are generic
-    extensions for data within an Ogg container.
-
-    Renaming these file extensions to `.ogv` *may* allow the videos to be
-    imported in Pandemonium. However, not all files with `.ogg` or `.ogx`
-    extensions are videos - some of them may only contain audio.
+Note: You may find videos with an `.ogg` or `.ogx` extensions, which are generic
+extensions for data within an Ogg container.
+Renaming these file extensions to `.ogv` *may* allow the videos to be
+imported in Pandemonium. However, not all files with `.ogg` or `.ogx`
+extensions are videos - some of them may only contain audio.
 
 ## Setting up VideoPlayer
 
 1. Create a VideoPlayer node using the Create New Node dialog.
 2. Select the VideoPlayer node in the scene tree dock, go to the inspector
    and load an `.ogv` file in the Stream property.
-
    - If you don't have your video in Ogg Theora format yet, jump to
-     `doc_playing_videos_recommended_theora_encoding_settings`.
-
+     [recommended theora encoding settings](#recommended-theora-encoding-settings).
 3. If you want the video to play as soon as the scene is loaded, check
    **Autoplay** in the inspector. If not, leave **Autoplay** disabled and call
    `play()` on the VideoPlayer node in a script to start playback when
@@ -64,23 +53,15 @@ AspectRatioContainer node to match your video's aspect ratio. You can use math
 formulas in the inspector to help yourself. Remember to make one of the operands
 a float. Otherwise, the division's result will always be an integer.
 
-.. figure:: img/playing_videos_aspect_ratio_container.png)
-   :figclass: figure-w480
-   :align: center
-   :alt: AspectRatioContainer's Ratio property being modified in the editor inspector
+![](img/playing_videos_aspect_ratio_container.png)
 
-   This will evaluate to (approximately) 1.777778
+AspectRatioContainer's Ratio property being modified in the editor inspector
+This will evaluate to (approximately) 1.777778
 
 Once you've configured the AspectRatioContainer, reparent your VideoPlayer
 node to be a child of the AspectRatioContainer node. Make sure **Expand** is
 disabled on the VideoPlayer. Your video should now scale automatically
 to fit the whole screen while avoiding distortion.
-
-See also:
-
-
-    See `doc_multiple_resolutions` for more tips on supporting multiple
-    aspect ratios in your project.
 
 #### Displaying a video on a 3D surface
 
@@ -107,10 +88,10 @@ This can be done with the following steps:
 7. Enable **Albedo Tex Force sRGB** in the SpatialMaterial to prevent colors
    from being washed out.
 8. If the billboard is supposed to emit its own light, enable
-   **Flags > Unshaded** to improve rendering performance.
+   **Flags &gt; Unshaded** to improve rendering performance.
 
-See `doc_viewports` and the
-`GUI in 3D demo ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/viewport/gui_in_3d )`
+See [viewports](../14_rendering/01_viewports.md) and the
+[GUI in 3D demo](../../07_demo_projects/viewport/gui_in_3d/)
 for more information on setting this up.
 
 ## Video decoding conditions and recommended resolutions
@@ -137,7 +118,7 @@ There are several limitations with the current implementation of video playback 
 
 - Seeking a video to a certain point is not supported.
 - Changing playback speed is not supported. VideoPlayer also won't follow
-  `Engine.time_scale( Engine_property_time_scale )`.
+  `Engine.time_scale`.
 - Looping is not supported, but you can connect a VideoPlayer's
   `finished` signal to a function
   that plays the video again. However, this will cause a black frame to be
@@ -146,8 +127,6 @@ There are several limitations with the current implementation of video playback 
   frame and displaying a TextureRect with a screenshot of the first frame of the
   video until the video is restarted.
 - Streaming a video from a URL is not supported.
-
-
 
 ## Recommended Theora encoding settings
 
@@ -170,20 +149,17 @@ you should use a lossless or uncompressed format as an intermediate format to
 maximize the quality of the output Ogg Theora video, but this can require a lot
 of disk space.
 
-`HandBrake ( https://handbrake.fr/ )`
-(GUI) and `FFmpeg ( https://ffmpeg.org/ )` (CLI) are popular open source tools
-for this purpose. FFmpeg has a steeper learning curve, but it's more powerful.
+[HandBrake](https://handbrake.fr/) (GUI) and [FFmpeg](https://ffmpeg.org/) (CLI)
+are popular open source tools for this purpose. FFmpeg has a steeper learning
+curve, but it's more powerful.
 
 Here are example FFmpeg commands to convert a MP4 video to Ogg Theora. Since
 FFmpeg supports a lot of input formats, you should be able to use the commands
 below with almost any input video format (AVI, MOV, WebM, …).
 
-Note:
-
-
-   Make sure your copy of FFmpeg is compiled with libtheora and libvorbis support.
-   You can check this by running `ffmpeg` without any arguments, then looking
-   at the `configuration:` line in the command output.
+Note: Make sure your copy of FFmpeg is compiled with libtheora and libvorbis support.
+You can check this by running `ffmpeg` without any arguments, then looking
+at the `configuration:` line in the command output.
 
 #### Balancing quality and file size
 
@@ -200,7 +176,7 @@ video quality, increasing audio quality doesn't increase the output file size
 nearly as much. Therefore, if you want the cleanest audio possible, you can
 increase this to `9` to get *perceptually lossless* audio. This is especially
 valuable if your input file already uses lossy audio compression. See
-`this page ( https://wiki.hydrogenaud.io/index.php?title=Recommended_Ogg_Vorbis#Recommended_Encoder_Settings )`
+[this page](https://wiki.hydrogenaud.io/index.php?title=Recommended_Ogg_Vorbis#Recommended_Encoder_Settings)
 for a table listing Ogg Vorbis audio quality presets and their respective
 variable bitrates.
 
@@ -224,3 +200,4 @@ significantly if the source is recorded at a higher resolution than 720p:
 ```
 ffmpeg -i input.mp4 -vf "scale=-1:720" -q:v 6 -q:a 6 output.ogv
 ```
+

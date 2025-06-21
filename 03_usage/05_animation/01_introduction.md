@@ -1,5 +1,4 @@
 
-
 # Introduction to the animation features
 
 The `AnimationPlayer` node allows you to create anything
@@ -82,12 +81,10 @@ to the node and the affected property.
 
 Example of Normal animation tracks
 
-Tip:
-
-   If you animate the wrong property, you can edit a track's path anytime.
-   Double click on it and type the new path. Play the animation using the
-   "Play from beginning" button |Play from beginning| (or pressing
-   :kbd:`Shift + D` on keyboard) to see the changes instantly.
+Tip: If you animate the wrong property, you can edit a track's path anytime.
+Double click on it and type the new path. Play the animation using the
+"Play from beginning" button |Play from beginning| (or pressing
+`Shift + D` on keyboard) to see the changes instantly.
 
 ## Tutorial: Creating a simple animation
 
@@ -100,14 +97,11 @@ its child. We will animate the sprite to move between two points on the screen.
 
 Our scene setup
 
-Warning:
-
-   AnimationPlayer inherits from Node instead of Node2D or Spatial, which means
-   that the child nodes will not inherit the transform from the parent nodes
-   due to a bare Node being present in the hierarchy.
-
-   Therefore, it is not recommended to add nodes that have a 2D/3D transform
-   as a child of an AnimationPlayer node.
+Warning: AnimationPlayer inherits from Node instead of Node2D or Spatial, which means
+that the child nodes will not inherit the transform from the parent nodes
+due to a bare Node being present in the hierarchy.
+Therefore, it is not recommended to add nodes that have a 2D/3D transform
+as a child of an AnimationPlayer node.
 
 The sprite holds an image texture. We animate that sprite to move
 between two points on the screen. For this tutorial, use the default Pandemonium
@@ -290,8 +284,7 @@ You usually tweak your animations this way, when the movement doesn't
 
 Pandemonium's animation engine doesn't stop here. If you're already
 comfortable with Pandemonium's scripting language
-`doc_gdscript` and :doc:`/classes/index` you
-know that each node type is a class and has a bunch of callable
+you know that each node type is a class and has a bunch of callable
 methods.
 
 For example, the `AudioStreamPlayer` node type has a
@@ -377,3 +370,4 @@ When adding tracks on new animations, the editor will ask you to automatically
 create a RESET track when using the keyframe icon next to a property in the inspector.
 This does not apply on tracks created with Pandemonium versions prior to 3.4,
 as the animation reset track feature was added in 3.4.
+

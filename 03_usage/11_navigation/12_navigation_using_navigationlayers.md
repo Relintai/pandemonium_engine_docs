@@ -8,10 +8,10 @@ NavigationLayers can be named in the `ProjectSettings` the same as PhysicsLayers
 
 ![](img/navigationlayers_naming.png)
 
-If two regions have not a single compatible layer they will not be merged by the NavigationServer. See `doc_navigation_connecting_navmesh` for more information on merging navmesh.
+If two regions have not a single compatible layer they will not be merged by the NavigationServer.
 
-If a region has not a single compatible navigation layer with the `navigation_layers` parameter of a path query this regions navigation mesh will be skipped in pathfinding.
-See `doc_navigation_using_navigationpaths` for more information on querying the NavigationServer for paths.
+If a region has not a single compatible navigation layer with the `navigation_layers` parameter of a
+path query this regions navigation mesh will be skipped in pathfinding.
 
 NavigationLayers are a single `int` value that is used as a `bitmask`.
 Many navigation related nodes have `set_navigation_layer_value()` and
@@ -19,8 +19,6 @@ Many navigation related nodes have `set_navigation_layer_value()` and
 without the need for more complex bitwise operations.
 
 In scripts the following helper functions can be used to work with the navigation_layers bitmask.
-
-GDScript
 
 ```
 func change_layers():
@@ -64,3 +62,4 @@ Changing the navigation layers of NavigationAgent nodes will have an immediate
 effect on the next path query. Changing the navigation layers of
 regions will have an immediate effect on the region but any new region
 connect or disconnect will only be in effect after the next physics_frame.
+

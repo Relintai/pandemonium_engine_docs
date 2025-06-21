@@ -8,25 +8,33 @@ NavigationObstacles can be used either as static or dynamic obstacles to affect 
 
 2D and 3D versions of NavigationObstacles nodes are available as `NavigationObstacle2D` and `NavigationObstacle3D`  respectively.
 
-Note:
-
-    NavigationObstacles do not change or influence the pathfinding in any way.
-    NavigationObstacles only affect the avoidance velocities of agents controlled by avoidance.
+Note: NavigationObstacles do not change or influence the pathfinding in any way.
+NavigationObstacles only affect the avoidance velocities of agents controlled by avoidance.
 
 ### Static obstacles
 
-A NavigationObstacle is considered static when its `vertices` property is populated with an outline array of positions to form a polygon.
+A NavigationObstacle is considered static when its `vertices` property is populated with an
+outline array of positions to form a polygon.
 
 ![](img/nav_static_obstacle_build.gif)
 
-- Static obstacles act as hard do-not-cross boundaries for avoidance using agents, e.g. similar to physics collision but for avoidance.
-- Static obstacles define their boundaries with an array of outline `vertices` (positions), and in case of 3D with an additional `height` property.
+- Static obstacles act as hard do-not-cross boundaries for avoidance using agents, e.g.
+  similar to physics collision but for avoidance.
+- Static obstacles define their boundaries with an array of outline `vertices` (positions),
+  and in case of 3D with an additional `height` property.
 - Static obstacles only work for agents that use the 2D avoidance mode.
 - Static obstacles define through winding order of the vertices if agents are pushed out or sucked in.
-- Static obstacles can not change their position. They can only be warped to a new position and rebuild from scratch. Static obstacles as a result are ill-suited for usages where the position is changed every frame as the constant rebuild has a high performance cost.
-- Static obstacles that are warped to another position can not be predicted by agents. This creates the risk of getting agents stuck should a static obstacle be warped on top of agents.
+- Static obstacles can not change their position. They can only be warped to a new position and rebuild
+  from scratch. Static obstacles as a result are ill-suited for usages where the position is changed every
+  frame as the constant rebuild has a high performance cost.
+- Static obstacles that are warped to another position can not be predicted by agents. This creates the
+  risk of getting agents stuck should a static obstacle be warped on top of agents.
 
-When the 2D avoidance is used in 3D the y-axis of Vector3 vertices is ignored. Instead, the global y-axis position of the obstacle is used as the elevation level. Agents will ignore static obstacles in 3D that are below or above them. This is automatically determined by global y-axis position of both obstacle and agent as the elevation level as well as their respective height properties.
+When the 2D avoidance is used in 3D the y-axis of Vector3 vertices is ignored. Instead, the
+global y-axis position of the obstacle is used as the elevation level. Agents will ignore
+static obstacles in 3D that are below or above them. This is automatically determined by
+global y-axis position of both obstacle and agent as the elevation level as well as their
+respective height properties.
 
 ### Dynamic obstacles
 
@@ -39,7 +47,11 @@ A NavigationObstacle is considered dynamic when its `radius` property is greater
 - Dynamic obstacles are not a reliable way to constrain agents in crowded or narrow spaces.
 
 While both static and dynamic properties can be active at the same time on the same obstacle this is not recommended for performance.
-Ideally when an obstacle is moving the static vertices are removed and instead the radius activated. When the obstacle reaches the new final position it should gradually enlarge its radius to push all other agents away. With enough created save space around the obstacle it should add the static vertices again and remove the radius. This helps to avoid getting agents stuck in the suddenly appearing static obstacle when the rebuild static boundary is finished.
+Ideally when an obstacle is moving the static vertices are removed and instead the radius activated.
+When the obstacle reaches the new final position it should gradually enlarge its radius to push all
+other agents away. With enough created save space around the obstacle it should add the static
+vertices again and remove the radius. This helps to avoid getting agents stuck in the suddenly
+appearing static obstacle when the rebuild static boundary is finished.
 
 Similar to agents the obstacles can make use of the `avoidance_layers` bitmask.
 All agents with a matching bit on their own avoidance mask will avoid the obstacle.
@@ -51,8 +63,6 @@ New obstacles can be created without a Node directly on the NavigationServer.
 Obstacles created with scripts require at least a `map` and a `position`.
 For dynamic use a `radius` is required.
 For static use an array of `vertices` is required.
-
-GDScript
 
 ```
 # For 2D
@@ -74,8 +84,6 @@ NavigationServer2D.obstacle_set_vertices(new_obstacle_rid, outline)
 # Enable the obstacle.
 NavigationServer2D.obstacle_set_avoidance_enabled(new_obstacle_rid, true)
 ```
-
-GDScript
 
 ```
 # For 3D
@@ -99,3 +107,4 @@ NavigationServer3D.obstacle_set_height(new_obstacle_rid, 1.0)
 # Enable the obstacle.
 NavigationServer3D.obstacle_set_avoidance_enabled(new_obstacle_rid, true)
 ```
+

@@ -1,5 +1,4 @@
 
-
 # Real Time Navigation (3D)
 
 ## Introduction
@@ -8,10 +7,10 @@ Pathfinding in a 3D environment is crucial for many games, it's commonly
 how non directly controlled characters or entities find their way around
 an environment. Pandemonium provides several nodes for this purpose:
 
--  `Navigation( Navigation )` (deprecated)
--  `NavigationMeshInstance( NavigationMeshInstance )`
--  `NavigationAgent( NavigationAgent )`
--  `NavigationObstacle( NavigationObstacle )`
+-  `Navigation`
+-  `NavigationMeshInstance`
+-  `NavigationAgent`
+-  `NavigationObstacle`
 
 ## The map and navigation regions
 
@@ -20,22 +19,20 @@ the physics engine. It's comprised of navigation regions, these regions
 define parts of the world that can be navigated around by navigation
 agents.
 
-To create a navigation region add the `NavigationMeshInstance( NavigationMeshInstance )`
+To create a navigation region add the `NavigationMeshInstance`
 node to a 3D scene. Next in the inspector for that mesh create or add a
-`NavigationMesh( NavigationMesh )`. The navmesh contains options
+`NavigationMesh`. The navmesh contains options
 for how it will be generated when it's baked. The geometry options control
 which nodes, and types of nodes, are used to bake the mesh. A full
-description of each setting and how it works can be found in the `NavigationMesh class reference( NavigationMesh )`.
+description of each setting and how it works can be found in the `NavigationMesh`.
 
 Once the settings have been properly configured press the "Bake NavMesh"
 button at the top of the inspector to generate it.
 
 ![](img/bake_navmesh.png)
 
-Note:
-
-    It can also be generated at runtime using the `bake_navigation_region()`
-    method of the navigation region node.
+Note: It can also be generated at runtime using the `bake_navigation_region()`
+method of the navigation region node.
 
 Once the mesh has finished generating you should see the transparent
 navigation mesh above the areas in the scene that can be navigated to.
@@ -74,7 +71,7 @@ with `set_velocity`. Then a new velocity that takes into account other
 agents and obstacles is generated and emitted with the signal `velocity_computed`.
 
 However agents can only take into account a set number of other nearby
-agents, this is the `max neighbors( NavigationAgent_property_max_neighbors )`
+agents, this is the `max neighbors`
 property of an agent and can be adjusted. This is **not** a limit for
 how many agents can use a navigation region at the same time.
 
@@ -91,7 +88,7 @@ nodes will avoid it while pathfinding.
 This is the old method for generating a navigation path, it will be
 removed in Pandemonium 4. First, add a navigation node to the scene, then
 add a navigation mesh instance as it's child and set up a navigation
-mesh. 
+mesh.
 
 To get a path between two areas on a map you use the navigation node
 method `get_simple_path()`. The first argument is a Vector3 of the
@@ -102,3 +99,4 @@ navmesh are considered when generating a path.
 The method will return a `PoolVector3Array` consisting of
 points that make a path. If there is no way to navigate to the end
 location the method will return a blank `PoolVector3Array`.
+

@@ -2,10 +2,10 @@
 # Using NavigationServer
 
 2D and 3D version of the NavigationServer are available as
-`NavigationServer2D` and
-`NavigationServer3D` respectively.
+`NavigationServer2D` and `NavigationServer3D` respectively.
 
-Both 2D and 3D use the same NavigationServer with NavigationServer3D being the primary server. The NavigationServer2D is a frontend that converts 2D positions into 3D positions and back.
+Both 2D and 3D use the same NavigationServer with NavigationServer3D being the primary server.
+The NavigationServer2D is a frontend that converts 2D positions into 3D positions and back.
 Hence it is entirely possible (if not a little cumbersome) to exclusively use the NavigationServer3D API for 2D navigation.
 
 ### Communicating with the NavigationServer
@@ -21,8 +21,10 @@ The NavigationServer does not update every change immediately but waits until
 the end of the `physics_frame` to synchronize all the changes together.
 
 Waiting for synchronization is required to apply changes to all maps, regions and agents.
-Synchronization is done because some updates like a recalculation of the entire navigation map are very expensive and require updated data from all other objects.
-Also the NavigationServer uses a `threadpool` by default for some functionality like avoidance calculation between agents.
+Synchronization is done because some updates like a recalculation of the entire navigation map are very
+expensive and require updated data from all other objects.
+Also the NavigationServer uses a `threadpool` by default for some functionality like avoidance
+calculation between agents.
 
 Waiting is not required for most `get()` functions that only request data from the NavigationServer without making changes.
 Note that not all data will account for changes made in the same frame.
@@ -33,10 +35,8 @@ When a getter on a node is used for a value that was updated in the same frame i
 The NavigationServer is `thread-safe` as it places all API calls that want to make changes in a queue to be executed in the synchronization phase.
 Synchronization for the NavigationServer happens in the middle of the physics frame after scene input from scripts and nodes are all done.
 
-Note:
-
-    The important takeaway is that most NavigationServer changes take effect after the next physics frame and not immediately.
-    This includes all changes made by navigation related nodes in the SceneTree or through scripts.
+Note: The important takeaway is that most NavigationServer changes take effect after the next physics frame and not immediately.
+This includes all changes made by navigation related nodes in the SceneTree or through scripts.
 
 The following functions will be executed in the synchronization phase only:
 
@@ -85,15 +85,13 @@ as well and both 2D and 3D avoidance agents can exist on the same map.
 
 Note:
 
-    Regions created in 2D and 3D will merge their navigationmeshes when placed on the same map and merge conditions apply.
-    The NavigationServer does not discriminate between NavigationRegion2D and NavigationRegion3D nodes as both are regions on the server.
-    By default those nodes register on different navigation maps so this merge can only happen when maps are changed manually e.g. with scripts.
+Regions created in 2D and 3D will merge their navigationmeshes when placed on the same map and merge conditions apply.
+The NavigationServer does not discriminate between NavigationRegion2D and NavigationRegion3D nodes as both are regions on the server.
+By default those nodes register on different navigation maps so this merge can only happen when maps are changed manually e.g. with scripts.
 
-    Actors with avoidance enabled will avoid both 2D and 3D avoidance agents when placed on the same map.
+Actors with avoidance enabled will avoid both 2D and 3D avoidance agents when placed on the same map.
 
-Warning:
-
-    It is not possible to use NavigationServer2D while disabling 3D on a Pandemonium custom build.
+Warning: It is not possible to use NavigationServer2D while disabling 3D on a Pandemonium custom build.
 
 ### Waiting for synchronization
 
@@ -108,9 +106,8 @@ One workaround is to make a deferred call to a custom setup function (so all nod
 The setup function makes all the navigation changes, e.g. adding procedural stuff.
 Afterwards the function waits for the next physics_frame before continuing with path queries.
 
-GDScript
 ```
-extends Node3D
+extends Spatial
 
 func _ready():
     # use call deferred to make sure the entire SceneTree Nodes are setup
@@ -165,8 +162,6 @@ func custom_setup():
 If RVO avoidance agents are registered for avoidance callbacks the NavigationServer dispatches
 their `safe_velocity` signals just before the PhysicsServer synchronization.
 
-To learn more about NavigationAgents see `doc_navigation_using_navigationagents`.
-
 The simplified order of execution for NavigationAgents that use avoidance:
 
 - physics frame starts.
@@ -182,3 +177,4 @@ The simplified order of execution for NavigationAgents that use avoidance:
 
 Therefore moving a physicsbody actor in the callback function with the safe_velocity is perfectly thread- and physics-safe
 as all happens inside the same physics_frame before the PhysicsServer commits to changes and does its own calculations.
+

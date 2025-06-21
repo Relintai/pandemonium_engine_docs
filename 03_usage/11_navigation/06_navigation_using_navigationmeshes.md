@@ -4,14 +4,21 @@
 2D and 3D version of the navigation mesh are available as `NavigationPolygon` and
 `NavigationMesh` respectively.
 
-Note:
+Note: A navigation mesh describes the traversable safe area for an agent with its center position at zero radius.
+If you want pathfinding to account for an agent's (collision) size you need to shrink the navigation mesh accordingly.
 
-    A navigation mesh describes the traversable safe area for an agent with its center position at zero radius.
-    If you want pathfinding to account for an agent's (collision) size you need to shrink the navigation mesh accordingly.
+Navigation works independent from other engine parts like rendering and physics. A navigation mesh is
+the data format to exchange information from those other systems as it describes the traversable safe
+area for a specific agent. All the necessary information from other engine parts need to be already
+factored in when creating a navigation mesh. E.g. like visuals that an agent should not clip through
+or physics collision shapes that an agent should not collide with. This process of factoring in all
+those wanted navigation restrictions from other engine parts like visuals and collision is commonly
+called navigation mesh baking.
 
-Navigation works independent from other engine parts like rendering and physics. A navigation mesh is the data format to exchange information from those other systems as it describes the traversable safe area for a specific agent. All the necessary information from other engine parts need to be already factored in when creating a navigation mesh. E.g. like visuals that an agent should not clip through or physics collision shapes that an agent should not collide with. This process of factoring in all those wanted navigation restrictions from other engine parts like visuals and collision is commonly called navigation mesh baking.
-
-If you experience clipping or collision problems while following navigation paths always remember that you need to tell the navigation system through an appropriated navigation mesh what your intentions are. By itself the navigation system will never know "this is a tree / rock / wall collision shape or visual mesh" because it only knows "here I was told I can path safely cause it is on navigation mesh".
+If you experience clipping or collision problems while following navigation paths always remember that
+you need to tell the navigation system through an appropriated navigation mesh what your intentions are.
+By itself the navigation system will never know "this is a tree / rock / wall collision shape or visual
+mesh" because it only knows "here I was told I can path safely cause it is on navigation mesh".
 
 ### Creating 2D NavigationMeshes
 
@@ -38,10 +45,8 @@ Outline layouts like seen in this picture will fail the convex partitioning requ
 In this layout cases the outline tool cannot be used. Use the `Geometry2D` class for
 polygon merge or intersect operations to create a valid merged mesh for navigation.
 
-Note:
-
-    The NavigationServer does not connect navigation mesh islands from the same NavigationMesh resource.
-    Do not create multiple disconnected islands in the same NavigationRegion2D and NavPoly resource if they should be later connected.
+Note: The NavigationServer does not connect navigation mesh islands from the same NavigationMesh resource.
+Do not create multiple disconnected islands in the same NavigationRegion2D and NavPoly resource if they should be later connected.
 
 For 2D no similar navigation mesh baking with geometry parsing exists like in 3D.
 The Geometry2D class functions for offset, merge, intersect and clip can be used
@@ -65,17 +70,13 @@ to perfectly follow the original surfaces. Especially navigation polygons placed
 over ramps will not keep an equal distance to the ground surface. To align an
 actor perfectly with the ground use other means like physics.
 
-Warning:
-
-    Meshes need to be triangulated to work as navigation meshes. Other mesh face formats like quad or ngon are not supported.
+Warning: Meshes need to be triangulated to work as navigation meshes. Other mesh face formats like quad or ngon are not supported.
 
 ### NavigationMesh rebaking at runtime
 
 To rebake a `NavigationMesh` at runtime, use the NavigationRegion3D.bake_navigation_mesh() function.
 Another option is to use the NavigationMeshGenerator.bake() Singleton function with the NavigationMesh resource directly.
 If the navigation mesh resource is already prepared, the region can be updated with the NavigationServer3D API directly as well.
-
-GDScript
 
 ```
 extends NavigationRegion3D
@@ -98,36 +99,31 @@ func update_navigation_mesh():
     NavigationServer3D.region_set_navigation_mesh(region_rid, navigation_mesh)
 ```
 
-Note:
+Note: Baking a NavigationMesh at runtime is a costly operation.
+Complex navigation mesh take some time to bake and if done on the main thread can freeze a game.
+(Re)baking a large navigation mesh is preferably done in a separate thread.
 
-    Baking a NavigationMesh at runtime is a costly operation.
-    Complex navigation mesh take some time to bake and if done on the main thread can freeze a game.
-    (Re)baking a large navigation mesh is preferably done in a separate thread.
-
-Warning:
-
-    Property values on a NavigationMesh resource like ``cell_size`` need
-    to match the actual mesh data stored inside in order to merge
-    different navigation meshes without issues.
+Warning: Property values on a NavigationMesh resource like `cell_size` need
+to match the actual mesh data stored inside in order to merge
+different navigation meshes without issues.
 
 NavigationRegion2D and Navigation3D both use meshes to mark traversable areas, only the tools to create them are different.
 
-For 2D NavigationPolygon resources are used to draw outline points in the editor. From these outline points the NavigationServer2D creates a mesh to upload navigation data to the NavigationServer.
+For 2D NavigationPolygon resources are used to draw outline points in the editor.
+From these outline points the NavigationServer2D creates a mesh to upload navigation data to the NavigationServer.
 
 For 3D NavigationMesh resources are used. Instead of providing draw tools the 3D variant
 provides an extensive amount of parameters to bake a navigation mesh directly from 3D source geometry.
 
-Note:
-
-    Technically there is no hard distinction between 2D and 3D how to use the given toolsets to create flat navigation meshes. The 2D drawing tool can be used to create a flat 3D navmesh and the 3D baking tool can be used to parse flat 3D geometry into 2D appropriated navigationmeshes.
+Note: Technically there is no hard distinction between 2D and 3D how to use the given toolsets to create
+flat navigation meshes. The 2D drawing tool can be used to create a flat 3D navmesh and the 3D baking
+tool can be used to parse flat 3D geometry into 2D appropriated navigationmeshes.
 
 ### 2D Navmesh from CollisionPolygons
 
 The following script parses all child nodes of a NavigationRegion2D for CollisionPolygons
 and bakes their shape into the NavigationPolygon. As the NavigationPolygon creates the
 navigationmesh from outline data the shapes cannot overlap.
-
-GDScript
 
 ```
 extends NavigationRegion2D
@@ -162,8 +158,6 @@ func parse_2d_collisionshapes(root_node: Node2D):
 
 The following script creates a new 2D navigation region and fills it with procedual generated navigation mesh data from a NavigationPolygon resource.
 
-GDScript
-
 ```
 extends Node2D
 
@@ -189,10 +183,8 @@ NavigationServer2D.region_set_navigation_polygon(new_2d_region_rid, new_navigati
 
 The following script creates a new 3D navigation region and fills it with procedual generated navigation mesh data from a NavigationMesh resource.
 
-GDScript
-
 ```
-extends Node3D
+extends Spatial
 
 var new_3d_region_rid: RID = NavigationServer3D.region_create()
 
@@ -216,8 +208,6 @@ NavigationServer3D.region_set_navigation_mesh(new_3d_region_rid, new_navigation_
 ### Navmesh for 3D GridMaps
 
 The following script creates a new 3D navigation mesh for each GridMap items, clears the current grid cells and adds new procedual grid cells with the new navigation mesh.
-
-GDScript
 
 ```
 extends GridMap
@@ -259,3 +249,4 @@ for i in range(0,10):
         _position.z = -j
         gridmap.set_cell_item(_position, _item, _orientation)
 ```
+

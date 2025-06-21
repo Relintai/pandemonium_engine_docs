@@ -28,8 +28,6 @@ This works well for pure grid movement on navmeshes with equal sized polygons as
 Outside of grids due to polygons often covering large open areas with a single, long edge this can create paths with unnecessary long detours.
 
 
-GDScript
-
 ```
 extends Node2D
  # basic query for a navigation path in 2D using the default navigation map
@@ -44,10 +42,8 @@ var path: PackedVector2Array = NavigationServer2D.map_get_path(
 )
 ```
 
-GDScript
-
 ```
-extends Node3D
+extends Spatial
 # basic query for a navigation path in 3D using the default navigation map
 var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
 var start_position: Vector3 = Vector3(0.0, 0.0, 0.0)
@@ -67,15 +63,11 @@ The path array, if not empty, has the navigationmesh position closest to the sta
 The closest available navigationmesh position to the target position is the last index `path[path.size()-1]` position.
 All index between are the pathpoints that an actor should follow to reach the target without leaving the navigation mesh.
 
-Note:
-
-    If the target position is on a different navigation mesh that is not merged or connected
-    the navigation path will lead to the closest possible position on the starting position navigation mesh.
+Note: If the target position is on a different navigation mesh that is not merged or connected
+the navigation path will lead to the closest possible position on the starting position navigation mesh.
 
 The following script moves a Node3D inheriting node along a navigation path using
 the default navigation map by setting the target position with `set_movement_target()`.
-
-GDScript
 
 ```
 var movement_speed: float = 4.0
@@ -123,3 +115,4 @@ func _physics_process(delta):
 
     global_transform.origin = global_transform.origin.move_toward(global_transform.origin + new_velocity, movement_delta)
 ```
+

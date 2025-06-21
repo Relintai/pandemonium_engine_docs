@@ -1,9 +1,9 @@
 
 # Using NavigationAgents
 
-NavigationsAgents are helper nodes that combine functionality 
+NavigationsAgents are helper nodes that combine functionality
 for pathfinding, path following and agent avoidance for a Node2D/3D inheriting parent node.
-They facilitate common calls to the NavigationServer API on 
+They facilitate common calls to the NavigationServer API on
 behalf of the parent actor node in a more convenient manner for beginners.
 
 2D and 3D version of NavigationAgents are available as
@@ -26,28 +26,24 @@ The result of the pathfinding can be influenced with the following properties.
 - The `path_postprocessing` sets if or how the raw path corridor found by the pathfinding is altered before it is returned.
 - The `path_metadata_flags` enable the collection of additional path point meta data returned by the path.
 
-Warning:
-
-    Disabling path meta flags will disable related signal emissions on the agent.
+Warning: Disabling path meta flags will disable related signal emissions on the agent.
 
 ## NavigationAgent Pathfollowing
 
 After a `target_position` has been set for the agent, the next position to follow in the path
 can be retrieved with the `get_next_path_position()` function.
 
-Once the next path position is received move the parent actor node of the agent 
+Once the next path position is received move the parent actor node of the agent
 towards this path position with your own movement code.
 
-Note:
-
-    The navigation system never moves the parent node of a NavigationAgent.
-    The movement is entirely in the hands of users and their custom scripts.
+Note: The navigation system never moves the parent node of a NavigationAgent.
+The movement is entirely in the hands of users and their custom scripts.
 
 NavigationAgents have their own internal logic to proceed with the current path and call for updates.
 
 The `get_next_path_position()` function is responsible for updating many of the agent's internal states and properties.
 The function should be repeatedly called `once` every `physics_process` until `is_navigation_finished()` tells that the path is finished.
-The function should not be called after the target position or path end has been reached 
+The function should not be called after the target position or path end has been reached
 as it can make the agent jitter in place due to the repeated path updates.
 Always check very early in script with `is_navigation_finished()` if the path is already finished.
 
@@ -68,17 +64,32 @@ Script examples for various nodes commonly used with NavigationAgents can be fou
 
 There are some common user problems and important caveats to consider when writing agent movement scripts.
 
-- The path is returned empty
-    If an agent queries a path before the navigation map synchronisation, e.g. in a _ready() function, the path might return empty. In this case the get_next_path_position() function will return the same position as the agent parent node and the agent will consider the path end reached. This is fixed by making a deferred call or using a callback e.g. waiting for the navigation map changed signal.
-
-- The agent is stuck dancing between two positions
-    This is usually caused by very frequent path updates every single frame, either deliberate or by accident (e.g. max path distance set too short). The pathfinding needs to find the closest position that are valid on navigation mesh. If a new path is requested every single frame the first path positions might end up switching constantly in front and behind the agent's current position, causing it to dance between the two positions.
-
-- The agent is backtracking sometimes
-    If an agent moves very fast it might overshoot the path_desired_distance check without ever advancing the path index. This can lead to the agent backtracking to the path point now behind it until it passes the distance check to increase the path index. Increase the desired distances accordingly for your agent speed and update rate usually fixes this as well as a more balanced navigation mesh polygon layout with not too many polygon edges cramped together in small spaces.
-
-- The agent is sometimes looking backwards for a frame
-    Same as with stuck dancing agents between two positions, this is usually caused by very frequent path updates every single frame. Depending on your navigation mesh layout, and especially when an agent is directly placed over a navigation mesh edge or edge connection, expect path positions to be sometimes slightly "behind" your actors current orientation. This happens due to precision issues and can not always be avoided. This is usually only a visible problem if actors are instantly rotated to face the current path position.
+- The path is returned empty: If an agent queries a path before the navigation map
+  synchronisation, e.g. in a _ready() function, the path might return empty.
+  In this case the get_next_path_position() function will return the same position
+  as the agent parent node and the agent will consider the path end reached. This
+  is fixed by making a deferred call or using a callback e.g. waiting for the
+  navigation map changed signal.
+- The agent is stuck dancing between two positions: This is usually caused by very
+  frequent path updates every single frame, either deliberate or by accident (e.g.
+  max path distance set too short). The pathfinding needs to find the closest position
+  that are valid on navigation mesh. If a new path is requested every single frame the
+  first path positions might end up switching constantly in front and behind the
+  agent's current position, causing it to dance between the two positions.
+- The agent is backtracking sometimes: If an agent moves very fast it might overshoot
+  the path_desired_distance check without ever advancing the path index. This can lead
+  to the agent backtracking to the path point now behind it until it passes the distance
+  check to increase the path index. Increase the desired distances accordingly for your
+  agent speed and update rate usually fixes this as well as a more balanced navigation
+  mesh polygon layout with not too many polygon edges cramped together in small spaces.
+- The agent is sometimes looking backwards for a frame: Same as with stuck dancing
+  agents between two positions, this is usually caused by very frequent path updates
+  every single frame. Depending on your navigation mesh layout, and especially when
+  an agent is directly placed over a navigation mesh edge or edge connection,
+  expect path positions to be sometimes slightly "behind" your actors current
+  orientation. This happens due to precision issues and can not always be avoided.
+  This is usually only a visible problem if actors are instantly rotated to face
+  the current path position.
 
 ## NavigationAgent Avoidance
 
@@ -95,41 +106,55 @@ The velocity_computed signal of the NavigationAgent node must be connected to re
 Use `set_velocity()` on the NavigationAgent node in `_physics_process()` to update the agent with the current velocity of the agent's parent node.
 
 While avoidance is enabled on the agent the `safe_velocity` vector will be received with the velocity_computed signal every physics frame.
-This velocity vector should be used to move the NavigationAgent's parent node in order to avoidance collision with other avoidance using agents or avoidance obstacles.
+This velocity vector should be used to move the NavigationAgent's parent node in order to avoidance collision
+with other avoidance using agents or avoidance obstacles.
 
-Note:
-
-    Only other agents on the same map that are registered for avoidance themself will be considered in the avoidance calculation.
+Note: Only other agents on the same map that are registered for avoidance themself will be considered in the avoidance calculation.
 
 The following NavigationAgent properties are relevant for avoidance:
 
-  - The property `height` is available in 3D only. The height together with the current global y-axis position of the agent determines the vertical placement of the agent in the avoidance simulation. Agents using the 2D avoidance will automatically ignore other agents or obstacles that are below or above them.
-  - The property `radius` controls the size of the avoidance circle, or in case of 3D sphere, around the agent. This area describes the agents body and not the avoidance maneuver distance.
-  - The property `neighbor_distance` controls the search radius of the agent when searching for other agents that should be avoided. A lower value reduces processing cost.
-  - The property `max_neighbors` controls how many other agents are considered in the avoidance calculation if they all have overlapping radius.
-    A lower value reduces processing cost but a too low value may result in agents ignoring the avoidance.
-  - The properties `time_horizon_agents` and `time_horizon_obstacles` control the avoidance prediction time for other agents or obstacles in seconds. When agents calculate their safe velocities they choose velocities that can be kept for this amount of seconds without colliding with another avoidance object. The prediction time should be kept as low as possible as agents will slow down their velocities to avoid collision in that timeframe.
-  - The property `max_speed` controls the maximum velocity allowed for the agents avoidance calculation.
-    If the agents parents moves faster than this value the avoidance `safe_velocity` might not be accurate enough to avoid collision.
-  - The property `use_3d_avoidance` switches the agent between the 2D avoidance (xz axis) and the 3D avoidance (xyz axis) on the next update.
-    Note that 2D avoidance and 3D avoidance run in separate avoidance simulations so agents split between them do not affect each other.
-  - The properties `avoidance_layers` and `avoidance_mask` are bitmasks similar to e.g. physics layers. Agents will only avoid other avoidance objects that are on an avoidance layer that matches at least one of their own avoidance mask bits.
-  - The `avoidance_priority` makes agents with a higher priority ignore agents with a lower priority. This can be used to give certain agents more importance in the avoidance simulation, e.g. important npcs characters, without constantly changing their entire avoidance layers or mask.
-
+- The property `height` is available in 3D only. The height together with the current
+  global y-axis position of the agent determines the vertical placement of the agent in
+  the avoidance simulation. Agents using the 2D avoidance will automatically ignore other
+  agents or obstacles that are below or above them.
+- The property `radius` controls the size of the avoidance circle, or in case of 3D sphere,
+  around the agent. This area describes the agents body and not the avoidance maneuver distance.
+- The property `neighbor_distance` controls the search radius of the agent when searching
+  for other agents that should be avoided. A lower value reduces processing cost.
+- The property `max_neighbors` controls how many other agents are considered in the avoidance
+  calculation if they all have overlapping radius.
+  A lower value reduces processing cost but a too low value may result in agents ignoring the avoidance.
+- The properties `time_horizon_agents` and `time_horizon_obstacles` control the avoidance
+  prediction time for other agents or obstacles in seconds. When agents calculate their
+  safe velocities they choose velocities that can be kept for this amount of seconds without
+  colliding with another avoidance object. The prediction time should be kept as low as
+  possible as agents will slow down their velocities to avoid collision in that timeframe.
+- The property `max_speed` controls the maximum velocity allowed for the agents avoidance calculation.
+  If the agents parents moves faster than this value the avoidance `safe_velocity` might not
+  be accurate enough to avoid collision.
+- The property `use_3d_avoidance` switches the agent between the 2D avoidance (xz axis) and
+  the 3D avoidance (xyz axis) on the next update.
+  Note that 2D avoidance and 3D avoidance run in separate avoidance simulations so agents split
+  between them do not affect each other.
+- The properties `avoidance_layers` and `avoidance_mask` are bitmasks similar to e.g. physics
+  layers. Agents will only avoid other avoidance objects that are on an avoidance
+  layer that matches at least one of their own avoidance mask bits.
+- The `avoidance_priority` makes agents with a higher priority ignore agents with a
+  lower priority. This can be used to give certain agents more importance in the avoidance
+  simulation, e.g. important npcs characters, without constantly changing their entire
+  avoidance layers or mask.
 
 Avoidance exists in its own space and has no information from navigation meshes or physics collision.
 Behind the scene avoidance agents are just circles with different radius on a flat 2D plane or spheres in an otherwise empty 3D space.
-NavigationObstacles can be used to add some environment constrains to the avoidance simulation, see `doc_navigation_using_navigationobstacles`.
+NavigationObstacles can be used to add some environment constrains to the avoidance simulation.
 
-Note:
-
-    Avoidance does not affect the pathfinding. It should be seen as an additional option for constantly moving objects that cannot be (re)baked to a navigation mesh efficiently in order to move around them.
+Note: Avoidance does not affect the pathfinding. It should be seen as an additional option
+for constantly moving objects that cannot be (re)baked to a navigation mesh efficiently
+in order to move around them.
 
 Using the NavigationAgent `enable_avoidance` property is the preferred option
-to toggle avoidance. The following code snippets can be used to 
+to toggle avoidance. The following code snippets can be used to
 toggle avoidance on agents, create or delete avoidance callbacks or switch avoidance modes.
-
-GDScript
 
 ```
 extends NavigationAgent2D
@@ -145,8 +170,6 @@ NavigationServer2D.agent_set_avoidance_enabled(agent, false)
 # Delete avoidance callback
 NavigationServer2D.agent_set_avoidance_callback(agent, Callable())
 ```
-
-GDScript
 
 ```
 extends NavigationAgent3D
@@ -175,13 +198,11 @@ The following sections provides script templates for nodes commonly used with Na
 
 This script adds basic navigation movement to a Node3D with a NavigationAgent3D child node.
 
-GDScript
-
 ```
-extends Node3D
+extends Spatial
 
-@export var movement_speed: float = 4.0
-@onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
+export var movement_speed: float = 4.0
+onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 var movement_delta: float
 
 func _ready() -> void:
@@ -216,8 +237,8 @@ GDScript
 ```
 extends CharacterBody3D
 
-@export var movement_speed: float = 4.0
-@onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
+export var movement_speed: float = 4.0
+onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 
 func _ready() -> void:
     navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
@@ -246,13 +267,11 @@ func _on_velocity_computed(safe_velocity: Vector3):
 
 This script adds basic navigation movement to a RigidBody3D with a NavigationAgent3D child node.
 
-GDScript
-
 ```
 extends RigidBody3D
 
-@export var movement_speed: float = 4.0
-@onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
+export var movement_speed: float = 4.0
+onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 
 func _ready() -> void:
     navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
@@ -275,3 +294,4 @@ func _physics_process(delta):
 func _on_velocity_computed(safe_velocity: Vector3):
     linear_velocity = safe_velocity
 ```
+

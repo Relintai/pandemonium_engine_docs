@@ -7,11 +7,8 @@ To support different actor types due to e.g. their sizes each type requires its 
 navigation map and navigation mesh baked with an appropriated agent radius and height.
 The same approach can be used to distinguish between e.g. landwalking, swimming or flying agents.
 
-Note:
-
-   Agents are exclusively defined by a radius and height value for baking navigation meshes, pathfinding and avoidance. More complex shapes are not supported.
-
-GDScript
+Note: Agents are exclusively defined by a radius and height value
+for baking navigation meshes, pathfinding and avoidance. More complex shapes are not supported.
 
 ```
 # Create a navigation mesh resource for each actor size.
@@ -78,3 +75,4 @@ var path_standard_agent = NavigationServer3D.map_get_path(navigation_map_standar
 var path_small_agent = NavigationServer3D.map_get_path(navigation_map_small, start_pos, end_pos, use_corridorfunnel)
 var path_huge_agent = NavigationServer3D.map_get_path(navigation_map_huge, start_pos, end_pos, use_corridorfunnel)
 ```
+

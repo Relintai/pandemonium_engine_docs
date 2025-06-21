@@ -27,8 +27,6 @@ persistent variable for the agent and reused for every followup path query with 
 This reuse avoids performance implications from frequent object creation if a project
 has a large quantity of simultaneous agents that regularly update their paths.
 
-GDScript
-
 ```
 # prepare query objects
 var query_parameters = NavigationPathQueryParameters2D.new()
@@ -44,8 +42,6 @@ NavigationServer2D.query_path(query_parameters, query_result)
 var path: PackedVector2Array = query_result.get_path()
 ```
 
-GDScript
-
 ```
 # prepare query objects
 var query_parameters = NavigationPathQueryParameters3D.new()
@@ -60,3 +56,4 @@ query_parameters.target_position = agent3d_target_global_position
 NavigationServer3D.query_path(query_parameters, query_result)
 var path: PackedVector3Array = query_result.get_path()
 ```
+

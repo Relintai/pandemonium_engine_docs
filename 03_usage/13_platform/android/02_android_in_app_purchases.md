@@ -1,36 +1,21 @@
 
-
 # Android in-app purchases
 
-Pandemonium offers a first-party `PandemoniumGooglePlayBilling` Android plugin since Pandemonium 3.2.2.
-The new plugin uses the `Google Play Billing library ( https://developer.android.com/google/play/billing )`
+Note: the plugin needs to be ported.
+
+The new plugin uses the [Google Play Billing library](https://developer.android.com/google/play/billing)
 instead of the now deprecated AIDL IAP implementation.
 
-If you learn better by looking at an example, you can find the demo project
-`here ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/mobile/android_iap )`.
-
-
-## Migrating from Pandemonium 3.2.1 and lower (PandemoniumPaymentsV3)
-
-The new `PandemoniumGooglePlayBilling` API is not compatible with its predecessor `PandemoniumPaymentsV3`.
-
-#### Changes
-
-- You need to enable the Custom Build option in your Android export settings and install
-  the `PandemoniumGooglePlayBilling` plugin manually (see below for details)
-- All purchases have to be acknowledged by your app. This is a
-  `requirement from Google ( https://developer.android.com/google/play/billing/integrate#process )`.
-  Purchases that are not acknowledged by your app will be refunded.
-- Support for subscriptions
-- Signals (no polling or callback objects)
-
+If you learn better by looking at an example, you can find the demo project [here](../../../07_demo_projects/mobile/android_iap/).
 
 ## Usage
 
 #### Getting started
 
-If not already done, make sure you have enabled and successfully set up `Android Custom Builds ( doc_android_custom_build )`.
-Grab the`PandemoniumGooglePlayBilling` plugin binary and config from the `releases page ( https://github.com/Relintai/pandemonium_engine-google-play-billing/releases )`
+If not already done, make sure you have enabled and successfully
+set up Android Custom Builds.
+Grab the `PandemoniumGooglePlayBilling` plugin binary and config from
+the `releases page ( https://github.com/Relintai/pandemonium_engine-google-play-billing/releases )`
 and put both into `res://android/plugins`.
 The plugin should now show up in the Android export settings, where you can enable it.
 
@@ -102,7 +87,7 @@ func _on_purchases_updated(purchases):
     for purchase in purchases:
         if purchase.purchase_state == 1: # 1 means "purchased", see https://developer.android.com/reference/com/android/billingclient/api/Purchase.PurchaseState#constants_1
             # enable_premium(purchase.sku) # unlock paid content, add coins, save token on server, etc. (you have to implement enable_premium yourself)
-            if not purchase.is_acknowledged:                                        
+            if not purchase.is_acknowledged:
                 payment.acknowledgePurchase(purchase.purchase_token) # call if non-consumable product
                 if purchase.sku in list_of_consumable_products:
                     payment.consumePurchase(purchase.purchase_token) # call if consumable product
@@ -153,3 +138,4 @@ Subscriptions don't work much different from regular in-app items. Just use `"su
 argument to `querySkuDetails` to get subscription details.
 Check `is_auto_renewing` in the results of `queryPurchases()` to see if a
 user has cancelled an auto-renewing subscription
+

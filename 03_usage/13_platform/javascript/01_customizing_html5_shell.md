@@ -17,7 +17,7 @@ Some use-cases where customizing the default page is useful include:
 - Passing custom command line arguments, e.g. `-s` to start a `MainLoop` script.
 
 The default HTML page is available in the Pandemonium Engine repository at
-`/misc/dist/html/full-size.html ( https://github.com/Relintai/pandemonium_engine/blob/master/misc/dist/html/full-size.html )`
+[/misc/dist/html/full-size.html](https://github.com/Relintai/pandemonium_engine/blob/master/misc/dist/html/full-size.html)
 but the following template can be used as a much simpler example:
 
 ```
@@ -42,25 +42,23 @@ but the following template can be used as a much simpler example:
 
 As shown by the example above, it is mostly a regular HTML document, with few placeholders
 which needs to be replaced during export, an html `&lt;canvas&gt;` element, and some simple
-JavaScript code that calls the :js:class:`Engine` class.
+JavaScript code that calls the `Engine` class.
 
 The only required placeholders are:
 
 - `$PANDEMONIUM_URL`:
-  The name of the main JavaScript file, which provides the :js:class:`Engine` class required
+  The name of the main JavaScript file, which provides the `Engine` class required
   to start the engine and that must be included in the HTML as a `&lt;script&gt;`.
   The name is generated from the *Export Path* during the export process.
-
 - `$PANDEMONIUM_CONFIG`:
   A JavaScript object, containing the export options and can be later overridden.
-  See :js:attr:`EngineConfig` for the full list of overrides.
+  See `EngineConfig` for the full list of overrides.
 
 The following optional placeholders will enable some extra features in your custom HTML template.
 
 - `$PANDEMONIUM_PROJECT_NAME`:
   The project name as defined in the Project Settings. It is a good idea to use it as a `&lt;title&gt;`
   in your template.
-
 - `$PANDEMONIUM_HEAD_INCLUDE`:
   A custom string to include in the HTML document just before the end of the `&lt;head&gt;` tag. It
   is customized in the export options under the *Html / Head Include* section. While you fully
@@ -78,13 +76,11 @@ To be able to start the game, you need to write a script that initializes the en
 code. This process consists of three steps, though as shown most of them can be skipped depending on
 how much customization is needed (or be left to a default behavior).
 
-See the `HTML5 shell class reference ( doc_html5_shell_classref )`, for the full list of methods and options available.
-
 First, the engine must be loaded, then it needs to be initialized, and after this the project
 can finally be started. You can perform every of these steps manually and with great control.
-However, in the simplest case all you need to do is to create an instance of the :js:class:`Engine`
-class with the exported configuration, and then call the :js:meth:`engine.startGame ( Engine.prototype.startGame )` method
-optionally overriding any :js:attr:`EngineConfig` parameters.
+However, in the simplest case all you need to do is to create an instance of the `Engine`
+class with the exported configuration, and then call the `engine.startGame()` method
+optionally overriding any `EngineConfig` parameters.
 
 ```
 const engine = new Engine($PANDEMONIUM_CONFIG);
@@ -102,11 +98,11 @@ method is asynchronous and returns a `Promise`. This allows your control code to
 the game was loaded correctly without blocking execution or relying on polling.
 
 In case your project needs to have special control over the start arguments and dependency files,
-the :js:meth:`engine.start ( Engine.prototype.start )` method can be used instead. Note, that this method do not
+the `engine.start()` method can be used instead. Note, that this method do not
 automatically preload the `pck` file, so you will probably want to manually preload it
-(and any other extra file) via the :js:meth:`engine.preloadFile ( Engine.prototype.preloadFile )` method.
+(and any other extra file) via the `engine.preloadFile()` method.
 
-Optionally, you can also manually :js:meth:`engine.init ( Engine.prototype.init )` to perform specific actions after
+Optionally, you can also manually `engine.init()` to perform specific actions after
 the module initialization, but before the engine starts.
 
 This process is a bit more complex, but gives you full control over the engine startup process.
@@ -128,27 +124,26 @@ Promise.all([
 });
 ```
 
-To load the engine manually the :js:meth:`Engine.load` static method must be called. As
+To load the engine manually the `Engine.load` static method must be called. As
 this method is static, multiple engine instances can be spawned if the share the same `wasm`.
 
-Note:
- Multiple instances cannot be spawned by default, as the engine is immediately unloaded after it is initialized.
-          To prevent this from happening see the :js:attr:`unloadAfterInit` override option. It is still possible
-          to unload the engine manually afterwards by calling the :js:meth:`Engine.unload` static method. Unloading the engine
-          frees browser memory by unloading files that are no longer needed once the instance is initialized.
+Note: Multiple instances cannot be spawned by default, as the engine is immediately unloaded after it is initialized.
+To prevent this from happening see the `unloadAfterInit` override option. It is still possible
+to unload the engine manually afterwards by calling the `Engine.unload` static method. Unloading the engine
+frees browser memory by unloading files that are no longer needed once the instance is initialized.
 
 ## Customizing the behavior
 
 In the Web environment several methods can be used to guarantee that the game will work as intended.
 
 If you target a specific version of WebGL, or just want to check if WebGL is available at all,
-you can call the :js:meth:`Engine.isWebGLAvailable` method. It optionally takes an argument that
+you can call the `Engine.isWebGLAvailable` method. It optionally takes an argument that
 allows to test for a specific major version of WebGL.
 
 As the real executable file does not exist in the Web environment, the engine only stores a virtual
 filename formed from the base name of loaded engine files. This value affects the output of the
 `OS.get_executable_path()` method and defines the name of
-the automatically started main pack. The :js:attr:`executable` override option can be
+the automatically started main pack. The `executable` override option can be
 used to override this value.
 
 ## Customizing the presentation
@@ -156,7 +151,7 @@ used to override this value.
 Several configuration options can be used to further customize the look and behavior of the game on your page.
 
 By default, the first canvas element on the page is used for rendering. To use a different canvas
-element the :js:attr:`canvas` override option can be used. It requires a reference to the DOM
+element the `canvas` override option can be used. It requires a reference to the DOM
 element itself.
 
 ```
@@ -164,11 +159,11 @@ const canvasElement = document.querySelector("#my-canvas-element");
 engine.startGame({ canvas: canvasElement });
 ```
 
-The way the engine resize the canvas can be configured via the :js:attr:`canvasResizePolicy`
+The way the engine resize the canvas can be configured via the `canvasResizePolicy`
 override option.
 
 If your game takes some time to load, it may be useful to display a custom loading UI which tracks
-the progress. This can be achieved with the :js:attr:`onProgress` callback option, which
+the progress. This can be achieved with the `onProgress` callback option, which
 allows to set up a callback function that will be called regularly as the engine loads new bytes.
 
 ```
@@ -180,7 +175,7 @@ engine.startGame({ onProgress: printProgress });
 
 Be aware that in some cases `total` can be `0`. This means that it cannot be calculated.
 
-If your game supports multiple languages, the :js:attr:`locale` override option can be used to
+If your game supports multiple languages, the `locale` override option can be used to
 force a specific locale, provided you have a valid language code string. It may be good to use server-side
 logic to determine which languages a user may prefer. This way the language code can be taken from the
 `Accept-Language` HTTP header, or determined by a GeoIP service.
@@ -192,8 +187,8 @@ by the engine. This is similar to the output shown in the editor console window.
 `console.log` and `console.warn` are used for the output and error streams respectively. This
 behavior can be customized by setting your own functions to handle messages.
 
-Use the :js:attr:`onPrint` override option to set a callback function for the output stream,
-and the :js:attr:`onPrintError` override option to set a callback function for the error stream.
+Use the `onPrint` override option to set a callback function for the output stream,
+and the `onPrintError` override option to set a callback function for the error stream.
 
 ```
 function print(text) {
@@ -207,3 +202,4 @@ engine.startGame({ onPrint: print, onPrintError: printError });
 
 When handling the engine output keep in mind, that it may not be desirable to print it out in the
 finished product.
+

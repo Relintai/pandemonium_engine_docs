@@ -1,14 +1,9 @@
 
-
 # Mobile rendering limitations
-
-See also:
-
-    The general `doc_3d_rendering_limitations` also apply to mobile platforms.
 
 To improve out-of-the-box performance on mobile devices, Pandemonium automatically uses
 low-end-friendly settings by default on both Android and iOS. These are configured
-by project settings with a `.mobile` `feature tag ( doc_feature_tags )` suffix.
+by project settings with a `.mobile` `feature tag` suffix.
 
 One of the most notable changes on mobile that will affect 3D projects is that
 lighting is done per-vertex instead of per-pixel. This improves performance a
@@ -42,20 +37,17 @@ The following project settings have mobile-specific overrides:
 | *GLES3 only:* `rendering/quality/reflections/texture_array_reflections` | `true`          | `false`            |
 
 
-See the `ProjectSettings class documentation`
-for more information on those setting overrides.
-
 If you're only targeting mobile platforms in your project, consider changing the
 project settings' values to match the mobile overrides. This way, you'll get a
 preview that is closer to the mobile appearance when running the project on a
 desktop platform (as well as within the editor).
 
-Warning:
+## Warning
 
+Due to driver bugs, GLES3 support on Android and iOS can be poor, especially
+on old or low-end devices. Therefore, it is recommended to use the GLES2
+renderer when targeting mobile platforms (especially Android).
 
-    Due to driver bugs, GLES3 support on Android and iOS can be poor, especially
-    on old or low-end devices. Therefore, it is recommended to use the GLES2
-    renderer when targeting mobile platforms (especially Android).
+You can change the rendering backend in the Project Settings
+(**Rendering &gt; Quality &gt; Driver &gt; Driver Name**).
 
-    You can change the rendering backend in the Project Settings
-    (**Rendering > Quality > Driver > Driver Name**).

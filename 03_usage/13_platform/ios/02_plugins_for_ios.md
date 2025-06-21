@@ -1,6 +1,7 @@
 
-
 # Plugins for iOS
+
+Note: the plugin needs to be ported.
 
 Pandemonium provides StoreKit, GameCenter, iCloud services and other plugins.
 They are using same model of asynchronous calls explained below.
@@ -520,3 +521,4 @@ func _ready():
         GameCenter = Globals.get_singleton("GameCenter")
         # connect your timer here to the "check_events" function
 ```
+

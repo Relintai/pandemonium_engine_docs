@@ -1,20 +1,26 @@
 
-
 # Creating iOS plugins
 
-This page explains what iOS plugins can do for you, how to use an existing plugin, and the steps to code a new one.
+Note: the plugin needs to be ported.
 
-iOS plugins allow you to use third-party libraries and support iOS-specific features like In-App Purchases, GameCenter integration, ARKit support, and more.
+This page explains what iOS plugins can do for you, how to use an existing plugin,
+and the steps to code a new one.
+
+iOS plugins allow you to use third-party libraries and support iOS-specific features like In-App
+Purchases, GameCenter integration, ARKit support, and more.
 
 ## Loading and using an existing plugin
 
-An iOS plugin requires a `.gdip` configuration file, a binary file which can be either `.a` static library or `.xcframework` containing `.a` static libraries, and possibly other dependencies. To use it, you need to:
+An iOS plugin requires a `.gdip` configuration file, a binary file which can be either `.a` static
+library or `.xcframework` containing `.a` static libraries, and possibly other dependencies.
+To use it, you need to:
 
-1. Copy the plugin's files to your Pandemonium project's `res://ios/plugins` directory. You can also group files in a sub-directory, like `res://ios/plugins/my_plugin`.
-
-2. The Pandemonium editor automatically detects and imports `.gdip` files inside `res://ios/plugins` and its subdirectories.
-
-3. You can find and activate detected plugins by going to Project -> Export... -> iOS and in the Options tab, scrolling to the Plugins section.
+1. Copy the plugin's files to your Pandemonium project's `res://ios/plugins` directory. You can also group
+   files in a sub-directory, like `res://ios/plugins/my_plugin`.
+2. The Pandemonium editor automatically detects and imports `.gdip` files
+   inside `res://ios/plugins` and its subdirectories.
+3. You can find and activate detected plugins by going to Project -> Export... -> iOS and
+   in the Options tab, scrolling to the Plugins section.
 
 ![](img/ios_export_preset_plugins_section.png)
 
@@ -31,17 +37,16 @@ if Engine.has_singleton("MyPlugin"):
 At its core, a Pandemonium iOS plugin is an iOS library (*.a* archive file or *.xcframework* containing static libraries) with the following requirements:
 
 - The library must have a dependency on the Pandemonium engine headers.
-
 - The library must come with a `.gdip` configuration file.
 
 An iOS plugin can have the same functionality as a Pandemonium module but provides more flexibility and doesn't require to rebuild the engine.
 
-Here are the steps to get a plugin's development started. We recommend using `Xcode ( https://developer.apple.com/develop/ )` as your development environment.
+Here are the steps to get a plugin's development started. We recommend
+using [Xcode](https://developer.apple.com/develop/) as your development environment.
 
-See also:
- The `Pandemonium iOS Plugins ( https://github.com/Relintai/pandemonium_engine-ios-plugins )` Pandemonium iOS plugins.
+See also: The `Pandemonium iOS Plugins ( https://github.com/Relintai/pandemonium_engine-ios-plugins )` Pandemonium iOS plugins.
 
-    The `Pandemonium iOS plugin template ( https://github.com/naithar/pandemonium_ios_plugin )` gives you all the boilerplate you need to get your iOS plugin started.
+The `Pandemonium iOS plugin template ( https://github.com/naithar/pandemonium_ios_plugin )` gives you all the boilerplate you need to get your iOS plugin started.
 
 
 To build an iOS plugin:
@@ -142,3 +147,4 @@ StringPlistKeyToInput:string_input="Type something"
                 -   If no type is used (e.g.: `KeyName="KeyValue"`) `string` type will be used.
                 -   If `raw` type is used value for coresponding key will be stored in `Info.plist` as is.
                 -   If `string_input` type is used you will be able to modify value in Export window.
+

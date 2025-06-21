@@ -1,5 +1,4 @@
 
-
 # Console support in Pandemonium
 
 ## Console publishing process
@@ -18,9 +17,9 @@ to a console platform is as follows:
   developers (*devkit*). The cost of those devkits is confidential.
 - Port the engine to the console platform or pay a company to do it.
 - To be published, your game needs to be rated in the regions you'd like to sell
-  it in. For example, in North America, the `ESRB ( https://www.esrb.org/ )`
+  it in. For example, in North America, the [ESRB](https://www.esrb.org/)
   handles game ratings. In Europe, this is done by
-  `PEGI ( https://pegi.info/ )`. Indie developers can generally get a rating
+  [PEGI](https://pegi.info/). Indie developers can generally get a rating
   for cheaper compared to more established developers.
 
 Due to the complexity of the process, the budget to publish a game by yourself on a
@@ -42,34 +41,11 @@ officially supported are:
 However, it is still possible to port your games to consoles thanks to services
 provided by third-party companies.
 
-Note:
+Note: In practice, the process is quite similar to Unity and Unreal Engine, except
+that you need to contact a third-party developer to handle the porting
+process. In other words, there is no engine that is legally allowed to
+distribute console export templates without requiring the user to prove that
+they are a licensed console developer. Doing so would violate the console
+manufacturer's NDA.
 
 
-    In practice, the process is quite similar to Unity and Unreal Engine, except
-    that you need to contact a third-party developer to handle the porting
-    process. In other words, there is no engine that is legally allowed to
-    distribute console export templates without requiring the user to prove that
-    they are a licensed console developer. Doing so would violate the console
-    manufacturer's NDA.
-
-## Third-party support
-
-Console ports of Pandemonium are offered by third-party companies (which have
-ported Pandemonium on their own). These companies also offer publishing of
-your games to various consoles.
-
-Following is the list of providers:
-
-- `Lone Wolf Technology ( http://www.lonewolftechnology.com/ )` offers
-  Switch and PS4 porting and publishing of Pandemonium games.
-- `Pineapple Works ( https://pineapple.works/ )` offers
-  Switch, Xbox One & Xbox Series X/S (GDK) porting and publishing of Pandemonium games (GDScript/C#).
-- `RAWRLAB games ( https://www.rawrlab.com/ )` offers
-  Switch porting of Pandemonium games.
-- `mazette! games ( https://mazette.games/ )` offers
-  Switch, Xbox One and Xbox Series X/S porting and publishing of Pandemonium games.
-
-If your company offers porting, or porting *and* publishing services for Pandemonium games,
-feel free to
-`open an issue or pull request ( https://github.com/Relintai/pandemonium_engine-docs )`
-to add your company to the list above.

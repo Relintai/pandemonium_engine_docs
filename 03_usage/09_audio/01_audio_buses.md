@@ -1,5 +1,4 @@
 
-
 # Audio buses
 
 ## Introduction
@@ -21,7 +20,7 @@ For those unfamiliar with it, it can be explained with a few facts:
 
 - The decibel (dB) scale is a relative scale. It represents the ratio of
   sound power by using 20 times the base 10 logarithm of the ratio
-  (20 × log\ :sub:`10`\ (P/P\ :sub:`0`\ )).
+  (20 × log<sub>10</sub> (P / P<sub>0</sub>)).
 - For every 6 dB, sound amplitude doubles or halves. 12 dB represents a factor
   of 4, 18 dB a factor of 8, 20 dB a factor of 10, 40 dB a factor of 100, etc.
 - Since the scale is logarithmic, true zero (no audio) can't be represented.
@@ -73,11 +72,6 @@ AudioStream and select a target bus for playback:
 ![](img/audio_buses3.png)
 
 Finally, toggle the **Playing** property to **On** and sound will flow.
-
-See also:
-
-
-    You may also be interested in reading about `doc_audio_streams` now.
 
 ## Adding effects
 
@@ -137,14 +131,9 @@ The compressor has many uses. For example:
 - It can accentuate transients by using a slower attack.
   This can make sound effects more punchy.
 
-Note:
-
-
-    If your goal is to prevent a signal from exceeding a given amplitude
-    altogether, rather than to reduce the dynamic range of the signal,
-    a `limiter ( doc_audio_buses_limiter )` is likely a better choice
-    than a compressor.
-
+Note: If your goal is to prevent a signal from exceeding a given amplitude
+altogether, rather than to reduce the dynamic range of the signal,
+a limiter is likely a better choice than a compressor.
 
 ### Delay
 
@@ -231,15 +220,13 @@ The Record effect allows the user to record sound from a microphone.
 
 Reverb simulates rooms of different sizes. It has adjustable parameters that can
 be tweaked to obtain the sound of a specific room. Reverb is commonly outputted
-from `Areas`
-(see `Reverb buses ( doc_audio_streams_reverb_buses )`), or to apply
-a "chamber" feel to all sounds.
+from `Areas` (see Reverb buses), or to apply a "chamber" feel to all sounds.
 
 ### SpectrumAnalyzer
 
 This effect doesn't alter audio, instead, you add this effect to buses you want
 a spectrum analysis of. This would typically be used for audio visualization. A
-demo project using this can be found `here ( https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/audio/spectrum )`.
+demo project using this can be found [here](../../07_demo_projects/audio/spectrum/).
 
 ### StereoEnhance
 
@@ -268,3 +255,4 @@ process than renaming them.
 The default bus layout is automatically saved to the
 `res://default_bus_layout.tres` file. Custom bus arrangements can be saved
 and loaded from disk.
+

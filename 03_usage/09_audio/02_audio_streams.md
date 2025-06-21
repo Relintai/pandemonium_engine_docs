@@ -1,11 +1,9 @@
 
-
 # Audio streams
 
 ## Introduction
 
-As you might have already read in `doc_audio_buses`, sound is sent to
-each bus via an AudioStreamPlayer node. There are different kinds
+Sound is sent to each bus via an AudioStreamPlayer node. There are different kinds
 of AudioStreamPlayers. Each one loads an AudioStream and plays it back.
 
 ## AudioStream
@@ -13,7 +11,7 @@ of AudioStreamPlayers. Each one loads an AudioStream and plays it back.
 An audio stream is an abstract object that emits sound. The sound can come from
 many places, but is most commonly loaded from the filesystem. Audio files can be
 loaded as AudioStreams and placed inside an AudioStreamPlayer. You can find
-information on supported formats and differences in `doc_importing_audio_samples`.
+information on supported formats and differences [here](../21_assets_pipeline/03_importing_audio_samples.md).
 
 There are other types of AudioStreams, such as AudioStreamRandomPitch.
 This one makes a random adjustment to the sound's pitch every time it's
@@ -35,13 +33,10 @@ This is a variant of AudioStreamPlayer, but emits sound in a 2D positional
 environment. When close to the left of the screen, the panning will go left.
 When close to the right side, it will go right.
 
-Note:
-
-
-    Area2Ds can be used to divert sound from any AudioStreamPlayer2Ds they
-    contain to specific buses. This makes it possible to create buses with
-    different reverb or sound qualities to handle action happening in a
-    particular parts of your game world.
+Note: Area2Ds can be used to divert sound from any AudioStreamPlayer2Ds they
+contain to specific buses. This makes it possible to create buses with
+different reverb or sound qualities to handle action happening in a
+particular parts of your game world.
 
 ![](img/audio_stream_2d_area.png)
 
@@ -58,8 +53,6 @@ Similar to AudioStreamPlayer2D, an Area can divert the sound to an audio bus.
 ![](img/audio_stream_3d_area.png)
 
 Unlike for 2D, the 3D version of AudioStreamPlayer has a few more advanced options:
-
-
 
 ### Reverb buses
 
@@ -95,3 +88,4 @@ Enable it by setting it depending on how objects will be moved:
 use **Idle** for objects moved using `process`, or **Physics**
 for objects moved using `physics_process`. The tracking will
 happen automatically.
+

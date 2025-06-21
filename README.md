@@ -51,10 +51,9 @@ Note that two different version of this docs hoster project is available in the 
 
 ## Disclaimer
 
-Please note that rst -> md conversion is still work in progress, so some pages might look a bit broken.
-Although all images should work, and it should be readable.
-
-Also most images needs to be redone.
+- Please note that rst -> md conversion is still work in progress, so some pages might look a bit broken.
+- Most images needs to be redone.
+- Documentation for Pandemonium specific features here are severely lacking.
 
 ## Contributing changes
 

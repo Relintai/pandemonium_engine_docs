@@ -7,7 +7,7 @@
 Pandemonium uses a shading language similar to GLSL ES 3.0. Most datatypes and functions are supported,
 and the few remaining ones will likely be added over time.
 
-If you are already familiar with GLSL, the `Pandemonium Shader Migration Guide( doc_converting_glsl_to_pandemonium_shaders )`
+If you are already familiar with GLSL, the [Pandemonium Shader Migration Guide](../04_converting_glsl_to_pandemonium_shaders.md)
 is a resource that will help you transition from regular GLSL to Pandemonium's shading language.
 
 ## Data types
@@ -211,14 +211,16 @@ for (int i = 0; i < arr.length(); i++) {
 }
 ```
 
-Note:
-
-
-    If you use an index below 0 or greater than array size - the shader will crash and break rendering. To prevent this, use `length()`, `if`, or `clamp()` functions to ensure the index is between 0 and the array's length. Always carefully test and check your code. If you pass a constant expression or a simple number, the editor will check its bounds to prevent this crash.
+Note: If you use an index below 0 or greater than array size - the shader will crash and break rendering.
+To prevent this, use `length()`, `if`, or `clamp()` functions to ensure the index is between 0 and the
+array's length. Always carefully test and check your code. If you pass a constant expression or a simple
+number, the editor will check its bounds to prevent this crash.
 
 ## Constants
 
-Use the `const` keyword before the variable declaration to make that variable immutable, which means that it cannot be modified. All basic types, except samplers can be declared as constants. Accessing and using a constant value is slightly faster than using a uniform. Constants must be initialized at their declaration.
+Use the `const` keyword before the variable declaration to make that variable immutable, which means that it cannot
+be modified. All basic types, except samplers can be declared as constants. Accessing and using a constant value
+is slightly faster than using a uniform. Constants must be initialized at their declaration.
 
 ```
 const vec2 a = vec2(0.0, 1.0);
@@ -228,7 +230,8 @@ a = b; // invalid
 b = a; // valid
 ```
 
-Constants cannot be modified and additionally cannot have hints, but multiple of them (if they have the same type) can be declared in a single expression e.g
+Constants cannot be modified and additionally cannot have hints, but multiple of them (if they have the
+same type) can be declared in a single expression e.g
 
 ```
 const vec2 V1 = vec2(1, 1), V2 = vec2(2, 2);
@@ -245,7 +248,8 @@ COLOR.r = arr[0]; // valid
 ```
 
 Constants can be declared both globally (outside of any function) or locally (inside a function).
-Global constants are useful when you want to have access to a value throughout your shader that does not need to be modified. Like uniforms, global constants are shared between all shader stages, but they are not accessible outside of the shader.
+Global constants are useful when you want to have access to a value throughout your shader that does not need
+to be modified. Like uniforms, global constants are shared between all shader stages, but they are not accessible outside of the shader.
 
 ```
 shader_type spatial;
@@ -403,7 +407,8 @@ void fragment() {
 }
 ```
 
-It's also possible to send data from *fragment* to *light* processors using *varying* keyword. To do so you can assign it in the *fragment* and later use it in the *light* function.
+It's also possible to send data from *fragment* to *light* processors using *varying* keyword. To do so you can
+assign it in the *fragment* and later use it in the *light* function.
 
 ```
 shader_type spatial;
@@ -504,7 +509,8 @@ uniform float amount : hint_range(0, 1);
 uniform vec4 other_color : hint_color = vec4(1.0);
 ```
 
-It's important to understand that textures that are supplied as color require hints for proper sRGB->linear conversion (i.e. `hint_albedo`), as Pandemonium's 3D engine renders in linear color space.
+It's important to understand that textures that are supplied as color require hints for
+proper sRGB-&gt;linear conversion (i.e. `hint_albedo`), as Pandemonium's 3D engine renders in linear color space.
 
 Full list of hints below:
 
@@ -536,9 +542,8 @@ to shaders, Pandemonium converts the type automatically. Below is a table of the
 | **Transform2D** | **mat4**  |
 
 
-Note:
- Be careful when setting shader uniforms from GDScript, no error will be thrown if the
-          type does not match. Your shader will just exhibit undefined behavior.
+Note: Be careful when setting shader uniforms from GDScript, no error will be thrown if the
+type does not match. Your shader will just exhibit undefined behavior.
 
 Uniforms can also be assigned default values:
 
@@ -551,21 +556,22 @@ uniform vec4 some_color : hint_color = vec4(1.0);
 
 ## Built-in variables
 
-A large number of built-in variables are available, like `UV`, `COLOR` and `VERTEX`. What variables are available depends on the type of shader (`spatial`, `canvas_item` or `particle`) and the function used (`vertex`, `fragment` or `light`).
+A large number of built-in variables are available, like `UV`, `COLOR` and `VERTEX`. What variables
+are available depends on the type of shader (`spatial`, `canvas_item` or `particle`) and the
+function used (`vertex`, `fragment` or `light`).
 For a list of the build-in variables that are available, please see the corresponding pages:
 
-- `Spatial shaders ( doc_spatial_shader )`
-- `Canvas item shaders ( doc_canvas_item_shader )`
-- `Particle shaders ( doc_particle_shader )`
+- `Spatial shaders`
+- `Canvas item shaders`
+- `Particle shaders`
 
 ## Built-in functions
 
 A large number of built-in functions are supported, conforming to GLSL ES 3.0.
 When vec_type (float), vec_int_type, vec_uint_type, vec_bool_type nomenclature is used, it can be scalar or vector.
 
-Note:
- For a list of the functions that are not available in the GLES2 backend, please see the
-          `Differences between GLES2 and GLES3 doc ( doc_gles2_gles3_differences )`.
+Note: For a list of the functions that are not available in the GLES2 backend, please see the
+[Differences between GLES2 and GLES3 doc](../../14_rendering/04_gles2_gles3_differences.md).
 
 
 | Function                                                               | Description                                                   |
@@ -668,4 +674,5 @@ Note:
 | vec_type **dFdx** (vec_type p)                                         | Derivative in `x` using local differencing                    |
 | vec_type **dFdy** (vec_type p)                                         | Derivative in `y` using local differencing                    |
 | vec_type **fwidth** (vec_type p)                                       | Sum of absolute derivative in `x` and `y`                     |
+
 

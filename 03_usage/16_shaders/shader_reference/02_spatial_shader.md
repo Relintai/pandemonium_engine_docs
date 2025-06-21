@@ -1,5 +1,4 @@
 
-
 # Spatial shaders
 
 Spatial shaders are used for shading 3D objects. They are the most complex type of shader Pandemonium offers.
@@ -13,7 +12,7 @@ write vertex, fragment, and light processor functions to affect how objects are 
 | Render mode                     | Description                                                            |
 |---------------------------------|------------------------------------------------------------------------|
 | **blend_mix**                   | Mix blend mode (alpha is transparency), default.                       |
-| **blend_add**                   | Additive blend mode.                                                   | 
+| **blend_add**                   | Additive blend mode.                                                   |
 | **blend_sub**                   | Subtractive blend mode.                                                |
 | **blend_mul**                   | Multiplicative blend mode.                                             |
 | **depth_draw_opaque**           | Only draw depth for opaque geometry (not transparent).                 |
@@ -128,9 +127,9 @@ shader, this value can be used as desired.
 | in int **INSTANCE_ID**               | Instance ID for instancing.                            |
 | in vec4 **INSTANCE_CUSTOM**          | Instance custom data (for particles, mostly).          |
 
-Note:
-
-    `MODELVIEW_MATRIX` combines both the `WORLD_MATRIX` and `INV_CAMERA_MATRIX` and is better suited when floating point issues may arise. For example, if the object is very far away from the world origin, you may run into floating point issues when using the seperated `WORLD_MATRIX` and `INV_CAMERA_MATRIX`.
+Note: `MODELVIEW_MATRIX` combines both the `WORLD_MATRIX` and `INV_CAMERA_MATRIX` and is better suited
+when floating point issues may arise. For example, if the object is very far away from the world
+origin, you may run into floating point issues when using the seperated `WORLD_MATRIX` and `INV_CAMERA_MATRIX`.
 
 #### Fragment built-ins
 
@@ -189,12 +188,8 @@ these properties, and if you don't write to them, Pandemonium will optimize away
 | in vec2 **POINT_COORD**           | Point Coordinate for drawing points with POINT_SIZE.                                             |
 
 
-Note:
-
-    Shaders going through the transparent pipeline when `ALPHA` is written to
-    may exhibit transparency sorting issues. Read the
-    `transparency sorting section in the 3D rendering limitations page ( doc_3d_rendering_limitations_transparency_sorting )`
-    for more information and ways to avoid issues.
+Note: Shaders going through the transparent pipeline when `ALPHA` is written to
+may exhibit transparency sorting issues.
 
 #### Light built-ins
 
@@ -219,18 +214,13 @@ void light() {
 
 If you want the lights to add together, add the light contribution to `DIFFUSE_LIGHT` using `+=`, rather than overwriting it.
 
-Warning:
+Warning: In GLES2, lights will always be added together even if you override `DIFFUSE_LIGHT` using `=`. This
+is due to lighting being computed in multiple passes (one for each light), unlike GLES3.
 
-
-    In GLES2, lights will always be added together even if you override `DIFFUSE_LIGHT` using `=`. This is due to lighting being computed in multiple passes (one for each light), unlike GLES3.
-
-Warning:
-
-
-    The `light()` function won't be run if the `vertex_lighting` render mode
-    is enabled, or if
-    **Rendering > Quality > Shading > Force Vertex Shading** is enabled in the
-    Project Settings. (It's enabled by default on mobile platforms.)
+Warning: The `light()` function won't be run if the `vertex_lighting` render mode
+is enabled, or if
+**Rendering &gt; Quality &gt; Shading &gt; Force Vertex Shading** is enabled in the
+Project Settings. (It's enabled by default on mobile platforms.)
 
 
 | Built-in                          | Description                                         |
@@ -264,9 +254,6 @@ Warning:
 | out vec3 **SPECULAR_LIGHT**       | Specular light result.                              |
 
 
-Note:
+Note: Shaders going through the transparent pipeline when `ALPHA` is written to
+may exhibit transparency sorting issues.
 
-    Shaders going through the transparent pipeline when `ALPHA` is written to
-    may exhibit transparency sorting issues. Read the
-    `transparency sorting section in the 3D rendering limitations page ( doc_3d_rendering_limitations_transparency_sorting )`
-    for more information and ways to avoid issues.

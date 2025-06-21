@@ -1,5 +1,4 @@
 
-
 # Your second 3D shader
 
 From a high-level, what Pandemonium does is give the user a bunch of parameters that
@@ -11,13 +10,12 @@ the extra feature. This makes it easy for users to have complex PBR-correct
 shading, without writing complex shaders. Of course, Pandemonium also allows you to
 ignore all these parameters and write a fully customized shader.
 
-For a full list of these parameters see the `spatial shader
-( doc_spatial_shader )` reference doc.
+For a full list of these parameters see the `spatial shader` reference doc.
 
 A difference between the vertex function and a fragment function is that the
 vertex function runs per vertex and sets properties such as `VERTEX`
 (position) and `NORMAL`, while the fragment shader runs per pixel and, most
-importantly, sets the `ALBEDO` color of the `Mesh( MeshInstance )`.
+importantly, sets the `ALBEDO` color of the `Mesh`.
 
 ## Your first spatial fragment function
 
@@ -45,9 +43,6 @@ render_mode diffuse_toon, specular_toon;
 
 This model of built-in functionality allows you to write complex custom shaders
 by changing only a few parameters.
-
-For a full list of render modes see the `Spatial shader reference
-( doc_spatial_shader )`.
 
 In this part of the tutorial, we will walk through how to take the bumpy terrain
 from the previous part and turn it into an ocean.
@@ -87,9 +82,8 @@ the reflection and the `ALBEDO` color. A high `METALLIC` almost ignores
 
 ![](img/PBR.png)
 
-Note:
- `METALLIC` should be close to `0` or `1` for proper PBR shading.
-          Only set it between them for blending between materials.
+Note: `METALLIC` should be close to `0` or `1` for proper PBR shading.
+Only set it between them for blending between materials.
 
 Water is not a metal, so we will set its `METALLIC` property to `0.0`. Water
 is also highly reflective, so we will set its `ROUGHNESS` property to be quite
@@ -340,8 +334,3 @@ to do was add a bit of math!
 
 ![](img/wave3.png)
 
-For more information about Spatial shaders read the `Shading Language
-( doc_shading_language )` doc and the `Spatial Shaders ( doc_spatial_shader )`
-doc. Also look at more advanced tutorials in the `Shading section
-( toc-learn-features-shading )` and the `3D ( toc-learn-features-3d )`
-sections.

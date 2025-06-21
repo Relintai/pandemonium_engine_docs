@@ -1,5 +1,4 @@
 
-
 # CanvasItem shaders
 
 CanvasItem shaders are used to draw all 2D elements in Pandemonium. These include
@@ -64,9 +63,8 @@ void vertex() {
 }
 ```
 
-Note:
- `WORLD_MATRIX` is actually a modelview matrix. It takes input in local space and transforms it
-          into view space.
+Note: `WORLD_MATRIX` is actually a modelview matrix. It takes input in local space and transforms it
+into view space.
 
 In order to get the world space coordinates of a vertex, you have to pass in a custom uniform like so:
 
@@ -206,4 +204,5 @@ When the shader is on a light pass, the `AT_LIGHT_PASS` variable will be `true`.
 | out vec4 **SHADOW_COLOR**           | Shadow Color of Light.                                                        |
 | inout vec4 **LIGHT**                | Value from the Light texture and output color. Can be modified. If not used,  |
 |                                     | the light function is ignored.                                                |
+
 

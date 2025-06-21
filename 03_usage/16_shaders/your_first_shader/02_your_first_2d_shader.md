@@ -1,39 +1,29 @@
 
-
 # Your first 2D shader
 
 ## Introduction
 
 Shaders are special programs that execute on the GPU and are used for rendering
-graphics. All modern rendering is done with shaders. For a more detailed
-description of what shaders are please see `What are shaders
-( doc_introduction_to_shaders )`.
+graphics. All modern rendering is done with shaders.
 
 This tutorial will focus on the practical aspects of writing shader programs by
 walking you through the process of writing a shader with both vertex and
 fragment functions. This tutorial targets absolute beginners to shaders.
 
-Note:
-
- If you have experience writing shaders and are just looking for an
-          overview of how shaders work in Pandemonium, see the `Shading Reference
-          ( toc-shading-reference )`.
-
 ## Setup
 
-`CanvasItem ( doc_canvas_item_shader )` shaders are used to draw all 2D
-     objects in Pandemonium, while `Spatial ( doc_spatial_shader )` shaders are
-     used to draw all 3D objects.
+`CanvasItem` shaders are used to draw all 2D
+objects in Pandemonium, while `Spatial` shaders are
+used to draw all 3D objects.
 
-In order to use a shader it must be attached inside a `Material
-( material )` which must be attached to an object. Materials are a type of
-`Resource ( doc_resources )`. To draw multiple objects with the same
+In order to use a shader it must be attached inside a `Material`
+which must be attached to an object. Materials are a type of
+`Resource`. To draw multiple objects with the same
 material, the material must be attached to each object.
 
 All objects derived from a `CanvasItem` have a material
-property. This includes all `GUI elements`, `Sprites
-( sprite )`, `TileMaps`, `MeshInstance2Ds
-( meshinstance2d )` etc. They also have an option to inherit their parent's
+property. This includes all `GUI elements`, `Sprites`, `TileMaps`, `MeshInstance2Ds`
+etc. They also have an option to inherit their parent's
 material. This can be useful if you have a large number of nodes that you want
 to use the same material.
 
@@ -89,7 +79,7 @@ every pixel.
 
 We do so by writing a `vec4` to the built-in variable `COLOR`. `vec4` is
 shorthand for constructing a vector with 4 numbers. For more information about
-vectors see the `Vector math tutorial ( doc_vector_math )` `COLOR` is both
+vectors see the [Vector math tutorial](../../01_math/01_vector_math.md) `COLOR` is both
 an input variable to the fragment function and the final output from it.
 
 ```
@@ -164,9 +154,6 @@ You can use uniforms by defining them at the top of your shader like so:
 uniform float size;
 ```
 
-For more information about usage see the `Shading Language doc
-( doc_shading_language )`.
-
 Add a uniform to change the amount of blue in our Sprite.
 
 ```
@@ -236,6 +223,6 @@ At their core, shaders do what you have seen so far, they compute `VERTEX` and
 assigning values to those variables.
 
 For inspiration, take a look at some of the more advanced shader tutorials, and
-look at other sites like `Shadertoy
-( https://www.shadertoy.com/results?query=&sort=popular&from=10&num=4 )` and `The
-Book of Shaders ( https://thebookofshaders.com )`.
+look at other sites like [Shadertoy](https://www.shadertoy.com/results?query=&sort=popular&from=10&num=4) and
+[The Book of Shaders](https://thebookofshaders.com).
+

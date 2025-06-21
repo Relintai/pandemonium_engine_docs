@@ -1,5 +1,4 @@
 
-
 # Your first 3D shader
 
 You have decided to start writing your own custom Spatial shader. Maybe you saw
@@ -9,7 +8,7 @@ needs. Either way, you have decided to write your own and now you need to figure
 out where to start.
 
 This tutorial will explain how to write a Spatial shader and will cover more
-topics than the `CanvasItem ( doc_your_first_canvasitem_shader )` tutorial.
+topics than the `CanvasItem` tutorial.
 
 Spatial shaders have more built-in functionality than CanvasItem shaders. The
 expectation with spatial shaders is that Pandemonium has already provided the
@@ -19,17 +18,15 @@ rendering) workflow.
 
 This is a two-part tutorial. In this first part we are going to go through how
 to make a simple terrain using vertex displacement from a heightmap in the
-vertex function. In the `second part ( doc_your_second_spatial_shader )` we
+vertex function. In the second part we
 are going to take the concepts from this tutorial and walk through how to set up
 custom materials in a fragment shader by writing an ocean water shader.
 
-Note:
-
- This tutorial assumes some basic shader knowledge such as types
-          (`vec2`, `float`, `sampler2D`), and functions. If you are
-          uncomfortable with these concepts it is best to get a gentle
-          introduction from `The Book of Shaders
-          ( https://thebookofshaders.com )` before completing this tutorial.
+Note: This tutorial assumes some basic shader knowledge such as types
+(`vec2`, `float`, `sampler2D`), and functions. If you are
+uncomfortable with these concepts it is best to get a gentle
+introduction from [The Book of Shaders](https://thebookofshaders.com)
+before completing this tutorial.
 
 ## Where to assign my material
 
@@ -37,13 +34,12 @@ In 3D, objects are drawn using `Meshes`. Meshes are a resource
 type that store geometry (the shape of your object) and materials (the color and
 how the object reacts to light) in units called "surfaces". A Mesh can have
 multiple surfaces, or just one. Typically, you would import a mesh from another
-program (e.g. Blender). But Pandemonium also has a few `PrimitiveMeshes
-( primitivemesh )` that allow you to add basic geometry to a scene without
+program (e.g. Blender). But Pandemonium also has a few `PrimitiveMeshes`
+that allow you to add basic geometry to a scene without
 importing Meshes.
 
 There are multiple node types that you can use to draw a mesh. The main one is
-`MeshInstance`, but you can also use `Particles
-( particles )`, `MultiMeshes` (with a
+`MeshInstance`, but you can also use `Particles`, `MultiMeshes` (with a
 `MultiMeshInstance`), or others.
 
 Typically, a material is associated with a given surface in a mesh, but some
@@ -80,15 +76,15 @@ Now set `Subdivide Width` and `Subdivide Depth` to `32`.
 ![](img/plane-sub-set.png)
 
 You can see that there are now many more triangles in the
-`Mesh( MeshInstance )`. This will give us more vertices to work with
+`Mesh`. This will give us more vertices to work with
 and thus allow us to add more detail.
 
 ![](img/plane-sub.png)
 
 `PrimitiveMeshes`, like PlaneMesh, only have one
-     surface, so instead of an array of materials there is only one. Click
-     beside "Material" where it says "[empty]" and select "New ShaderMaterial".
-     Then click the sphere that appears.
+surface, so instead of an array of materials there is only one. Click
+beside "Material" where it says "[empty]" and select "New ShaderMaterial".
+Then click the sphere that appears.
 
 Now click beside "Shader" where it says "[empty]" and select "New Shader".
 
@@ -109,7 +105,7 @@ shader_type spatial;
 ```
 
 Next we will define the `vertex()` function. The `vertex()` function
-determines where the vertices of your `Mesh( MeshInstance )` appear in
+determines where the vertices of your `Mesh` appear in
 the final scene. We will be using it to offset the height of each vertex and
 make our flat plane appear like a little terrain.
 
@@ -179,7 +175,7 @@ your NoiseTexture click beside where it says "Noise" and select "New
 OpenSimplexNoise".
 
 `OpenSimplexNoise` is used by the NoiseTexture to
-     generate a heightmap.
+generate a heightmap.
 
 Once you set it up and should look like this.
 
@@ -202,8 +198,8 @@ VERTEX.y += height;
 ```
 
 Note: `xyzw` is the same as `rgba` in GLSL, so instead of `texture().x`
-above, we could use `texture().r`. See the `OpenGL documentation
-( https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Vectors )` for more
+above, we could use `texture().r`. See the
+[OpenGL documentation](https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Vectors) for more
 details.
 
 Using this code you can see the texture creates random looking hills.
@@ -219,7 +215,7 @@ texture, now let's learn how they work.
 Uniform variables allow you to pass data from the game into the shader. They are
 very useful for controlling shader effects. Uniforms can be almost any datatype
 that can be used in the shader. To use a uniform, you declare it in your
-`Shader( Shader )` using the keyword `uniform`.
+`Shader` using the keyword `uniform`.
 
 Let's make a uniform that changes the height of the terrain.
 
@@ -239,17 +235,16 @@ the shader.
 mesh.material.set_shader_param("height_scale", 0.5)
 ```
 
-Note:
- Changing uniforms in Spatial-based nodes is different from
-          CanvasItem-based nodes. Here, we set the material inside the PlaneMesh
-          resource. In other mesh resources you may need to first access the
-          material by calling `surface_get_material()`. While in the
-          MeshInstance you would access the material using
-          `get_surface_material()` or `material_override`.
+Note: Changing uniforms in Spatial-based nodes is different from
+CanvasItem-based nodes. Here, we set the material inside the PlaneMesh
+resource. In other mesh resources you may need to first access the
+material by calling `surface_get_material()`. While in the
+MeshInstance you would access the material using
+`get_surface_material()` or `material_override`.
 
 Remember that the string passed into `set_shader_param()` must match the name
-of the uniform variable in the `Shader( Shader )`. You can use the
-uniform variable anywhere inside your `Shader( Shader )`. Here, we will
+of the uniform variable in the `Shader`. You can use the
+uniform variable anywhere inside your `Shader`. Here, we will
 use it to set the height value instead of arbitrarily multiplying by `0.5`.
 
 ```
@@ -274,7 +269,7 @@ again, where it says "Perspective", and select "Display Normal".
 Note how the mesh color goes flat. This is because the lighting on it is flat.
 Let's add a light!
 
-First, we will add an `OmniLight( OmniLight )` to the scene.
+First, we will add an `OmniLight` to the scene.
 
 ![](img/light.png)
 
@@ -382,3 +377,4 @@ That is everything for this part. Hopefully, you now understand the basics of
 vertex shaders in Pandemonium. In the next part of this tutorial we will write a
 fragment function to accompany this vertex function and we will cover a more
 advanced technique to turn this terrain into an ocean of moving waves.
+

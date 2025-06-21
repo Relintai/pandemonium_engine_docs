@@ -5,11 +5,10 @@ In addition to `doc_importing_translations` in CSV format, Pandemonium
 also supports loading translation files written in the GNU gettext
 format (text-based `.po` and compiled `.mo` since Pandemonium 3.5).
 
-Note:
- For an introduction to gettext, check out
-          `A Quick Gettext Tutorial ( https://www.labri.fr/perso/fleury/posts/programming/a-quick-gettext-tutorial.html )`.
-          It's written with C projects in mind, but much of the advice
-          also applies to Pandemonium (with the exception of `xgettext`).
+Note: For an introduction to gettext, check out
+[A Quick Gettext Tutorial](https://www.labri.fr/perso/fleury/posts/programming/a-quick-gettext-tutorial.html).
+It's written with C projects in mind, but much of the advice
+also applies to Pandemonium (with the exception of `xgettext`).
 
 ## Advantages
 
@@ -44,12 +43,12 @@ such as updating message files. Therefore, it's strongly recommended to
 install them.
 
 - **Windows:** Download an installer from
-  `this page ( https://mlocati.github.io/articles/gettext-iconv-windows.html )`.
+  [this page](https://mlocati.github.io/articles/gettext-iconv-windows.html).
   Any architecture and binary type (shared or static) works;
   if in doubt, choose the 64-bit static installer.
-- **macOS:** Install gettext either using `Homebrew ( https://brew.sh/ )`
+- **macOS:** Install gettext either using [Homebrew](https://brew.sh/)
   with the `brew install gettext` command, or using
-  `MacPorts ( https://www.macports.org/ )` with the
+  [MacPorts](https://www.macports.org/) with the
   `sudo port install gettext` command.
 - **Linux:** On most distributions, install the `gettext` package from
   your distribution's package manager.
@@ -85,10 +84,10 @@ Localization will be done in the generated `.po` files instead.
 The Python tool pybabel has support for Pandemonium and can be used to automatically
 create and update the POT file from your scene files and scripts.
 
-After installing `babel` and `babel-pandemonium`, for example using pip:
+After installing `babel` and `babel-godot`, for example using pip:
 
 ```
-pip3 install babel babel-pandemonium
+pip3 install babel babel-godot
 ```
 
 Write a mapping file (for example `babelrc`) which will indicate which files
@@ -136,11 +135,7 @@ To register a messages file as a translation in a project, open the
 **Project Settings**, then go to the **Localization** tab.
 In **Translations**, click **Add…** then choose the `.po` or `.mo` file
 in the file dialog. The locale will be inferred from the
-`"Language: ( code>\n"` property in the messages file.
-
-Note:
- See `doc_internationalizing_games` for more information on
-          importing and testing translations in Pandemonium.
+`"Language: <code>\n"` property in the messages file.
 
 ## Updating message files to follow the PO template
 
@@ -157,16 +152,15 @@ msgmerge --update --backup=none fr.po messages.pot
 If you want to keep a backup of the original message file (which would be
 saved as `fr.po~` in this example), remove the `--backup=none` argument.
 
-Note:
+### Note:
 
+After running `msgmerge`, strings which were modified in the source language
+will have a "fuzzy" comment added before them in the `.po` file. This comment
+denotes that the translation should be updated to match the new source string,
+as the translation will most likely be inaccurate until it's updated.
 
-    After running `msgmerge`, strings which were modified in the source language
-    will have a "fuzzy" comment added before them in the `.po` file. This comment
-    denotes that the translation should be updated to match the new source string,
-    as the translation will most likely be inaccurate until it's updated.
-
-    Strings with "fuzzy" comments will **not** be read by Pandemonium until the
-    translation is updated and the "fuzzy" comment is removed.
+Strings with "fuzzy" comments will **not** be read by Pandemonium until the
+translation is updated and the "fuzzy" comment is removed.
 
 ## Checking the validity of a PO file or template
 
@@ -206,3 +200,4 @@ msgunfmt fr.mo > fr.po
 
 The decompiled file will not include comments or fuzzy strings, as these are
 never compiled in the MO file in the first place.
+

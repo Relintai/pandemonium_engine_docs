@@ -1,5 +1,4 @@
 
-
 # Locales
 
 Note: This list is synced with core/translation.cpp in the engine.
@@ -373,3 +372,4 @@ based on the Unix standard locale strings:
 | zh_SG        | Chinese (Singapore)                |
 | zh_TW        | Chinese (Taiwan)                   |
 | zu_ZA        | Zulu (South Africa)                |
+

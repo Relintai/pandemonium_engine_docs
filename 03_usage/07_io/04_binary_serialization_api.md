@@ -328,7 +328,7 @@ unsupported
 
 Unsupported
 
-### 24: StrinName
+### 24: StringName
 
 Encoded as Strings.
 

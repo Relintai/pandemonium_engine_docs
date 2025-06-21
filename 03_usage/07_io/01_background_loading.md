@@ -25,7 +25,7 @@ Usage is generally as follows
 ### Obtaining a ResourceInteractiveLoader
 
 ```
-Ref( ResourceInteractiveLoader> ResourceLoader::load_interactive(String p_path);
+Ref<ResourceInteractiveLoader> ResourceLoader::load_interactive(String p_path);
 ```
 
 This method will give you a ResourceInteractiveLoader that you will use
@@ -77,8 +77,7 @@ resource.
 
 ## Example
 
-This example demonstrates how to load a new scene. Consider it in the
-context of the `doc_singletons_autoload` example.
+This example demonstrates how to load a new scene.
 
 First, we set up some variables and initialize the `current_scene`
 with the main scene of the game:
@@ -209,7 +208,7 @@ resource.
 ## Example class
 
 You can find an example class for loading resources in threads here:
-:download:`resource_queue.gd ( files/resource_queue.gd )`. Usage is as follows:
+[resource_queue.gd](files/resource_queue.gd). Usage is as follows:
 
 ```
 func start()
@@ -288,6 +287,4 @@ else:
 queue.cancel_resource("res://zone_2.tscn")
 ```
 
-**Note**: this code, in its current form, is not tested in real world
-scenarios. If you run into any issues, ask for help in one of
-`Pandemonium's community channels ( https://pandemoniumengine.org/community )`.
+

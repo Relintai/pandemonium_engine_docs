@@ -1,5 +1,4 @@
 
-
 # Saving games
 
 ## Introduction
@@ -10,11 +9,8 @@ Advanced save game systems should allow for additional information about
 an arbitrary number of objects. This will allow the save function to
 scale as the game grows more complex.
 
-Note:
-
-
-    If you're looking to save user configuration, you can use the
-    `ConfigFile` class for this purpose.
+Note: If you're looking to save user configuration, you can use the
+`ConfigFile` class for this purpose.
 
 ## Identify persistent objects
 
@@ -32,8 +28,6 @@ GUI:
 Once this is done, when we need to save the game, we can get all objects
 to save them and then tell them all to save with this script:
 
-gdscript GDScript
-
 ```
 var save_nodes = get_tree().get_nodes_in_group("Persist")
 for i in save_nodes:
@@ -45,13 +39,10 @@ for i in save_nodes:
 The next step is to serialize the data. This makes it much easier to
 read from and store to disk. In this case, we're assuming each member of
 group Persist is an instanced node and thus has a path. GDScript
-has helper functions for this, such as `to_json()
-( @GDScript_method_to_json )` and `parse_json()
-( @GDScript_method_parse_json )`, so we will use a dictionary. Our node needs to
+has helper functions for this, such as `to_json()` and `parse_json()`,
+so we will use a dictionary. Our node needs to
 contain a save function that returns this data. The save function will look
 like this:
-
-gdscript GDScript
 
 ```
 func save():
@@ -87,13 +78,10 @@ loading.
 
 As covered in the `doc_filesystem` tutorial, we'll need to open a file
 so we can write to it or read from it. Now that we have a way to
-call our groups and get their relevant data, let's use `to_json()
-( @GDScript_method_to_json )` to
+call our groups and get their relevant data, let's use `to_json()` to
 convert it into an easily stored string and store them in a file. Doing
 it this way ensures that each line is its own object, so we have an easy
 way to pull the data out of the file as well.
-
-gdscript GDScript
 
 ```
 # Note: This can be called from anywhere inside the tree. This function is
@@ -129,8 +117,6 @@ line, use parse_json() to read it back to a dict, and then iterate over
 the dict to read our values. But we'll need to first create the object
 and we can use the filename and parent values to achieve that. Here is our
 load function:
-
-gdscript GDScript
 
 ```
 # Note: This can be called from anywhere inside the tree. This function
@@ -183,8 +169,7 @@ customized based on the needs of the individual project.
 Additionally, our implementation assumes no Persist objects are children of other
 Persist objects. Otherwise, invalid paths would be created. To
 accommodate nested Persist objects, consider saving objects in stages.
-Load parent objects first so they are available for the `add_child()
-( node_method_add_child )`
+Load parent objects first so they are available for the `add_child()`
 call when child objects are loaded. You will also need a way to link
-children to parents as the `NodePath
-( nodepath )` will likely be invalid.
+children to parents as the `NodePath` will likely be invalid.
+

@@ -64,3 +64,4 @@ can still decrypt and edit the file themselves. The only way to prevent this
 from being possible is to store the save data on a remote server, where players
 can only make authorized changes to their save data. If your game deals with
 real money, you need to be doing this anyway.
+

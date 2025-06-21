@@ -1,5 +1,4 @@
 
-
 # Binary serialization API
 
 ## Introduction
@@ -29,31 +28,42 @@ flags = val >> 16;
 | 0      | null                     |
 | 1      | bool                     |
 | 2      | integer                  |
-| 3      | float                    |
+| 3      | real                     |
 | 4      | string                   |
-| 5      | vector2                  |
-| 6      | rect2                    |
-| 7      | vector3                  |
-| 8      | transform2d              |
-| 9      | plane                    |
-| 10     | quat                     |
-| 11     | aabb                     |
-| 12     | basis                    |
-| 13     | transform                |
-| 14     | color                    |
-| 15     | node path                |
-| 16     | rid                      |
-| 17     | object                   |
-| 18     | dictionary               |
-| 19     | array                    |
-| 20     | raw array                |
-| 21     | int array                |
-| 22     | real array               |
-| 23     | string array             |
-| 24     | vector2 array            |
-| 25     | vector3 array            |
-| 26     | color array              |
-| 27     | max                      |
+| 5      | rect2                    |
+| 6      | rect2i                   |
+| 7      | vector2                  |
+| 8      | vector2i                 |
+| 9      | vector3                  |
+| 10     | vector3i                 |
+| 11     | vector4                  |
+| 12     | vector4i                 |
+| 13     | plane                    |
+| 14     | quaternion               |
+| 15     | aabb                     |
+| 16     | basis                    |
+| 17     | transform                |
+| 18     | transform2d              |
+| 19     | projection               |
+| 20     | color                    |
+| 21     | node path                |
+| 22     | rid                      |
+| 23     | object                   |
+| 24     | string name              |
+| 25     | dictionary               |
+| 26     | array                    |
+| 27     | raw array                |
+| 28     | int array                |
+| 29     | real array               |
+| 30     | string array             |
+| 31     | vector2 array            |
+| 32     | vector2i array           |
+| 33     | vector3 array            |
+| 34     | vector3i array           |
+| 35     | vector4 array            |
+| 36     | vector4i array           |
+| 37     | color array              |
+| 38     | max                      |
 
 Following this is the actual packet contents, which varies for each type of
 packet. Note that this assumes Pandemonium is compiled with single-precision floats,
@@ -62,15 +72,18 @@ length of "Float" fields within data structures should be 8, and the offset
 should be `(offset - 4) * 2 + 4`. The "float" type itself always uses double
 precision.
 
+
 ### 0: null
 
-### 1: `bool( bool )`
+Nothing
+
+### 1: bool
 
 | Offset   | Len   | Type      | Description               |
 |----------|-------|-----------|---------------------------|
 | 4        | 4     | Integer   | 0 for False, 1 for True   |
 
-### 2: `int( int )`
+### 2: int
 
 If no flags are set (flags == 0), the integer is sent as a 32 bit integer:
 
@@ -85,8 +98,7 @@ a 64-bit integer:
 |----------|-------|-----------|--------------------------|
 | 4        | 8     | Integer   | 64-bit signed integer    |
 
-### 3: `float( float )`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### 3: real (float or double)
 
 If no flags are set (flags == 0), the float is sent as a 32 bit single precision:
 
@@ -101,7 +113,7 @@ a 64-bit double precision number:
 |----------|-------|---------|-----------------------------------|
 | 4        | 8     | Float   | IEEE 754 double-precision float   |
 
-### 4: `String( string )`
+### 4: String
 
 | Offset   | Len   | Type      | Description                |
 |----------|-------|-----------|----------------------------|
@@ -110,14 +122,7 @@ a 64-bit double precision number:
 
 This field is padded to 4 bytes.
 
-### 5: `Vector2( vector2 )`
-
-| Offset   | Len   | Type    | Description    |
-|----------|-------|---------|----------------|
-| 4        | 4     | Float   | X coordinate   |
-| 8        | 4     | Float   | Y coordinate   |
-
-### 6: `Rect2( rect2 )`
+### 5: Rect2
 
 | Offset   | Len   | Type    | Description    |
 |----------|-------|---------|----------------|
@@ -126,8 +131,30 @@ This field is padded to 4 bytes.
 | 12       | 4     | Float   | X size         |
 | 16       | 4     | Float   | Y size         |
 
-### 7: `Vector3( vector3 )`
+### 6: Rect2i
 
+| Offset   | Len   | Type    | Description    |
+|----------|-------|---------|----------------|
+| 4        | 4     | Integer | X coordinate   |
+| 8        | 4     | Integer | Y coordinate   |
+| 12       | 4     | Integer | X size         |
+| 16       | 4     | Integer | Y size         |
+
+### 7: Vector2
+
+| Offset   | Len   | Type    | Description    |
+|----------|-------|---------|----------------|
+| 4        | 4     | Float   | X coordinate   |
+| 8        | 4     | Float   | Y coordinate   |
+
+### 8: Vector2i
+
+| Offset   | Len   | Type    | Description    |
+|----------|-------|---------|----------------|
+| 4        | 4     | Integer | X coordinate   |
+| 8        | 4     | Integer | Y coordinate   |
+
+### 9: Vector3
 
 | Offset   | Len   | Type    | Description    |
 |----------|-------|---------|----------------|
@@ -135,18 +162,33 @@ This field is padded to 4 bytes.
 | 8        | 4     | Float   | Y coordinate   |
 | 12       | 4     | Float   | Z coordinate   |
 
-### 8: `Transform2D( transform2d )`
+### 10: Vector3i
 
-| Offset   | Len   | Type    | Description                                                   |
-|----------|-------|---------|---------------------------------------------------------------|
-| 4        | 4     | Float   | The X component of the X column vector, accessed via [0][0]   |
-| 8        | 4     | Float   | The Y component of the X column vector, accessed via [0][1]   |
-| 12       | 4     | Float   | The X component of the Y column vector, accessed via [1][0]   |
-| 16       | 4     | Float   | The Y component of the Y column vector, accessed via [1][1]   |
-| 20       | 4     | Float   | The X component of the origin vector, accessed via [2][0]     |
-| 24       | 4     | Float   | The Y component of the origin vector, accessed via [2][1]     |
+| Offset   | Len   | Type    | Description    |
+|----------|-------|---------|----------------|
+| 4        | 4     | Integer | X coordinate   |
+| 8        | 4     | Integer | Y coordinate   |
+| 12       | 4     | Integer | Z coordinate   |
 
-### 9: `Plane( plane )`
+### 11: Vector4
+
+| Offset   | Len   | Type    | Description    |
+|----------|-------|---------|----------------|
+| 4        | 4     | Float   | X coordinate   |
+| 8        | 4     | Float   | Y coordinate   |
+| 12       | 4     | Float   | Z coordinate   |
+| 16       | 4     | Float   | W coordinate   |
+
+### 12: Vector4i
+
+| Offset   | Len   | Type    | Description    |
+|----------|-------|---------|----------------|
+| 4        | 4     | Integer | X coordinate   |
+| 8        | 4     | Integer | Y coordinate   |
+| 12       | 4     | Integer | Z coordinate   |
+| 16       | 4     | Integer | W coordinate   |
+
+### 13: Plane
 
 | Offset   | Len   | Type    | Description   |
 |----------|-------|---------|---------------|
@@ -155,9 +197,7 @@ This field is padded to 4 bytes.
 | 12       | 4     | Float   | Normal Z      |
 | 16       | 4     | Float   | Distance      |
 
-
-### 10: `Quaternion( quaternion )`
-
+### 14: Quaternion
 
 | Offset   | Len   | Type    | Description   |
 |----------|-------|---------|---------------|
@@ -166,9 +206,7 @@ This field is padded to 4 bytes.
 | 12       | 4     | Float   | Imaginary Z   |
 | 16       | 4     | Float   | Real W        |
 
-
-### 11: `AABB( aabb )`
-
+### 15: AABB
 
 | Offset   | Len   | Type    | Description    |
 |----------|-------|---------|----------------|
@@ -179,9 +217,7 @@ This field is padded to 4 bytes.
 | 20       | 4     | Float   | Y size         |
 | 24       | 4     | Float   | Z size         |
 
-
-### 12: `Basis( basis )`
-
+### 16: Basis
 
 | Offset   | Len   | Type    | Description                                                   |
 |----------|-------|---------|---------------------------------------------------------------|
@@ -195,9 +231,7 @@ This field is padded to 4 bytes.
 | 32       | 4     | Float   | The Y component of the Z column vector, accessed via [2][1]   |
 | 36       | 4     | Float   | The Z component of the Z column vector, accessed via [2][2]   |
 
-
-### 13: `Transform( transform )`
-
+### 17: Transform
 
 | Offset   | Len   | Type    | Description                                                   |
 |----------|-------|---------|---------------------------------------------------------------|
@@ -214,8 +248,40 @@ This field is padded to 4 bytes.
 | 44       | 4     | Float   | The Y component of the origin vector, accessed via [3][1]     |
 | 48       | 4     | Float   | The Z component of the origin vector, accessed via [3][2]     |
 
-### 14: `Color( color )`
+### 18: Transform2D
 
+| Offset   | Len   | Type    | Description                                                   |
+|----------|-------|---------|---------------------------------------------------------------|
+| 4        | 4     | Float   | The X component of the X column vector, accessed via [0][0]   |
+| 8        | 4     | Float   | The Y component of the X column vector, accessed via [0][1]   |
+| 12       | 4     | Float   | The X component of the Y column vector, accessed via [1][0]   |
+| 16       | 4     | Float   | The Y component of the Y column vector, accessed via [1][1]   |
+| 20       | 4     | Float   | The X component of the origin vector, accessed via [2][0]     |
+| 24       | 4     | Float   | The Y component of the origin vector, accessed via [2][1]     |
+
+
+### 19: Projection
+
+| Offset   | Len   | Type    | Description                                                   |
+|----------|-------|---------|---------------------------------------------------------------|
+| 4        | 4     | Float   | The X component of the X column vector, accessed via [0][0]   |
+| 8        | 4     | Float   | The Y component of the X column vector, accessed via [0][1]   |
+| 12       | 4     | Float   | The Z component of the X column vector, accessed via [0][2]   |
+| 16       | 4     | Float   | The W component of the X column vector, accessed via [0][3]   |
+| 20       | 4     | Float   | The X component of the Y column vector, accessed via [1][0]   |
+| 24       | 4     | Float   | The Y component of the Y column vector, accessed via [1][1]   |
+| 28       | 4     | Float   | The Z component of the Y column vector, accessed via [1][2]   |
+| 32       | 4     | Float   | The W component of the Y column vector, accessed via [1][3]   |
+| 36       | 4     | Float   | The X component of the Z column vector, accessed via [2][0]   |
+| 40       | 4     | Float   | The Y component of the Z column vector, accessed via [2][1]   |
+| 44       | 4     | Float   | The Z component of the Z column vector, accessed via [2][2]   |
+| 48       | 4     | Float   | The W component of the Z column vector, accessed via [2][3]   |
+| 52       | 4     | Float   | The X component of the W column vector, accessed via [3][0]   |
+| 56       | 4     | Float   | The Y component of the W column vector, accessed via [3][1]   |
+| 60       | 4     | Float   | The Z component of the W column vector, accessed via [3][2]   |
+| 64       | 4     | Float   | The W component of the W column vector, accessed via [3][3]   |
+
+### 20: Color
 
 | Offset   | Len   | Type    | Description                                                  |
 |----------|-------|---------|--------------------------------------------------------------|
@@ -224,8 +290,7 @@ This field is padded to 4 bytes.
 | 12       | 4     | Float   | Blue (typically 0..1, can be above 1 for overbright colors)  |
 | 16       | 4     | Float   | Alpha (0..1)                                                 |
 
-
-### 15: `NodePath( nodepath )`
+### 21: NodePath
 
 | Offset   | Len   | Type      | Description                                                                             |
 |----------|-------|-----------|-----------------------------------------------------------------------------------------|
@@ -241,7 +306,6 @@ Padded to 4 bytes.
 
 #### For new format:
 
-
 | Offset   | Len   | Type      | Description                         |
 |----------|-------|-----------|-------------------------------------|
 | 4        | 4     | Integer   | Sub-name count                      |
@@ -256,11 +320,19 @@ For each Name and Sub-Name
 
 Every name string is padded to 4 bytes.
 
-### 16: `RID( rid )` (unsupported)
+### 22: RID
 
-### 17: `Object( object )` (unsupported)
+unsupported
 
-### 18: `Dictionary( dictionary )`
+### 23: Object
+
+Unsupported
+
+### 24: StrinName
+
+Encoded as Strings.
+
+### 25: Dictionary
 
 | Offset   | Len   | Type      | Description                                                         |
 |----------|-------|-----------|---------------------------------------------------------------------|
@@ -269,7 +341,7 @@ Every name string is padded to 4 bytes.
 Then what follows is, for amount of "elements", pairs of key and value,
 one after the other, using this same format.
 
-### 19: `Array( array )`
+### 26: Array
 
 | Offset   | Len   | Type      | Description                                                         |
 |----------|-------|-----------|---------------------------------------------------------------------|
@@ -278,7 +350,7 @@ one after the other, using this same format.
 Then what follows is, for amount of "elements", values one after the
 other, using this same format.
 
-### 20: `PoolByteArray( poolbytearray )`
+### 27: PoolByteArray
 
 
 | Offset        | Len   | Type      | Description            |
@@ -288,22 +360,21 @@ other, using this same format.
 
 The array data is padded to 4 bytes.
 
-### 21: `PoolIntArray( poolintarray )`
-
+### 28: PoolIntArray
 
 | Offset           | Len   | Type      | Description               |
 |------------------|-------|-----------|---------------------------|
 | 4                | 4     | Integer   | Array length (Integers)   |
 | 8..8+length\*4   | 4     | Integer   | 32-bit signed integer     |
 
-### 22: `PoolRealArray( poolrealarray )`
+### 29: PoolRealArray
 
 | Offset           | Len   | Type      | Description               |
 |------------------|-------|-----------|---------------------------|
 | 4                | 4     | Integer   | Array length (Floats)     |
 | 8..8+length\*4   | 4     | Integer   | 32-bits IEEE 754 float    |
 
-### 23: `PoolStringArray( poolstringarray )`
+### 30: PoolStringArray
 
 | Offset   | Len   | Type      | Description              |
 |----------|-------|-----------|--------------------------|
@@ -311,17 +382,14 @@ The array data is padded to 4 bytes.
 
 For each String:
 
-
 | Offset   | Len   | Type      | Description            |
 |----------|-------|-----------|------------------------|
 | X+0      | 4     | Integer   | String length          |
 | X+4      | X     | Bytes     | UTF-8 encoded string   |
 
-
 Every string is padded to 4 bytes.
 
-### 24: `PoolVector2Array( poolvector2array )`
-
+### 31: PoolVector2Array
 
 | Offset            | Len   | Type      | Description    |
 |-------------------|-------|-----------|----------------|
@@ -329,9 +397,15 @@ Every string is padded to 4 bytes.
 | 8..8+length\*8    | 4     | Float     | X coordinate   |
 | 8..12+length\*8   | 4     | Float     | Y coordinate   |
 
+### 32: PoolVector2iArray
 
-### 25: `PoolVector3Array( poolvector3array )`
+| Offset            | Len   | Type      | Description    |
+|-------------------|-------|-----------|----------------|
+| 4                 | 4     | Integer   | Array length   |
+| 8..8+length\*8    | 4     | Integer   | X coordinate   |
+| 8..12+length\*8   | 4     | Integer   | Y coordinate   |
 
+### 33: PoolVector3Array
 
 | Offset             | Len   | Type      | Description    |
 |--------------------|-------|-----------|----------------|
@@ -340,9 +414,37 @@ Every string is padded to 4 bytes.
 | 8..12+length\*12   | 4     | Float     | Y coordinate   |
 | 8..16+length\*12   | 4     | Float     | Z coordinate   |
 
+### 34: PoolVector3iArray
 
-### 26: `PoolColorArray( poolcolorarray )`
+| Offset             | Len   | Type      | Description    |
+|--------------------|-------|-----------|----------------|
+| 4                  | 4     | Integer   | Array length   |
+| 8..8+length\*12    | 4     | Integer   | X coordinate   |
+| 8..12+length\*12   | 4     | Integer   | Y coordinate   |
+| 8..16+length\*12   | 4     | Integer   | Z coordinate   |
 
+
+### 35: PoolVector4Array
+
+| Offset             | Len   | Type      | Description    |
+|--------------------|-------|-----------|----------------|
+| 4                  | 4     | Integer   | Array length   |
+| 8..8+length\*12    | 4     | Float     | X coordinate   |
+| 8..12+length\*12   | 4     | Float     | Y coordinate   |
+| 8..16+length\*12   | 4     | Float     | Z coordinate   |
+| 8..16+length\*16   | 4     | Float     | W coordinate   |
+
+### 36: PoolVector4iArray
+
+| Offset             | Len   | Type      | Description    |
+|--------------------|-------|-----------|----------------|
+| 4                  | 4     | Integer   | Array length   |
+| 8..8+length\*12    | 4     | Integer   | X coordinate   |
+| 8..12+length\*12   | 4     | Integer   | Y coordinate   |
+| 8..16+length\*12   | 4     | Integer   | Z coordinate   |
+| 8..16+length\*16   | 4     | Integer   | W coordinate   |
+
+### 37: PoolColorArray
 
 | Offset             | Len   | Type      | Description                                                  |
 |--------------------|-------|-----------|--------------------------------------------------------------|

@@ -1,5 +1,4 @@
 
-
 # Input examples
 
 ## Introduction
@@ -11,9 +10,8 @@ turn those inputs into actions in your game. This document will show you some
 of the most common scenarios, which you can use as starting points for your
 own projects.
 
-Note:
- For a detailed overview of how Pandemonium's input event system works,
-          see `doc_inputevent`.
+Note: For a detailed overview of how Pandemonium's input event system works,
+see [this](01_inputevent.md).
 
 ## Events versus polling
 
@@ -25,8 +23,6 @@ event occurs. In the second case, Pandemonium provides the `Input`
 singleton, which you can use to query the state of an input.
 
 Examples:
-
-gdscript GDScript
 
 ```
 func _input(event):
@@ -52,8 +48,6 @@ Input events are objects that inherit from `InputEvent`.
 Depending on the event type, the object will contain specific properties
 related to that event. To see what events actually look like, add a Node and
 attach the following script:
-
-gdscript GDScript
 
 ```
 extends Node
@@ -83,20 +77,17 @@ consider `InputEventMouseButton`.
 It inherits from the following classes:
 
 - `InputEvent` - the base class for all input events
-- `InputEventWithModifiers` - adds the ability to check if modifiers are pressed, such as :kbd:`Shift` or :kbd:`Alt`.
+- `InputEventWithModifiers` - adds the ability to check if modifiers are pressed, such as `Shift` or `Alt`.
 - `InputEventMouse` - adds mouse event properties, such as `position`
 - `InputEventMouseButton` - contains the index of the button that was pressed, whether it was a double-click, etc.
 
-Tip:
- It's a good idea to keep the class reference open while you're working
-        with events so you can check the event type's available properties and
-        methods.
+Tip: It's a good idea to keep the class reference open while you're working
+with events so you can check the event type's available properties and
+methods.
 
 You can encounter errors if you try to access a property on an input type that
 doesn't contain it - calling `position` on `InputEventKey` for example. To
 avoid this, make sure to test the event type first:
-
-gdscript GDScript
 
 ```
 func _input(event):
@@ -121,8 +112,6 @@ Once you've defined your actions, you can process them in your scripts using
 `is_action_pressed()` and `is_action_released()` by passing the name of
 the action you're looking for:
 
-gdscript GDScript
-
 ```
 func _input(event):
     if event.is_action_pressed("my_action"):
@@ -134,9 +123,7 @@ func _input(event):
 Keyboard events are captured in `InputEventKey`.
 While it's recommended to use input actions instead, there may be cases where
 you want to specifically look at key events. For this example, let's check for
-the :kbd:`T`:
-
-gdscript GDScript
+the `T`:
 
 ```
 func _input(event):
@@ -145,33 +132,27 @@ func _input(event):
             print("T was pressed")
 ```
 
-Tip:
- See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
-        constants.
+Tip: See the `KeyList` enum for a list of scancode constants.
 
 Warning:
 
-
-    Due to *keyboard ghosting*, not all key inputs may be registered at a given time
-    if you press too many keys at once. Due to their location on the keyboard,
-    certain keys are more prone to ghosting than others. Some keyboards feature
-    antighosting at a hardware level, but this feature is generally
-    not present on low-end keyboards and laptop keyboards.
-
-    As a result, it's recommended to use a default keyboard layout that is designed to work well
-    on a keyboard without antighosting. See
-    `this Gamedev Stack Exchange question ( https://gamedev.stackexchange.com/a/109002 )`
-    for more information.
+- Due to *keyboard ghosting*, not all key inputs may be registered at a given time
+  if you press too many keys at once. Due to their location on the keyboard,
+  certain keys are more prone to ghosting than others. Some keyboards feature
+  antighosting at a hardware level, but this feature is generally
+  not present on low-end keyboards and laptop keyboards.
+- As a result, it's recommended to use a default keyboard layout that is designed to work well
+  on a keyboard without antighosting. See
+  [this Gamedev Stack Exchange question](https://gamedev.stackexchange.com/a/109002)
+  for more information.
 
 ### Keyboard modifiers
 
 Modifier properties are inherited from
 `InputEventWithModifiers`. This allows
 you to check for modifier combinations using boolean properties. Let's imagine
-you want one thing to happen when the :kbd:`T` is pressed, but something
-different when it's :kbd:`Shift + T`:
-
-gdscript GDScript
+you want one thing to happen when the `T` is pressed, but something
+different when it's `Shift + T`:
 
 ```
 func _input(event):
@@ -183,9 +164,7 @@ func _input(event):
                 print("T was pressed")
 ```
 
-Tip:
- See `@GlobalScope_KeyList ( enum_@GlobalScope_KeyList )` for a list of scancode
-        constants.
+Tip: See the `KeyList` enum for a list of scancode constants.
 
 ## Mouse events
 
@@ -196,13 +175,11 @@ means that all mouse events will contain a `position` property.
 
 ### Mouse buttons
 
-Capturing mouse buttons is very similar to handling key events. `@GlobalScope_ButtonList ( enum_@GlobalScope_ButtonList )`
+Capturing mouse buttons is very similar to handling key events. The `ButtonList` enum
 contains a list of `BUTTON_*` constants for each possible button, which will
 be reported in the event's `button_index` property. Note that the scrollwheel
 also counts as a button - two buttons, to be precise, with both
 `BUTTON_WHEEL_UP` and `BUTTON_WHEEL_DOWN` being separate events.
-
-gdscript GDScript
 
 ```
 func _input(event):
@@ -221,8 +198,6 @@ property.
 
 Here's an example using mouse events to drag-and-drop a `Sprite`
 node:
-
-gdscript GDScript
 
 ```
 extends Node
@@ -254,8 +229,8 @@ If you are using a touchscreen device, you can generate touch events.
 a mouse click event, and `InputEventScreenDrag`
 works much the same as mouse motion.
 
-Tip:
- To test your touch events on a non-touchscreen device, open Project
-        Settings and go to the "Input Devices/Pointing" section. Enable "Emulate
-        Touch From Mouse" and your project will interpret mouse clicks and
-        motion as touch events.
+Tip: To test your touch events on a non-touchscreen device, open Project
+Settings and go to the "Input Devices/Pointing" section. Enable "Emulate
+Touch From Mouse" and your project will interpret mouse clicks and
+motion as touch events.
+

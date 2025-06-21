@@ -1,18 +1,15 @@
 
-
 # Controllers, gamepads, and joysticks
 
 Pandemonium supports hundreds of controller models thanks to the community-sourced
-`SDL game controller database ( https://github.com/gabomdq/SDL_GameControllerDB )`.
+[SDL game controller database](https://github.com/gabomdq/SDL_GameControllerDB).
 
 Controllers are supported on Windows, macOS, Linux, Android, iOS, and HTML5.
 
 Note that more specialized devices such as steering wheels, rudder pedals and
-`HOTAS ( https://en.wikipedia.org/wiki/HOTAS )` are less tested and may not
+[HOTAS](https://en.wikipedia.org/wiki/HOTAS) are less tested and may not
 always work as expected. Overriding force feedback for those devices is also not
-implemented yet. If you have access to one of those devices, don't hesitate to
-`report bugs on GitHub
-( https://github.com/Relintai/pandemonium_engine/blob/master/CONTRIBUTING.md#reporting-bugs )`.
+implemented yet.
 
 In this guide, you will learn:
 
@@ -28,14 +25,11 @@ Instead of hardcoding keys or controller buttons in your scripts, you should
 create *input actions* in the Project Settings which will then refer to
 specified key and controller inputs.
 
-Input actions are explained in detail on the `doc_inputevent` page.
+Input actions are explained in detail on the [inputevent](01_inputevent.md) page.
 
-Note:
-
-
-    Unlike keyboard input, supporting both mouse and controller input for an
-    action (such as looking around in a first-person game) will require
-    different code paths since these have to be handled separately.
+Note: Unlike keyboard input, supporting both mouse and controller input for an
+action (such as looking around in a first-person game) will require
+different code paths since these have to be handled separately.
 
 #### Which Input singleton method should I use?
 
@@ -43,8 +37,6 @@ There are 3 ways to get input in an analog-aware way:
 
 - When you have two axes (such as joystick or WASD movement) and want both
   axes to behave as a single input, use `Input.get_vector()`:
-
-gdscript GDScript
 
 ```
 # `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
@@ -63,8 +55,6 @@ Input.get_action_strength("move_back") - Input.get_action_strength("move_forward
   flight stick), or when you want to handle separate axes individually,
   use `Input.get_axis()`:
 
-gdscript GDScript
-
 ```
 # `walk` will be a floating-point number between `-1.0` and `1.0`.
 var walk = Input.get_axis("move_left", "move_right")
@@ -76,8 +66,6 @@ var walk = Input.get_action_strength("move_right") - Input.get_action_strength("
 - For other types of analog input, such as handling a trigger or handling
   one direction at a time, use `Input.get_action_strength()`:
 
-gdscript GDScript
-
 ```
 # `strength` will be a floating-point number between `0.0` and `1.0`.
 var strength = Input.get_action_strength("accelerate")
@@ -86,8 +74,6 @@ var strength = Input.get_action_strength("accelerate")
 For non-analog digital/boolean input (only "pressed" or "not pressed" values),
 such as controller buttons, mouse buttons or keyboard keys,
 use `Input.is_action_pressed()`:
-
-gdscript GDScript
 
 ```
 # `jumping` will be a boolean with a value of `true` or `false`.
@@ -145,45 +131,39 @@ with the help of a `Timer` node.
 
 ## Troubleshooting
 
-See also:
-
-    You can view a list of
-    `known issues with controller support ( https://github.com/Relintai/pandemonium_engine/issues?q=is%3Aopen+is%3Aissue+label%3Atopic%3Ainput+gamepad )`
-    on GitHub.
-
 #### My controller isn't recognized by Pandemonium.
 
 First, check that your controller is recognized by other applications. You can
-use the `Gamepad Tester ( https://gamepad-tester.com/ )` website to confirm that
+use the [Gamepad Tester](https://gamepad-tester.com/) website to confirm that
 your controller is recognized.
 
 #### My controller has incorrectly mapped buttons or axes.
 
 If buttons are incorrectly mapped, this may be due to an erroneous mapping from
-the `SDL game controller database ( https://github.com/gabomdq/SDL_GameControllerDB )`.
+the [SDL game controller database](https://github.com/gabomdq/SDL_GameControllerDB).
 You can contribute an updated mapping to be included in the next Pandemonium version
 by opening a pull request on the linked repository.
 
 There are many ways to create mappings. One option is to use the mapping wizard
-in the `official Joypads demo ( https://pandemoniumengine.org/asset-library/asset/140 )`.
+in the [Joypads demo](../../07_demo_projects/misc/joypads/).
 Once you have a working mapping for your controller, you can test it by defining
 the `SDL_GAMECONTROLLERCONFIG` environment variable before running Pandemonium:
 
-bash Linux/macOS
+bash Linux/macOS:
 
 ```
 export SDL_GAMECONTROLLERCONFIG="your:mapping:here"
 ./path/to/pandemonium.x86_64
 ```
 
-bat Windows (cmd)
+bat Windows (cmd):
 
 ```
 set SDL_GAMECONTROLLERCONFIG=your:mapping:here
 path\to\pandemonium.exe
 ```
 
-powershell Windows (powershell)
+powershell Windows (powershell):
 
 ```
 $env:SDL_GAMECONTROLLERCONFIG="your:mapping:here"
@@ -211,6 +191,4 @@ The quality of controller support tends to vary wildly across browsers. As a
 result, you may have to instruct your players to use a different browser if they
 can't get their controller to work.
 
-Also, note that
-`controller support was significantly improved ( https://github.com/Relintai/pandemonium_engine/pull/45078 )`
-in Pandemonium 3.3 and later.
+

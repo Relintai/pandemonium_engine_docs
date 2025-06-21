@@ -1,5 +1,4 @@
 
-
 # Using InputEvent
 
 ## What is it?
@@ -11,8 +10,6 @@ events. Input events travel through the engine and can be received in
 multiple locations, depending on the purpose.
 
 Here is a quick example, closing your game if the escape key is hit:
-
-gdscript GDScript
 
 ```
 func _unhandled_input(event):
@@ -27,9 +24,7 @@ you can define multiple keys for the same action (e.g. the keyboard escape key a
 You can then more easily change this mapping in the project settings without updating your code,
 and even build a key mapping feature on top of it to allow your game to change the key mapping at runtime!
 
-You can set up your InputMap under **Project > Project Settings > Input Map** and then use those actions like this:
-
-gdscript GDScript
+You can set up your InputMap under **Project &gt; Project Settings &gt; Input Map** and then use those actions like this:
 
 ```
 func _process(delta):
@@ -44,8 +39,7 @@ possible to generate an InputEvent and feed them back to the engine,
 which is useful for gestures). The OS object for each platform will read
 events from the device, then feed them to MainLoop. As `SceneTree`
 is the default MainLoop implementation, events are fed to it. Pandemonium
-provides a function to get the current SceneTree object :
-**get_tree()**.
+provides a function to get the current SceneTree object: **get_tree()**.
 
 But SceneTree does not know what to do with the event, so it will give
 it to the viewports, starting by the "root" `Viewport` (the first
@@ -150,8 +144,6 @@ from the game code (a good example of this is detecting gestures).
 The Input singleton has a method for this:
 `Input.parse_input_event()`. You would normally use it like this:
 
-gdscript GDScript
-
 ```
 var ev = InputEventAction.new()
 # Set as move_left, pressed.
@@ -169,3 +161,4 @@ ideal for reassigning or creating different actions at run-time. This
 singleton is not saved (must be modified manually) and its state is run
 from the project settings (project.pandemonium). So any dynamic system of this
 type needs to store settings in the way the programmer best sees fit.
+

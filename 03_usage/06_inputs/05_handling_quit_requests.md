@@ -16,18 +16,13 @@ sent to all nodes when quitting is requested.
 
 On Android, `MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST` is sent instead.
 Pressing the Back button will exit the application if
-**Application > Config > Quit On Go Back** is checked in the Project Settings
+**Application &gt; Config &gt; Quit On Go Back** is checked in the Project Settings
 (which is the default).
 
-Note:
-
-
-    `MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST` isn't supported on iOS, as
-    iOS devices don't have a physical Back button.
+Note: `MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST` isn't supported on iOS, as
+iOS devices don't have a physical Back button.
 
 Handling the notification is done as follows (on any node):
-
-gdscript GDScript
 
 ```
 func _notification(what):
@@ -41,8 +36,6 @@ on the main screen, so the behavior can be changed.
 It is important to note that by default, Pandemonium apps have the built-in
 behavior to quit when quit is requested, this can be changed:
 
-gdscript GDScript
-
 ```
 get_tree().set_auto_accept_quit(false)
 ```
@@ -54,12 +47,11 @@ doing so will not send the quit *notification*. This means the function
 described above won't be called. Quitting by calling
 `SceneTree.quit` will not allow custom actions
 to complete (such as saving, confirming the quit, or debugging), even if you try
-to delay the line that forces the quit. 
+to delay the line that forces the quit.
 
 Instead, you should send a quit request:
-
-gdscript GDScript
 
 ```
 get_tree().notification(MainLoop.NOTIFICATION_WM_QUIT_REQUEST)
 ```
+

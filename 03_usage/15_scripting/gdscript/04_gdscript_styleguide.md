@@ -1,5 +1,4 @@
 
-
 # GDScript style guide
 
 This style guide lists conventions to write elegant GDScript. The goal is to
@@ -8,7 +7,7 @@ discussions, and tutorials. Hopefully, this will also support the development of
 auto-formatting tools.
 
 Since GDScript is close to Python, this guide is inspired by Python's
-`PEP 8 ( https://www.python.org/dev/peps/pep-0008/ )` programming
+[PEP 8](https://www.python.org/dev/peps/pep-0008/) programming
 style guide.
 
 Style guides aren't meant as hard rulebooks. At times, you may not be able to
@@ -18,9 +17,8 @@ and ask fellow developers for insights.
 In general, keeping your code consistent in your projects and within your team is
 more important than following this guide to a tee.
 
-Note:
- Pandemonium's built-in script editor uses a lot of these conventions
-          by default. Let it help you.
+Note: Pandemonium's built-in script editor uses a lot of these conventions
+by default. Let it help you.
 
 Here is a complete class example based on these guidelines:
 
@@ -95,7 +93,7 @@ func _on_state_changed(previous, new):
 
 * Use line feed (**LF**) characters to break lines, not CRLF or CR. *(editor default)*
 * Use one line feed character at the end of each file. *(editor default)*
-* Use **UTF-8** encoding without a `byte order mark ( https://en.wikipedia.org/wiki/Byte_order_mark )`. *(editor default)*
+* Use **UTF-8** encoding without a [byte order mark](https://en.wikipedia.org/wiki/Byte_order_mark). *(editor default)*
 * Use **Tabs** instead of spaces for indentation. *(editor default)*
 
 ### Indentation
@@ -248,9 +246,8 @@ func take_damage(amount, effect=null):
 
 Use one blank line inside functions to separate logical sections.
 
-Note:
- We use a single line between classes and function definitions in the class reference and
-          in short code snippets in this documentation.
+Note: We use a single line between classes and function definitions in the class reference and
+in short code snippets in this documentation.
 
 ### Line length
 
@@ -357,10 +354,10 @@ if (is_colliding()):
 
 ### Boolean operators
 
-Prefer the plain English versions of boolean operators, as they are the most accessible:
+Prefer the symbol versions of boolean operators:
 
-- Use `and` instead of `&&`.
-- Use `or` instead of `||`.
+- Use `&&` instead of `and`.
+- Use `||` instead of `or`.
 
 You may also use parentheses around boolean operators to clear any ambiguity.
 This can make long expressions easier to read.
@@ -368,14 +365,14 @@ This can make long expressions easier to read.
 **Good**:
 
 ```
-if (foo and bar) or baz:
+if foo && bar || baz:
     print("condition is true")
 ```
 
 **Bad**:
 
 ```
-if foo && bar || baz:
+if (foo and bar) or baz:
     print("condition is true")
 ```
 
@@ -398,12 +395,9 @@ This helps differentiate text comments from disabled code.
 # print("This is disabled code")
 ```
 
-Note:
-
-
-   In the script editor, to toggle the selected code commented, press
-   :kbd:`Ctrl + K`. This feature adds a single # sign at the start
-   of the selected lines.
+Note: In the script editor, to toggle the selected code commented, press
+`Ctrl + K`. This feature adds a single # sign at the start
+of the selected lines.
 
 ### Whitespace
 
@@ -509,8 +503,6 @@ var large_bin_number = 0b110100101010
 var small_number = 12_345
 ```
 
-.. _naming_conventions:
-
 ## Naming conventions
 
 These naming conventions follow the Pandemonium Engine style. Breaking these will make
@@ -553,14 +545,14 @@ const Weapon = preload("res://weapon.gd")
 
 ### Functions and variables
 
-Use snake\_case to name functions and variables:
+Use snake_case to name functions and variables:
 
 ```
 var particle_effect
 func load_level():
 ```
 
-Prepend a single underscore (\_) to virtual methods functions the user must
+Prepend a single underscore (_) to virtual methods functions the user must
 override, private functions, and private variables:
 
 ```
@@ -579,14 +571,14 @@ signal score_changed
 
 ### Constants and enums
 
-Write constants with CONSTANT\_CASE, that is to say in all caps with an
-underscore (\_) to separate words:
+Write constants with CONSTANT_CASE, that is to say in all caps with an
+underscore (_) to separate words:
 
 ```
 const MAX_SPEED = 200
 ```
 
-Use PascalCase for enum *names* and CONSTANT\_CASE for their members, as they
+Use PascalCase for enum *names* and CONSTANT_CASE for their members, as they
 are constants:
 
 ```
@@ -620,11 +612,11 @@ We suggest to organize GDScript code this way:
 10. private variables
 11. onready variables
 
-12. optional built-in virtual _init method
-13. built-in virtual _ready method
-14. remaining built-in virtual methods
-15. public methods
-16. private methods
+12. public methods
+13. private methods
+14. optional built-in virtual _init method
+15. built-in virtual _ready method
+16. remaining built-in virtual methods
 ```
 
 We optimized the order to make it easy to read the code from top to bottom, to
@@ -647,8 +639,7 @@ If the code is meant to run in the editor, place the `tool` keyword on the
 first line of the script.
 
 Follow with the `name` if necessary. You can turn a GDScript file into a
-global type in your project using this feature. For more information, see
-`doc_gdscript`.
+global type in your project using this feature.
 
 Then, add the `extends` keyword if the class extends a built-in type.
 
@@ -694,13 +685,10 @@ onready var gun = get_node("Gun")
 ```
 
 
-Note:
-
-
-   The GDScript compiler evaluates onready variables right before the `ready`
-   callback. You can use that to cache node dependencies, that is to say, to get
-   child nodes in the scene that your class relies on. This is what the example
-   above shows.
+Note: The GDScript compiler evaluates onready variables right before the `ready`
+callback. You can use that to cache node dependencies, that is to say, to get
+child nodes in the scene that your class relies on. This is what the example
+above shows.
 
 ### Member variables
 
@@ -767,17 +755,15 @@ func _on_state_changed(previous, new):
 
 ## Static typing
 
-Since Pandemonium 3.1, GDScript supports `optional static typing( doc_gdscript_static_typing )`.
-
 ### Declared types
 
-To declare a variable's type, use `&lt;variable&gt;: &lt;type&gt;`:
+To declare a variable's type, use `<variable>: <type>`:
 
 ```
 var health: int = 0
 ```
 
-To declare the return type of a function, use `-> &lt;type&gt;`:
+To declare the return type of a function, use `-> <type>`:
 
 ```
 func heal(amount: int) -> void:
@@ -805,14 +791,12 @@ onready var health_bar: ProgressBar = get_node("UI/LifeBar")
 Alternatively, you can use the `as` keyword to cast the return type, and
 that type will be used to infer the type of the var.
 
-.. rst-class: code-example-good
-
 ```
 onready var health_bar := get_node("UI/LifeBar") as ProgressBar
 # health_bar will be typed as ProgressBar
 ```
 
-This option is also considered more `type-safe( doc_gdscript_static_typing_safe_lines )` than the first.
+This option is also considered more type-safe than the first.
 
 **Bad**:
 
@@ -821,3 +805,4 @@ This option is also considered more `type-safe( doc_gdscript_static_typing_safe_
 # instead of ProgressBar.
 onready var health_bar := get_node("UI/LifeBar")
 ```
+

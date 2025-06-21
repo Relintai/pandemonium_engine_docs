@@ -1,5 +1,4 @@
 
-
 # Pausing games and process mode
 
 ## Introduction
@@ -15,8 +14,6 @@ Pandemonium.
 To pause the game the pause state must be set. This is done by assigning
 `true` to the `SceneTree.paused` property:
 
-gdscript GDScript
-
 ```
 get_tree().paused = true
 ```
@@ -25,9 +22,7 @@ Doing this will cause two things. First, 2D and 3D physics will be stopped
 for all nodes. Second, the behavior of certain nodes will stop or start
 depending on their process mode.
 
-Note:
- The physics servers can be made active while the game is
-          paused by using their `set_active` methods.
+Note: The physics servers can be made active while the game is paused by using their `set_active` methods.
 
 ## Process Modes
 
@@ -38,14 +33,12 @@ be found and changed under a node's `Node` properties in the inspector.
 
 You can also alter the property with code:
 
-gdscript GDScript
-
 ```
 func _ready():
     pause_mode = Node.PAUSE_MODE_PROCESS
 ```
 
-This is what each mode tells a node to do:  
+This is what each mode tells a node to do:
 
 -  **Inherit**: Process depending on the state of the parent,
    grandparent, etc. The first parent that has a non-Inherit state.
@@ -85,21 +78,17 @@ working when paused.
 Finally, make it so when a pause button is pressed (any button will do),
 enable the pause and show the pause screen.
 
-gdscript GDScript
-
 ```
 func _on_pause_button_pressed():
     get_tree().paused = true
     $pause_popup.show()
 ```
 
-To unpause, do the opposite when the pause screen is
-closed:
-
-gdscript GDScript
+To unpause, do the opposite when the pause screen is closed:
 
 ```
 func _on_pause_popup_close_pressed():
     $pause_popup.hide()
     get_tree().paused = false
 ```
+

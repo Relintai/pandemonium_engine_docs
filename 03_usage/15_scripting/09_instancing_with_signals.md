@@ -14,12 +14,10 @@ Below we'll consider an example of such a situation: firing bullets.
 
 Consider a player character that can rotate and shoot towards the mouse. Every
 time the mouse button is clicked, we create an instance of the bullet at the
-player's location. See `doc_instancing` for details.
+player's location.
 
 We'll use an `Area2D` for the bullet, which moves in a straight line at a
 given velocity:
-
-gdscript GDScript
 
 ```
 extends Area2D
@@ -43,8 +41,6 @@ scene, which may be the player's parent or even further up the tree.
 
 You could do this by adding the bullet to the main scene directly:
 
-gdscript GDScript
-
 ```
 var bullet_instance = Bullet.instance()
 get_parent().add_child(bullet_instance)
@@ -63,8 +59,6 @@ whatever node is connected to the signal can "receive" the bullets and take the
 appropriate action to spawn them.
 
 Here is the code for the player using signals to emit the bullet:
-
-gdscript GDScript
 
 ```
 extends Sprite
@@ -85,8 +79,6 @@ func _process(delta):
 In the main scene, we then connect the player's signal (it will appear in the
 "Node" tab).
 
-gdscript GDScript
-
 ```
 func _on_Player_shoot(Bullet, direction, location):
     var b = Bullet.instance()
@@ -100,3 +92,4 @@ Now the bullets will maintain their own movement independent of the player's
 rotation:
 
 ![](img/signals_shoot2.gif)
+

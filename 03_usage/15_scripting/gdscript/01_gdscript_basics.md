@@ -1,23 +1,19 @@
 
-
 # GDScript basics
 
 ## Introduction
 
 *GDScript* is a high-level, dynamically typed programming language used to
 create content. It uses a syntax similar to
-`Python ( https://en.wikipedia.org/wiki/Python_%28programming_language%29 )`
+[Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
 (blocks are indent-based and many keywords are similar). Its goal is
 to be optimized for and tightly integrated with Pandemonium Engine, allowing great
 flexibility for content creation and integration.
 
 ### History
 
-Note:
-
-
-    Documentation about GDScript's history has been moved to the
-    `Frequently Asked Questions ( doc_faq_what_is_gdscript )`.
+Documentation about GDScript's history has been moved to the
+[Frequently Asked Questions](../../../01_about/02_faq.md).
 
 ### Example of GDScript
 
@@ -105,10 +101,6 @@ func _init():
     print(lv.a)
 ```
 
-If you have previous experience with statically typed languages such as
-C, C++, or C# but never used a dynamically typed one before, it is advised you
-read this tutorial: `doc_gdscript_more_efficiently`.
-
 ## Language
 
 In the following, an overview is given to GDScript. Details, such as which
@@ -129,7 +121,7 @@ keywords are reserved words (tokens), they can't be used as identifiers.
 Operators (like `in`, `not`, `and` or `or`) and names of built-in types
 as listed in the following sections are also reserved.
 
-Keywords are defined in the `GDScript tokenizer ( https://github.com/Relintai/pandemonium_engine/blob/master/modules/gdscript/gdscript_tokenizer.cpp )`
+Keywords are defined in the [GDScript tokenizer](https://github.com/Relintai/pandemonium_engine/blob/master/modules/gdscript/gdscript_tokenizer.cpp)
 in case you want to take a look under the hood.
 
 
@@ -165,12 +157,6 @@ in case you want to take a look under the hood.
 | preload    | Preloads a class or variable. See `Classes as resources`.                                                     |
 | yield      | Coroutine support. See `Coroutines with yield`.                                                               |
 | assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`.                |
-| remote     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
-| master     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
-| puppet     | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
-| remotesync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
-| mastersync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
-| puppetsync | Networking RPC annotation. See `high-level multiplayer docs ( doc_high_level_multiplayer )`.                  |
 | PI         | PI constant.                                                                                                  |
 | TAU        | TAU constant.                                                                                                 |
 | INF        | Infinity constant. Used for comparisons.                                                                      |
@@ -229,7 +215,8 @@ The following is the list of supported operators and their precedence.
 | `3.14`, `58.1e-10`       | Floating-point number (real)           |
 | `"Hello"`, `"Hi"`        | Strings                                |
 | `"""Hello"""`            | Multiline string                       |
-| `@"Node/Label"`          | `NodePath` or StringName               |
+| `^"Node"`          | `NodePath`                           |
+| `@"Label"`          | StringName               |
 | `$NodePath`              | Shorthand for `get_node("NodePath")`   |
 
 
@@ -259,7 +246,7 @@ considered a comment.
 
 Built-in types are stack-allocated. They are passed as values. This means a copy
 is created on each assignment or when passing them as arguments to functions.
-The only exceptions are `Array`\ s and `Dictionaries`, which are passed by
+The only exceptions are `Array`s and `Dictionaries`, which are passed by
 reference so they are shared. (Pooled arrays such as `PoolByteArray` are still
 passed as values.)
 
@@ -293,7 +280,6 @@ PoolRealArray store 32-bit single-precision "float" values.
 A sequence of characters in `Unicode format ( https://en.wikipedia.org/wiki/Unicode )`.
 Strings can contain the following escape sequences:
 
-
 | **Escape sequence** | **Expands to**                  |
 |---------------------|---------------------------------|
 | `\n`                | Newline (line feed)             |
@@ -314,24 +300,46 @@ GDScript also supports `doc_gdscript_printf`.
 
 ### Vector built-in types
 
+#### `Rect2`
+
+2D Rectangle type containing two vectors fields: `position` and `size`.
+Also contains an `end` field which is `position + size`.
+
+#### `Rect2i`
+
+2D integer Rectangle type containing two vectors fields: `position` and `size`.
+Also contains an `end` field which is `position + size`.
+
 #### `Vector2`
 
 2D vector type containing `x` and `y` fields. Can also be
 accessed as an array.
 
-#### `Rect2`
+#### `Vector2i`
 
-2D Rectangle type containing two vectors fields: `position` and `size`.
-Also contains an `end` field which is `position + size`.
+2D integer vector type containing `x` and `y` fields. Can also be
+accessed as an array.
 
 #### `Vector3`
 
 3D vector type containing `x`, `y` and `z` fields. This can also
 be accessed as an array.
 
-#### `Transform2D`
+#### `Vector3i`
 
-3×2 matrix used for 2D transforms.
+3D integer vector type containing `x`, `y` and `z` fields. This can also
+be accessed as an array.
+
+#### `Vector4`
+
+4D vector type containing `x`, `y`, `z` and `w` fields. This can also
+be accessed as an array.
+
+#### `Vector4i`
+
+4D integer vector type containing `x`, `y`, `z`, and `w` fields. This can also
+be accessed as an array.
+
 
 #### `Plane`
 
@@ -360,6 +368,14 @@ vectors.
 3D Transform contains a Basis field `basis` and a Vector3 field
 `origin`.
 
+#### `Transform2D`
+
+3×2 matrix used for 2D transforms.
+
+#### `Projection`
+
+4×4 matrix used for 3D projections.
+
 ### Engine built-in types
 
 #### `Color`
@@ -379,6 +395,11 @@ Resource ID (RID). Servers use generic RIDs to reference opaque data.
 #### `Object`
 
 Base class for anything that is not a built-in type.
+
+#### `StringName`
+
+A label for fast comparisons.
+It can be easily assigned to, and from, a String.
 
 ### Container built-in types
 
@@ -411,7 +432,11 @@ arrays. They are therefore only recommended to use for large data sets:
 - `PoolRealArray`: An array of floats.
 - `PoolStringArray`: An array of strings.
 - `PoolVector2Array` objects.
+- `PoolVector2iArray` objects.
 - `PoolVector3Array` objects.
+- `PoolVector3iArray` objects.
+- `PoolVector4Array` objects.
+- `PoolVector4iArray` objects.
 - `PoolColorArray` objects.
 
 #### `Dictionary`
@@ -593,12 +618,9 @@ const B: Vector2 = Vector2()
 
 Assigning a value of an incompatible type will raise an error.
 
-Note:
-
-
-    Since arrays and dictionaries are passed by reference, constants are "flat".
-    This means that if you declare a constant array or dictionary, it can still
-    be modified afterwards. They can't be reassigned with another value though.
+Note: Since arrays and dictionaries are passed by reference, constants are "flat".
+This means that if you declare a constant array or dictionary, it can still
+be modified afterwards. They can't be reassigned with another value though.
 
 #### Enums
 
@@ -608,10 +630,9 @@ want to assign consecutive integers to some constant.
 If you pass a name to the enum, it will put all the keys inside a constant
 dictionary of that name.
 
-.. important:: In Pandemonium 3.1 and later, keys in a named enum are not registered
-               as global constants. They should be accessed prefixed by the
-               enum's name (`Name.KEY`); see an example below.
-
+Important: Keys in a named enum are not registered
+as global constants. They should be accessed prefixed by the
+enum's name (`Name.KEY`); see an example below.
 
 ```
 enum {TILE_BRICK, TILE_FLOOR, TILE_SPIKE, TILE_TELEPORT}
@@ -679,14 +700,12 @@ func void_function() -> void:
     return # Can't return a value
 ```
 
-Note:
-
- Non-void functions must **always** return a value, so if your code has
-          branching statements (such as an `if`/`else` construct), all the
-          possible paths must have a return. E.g., if you have a `return`
-          inside an `if` block but not after it, the editor will raise an
-          error because if the block is not executed, the function won't have a
-          valid value to return.
+Note: Non-void functions must **always** return a value, so if your code has
+branching statements (such as an `if`/`else` construct), all the
+possible paths must have a return. E.g., if you have a `return`
+inside an `if` block but not after it, the editor will raise an
+error because if the block is not executed, the function won't have a
+valid value to return.
 
 #### Referencing functions
 
@@ -878,8 +897,7 @@ You can use `continue` to stop execution in the current block and check for an a
 
 There are 6 pattern types:
 
-- Constant pattern
-    Constant primitives, like numbers and strings
+- Constant pattern: Constant primitives, like numbers and strings
 
 ```
 match x:
@@ -892,8 +910,7 @@ match x:
 ```
 
 
-- Variable pattern
-    Matches the contents of a variable/enum
+- Variable pattern: Matches the contents of a variable/enum
 
 ```
 match typeof(x):
@@ -906,10 +923,8 @@ match typeof(x):
 ```
 
 
-- Wildcard pattern
-    This pattern matches everything. It's written as a single underscore.
-
-    It can be used as the equivalent of the `default` in a `switch` statement in other languages
+- Wildcard pattern: This pattern matches everything. It's written as a single underscore.
+  It can be used as the equivalent of the `default` in a `switch` statement in other languages
 
 ```
 match x:
@@ -922,9 +937,9 @@ match x:
 ```
 
 
-- Binding pattern
-    A binding pattern introduces a new variable. Like the wildcard pattern, it matches everything - and also gives that value a name.
-    It's especially useful in array and dictionary patterns
+- Binding pattern: A binding pattern introduces a new variable. Like the wildcard
+  pattern, it matches everything - and also gives that value a name.
+  It's especially useful in array and dictionary patterns
 
 ```
 match x:
@@ -937,15 +952,11 @@ match x:
 ```
 
 
-- Array pattern
-    Matches an array. Every single element of the array pattern is a pattern itself, so you can nest them.
-
-    The length of the array is tested first, it has to be the same size as the pattern, otherwise the pattern doesn't match.
-
-    **Open-ended array**: An array can be bigger than the pattern by making the last subpattern `..`.
-
-    Every subpattern has to be comma-separated.
-
+- Array pattern:
+  - Matches an array. Every single element of the array pattern is a pattern itself, so you can nest them.
+  - The length of the array is tested first, it has to be the same size as the pattern, otherwise the pattern doesn't match.
+  - **Open-ended array**: An array can be bigger than the pattern by making the last subpattern `..`.
+  - Every subpattern has to be comma-separated.
 
 ```
 match x:
@@ -959,18 +970,13 @@ match x:
         print("Open ended array")
 ```
 
-- Dictionary pattern
-    Works in the same way as the array pattern. Every key has to be a constant pattern.
-
-    The size of the dictionary is tested first, it has to be the same size as the pattern, otherwise the pattern doesn't match.
-
-    **Open-ended dictionary**: A dictionary can be bigger than the pattern by making the last subpattern `..`.
-
-    Every subpattern has to be comma separated.
-
-    If you don't specify a value, then only the existence of the key is checked.
-
-    A value pattern is separated from the key pattern with a `:`.
+- Dictionary pattern:
+  - Works in the same way as the array pattern. Every key has to be a constant pattern.
+  - The size of the dictionary is tested first, it has to be the same size as the pattern, otherwise the pattern doesn't match.
+  - **Open-ended dictionary**: A dictionary can be bigger than the pattern by making the last subpattern `..`.
+  - Every subpattern has to be comma separated.
+  - If you don't specify a value, then only the existence of the key is checked.
+  - A value pattern is separated from the key pattern with a `:`.
 
 
 ```
@@ -987,8 +993,7 @@ match x:
         print("I only checked for one entry and ignored the rest")
 ```
 
-- Multiple patterns
-    You can also specify multiple patterns separated by a comma. These patterns aren't allowed to have any bindings in them.
+- Multiple patterns: You can also specify multiple patterns separated by a comma. These patterns aren't allowed to have any bindings in them.
 
 
 ```
@@ -1034,13 +1039,10 @@ class_name Item, "res://interface/icons/item.png)"
 
 ![](img/class_name_editor_register_example.png)
 
-Warning:
-
-
-    If the script is located in the `res://addons/` directory, `name`
-    will only cause the node to show up in the **Create New Node** dialog if
-    the script is part of an *enabled* editor plugin. See `doc_making_plugins`
-    for more information.
+Warning: If the script is located in the `res://addons/` directory, `name`
+will only cause the node to show up in the **Create New Node** dialog if
+the script is part of an *enabled* editor plugin. See `doc_making_plugins`
+for more information.
 
 Here's a class file example:
 
@@ -1065,13 +1067,12 @@ func print_this_script_three_times():
 ```
 
 
-Note:
- Pandemonium's class syntax is compact: it can only contain member variables or
-          functions. You can use static functions, but not static member variables. In the
-          same way, the engine initializes variables every time you create an instance,
-          and this includes arrays and dictionaries. This is in the spirit of thread
-          safety, since scripts can be initialized in separate threads without the user
-          knowing.
+Note: Pandemonium's class syntax is compact: it can only contain member variables or
+functions. You can use static functions, but not static member variables. In the
+same way, the engine initializes variables every time you create an instance,
+and this includes arrays and dictionaries. This is in the spirit of thread
+safety, since scripts can be initialized in separate threads without the user
+knowing.
 
 #### Inheritance
 
@@ -1128,11 +1129,10 @@ func some_func(x):
     .some_func(x) # Calls the same function on the parent class.
 ```
 
-Note:
- Default functions like  `init`, and most notifications such as
-          `enter_tree`, `exit_tree`, `process`, `physics_process`,
-          etc. are called in all parent classes automatically.
-          There is no need to call them explicitly when overloading them.
+Note: Default functions like  `init`, and most notifications such as
+`enter_tree`, `exit_tree`, `process`, `physics_process`,
+etc. are called in all parent classes automatically.
+There is no need to call them explicitly when overloading them.
 
 
 #### Class constructor
@@ -1244,10 +1244,7 @@ func _init():
 
 ### Exports
 
-Note:
-
-
-    Documentation about exports has been moved to `doc_gdscript_exports`.
+Note: Documentation about exports has been moved to [here](03_gdscript_exports.md).
 
 ### Setters/getters
 
@@ -1289,7 +1286,7 @@ var my_var = 5 setget my_var_set
 var my_var = 5 setget ,my_var_get
 ```
 
-Setters and getters are useful when `exporting variables ( doc_gdscript_exports )`
+Setters and getters are useful when [exporting variables](03_gdscript_exports.md)
 to the editor in tool scripts or plugins, for validating input.
 
 As said, *local* access will *not* trigger the setter and getter. Here is an
@@ -1327,14 +1324,12 @@ func _ready():
 
 ```
 
-See `doc_running_code_in_the_editor` for more information.
+See [running code in the editor](../../19_plugins/01_running_code_in_the_editor.md) for more information.
 
-Warning:
- Be cautious when freeing nodes with `queue_free()` or `free()`
-             in a tool script (especially the script's owner itself). As tool
-             scripts run their code in the editor, misusing them may lead to
-             crashing the editor.
-
+Warning: Be cautious when freeing nodes with `queue_free()` or `free()`
+in a tool script (especially the script's owner itself). As tool
+scripts run their code in the editor, misusing them may lead to
+crashing the editor.
 
 
 ### Memory management
@@ -1382,15 +1377,10 @@ extends Node
 signal health_depleted
 ```
 
-Note:
-
-
-   Signals are a `Callback
-   ( https://en.wikipedia.org/wiki/Callback_(computer_programming) )`
-   mechanism. They also fill the role of Observers, a common programming
-   pattern. For more information, read the `Observer tutorial
-   ( https://gameprogrammingpatterns.com/observer.html )` in the
-   Game Programming Patterns ebook.
+Note: Signals are a [Callback](https://en.wikipedia.org/wiki/Callback_(computer_programming))
+mechanism. They also fill the role of Observers, a common programming
+pattern. For more information, read the [Observer tutorial](https://gameprogrammingpatterns.com/observer.html) in the
+Game Programming Patterns ebook.
 
 You can connect these signals to methods the same way you connect built-in
 signals of nodes like `Button` or `RigidBody`.
@@ -1459,11 +1449,8 @@ func _on_Character_health_changed(old_value, new_value):
 ...
 ```
 
-Note:
-
-
-    To use signals, your class has to extend the `Object` class or any
-    type extending it like `Node`, `KinematicBody`, `Control`...
+Note: To use signals, your class has to extend the `Object` class or any
+type extending it like `Node`, `KinematicBody`, `Control`...
 
 In the `Game` node, we get both the `Character` and `Lifebar` nodes, then
 connect the character, that emits the signal, to the receiver, the `Lifebar`
@@ -1538,8 +1525,8 @@ func _on_Character_health_changed(old_value, new_value, character_name):
 
 ### Coroutines with yield
 
-GDScript offers support for `coroutines ( https://en.wikipedia.org/wiki/Coroutine )`
-via the `yield( @GDScript_method_yield )` built-in function. Calling `yield()` will
+GDScript offers support for [coroutines](https://en.wikipedia.org/wiki/Coroutine)
+via the `yield` built-in function. Calling `yield()` will
 immediately return from the current function, with the current frozen
 state of the same function as the return value. Calling `resume()` on
 this resulting object will continue execution and return whatever the
@@ -1594,7 +1581,7 @@ world
 cheers!
 ```
 
-Remember to save the new function state, when using multiple `yield`\s
+Remember to save the new function state, when using multiple `yield`s
 
 ```
 func co_func():
@@ -1743,3 +1730,4 @@ assert(i == 0)
 
 When running a project from the editor, the project will be paused if an
 assertion error occurs.
+

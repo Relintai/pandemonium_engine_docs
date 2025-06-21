@@ -1,5 +1,4 @@
 
-
 # Debugger panel
 
 Many of Pandemonium's debugging tools, including the debugger, can be found in the
@@ -14,7 +13,7 @@ The debugger panel is split into several tabs, each focusing on a specific task.
 The Debugger tab opens automatically when the GDScript compiler reaches
 a breakpoint in your code.
 
-It gives you a `stack trace ( https://en.wikipedia.org/wiki/Stack_trace )`,
+It gives you a [stack trace](https://en.wikipedia.org/wiki/Stack_trace),
 information about the state of the object, and buttons to control
 the program's execution.
 
@@ -30,18 +29,11 @@ You can use the buttons in the top-right corner to:
 - **Break**. This button pauses the game's execution.
 - **Continue**. This button resumes the game after a breakpoint or pause.
 
-Warning:
-
-
-    Breakpoints won't break on code if it's
-    `running in a thread ( doc_using_multiple_threads )`.
-    This is a current limitation of the GDScript debugger.
-
 #### Errors
 
 This is where error and warning messages are printed while running the game.
 
-You can disable specific warnings in **Project Settings > Debug > GDScript**.
+You can disable specific warnings in **Project Settings &gt; Debug &gt; GDScript**.
 
 #### Profiler
 
@@ -102,3 +94,4 @@ at runtime:
 
 - **Clicked Control** tells you where the clicked node is in the scene tree.
 - **Clicked Control Type** tells you the type of the node you clicked is.
+

@@ -1,5 +1,4 @@
 
-
 # GDScript exports
 
 ## Introduction to exports
@@ -24,13 +23,8 @@ them visible and editable in the editor. This way, artists and game designers
 can modify values that later influence how the program runs. For this, a
 special export syntax is provided.
 
-Note:
-
-    Exporting properties can also be done in other languages such as C#.
-    The syntax varies depending on the language.
-
-..
-   See  ref `doc_c_sharp_exports` for information on C# exports.
+Note: Exporting properties can also be done in other languages such as C#.
+The syntax varies depending on the language.
 
 ## Examples
 
@@ -137,7 +131,7 @@ export(AnimationNode) var resource
 
 It must be noted that even if the script is not being run while in the
 editor, the exported properties are still editable. This can be used
-in conjunction with a `script in "tool" mode ( doc_gdscript_tool_mode )`.
+in conjunction with a script in "tool" mode.
 
 ## Exporting bit flags
 
@@ -211,7 +205,7 @@ var c = [a, 2, 3]
 ## Setting exported variables from a tool script
 
 When changing an exported variable's value from a script in
-`doc_gdscript_tool_mode`, the value in the inspector won't be updated
+tool mode, the value in the inspector won't be updated
 automatically. To update it, call
 `property_list_changed_notify()`
 after setting the exported variable's value.
@@ -224,16 +218,10 @@ common exporting features which can be implemented with a low-level API.
 
 Before reading further, you should get familiar with the way properties are
 handled and how they can be customized with
-`set()`, `get()`, and `get_property_list()` methods as
-described in `doc_accessing_data_or_logic_from_object`.
+`set()`, `get()`, and `get_property_list()` methods.
 
-See also:
- For binding properties using the above methods in C++, see
-             `doc_binding_properties_using_set_get_property_list`.
-
-Warning:
- The script must operate in the `tool` mode so the above methods
-             can work from within the editor.
+Warning: The script must operate in the `tool` mode so the above methods
+can work from within the editor.
 
 ### Properties
 
@@ -242,7 +230,7 @@ how to make properties with advanced exports.
 
 ```
 func _get_property_list():
-    var properties = [] 
+    var properties = []
     # Same as "export(int) var my_property"
     properties.append({
         name = "my_property",
@@ -254,20 +242,16 @@ func _get_property_list():
 * The `get_property_list()` function gets called by the inspector. You
   can override it for more advanced exports. You must return an `Array`
   with the contents of the properties for the function to work.
-
 * `name` is the name of the property
-
 * `type` is the type of the property from `Variant.Type`.
 
-Note:
-
- The `float` type is called a real (`TYPE_REAL`) in the `Variant.Type` enum.
+Note: The `float` type is called a real (`TYPE_REAL`) in the `Variant.Type` enum.
 
 ### Attaching variables to properties
 
 To attach variables to properties (allowing the value of the property to be used
 in scripts), you need to create a variable with the exact same name as the
-property or else you may need to override the 
+property or else you may need to override the
 `set()` and `get()` methods. Attaching
 a variable to to a property also gives you the ability to give it a default state.
 
@@ -277,7 +261,7 @@ a variable to to a property also gives you the ability to give it a default stat
 var my_property = 5
 
 func _get_property_list():
-    var properties = [] 
+    var properties = []
     # Same as "export(int) var my_property"
     properties.append({
         name = "my_property",
@@ -291,7 +275,6 @@ func _get_property_list():
 To define default values for advanced exports, you need to override the `property_can_revert()` and `property_get_revert()` methods.
 
 * The `property_can_revert()` method takes the name of a property and must return `true` if the property can be reverted. This will enable the Revert button next to the property in the inspector.
-
 * The `property_get_revert()` method takes the name of a property and must return the default value for that property.
 
 ```
@@ -337,10 +320,8 @@ func _get_property_list():
 ```
 
 * `name` is the name of a category to be added to the inspector;
-
 * Every following property added after the category definition will be a part
-  of the category. 
-
+  of the category.
 * `PROPERTY_USAGE_CATEGORY` indicates that the property should be treated as a
   script category specifically, so the type `TYPE_NIL` can be ignored as it
   won't be actually used for the scripting logic, yet it must be defined anyway.
@@ -365,7 +346,7 @@ func _get_property_list():
         type = TYPE_REAL
     })
 
-    # This property won't get added to the group 
+    # This property won't get added to the group
     # due to not having the "rotate_" prefix.
     properties.append({
         name = "trail_color",
@@ -376,13 +357,12 @@ func _get_property_list():
 
 * `name` is the name of a group which is going to be displayed as collapsible
   list of properties;
-
 * Every following property added after the group property with the prefix
-  (which determined by `hint_string`) will be shortened. For instance, 
+  (which determined by `hint_string`) will be shortened. For instance,
   `rotate_speed` is going to be shortened to `speed` in this case.
   However, `movement_speed` won't be a part of the group and will not
   be shortened.
-
 * `PROPERTY_USAGE_GROUP` indicates that the property should be treated as a
   script group specifically, so the type `TYPE_NIL` can be ignored as it
   won't be actually used for the scripting logic, yet it must be defined anyway.
+

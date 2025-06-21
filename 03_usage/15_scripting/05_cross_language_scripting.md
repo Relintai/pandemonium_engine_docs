@@ -1,5 +1,4 @@
 
-
 # Cross-language scripting
 
 Pandemonium allows you to mix and match scripting languages to suit your needs.
@@ -8,8 +7,6 @@ This page will go through the possible interactions between two nodes written
 in different languages.
 
 The following two scripts will be used as references throughout this page.
-
-gdscript GDScript
 
 ```
 extends Node
@@ -39,8 +36,7 @@ instantiate nodes directly from the code.
 
 ### Instantiating C# nodes from GDScript
 
-Using C# from GDScript doesn't need much work. Once loaded
-(see `doc_gdscript_classes_as_resources`), the script can be instantiated
+Using C# from GDScript doesn't need much work. Once loaded, the script can be instantiated
 with `new()`.
 
 ```
@@ -49,18 +45,17 @@ var my_csharp_node = my_csharp_script.new()
 print(my_csharp_node.str2) # barbar
 ```
 
-Warning:
+#### Warning:
 
+When creating `.cs` scripts, you should always keep in mind that the class
+Pandemonium will use is the one named like the `.cs` file itself. If that class
+does not exist in the file, you'll see the following error:
+`Invalid call. Nonexistent function `new` in base`.
 
-    When creating `.cs` scripts, you should always keep in mind that the class
-    Pandemonium will use is the one named like the `.cs` file itself. If that class
-    does not exist in the file, you'll see the following error:
-    `Invalid call. Nonexistent function `new` in base`.
+For example, MyCoolNode.cs should contain a class named MyCoolNode.
 
-    For example, MyCoolNode.cs should contain a class named MyCoolNode.
-
-    You also need to check your `.cs` file is referenced in the project's
-    `.csproj` file. Otherwise, the same error will occur.
+You also need to check your `.cs` file is referenced in the project's
+`.csproj` file. Otherwise, the same error will occur.
 
 ### Instantiating GDScript nodes from C#
 
@@ -71,9 +66,6 @@ be instantiated with `GDScript.New()`.
 GDScript MyGDScript = (GDScript) GD.Load("res://path_to_gd_file.gd");
 Object myGDScriptNode = (Pandemonium.Object) MyGDScript.New(); // This is a Pandemonium.Object
 ```
-
-Here we are using an `Object`, but you can use type conversion like
-explained in `doc_c_sharp_features_type_conversion_and_casting`.
 
 ## Accessing fields
 
@@ -112,7 +104,6 @@ GD.Print(myGDScriptNode.Get("str2")); // foofoo
 
 Keep in mind that when setting a field value you should only use types the
 GDScript side knows about.
-Essentially, you want to work with built-in types as described in `doc_gdscript` or classes extending `Object`.
 
 ## Calling methods
 
@@ -121,7 +112,7 @@ Essentially, you want to work with built-in types as described in `doc_gdscript`
 Again, calling C# methods from GDScript should be straightforward. The
 marshalling process will do its best to cast the arguments to match
 function signatures.
-If that's impossible, you'll see the following error: `Invalid call. Nonexistent function `FunctionName```.
+If that's impossible, you'll see the following error: `Invalid call. Nonexistent function FunctionName`.
 
 ```
     my_csharp_node.PrintNodeName(self) # myGDScriptNode
@@ -155,19 +146,14 @@ to said method.
     // Note how the type of each array entry does not matter as long as it can be handled by the marshaller
 ```
 
-Warning:
-
-
-    As you can see, if the first argument of the called method is an array,
-    you'll need to cast it as `object`.
-    Otherwise, each element of your array will be treated as a single argument
-    and the function signature won't match.
+Warning: As you can see, if the first argument of the called method is an array,
+you'll need to cast it as `object`.
+Otherwise, each element of your array will be treated as a single argument
+and the function signature won't match.
 
 ## Inheritance
 
 A GDScript file may not inherit from a C# script. Likewise, a C# script may not
 inherit from a GDScript file. Due to how complex this would be to implement,
-this limitation is unlikely to be lifted in the future. See
-`this GitHub issue ( https://github.com/Relintai/pandemonium_engine/issues/38352 )`
-for more information.
-```
+this limitation is unlikely to be lifted in the future.
+

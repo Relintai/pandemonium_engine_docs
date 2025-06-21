@@ -1,5 +1,4 @@
 
-
 # Nodes and scene instances
 
 This guide explains how to get nodes, create nodes, add them as a child, and
@@ -7,8 +6,8 @@ instantiate scenes from code.
 
 ## Getting nodes
 
-You can get a reference to a node by calling the `Node.get_node()
-( Node_method_get_node )` method. For this to work, the child node must be
+You can get a reference to a node by calling the `Node.get_node()`
+method. For this to work, the child node must be
 present in the scene tree. Getting it in the parent node's `ready()` function
 guarantees that.
 
@@ -18,8 +17,6 @@ Sprite and Camera2D nodes to access them in your script.
 ![](img/nodes_and_scene_instances_player_scene_example.png)
 
 To do so, you can use the following code.
-
-gdscript GDScript
 
 ```
 var sprite
@@ -53,8 +50,6 @@ node.
 
 To get the Tween node, you would use the following code.
 
-gdscript GDScript
-
 ```
 var tween
 
@@ -62,12 +57,11 @@ func _ready():
     tween = get_node("ShieldBar/Tween")
 ```
 
-Note:
- As with file paths, you can use ".." to get a parent node. The best
-          practice is to avoid doing that though not to break encapsulation.
-          You can also start the path with a forward
-          slash to make it absolute, in which case your topmost node would be
-          "/root", the application's predefined root viewport.
+Note: As with file paths, you can use ".." to get a parent node. The best
+practice is to avoid doing that though not to break encapsulation.
+You can also start the path with a forward
+slash to make it absolute, in which case your topmost node would be
+"/root", the application's predefined root viewport.
 
 ### Syntactic sugar
 
@@ -96,8 +90,6 @@ You can store the newly created node's reference in a variable and call
 `add_child()` to add it as a child of the node to which you attached the
 script.
 
-gdscript GDScript
-
 ```
 var sprite
 
@@ -110,8 +102,6 @@ To delete a node and free it from memory, you can call its `queue_free()`
 method. Doing so queues the node for deletion at the end of the current frame
 after it has finished processing. At that point, the engine removes the node from
 the scene and frees the object in memory.
-
-gdscript GDScript
 
 ```
 sprite.queue_free()
@@ -144,8 +134,6 @@ steps:
 2. Creating an instance of the loaded `PackedScene`
    resource.
 
-gdscript GDScript
-
 ```
 var scene = load("res://MyScene.tscn")
 ```
@@ -154,18 +142,13 @@ Preloading the scene can improve the user's experience as the load operation
 happens when the compiler reads the script and not at runtime. This feature is
 only available with GDScript.
 
-gdscript GDScript
-
 ```
 var scene = preload("res://MyScene.tscn")
 ```
 
 At that point, `scene` is a packed scene resource, not a node. To create the
-actual node, you need to call `PackedScene.instance()
-( PackedScene_method_instance )`. It returns a tree of nodes that you can
+actual node, you need to call `PackedScene.instance()`. It returns a tree of nodes that you can
 as a child of your current node.
-
-gdscript GDScript
 
 ```
 var instance = scene.instance()
@@ -175,3 +158,4 @@ add_child(instance)
 The advantage of this two-step process is you can keep a packed scene loaded and
 create new instances on the fly. For example, to quickly instance several
 enemies or bullets.
+

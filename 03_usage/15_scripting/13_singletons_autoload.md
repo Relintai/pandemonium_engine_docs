@@ -1,5 +1,4 @@
 
-
 # Singletons (AutoLoad)
 
 ## Introduction
@@ -18,7 +17,7 @@ own limitations:
    that require it, but frequently saving and loading data is cumbersome and
    may be slow.
 
-The `Singleton pattern ( https://en.wikipedia.org/wiki/Singleton_pattern )` is
+The [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) is
 a useful tool for solving the common use case where you need to store
 persistent information between scenes. In our case, it's possible to reuse the
 same scene or class for multiple singletons as long as they have different
@@ -33,27 +32,21 @@ Using this concept, you can create objects that:
 
 Autoloading nodes and scripts can give us these characteristics.
 
-Note:
+Note: Pandemonium won't make an AutoLoad a "true" singleton as per the singleton design
+pattern. It may still be instanced more than once by the user if desired.
 
-    Pandemonium won't make an AutoLoad a "true" singleton as per the singleton design
-    pattern. It may still be instanced more than once by the user if desired.
-
-Tip:
-
-    If you're creating an autoload as part of an editor plugin, consider
-    `registering it automatically in the Project Settings ( doc_making_plugins_autoload )`
-    when the plugin is enabled.
+Tip: If you're creating an autoload as part of an editor plugin, consider
+`registering it automatically in the Project Settings`
+when the plugin is enabled.
 
 ## AutoLoad
 
 You can create an AutoLoad to load a scene or a script that inherits from
 `Node`.
 
-Note:
-
-    When autoloading a script, a `Node` will be created and the script will be
-    attached to it. This node will be added to the root viewport before any
-    other scenes are loaded.
+Note: When autoloading a script, a `Node` will be created and the script will be
+attached to it. This node will be added to the root viewport before any
+other scenes are loaded.
 
 ![](img/singleton.png)
 
@@ -72,8 +65,6 @@ in top-to-bottom order.
 
 This means that any node can access a singleton named "PlayerVariables" with:
 
-gdscript GDScript
-
 ```
 var player_vars = get_node("/root/PlayerVariables")
 player_vars.health -= 10
@@ -81,8 +72,6 @@ player_vars.health -= 10
 
 If the **Enable** column is checked (which is the default), then the singleton can
 be accessed directly without requiring `get_node()`:
-
-gdscript GDScript
 
 ```
 PlayerVariables.health -= 10
@@ -94,22 +83,18 @@ you'll see the autoloaded nodes appear:
 
 ![](img/autoload_runtime.png)
 
-Warning:
-
-
-    Autoloads must **not** be removed using `free()` or `queue_free()` at
-    runtime, or the engine will crash.
+Warning: Autoloads must **not** be removed using `free()` or `queue_free()` at
+runtime, or the engine will crash.
 
 ## Custom scene switcher
 
 This tutorial will demonstrate building a scene switcher using autoloads.
 For basic scene switching, you can use the
-`SceneTree.change_scene()`
-method (see `doc_scene_tree` for details). However, if you need more
+`SceneTree.change_scene()` method. However, if you need more
 complex behavior when changing scenes, this method provides more functionality.
 
 To begin, download the template from here:
-:download:`autoload.zip ( files/autoload.zip )` and open it in Pandemonium.
+[autoload.zip](files/autoload.zip) and open it in Pandemonium.
 
 The project contains two scenes: `Scene1.tscn` and `Scene2.tscn`. Each
 scene contains a label displaying the scene name and a button with its
@@ -137,8 +122,6 @@ Returning to the script, it needs to fetch the current scene in the
 `Global.gd` are children of root, but autoloaded nodes are always first. This
 means that the last child of root is always the loaded scene.
 
-gdscript GDScript
-
 ```
 extends Node
 
@@ -151,8 +134,6 @@ func _ready():
 
 Now we need a function for changing the scene. This function needs to free the
 current scene and replace it with the requested one.
-
-gdscript GDScript
 
 ```
 func goto_scene(path):
@@ -192,8 +173,6 @@ still being used (i.e. its code is still running).
 
 Finally, we need to fill the empty callback functions in the two scenes:
 
-gdscript GDScript
-
 ```
 # Add to 'Scene1.gd'.
 
@@ -202,8 +181,6 @@ func _on_Button_pressed():
 ```
 
 and
-
-gdscript GDScript
 
 ```
 # Add to 'Scene2.gd'.
@@ -217,12 +194,12 @@ the button.
 
 Note:
 
+When scenes are small, the transition is instantaneous. However, if your
+scenes are more complex, they may take a noticeable amount of time to appear.
+To learn how to handle this, see the next tutorial: `doc_background_loading`.
 
-    When scenes are small, the transition is instantaneous. However, if your
-    scenes are more complex, they may take a noticeable amount of time to appear.
-    To learn how to handle this, see the next tutorial: `doc_background_loading`.
+Alternatively, if the loading time is relatively short (less than 3 seconds or so),
+you can display a "loading plaque" by showing some kind of 2D element just before
+changing the scene. You can then hide it just after the scene is changed. This can
+be used to indicate to the player that a scene is being loaded.
 
-    Alternatively, if the loading time is relatively short (less than 3 seconds or so),
-    you can display a "loading plaque" by showing some kind of 2D element just before
-    changing the scene. You can then hide it just after the scene is changed. This can
-    be used to indicate to the player that a scene is being loaded.

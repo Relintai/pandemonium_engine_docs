@@ -1,5 +1,4 @@
 
-
 # Overview of debugging tools
 
 This guide will give you an overview of the available debugging tools in the
@@ -15,8 +14,7 @@ and to reload changes to your scenes or your code while the game is running.
 
 ## Debugger Panel
 
-Many of Pandemonium's debugging tools are part of the Debugger panel, which you can
-find information about in `doc_debugger_panel`.
+Many of Pandemonium's debugging tools are part of the Debugger panel.
 
 ## Debug menu options
 
@@ -80,13 +78,6 @@ The **Keep Debugger Open** option keeps the debugger open after a scene
 has been closed. And the **Debug with External Editor** option lets you
 debug your game with an external editor.
 
-Warning:
-
-
-    Breakpoints won't break on code if it's
-    `running in a thread ( doc_using_multiple_threads )`.
-    This is a current limitation of the GDScript debugger.
-
 ## Debug project settings
 
 In the project settings, there is a **Debug** category with three subcategories
@@ -116,6 +107,6 @@ the nodes' parameters in the running project.
 
 ![](img/overview_remote.png)
 
-Note:
- Some editor settings related to debugging can be found inside
-          the **Editor Settings**, under the **Network > Debug** and **Debugger** sections.
+Note: Some editor settings related to debugging can be found inside
+the **Editor Settings**, under the **Network &gt; Debug** and **Debugger** sections.
+

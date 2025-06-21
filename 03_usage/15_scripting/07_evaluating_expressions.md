@@ -1,5 +1,4 @@
 
-
 # Evaluating expressions
 
 Pandemonium provides an `Expression` class you can use to evaluate expressions.
@@ -12,11 +11,8 @@ An expression can be:
   if `base_instance` is set to a value other than `null` when calling
   `Expression.execute()`.
 
-Note:
-
-
-    The Expression class is independent from GDScript.
-    It's available even if you compile Pandemonium with the GDScript module disabled.
+Note: The Expression class is independent from GDScript.
+It's available even if you compile Pandemonium with the GDScript module disabled.
 
 ## Basic usage
 
@@ -45,7 +41,7 @@ The following operators are available:
 
 
 Spaces around operators are optional. Also, keep in mind the usual
-`order of operations ( https://en.wikipedia.org/wiki/Order_of_operations )`
+[order of operations](https://en.wikipedia.org/wiki/Order_of_operations)
 applies. Use parentheses to override the order of operations if needed.
 
 All the Variant types supported in Pandemonium can be used: integers, floating-point
@@ -123,14 +119,11 @@ Associating a base instance allows doing the following:
 - Reference the instance's member variables (`var`) in the expression.
 - Call methods defined in the instance and use their return values in the expression.
 
-Warning:
-
-
-    Setting a base instance to a value other than `null` allows referencing
-    constants, member variables, and calling all methods defined in the script
-    attached to the instance. Allowing users to enter expressions may allow
-    cheating in your game, or may even introduce security vulnerabilities if you
-    allow arbitrary clients to run expressions on other players' devices.
+Warning: Setting a base instance to a value other than `null` allows referencing
+constants, member variables, and calling all methods defined in the script
+attached to the instance. Allowing users to enter expressions may allow
+cheating in your game, or may even introduce security vulnerabilities if you
+allow arbitrary clients to run expressions on other players' devices.
 
 ## Example script
 
@@ -210,3 +203,4 @@ However, unlike GDScript, parameters are **always required** even if they're
 specified as being optional in the class reference. In contrast, this
 restriction on arguments doesn't apply to user-made functions when you bind a
 base instance to the expression.
+

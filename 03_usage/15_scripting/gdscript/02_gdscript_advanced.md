@@ -1,5 +1,4 @@
 
-
 # GDScript: An introduction to dynamic languages
 
 ## About
@@ -163,12 +162,10 @@ that inherit `Reference` (the default if nothing is specified)
 will be freed when not used, but manual memory management is allowed too
 if inheriting manually from `Object`.
 
-Note:
+Note: A value is **passed by value** when it is copied every time it's specified
+as a function parameter. One consequence of this is that the function cannot
+modify the parameter in a way that is visible from outside the function:
 
-    A value is **passed by value** when it is copied every time it's specified
-    as a function parameter. One consequence of this is that the function cannot
-    modify the parameter in a way that is visible from outside the function:
-    
 ```
 func greet(text):
     text = "Hello " + text
@@ -565,3 +562,4 @@ func _on_object_hit(object):
 
 Then, simply define that method and anything the rock touches can be
 smashed.
+

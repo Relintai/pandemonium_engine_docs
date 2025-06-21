@@ -1,5 +1,4 @@
 
-
 # Static typing in GDScript
 
 In this guide, you will learn:
@@ -13,10 +12,6 @@ or write code like you always did!
 
 Static types can be used on variables, constants, functions, parameters,
 and return types.
-
-Note:
-
-    Typed GDScript is available since Pandemonium 3.1.
 
 ## A brief look at static typing
 
@@ -109,9 +104,8 @@ Currently you can use three types of… types:
 3. Your own custom classes. Look at the new `name ( doc_gdscript_basics_class_name )`
    feature to register types in the editor.
 
-Note:
-
-    You don't need to write type hints for constants, as Pandemonium sets it automatically from the assigned value. But you can still do so to make the intent of your code clearer.
+Note: You don't need to write type hints for constants, as Pandemonium sets it automatically
+from the assigned value. But you can still do so to make the intent of your code clearer.
 
 ### Custom variable types
 
@@ -171,11 +165,7 @@ As we're dealing with a custom type, if the `body` doesn't extend
 We can use this to check if the body is the player or not. We will also
 get full autocompletion on the player variable thanks to that cast.
 
-Note:
-
-    If you try to cast with a built-in type and it fails, Pandemonium will throw an error.
-
-
+Note: If you try to cast with a built-in type and it fails, Pandemonium will throw an error.
 
 #### Safe lines
 
@@ -187,7 +177,7 @@ an error or not at runtime.
 
 This happens when you get a child node. Let's take a timer for example:
 with dynamic code, you can get the node with `$Timer`. GDScript
-supports `duck-typing ( https://stackoverflow.com/a/4205163/8125343 )`,
+supports [duck-typing](https://stackoverflow.com/a/4205163/8125343),
 so even if your timer is of type `Timer`, it is also a `Node` and an
 `Object`, two classes it extends. With dynamic GDScript, you also
 don't care about the node's type as long as it has the methods you need
@@ -202,9 +192,7 @@ green at the left of the script editor.
 
 Unsafe line (line 7) vs Safe Lines (line 6 and 8)
 
-Note:
-
-    You can turn off safe lines or change their color in the editor settings.
+Note: You can turn off safe lines or change their color in the editor settings.
 
 #### Define the return type of a function with the arrow ->
 
@@ -313,10 +301,7 @@ it's anything else, like an `Area2D`, or any node that doesn't extend
 
 ## Warning system
 
-Note:
-
-    Documentation about the GDScript warning system has been moved to
-    `doc_gdscript_warning_system`.
+Note: Documentation about the GDScript warning system has been moved to [here](07_gdscript_format_string.md).
 
 ## Cases where you can't specify types
 
@@ -371,7 +356,8 @@ var player: Player
 
 ## Summary
 
-Typed GDScript is a powerful tool. Available as of version 3.1 of Pandemonium, it
+Typed GDScript is a powerful tool. It
 helps you write more structured code, avoid common errors, and
 create scalable systems. In the future, static types will also bring you
 a nice performance boost thanks to upcoming compiler optimizations.
+

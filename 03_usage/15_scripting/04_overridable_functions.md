@@ -1,5 +1,4 @@
 
-
 # Overridable functions
 
 Pandemonium's Node class provides virtual functions you can override to update nodes
@@ -7,10 +6,9 @@ every frame or on specific events, like when they enter the scene tree.
 
 This document presents the ones you'll use most often.
 
-See also:
- Under the hood, these functions rely on Pandemonium's low-level
-             notifications system. To learn more about it, see
-             `doc_pandemonium_notifications`.
+See also: Under the hood, these functions rely on Pandemonium's low-level
+notifications system. To learn more about it, see
+[pandemonium notifications](../22_best_practices/08_pandemonium_notifications.md).
 
 Two functions allow you to initialize and get nodes, besides the class's
 constructor: `enter_tree()` and `ready()`.
@@ -24,15 +22,9 @@ Most of the time, you'll use `ready()` instead. This function is called only
 once in a node's lifetime, after `enter_tree()`. `ready()` ensures that all children
 have entered the scene tree first, so you can safely call `get_node()` on it.
 
-See also:
- To learn more about getting node references, read
-             `doc_nodes_and_scene_instances`.
-
 Another related callback is `exit_tree()`, which the engine calls every time
-a node exits the scene tree. This can be when you call `Node.remove_child()
-( Node_method_remove_child )` or when you free a node.
-
-gdscript GDScript
+a node exits the scene tree. This can be when you call `Node.remove_child()`
+or when you free a node.
 
 ```
 # Called every time the node enters the scene tree.
@@ -50,11 +42,7 @@ func _exit_tree():
 ```
 
 The two virtual methods `process()` and `physics_process()` allow you to
-update the node, every frame and every physics frame respectively. For more
-information, read the dedicated documentation:
-`doc_idle_and_physics_processing`.
-
-gdscript GDScript
+update the node, every frame and every physics frame respectively.
 
 ```
 # Called every frame, as often as possible.
@@ -75,10 +63,6 @@ every key press, mouse click, etc. that have not been handled already in an
 gameplay input in general. The `input()` callback allows you to intercept and
 process input events before `unhandled_input()` gets them.
 
-To learn more about inputs in Pandemonium, see the `Input section ( toc-learn-features-inputs )`.
-
-gdscript GDScript
-
 ```
 # Called once for every event.
 func _unhandled_input(event):
@@ -91,8 +75,7 @@ func _input(event):
 ```
 
 There are some more overridable functions like
-`Node._get_configuration_warning()
-( Node_method__get_configuration_warning )`. Specialized node types provide
+`Node._get_configuration_warning()`. Specialized node types provide
 more callbacks like `CanvasItem._draw()` to
-draw programmatically or `Control._gui_input()
-( Control_method__gui_input )` to handle clicks and input on UI elements.
+draw programmatically or `Control._gui_input()` to handle clicks and input on UI elements.
+

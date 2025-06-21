@@ -1,5 +1,4 @@
 
-
 # Groups
 
 Groups in Pandemonium work like tags in other software. You can add a node to as many
@@ -60,18 +59,15 @@ It has three columns:
 The fields at the bottom allow you to add new groups or filter nodes in the
 second and third columns.
 
-Note:
- Any node name that's greyed out means the node was added to the group
-          in a different scene and you cannot edit it here. This happens on
-          scene instances in particular.
+Note: Any node name that's greyed out means the node was added to the group
+in a different scene and you cannot edit it here. This happens on
+scene instances in particular.
 
 ### Using code
 
 You can also manage groups from scripts. The following code adds the node to
 which you attach the script to the `guards` group as soon as it enters the
 scene tree.
-
-gdscript GDScript
 
 ```
 func _ready():
@@ -84,8 +80,6 @@ enemy spots the player, you want all guards and robots to be on alert.
 In the fictional example below, we use `SceneTree.call_group()` to alert all
 enemies that the player was spotted.
 
-gdscript GDScript
-
 ```
 func _on_Player_spotted():
     get_tree().call_group("guards", "enter_alert_mode")
@@ -95,10 +89,7 @@ The above code calls the function `enter_alert_mode` on every member of the
 group `guards`.
 
 To get the full list of nodes in the `guards` group as an array, you can call
-`SceneTree.get_nodes_in_group()
-( SceneTree_method_get_nodes_in_group )`:
-
-gdscript GDScript
+`SceneTree.get_nodes_in_group()`:
 
 ```
 var guards = get_tree().get_nodes_in_group("guards")
@@ -108,3 +99,4 @@ The `SceneTree` class provides many more useful methods
 to interact with scenes, their node hierarchy, and groups. It allows you to
 switch scenes easily or reload them, quit the game or pause and unpause it. It
 also provides useful signals.
+

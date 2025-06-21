@@ -1,5 +1,4 @@
 
-
 # GDScript format strings
 
 GDScript offers a feature called *format strings*, which allows reusing text
@@ -13,7 +12,6 @@ As an example, with `%s` as a placeholder, the format string `"Hello %s, how
 are you?"` can easily be changed to `"Hello World, how are you?"`. Notice
 the placeholder is in the middle of the string; modifying it without format
 strings could be cumbersome.
-
 
 ## Usage in GDScript
 
@@ -252,3 +250,4 @@ Combining both the `String.format` method and the `%` operator could be useful, 
 | **Example**                                                               | **Result**        |
 |---------------------------------------------------------------------------|-------------------|
 | `"Hi, {0} v{version}".format({0:"Godette", "version":"%0.2f" % 3.114})`   | Hi, Godette v3.11 |
+

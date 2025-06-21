@@ -1,5 +1,4 @@
 
-
 # Using SceneTree
 
 ## Introduction
@@ -60,8 +59,6 @@ singleton can be obtained by calling
 The root `Viewport`
 is always at the top of the scene. From a node, it can be obtained in
 two different ways:
-
-gdscript GDScript
 
 ```
 get_tree().get_root() # Access via scene main loop.
@@ -124,8 +121,6 @@ another one. The simple way to do this is to use the
 `SceneTree.change_scene()`
 function:
 
-gdscript GDScript
-
 ```
 func _my_level_was_completed():
     get_tree().change_scene("res://levels/level2.tscn")
@@ -135,8 +130,6 @@ Rather than using file paths, one can also use ready-made
 `PackedScene` resources using the equivalent
 function
 `SceneTree.change_scene_to(PackedScene scene)`:
-
-gdscript GDScript
 
 ```
 var next_scene = preload("res://levels/level2.tscn")
@@ -149,5 +142,5 @@ These are quick and useful ways to switch scenes but have the drawback
 that the game will stall until the new scene is loaded and running. At
 some point in the development of your game, it may be preferable to create proper loading
 screens with progress bar, animated indicators or thread (background)
-loading. This must be done manually using autoloads (see next chapter)
-and `doc_background_loading`.
+loading. This must be done manually using autoloads.
+

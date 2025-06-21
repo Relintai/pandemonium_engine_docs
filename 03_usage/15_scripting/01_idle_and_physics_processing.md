@@ -1,5 +1,4 @@
 
-
 # Idle and Physics Processing
 
 Games run in a loop. Each frame, you need to update the state of your game world
@@ -18,12 +17,9 @@ There are two types of processing available to you:
    engine, like moving a body that collides with the environment.
 
 You can activate idle processing by defining the `process()` method in a
-script. You can turn it off and back on by calling `Node.set_process()
-( Node_method_set_process )`.
+script. You can turn it off and back on by calling `Node.set_process()`.
 
 The engine calls this method every time it draws a frame:
-
-gdscript GDScript
 
 ```
 func _process(delta):
@@ -49,8 +45,6 @@ Physics Fps. By default, it's set to run 60 times per second.
 
 The engine calls this method every time it draws a frame:
 
-gdscript GDScript
-
 ```
 func _physics_process(delta):
     # Do something...
@@ -64,8 +58,6 @@ single-threaded games.
 You can see the `process()` function at work by creating a scene with a
 single Label node, with the following script attached to it:
 
-gdscript GDScript
-
 ```
 extends Label
 
@@ -77,3 +69,4 @@ func _process(delta):
 ```
 
 When you run the scene, you should see a counter increasing each frame.
+

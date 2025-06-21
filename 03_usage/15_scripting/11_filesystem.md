@@ -1,5 +1,4 @@
 
-
 # File system
 
 ## Introduction
@@ -18,12 +17,11 @@ included. If a resource has sub-resources that are built-in, the resource is
 saved in a single file together with all the bundled sub-resources. For
 example, a font resource is often bundled together with the font textures.
 
-The Pandemonium file system avoids using metadata files. Existing asset managers and VCSs 
-are better than anything we can implement, so Pandemonium tries its best to play along 
+The Pandemonium file system avoids using metadata files. Existing asset managers and VCSs
+are better than anything we can implement, so Pandemonium tries its best to play along
 with SVN, Git, Mercurial, Perforce, etc.
 
 Example of file system contents:
-
 
 ```
 /project.pandemonium
@@ -35,12 +33,12 @@ Example of file system contents:
 
 ## project.pandemonium
 
-The `project.pandemonium` file is the project description file, and it is always found 
+The `project.pandemonium` file is the project description file, and it is always found
 at the root of the project. In fact, its location defines where the root is. This
 is the first file that Pandemonium looks for when opening a project.
 
 This file contains the project configuration in plain text, using the win.ini
-format. Even an empty `project.pandemonium` can function as a basic definition of 
+format. Even an empty `project.pandemonium` can function as a basic definition of
 a blank project.
 
 ## Path delimiter
@@ -67,10 +65,10 @@ read-only and writing will no longer be permitted.
 
 ## User path
 
-Writing to disk is still needed for tasks such as saving game state or 
+Writing to disk is still needed for tasks such as saving game state or
 downloading content packs. To this end, the engine ensures that there is a
-special path `user://` that is always writable. This path resolves 
-differently depending on the OS the project is running on. Local path 
+special path `user://` that is always writable. This path resolves
+differently depending on the OS the project is running on. Local path
 resolution is further explained in `doc_data_paths`.
 
 ## Host file system
@@ -87,8 +85,8 @@ moving assets around (renaming them or moving them from one path to another insi
 the project) will break existing references to these assets. These references will
 have to be re-defined to point at the new asset location.
 
-To avoid this, do all your move, delete and rename operations from within Pandemonium, on 
-the FileSystem dock. Never move assets from outside Pandemonium, or dependencies will have 
+To avoid this, do all your move, delete and rename operations from within Pandemonium, on
+the FileSystem dock. Never move assets from outside Pandemonium, or dependencies will have
 to be fixed manually (Pandemonium detects this and helps you fix them anyway, but why
 go the hard route?).
 
@@ -101,3 +99,4 @@ which use a compressed package to store all files.
 It is recommended that your team clearly define a naming convention for files when
 working with Pandemonium. One simple fool-proof convention is to only allow lowercase
 file and path names.
+

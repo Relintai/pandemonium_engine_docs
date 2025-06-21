@@ -1,5 +1,4 @@
 
-
 # Resources
 
 ## Nodes and resources
@@ -16,8 +15,8 @@ do anything on their own: instead, nodes use the data contained in resources.
 
 Anything Pandemonium saves or loads from disk is a resource. Be it a scene (a `.tscn`
 or an `.scn` file), an image, a script... Here are some `Resource` examples:
-`Texture`, `Mesh( Mesh )`, `Animation`, `AudioStream( AudioStream )`, `Font`, 
-`Translation( Translation )`.
+`Texture`, `Mesh`, `Animation`, `AudioStream`, `Font`,
+`Translation`.
 
 When the engine loads a resource from disk, **it only loads it once**. If a copy
 of that resource is already in memory, trying to load the resource again will
@@ -56,16 +55,12 @@ The switch between built-in and external resources happens when you save the
 scene. In the example above, if you erase the path `"res://robi.png)"` and
 save, Pandemonium will save the image inside the `.tscn` scene file.
 
-Note:
-
-    Even if you save a built-in resource, when you instance a scene multiple
-    times, the engine will only load one copy of it.
+Note: Even if you save a built-in resource, when you instance a scene multiple
+times, the engine will only load one copy of it.
 
 ## Loading resources from code
 
 There are two ways to load resources from code. First, you can use the `load()` function anytime:
-
-gdscript GDScript
 
 ```
 func _ready():
@@ -76,8 +71,6 @@ func _ready():
 You can also `preload` resources. Unlike `load`, this function will read the
 file from disk and load it at compile-time. As a result, you cannot call preload
 with a variable path: you need to use a constant string.
-
-gdscript GDScript
 
 ```
 func _ready():
@@ -94,8 +87,6 @@ scene is packed inside a resource.
 To get an instance of the scene, you have to use the
 `PackedScene.instance()` method.
 
-gdscript GDScript
-
 ```
 func _on_shoot():
         var bullet = preload("res://bullet.tscn").instance()
@@ -106,8 +97,8 @@ This method creates the nodes in the scene's hierarchy, configures them, and
 returns the root node of the scene. You can then add it as a child of any other
 node.
 
-The approach has several advantages. As the `PackedScene.instance()
-( PackedScene_method_instance )` function is fast, you can create new
+The approach has several advantages. As the `PackedScene.instance()`
+function is fast, you can create new
 enemies, bullets, effects, etc. without having to load them again from disk each
 time. Remember that, as always, images, meshes, etc. are all shared between the
 scene instances.
@@ -133,21 +124,19 @@ inheritance of `Object`,
 and `Resource` features:
 
 - They can define constants, so constants from other data fields or objects are not needed.
-
-- They can define methods, including setter/getter methods for properties. This allows for abstraction and encapsulation of the underlying data. If the Resource script's structure needs to change, the game using the Resource need not also change.
-
+- They can define methods, including setter/getter methods for properties. This allows for
+  abstraction and encapsulation of the underlying data. If the Resource script's structure
+  needs to change, the game using the Resource need not also change.
 - They can define signals, so Resources can trigger responses to changes in the data they manage.
-
 - They have defined properties, so users know 100% that their data will exist.
-
-- Resource auto-serialization and deserialization is a built-in Pandemonium Engine feature. Users do not need to implement custom logic to import/export a resource file's data.
-
+- Resource auto-serialization and deserialization is a built-in Pandemonium Engine feature.
+  Users do not need to implement custom logic to import/export a resource file's data.
 - Resources can even serialize sub-Resources recursively, meaning users can design even more sophisticated data structures.
-
-- Users can save Resources as version-control-friendly text files (\*.tres). Upon exporting a game, Pandemonium serializes resource files as binary files (\*.res) for increased speed and compression.
-
-- Pandemonium Engine's Inspector renders and edits Resource files out-of-the-box. As such, users often do not need to implement custom logic to visualize or edit their data. To do so, double-click the resource file in the FileSystem dock or click the folder icon in the Inspector and open the file in the dialog.
-
+- Users can save Resources as version-control-friendly text files (\*.tres). Upon exporting a
+  game, Pandemonium serializes resource files as binary files (\*.res) for increased speed and compression.
+- Pandemonium Engine's Inspector renders and edits Resource files out-of-the-box. As such,
+  users often do not need to implement custom logic to visualize or edit their data. To do so,
+  double-click the resource file in the FileSystem dock or click the folder icon in the Inspector and open the file in the dialog.
 - They can extend **other** resource types besides just the base Resource.
 
 Pandemonium makes it easy to create custom Resources in the Inspector.
@@ -160,14 +149,12 @@ those values and saves the resource, the Inspector serializes the custom propert
 too! To save a resource from the Inspector, click the Inspector's tools menu (top right),
 and select "Save" or "Save As...".
 
-If the script's language supports `script classes ( doc_gdscript_basics_class_name )`,
+If the script's language supports `script classes`,
 then it streamlines the process. Defining a name for your script alone will add it to
 the Inspector's creation dialog. This will auto-add your script to the Resource
 object you create.
 
 Let's see some examples.
-
-gdscript GDScript
 
 ```
 # bot_stats.gd
@@ -176,7 +163,7 @@ export(int) var health
 export(Resource) var sub_resource
 export(Array, String) var strings
 
-# Make sure that every parameter has a default value. 
+# Make sure that every parameter has a default value.
 # Otherwise, there will be problems with creating and editing
 # your resource via the inspector.
 func _init(p_health = 0, p_sub_resource = null, p_strings = []):
@@ -197,20 +184,17 @@ func _ready():
 
 Note:
 
+Resource scripts are similar to Unity's ScriptableObjects. The Inspector
+provides built-in support for custom resources. If desired though, users
+can even design their own Control-based tool scripts and combine them
+with an `EditorPlugin` to create custom
+visualizations and editors for their data.
 
-    Resource scripts are similar to Unity's ScriptableObjects. The Inspector
-    provides built-in support for custom resources. If desired though, users
-    can even design their own Control-based tool scripts and combine them
-    with an `EditorPlugin` to create custom
-    visualizations and editors for their data.
+Unreal Engine 4's DataTables and CurveTables are also easy to recreate with
+Resource scripts. DataTables are a String mapped to a custom struct, similar
+to a Dictionary mapping a String to a secondary custom Resource script.
 
-    Unreal Engine 4's DataTables and CurveTables are also easy to recreate with
-    Resource scripts. DataTables are a String mapped to a custom struct, similar
-    to a Dictionary mapping a String to a secondary custom Resource script.
-
-    gdscript GDScript
-
-    ```
+```
 # bot_stats_table.gd
 extends Resource
 
@@ -237,20 +221,17 @@ func _init():
 
 Warning:
 
+Beware that resource files (\*.tres/\*.res) will store the path of the script
+they use in the file. When loaded, they will fetch and load this script as an
+extension of their type. This means that trying to assign a subclass, i.e. an
+inner class of a script (such as using the `class` keyword in GDScript) won't
+work. Pandemonium will not serialize the custom properties on the script subclass properly.
 
-    Beware that resource files (\*.tres/\*.res) will store the path of the script
-    they use in the file. When loaded, they will fetch and load this script as an
-    extension of their type. This means that trying to assign a subclass, i.e. an
-    inner class of a script (such as using the `class` keyword in GDScript) won't
-    work. Pandemonium will not serialize the custom properties on the script subclass properly.
+In the example below, Pandemonium would load the `Node` script, see that it doesn't
+extend `Resource`, and then determine that the script failed to load for the
+Resource object since the types are incompatible.
 
-    In the example below, Pandemonium would load the `Node` script, see that it doesn't
-    extend `Resource`, and then determine that the script failed to load for the
-    Resource object since the types are incompatible.
-
-    gdscript GDScript
-
-    ```
+```
 extends Node
 
 class MyResource:
@@ -263,3 +244,4 @@ func _ready():
     # This will NOT serialize the 'value' property.
     ResourceSaver.save("res://my_res.tres", my_res)
 ```
+

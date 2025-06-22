@@ -1,9 +1,8 @@
 
-
 # Optimization using Servers
 
 Engines like Pandemonium provide increased ease of use thanks to their high level constructs and features.
-Most of them are accessed and used via the `Scene System( doc_scene_tree )`. Using nodes and
+Most of them are accessed and used via the `Scene System`. Using nodes and
 resources simplifies project organization and asset management in complex games.
 
 There are, of course, always drawbacks:
@@ -31,10 +30,12 @@ At the core, Pandemonium uses the concept of Servers. They are very low-level AP
 rendering, physics, sound, etc. The scene system is built on top of them and uses them directly.
 The most common servers are:
 
-* `VisualServer`: handles everything related to graphics.
+* `RenderingServer`: handles everything related to graphics.
 * `PhysicsServer`: handles everything related to 3D physics.
 * `Physics2DServer`: handles everything related to 2D physics.
 * `AudioServer`: handles everything related to audio.
+* `NavigationServer`: handles everything related to 3D navigation.
+* `Navigation2DServer`: handles everything related to 2D navigation.
 
 Explore their APIs and you will realize that all the functions provided are low-level
 implementations of everything Pandemonium allows you to do.
@@ -49,11 +50,10 @@ Most Pandemonium nodes and resources contain these RIDs from the servers interna
 be obtained with different functions. In fact, anything that inherits `Resource`
 can be directly casted to an RID. Not all resources contain an RID, though: in such cases, the RID will be empty. The resource can then be passed to server APIs as an RID.
 
-Warning:
-  Resources are reference-counted (see `Reference`), and
-              references to a resource's RID are *not* counted when determining whether
-              the resource is still in use. Make sure to keep a reference to the resource
-              outside the server, or else both it and its RID will be erased.
+Warning: Resources are reference-counted (see `Reference`), and
+references to a resource's RID are *not* counted when determining whether
+the resource is still in use. Make sure to keep a reference to the resource
+outside the server, or else both it and its RID will be erased.
 
 For nodes, there are many functions available:
 
@@ -71,7 +71,7 @@ For nodes, there are many functions available:
   and `CanvasItem` nodes)
   contains functions to get the *VisualServer Canvas*, and the *Physics2DServer Space*. This
   allows creating 2D objects directly with the server API and using them.
-* The `VisualInstance( VisualInstance )` class, allows getting the scenario *instance* and
+* The `VisualInstance` class, allows getting the scenario *instance* and
   *instance base* via the `VisualInstance.get_instance()`
   and `VisualInstance.get_base()` respectively.
 
@@ -84,8 +84,6 @@ functions should always be used for creating and controlling new ones and intera
 
 This is a simple example of how to create a sprite from code and move it using the low-level
 `CanvasItem` API.
-
-gdscript GDScript
 
 
 ```
@@ -117,8 +115,6 @@ which can be done as many times as desired).
 
 Primitives are cleared this way:
 
-gdscript GDScript
-
 ```
 VisualServer.canvas_item_clear(ci_rid)
 ```
@@ -126,8 +122,6 @@ VisualServer.canvas_item_clear(ci_rid)
 ## Instantiating a Mesh into 3D space
 
 The 3D APIs are different from the 2D ones, so the instantiation API must be used.
-
-gdscript GDScript
 
 ```
 extends Spatial
@@ -157,8 +151,6 @@ func _ready():
 
 This creates a `RigidBody2D` API,
 and moves a `CanvasItem` when the body moves.
-
-gdscript GDScript
 
 ```
 # Physics2DServer expects references to be kept around.
@@ -204,3 +196,4 @@ call them every frame (and it won't be obvious why).
 
 Because of this, most APIs in such servers are designed so it's not even possible to request information
 back, until it's actual data that can be saved.
+

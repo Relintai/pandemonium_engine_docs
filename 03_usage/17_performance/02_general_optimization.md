@@ -1,5 +1,4 @@
 
-
 # General optimization tips
 
 ### Introduction
@@ -53,8 +52,8 @@ There are several methods of measuring performance, including:
 - Using the Pandemonium profiler.
 - Using external third-party CPU profilers.
 - Using GPU profilers/debuggers such as
-  `NVIDIA Nsight Graphics ( https://developer.nvidia.com/nsight-graphics )`
-  or `apitrace ( https://apitrace.github.io/ )`.
+  [NVIDIA Nsight Graphics](https://developer.nvidia.com/nsight-graphics)
+  or [apitrace](https://apitrace.github.io/), or [RenderDoc](https://renderdoc.org/).
 - Checking the frame rate (with V-Sync disabled).
 
 Be very aware that the relative performance of different areas can vary on
@@ -118,11 +117,9 @@ of your improvements. Sometimes, attempts to improve performance can backfire
 and lead to slower performance.
 **Always use profiling and timing to guide your efforts.**
 
-For more info about using Pandemonium's built-in profiler, see `doc_debugger_panel`.
-
 # Principles
 
-`Donald Knuth ( https://en.wikipedia.org/wiki/Donald_Knuth )` said:
+[Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) said:
 
     *Programmers waste enormous amounts of time thinking about, or worrying
     about, the speed of noncritical parts of their programs, and these attempts
@@ -284,3 +281,4 @@ Total frame time: 50 ms
 
 In this example, we optimized the CPU hugely again, but the frame time didn't
 improve because we are GPU-bottlenecked.
+

@@ -1,5 +1,4 @@
 
-
 # Controlling thousands of fish with Particles
 
 The problem with `MeshInstances` is that it is expensive to
@@ -10,9 +9,8 @@ To make each instance move in an interesting way, we will use a
 `Particles` node. Particles take advantage of GPU acceleration
 by computing and setting the per-instance information in a `Shader`.
 
-Note:
- Particles are not available in GLES2, instead use `CPUParticles`,
-          which do the same thing as Particles, but do not benefit from GPU acceleration.
+Note: Particles are not available in GLES2, instead use `CPUParticles`,
+which do the same thing as Particles, but do not benefit from GPU acceleration.
 
 First create a Particles node. Then, under "Draw Passes" set the Particle's "Draw Pass 1" to your
 `Mesh`. Then under "Process Material" create a new
@@ -142,3 +140,4 @@ Using a ParticlesMaterial you can make the fish behavior as simple or complex as
 tutorial we only set Velocity, but in your own Shaders you can also set `COLOR`, rotation, scale
 (through `TRANSFORM`). Please refer to the `Particles Shader Reference ( doc_particle_shader )`
 for more information on particle shaders.
+

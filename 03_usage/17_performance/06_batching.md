@@ -5,7 +5,7 @@
 
 Game engines have to send a set of instructions to the GPU to tell the GPU what
 and where to draw. These instructions are sent using common instructions called
-:abbr:`APIs (Application Programming Interfaces)`. Examples of graphics APIs are
+APIs (Application Programming Interfaces). Examples of graphics APIs are
 OpenGL, OpenGL ES, and Vulkan.
 
 Different APIs incur different costs when drawing objects. OpenGL handles a lot
@@ -63,11 +63,8 @@ Batching will be broken by (amongst other things):
 - Change of material.
 - Change of primitive type (say, going from rectangles to lines).
 
-Note:
-
-
-    For example, if you draw a series of sprites each with a different texture,
-    there is no way they can be batched.
+Note: For example, if you draw a series of sprites each with a different texture,
+there is no way they can be batched.
 
 #### Determining the rendering order
 
@@ -89,13 +86,9 @@ In Pandemonium, this back-to-front order is determined by:
 - The canvas layer.
 - `YSort` nodes.
 
-Note:
-
-
-    You can group similar objects together for easier batching. While doing so
-    is not a requirement on your part, think of it as an optional approach that
-    can improve performance in some cases. See the
-    `doc_batching_diagnostics` section to help you make this decision.
+Note: You can group similar objects together for easier batching. While doing so
+is not a requirement on your part, think of it as an optional approach that
+can improve performance in some cases.
 
 #### A trick
 
@@ -225,8 +218,7 @@ any pixels. We can greatly optimize fill rate by identifying the intersection
 area between a light and a primitive, and limit rendering the light to
 *that area only*.
 
-Light scissoring is controlled with the `scissor_area_threshold
-( ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
+Light scissoring is controlled with the `rendering/batching/lights/scissor_area_threshold`
 project setting. This value is between 1.0 and 0.0, with 1.0 being off (no
 scissoring), and 0.0 being scissoring in every circumstance. The reason for the
 setting is that there may be some small cost to scissoring on some hardware.
@@ -241,14 +233,10 @@ ever) happens, so it is switched off. In practice, the useful values are close
 to 0.0, as only a small percentage of pixels need to be saved for the operation
 to be useful.
 
-The exact relationship is probably not necessary for users to worry about, but
-is included in the appendix out of interest:
-`doc_batching_light_scissoring_threshold_calculation`
+![Light scissoring example diagram](img/scissoring.png)
 
-![Light scissoring example diagram](img/scissoring.png) 
-
-   Bottom right is a light, the red area is the pixels saved by the scissoring
-   operation. Only the intersection needs to be rendered.
+Bottom right is a light, the red area is the pixels saved by the scissoring
+operation. Only the intersection needs to be rendered.
 
 ### Vertex baking
 
@@ -297,57 +285,43 @@ information.
 
 #### rendering/batching/options
 
-- `use_batching
- ` -
-  Turns batching on or off.
-
-- `use_batching_in_editor
- `
-  Turns batching on or off in the Pandemonium editor.
-  This setting doesn't affect the running project in any way.
-
-- `single_rect_fallback
- ` -
-  This is a faster way of drawing unbatchable rectangles. However, it may lead
-  to flicker on some hardware so it's not recommended.
+- `use_batching:`
+  - Turns batching on or off.
+- `use_batching_in_editor`
+  - Turns batching on or off in the Pandemonium editor.
+  - This setting doesn't affect the running project in any way.
+- `single_rect_fallback`
+  - This is a faster way of drawing unbatchable rectangles. However, it may lead
+    to flicker on some hardware so it's not recommended.
 
 #### rendering/batching/parameters
 
-- `max_join_item_commands` -
+- `max_join_item_commands`
   One of the most important ways of achieving batching is to join suitable
   adjacent items (nodes) together, however they can only be joined if the
   commands they contain are compatible. The system must therefore do a lookahead
   through the commands in an item to determine whether it can be joined. This
   has a small cost per command, and items with a large number of commands are
   not worth joining, so the best value may be project dependent.
-
-- `colored_vertex_format_threshold
- ` -
+- `colored_vertex_format_threshold`
   Baking colors into vertices results in a larger vertex format. This is not
   necessarily worth doing unless there are a lot of color changes going on
   within a joined item. This parameter represents the proportion of commands
   containing color changes / the total commands, above which it switches to
   baked colors.
-
-- `batch_buffer_size
- ` -
+- `batch_buffer_size`
   This determines the maximum size of a batch, it doesn't have a huge effect
   on performance but can be worth decreasing for mobile if RAM is at a premium.
-
-- `item_reordering_lookahead
- ` -
+- `item_reordering_lookahead`
   Item reordering can help especially with interleaved sprites using different
   textures. The lookahead for the overlap test has a small cost, so the best
   value may change per project.
 
 #### rendering/batching/lights
 
-- `scissor_area_threshold
- ` -
+- `scissor_area_threshold`
   See light scissoring.
-
-- `max_join_items
- ` -
+- `max_join_items`
   Joining items before lighting can significantly increase
   performance. This requires an overlap test, which has a small cost, so the
   costs and benefits may be project dependent, and hence the best value to use
@@ -355,34 +329,26 @@ information.
 
 #### rendering/batching/debug
 
-- `flash_batching
- ` -
+- `flash_batching`
   This is purely a debugging feature to identify regressions between the
   batching and legacy renderer. When it is switched on, the batching and legacy
   renderer are used alternately on each frame. This will decrease performance,
   and should not be used for your final export, only for testing.
-
-- `diagnose_frame
- ` -
+- `diagnose_frame`
   This will periodically print a diagnostic batching log to
   the Pandemonium IDE / console.
 
 #### rendering/batching/precision
 
-- `uv_contract
- ` -
+- `uv_contract`
   On some hardware (notably some Android devices) there have been reports of
   tilemap tiles drawing slightly outside their UV range, leading to edge
   artifacts such as lines around tiles. If you see this problem, try enabling uv
   contract. This makes a small contraction in the UV coordinates to compensate
   for precision errors on devices.
-
-- `uv_contract_amount
- ` -
+- `uv_contract_amount`
   Hopefully, the default amount should cure artifacts on most devices,
   but this value remains adjustable just in case.
-
-
 
 ### Diagnostics
 
@@ -467,8 +433,7 @@ You may see "dummy" default batches containing no commands; you can ignore those
 #### I get a decrease in performance with batching.
 
 - Try the steps described above to increase the number of batching opportunities.
-- Try enabling `single_rect_fallback
- `.
+- Try enabling `single_rect_fallback`.
 - The single rect fallback method is the default used without batching, and it
   is approximately twice as fast. However, it can result in flickering on some
   hardware, so its use is discouraged.
@@ -481,8 +446,7 @@ You may see "dummy" default batches containing no commands; you can ignore those
 
 #### I am seeing line artifacts appear on certain hardware.
 
-- See the `uv_contract
- `
+- See the `uv_contract`
   project setting which can be used to solve this problem.
 
 #### I use a large number of textures, so few items are being batched.
@@ -505,15 +469,12 @@ primitive types are currently available:
 
 With non-batched primitives, you may be able to get better performance by
 drawing them manually with polys in a `draw()` function.
-See `doc_custom_drawing_in_2d` for more information.
-
 
 
 #### Light scissoring threshold calculation
 
 The actual proportion of screen pixel area used as the threshold is the
-`scissor_area_threshold
-( ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
+`ProjectSettings/rendering/batching/lights/scissor_area_threshold`
 value to the power of 4.
 
 For example, on a screen size of 1920×1080, there are 2,073,600 pixels.
@@ -525,12 +486,10 @@ At a threshold of 1,000 pixels, the proportion would be:
 0.00048225 ^ (1/4) = 0.14819
 ```
 
-So a `scissor_area_threshold
-( ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
+So a `ProjectSettings/rendering/batching/lights/scissor_area_threshold`
 of `0.15` would be a reasonable value to try.
 
-Going the other way, for instance with a `scissor_area_threshold
-( ProjectSettings_property_rendering/batching/lights/scissor_area_threshold )`
+Going the other way, for instance with a `ProjectSettings/rendering/batching/lights/scissor_area_threshold`
 of `0.5`:
 
 ```
@@ -540,3 +499,4 @@ of `0.5`:
 
 If the number of pixels saved is greater than this threshold, the scissor is
 activated.
+

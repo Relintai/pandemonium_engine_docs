@@ -41,18 +41,15 @@ rendering.
 
 However, there is a much easier way to take advantage of occlusion. Pandemonium features
 an advanced portal rendering system, which can perform occlusion culling from cameras and
-lights. See `doc_rooms_and_portals`.
+lights.
 
 This is not a fully automatic system and it requires some manual setup. However, it potentially
 offers significant performance increases.
 
-Note:
-
-
-    In some cases, you can adapt your level design to add more occlusion
-    opportunities. For example, you can add more walls to prevent the player
-    from seeing too far away, which would decrease performance due to the lost
-    opportunies for occlusion culling.
+Note: In some cases, you can adapt your level design to add more occlusion
+opportunities. For example, you can add more walls to prevent the player
+from seeing too far away, which would decrease performance due to the lost
+opportunies for occlusion culling.
 
 ### Other occlusion techniques
 
@@ -62,16 +59,13 @@ through add-ons or may be available in core Pandemonium in the future.
 
 ### Transparent objects
 
-Pandemonium sorts objects by `Material` and `Shader
-( Shader )` to improve performance. This, however, can not be done with
+Pandemonium sorts objects by `Material` and `Shader`
+to improve performance. This, however, can not be done with
 transparent objects. Transparent objects are rendered from back to front to make
 blending with what is behind work. As a result,
 **try to use as few transparent objects as possible**. If an object has a
 small section with transparency, try to make that section a separate surface
 with its own material.
-
-For more information, see the `GPU optimizations ( doc_gpu_optimization )`
-doc.
 
 # Level of detail (LOD)
 
@@ -87,8 +81,7 @@ simulate more complex geometry.
 The simplest version of using transparency to deal with LOD is billboards. For
 example, you can use a single transparent quad to represent a tree at distance.
 This can be very cheap to render, unless of course, there are many trees in
-front of each other. In which case transparency may start eating into fill rate
-(for more information on fill rate, see `doc_gpu_optimization`).
+front of each other. In which case transparency may start eating into fill rate.
 
 An alternative is to render not just one tree, but a number of trees together as
 a group. This can be especially effective if you can see an area but cannot
@@ -109,8 +102,6 @@ of many thousands of objects at very little performance cost, making it ideal
 for flocks, grass, particles, and anything else where you have thousands of
 identical objects.
 
-Also see the `Using MultiMesh ( doc_using_multimesh )` doc.
-
 # Bake lighting
 
 Lighting objects is one of the most costly rendering operations. Realtime
@@ -122,7 +113,7 @@ but has the downside that it will not be dynamic. Sometimes, this is a trade-off
 worth making.
 
 In general, if several lights need to affect a scene, it's best to use
-`doc_baked_lightmaps`. Baking can also improve the scene quality by adding
+baked lightmaps. Baking can also improve the scene quality by adding
 indirect light bounces.
 
 # Animation and skinning
@@ -144,3 +135,4 @@ There may also be rendering and physics glitches due to floating point error in
 large worlds. You may be able to use techniques such as orienting the world
 around the player (rather than the other way around), or shifting the origin
 periodically to keep things centred around `Vector3(0, 0, 0)`.
+

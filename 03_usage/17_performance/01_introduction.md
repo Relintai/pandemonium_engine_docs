@@ -1,5 +1,4 @@
 
-
 # Optimization
 
 ## Introduction
@@ -34,6 +33,5 @@ swappable for different algorithms, the default backends prioritize balance and
 flexibility over performance.
 
 With this clear, the aim of this tutorial section is to explain how to get the
-maximum performance out of Pandemonium. While the tutorials can be read in any order,
-it is a good idea to start from `doc_general_optimization`.
+maximum performance out of Pandemonium.
 

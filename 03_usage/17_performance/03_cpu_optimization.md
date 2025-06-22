@@ -1,5 +1,4 @@
 
-
 # CPU optimization
 
 # Measuring performance
@@ -30,19 +29,16 @@ After profiling, you can look back at the results for a frame.
 Results of a profile of one of the demo projects.
 
 Note:
- We can see the cost of built-in processes such as physics and audio,
-          as well as seeing the cost of our own scripting functions at the
-          bottom.
 
-          Time spent waiting for various built-in servers may not be counted in
-          the profilers. This is a known bug.
+- We can see the cost of built-in processes such as physics and audio,
+  as well as seeing the cost of our own scripting functions at the
+  bottom.
+- Time spent waiting for various built-in servers may not be counted in
+  the profilers. This is a known bug.
 
 When a project is running slowly, you will often see an obvious function or
 process taking a lot more time than others. This is your primary bottleneck, and
 you can usually increase speed by optimizing this area.
-
-For more info about using Pandemonium's built-in profiler, see
-`doc_debugger_panel`.
 
 ### External profilers
 
@@ -50,19 +46,18 @@ Although the Pandemonium IDE profiler is very convenient and useful, sometimes y
 need more power, and the ability to profile the Pandemonium engine source code itself.
 
 You can use a number of third party profilers to do this including
-`Valgrind ( https://www.valgrind.org/ )`,
-`VerySleepy ( http://www.codersnotes.com/sleepy/ )`,
-`HotSpot ( https://github.com/KDAB/hotspot )`,
-`Visual Studio ( https://visualstudio.microsoft.com/ )` and
-`Intel VTune ( https://software.intel.com/content/www/us/en/develop/tools/vtune-profiler.html )`.
+[Valgrind](https://www.valgrind.org/),
+[VerySleepy](http://www.codersnotes.com/sleepy/),
+[HotSpot](https://github.com/KDAB/hotspot),
+[Visual Studio](https://visualstudio.microsoft.com/) and
+[Intel VTune](https://software.intel.com/content/www/us/en/develop/tools/vtune-profiler.html).
 
-Note:
- You will need to compile Pandemonium from source to use a third-party profiler.
-          This is required to obtain debugging symbols. You can also use a debug
-          build, however, note that the results of profiling a debug build will
-          be different to a release build, because debug builds are less
-          optimized. Bottlenecks are often in a different place in debug builds,
-          so you should profile release builds whenever possible.
+Note: You will need to compile Pandemonium from source to use a third-party profiler.
+This is required to obtain debugging symbols. You can also use a debug
+build, however, note that the results of profiling a debug build will
+be different to a release build, because debug builds are less
+optimized. Bottlenecks are often in a different place in debug builds,
+so you should profile release builds whenever possible.
 
 ![Screenshot of Callgrind](img/valgrind.png)
 
@@ -147,7 +142,7 @@ will be able to work as fast as possible.
 Pandemonium usually takes care of such low-level details for you. For example, the
 Server APIs make sure data is optimized for caching already for things like
 rendering and physics. Still, you should be especially aware of caching when
-using `GDNative ( toc-tutorials-gdnative )`.
+using GDNative.
 
 # Languages
 
@@ -161,33 +156,18 @@ code, consider moving those calculations to a faster language.
 
 ### GDScript
 
-`GDScript (toc-learn-scripting-gdscript )` is designed to be easy to use and iterate,
+GDScript is designed to be easy to use and iterate,
 and is ideal for making many types of games. However, in this language, ease of
 use is considered more important than performance. If you need to make heavy
 calculations, consider moving some of your project to one of the other
 languages.
-
-### C#
-
-`C# (toc-learn-scripting-C# )` is popular and has first-class support in Pandemonium.It
-offers a good compromise between speed and ease of use. Beware of possible
-garbage collection pauses and leaks that can occur during gameplay, though. A
-common approach to workaround issues with garbage collection is to use *object
-pooling*, which is outside the scope of this guide.
-
-### Other languages
-
-Third parties provide support for several other languages, including `Rust
-( https://github.com/pandemonium-rust/pandemonium-rust )` and `Javascript
-( https://github.com/PandemoniumExplorer/ECMAScript )`.
 
 ### C++
 
 Pandemonium is written in C++. Using C++ will usually result in the fastest code.
 However, on a practical level, it is the most difficult to deploy to end users'
 machines on different platforms. Options for using C++ include
-`GDNative (toc-tutorials-gdnative )` and
-`custom modules ( doc_custom_modules_in_c++ )`.
+GDNative and custom modules.
 
 # Threads
 
@@ -204,8 +184,6 @@ you understand the dangers and how to try and prevent these race conditions.
 
 Threads can also make debugging considerably more difficult. The GDScript
 debugger doesn't support setting up breakpoints in threads yet.
-
-For more information on threads, see `doc_using_multiple_threads`.
 
 # SceneTree
 
@@ -225,8 +203,7 @@ example, keep a reference to a node, detach it from the scene tree using
 it later using `Node.add_child(node)`.
 This can be very useful for adding and removing areas from a game, for example.
 
-You can avoid the SceneTree altogether by using Server APIs. For more
-information, see `doc_using_servers`.
+You can avoid the SceneTree altogether by using Server APIs.
 
 # Physics
 
@@ -255,8 +232,9 @@ that feature real-time player movement.
 
 The solution to jitter is to use *fixed timestep interpolation*, which involves
 smoothing the rendered positions and rotations over multiple frames to match the
-physics. You can either implement this yourself or use a
-`third-party addon ( https://github.com/lawnjelly/smoothing-addon )`.
+physics.
+
 Performance-wise, interpolation is a very cheap operation compared to running a
 physics tick. It's orders of magnitude faster, so this can be a significant
 performance win while also reducing jitter.
+

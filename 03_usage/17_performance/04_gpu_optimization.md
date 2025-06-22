@@ -1,5 +1,4 @@
 
-
 # GPU optimization
 
 ### Introduction
@@ -22,9 +21,8 @@ performance is by examining changes in the time spent rendering each frame.
 
 # Draw calls, state changes, and APIs
 
-Note:
- The following section is not relevant to end-users, but is useful to
-          provide background information that is relevant in later sections.
+Note: The following section is not relevant to end-users, but is useful to
+provide background information that is relevant in later sections.
 
 Pandemonium sends instructions to the GPU via a graphics API (OpenGL, OpenGL ES or
 Vulkan). The communication and driver activity involved can be quite costly,
@@ -48,8 +46,6 @@ via a single draw call, rather than making a separate draw call for each item.
 In addition, this means state changes, material and texture changes can be kept
 to a minimum.
 
-For more information on 2D batching, see `doc_batching`.
-
 ### 3D batching
 
 In 3D, we still aim to minimize draw calls and state changes. However, it can be
@@ -68,14 +64,11 @@ when attempting to batch 3D objects together. Despite this, the benefits of
 joining static objects often outweigh other considerations, especially for large
 numbers of distant or low-poly objects.
 
-For more information on 3D specific optimizations, see
-`doc_optimizing_3d_performance`.
-
 ### Reuse Shaders and Materials
 
 The Pandemonium renderer is a little different to what is out there. It's designed to
-minimize GPU state changes as much as possible. `SpatialMaterial
-( SpatialMaterial )` does a good job at reusing materials that need similar
+minimize GPU state changes as much as possible. `SpatialMaterial`
+does a good job at reusing materials that need similar
 shaders. If custom shaders are used, make sure to reuse them as much as
 possible. Pandemonium's priorities are:
 
@@ -168,8 +161,8 @@ elsewhere.
 
 You can increase performance in a fill rate-limited project by reducing the
 amount of work the GPU has to do. You can do this by simplifying the shader
-(perhaps turn off expensive options if you are using a `SpatialMaterial
-( SpatialMaterial )`), or reducing the number and size of textures used.
+(perhaps turn off expensive options if you are using a `SpatialMaterial`),
+or reducing the number and size of textures used.
 
 **When targeting mobile devices, consider using the simplest possible shaders
 you can reasonably afford to use.**
@@ -204,12 +197,9 @@ more noticeable.
 As a warning, most Android devices do not support texture compression of
 textures with transparency (only opaque), so keep this in mind.
 
-Note:
-
-
-   Even in 3D, "pixel art" textures should have VRAM compression disabled as it
-   will negatively affect their appearance, without improving performance
-   significantly due to their low resolution.
+Note: Even in 3D, "pixel art" textures should have VRAM compression disabled as it
+will negatively affect their appearance, without improving performance
+significantly due to their low resolution.
 
 
 ### Post-processing and shadows
@@ -270,3 +260,4 @@ much more complicated and expensive to perform. Tiles that rely on the results
 of rendering in different tiles or on the results of earlier operations being
 preserved can be very slow. Be very careful to test the performance of shaders,
 viewport textures and post processing.
+

@@ -1,8 +1,7 @@
 
-
 # Animating thousands of fish with MultiMeshInstance
 
-This tutorial explores a technique used in the game `ABZU ( https://www.gdcvault.com/play/1024409/Creating-the-Art-of-ABZ )`
+This tutorial explores a technique used in the game [ABZU](https://www.gdcvault.com/play/1024409/Creating-the-Art-of-ABZ)
 for rendering and animating thousands of fish using vertex animation and
 static mesh instancing.
 
@@ -22,10 +21,9 @@ Here is the fish we will be using for the example images, you can use any fish m
 
 ![](img/fish.png)
 
-Note:
- The fish model in this tutorial is made by `QuaterniusDev ( http://quaternius.com )` and is
-          shared with a creative commons license. CC0 1.0 Universal (CC0 1.0) Public Domain
-          Dedication https://creativecommons.org/publicdomain/zero/1.0/
+Note: The fish model in this tutorial is made by [QuaterniusDev](http://quaternius.com) and is
+shared with a creative commons license. CC0 1.0 Universal (CC0 1.0) Public Domain
+Dedication https://creativecommons.org/publicdomain/zero/1.0/
 
 Typically, you would use bones and a `Skeleton` to animate objects. However,
 bones are animated on the CPU and so you end having to calculate thousands of operations every
@@ -209,8 +207,7 @@ Now, set `instance_count` to the number of fish you want to have.
 
 Next we need to set the per-instance transforms.
 
-There are two ways to set per-instance transforms for MultiMeshes. The first is entirely in editor
-and is described in the `MultiMeshInstance tutorial ( doc_using_multi_mesh_instance )`.
+There are two ways to set per-instance transforms for MultiMeshes.
 
 The second is to loop over all the instances and set their transforms in code. Below, we use GDScript
 to loop over all the instances and set their transform to a random position.
@@ -225,8 +222,7 @@ for i in range($School.multimesh.instance_count):
 Running this script will place the fish in random positions in a box around the position of the
 MultiMeshInstance.
 
-Note:
- If performance is an issue for you, try running the scene with GLES2 or with fewer fish.
+Note: If performance is an issue for you, try running the scene with GLES2 or with fewer fish.
 
 Notice how all the fish are all in the same position in their swim cycle? It makes them look very
 robotic. The next step is to give each fish a different position in the swim cycle so the entire
@@ -271,3 +267,4 @@ slow.
 
 In the next tutorial we will cover how to use `Particles` to take advantage
 of the GPU and move each fish around individually while still receiving the benefits of instancing.
+

@@ -43,16 +43,12 @@ difficulties in implementation, which are:
 - `group node`
 - shader nodes except `PrincipledBSDF`, `Diffuse`, `Glossy`, `Glass`, `add shader` and `mix shader`
 
-Warning:
-
-
-    If possible, try to use PrincipledBSDF node with GGX distribution as the output shader
-    node, it is the only one guaranteed to be exactly correct. Others are just based on approximation.
+Warning: If possible, try to use PrincipledBSDF node with GGX distribution as the output shader
+node, it is the only one guaranteed to be exactly correct. Others are just based on approximation.
 
 Sometimes materials may not be valid for exporting (e.g. has some unsupported node) or it
 is using Blender Internal Engine, only the diffuse color and a few flags (e.g. unshaded) are
 exported and form a Spatial Material.
-
 
 ## Generate external materials
 
@@ -65,3 +61,4 @@ file when the `escn` file opens in Pandemonium.
 `.material` file can be assigned to any material slot to be a external resource.
 
 ![](img/gd_dot_material.jpg)
+

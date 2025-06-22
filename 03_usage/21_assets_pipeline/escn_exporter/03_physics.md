@@ -6,10 +6,8 @@ physics tab:
 
 ![](img/enable_physics.png)
 
-Important:
-
-    By default, a single Blender object with rigid body enabled will export as
-    three nodes: a PhysicsBody, a CollisionShape, and a MeshInstance.
+Important: By default, a single Blender object with rigid body enabled will export as
+three nodes: a PhysicsBody, a CollisionShape, and a MeshInstance.
 
 ## Body type
 
@@ -37,10 +35,9 @@ There are the following caveats:
    collision mask is equal to its collision group. Most of the time, this is
    what you want.
 
-.. important::
-    To build compound physics shapes, parent together multiple objects with
-    rigid body enabled. The physics properties are taken from the parent-most
-    rigid body, and the rest are used as collision shapes.
+Important: To build compound physics shapes, parent together multiple objects with
+rigid body enabled. The physics properties are taken from the parent-most
+rigid body, and the rest are used as collision shapes.
 
 ## Collision geometry only
 
@@ -54,3 +51,4 @@ draw type to Wire:
 This will also influence how the object is shown in Blender's viewport.
 Most of the time, you want your collision geometry to be shown see-through when
 working on the models, so this works out fairly nicely.
+

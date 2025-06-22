@@ -2,6 +2,7 @@
 # Animation
 
 Animation supported:
+
  - transform animation of all types of objects
  - transform animation of pose bones
  - shape key animation
@@ -86,3 +87,4 @@ This mode has very similar behavior of mode 'Animation as Action', but it
 can generate fewer AnimationPlayers; objects in parent-children relationship would
 share their AnimationPlayer. It is useful when you have several rigs, and each
 Skeleton and Mesh has actions; then one rig would have just one AnimationPlayer.
+

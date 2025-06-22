@@ -1,5 +1,4 @@
 
-
 # Spatial gizmo plugins
 
 ## Introduction
@@ -10,10 +9,6 @@ gizmos attached to any kind of Spatial node.
 This tutorial will show you the two main approaches to defining your own custom
 gizmos. The first option works well for simple gizmos and creates less clutter in
 your plugin structure, while the second one will let you store some per-gizmo data.
-
-Note:
- This tutorial assumes you already know how to make generic plugins. If
-          in doubt, refer to the `doc_making_plugins` page.
 
 ## The EditorSpatialGizmoPlugin
 
@@ -55,13 +50,13 @@ func _exit_tree():
 
 
 For simple gizmos, just inheriting `EditorSpatialGizmoPlugin`
-is enough. If you want to store some per-gizmo data or you are porting a Pandemonium 3.0 gizmo
-to 3.1+, you should go with the second approach.
+is enough.
+If you want to store some per-gizmo data, you should go with the second approach.
 
 
 ## Simple approach
 
-The first step is to, in our custom gizmo plugin, override the `has_gizmo()( EditorSpatialGizmoPlugin_method_has_gizmo )`
+The first step is to, in our custom gizmo plugin, override the `has_gizmo()`
 method so that it returns `true` when the spatial parameter is of our target type.
 
 ```
@@ -75,7 +70,7 @@ func has_gizmo(spatial):
 # ...
 ```
 
-Then we can override methods like `redraw()( EditorSpatialGizmoPlugin_method_redraw )`
+Then we can override methods like `redraw()`
 or all the handle related ones.
 
 ```
@@ -110,7 +105,7 @@ func redraw(gizmo):
 ```
 
 Note that we created a material in the `init` method, and retrieved it in the `redraw`
-method using `get_material()( EditorSpatialGizmoPlugin_method_get_material )`. This
+method using `get_material()`. This
 method retrieves one of the material's variants depending on the state of the gizmo
 (selected and/or editable).
 
@@ -161,12 +156,12 @@ to get properly working handles.
 
 ## Alternative approach
 
-In some cases we want to provide our own implementation of `EditorSpatialGizmo( EditorSpatialGizmo )`,
+In some cases we want to provide our own implementation of `EditorSpatialGizmo`,
 maybe because we want to have some state stored in each gizmo or because we are porting
 an old gizmo plugin and we don't want to go through the rewriting process.
 
 In these cases all we need to do is, in our new gizmo plugin, override
-`create_gizmo()( EditorSpatialGizmoPlugin_method_create_gizmo )`, so it returns our custom gizmo implementation
+`create_gizmo()`, so it returns our custom gizmo implementation
 for the Spatial nodes we want to target.
 
 ```
@@ -191,7 +186,7 @@ func create_gizmo(spatial):
 ```
 
 This way all the gizmo logic and drawing methods can be implemented in a new class extending
-`EditorSpatialGizmo( EditorSpatialGizmo )`, like so:
+`EditorSpatialGizmo`, like so:
 
 ```
 # MyCustomGizmo.gd
@@ -229,5 +224,6 @@ func redraw():
 ```
 
 Note that we just added some handles in the redraw method, but we still need to implement
-the rest of handle-related callbacks in `EditorSpatialGizmo( EditorSpatialGizmo )`
+the rest of handle-related callbacks in `EditorSpatialGizmo`
 to get properly working handles.
+

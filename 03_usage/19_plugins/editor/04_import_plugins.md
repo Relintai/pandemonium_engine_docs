@@ -1,11 +1,5 @@
 
-
 # Import plugins
-
-Note:
- This tutorial assumes you already know how to make generic plugins. If
-          in doubt, refer to the `doc_making_plugins` page. This also
-          assumes you are acquainted with Pandemonium's import system.
 
 ## Introduction
 
@@ -20,7 +14,6 @@ numeric values separated by comma, which represents the three channels of a
 color, and the resulting color will be used as the albedo (main color) of the
 imported material. In this example it will contain the pure blue color
 (zero red, zero green, and full blue):
-
 
 ```
 0,0,255
@@ -96,7 +89,7 @@ func get_importer_name():
 ```
 
 The first method is the
-`get_importer_name()( EditorImportPlugin_method_get_importer_name )`. This is a
+`get_importer_name()`. This is a
 unique name for your plugin that is used by Pandemonium to know which import was used
 in a certain file. When the files needs to be reimported, the editor will know
 which plugin to call.
@@ -106,7 +99,7 @@ func get_visible_name():
     return "Silly Material"
 ```
 
-The `get_visible_name()( EditorImportPlugin_method_get_visible_name )` method is
+The `get_visible_name()` method is
 responsible for returning the name of the type it imports and it will be shown to the
 user in the Import dock.
 
@@ -120,16 +113,15 @@ func get_recognized_extensions():
 ```
 
 Pandemonium's import system detects file types by their extension. In the
-`get_recognized_extensions()( EditorImportPlugin_method_get_recognized_extensions )`
+`get_recognized_extensions()`
 method you return an array of strings to represent each extension that this
 plugin can understand. If an extension is recognized by more than one plugin,
 the user can select which one to use when importing the files.
 
-Tip:
- Common extensions like `.json` and `.txt` might be used by many
-         plugins. Also, there could be files in the project that are just data
-         for the game and should not be imported. You have to be careful when
-         importing to validate the data. Never expect the file to be well-formed.
+Tip: Common extensions like `.json` and `.txt` might be used by many
+plugins. Also, there could be files in the project that are just data
+for the game and should not be imported. You have to be careful when
+importing to validate the data. Never expect the file to be well-formed.
 
 ```
 func get_save_extension():
@@ -159,10 +151,9 @@ property in the Inspector.
 In our case it's a `SpatialMaterial`, which can be applied to 3D
 objects.
 
-Note:
- If you need to import different types from the same extension, you
-          have to create multiple import plugins. You can abstract the import
-          code on another file to avoid duplication in this regard.
+Note: If you need to import different types from the same extension, you
+have to create multiple import plugins. You can abstract the import
+code on another file to avoid duplication in this regard.
 
 ## Options and presets
 
@@ -246,9 +237,9 @@ shows the possible keys:
 |-------------------|------------|----------------------------------------------------------------------------------------------------------|
 | `name`            | String     | The name of the option. When showed, underscores become spaces and first letters are capitalized.        |
 | `default_value`   | Any        | The default value of the option for this preset.                                                         |
-| `property_hint`   | Enum value | One of the `PropertyHint ( enum_@GlobalScope_PropertyHint )` values to use as hint.                       |
+| `property_hint`   | Enum value | One of the `PropertyHint` values to use as hint.                       |
 | `hint_string`     | String     | The hint text of the property. The same as you'd add in the `export` statement in GDScript.              |
-| `usage`           | Enum value | One of the `PropertyUsageFlags ( enum_@GlobalScope_PropertyUsageFlags )` values to define the usage.      |
+| `usage`           | Enum value | One of the `PropertyUsageFlags` values to define the usage.      |
 
 
 The `name` and `default_value` keys are **mandatory**, the rest are optional.
@@ -259,11 +250,10 @@ value). In this example we use the `match` statement, but if you have lots of
 options and the presets only change the value you may want to create the array
 of options first and then change it based on the preset.
 
-Warning:
- The `get_import_options` method is called even if you don't
-             define presets (by making `get_preset_count` return zero). You
-             have to return an array even it's empty, otherwise you can get
-             errors.
+Warning: The `get_import_options` method is called even if you don't
+define presets (by making `get_preset_count` return zero). You
+have to return an array even it's empty, otherwise you can get
+errors.
 
 ```
 func get_option_visibility(option, options):
@@ -418,3 +408,4 @@ And that's it! Your first import plugin is done! Now get creative and make
 plugins for your own beloved formats. This can be quite useful to write your
 data in a custom format and then use it in Pandemonium as if they were native
 resources. This shows how the import system is powerful and extendable.
+

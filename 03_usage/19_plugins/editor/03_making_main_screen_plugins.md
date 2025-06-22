@@ -1,5 +1,4 @@
 
-
 # Making main screen plugins
 
 ## What this tutorial covers
@@ -7,7 +6,7 @@
 As seen in the `doc_making_plugins` page, making a basic plugin that
 extends the editor is fairly easy. Main screen plugins allow you to create
 new UIs in the central part of the editor, which appear next to the
-"2D", "3D", "Script", and "AssetLib" buttons. Such editor plugins are
+"2D", "3D" and "Script" buttons. Such editor plugins are
 referred as "Main screen plugins".
 
 This tutorial leads you through the creation of a basic main screen plugin.
@@ -165,9 +164,8 @@ to 2D, 3D, Script above the main viewport. Clicking it will take you to your
 new main screen plugin, and the button in the middle will print text.
 
 If you would like to try a finished version of this plugin,
-check out the plugin demos here:
-https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/plugins
+check out the plugin demos [here](../../../07_demo_projects/plugins/).
 
 If you would like to see a more complete example of what main screen plugins
-are capable of, check out the 2.5D demo projects here:
-https://github.com/Relintai/pandemonium_engine-demo-projects/tree/master/misc/2.5d
+are capable of, check out the 2.5D demo project [here](../../../07_demo_projects/misc/2.5d/).
+

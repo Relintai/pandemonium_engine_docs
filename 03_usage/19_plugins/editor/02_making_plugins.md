@@ -1,5 +1,4 @@
 
-
 # Making plugins
 
 ### About plugins
@@ -40,8 +39,6 @@ creation of the files and the config file's values.
 
 To continue with the example, use the following values:
 
-ini GDScript
-
 ```
 Plugin Name: My Custom Node
 Subfolder: my_custom_node
@@ -53,14 +50,6 @@ Script Name: custom_node.gd
 Activate now: No
 ```
 
-Warning:
-
-
-    Unchecking the `Activate now?` option in C# is always required because,
-    like every other C# script, the EditorPlugin script needs to be compiled which
-    requires building the project. After building the project the plugin can be
-    enabled in the `Plugins` tab of `Project Settings`.
-
 You should end up with a directory structure like this:
 
 ![](img/making_plugins-my_custom_mode_folder.png)
@@ -69,7 +58,7 @@ You should end up with a directory structure like this:
 The name and description help people understand what it does.
 Your name helps you get properly credited for your work.
 The version number helps others know if they have an outdated version;
-if you are unsure on how to come up with the version number, check out `Semantic Versioning ( https://semver.org/ )`.
+if you are unsure on how to come up with the version number, check out [Semantic Versioning](https://semver.org/).
 The main script file will instruct Pandemonium what your plugin does in the editor
 once it is active.
 
@@ -80,12 +69,9 @@ EditorPlugin script for you. The script has two requirements that you cannot
 change: it must be a `tool` script, or else it will not load properly in the
 editor, and it must inherit from `EditorPlugin`.
 
-Warning:
-
-
-    In addition to the EditorPlugin script, any other GDScript that your plugin uses
-    must *also* be a tool. Any GDScript without `tool` imported into the editor
-    will act like an empty file!
+Warning: In addition to the EditorPlugin script, any other GDScript that your plugin uses
+must *also* be a tool. Any GDScript without `tool` imported into the editor
+will act like an empty file!
 
 It's important to deal with initialization and clean-up of resources.
 A good practice is to use the virtual function
@@ -93,10 +79,6 @@ A good practice is to use the virtual function
 `exit_tree()` to clean it up. Thankfully,
 the dialog generates these callbacks for you. Your script should look something
 like this:
-
-
-
-gdscript GDScript
 
 ```
 tool
@@ -123,13 +105,10 @@ sometimes it can be cumbersome, especially if you're using it in many
 projects. A good solution to this is to make a plugin that adds a node with a
 custom behavior.
 
-Warning:
-
-
-  Nodes added via an EditorPlugin are "CustomType" nodes. While they work
-  with any scripting language, they have fewer features than
-  `the Script Class system ( doc_gdscript_basics_class_name )`. If you
-  are writing GDScript or NativeScript, we recommend using Script Classes instead.
+Warning: Nodes added via an EditorPlugin are "CustomType" nodes. While they work
+with any scripting language, they have fewer features than
+the Script Class system. If you
+are writing GDScript or NativeScript, we recommend using Script Classes instead.
 
 To create a new node type, you can use the function
 `add_custom_type()` from the
@@ -142,8 +121,6 @@ For this tutorial, we'll create a simple button that prints a message when
 clicked. For that, we'll need a simple script that extends from
 `Button`. It could also extend
 `BaseButton` if you prefer:
-
-gdscript GDScript
 
 ```
 tool
@@ -168,8 +145,6 @@ don't have one, you can grab the default one from the engine and save it in your
 
 Now, we need to add it as a custom type so it shows on the **Create New Node**
 dialog. For that, change the `custom_node.gd` script to the following:
-
-gdscript GDScript
 
 ```
 tool
@@ -211,8 +186,6 @@ Creating a custom dock is done just like a custom node. Create a new
 `plugin.cfg` file in the `addons/my_custom_dock` folder, then
 add the following content to it:
 
-gdscript GDScript
-
 ```
 [plugin]
 
@@ -224,8 +197,7 @@ script="custom_dock.gd"
 ```
 
 Then create the script `custom_dock.gd` in the same folder. Fill it with the
-`template we've seen before ( doc_making_plugins_template_code )` to get a
-good start.
+template we've seen before to get a good start.
 
 Since we're trying to add a new custom dock, we need to create the contents of
 the dock. This is nothing more than a standard Pandemonium scene: just create
@@ -248,8 +220,6 @@ You need to select a dock position and define the control to add
 (which is the scene you just created). Don't forget to
 **remove the dock** when the plugin is deactivated.
 The script could look like this:
-
-gdscript GDScript
 
 ```
 tool
@@ -303,15 +273,10 @@ several ways. Lots of functionality can be added to the editor with GDScript;
 it is a powerful way to create specialized editors without having to delve into
 C++ modules.
 
-You can make your own plugins to help yourself and share them in the
-`Asset Library ( https://pandemoniumengine.org/asset-library/ )` so that people
-can benefit from your work.
-
-
 ### Registering autoloads/singletons in plugins
 
 It is possible for editor plugins to automatically register
-`autoloads ( doc_singletons_autoload )` when the plugin is enabled.
+`autoloads` when the plugin is enabled.
 This also includes unregistering the autoload when the plugin is disabled.
 
 This makes setting up plugins faster for users, as they no longer have to manually
@@ -336,3 +301,4 @@ func _enter_tree():
 func _exit_tree():
     remove_autoload_singleton(AUTOLOAD_NAME)
 ```
+

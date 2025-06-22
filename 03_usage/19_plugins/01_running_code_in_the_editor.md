@@ -1,26 +1,30 @@
 
-
 # Running code in the editor
 
 ## What is `tool`?
 
-`tool` is a powerful line of code that, when added at the top of your script, makes it execute in the editor. You can also decide which parts of the script execute in the editor, which in game, and which in both.
+`tool` is a powerful line of code that, when added at the top of your script, makes it execute
+in the editor. You can also decide which parts of the script execute in the editor, which
+in game, and which in both.
 
-You can use it for doing many things, but it is mostly useful in level design for visually presenting things that are hard to predict ourselves. Here are some use cases:
+You can use it for doing many things, but it is mostly useful in level design for visually
+presenting things that are hard to predict ourselves. Here are some use cases:
 
-- If you have a cannon that shoots cannonballs affected by physics (gravity), you can draw the cannonball's trajectory in the editor, making level design a lot easier.
-- If you have jumppads with varying jump heights, you can draw the maximum jump height a player would reach if it jumped on one, also making level design easier.
+- If you have a cannon that shoots cannonballs affected by physics (gravity), you can draw the
+  cannonball's trajectory in the editor, making level design a lot easier.
+- If you have jumppads with varying jump heights, you can draw the maximum jump height a
+  player would reach if it jumped on one, also making level design easier.
 - If your player doesn't use a sprite, but draws itself using code, you can make that drawing code execute in the editor to see your player.
 
-DANGER:
+### DANGER:
 
-    `tool` scripts run inside the editor, and let you access the scene tree
-    of the currently edited scene. This is a powerful feature which also comes
-    with caveats, as the editor does not include protections for potential
-    misuse of `tool` scripts.
-    Be **extremely** cautious when manipulating the scene tree, especially via
-    `Node.queue_free( Node_method_queue_free )`, as it can cause
-    crashes if you free a node while the editor runs logic involving it.
+`tool` scripts run inside the editor, and let you access the scene tree
+of the currently edited scene. This is a powerful feature which also comes
+with caveats, as the editor does not include protections for potential
+misuse of `tool` scripts.
+Be **extremely** cautious when manipulating the scene tree, especially via
+`Node.queue_free()`, as it can cause
+crashes if you free a node while the editor runs logic involving it.
 
 ## How to use it
 
@@ -30,16 +34,12 @@ To check if you are currently in the editor, use: `Engine.editor_hint`.
 
 For example, if you want to execute some code only in the editor, use:
 
-gdscript GDScript
-
 ```
 if Engine.editor_hint:
     # Code to execute when in editor.
 ```
 
 On the other hand, if you want to execute code only in game, simply negate the same statement:
-
-gdscript GDScript
 
 ```
 if not Engine.editor_hint:
@@ -49,8 +49,6 @@ if not Engine.editor_hint:
 Pieces of code do not have either of the 2 conditions above will run both in-editor and in-game.
 
 Here is how a `process()` function might look for you:
-
-gdscript GDScript
 
 ```
 func _process(delta):
@@ -63,14 +61,12 @@ func _process(delta):
     # Code to execute both in editor and in game.
 ```
 
-Note:
- Modifications in editor are permanent. For example, in the following case, when we remove the script, the node will keep its rotation. Be careful to avoid making unwanted modifications.
+Note: Modifications in editor are permanent. For example, in the following case, when we remove
+the script, the node will keep its rotation. Be careful to avoid making unwanted modifications.
 
 ## Try it out
 
 Add a `Sprite` node to your scene and set the texture to Pandemonium icon. Attach and open a script, and change it to this:
-
-gdscript GDScript
 
 ```
 tool
@@ -84,12 +80,9 @@ Save the script and return to the editor. You should now see your object rotate.
 
 ![](img/rotating_in_editor.gif)
 
-Note:
- If you don't see the changes, reload the scene (close it and open it again).
+Note: If you don't see the changes, reload the scene (close it and open it again).
 
 Now let's choose which code runs when. Modify your `process()` function to look like this:
-
-gdscript GDScript
 
 ```
 func _process(delta):
@@ -105,8 +98,6 @@ Save the script. Now the object will spin clockwise in the editor, but if you ru
 
 Add and export a variable speed to the script. The function set_speed after "setget" is executed with your input to change the variable.
 Modify  `process()` to include the rotation speed.
-
-gdscript GDScript
 
 ```
 tool
@@ -127,8 +118,9 @@ func _process(delta):
 ```
 
 
-Note:
- Code from other nodes doesn't run in the editor. Your access to other nodes is limited. You can access the tree and nodes, and their default properties, but you can't access user variables. If you want to do so, other nodes have to run in the editor too. AutoLoad nodes cannot be accessed in the editor at all.
+Note: Code from other nodes doesn't run in the editor. Your access to other nodes is limited. You can
+access the tree and nodes, and their default properties, but you can't access user variables. If you
+want to do so, other nodes have to run in the editor too. AutoLoad nodes cannot be accessed in the editor at all.
 
 ## Instancing scenes
 
@@ -142,8 +134,6 @@ property to the currently edited scene root.
 
 If you are using `tool`:
 
-gdscript GDScript
-
 ```
 func _ready():
     var node = Spatial.new()
@@ -154,9 +144,7 @@ func _ready():
     node.set_owner(get_tree().edited_scene_root)
 ```
 
-If you are using `EditorScript( EditorScript )`:
-
-gdscript GDScript
+If you are using `EditorScript`:
 
 ```
 func _run():
@@ -169,5 +157,8 @@ func _run():
     node.set_owner(get_scene())
 ```
 
-Warning:
- Using `tool` improperly can yield many errors. It is advised to first write the code how you want it, and only then add the `tool` keyword to the top. Also, make sure to separate code that runs in-editor from code that runs in-game. This way, you can find bugs more easily.
+Warning: Using `tool` improperly can yield many errors. It is advised to first write the
+code how you want it, and only then add the `tool` keyword to the top. Also, make sure
+to separate code that runs in-editor from code that runs in-game. This way, you
+can find bugs more easily.
+

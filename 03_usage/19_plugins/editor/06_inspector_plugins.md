@@ -1,5 +1,4 @@
 
-
 # Inspector plugins
 
 The inspector dock allows you to create custom widgets to edit properties
@@ -22,9 +21,6 @@ The default behavior on the left and the end result on the right.
 
 Create a new empty plugin to get started.
 
-See also:
- See `doc_making_plugins` guide to set up your new plugin.
-
 Let's assume you've called your plugin folder `my_inspector_plugin`. If so,
 you should end up with a new `addons/my_inspector_plugin` folder that contains
 two files: `plugin.cfg` and `plugin.gd`.
@@ -36,11 +32,8 @@ the instance by calling `add_inspector_plugin()`. If the plugin is disabled,
 you should remove the instance you have added by calling
 `remove_inspector_plugin()`.
 
-Note:
- Here, you are loading a script and not a packed scene. Therefore you
-          should use `new()` instead of `instance()`.
-
-gdscript GDScript
+Note: Here, you are loading a script and not a packed scene. Therefore you
+should use `new()` instead of `instance()`.
 
 ```
 # plugin.gd
@@ -70,8 +63,7 @@ To have any effect at all, the script must implement the `can_handle()`
 method. This function is called for each edited `Object` and must
 return `true` if this plugin should handle the object or its properties.
 
-Note:
- This includes any `Resource` attached to the object.
+Note: This includes any `Resource` attached to the object.
 
 You can implement four other methods to add controls to the inspector at
 specific positions. The `parse_begin()` and `parse_end()` methods are called
@@ -84,8 +76,6 @@ As the editor parses the object, it calls the `parse_category()` and
 you can call both `add_property_editor()` and
 `add_property_editor_for_multiple_properties()`. Use these last two methods to
 specifically add `EditorProperty`-based controls.
-
-gdscript GDScript
 
 ```
 # MyInspectorPlugin.gd
@@ -134,8 +124,6 @@ There are three essential parts to the script extending
 You can display your custom widget in two ways. Use just the default `add_child()`
 method to display it to the right of the property name, and use `add_child()`
 followed by `set_bottom_editor()` to position it below the name.
-
-gdscript GDScript
 
 ```
 # RandomIntEditor.gd
@@ -190,3 +178,4 @@ func refresh_control_text():
 Using the example code above you should be able to make a custom widget that
 replaces the default `SpinBox` control for integers with a
 `Button` that generates random values.
+

@@ -19,8 +19,8 @@ derived types using a script.
 These scripts are not technically classes. Instead, they are resources that tell the engine a
 sequence of initializations to perform on one of the engine's built-in classes.
 
-Pandemonium's internal classes have methods that register a class's data with a `ClassDB
-( ClassDB )`. This database provides runtime access to class information. `ClassDB` contains
+Pandemonium's internal classes have methods that register a class's data with a `ClassDB`.
+This database provides runtime access to class information. `ClassDB` contains
 information about classes like:
 
 - Properties.
@@ -35,13 +35,10 @@ to see if the object supports the operation.
 Attaching a `Script` to your object extends the methods, properties, and signals
 available from the `ClassDB`.
 
-Note:
-
-
-    Even scripts that don't use the `extends` keyword implicitly inherit from the engine's base
-    `Reference` class. As a result, you can instantiate scripts without the
-    `extends` keyword from code. Since they extend `Reference` though, you cannot attach them to
-    a `Node`.
+Note: Even scripts that don't use the `extends` keyword implicitly inherit from the engine's base
+`Reference` class. As a result, you can instantiate scripts without the
+`extends` keyword from code. Since they extend `Reference` though, you cannot attach them to
+a `Node`.
 
 ## Scenes
 
@@ -67,3 +64,4 @@ The scene is *always an extension of the script attached to its root node*, so y
 as part of a class.
 
 Most of the techniques explained in this best practices series build on this point.
+

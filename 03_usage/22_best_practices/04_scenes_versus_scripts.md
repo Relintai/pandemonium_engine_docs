@@ -1,5 +1,4 @@
 
-
 # When to use scenes versus scripts
 
 We've already covered how scenes and scripts are different. Scripts
@@ -20,8 +19,6 @@ of its objects.
 But, choosing which one to use can be a dilemma. Creating script instances
 is identical to creating in-engine classes whereas handling scenes requires
 a change in API:
-
-gdscript GDScript
 
 ```
 const MyNode = preload("my_node.gd")
@@ -44,23 +41,14 @@ with an optional icon. In these cases, the user's ability to use the script
 is much more streamlined. Rather than having to...
 
 1. Know the base type of the script they would like to use.
-
 2. Create an instance of that base type.
-
 3. Add the script to the node.
-
    1. (Drag-n-drop method)
-
       1. Find the script in the FileSystem dock.
-
       2. Drag and drop the script onto the node in the Scene dock.
-
    2. (Property method)
-
       1. Scroll down to the bottom of the Inspector to find the `script` property and select it.
-
       2. Select "Load" from the dropdown.
-
       3. Select the script from the file dialog.
 
 With a registered script, the scripted type instead becomes a creation option
@@ -70,42 +58,25 @@ name.
 
 There are two systems for registering types...
 
-- `Custom Types ( doc_making_plugins )`
-
+- Custom Types
    - Editor-only. Typenames are not accessible at runtime.
-
    - Does not support inherited custom types.
-
    - An initializer tool. Creates the node with the script. Nothing more.
-
    - Editor has no type-awareness of the script or its relationship
      to other engine types or scripts.
-
    - Allows users to define an icon.
-
    - Works for all scripting languages because it deals with Script resources in abstract.
-
    - Set up using `EditorPlugin.add_custom_type`.
-
-- `Script Classes ( doc_gdscript_basics_class_name )`
-
+- Script Classes
    - Editor and runtime accessible.
-
    - Displays inheritance relationships in full.
-
    - Creates the node with the script, but can also change types
      or extend the type from the editor.
-
    - Editor is aware of inheritance relationships between scripts,
      script classes, and engine C++ classes.
-
    - Allows users to define an icon.
-
    - Engine developers must add support for languages manually (both name exposure and
      runtime accessibility).
-
-   - Pandemonium 3.1+ only.
-
    - The Editor scans project folders and registers any exposed names for all
      scripting languages. Each scripting language must implement its own
      support for exposing this information.
@@ -134,8 +105,6 @@ The code example below creates a new `Node`, changes its name, assigns a
 script to it, sets its future parent as its owner so it gets saved to disk along
 with it, and finally adds it as a child of the `Main` node:
 
-gdscript GDScript
-
 ```
 # Main.gd
 extends Node
@@ -152,8 +121,8 @@ Script code like this is much slower than engine-side C++ code. Each instruction
 makes a call to the scripting API which leads to many "lookups" on the back-end
 to find the logic to execute.
 
-Scenes help to avoid this performance issue. `PackedScene
-( PackedScene )`, the base type that scenes inherit from, defines resources
+Scenes help to avoid this performance issue. `PackedScene`,
+the base type that scenes inherit from, defines resources
 that use serialized data to create objects. The engine can process scenes in
 batches on the back-end and provide much better performance than scripts.
 
@@ -174,8 +143,6 @@ In the end, the best approach is to consider the following:
   this in 3.1 by declaring a script class and giving it a scene as a constant.
   The script becomes, in effect, a namespace:
 
-gdscript GDScript
-
 ```
 # game.gd
 extends Reference
@@ -187,3 +154,4 @@ extends Node
 func _ready():
     add_child(Game.MyScene.instance())
 ```
+

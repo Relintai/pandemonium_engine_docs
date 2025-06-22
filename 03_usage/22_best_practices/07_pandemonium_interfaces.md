@@ -1,5 +1,4 @@
 
-
 # Pandemonium interfaces
 
 Often one needs scripts that rely on other objects for features. There
@@ -13,10 +12,8 @@ The rest of this tutorial outlines the various ways of doing all this.
 
 ## Acquiring object references
 
-For all `Object`\s, the most basic way of referencing them
+For all `Object`s, the most basic way of referencing them
 is to get a reference to an existing object from another acquired instance.
-
-gdscript GDScript
 
 ```
 var obj = node.object # Property access.
@@ -29,8 +26,6 @@ While users often access `Node` and
 
 Instead of property or method access, one can get Resources by load
 access.
-
-gdscript GDScript
 
 ```
 var preres = preload(path) # Load resource during scene load
@@ -74,8 +69,6 @@ Note the following:
    or instantiate one from scratch with `new()`.
 
 Nodes likewise have an alternative access point: the SceneTree.
-
-gdscript GDScript
 
 ```
 extends Node
@@ -175,8 +168,6 @@ accesses:
 - A duck-typed property access. These will property check (as described above).
   If the operation isn't supported by the object, execution will halt.
 
-gdscript GDScript
-
 ```
 # All Objects have duck-typed get, set, and call wrapper methods.
 get_parent().set("visible", false)
@@ -196,8 +187,6 @@ get_parent().visible = false
 - A method check. In the case of
   `CanvasItem.visible`, one can
   access the methods, `set_visible` and `is_visible` like any other method.
-
-gdscript GDScript
 
 ```
 var child = get_child(0)
@@ -261,8 +250,6 @@ for a_child in get_children():
   in cases where one needs the max level of freedom from dependencies. In
   this case, one relies on an external context to setup the method.
 
-gdscript GDScript
-
 ```
 # child.gd
 extends Node
@@ -288,3 +275,4 @@ func print_me():
 
 These strategies contribute to Pandemonium's flexible design. Between them, users
 have a breadth of tools to meet their specific needs.
+

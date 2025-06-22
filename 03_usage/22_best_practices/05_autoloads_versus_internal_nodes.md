@@ -1,5 +1,4 @@
 
-
 # Autoloads versus regular nodes
 
 Pandemonium offers a feature to automatically load nodes at the root of your project,
@@ -17,8 +16,8 @@ organize a lot of functionality into a globally accessible object. Pandemonium o
 many ways to avoid global state thanks to the node tree and signals.
 
 For example, let's say we are building a platformer and want to collect coins
-that play a sound effect. There's a node for that: the `AudioStreamPlayer
-( AudioStreamPlayer )`. But if we call the `AudioStreamPlayer` while it is
+that play a sound effect. There's a node for that: the `AudioStreamPlayer`.
+But if we call the `AudioStreamPlayer` while it is
 already playing a sound, the new sound interrupts the first.
 
 A solution is to code a global, auto-loaded sound manager class. It generates a
@@ -40,13 +39,11 @@ solves the problem in the short term but causes more problems:
 
 Note:
 
-
-   About global access, the problem is that Any code anywhere could pass wrong
-   data to the `Sound` autoload in our example. As a result, the domain to
-   explore to fix the bug spans the entire project.
-
-   When you keep code inside a scene, only one or two scripts may be
-   involved in audio.
+- About global access, the problem is that Any code anywhere could pass wrong
+  data to the `Sound` autoload in our example. As a result, the domain to
+  explore to fix the bug spans the entire project.
+- When you keep code inside a scene, only one or two scripts may be
+  involved in audio.
 
 Contrast this with each scene keeping as many `AudioStreamPlayer` nodes as it
 needs within itself and all these problems go away:
@@ -65,8 +62,7 @@ Another reason to use an Autoload can be that you want to reuse the same method
 or data across many scenes.
 
 In the case of functions, you can create a new type of `Node` that provides
-that feature for an individual scene using the `name
-( doc_gdscript_basics_class_name )` keyword in GDScript.
+that feature for an individual scene using the `name` keyword in GDScript.
 
 When it comes to data, you can either:
 
@@ -97,11 +93,11 @@ instead to get auto-completion for a type in your entire project.
 
 Note:
 
+Autoload is not exactly a Singleton. Nothing prevents you from instantiating
+copies of an auto-loaded node. It is only a tool that makes a node load
+automatically as a child of the root of your scene tree, regardless of your
+game's node structure or which scene you run, e.g. by pressing :kbd:`F6` key.
 
-   Autoload is not exactly a Singleton. Nothing prevents you from instantiating
-   copies of an auto-loaded node. It is only a tool that makes a node load
-   automatically as a child of the root of your scene tree, regardless of your
-   game's node structure or which scene you run, e.g. by pressing :kbd:`F6` key.
+As a result, you can get the auto-loaded node, for example an autoload called
+`Sound`, by calling `get_node("/root/Sound")`.
 
-   As a result, you can get the auto-loaded node, for example an autoload called
-   `Sound`, by calling `get_node("/root/Sound")`.

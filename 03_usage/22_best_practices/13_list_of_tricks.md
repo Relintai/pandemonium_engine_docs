@@ -92,3 +92,4 @@ Holding Ctrl while dragging a script from the FileSystem to a Node in the Scene 
 There is no indication that holding Ctrl does anything until you drop.
 
 Renaming a node to an empty name automatically makes it have its base class' name (script class_names don't count)
+

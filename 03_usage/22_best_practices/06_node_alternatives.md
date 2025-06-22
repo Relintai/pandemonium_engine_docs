@@ -1,5 +1,4 @@
 
-
 # When and how to avoid using nodes for everything
 
 Nodes are cheap to produce, but even they have their limits. A project may
@@ -26,8 +25,7 @@ your project's features.
      entire Node library, one creates an abbreviated set of Objects from which
      a node can generate and manage the appropriate sub-nodes.
 
-   Note:
- One should be careful when handling them. One can store an Object
+   - Note: One should be careful when handling them. One can store an Object
      into a variable, but these references can become invalid without warning.
      For example, if the object's creator decides to delete it out of nowhere,
      this would trigger an error state when one next accesses it.
@@ -51,11 +49,11 @@ your project's features.
      can be save and loaded, therefore they extend from Resource.
 
    - **Advantages:** Much has
-     `already been said ( doc_resources )`
-     on `Resource`'s advantages over traditional data
+     already been said on `Resource`'s advantages over traditional data
      storage methods. In the context of using Resources over Nodes though,
      their main advantage is in Inspector-compatibility. While nearly as
      lightweight as Object/Reference, they can still display and export
      properties in the Inspector. This allows them to fulfill a purpose much
      like sub-Nodes on the usability front, but also improve performance if
      one plans to have many such Resources/Nodes in their scenes.
+

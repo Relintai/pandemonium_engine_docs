@@ -1,5 +1,4 @@
 
-
 # Scene organization
 
 This article covers topics related to the effective organization of
@@ -26,7 +25,7 @@ it.
 
 One of the biggest things to consider in OOP is maintaining
 focused, singular-purpose classes with
-`loose coupling ( https://en.wikipedia.org/wiki/Loose_coupling )`
+[loose coupling](https://en.wikipedia.org/wiki/Loose_coupling)
 to other parts of the codebase. This keeps the size of objects small (for
 maintainability) and improves their reusability.
 
@@ -39,7 +38,7 @@ themselves.
 
 If a scene must interact with an external context, experienced developers
 recommend the use of
-`Dependency Injection ( https://en.wikipedia.org/wiki/Dependency_injection )`.
+[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection).
 This technique involves having a high-level API provide the dependencies of the
 low-level API. Why do this? Because classes which rely on their external
 environment can inadvertently trigger bugs and unexpected behavior.
@@ -51,8 +50,6 @@ initialize it:
    behavior, not start it. Note that signal names are usually past-tense verbs
    like "entered", "skill_activated", or "item_collected".
 
-gdscript GDScript
-
 ```
 # Parent
 $Child.connect("signal_name", object_with_method, "method_on_the_object")
@@ -62,8 +59,6 @@ emit_signal("signal_name") # Triggers parent-defined behavior.
 ```
 
 2. Call a method. Used to start behavior.
-
-gdscript GDScript
 
 ```
 # Parent
@@ -76,8 +71,6 @@ call(method_name) # Call parent-defined method (which child must own).
 3. Initialize a `FuncRef` property. Safer than a method
    as ownership of the method is unnecessary. Used to start behavior.
 
-gdscript GDScript
-
 ```
 # Parent
 $Child.func_property = funcref(object_with_method, "method_on_the_object")
@@ -88,8 +81,6 @@ func_property.call_func() # Call parent-defined method (can come from anywhere).
 
 4. Initialize a Node or other Object reference.
 
-gdscript GDScript
-
 ```
 # Parent
 $Child.target = self
@@ -99,8 +90,6 @@ print(target) # Use parent-defined node.
 ```
 
 5. Initialize a NodePath.
-
-gdscript GDScript
 
 ```
 # Parent
@@ -114,15 +103,10 @@ These options hide the points of access from the child node. This in turn
 keeps the child **loosely coupled** to its environment. One can re-use it
 in another context without any extra changes to its API.
 
-Note:
-
-
-  Although the examples above illustrate parent-child relationships,
-  the same principles apply towards all object relations. Nodes which
-  are siblings should only be aware of their hierarchies while an ancestor
-  mediates their communications and references.
-
-gdscript GDScript
+Note: Although the examples above illustrate parent-child relationships,
+the same principles apply towards all object relations. Nodes which
+are siblings should only be aware of their hierarchies while an ancestor
+mediates their communications and references.
 
 ```
 # Parent
@@ -139,14 +123,13 @@ func _init():
     add_child(receiver)
 ```
 
-  The same principles also apply to non-Node objects that maintain dependencies
-  on other objects. Whichever object actually owns the objects should manage
-  the relationships between them.
+The same principles also apply to non-Node objects that maintain dependencies
+on other objects. Whichever object actually owns the objects should manage
+the relationships between them.
 
 Warning:
 
-
-  One should favor keeping data in-house (internal to a scene) though as
+- One should favor keeping data in-house (internal to a scene) though as
   placing a dependency on an external context, even a loosely coupled one,
   still means that the node will expect something in its environment to be
   true. The project's design philosophies should prevent this from happening.
@@ -154,8 +137,7 @@ Warning:
   documentation to keep track of object relations on a microscopic scale; this
   is otherwise known as development hell. Writing code that relies on external
   documentation for one to use it safely is error-prone by default.
-
-  To avoid creating and maintaining such documentation, one converts the
+- To avoid creating and maintaining such documentation, one converts the
   dependent node ("child" above) into a tool script that implements
   `get_configuration_warning()`.
   Returning a non-empty string from it will make the Scene dock generate a
@@ -165,8 +147,7 @@ Warning:
   `CollisionShape2D` nodes defined. The editor
   then self-documents the scene through the script code. No content duplication
   via documentation is necessary.
-
-  A GUI like this can better inform project users of critical information about
+- A GUI like this can better inform project users of critical information about
   a Node. Does it have external dependencies? Have those dependencies been
   satisfied? Other programmers, and especially designers and writers, will need
   clear instructions in the messages telling them what to do to configure it.
@@ -183,10 +164,10 @@ adversely effecting other classes.
 Scripts and scenes, as extensions of engine classes, should abide
 by *all* OOP principles. Examples include...
 
-- `SOLID ( https://en.wikipedia.org/wiki/SOLID )`
-- `DRY ( https://en.wikipedia.org/wiki/Don%27t_repeat_yourself )`
-- `KISS ( https://en.wikipedia.org/wiki/KISS_principle )`
-- `YAGNI ( https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it )`
+- [SOLID](https://en.wikipedia.org/wiki/SOLID)
+- [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+- [KISS](https://en.wikipedia.org/wiki/KISS_principle)
+- [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)
 
 ## Choosing a node tree structure
 
@@ -203,7 +184,9 @@ continues elsewhere. This place also serves as a bird's eye view of all of the
 other data and logic in the program. For traditional applications, this would
 be the "main" function. In this case, it would be a Main node.
 
-    - Node "Main" (main.gd)
+```
+- Node "Main" (main.gd)
+```
 
 The `main.gd` script would then serve as the primary controller of one's
 game.
@@ -212,12 +195,14 @@ Then one has their actual in-game "World" (a 2D or 3D one). This can be a child
 of Main. In addition, one will need a primary GUI for their game that manages
 the various menus and widgets the project needs.
 
-    - Node "Main" (main.gd)
-        - Node2D/Spatial "World" (game_world.gd)
-        - Control "GUI" (gui.gd)
+```
+- Node "Main" (main.gd)
+  - Node2D/Spatial "World" (game_world.gd)
+  - Control "GUI" (gui.gd)
+```
 
 When changing levels, one can then swap out the children of the "World" node.
-`Changing scenes manually ( doc_change_scenes_manually )` gives users full
+Changing scenes manually gives users full
 control over how their game world transitions.
 
 The next step is to consider what gameplay systems one's project requires.
@@ -227,27 +212,22 @@ If one has a system that...
 2. should be globally accessible
 3. should exist in isolation
 
-... then one should create an `autoload 'singleton' node ( doc_singletons_autoload )`.
+... then one should create an autoload 'singleton' node.
 
 Note:
 
-
-  For smaller games, a simpler alternative with less control would be to have
+- For smaller games, a simpler alternative with less control would be to have
   a "Game" singleton that simply calls the
   `SceneTree.change_scene()` method
   to swap out the main scene's content. This structure more or less keeps
   the "World" as the main game node.
-
-  Any GUI would need to also be a
+- Any GUI would need to also be a
   singleton; be a transitory part of the "World"; or be manually added as a
   direct child of the root. Otherwise, the GUI nodes would also delete
   themselves during scene transitions.
 
 If one has systems that modify other systems' data, one should define those as
-their own scripts or scenes rather than autoloads. For more information on the
-reasons, please see the
-`Autoloads versus regular nodes ( doc_autoloads_versus_internal_nodes )`
-documentation.
+their own scripts or scenes rather than autoloads.
 
 Each subsystem within one's game should have its own section within the
 SceneTree. One should use parent-child relationships only in cases where nodes
@@ -257,74 +237,70 @@ own place in the hierarchy as a sibling or some other relation.
 
 Note:
 
+In some cases, one needs these separated nodes to *also* position themselves
+relative to each other. One can use the
+`RemoteTransform` /
+`RemoteTransform2D` nodes for this purpose.
+They will allow a target node to conditionally inherit selected transform
+elements from the Remote\* node. To assign the `target`
+`NodePath`, use one of the following:
 
-  In some cases, one needs these separated nodes to *also* position themselves
-  relative to each other. One can use the
-  `RemoteTransform` /
-  `RemoteTransform2D` nodes for this purpose.
-  They will allow a target node to conditionally inherit selected transform
-  elements from the Remote\* node. To assign the `target`
-  `NodePath`, use one of the following:
+1. A reliable third party, likely a parent node, to mediate the assignment.
+2. A group, to easily pull a reference to the desired node (assuming there
+   will only ever be one of the targets).
 
-  1. A reliable third party, likely a parent node, to mediate the assignment.
-  2. A group, to easily pull a reference to the desired node (assuming there
-     will only ever be one of the targets).
+When should one do this? Well, this is subjective. The dilemma arises when
+one must micro-manage when a node must move around the SceneTree to preserve
+itself. For example...
 
-  When should one do this? Well, this is subjective. The dilemma arises when
-  one must micro-manage when a node must move around the SceneTree to preserve
-  itself. For example...
+- Add a "player" node to a "room".
+- Need to change rooms, so one must delete the current room.
+- Before the room can be deleted, one must preserve and/or move the player.
 
-  - Add a "player" node to a "room".
-  - Need to change rooms, so one must delete the current room.
-  - Before the room can be deleted, one must preserve and/or move the player.
+Is memory a concern?
 
-    Is memory a concern?
+- If not, one can just create the two rooms, move the player
+  and delete the old one. No problem.
 
-    - If not, one can just create the two rooms, move the player
-      and delete the old one. No problem.
+If so, one will need to...
 
-    If so, one will need to...
+- Move the player somewhere else in the tree.
+- Delete the room.
+- Instantiate and add the new room.
+- Re-add the player.
 
-    - Move the player somewhere else in the tree.
-    - Delete the room.
-    - Instantiate and add the new room.
-    - Re-add the player.
+The issue is that the player here is a "special case"; one where the
+developers must *know* that they need to handle the player this way for the
+project. As such, the only way to reliably share this information as a team
+is to *document* it. Keeping implementation details in documentation however
+is dangerous. It's a maintenance burden, strains code readability, and bloats
+the intellectual content of a project unnecessarily.
 
-  The issue is that the player here is a "special case"; one where the
-  developers must *know* that they need to handle the player this way for the
-  project. As such, the only way to reliably share this information as a team
-  is to *document* it. Keeping implementation details in documentation however
-  is dangerous. It's a maintenance burden, strains code readability, and bloats
-  the intellectual content of a project unnecessarily.
+In a more complex game with larger assets, it can be a better idea to simply
+keep the player somewhere else in the SceneTree entirely. This results in:
 
-  In a more complex game with larger assets, it can be a better idea to simply
-  keep the player somewhere else in the SceneTree entirely. This results in:
+1. More consistency.
+2. No "special cases" that must be documented and maintained somewhere.
+3. No opportunity for errors to occur because these details are not accounted for.
 
-  1. More consistency.
-  2. No "special cases" that must be documented and maintained somewhere.
-  3. No opportunity for errors to occur because these details are not accounted
-     for.
+In contrast, if one ever needs to have a child node that does *not* inherit
+the transform of their parent, one has the following options:
 
-  In contrast, if one ever needs to have a child node that does *not* inherit
-  the transform of their parent, one has the following options:
-
-  1. The **declarative** solution: place a `Node` in between
-     them. As nodes with no transform, Nodes will not pass along such
-     information to their children.
-  2. The **imperative** solution: Use the `set_as_toplevel` setter for the
-     `CanvasItem` or
-     `Spatial` node. This will make
-     the node ignore its inherited transform.
+1. The **declarative** solution: place a `Node` in between
+   them. As nodes with no transform, Nodes will not pass along such
+   information to their children.
+2. The **imperative** solution: Use the `set_as_toplevel` setter for the
+   `CanvasItem` or `Spatial` node. This will make
+   the node ignore its inherited transform.
 
 Note:
 
-
-  If building a networked game, keep in mind which nodes and gameplay systems
-  are relevant to all players versus those just pertinent to the authoritative
-  server. For example, users do not all need to have a copy of every players'
-  "PlayerController" logic. Instead, they need only their own. As such, keeping
-  these in a separate branch from the "world" can help simplify the management
-  of game connections and the like.
+If building a networked game, keep in mind which nodes and gameplay systems
+are relevant to all players versus those just pertinent to the authoritative
+server. For example, users do not all need to have a copy of every players'
+"PlayerController" logic. Instead, they need only their own. As such, keeping
+these in a separate branch from the "world" can help simplify the management
+of game connections and the like.
 
 The key to scene organization is to consider the SceneTree in relational terms
 rather than spatial terms. Are the nodes dependent on their parent's existence?
@@ -336,3 +312,4 @@ Does this mean nodes themselves are components? Not at all.
 Pandemonium's node trees form an aggregation relationship, not one of composition.
 But while one still has the flexibility to move nodes around, it is still best
 when such moves are unnecessary by default.
+

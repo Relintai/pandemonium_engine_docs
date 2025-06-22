@@ -1,5 +1,4 @@
 
-
 # Pandemonium notifications
 
 Every Object in Pandemonium implements a
@@ -13,15 +12,10 @@ Some of these notifications, like draw, are useful to override in scripts. So
 much so that Pandemonium exposes many of them with dedicated functions:
 
 - `ready()` : NOTIFICATION_READY
-
 - `enter_tree()` : NOTIFICATION_ENTER_TREE
-
 - `exit_tree()` : NOTIFICATION_EXIT_TREE
-
 - `process(delta)` : NOTIFICATION_PROCESS
-
 - `physics_process(delta)` : NOTIFICATION_PHYSICS_PROCESS
-
 - `draw()` : NOTIFICATION_DRAW
 
 What users might *not* realize is that notifications exist for types other
@@ -29,11 +23,9 @@ than Node alone:
 
 - `Object::NOTIFICATION_POSTINITIALIZE`:
   a callback that triggers during object initialization. Not accessible to scripts.
-
 - `Object::NOTIFICATION_PREDELETE`:
   a callback that triggers before the engine deletes an Object, i.e. a
   'destructor'.
-
 - `MainLoop::NOTIFICATION_WM_MOUSE_ENTER`:
   a callback that triggers when the mouse enters the window in the operating
   system that displays the game content.
@@ -43,11 +35,9 @@ methods, but are still quite useful.
 
 - `Node::NOTIFICATION_PARENTED`:
   a callback that triggers anytime one adds a child node to another node.
-
 - `Node::NOTIFICATION_UNPARENTED`:
   a callback that triggers anytime one removes a child node from another
   node.
-
 - `Popup::NOTIFICATION_POST_POPUP`:
   a callback that triggers after a Popup node completes any `popup*` method.
   Note the difference from its `about_to_show` signal which triggers
@@ -58,10 +48,9 @@ One can access all these custom notifications from the universal
 
 Note:
 
-  Methods in the documentation labeled as "virtual" are also intended to be
+- Methods in the documentation labeled as "virtual" are also intended to be
   overridden by scripts.
-
-  A classic example is the
+- A classic example is the
   `init` method in Object. While it has no
   `NOTIFICATION_*` equivalent, the engine still calls the method. Most languages
   (except C#) rely on it as a constructor.
@@ -77,8 +66,6 @@ possible, this is the right place. Recurring logic checks and data caching
 often execute here, but it comes down to the frequency at which one needs
 the evaluations to update. If they don't need to execute every frame, then
 implementing a Timer-yield-timeout loop is another option.
-
-gdscript GDScript
 
 ```
 # Infinitely loop, but only execute whenever the Timer fires.
@@ -105,8 +92,6 @@ One can check for input actions within the input callbacks just the same.
 If one wants to use delta time, one can fetch it from the related
 deltatime methods as needed.
 
-gdscript GDScript
-
 ```
 # Called every frame, even when the engine detects no input.
 func _process(delta):
@@ -131,8 +116,6 @@ initializations should also run here. This triggers before `ready` or
 
 Scripts have three types of property assignments that can occur during
 instantiation:
-
-gdscript GDScript
 
 ```
 # "one" is an "initialized value". These DO NOT trigger the setter.
@@ -188,8 +171,6 @@ For example, here is a snippet that connects a node's method to
 a custom signal on the parent node without failing. Useful on data-centric
 nodes that one might create at runtime.
 
-gdscript GDScript
-
 ```
 extends Node
 
@@ -211,3 +192,4 @@ func _notification(what):
 func _on_parent_interacted_with():
     print("I'm reacting to my parent's interaction!")
 ```
+

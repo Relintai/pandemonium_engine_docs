@@ -1,23 +1,9 @@
 
-
 # Version Control Systems
 
 ## Introduction
 
 Pandemonium aims to be VCS friendly and generate mostly readable and mergeable files.
-Pandemonium also supports the use of version control systems in the editor itself.
-However, VCS in the editor requires a plugin for the specific VCS you are using.
-VCS can be setup or shut down in the editor under **Project > Version Control**.
-
-![](img/version_control_menu.png)
-
-## Official Git plugin
-
-Using Git from inside the editor is supported with an official plugin.
-You can find the latest releases
-`here ( https://github.com/Relintai/pandemonium_engine-git-plugin/releases )`. Documentation on how to use the Git
-plugin can be found
-`here ( https://github.com/Relintai/pandemonium_engine-git-plugin/wiki )`.
 
 ## Files to exclude from VCS
 
@@ -40,3 +26,4 @@ It is better to set this option as:
 ```
 git config --global core.autocrlf input
 ```
+

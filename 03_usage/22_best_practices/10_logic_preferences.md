@@ -1,5 +1,4 @@
 
-
 # Logic preferences
 
 Ever wondered whether one should approach problem X with strategy Y or Z?
@@ -21,8 +20,6 @@ accessible to *all* scripting languages.
 
 So, when exactly does preloading occur versus loading, and when should one use
 either? Let's see an example:
-
-gdscript GDScript
 
 ```
 # my_buildings.gd
@@ -73,19 +70,15 @@ consider:
    resource, especially a scene or script, could result in further loads one
    does not expect. This could lead to unintentional, variable-length
    load times on top of the original script's load operations.
-
 2. If something else could replace the value (like a scene's exported
    initialization), then preloading the value has no meaning. This point isn't
    a significant factor if one intends to always create the script on its own.
-
 3. If one wishes only to 'import' another class resource (script or scene),
    then using a preloaded constant is often the best course of action. However,
    in exceptional cases, one may wish not to do this:
-
    1. If the 'imported' class is liable to change, then it should be a property
       instead, initialized either using an `export` or a `load` (and
       perhaps not even initialized until later).
-
    2. If the script requires a great many dependencies, and one does not wish
       to consume so much memory, then one may wish to, load and unload various
       dependencies at runtime as circumstances change. If one preloads
@@ -125,17 +118,12 @@ the application.
 As such, the best options would be...
 
 1. To use a static level for smaller games.
-
 2. If one has the time/resources on a medium/large game, create a library or
    plugin that can code the management of nodes and resources. If refined
    over time, so as to improve usability and stability, then it could evolve
    into a reliable tool across projects.
-
 3. Code the dynamic logic for a medium/large game because one has the coding
    skills, but not the time or resources to refine the code (game's
    gotta get done). Could potentially refactor later to outsource the code
    into a plugin.
 
-For an example of the various ways one can swap scenes around at runtime,
-please see the `"Change scenes manually" ( doc_change_scenes_manually )`
-documentation.

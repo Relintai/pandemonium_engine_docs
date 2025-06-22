@@ -16,13 +16,7 @@ That is why each article starts from a real-world problem. We will break down
 each problem in fundamental questions, suggest solutions, analyze the pros and
 cons of each option, and highlight the best course of action for the problem at hand.
 
-You should start by reading `doc_what_are_pandemonium_classes`. It explains how
-Pandemonium's nodes and scenes relate to classes and objects in other
-Object-Oriented programming languages. It will help you make sense of the rest of the series.
+Note: The best practices in Pandemonium rely on Object-Oriented design principles. We
+use tools like the [single responsibility](https://en.wikipedia.org/wiki/Single_responsibility_principle) principle and
+[encapsulation](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)).
 
-Note:
-
-   The best practices in Pandemonium rely on Object-Oriented design principles. We
-   use tools like the `single responsibility
-   ( https://en.wikipedia.org/wiki/Single_responsibility_principle )` principle and
-   `encapsulation ( https://en.wikipedia.org/wiki/Encapsulation_(computer_programming) )`.

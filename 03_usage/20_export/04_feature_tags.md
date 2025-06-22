@@ -29,8 +29,7 @@ Here is a list of most feature tags in Pandemonium. Keep in mind they are **case
 |-----------------|--------------------------------------------------------|
 | **Android**     | Running on Android                                     |
 | **HTML5**       | Running on HTML5                                       |
-| **JavaScript**  | `JavaScript singleton ( doc_javascript_eval )` is      |
-|                 | available                                              |
+| **JavaScript**  | `JavaScript singleton` is available         |
 | **OSX**         | Running on macOS                                       |
 | **iOS**         | Running on iOS                                         |
 | **UWP**         | Running on UWP                                         |
@@ -55,17 +54,16 @@ Here is a list of most feature tags in Pandemonium. Keep in mind they are **case
 | **s3tc**        | Textures using S3TC (DXT/BC) compression are supported |
 | **pvrtc**       | Textures using PVRTC compression are supported         |
 
-Warning:
+### Warning:
 
+With the exception of texture compression feature tags, default feature tags
+are **immutable**. This means that they will *not* change depending on
+run-time conditions. For example, `OS.has_feature("mobile")` will return
+`false` when running a project exported to HTML5 on a mobile device.
 
-    With the exception of texture compression feature tags, default feature tags
-    are **immutable**. This means that they will *not* change depending on
-    run-time conditions. For example, `OS.has_feature("mobile")` will return
-    `false` when running a project exported to HTML5 on a mobile device.
-
-    To check whether a project exported to HTML5 is running on a mobile device,
-    `call JavaScript code ( doc_javascript_eval )` that reads the browser's
-    user agent.
+To check whether a project exported to HTML5 is running on a mobile device,
+call JavaScript code that reads the browser's
+user agent.
 
 ## Custom features
 
@@ -74,13 +72,10 @@ field in the *export preset* used to generate it:
 
 ![](img/feature_tags1.png)
 
-Note:
-
-
-    Custom feature tags are only used when running the exported project
-    (including with `doc_one-click_deploy`). They are **not used** when
-    running the project from the editor, even if the export preset marked as
-    **Runnable** for your current platform has custom feature tags defined.
+Note: Custom feature tags are only used when running the exported project
+(including with `doc_one-click_deploy`). They are **not used** when
+running the project from the editor, even if the export preset marked as
+**Runnable** for your current platform has custom feature tags defined.
 
 ## Overriding project settings
 
@@ -96,15 +91,12 @@ After overriding, a new field is added for this specific configuration:
 
 ![](img/feature_tags3.png)
 
-Note:
-
-
-    When using the
-    `project settings "override.cfg" functionality`
-    (which is unrelated to feature tags), remember that feature tags still apply.
-    Therefore, make sure to *also* override the setting with the desired feature
-    tag(s) if you want them to override base project settings on all platforms
-    and configurations.
+Note: When using the
+`project settings "override.cfg" functionality`
+(which is unrelated to feature tags), remember that feature tags still apply.
+Therefore, make sure to *also* override the setting with the desired feature
+tag(s) if you want them to override base project settings on all platforms
+and configurations.
 
 ## Default overrides
 
@@ -117,3 +109,4 @@ in many sections of the project settings.
 
 Feature tags can be used to customize a build process too, by writing a custom **ExportPlugin**.
 They are also used to specify which shared library is loaded and exported in **GDNative**.
+

@@ -1,5 +1,4 @@
 
-
 # Exporting
 
 ## Overview
@@ -14,10 +13,6 @@ this tutorial, you'll learn how to export the *Dodge the Creeps* game for a
 variety of platforms. First, however, we need to make some changes to the
 way the game works.
 
-Note:
- If you haven't made "Dodge the Creeps" yourself yet, please read
-          `doc_your_first_2d_game` before continuing with this tutorial.
-
 ## Preparing the project
 
 In *Dodge the Creeps*, we used keyboard controls to move the player's character.
@@ -31,7 +26,7 @@ anything is coded to happen on a mouse event, touch will trigger it as well.
 Pandemonium can also emulate touch input from mouse clicks, which we will need to be
 able to keep playing our game on our computer after we switch to touch input.
 
-In **Project > Project Settings**, under **Input Devices > Pointing**, enable
+In **Project &gt; Project Settings**, under **Input Devices &gt; Pointing**, enable
 **Emulate Touch From Mouse**.
 
 ![](img/export_touchsettings.png)
@@ -51,8 +46,6 @@ set by the touch (or click) event.
 
 Here is the full script for the player, with comments noting what we've
 changed:
-
-gdscript GDScript
 
 ```
 extends Area2D
@@ -128,40 +121,38 @@ func _on_Player_body_entered( body ):
 
 The main scene is the one that your game will start in. For this
 *Dodge the Creeps* example, in
-**Project -> Project Settings -> Application -> Run**, set **Main Scene**
+**Project -&gt; Project Settings -&gt; Application -&gt; Run**, set **Main Scene**
 to `Main.tscn` by clicking the folder icon and selecting it.
 
 ## Export templates
 
-To export the project, you need to download the *export templates* from the
-http://pandemoniumengine.org/download. These templates are optimized versions of the engine
-without the editor pre-compiled for each platform. You can also
-download them in Pandemonium by clicking on **Editor -> Manage Export Templates**:
+To export the project, you need to download the *export templates*.
+
+They are the `.tpz` files that can be downloaded alongside the engine.
+
+These templates are optimized versions of the engine
+without the editor pre-compiled for each platform.
 
 ![](img/export_template_menu.png)
 
-Note:
-
-
-    If you've downloaded Pandemonium from
-    `Steam ( https://store.steampowered.com/app/404790/Pandemonium_Engine/ )`,
-    export templates are already included. Therefore, you don't need to download
-    them using the **Manage Export Templates** dialog.
-
-In the window that appears, you can click **Download** to get the template
-version that matches your version of Pandemonium.
 
 ![](img/export_template_manager.png)
 
-Note:
+You need to click `Install from File`, and browse your downloaded templates.
 
+Note: Export templates are bound to a specific Pandemonium version. If you upgrade
+Pandemonium, you must download templates that match the new version.
 
-    Export templates are bound to a specific Pandemonium version. If you upgrade
-    Pandemonium, you must download templates that match the new version.
+Also note that pandemonium comes with three sets of export templates.
+These can be installed alongside each other.
+
+- Normal: Export templates for most platforms.
+- SBC: Export templates for single board computers (FRT, and FRT-SDL platforms)
+- Server: Headless templates for servers. Also contains a HTTP server template.
 
 ## Export presets
 
-Next, you can configure the export settings by clicking on **Project -> Export**.
+Next, you can configure the export settings by clicking on **Project -&gt; Export**.
 
 Create a new export preset by clicking **Add...** and selecting a platform. You
 can make as many presets as you like with different settings.
@@ -192,38 +183,33 @@ folder. Choose a location *outside* of your project folder.
 
 Click **Save** and the engine will build the export files.
 
-Note:
+#### Note:
 
 
-    When exporting for macOS, if you export from a macOS computer, you'll end up
-    with a `.dmg` file, while using Linux or Windows produces a `.zip`. In
-    either case, the compressed file contains a macOS `.app` that you can
-    double-click and run.
+When exporting for macOS, if you export from a macOS computer, you'll end up
+with a `.dmg` file, while using Linux or Windows produces a `.zip`. In
+either case, the compressed file contains a macOS `.app` that you can
+double-click and run.
 
-Note:
+#### Note:
 
-
-    On Windows, if you want your exported executable to have a different icon
-    than the default one, you need to change it manually. See
-    `doc_changing_application_icon_for_windows`.
+On Windows, if you want your exported executable to have a different icon
+than the default one, you need to change it manually.
 
 ### Android
 
-Tip:
-
-
-    Mobile devices come with a wide variety of capabilities. In most cases,
-    Pandemonium's default settings will work, but mobile development is sometimes more
-    art than science, and you may need to do some experimenting and searching
-    for help in order to get everything working.
+Tip: Mobile devices come with a wide variety of capabilities. In most cases,
+Pandemonium's default settings will work, but mobile development is sometimes more
+art than science, and you may need to do some experimenting and searching
+for help in order to get everything working.
 
 Before you can export your project for Android, you must download the following
 software:
 
 * Android SDK: https://developer.android.com/studio/
-* Open JDK (**version 8 is required**, more recent versions won't work): https://adoptopenjdk.net/index.html
+* Open JDK (**version 17 is required**, more recent versions won't work): https://adoptopenjdk.net/index.html
 
-When you run Android Studio for the first time, click on **Configure -> SDK Manager**
+When you run Android Studio for the first time, click on **Configure -&gt; SDK Manager**
 and install **Android SDK Platform Tools**. This installs the `adb`
 command-line tool that Pandemonium uses to communicate with your device.
 
@@ -234,13 +220,13 @@ system's command line:
 keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999
 ```
 
-Click on *Editor -> Editor Settings* in Pandemonium and select the *Export/Android*
+Click on *Editor -&gt Editor Settings* in Pandemonium and select the *Export/Android*
 section. Here, you need to set the paths to the Android SDK applications on
 your system and the location of the keystore you just created.
 
 ![](img/export_editor_android_settings.png)
 
-Now you're ready to export. Click on **Project -> Export** and add a preset
+Now you're ready to export. Click on **Project -&gt Export** and add a preset
 for Android (see above). Select the newly added Android preset. Under **Options**,
 go to **Screen** and set **Orientation** to **Portrait**. If your game is in
 landscape mode (i.e. the window width in pixels is greater than the window height),
@@ -253,9 +239,8 @@ on your device. To do this on the command line, use the following:
 adb install dodge.apk
 ```
 
-Note:
- Your device may need to be in *developer mode*. Consult your
-          device's documentation for details.
+Note: Your device may need to be in *developer mode*. Consult your
+device's documentation for details.
 
 If your system supports it, connecting a compatible Android device will cause
 a **One-click Deploy** button to appear in Pandemonium's playtest button area:
@@ -266,11 +251,8 @@ Clicking this button builds the APK and copies it onto your device in one step.
 
 ### iOS
 
-Note:
-
-
-    To build your game for iOS, you must have a computer running macOS with
-    Xcode installed.
+Note: To build your game for iOS, you must have a computer running macOS with
+Xcode installed.
 
 Before exporting, there are some settings that you *must* complete for the project
 to export successfully. First, the **App Store Team Id**, which you can find by
@@ -318,11 +300,7 @@ when you export the project.
 
 ![](img/export_web_export_with_debug_disabled.png)
 
-Note:
+Note: While WebAssembly is supported in all major browsers, it is still an
+emerging technology and you may find some things that don't work. Make sure
+you have updated your browser to the most recent version.
 
-
-    While WebAssembly is supported in all major browsers, it is still an
-    emerging technology and you may find some things that don't work. Make sure
-    you have updated your browser to the most recent version, and report any
-    bugs you find on the
-    `Pandemonium GitHub repository ( https://github.com/Relintai/pandemonium_engine/issues )`.

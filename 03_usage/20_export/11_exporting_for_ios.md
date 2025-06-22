@@ -1,12 +1,6 @@
 
 # Exporting for iOS
 
-See also:
-
-    This page describes how to export a Pandemonium project to iOS.
-    If you're looking to compile export template binaries from source instead,
-    read `doc_compiling_for_ios`.
-
 These are the steps to load a Pandemonium project in Xcode. This allows you to
 build and deploy to an iOS device, build a release for the App Store, and
 do everything else you can normally do with Xcode.
@@ -31,14 +25,12 @@ After you click **Export Project**, there are still two important options left:
 
 ![](img/ios_export_file.png)
 
-Note:
- This tutorial uses **exported_xcode_project_name**, but you will use your
-          project's name. When you see **exported_xcode_project_name**
-          in the following steps, replace it with the name you used instead.
+Note: This tutorial uses **exported_xcode_project_name**, but you will use your
+project's name. When you see **exported_xcode_project_name**
+in the following steps, replace it with the name you used instead.
 
-Note:
- Avoid using spaces when you choose your **exported_xcode_project_name** as
-          this can lead to corruption in your XCode project file.
+Note: Avoid using spaces when you choose your **exported_xcode_project_name** as
+this can lead to corruption in your XCode project file.
 
 When the export completes, the output folder should look like this:
 
@@ -57,12 +49,11 @@ Pandemonium project files directly into your app.
 
 In the following example:
 
-  * **exported_xcode_project_name** is the name of the exported iOS application (as above).
-  * **pandemonium_project_to_export** is the name of the Pandemonium project.
+* **exported_xcode_project_name** is the name of the exported iOS application (as above).
+* **pandemonium_project_to_export** is the name of the Pandemonium project.
 
-Note:
- **pandemonium_project_to_export** must not be the same as **exported_xcode_project_name**
-          to prevent signing issues in Xcode.
+Note: **pandemonium_project_to_export** must not be the same as **exported_xcode_project_name**
+to prevent signing issues in Xcode.
 
 ### Steps to link a Pandemonium project folder to Xcode
 
@@ -92,8 +83,7 @@ in Xcode when you want to run it on a device.
 
 ## Plugins for iOS
 
-Special iOS plugins can be used in Pandemonium. Check out the
-`doc_plugins_for_ios` page.
+Special iOS plugins can be used in Pandemonium.
 
 ## Troubleshooting rendering issues
 
@@ -101,4 +91,5 @@ To improve out-of-the-box performance on mobile devices, Pandemonium automatical
 uses low-end-friendly settings by default on both Android and iOS.
 
 This can cause rendering issues that do not occur when running the project on a
-desktop platform. See `doc_mobile_rendering_limitations` for more information.
+desktop platform.
+

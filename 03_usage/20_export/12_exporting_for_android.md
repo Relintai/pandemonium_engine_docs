@@ -1,27 +1,21 @@
 
 # Exporting for Android
 
-See also:
-
-    This page describes how to export a Pandemonium project to Android.
-    If you're looking to compile export template binaries from source instead,
-    read `doc_compiling_for_android`.
-
 Exporting for Android has fewer requirements than compiling Pandemonium for Android.
 The following steps detail what is needed to set up the Android SDK and the engine.
 
 ## Install OpenJDK 11
 
-Download and install  `OpenJDK 11 ( https://adoptium.net/?variant=openjdk11 )`.
+Download and install  [OpenJDK 17](https://adoptium.net/?variant=openjdk17).
 
 ## Download the Android SDK
 
 Download and install the Android SDK.
 
-- You can install it using `Android Studio version 4.1 or later ( https://developer.android.com/studio/ )`.
+- You can install it using [Android Studio version 4.1 or later](https://developer.android.com/studio/).
 
-  - Run it once to complete the SDK setup using these `instructions ( https://developer.android.com/studio/intro/update#sdk-manager )`.
-  - Ensure that the `required packages ( https://developer.android.com/studio/intro/update#recommended )` are installed as well.
+  - Run it once to complete the SDK setup using these [instructions](https://developer.android.com/studio/intro/update#sdk-manager).
+  - Ensure that the [required packages](https://developer.android.com/studio/intro/update#recommended) are installed as well.
 
     - Android SDK Platform-Tools version 30.0.5 or later
     - Android SDK Build-Tools version 30.0.3
@@ -30,19 +24,15 @@ Download and install the Android SDK.
     - CMake version 3.10.2.4988404
     - NDK version r23c (23.2.8568313)
 
-- You can install it using the `command line tools ( https://developer.android.com/studio/#command-tools )`.
+- You can install it using the [command line tools](https://developer.android.com/studio/#command-tools).
 
-  - Once the command line tools are installed, run the `sdkmanager ( https://developer.android.com/studio/command-line/sdkmanager )` command to complete the setup process:
+  - Once the command line tools are installed, run the [sdkmanager](https://developer.android.com/studio/command-line/sdkmanager) command to complete the setup process:
 
 ```
 sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;30.0.3" "platforms;android-31" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;21.4.7075529"
 ```
 
-Note:
-
-
-    If you are using Linux,
-    **do not use an Android SDK provided by your distribution's repositories as it will often be outdated**.
+Note: If you are using Linux, **do not use an Android SDK provided by your distribution's repositories as it will often be outdated**.
 
 
 ## Create a debug.keystore
@@ -59,7 +49,9 @@ the JDK can be used for this purpose:
 keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 -deststoretype pkcs12
 ```
 
-This will create a `debug.keystore` file in your current directory. You should move it to a memorable location such as `%USERPROFILE%\.android\`, because you will need its location in a later step. For more information on `keytool` usage, see `this Q&A article ( https://pandemoniumengine.org/qa/21349/jdk-android-file-missing )`.
+This will create a `debug.keystore` file in your current directory. You should move it to a
+memorable location such as `%USERPROFILE%\.android\`, because you will need its location in a later step.
+For more information on `keytool` usage, see [this Q&A article](https://godotengine.org/qa/21349/jdk-android-file-missing).
 
 ## Setting it up in Pandemonium
 
@@ -85,34 +77,41 @@ Once that is configured, everything is ready to export to Android!
 
 Note:
 
-    If you get an error saying *"Could not install to device."*, make sure
-    you do not have an application with the same Android package name already
-    installed on the device (but signed with a different key).
-
-    If you have an application with the same Android package name but a
-    different signing key already installed on the device, you **must** remove
-    the application in question from the Android device before exporting to
-    Android again.
+- If you get an error saying *"Could not install to device."*, make sure
+  you do not have an application with the same Android package name already
+  installed on the device (but signed with a different key).
+- If you have an application with the same Android package name but a
+  different signing key already installed on the device, you **must** remove
+  the application in question from the Android device before exporting to
+  Android again.
 
 ## Providing launcher icons
 
-Launcher icons are used by Android launcher apps to represent your application to users. Pandemonium only requires high-resolution icons (for `xxxhdpi` density screens) and will automatically generate lower-resolution variants.
+Launcher icons are used by Android launcher apps to represent your application to users. Pandemonium only
+requires high-resolution icons (for `xxxhdpi` density screens) and will automatically generate lower-resolution variants.
 
 There are two types of icons required by Pandemonium:
 
 - **Main Icon:** The "classic" icon. This will be used on all Android versions up to Android 8 (Oreo), exclusive. Must be at least 192×192 px.
-- **Adaptive Icons:** Starting from Android 8 (inclusive), `Adaptive Icons ( https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive )` were introduced. Applications will need to include separate background and foreground icons to have a native look. The user's launcher application will control the icon's animation and masking. Must be at least 432×432 px.
+- **Adaptive Icons:** Starting from Android 8 (inclusive),
+  [Adaptive Icons](https://developer.android.com/guide/practices/ui_guidelines/icon_design_adaptive) were introduced.
+  Applications will need to include separate background and foreground icons to have a native look. The user's
+  launcher application will control the icon's animation and masking. Must be at least 432×432 px.
 
-See also:
- It's important to adhere to some rules when designing adaptive icons. `Google Design has provided a nice article ( https://medium.com/google-design/designing-adaptive-icons-515af294c783 )` that helps to understand those rules and some of the capabilities of adaptive icons.
+See also: It's important to adhere to some rules when designing adaptive icons.
+[Google Design has provided a nice article](https://medium.com/google-design/designing-adaptive-icons-515af294c783) that
+helps to understand those rules and some of the capabilities of adaptive icons.
 
-.. caution:: The most important adaptive icon design rule is to have your icon critical elements inside the safe zone: a centered circle with a diameter of 66dp (264 pixels on `xxxhdpi`) to avoid being clipped by the launcher.
+Caution: The most important adaptive icon design rule is to have your icon critical elements
+inside the safe zone: a centered circle with a diameter of 66dp (264 pixels
+on `xxxhdpi`) to avoid being clipped by the launcher.
 
-If you don't provide some of the requested icons, Pandemonium will replace them using a fallback chain, trying the next in line when the current one fails:
+If you don't provide some of the requested icons, Pandemonium will replace them using a fallback chain,
+trying the next in line when the current one fails:
 
-- **Main Icon:** Provided main icon -> Project icon -> Default Pandemonium main icon.
-- **Adaptive Icon Foreground:** Provided foreground icon -> Provided main icon -> Project icon -> Default Pandemonium foreground icon.
-- **Adaptive Icon Background:** Provided background icon -> Default Pandemonium background icon.
+- **Main Icon:** Provided main icon -&gt; Project icon -&gt; Default Pandemonium main icon.
+- **Adaptive Icon Foreground:** Provided foreground icon -&gt; Provided main icon -&gt; Project icon -&gt; Default Pandemonium foreground icon.
+- **Adaptive Icon Background:** Provided background icon -&gt; Default Pandemonium background icon.
 
 It's highly recommended to provide all the requested icons with their specified resolutions.
 This way, your application will look great on all Android devices and versions.
@@ -127,7 +126,7 @@ keytool -v -genkey -keystore mygame.keystore -alias mygame -keyalg RSA -validity
 ```
 
 This keystore and key are used to verify your developer identity, remember the password and keep it in a safe place!
-Use Google's Android Developer guides to learn more about `APK signing ( https://developer.android.com/studio/publish/app-signing )`.
+Use Google's Android Developer guides to learn more about [APK signing](https://developer.android.com/studio/publish/app-signing).
 
 Now fill in the following forms in your Android Export Presets:
 
@@ -157,13 +156,12 @@ ARMv8 devices, but the opposite is not true.
 Since August 2019, Google Play requires all applications to be available in
 64-bit form. This means you cannot upload an APK that contains *just* an ARMv7
 library. To solve this, you can upload several APKs to Google Play using its
-`Multiple APK support ( https://developer.android.com/google/play/publishing/multiple-apks )`.
+[Multiple APK support](https://developer.android.com/google/play/publishing/multiple-apks).
 Each APK should target a single architecture; creating an APK for ARMv7
 and ARMv8 is usually sufficient to cover most devices in use today.
 
 You can optimize the size further by compiling an Android export template with
-only the features you need. See `doc_optimizing_for_size` for more
-information.
+only the features you need.
 
 ## Troubleshooting rendering issues
 
@@ -171,4 +169,5 @@ To improve out-of-the-box performance on mobile devices, Pandemonium automatical
 uses low-end-friendly settings by default on both Android and iOS.
 
 This can cause rendering issues that do not occur when running the project on a
-desktop platform. See `doc_mobile_rendering_limitations` for more information.
+desktop platform.
+

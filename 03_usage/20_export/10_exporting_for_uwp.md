@@ -1,11 +1,7 @@
 
 # Exporting for Universal Windows Platform
 
-See also:
-
-    This page describes how to export a Pandemonium project to UWP.
-    If you're looking to compile export template binaries from source instead,
-    read `doc_compiling_for_uwp`.
+Note: UWP build and build containers doesn't work properly, so the export templates are unavailable.
 
 There's no extra requirement to export an `.appx` package that can be
 installed as a Windows App or submitted to the Windows Store. Exporting UWP

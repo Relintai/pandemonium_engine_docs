@@ -1,5 +1,4 @@
 
-
 # Exporting packs, patches, and mods
 
 ## Use cases
@@ -56,40 +55,37 @@ an export template selected while doing so.
 
 ![](img/export_pck.png)
 
-Another method would be to `export from the command line ( doc_command_line_tutorial_exporting )`.
+Another method would be to export from the command line.
 If the output file ends with a PCK or ZIP file extension, then the export
 process will build that type of file for the chosen platform.
 
-Note:
+### Note:
 
+If one wishes to support mods for their game, they will need their users to
+create similarly exported files. Assuming the original game expects a
+certain structure for the PCK's resources and/or a certain interface for
+its scripts, then either...
 
-    If one wishes to support mods for their game, they will need their users to
-    create similarly exported files. Assuming the original game expects a
-    certain structure for the PCK's resources and/or a certain interface for
-    its scripts, then either...
-
-    1. The developer must publicize documentation of these expected structures/
-       interfaces, expect modders to install Pandemonium Engine, and then also expect
-       those modders to conform to the documentation's defined API when building
-       mod content for the game (so that it will work). Users would then use
-       Pandemonium's built in exporting tools to create a PCK file, as detailed
-       above.
-    2. The developer uses Pandemonium to build a GUI tool for adding their exact API
-       content to a project. This Pandemonium tool must either run on a tools-enabled
-       build of the engine or have access to one (distributed alongside or
-       perhaps in the original game's files). The tool can then use the Pandemonium
-       executable to export a PCK file from the command line with
-       `OS.execute()`. The game itself shouldn't
-       use a tool-build of the engine (for security), so it's best to keep
-       the modding tool and game separate.
+1. The developer must publicize documentation of these expected structures/
+   interfaces, expect modders to install Pandemonium Engine, and then also expect
+   those modders to conform to the documentation's defined API when building
+   mod content for the game (so that it will work). Users would then use
+   Pandemonium's built in exporting tools to create a PCK file, as detailed
+   above.
+2. The developer uses Pandemonium to build a GUI tool for adding their exact API
+   content to a project. This Pandemonium tool must either run on a tools-enabled
+   build of the engine or have access to one (distributed alongside or
+   perhaps in the original game's files). The tool can then use the Pandemonium
+   executable to export a PCK file from the command line with
+   `OS.execute()`. The game itself shouldn't
+   use a tool-build of the engine (for security), so it's best to keep
+   the modding tool and game separate.
 
 ## Opening PCK files at runtime
 
 To import a PCK file, one uses the ProjectSettings singleton. The following
 example expects a “mod.pck” file in the directory of the games executable.
 The PCK file contains a “mod_scene.tscn” test scene in its root.
-
-gdscript GDScript
 
 ```
 func _your_function():
@@ -101,23 +97,22 @@ func _your_function():
         var imported_scene = load("res://mod_scene.tscn")
 ```
 
-Warning:
+### Warning:
 
+By default, if you import a file with the same file path/name as one you already have in your
+project, the imported one will replace it. This is something to watch out for when
+creating DLC or mods (solved easily with a tool isolating mods to a specific mods
+subfolder). However, it is also a way of creating patches for one's own game. A
+PCK file of this kind can fix the content of a previously loaded PCK.
 
-    By default, if you import a file with the same file path/name as one you already have in your
-    project, the imported one will replace it. This is something to watch out for when
-    creating DLC or mods (solved easily with a tool isolating mods to a specific mods
-    subfolder). However, it is also a way of creating patches for one's own game. A
-    PCK file of this kind can fix the content of a previously loaded PCK.
+To opt out of this behavior, pass `false` as the second argument to
+`ProjectSettings.load_resource_pack()`.
 
-    To opt out of this behavior, pass `false` as the second argument to
-    `ProjectSettings.load_resource_pack()`.
+### Note:
 
-Note:
-
-    For a C# project, you need to build the DLL and place it in the project directory first.
-    Then, before loading the resource pack, you need to load its DLL as follows:
-    `Assembly.LoadFile("mod.dll")`
+For a C# project, you need to build the DLL and place it in the project directory first.
+Then, before loading the resource pack, you need to load its DLL as follows:
+`Assembly.LoadFile("mod.dll")`
 
 ## Summary
 
@@ -126,3 +121,4 @@ is. The most important thing is to identify how one plans to distribute future
 content for their game and develop a workflow that is customized for that
 purpose. Pandemonium should make that process smooth regardless of which route a
 developer pursues.
+

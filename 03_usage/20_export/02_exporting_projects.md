@@ -1,16 +1,18 @@
 
-
 # Exporting projects
 
 ## Why export?
 
-Originally, Pandemonium did not have any means to export projects. The
+Originally, Pandemonium (godot) did not have any means to export projects. The
 developers would compile the proper binaries and build the packages for
 each platform manually.
 
 When more developers (and even non-programmers) started using it, and
 when our company started taking more projects at the same time, it
 became evident that this was a bottleneck.
+
+Note that for serious projects compiling your own optimized export templates
+is a good idea to do.
 
 ### On PC
 
@@ -27,7 +29,7 @@ binary, which is smaller in size, more optimized and does not include
 tools like the editor and debugger.
 
 Finally, Pandemonium has a simple but efficient system for
-`creating DLCs as extra package files ( doc_exporting_pcks )`.
+creating DLCs as extra package files.
 
 ### On mobile
 
@@ -86,7 +88,7 @@ instructions on how to properly set up that platform.
 Apart from setting up the platform, the export templates must be
 installed to be able to export projects. They can be obtained as a
 TPZ file (which is a renamed ZIP archive) from the
-`download page of the website ( https://www.pandemoniumengine.org/download )`.
+releases page.
 
 Once downloaded, they can be installed using the **Install Export Templates**
 option in the editor:
@@ -112,12 +114,9 @@ select every scene or resource you want to export.
 
 ![](img/expselected.png)
 
-Note:
-
-
-    Files and folders whose name begin with a period will never be included in
-    the exported project. This is done to prevent version control folders like
-    `.git` from being included in the exported PCK file.
+Note: Files and folders whose name begin with a period will never be included in
+the exported project. This is done to prevent version control folders like
+`.git` from being included in the exported PCK file.
 
 Below the list of resources are two filters that can be setup. The first allows
 non resource files such as `.txt`,`.json` and `.csv` to be exported with
@@ -167,12 +166,6 @@ the command:
 pandemonium --path /path/to/project --export "Windows Desktop" some_name.exe
 ```
 
-See also:
-
-
-    See `doc_command_line_tutorial` for more information about using Pandemonium
-    from the command line.
-
 ## PCK versus ZIP pack file formats
 
 Each format has its upsides and downsides. PCK is the default and recommended
@@ -184,22 +177,18 @@ depending on your needs.
 - Uncompressed format. Larger file size, but faster to read/write.
 - Not readable and writable using tools normally present on the user's
   operating system, even though there are
-  `third-party tools ( https://github.com/hhyyrylainen/PandemoniumPckTool )`
+  [third-party tools](https://github.com/hhyyrylainen/GodotPckTool)
   to extract and create PCK files.
 
 **ZIP format:**
 
 - Compressed format. Smaller file size, but slower to read/write.
 - Readable and writable using tools normally present on the user's operating system.
-  This can be useful to make modding easier (see also `doc_exporting_pcks`).
+  This can be useful to make modding easier.
 
-Warning:
-
-
-    Due to a `known bug ( https://github.com/Relintai/pandemonium_engine/pull/42123 )`,
-    when using a ZIP file as a pack file, the exported binary will not try to use
-    it automatically. Therefore, you have to create a *launcher script* that
-    the player can double-click or run from a terminal to launch the project:
+Warning: The exported binary will not try to use zip
+automatically. Therefore, you have to create a *launcher script* that
+the player can double-click or run from a terminal to launch the project:
 
 ```
 launch.bat (Windows)
@@ -213,3 +202,4 @@ my_project.exe --main-pack my_project.zip
     Save the launcher script and place it in the same folder as the exported binary.
     On Linux, make sure to give executable permissions to the launcher script using
     the command `chmod +x launch.sh`.
+

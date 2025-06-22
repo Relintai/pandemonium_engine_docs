@@ -1,12 +1,6 @@
 
 # Exporting for Windows
 
-See also:
-
-    This page describes how to export a Pandemonium project to Windows.
-    If you're looking to compile editor or export template binaries from source instead,
-    read `doc_compiling_for_windows`.
-
 The simplest way to distribute a game for PC is to copy the executable
 (`pandemonium.exe`), compress the folder and send it to someone else. However, this
 is often not desired.
@@ -21,12 +15,13 @@ binary that is smaller, faster and does not contain the editor and debugger.
 -  To enable code signing, you must have the `Windows 10 SDK` (on Windows) or `osslsigncode ( https://github.com/mtrojnar/osslsigncode )` (on any other OS) installed.
 -  Download the Pandemonium export templates. Use the Pandemonium menu: `Editor > Manage Export Templates`.
 
-Warning:
+### Warning:
 
-    If you export for Windows with embedded PCK files, you will not be able to
-    sign the program as it will break.
+If you export for Windows with embedded PCK files, you will not be able to
+sign the program as it will break.
 
-    On Windows, PCK embedding is also known to cause false positives in
-    antivirus programs. Therefore, it's recommended to avoid using it unless
-    you're distributing your project via Steam as it bypasses code signing and
-    antivirus checks.
+On Windows, PCK embedding is also known to cause false positives in
+antivirus programs. Therefore, it's recommended to avoid using it unless
+you're distributing your project via Steam as it bypasses code signing and
+antivirus checks.
+

@@ -6,21 +6,18 @@ have a GPU or display server available, you'll need to use a server build of Pan
 
 ## Platform support
 
-- **Linux:** `Download an official Linux server binary ( https://pandemoniumengine.org/download/server )`.
-  To compile a server binary from source, follow instructions in
-  `doc_compiling_for_x11`.
-- **macOS:** `Compile a server binary from source for macOS ( doc_compiling_for_osx )`.
+- **Linux:** Download an official Linux server binary (they are in the servers `.tpz` file).
+  Or compile a server binary from source.
+- **macOS:** Compile a server binary from source for macOS.
 - **Windows:** There is no dedicated server build for Windows yet. As an alternative,
   you can use the `--no-window` command-line argument to prevent Pandemonium from
   spawning a window. Note that even with the `--no-window` command-line argument,
   you'll need to have OpenGL support available on the Windows machine.
 
-If your project uses C#, you'll have to use a Mono-enabled server binary.
-
 ## "Headless" versus "server" binaries
 
-The `server download page ( https://pandemoniumengine.org/download/server )`
-offers two kinds of binaries with several differences.
+The server export templates.
+offers three kinds of binaries with several differences.
 
 - **Server:** Use this one for running dedicated servers. It does not contain
   editor functionality, and is therefore smaller and more
@@ -28,6 +25,7 @@ offers two kinds of binaries with several differences.
 - **Headless:** This binary contains editor functionality and is intended to be
   used for exporting projects. This binary *can* be used to run dedicated
   servers, but it's not recommended as it's larger and less optimized.
+- **HTTP Server**: This contains modules for running http servers.
 
 ## Exporting a PCK file
 
@@ -46,26 +44,22 @@ the bottom of the Export dialog then choose a destination path.
 The **Export With Debug** checkbox in the file dialog has no bearing on the
 final PCK file, so you can leave it as-is.
 
-See `doc_exporting_projects` for more information.
+### Note
 
-Note:
+If you're exporting the project from a headless editor, call the headless
+editor with the `--export-pack` option while in the project folder to export
+only a PCK file.
 
+### Note
 
-    If you're exporting the project from a headless editor, call the headless
-    editor with the `--export-pack` option while in the project folder to export
-    only a PCK file.
+The PCK file will include resources not normally needed by the server, such
+as textures and sounds. This means the PCK file will be larger than it could
+possibly be. Support for stripping unneeded resources from a PCK for server
+usage is planned in a future Pandemonium release.
 
-Note:
-
-
-    The PCK file will include resources not normally needed by the server, such
-    as textures and sounds. This means the PCK file will be larger than it could
-    possibly be. Support for stripping unneeded resources from a PCK for server
-    usage is planned in a future Pandemonium release.
-
-    On the bright side, this allows the same PCK file to be used both by a
-    client and dedicated server build. This can be useful if you want to ship a
-    single archive that can be used both as a client and dedicated server.
+On the bright side, this allows the same PCK file to be used both by a
+client and dedicated server build. This can be useful if you want to ship a
+single archive that can be used both as a client and dedicated server.
 
 ## Preparing the server distribution
 
@@ -115,11 +109,12 @@ automatically.
 
 On Linux, to make your dedicated server restart after a crash or system reboot,
 you can
-`create a systemd service ( https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6 )`.
+[create a systemd service](https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6).
 This also lets you view server logs in a more convenient fashion, with automatic
 log rotation provided by systemd.
 
 If you have experience with containers, you could also look into wrapping your
-dedicated server in a `Docker ( https://www.docker.com/ )` container. This way,
+dedicated server in a [Docker](https://www.docker.com/) container. This way,
 it can be used more easily in an automatic scaling setup (which is outside the
 scope of this tutorial).
+

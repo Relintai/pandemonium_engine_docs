@@ -12,11 +12,11 @@ it uses a Windows-only format called ICO. You can create your application icon
 in any program but you will have to convert it to an ICO file using a program such
 as GIMP.
 
-`This video tutorial ( https://www.youtube.com/watch?v=uqV3UfM-n5Y )` goes over how to
+[This video tutorial](https://www.youtube.com/watch?v=uqV3UfM-n5Y) goes over how to
 export an ICO file with GIMP.
 
 It is also possible to convert a PNG image to an hiDPI-friendly ICO file
-using this `ImageMagick ( https://www.imagemagick.org/ )` command:
+using this [ImageMagick](https://www.imagemagick.org/) command:
 
 ```
 magick convert icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
@@ -28,14 +28,14 @@ Depending on which version of ImageMagick you installed, you might need to leave
 convert icon.png -define icon:auto-resize=256,128,64,48,32,16 icon.ico
 ```
 
-Warning:
+### Warning:
 
-    For the ICO file to effectively replace the default Pandemonium icon, it must
-    contain *all* the sizes included in the default Pandemonium icon: 16×16, 32×32,
-    48×48, 64×64, 128×128, 256×256. If the ICO file does not contain all the sizes,
-    the default Pandemonium icon will be kept for the sizes that weren't overridden.
+For the ICO file to effectively replace the default Pandemonium icon, it must
+contain *all* the sizes included in the default Pandemonium icon: 16×16, 32×32,
+48×48, 64×64, 128×128, 256×256. If the ICO file does not contain all the sizes,
+the default Pandemonium icon will be kept for the sizes that weren't overridden.
 
-    The above ImageMagick command takes this into account.
+The above ImageMagick command takes this into account.
 
 ## Changing the taskbar icon
 
@@ -56,17 +56,15 @@ use the `Icon` setting.
 
 ## Changing the file icon
 
-In Pandemonium 3.5 and later, you can change the file icon without
-external tools using `pandemoniumicon ( https://github.com/pkowal1982/pandemoniumicon )`.
+You might be able to change the file icon without
+external tools using [godoticon](https://github.com/pkowal1982/godoticon).
 Changing the file icon this way should work for executables containing
 an embedded PCK.
 
-Warning:
-
-    There are `known issues ( https://github.com/Relintai/pandemonium_engine/issues/33466 )`
-    when changing the application icon in executables that embed a PCK file.
-    It's recommended to avoid using rcedit for now if you choose to enable the
-    **Embed Pck** option for your Windows export preset in the Export dialog.
+Warning: There are [known issues](https://github.com/godotengine/godot/issues/33466)
+when changing the application icon in executables that embed a PCK file.
+It's recommended to avoid using rcedit for now if you choose to enable the
+**Embed Pck** option for your Windows export preset in the Export dialog.
 
 The file icon is the icon of the executable that you click on to start
 the project.
@@ -75,7 +73,7 @@ the project.
 
 Before selecting it in the export options, you will need to install
 an extra tool called **rcedit**.
-You can download it `here ( https://github.com/electron/rcedit/releases )`.
+You can download it [here](https://github.com/electron/rcedit/releases).
 
 After downloading, you need to tell Pandemonium the path to the rcedit executable
 on your computer.
@@ -85,8 +83,8 @@ Navigate to and select the rcedit executable.
 
 Note:
 
-    Linux and macOS users will also need to install
-    `WINE ( https://www.winehq.org/ )` to use rcedit.
+Linux and macOS users will also need to install
+`WINE ( https://www.winehq.org/ )` to use rcedit.
 
 ![](img/icon_rcedit.png)
 
@@ -100,15 +98,14 @@ the **Application → Icon** field.
 
 Note:
 
+If rcedit fails to change the icon, you can instead
+compile your own Windows export templates
+with the icon changed. To do so, replace
+[platform/windows/pandemonium.ico](https://github.com/Relintai/pandemonium_engine/blob/master/platform/windows/pandemonium.ico)
+with your own ICO file *before* compiling export templates.
 
-    If rcedit fails to change the icon, you can instead
-    `compile your own Windows export templates ( doc_compiling_for_windows )`
-    with the icon changed. To do so, replace
-    `platform/windows/pandemonium.ico ( https://github.com/Relintai/pandemonium_engine/blob/master/platform/windows/pandemonium.ico )`
-    with your own ICO file *before* compiling export templates.
-
-    Once this is done, you can specify your export templates as custom export
-    templates in your project's Windows export preset.
+Once this is done, you can specify your export templates as custom export
+templates in your project's Windows export preset.
 
 ## Testing the result
 
@@ -118,6 +115,7 @@ You can now export the project. If it worked correctly, you should see this:
 
 Note:
 
-    If your icon isn't showing up properly, on Windows 10, try clearing the icon
-    cache. To do so, open the **Run** dialog and enter `ie4uinit.exe
-    -ClearIconCache` or `ie4uinit.exe -show`.
+If your icon isn't showing up properly, on Windows 10, try clearing the icon
+cache. To do so, open the **Run** dialog and enter `ie4uinit.exe
+-ClearIconCache` or `ie4uinit.exe -show`.
+

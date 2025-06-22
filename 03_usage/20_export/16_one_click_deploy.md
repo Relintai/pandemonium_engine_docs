@@ -14,21 +14,18 @@ a USB device is connected to the computer and offer the user to automatically
 export, install and run the project (in debug mode) on the device. This feature
 is called *one-click deploy*.
 
-Note:
-
-
-   One-click deploy is only available once you've added an export template
-   marked as **Runnable** in the Export dialog. You can mark several export
-   presets as runnable, but only one preset per platform may be marked as
-   runnable. If you mark a second preset in a given platform as runnable, the
-   other preset will no longer be marked as runnable.
+Note: One-click deploy is only available once you've added an export template
+marked as **Runnable** in the Export dialog. You can mark several export
+presets as runnable, but only one preset per platform may be marked as
+runnable. If you mark a second preset in a given platform as runnable, the
+other preset will no longer be marked as runnable.
 
 ## Supported platforms
 
 - **Android:** Exports the project with debugging enabled and runs it on the
   connected device.
 
-   - Make sure to follow the steps described in `doc_exporting_for_android`.
+   - Make sure to follow the steps described in [here](12_exporting_for_android.md).
      Otherwise, the one-click deploy button won't appear.
 
    - If you have more than one device connected, Pandemonium will ask you which device
@@ -67,10 +64,11 @@ To resolve this:
   Try unlocking your device and accepting the authorization prompt if you see any.
   If you can't see this prompt, running `adb devices` on your PC should make
   the authorization prompt appear on the device.
-- Try `revoking the debugging authorization ( https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized )`
+- Try [revoking the debugging authorization](https://stackoverflow.com/questions/23081263/adb-android-device-unauthorized)
   in the device's developer settings, then follow the steps again.
 - Try using USB debugging instead of wireless debugging or vice versa.
   Sometimes, one of those can work better than the other.
 - On Linux, you may be missing the required
-  `udev rules ( https://github.com/M0Rf30/android-udev-rules )`
+  [udev rules](https://github.com/M0Rf30/android-udev-rules)
   for your device to be recognized.
+

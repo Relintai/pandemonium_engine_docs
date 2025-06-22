@@ -1,9 +1,6 @@
 
 # Using the Web editor
 
-Since Pandemonium 3.3, there is a `Web editor`
-you can use to work on new or existing projects.
-
 Note: The web editor is in a preliminary stage. While its feature set may be
 sufficient for educational purposes, it is currently **not recommended for
 production work**. See limitations below.

@@ -1,7 +1,5 @@
 
-
-Prototyping levels with CSG
-===========================
+# Prototyping levels with CSG
 
 CSG stands for **Constructive Solid Geometry**, and is a tool to combine basic
 shapes or custom meshes to create more complex shapes. In 3D modelling software,
@@ -11,21 +9,21 @@ Level prototyping is one of the main uses of CSG in Pandemonium. This technique 
 users to create simple versions of most common shapes by combining primitives.
 Interior environments can be created by using inverted primitives.
 
-Note:
- The CSG nodes in Pandemonium are mainly intended for prototyping. There is
-          no built-in support for UV mapping or editing 3D polygons (though
-          extruded 2D polygons can be used with the CSGPolygon node).
-
-          If you're looking for an easy to use level design tool for a project,
-          you may want to use `Qodot ( https://github.com/Shfty/qodot-plugin )`
-          instead. It lets you design levels using
-          `TrenchBroom ( https://kristianduske.com/trenchbroom/ )` and import
-          them in Pandemonium.
-
 ![](img/csg.gif)
 
-Introduction to CSG nodes
--------------------------
+### Note:
+
+The CSG nodes in Pandemonium are mainly intended for prototyping. There is
+no built-in support for UV mapping or editing 3D polygons (though
+extruded 2D polygons can be used with the CSGPolygon node).
+
+If you're looking for an easy to use level design tool for a project,
+you may want to use [Qodot](https://github.com/Shfty/qodot-plugin)
+instead. It lets you design levels using
+[TrenchBroom](https://kristianduske.com/trenchbroom/) and import
+them in Pandemonium.
+
+## Introduction to CSG nodes
 
 Like other features of Pandemonium, CSG is supported in the form of nodes. These are
 the CSG nodes:
@@ -42,8 +40,7 @@ the CSG nodes:
 
 ![](img/csg_mesh.png)
 
-CSG tools features
-~~~~~~~~~~~~~~~~~~
+### CSG tools features
 
 Every CSG node supports 3 kinds of boolean operations:
 
@@ -57,8 +54,7 @@ Every CSG node supports 3 kinds of boolean operations:
 
 ![](img/csg_operation.png)
 
-CSGPolygon
-~~~~~~~~~~
+### CSGPolygon
 
 The `CSGPolygon` node extrude along a Polygon drawn in
 2D (in X, Y coordinates) in the following ways:
@@ -72,14 +68,12 @@ The `CSGPolygon` node extrude along a Polygon drawn in
 
 ![](img/csg_poly.png)
 
-Note:
- The **Path** mode must be provided with a `Path`
-          node to work. In the Path node, draw the path and the polygon in
-          CSGPolygon will extrude along the given path.
+Note: The **Path** mode must be provided with a `Path`
+node to work. In the Path node, draw the path and the polygon in
+CSGPolygon will extrude along the given path.
 
 
-Custom meshes
-~~~~~~~~~~~~~
+### Custom meshes
 
 Any mesh can be used for `CSGMesh`; the mesh can be
 modelled in other software and imported into Pandemonium. Multiple materials are
@@ -92,35 +86,30 @@ supported. There are some restrictions for geometry:
 
 ![](img/csg_custom_mesh.png)
 
-CSGCombiner
-~~~~~~~~~~~
+### CSGCombiner
 
 The `CSGCombiner` node is an empty shape used for
 organization. It will only combine children nodes.
 
-Processing order
-~~~~~~~~~~~~~~~~
+### Processing order
 
 Every CSG node will first process its children nodes and their operations:
 union, intersection or subtraction, in tree order, and apply them to itself one
 after the other.
 
-Note:
- In the interest of performance, make sure CSG geometry remains
-          relatively simple, as complex meshes can take a while to process.
-          If adding objects together (such as table and room objects), create
-          them as separate CSG trees. Forcing too many objects in a single tree
-          will eventually start affecting performance.
-          Only use binary operations where you actually need them.
+Note: In the interest of performance, make sure CSG geometry remains
+relatively simple, as complex meshes can take a while to process.
+If adding objects together (such as table and room objects), create
+them as separate CSG trees. Forcing too many objects in a single tree
+will eventually start affecting performance.
+Only use binary operations where you actually need them.
 
-Prototyping a level
--------------------
+## Prototyping a level
 
 We will prototype a room to practice the use of CSG tools.
 
-Tip:
- Working in **Orthogonal** projection gives a better view when combining
-         the CSG shapes.
+Tip: Working in **Orthogonal** projection gives a better view when combining
+the CSG shapes.
 
 Our level will contain these objects:
 
@@ -132,11 +121,10 @@ Our level will contain these objects:
 
 Create a scene with a Spatial node as root node.
 
-Tip:
- The default lighting of the environment doesn't provide clear shading
-         at some angles. Change the display mode using **Display Overdraw** in
-         the 3D viewport menu, or add a DirectionalLight node to help you see
-         clearly.
+Tip: The default lighting of the environment doesn't provide clear shading
+at some angles. Change the display mode using **Display Overdraw** in
+the 3D viewport menu, or add a DirectionalLight node to help you see
+clearly.
 
 ![](img/csg_overdraw.png)
 
@@ -160,10 +148,9 @@ Adjust their placement to resemble a desk.
 
 ![](img/csg_desk.png)
 
-Note:
- CSG nodes inside a CSGCombiner will only process their operation
-          within the combiner. Therefore, CSGCombiners are used to organize
-          CSG nodes.
+Note: CSG nodes inside a CSGCombiner will only process their operation
+within the combiner. Therefore, CSGCombiners are used to organize
+CSG nodes.
 
 Create a CSGCombiner and name it `bed`.
 
@@ -191,11 +178,10 @@ spheres will cut a hole into the mattress.
 Try to re-parent the `pillow` node to the root `Spatial` node; the hole will
 disappear.
 
-Note:
- This is to illustrate the effect of CSG processing order.
-          Since the root node is not a CSG node, the CSGCombiner nodes are
-          the end of the operations; this shows the use of CSGCombiner to
-          organize the CSG scene.
+Note: This is to illustrate the effect of CSG processing order.
+Since the root node is not a CSG node, the CSGCombiner nodes are
+the end of the operations; this shows the use of CSGCombiner to
+organize the CSG scene.
 
 Undo the re-parent after observing the effect. The bed you've built should look
 like this:
@@ -211,7 +197,7 @@ another CSGCylinder and adjust the dimensions to use it as a pole.
 ![](img/csg_lamp_pole_stand.png)
 
 We will use a CSGPolygon for the lampshade. Use the **Spin** mode for the
-CSGPolygon and draw a `trapezoid ( https://en.wikipedia.org/wiki/Trapezoid )`
+CSGPolygon and draw a [trapezoid](https://en.wikipedia.org/wiki/Trapezoid)
 while in **Front View** (numeric keypad 1); this shape will extrude around the
 origin and form the lampshade.
 
@@ -253,24 +239,22 @@ You've successfully prototyped a room level with the CSG tools in Pandemonium.
 CSG tools can be used for designing all kinds of levels, such as a maze
 or a city; explore its limitations when designing your game.
 
-Using prototype textures
-------------------------
+## Using prototype textures
 
-Pandemonium's `doc_spatial_material` supports *triplanar mapping*, which can be
+Pandemonium's spatial material supports *triplanar mapping*, which can be
 used to automatically apply a texture to arbitrary objects without distortion.
 This is handy when using CSG as Pandemonium doesn't support editing UV maps on CSG
 nodes yet. Triplanar mapping is relatively slow, which usually restricts its
 usage to organic surfaces like terrain. Still, when prototyping, it can be used
 to quickly apply textures to CSG-based levels.
 
-Note:
- If you need some textures for prototyping, Kenney made a
-          `set of CC0-licensed prototype textures ( https://kenney.nl/assets/prototype-textures )`.
+Note: If you need some textures for prototyping, Kenney made a
+[set of CC0-licensed prototype textures](https://kenney.nl/assets/prototype-textures).
 
 There are two ways to apply a material to a CSG node:
 
 - Applying it to a CSGCombiner node as a material override
-  (**Geometry > Material Override** in the Inspector). This will affect its
+  (**Geometry &gt; Material Override** in the Inspector). This will affect its
   children automatically, but will make it impossible to change the material in
   individual children.
 - Applying a material to individual nodes (**Material** in the Inspector). This
@@ -286,9 +270,9 @@ into the **Texture** property. Now, unfold the **Uv1** section and check
 playing with the **Scale** and **Offset** properties just above. Higher values
 in the **Scale** property will cause the texture to repeat more often.
 
-Tip:
- You can copy a SpatialMaterial to reuse it across CSG nodes. To do so,
-         click the dropdown arrow next to a material property in the Inspector
-         and choose **Copy**. To paste it, select the node you'd like to apply
-         the material onto, click the dropdown arrow next to its material
-         property then choose **Paste**.
+Tip: You can copy a SpatialMaterial to reuse it across CSG nodes. To do so,
+click the dropdown arrow next to a material property in the Inspector
+and choose **Copy**. To paste it, select the node you'd like to apply
+the material onto, click the dropdown arrow next to its material
+property then choose **Paste**.
+

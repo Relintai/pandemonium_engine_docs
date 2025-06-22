@@ -4,8 +4,8 @@
 This page explains how to code using an external text editor.
 
 Pandemonium can be used with an external text editor, such as Sublime Text or Visual
-Studio Code. Browse to the relevant editor settings: `Editor -&gt; Editor Settings
--&gt; Text Editor -&gt; External`
+Studio Code. Browse to the relevant editor settings: Editor -&gt; Editor Settings
+-&gt; Text Editor -&gt; External
 
 ![](img/editor_settings.png)
 

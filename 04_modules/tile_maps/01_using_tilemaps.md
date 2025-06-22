@@ -17,7 +17,7 @@ the TileMap.
 ## Project setup
 
 This demo will use the following tiles taken from Kenney's "Abstract Platformer"
-art pack. You can find the complete set `here ( https://kenney.nl/assets/abstract-platformer )`
+art pack. You can find the complete set [here](https://kenney.nl/assets/abstract-platformer)
 but for this demo we'll stick to this small set.
 
 ![](img/tilesheet.png)
@@ -27,7 +27,7 @@ Create a new project and place the above image in the project folder.
 When using a tileset, it's important that adjacent tiles match up. Pandemonium's default
 is to import 2D images using an interpolated "filter" mode, which will result in
 ugly borders between the tiles. Select the image and click the Import tab. Turn
-off `Filter` and click "Reimport". See `doc_import_images` for details.
+off `Filter` and click "Reimport".
 
 ## TileMap node
 
@@ -45,18 +45,14 @@ customize your tilemap's behavior:
 - `Cell Size`
     This defines the size of the grid. This should match the pixel size
     of your tiles. The default value is `(64, 64)`.
-
 - `YSort`
     This causes tiles to be drawn in order of their `Y` position, so that
     "lower" tiles are drawn on top of "higher" ones.
-
 - `Half Offset` and `Tile Origin`
     These properties affect the position of the tile relative to the grid position.
-
 - `Quadrant`
     Defines the chunk size used for batched drawing. This can negatively
     affect performance. Don't change it unless you know what you're doing.
-
 - `Custom Transform`
     Used to alter the tile's shape. Use this if you have non-square tiles.
 
@@ -81,7 +77,7 @@ of the editor window:
 ![](img/tilemap_tool.png)
 
 First, you need to add the texture(s) that you'll use for the tiles. Click the
-"Add Texture(s) to TileSet" button and select the `tilesheet.png)` image.
+"Add Texture(s) to TileSet" button and select the `tilesheet.png` image.
 
 Next, click "New Single Tile" and drag in the image to select the tile you want.
 Click the "Enable Snap" button to make it easier to select the entire tile. A
@@ -336,3 +332,4 @@ to take effect.
   menu in the upper-right.
 
 ![](img/tilemap_menu.png)
+

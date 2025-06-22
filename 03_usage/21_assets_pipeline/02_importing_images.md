@@ -1,5 +1,4 @@
 
-
 # Importing images
 
 ## Supported image formats
@@ -25,15 +24,12 @@ Pandemonium can import the following image formats:
   when importing them. Support is limited; complex vectors may not render correctly.
   For complex vectors, rendering them to PNGs using Inkscape is often a better solution.
   This can be automated thanks to its `command-line interface ( https://wiki.inkscape.org/wiki/index.php/Using_the_Command_Line#Export_files )`.
-- WebP (`.webp`)
-  - WebP files support transparency and can be compressed lossily or losslessly.
-  The precision is limited to 8 bits per channel.
 
-Note:
+Note: If you've compiled the Pandemonium editor from source with specific modules disabled,
+some formats may not be available.
 
-
-    If you've compiled the Pandemonium editor from source with specific modules disabled,
-    some formats may not be available.
+Note: Other formats are also available as separate engine modules:
+[[Webp]](https://github.com/Relintai/webp), [[Webm]](https://github.com/Relintai/webm), [[Gif Loader]](https://github.com/Relintai/gif_loader).
 
 ## Importing textures
 
@@ -110,7 +106,7 @@ Note:
 
   More information about normal maps (including a coordinate order table for
   popular engines) can be found
-  `here ( http://wiki.polycount.com/wiki/Normal_Map_Technical_Details )`.
+  [here](http://wiki.polycount.com/wiki/Normal_Map_Technical_Details).
 
 ## Flags
 
@@ -124,11 +120,14 @@ Repeating can optionally be set to mirrored mode.
 
 ### Filter
 
-When pixels become larger than the screen pixels, this option enables linear interpolation for them. The result is a smoother (less blocky) texture. This setting can be commonly used in 2D and 3D, but it's usually disabled when making pixel perfect games.
+When pixels become larger than the screen pixels, this option enables linear interpolation for them.
+The result is a smoother (less blocky) texture. This setting can be commonly used in 2D and 3D, but
+it's usually disabled when making pixel perfect games.
 
 ### Mipmaps
 
-When pixels become smaller than the screen, mipmaps kick in. This helps reduce the grainy effect when shrinking the textures. Keep in mind that, in older hardware
+When pixels become smaller than the screen, mipmaps kick in. This helps reduce the grainy effect when
+shrinking the textures. Keep in mind that, in older hardware
 (GLES2, mainly mobile), there are some requirements to use mipmaps:
 
 * Texture width and height must be powers of 2
@@ -136,7 +135,8 @@ When pixels become smaller than the screen, mipmaps kick in. This helps reduce t
 
 Keep in mind the above when making phone games and applications, want to aim for full compatibility, and need mipmaps.
 
-When doing 3D, mipmap should be turned on, as this also improves performance (smaller versions of the texture are used for objects further away).
+When doing 3D, mipmap should be turned on, as this also improves performance (smaller versions of
+the texture are used for objects further away).
 
 ### Anisotropic
 
@@ -144,19 +144,19 @@ When textures are near parallel to the view (like floors), this option makes the
 
 ### sRGB
 
-Pandemonium uses Linear colorspace when rendering 3D. Textures mapped to albedo or detail channels need to have this option turned on in order for colors to look correct.
+Pandemonium uses Linear colorspace when rendering 3D. Textures mapped to albedo or detail channels need
+to have this option turned on in order for colors to look correct.
 When set to **Detect** mode, the texture will be marked as sRGB when used in albedo channels.
 
-Warning:
+#### Warning:
 
+Since the texture will have its data modified when sRGB is enabled, this
+means using the same texture in both 2D and 3D will make the texture
+display with incorrect colors in either 2D or 3D.
 
-    Since the texture will have its data modified when sRGB is enabled, this
-    means using the same texture in both 2D and 3D will make the texture
-    display with incorrect colors in either 2D or 3D.
-
-    To work around this, make a copy of the texture on the filesystem and enable
-    sRGB on one of the copies only. Use the copy with sRGB enabled in 3D, and
-    the copy with sRGB disabled in 2D.
+To work around this, make a copy of the texture on the filesystem and enable
+sRGB on one of the copies only. Use the copy with sRGB enabled in 3D, and
+the copy with sRGB disabled in 2D.
 
 ## Process
 
@@ -164,7 +164,8 @@ Some special processes can be applied to images when imported as textures.
 
 ### Fix Alpha Border
 
-This puts pixels of the same surrounding color in transition from transparency to non transparency. It helps mitigate the outline effect when exporting images
+This puts pixels of the same surrounding color in transition from transparency to non transparency.
+It helps mitigate the outline effect when exporting images
 from Photoshop and the like.
 
 ![](img/fixedborder.png)
@@ -178,14 +179,18 @@ Keep in mind that a material will need to be created that uses the PREMULT ALPHA
 
 ### HDR as sRGB
 
-A few HDR files are broken and contain sRGB color data. It is advised not to use them, but, in the worst-case scenario, toggling this option on will make them look right.
+A few HDR files are broken and contain sRGB color data. It is advised not to use them, but, in the
+worst-case scenario, toggling this option on will make them look right.
 
 ### Invert Color
 
-Reverses the image's color. This is useful, for example, to convert a height map generated by external programs to depth map to use with `doc_spatial_material`.
+Reverses the image's color. This is useful, for example, to convert a height map generated by external
+programs to depth map to use withspatial material.
 
 ## Svg
 
 ### Scale
 
-This option only applies to SVG files. It controls the scale of the SVG image. The default scale (1.0) will make the imported SVG match its original design scale.
+This option only applies to SVG files. It controls the scale of the SVG image. The default
+scale (1.0) will make the imported SVG match its original design scale.
+

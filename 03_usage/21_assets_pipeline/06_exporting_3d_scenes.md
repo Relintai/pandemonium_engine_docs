@@ -1,5 +1,4 @@
 
-
 # Exporting 3D scenes
 
 ## Overview
@@ -10,12 +9,9 @@ export as a glTF binary (`.glb` file) or glTF embedded with textures
 such as a CSG mesh blockout for a level, export it to clean it up in a
 program such as Blender, and then bring it back into Pandemonium.
 
-Note:
- 
+Note: Only Blender 2.83 and newer can import glTF files exported by Pandemonium.
 
-    Only Blender 2.83 and newer can import glTF files exported by Pandemonium.
-
-To export a scene in the editor go to **Project > Tools > Export GLTF...**
+To export a scene in the editor go to **Project &gt; Tools &gt; Export GLTF...**
 
 ![](img/gltf_pandemonium_export.png)
 
@@ -27,3 +23,4 @@ There are several limitations with glTF export.
 * ShaderMaterials cannot be exported.
 * No support for exporting 2D scenes.
 * Only supported in editor builds (`tools=yes`).
+

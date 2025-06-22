@@ -1,5 +1,4 @@
 
-
 # Importing 3D scenes
 
 ## Pandemonium scene importer
@@ -14,21 +13,23 @@ Pandemonium supports the following 3D *scene file formats*:
 * glTF 2.0 **(recommended)**. Pandemonium has full support for both text (`.gltf`) and binary (`.glb`) formats.
 * DAE (COLLADA), an older format that is fully supported.
 * OBJ (Wavefront) format + their MTL material files. This is also fully supported, but pretty limited (no support for pivots, skeletons, animations, PBR materials, ...).
-* ESCN, a Pandemonium-specific format that Blender can export with a plugin.
-* FBX, supported via the Open Asset Import library. However, FBX is proprietary, so we recommend using other formats
-  listed above, if suitable for your workflow.
+* ESCN, a godot-specific format that Blender can export with a plugin.
 
 Just copy the scene file together with the texture to the project repository, and Pandemonium will do a full import.
 
 It is important that the mesh is not deformed by bones when exporting. Make sure that the skeleton is reset to its T-pose
 or default rest pose before exporting with your favorite 3D editor.
 
+Note that FBX support was removed to reduce engine bloat. Also because glTF usually works better.
+You can use the open source FBXtoglTF tool (or Blender) to convert fbx to glTF easily. If you need FBX support,
+the fbx module can be easily backported from godot, I recommend doing that, and compiling your own editor version.
+
 ### Exporting DAE files from Maya and 3DS Max
 
 Autodesk added built-in COLLADA support to Maya and 3DS Max, but it's
 broken by default and should not be used. The best way to export this format
 is by using the
-`OpenCollada ( https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools )`
+[OpenCollada](https://github.com/KhronosGroup/OpenCOLLADA/wiki/OpenCOLLADA-Tools)
 plugins. They work well, although they are not always up-to date
 with the latest version of the software.
 
@@ -48,52 +49,45 @@ text based format and the binary data in a separate binary file. This can be use
 changes in a text based format. The second is you need the texture files separate from the material file. If you don't need
 either of those glTF binary files are fine.
 
-Warning:
-
-    Blend shape animations cannot be imported - they require manual animation within Pandemonium.
+Warning: Blend shape animations cannot be imported - they require manual animation within Pandemonium.
 
 Note:
 
-    Blender versions older than 3.2 do not export emissive textures with the
-    glTF file. If your model uses one and you're using an older version of
-    Blender, it must be brought in separately.
-
-    By default, Blender has backface culling disabled on materials and will
-    export materials to match how they render in Blender. This means that
-    materials in Pandemonium will have their cull mode set to **Disabled**. This can
-    decrease performance since backfaces will be rendered, even when they are
-    being culled by other faces. To resolve this, enable **Backface Culling** in
-    Blender's Materials tab, then export the scene to glTF again.
+- Blender versions older than 3.2 do not export emissive textures with the
+  glTF file. If your model uses one and you're using an older version of
+  Blender, it must be brought in separately.
+- By default, Blender has backface culling disabled on materials and will
+  export materials to match how they render in Blender. This means that
+  materials in Pandemonium will have their cull mode set to **Disabled**. This can
+  decrease performance since backfaces will be rendered, even when they are
+  being culled by other faces. To resolve this, enable **Backface Culling** in
+  Blender's Materials tab, then export the scene to glTF again.
 
 ### Exporting DAE files from Blender
 
 Blender has built-in COLLADA support, but it does not work properly for the needs of game engines
 and should not be used as is.
 
-Pandemonium provides a `Blender plugin ( https://github.com/pandemoniumengine/collada-exporter )`
+Godot provides a [Blender plugin](https://github.com/godotengine/collada-exporter)
 that will correctly export COLLADA scenes for use in Pandemonium. It does not work in Blender 2.8 or
 newer, but there are plans to update it in the future.
 
 ### Exporting ESCN files from Blender
 
-The most powerful one, called `pandemonium-blender-exporter
-( https://github.com/Relintai/pandemonium_engine-blender-exporter )`.
+The most powerful one, called [godot-blender-exporter](https://github.com/godotengine/godot-blender-exporter).
 It uses a .escn file, which is kind of another name for a .tscn file (Pandemonium scene file);
 it keeps as much information as possible from a Blender scene. However, it is considered
 experimental.
 
-The ESCN exporter has a detailed `document ( escn_exporter/index.html )` describing
+The ESCN exporter has a detailed document describing
 its functionality and usage.
 
 ### Exporting textures separately
 
 While textures can be exported with a model in certain file formats, such as glTF 2.0, you can also export them
 separately. Pandemonium uses PBR (physically based rendering) for its materials, so if a texturing program can export PBR
-textures, they can work in Pandemonium. This includes the `Substance suite ( https://www.substance3d.com/ )`,
-`ArmorPaint (open source) ( https://armorpaint.org/ )`, and `Material Maker (open source) ( https://github.com/RodZill4/material-maker )`.
-
-Note:
- For more information on Pandemonium's materials, see `doc_spatial_material`.
+textures, they can work in Pandemonium. This includes the [Substance suite](https://www.substance3d.com/),
+[ArmorPaint (open source)](https://armorpaint.org/), and [Material Maker (open source)](https://github.com/RodZill4/material-maker).
 
 ### Exporting considerations
 
@@ -197,14 +191,12 @@ is modified and re-imported.
 
 Note:
 
-
-    Pandemonium will not reimport materials that are stored in external files unless
-    you remove the associated `.material` file before reimporting.
-
-    To force reimporting materials every time the 3D scene is reimported, change
-    the material storage mode in the 3D scene by selecting it in the FileSystem
-    dock, going to the Import dock then setting **Material > Storage** to
-    **Built-In** instead of **Files**.
+- Pandemonium will not reimport materials that are stored in external files unless
+  you remove the associated `.material` file before reimporting.
+- To force reimporting materials every time the 3D scene is reimported, change
+  the material storage mode in the 3D scene by selecting it in the FileSystem
+  dock, going to the Import dock then setting **Material > Storage** to
+  **Built-In** instead of **Files**.
 
 #### Keep On Reimport
 
@@ -220,20 +212,22 @@ Makes meshes use less precise numbers for multiple aspects of the mesh in order
 to save space.
 
 These are:
- * Transform Matrix (Location, rotation, and scale)             : 32-bit float to 16-bit signed integer.
- * Vertices                                                     : 32-bit float to 16-bit signed integer.
- * Normals                                                      : 32-bit float to 32-bit unsigned integer.
- * Tangents                                                     : 32-bit float to 32-bit unsigned integer.
- * Vertex Colors                                                : 32-bit float to 32-bit unsigned integer.
- * UV                                                           : 32-bit float to 32-bit unsigned integer.
- * UV2                                                          : 32-bit float to 32-bit unsigned integer.
- * Vertex weights                                               : 32-bit float to 16-bit unsigned integer.
- * Armature bones                                               : 32-bit float to 16-bit unsigned integer.
- * Array index                                                  : 32-bit or 16-bit unsigned integer based on how many elements there are.
+
+* Transform Matrix (Location, rotation, and scale)             : 32-bit float to 16-bit signed integer.
+* Vertices                                                     : 32-bit float to 16-bit signed integer.
+* Normals                                                      : 32-bit float to 32-bit unsigned integer.
+* Tangents                                                     : 32-bit float to 32-bit unsigned integer.
+* Vertex Colors                                                : 32-bit float to 32-bit unsigned integer.
+* UV                                                           : 32-bit float to 32-bit unsigned integer.
+* UV2                                                          : 32-bit float to 32-bit unsigned integer.
+* Vertex weights                                               : 32-bit float to 16-bit unsigned integer.
+* Armature bones                                               : 32-bit float to 16-bit unsigned integer.
+* Array index                                                  : 32-bit or 16-bit unsigned integer based on how many elements there are.
 
 Additional info:
- * UV2 = The second UV channel for detail textures and baked lightmap textures.
- * Array index = An array of numbers that number each element of the arrays above; i.e. they number the vertices and normals.
+
+* UV2 = The second UV channel for detail textures and baked lightmap textures.
+* Array index = An array of numbers that number each element of the arrays above; i.e. they number the vertices and normals.
 
 In some cases, this might lead to loss of precision, so disabling this option
 may be needed. For instance, if a mesh is very big or there are multiple meshes
@@ -244,7 +238,7 @@ may lead to gaps in geometry or vertices not being exactly where they should be.
 
 If textures with normal mapping are to be used, meshes need to have tangent arrays.
 This option ensures that these are generated if not present in the source scene.
-Pandemonium uses `Mikktspace ( http://www.mikktspace.com/ )` for this,
+Pandemonium uses [Mikktspace](http://www.mikktspace.com/) for this,
 but it's always better to have them generated in the exporter.
 
 #### Storage
@@ -263,9 +257,6 @@ Whether or not the mesh is used in baked lightmaps.
 - **Enable:** The mesh is used in baked lightmaps.
 - **Gen Lightmaps:** The mesh is used in baked lightmaps, and unwraps a second UV layer for lightmaps.
 
-Note:
- For more information on light baking see `doc_baked_lightmaps`.
-
 ### External Files
 
 Generated meshes and materials can be optionally stored in a subdirectory with the
@@ -282,11 +273,9 @@ each animation in a separate file.
 
 Import of animations is enabled by default.
 
-Attention:
-
-    To modify animations from an imported 3D scene, you need to change the animation
-    storage option from **Built-In** to **Files** in the Import dock. Otherwise,
-    changes made to animations from Pandemonium will be lost when the project is run.
+Attention: To modify animations from an imported 3D scene, you need to change the animation
+storage option from **Built-In** to **Files** in the Import dock. Otherwise,
+changes made to animations from Pandemonium will be lost when the project is run.
 
 ### FPS
 
@@ -383,8 +372,6 @@ In inherited scenes, the only limitations for modifications are:
 
 Other than that, everything is allowed!
 
-
-
 ## Import hints
 
 Many times, when editing a scene, there are common tasks that need to be done after exporting:
@@ -397,9 +384,7 @@ To simplify this workflow, Pandemonium offers several suffixes that can be added
 the names of the objects in your 3D modelling software. When imported, Pandemonium
 will detect suffixes in object names and will perform actions automatically.
 
-Note:
-
-    All the suffixes described below are *case-sensitive*.
+Note: All the suffixes described below are *case-sensitive*.
 
 ### Remove nodes (-noimp)
 
@@ -449,16 +434,10 @@ When possible, **try to use a few primitive collision shapes** instead of triang
 mesh or convex shapes. Primitive shapes often have the best performance and
 reliability.
 
-Note:
+Note: For better visibility in Blender's editor, you can set the "X-Ray" option
+on collision empties and set some distinct color for them in Blender's
+**User Preferences &gt; Themes &gt; 3D View &gt; Empty**.
 
-    For better visibility in Blender's editor, you can set the "X-Ray" option
-    on collision empties and set some distinct color for them in Blender's
-    **User Preferences > Themes > 3D View > Empty**.
-
-See also:
-
-    See `doc_collision_shapes_3d` for a comprehensive overview of collision
-    shapes.
 
 ### Create navigation (-navmesh)
 
@@ -487,3 +466,4 @@ will be imported as a Pandemonium Animation with the loop flag set.
 
 In Blender, this requires using the NLA Editor and naming the Action with the `loop` or
 `cycle` prefix or suffix.
+

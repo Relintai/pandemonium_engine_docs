@@ -1,5 +1,4 @@
 
-
 # Importing audio samples
 
 ## Supported files
@@ -41,7 +40,7 @@ for music, speech, and long sound effects.
 
 ## Best practices
 
-Pandemonium has an `extensive bus system ( doc_audio_buses )` with built-in effects.
+Pandemonium has an extensive bus system with built-in effects.
 This saves SFX artists the need to add reverb to the sound effects,
 reducing their size greatly and ensuring correct trimming. Say no to SFX
 with baked reverb!
@@ -69,3 +68,4 @@ supported.
 
 As an alternative, the Import dock has a **Loop** option that enables
 looping for the entire sample when importing.
+

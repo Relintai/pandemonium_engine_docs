@@ -1,26 +1,21 @@
 
 # Import process
 
-## Importing assets in Pandemonium 3.0+
+## Importing assets
 
-Previously, importing assets in Pandemonium 2.x required manual maintenance
-of a separate directory with source assets. Without doing this, it was
-impossible to specify how to convert and change import flags for
-textures, audio files, scenes, etc.
-
-In Pandemonium 3.0+, we use a more modern approach to importing: Simply drop
+Simply drop
 your assets (image files, scenes, audio files, fonts, etc) directly in the
 project folder (copy them manually with your OS file explorer).
 Pandemonium will automatically import these files internally
 and keep the imported resources hidden in a `res://.import` folder.
 
 This means that when trying to access imported assets through code you
-need to use the `Resource Loader( ResourceLoader )` as it will
+need to use the `Resource Loader` as it will
 automatically take into account where the internal files are saved. If you
 try and access an imported asset using the `File` class
 it will work in the editor, but break in the exported project.
 
-However, the `Resource Loader( ResourceLoader )` cannot access
+However, the `Resource Loader` cannot access
 non imported files, only the `File` class can.
 
 ## Changing import parameters
@@ -101,3 +96,4 @@ correct way to deal with resources.
 
 There are many types of assets available for import, so please continue reading to understand how to work
 with all of them!
+

@@ -8,8 +8,6 @@ can contribute to the project:
 - Writing or proofreading documentation. You can contribute both to this
   reference manual or the code reference.
 - Translating the editor or documentation from English to other languages.
-- Reporting issues or `writing detailed proposals
-  ( https://github.com/Relintai/pandemonium_engine-proposals/ )`.
 
 ## Getting started
 
@@ -39,7 +37,7 @@ documentation.
 The pages below focus on the class reference.
 
 As the reference is included in the Pandemonium editor, its source files are part of
-the `pandemonium repository ( https://github.com/Relintai/pandemonium_engine )`. We use XML files
+the [pandemonium repository](https://github.com/Relintai/pandemonium_engine). We use XML files
 to write it, so the process to contribute to the class reference differs from
 writing the online manual.
 
@@ -48,3 +46,4 @@ writing the online manual.
 The community is always working hard on making Pandemonium and its documentation
 available to more people. Localizing the documentation is a colossal and ongoing
 effort you can be part of.
+

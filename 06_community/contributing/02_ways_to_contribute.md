@@ -1,5 +1,4 @@
 
-
 # Ways to contribute
 
 Pandemonium Engine is a non-profit, community-driven free and open source project.
@@ -36,28 +35,15 @@ positive to the engine, regardless of their skill set:
    The following sections will cover each of those "direct" ways
    of contributing to the engine.
 
--  **Donate.** Pandemonium is a non-profit project, but it can still benefit from
-   user donations for many things. Apart from usual expenses such as hosting
-   costs or promotional material on events, we also use donation money to
-   acquire hardware when necessary (e.g. we used donation money to buy a
-   MacBook Pro to implement Retina/HiDPI support and various other
-   macOS-related features).
-   Most importantly, we also used donation money to hire core developers so they
-   can work full-time on the engine. Even with a low
-   monthly wage, we need a steady donation income to continue doing this, which
-   has been very beneficial to the project so far. So if you want to donate
-   some money to the project, check `our website ( https://pandemoniumengine.org/donate )`
-   for details.
-
 ## Contributing code
 
 The possibility to study, use, modify and redistribute modifications of the
 engine's source code are the fundamental rights that
-Pandemonium's `MIT ( https://tldrlegal.com/license/mit-license )` license grants you,
-making it `free and open source software ( https://en.wikipedia.org/wiki/Free_and_open-source_software )`.
+Pandemonium's [MIT](https://tldrlegal.com/license/mit-license) license grants you,
+making it [free and open source software](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
 As such, everyone is entitled to modify
-`Pandemonium's source code ( https://github.com/Relintai/pandemonium_engine )`, and send those
+[Pandemonium's source code](https://github.com/Relintai/pandemonium_engine), and send those
 modifications back to the upstream project in the form of a patch (a text file
 describing the changes in a ready-to-apply manner) or - in the modern workflow
 that we use - via a so-called "pull request" (PR), i.e. a proposal to directly
@@ -82,18 +68,6 @@ To ensure good collaboration and overall quality, the Pandemonium developers
 enforce some rules for code contributions, for example regarding the style to
 use in the C++ code (indentation, brackets, etc.) or the Git and PR workflow.
 
-A good place to start is by searching for issues tagged as
-`good first issue ( https://github.com/Relintai/pandemonium_engine/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22 )`
-on GitHub.
-
-See also:
- Technical details about the PR workflow are outlined in a
-             specific section, `doc_pr_workflow`.
-
-             Details about the code style guidelines and the `clang-format`
-             tool used to enforce them are outlined in
-             `doc_code_style_guidelines`.
-
 All pull requests must go through a review process before being accepted.
 Depending on the scope of the changes, it may take some time for a maintainer
 responsible for the modified part of the engine to provide their review.
@@ -103,13 +77,7 @@ way more contributions than people validating them.
 
 To make sure that your time and efforts aren't wasted, it is recommended to vet the idea
 first before implementing it and putting it for a review as a PR. To that end, Pandemonium
-has a `proposal system ( https://github.com/Relintai/pandemonium_engine-proposals )`. Its
-usage is encouraged to plan changes and discuss them with the community. Implementation
-details can also be discussed with other contributors on the `Pandemonium Contributors Chat ( https://chat.pandemoniumengine.org/ )`.
-
-Note:
- Proposals are only required when working on an enhancement or a new feature.
-          Bug reports are sufficient for fixing issues.
+has a [proposal system](https://github.com/Relintai/pandemonium_engine-proposals).
 
 ## Testing and reporting issues
 
@@ -123,7 +91,7 @@ the development branch and in future maintenance releases.
 To help with the testing, you have several possibilities:
 
 -  Compile the engine from source yourself, following the instructions of the
-   `Compiling ( toc-devel-compiling )` page for your platform.
+   Compiling page for your platform.
 
 -  Test official pre-release binaries when they are announced (usually on the
    blog and other community platforms), such as alpha, beta and release candidate (RC) builds.
@@ -140,7 +108,7 @@ the developers.
 
 ### Filing an issue on GitHub
 
-Pandemonium uses `GitHub's issue tracker ( https://github.com/Relintai/pandemonium_engine/issues )`
+Pandemonium uses [GitHub's issue tracker](https://github.com/Relintai/pandemonium_engine/issues)
 for bug reports and enhancement suggestions. You will need a GitHub account to
 be able to open a new issue there, and click on the **New issue** button.
 
@@ -192,18 +160,15 @@ There are two separate resources referred to as "documentation" in Pandemonium:
 
 - **The class reference.** This is the documentation for the complete Pandemonium API
   as exposed to GDScript and the other scripting languages. It can be consulted
-  offline, directly in Pandemonium's code editor, or online at `Pandemonium API
-  ( toc-class-ref )`. To contribute to the class reference, you have to edit the
+  offline, directly in Pandemonium's code editor, or online at Pandemonium API.
+  To contribute to the class reference, you have to edit the
   XML file corresponding to the class and make a pull request.
-  See `doc_updating_the_class_reference` and
-  `doc_class_reference_writing_guidelines` for more details.
 
 - **The tutorials and engine documentation and its translations.**
   This is the part you are reading now, which is distributed in the HTML format.
   Its contents are generated from plain text files in the reStructured Text
   (rst) format, to which you can contribute via pull requests on the
-  `pandemonium-docs ( https://github.com/Relintai/pandemonium_engine-docs )` GitHub repository.
-  See `doc_contributing_to_the_documentation` for more details.
+  [pandemonium-docs](https://github.com/Relintai/pandemonium_engine-docs) GitHub repository.
 
 ## Contributing translations
 
@@ -211,4 +176,3 @@ To make Pandemonium accessible to everyone, including users who may prefer resou
 in their native language instead of English, our community helps translate both
 the Pandemonium editor and its documentation in many languages.
 
-See `doc_editor_and_docs_localization` for more details.

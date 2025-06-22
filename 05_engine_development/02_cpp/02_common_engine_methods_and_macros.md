@@ -90,7 +90,6 @@ vformat(TTR("Couldn't open \"%s\" for reading."), file_path);
 
 Note:
 
-
     When using `vformat()` and a translation macro together, always wrap the
     translation macro in `vformat()`, not the other way around. Otherwise, the
     string will never match the translation as it will have the placeholder
@@ -170,13 +169,11 @@ Pandemonium features many error macros to make error reporting more convenient.
 
 Warning:
 
-
     Conditions in error macros work in the **opposite** way of GDScript's
     built-in `assert()` function. An error is reached if the condition inside
     evaluates to `true`, not `false`.
 
 Note:
-
 
     Only variants with custom messages are documented here, as these should
     always be used in new contributions. Make sure the custom message provided
@@ -231,11 +228,11 @@ CRASH_NOW_MSG("Can't predict the future! Aborting.");
 
 See also:
 
-
-    See `core/error_macros.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/error_macros.h )`
+    See [core/error_macros.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/error_macros.h)
     in Pandemonium's codebase for more information about each error macro.
 
     Some functions return an error code (materialized by a return type of
-    `Error`). This value can be returned directly from an error macro.
+    `Error`. This value can be returned directly from an error macro.
     See the list of available error codes in
-    `core/error_list.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/error_list.h )`.
+    [core/error_list.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/error_list.h).
+

@@ -1,5 +1,4 @@
 
-
 # Using C++ profilers
 
 To optimize Pandemonium's performance, you need to know what to optimize first.
@@ -13,9 +12,9 @@ Note:
 
 ## Recommended profilers
 
-- `VerySleepy ( http://www.codersnotes.com/sleepy/ )` (Windows only)
-- `HotSpot ( https://github.com/KDAB/hotspot )` (Linux only)
-- `Xcode Instruments ( https://developer.apple.com/xcode/ )` (macOS only)
+- [VerySleepy](http://www.codersnotes.com/sleepy/) (Windows only)
+- [HotSpot](https://github.com/KDAB/hotspot) (Linux only)
+- [Xcode Instruments](https://developer.apple.com/xcode/) (macOS only)
 
 These profilers may not be the most powerful or flexible options, but their
 standalone operation and limited feature set tends to make them easier to use.
@@ -38,7 +37,6 @@ It is possible to run a profiler on less optimized builds (e.g. `target=debug` w
 but results will naturally be less representative of real world conditions.
 
 Warning:
-
 
     Do *not* strip debugging symbols on the binaries using the `strip` command
     after compiling the binaries. Otherwise, you will no longer get useful
@@ -158,3 +156,4 @@ Note:
 - You can use the timeline at the top of the window to display details for the specific time period.
 
 ![](img/cpp_profiler_time_profiler_result.png)
+

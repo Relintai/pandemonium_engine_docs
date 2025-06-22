@@ -31,7 +31,7 @@ obj2 = Object::cast_to<OtherClass>(obj); // converting between classes, this als
 
 ### References:
 
--  `core/object.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/object.h )`
+-  [core/object.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/object.h)
 
 ## Registering an Object
 
@@ -87,7 +87,7 @@ string passing the name can be passed for brevity.
 
 ### References:
 
--  `core/class_db.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/class_db.h )`
+- [core/class_db.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/class_db.h)
 
 ## Constants
 
@@ -166,8 +166,6 @@ ADD_PROPERTY(PropertyInfo(Variant::INT, "amount"), "set_amount", "get_amount")
 
 This creates the property using the setter and the getter.
 
-
-
 ## Binding properties using `set`/`get`/`get_property_list`
 
 An additional method of creating properties exists when more flexibility
@@ -230,7 +228,6 @@ ADD_SIGNAL(MethodInfo("been_killed"))
 
 All objects in Pandemonium have a `notification`
 method that allows it to respond to engine level callbacks that may relate to it.
-More information can be found on the `doc_pandemonium_notifications` page.
 
 ## References
 
@@ -251,7 +248,7 @@ templates point to it.
 
 ### References:
 
--  `core/reference.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/reference.h )`
+-  [core/reference.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/reference.h)
 
 ## Resources:
 
@@ -265,7 +262,7 @@ Resources without a path are fine too.
 
 ### References:
 
--  `core/resource.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/resource.h )`
+-  [core/resource.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/resource.h)
 
 ## Resource loading
 
@@ -284,7 +281,7 @@ the same time.
 
 ### References:
 
--  `core/io/resource_loader.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/io/resource_loader.h )`
+-  [core/io/resource_loader.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/io/resource_loader.h)
 
 ## Resource saving
 
@@ -301,4 +298,5 @@ be bundled with the saved resource and assigned sub-IDs, like
 
 ### References:
 
--  `core/io/resource_saver.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/io/resource_saver.h )`
+-  [core/io/resource_saver.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/io/resource_saver.h)
+

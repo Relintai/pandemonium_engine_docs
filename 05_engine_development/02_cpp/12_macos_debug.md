@@ -3,7 +3,8 @@
 
 ## Debugging Pandemonium editor
 
-Attaching a debugger to the signed macOS process requires the "com.apple.security.get-task-allow" entitlement, which is not enabled by default, since apps can't be notarized as long as it is enabled.
+Attaching a debugger to the signed macOS process requires the "com.apple.security.get-task-allow" entitlement, which is
+not enabled by default, since apps can't be notarized as long as it is enabled.
 If you want to debug an official build of the editor it should be re-signed with the proper entitlements.
 
 Create an `editor.entitlements` text file with the following contents:
@@ -39,4 +40,6 @@ codesign -s - --deep --force --options=runtime --entitlements ./editor.entitleme
 
 ## Debugging exported project
 
-To allow debugging, select the `codesign\debugging` (`com.apple.security.get-task-allow`) entitlement during the export. When it is selected, notarization is not supported and should be disabled.
+To allow debugging, select the `codesign\debugging` (`com.apple.security.get-task-allow`) entitlement during
+the export. When it is selected, notarization is not supported and should be disabled.
+

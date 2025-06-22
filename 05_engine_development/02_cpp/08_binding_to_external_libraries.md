@@ -1,12 +1,11 @@
 
-
 # Binding to external libraries
 
 ## Modules
 
-The Summator example in `doc_custom_modules_in_c++` is great for small,
+The Summator example in custom modules in c++ is great for small,
 custom modules, but what if you want to use a larger, external library?
-Let's look at an example using `Festival ( http://www.cstr.ed.ac.uk/projects/festival/ )`,
+Let's look at an example using [Festival](http://www.cstr.ed.ac.uk/projects/festival/),
 a speech synthesis (text-to-speech) library written in C++.
 
 To bind to an external library, set up a module directory similar to the Summator example:
@@ -226,3 +225,4 @@ print('is_spoken: ', is_spoken)
 ```
 
 And the output will be `is_spoken: True` if the text is spoken.
+

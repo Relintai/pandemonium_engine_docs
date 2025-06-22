@@ -1,5 +1,4 @@
 
-
 # Custom AudioStreams
 
 ## Introduction
@@ -14,13 +13,10 @@ the resource and exposes itself to GDScript. AudioStream references
 its own internal custom AudioStreamPlayback which translates
 AudioStream into PCM data.
 
-This guide assumes the reader knows how to create C++ modules. If not, refer to this guide
-`doc_custom_modules_in_c++`.
-
 ### References:
 
--  `servers/audio/audio_stream.h ( https://github.com/Relintai/pandemonium_engine/blob/master/servers/audio/audio_stream.h )`
--  `scene/audio/audioplayer.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/scene/audio/audio_player.cpp )`
+-  [servers/audio/audio_stream.h](https://github.com/Relintai/pandemonium_engine/blob/master/servers/audio/audio_stream.h)
+-  [scene/audio/audioplayer.cpp](https://github.com/Relintai/pandemonium_engine/blob/master/scene/audio/audio_player.cpp)
 
 ## What for?
 
@@ -338,6 +334,7 @@ bool AudioStreamPlaybackResampledMyTone::is_playing() const {
 
 ### References:
 
--  `core/math/audio_frame.h ( https://github.com/Relintai/pandemonium_engine/blob/master/core/math/audio_frame.h )`
--  `servers/audio/audio_stream.h ( https://github.com/Relintai/pandemonium_engine/blob/master/servers/audio/audio_stream.h )`
--  `scene/audio/audioplayer.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/scene/audio/audio_player.cpp )`
+-  [core/math/audio_frame.h](https://github.com/Relintai/pandemonium_engine/blob/master/core/math/audio_frame.h)
+-  [servers/audio/audio_stream.h](https://github.com/Relintai/pandemonium_engine/blob/master/servers/audio/audio_stream.h)
+-  [scene/audio/audioplayer.cpp](https://github.com/Relintai/pandemonium_engine/blob/master/scene/audio/audio_player.cpp)
+

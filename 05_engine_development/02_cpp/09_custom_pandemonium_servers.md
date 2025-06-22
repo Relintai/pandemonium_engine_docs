@@ -1,5 +1,4 @@
 
-
 # Custom Pandemonium servers
 
 ## Introduction
@@ -11,13 +10,13 @@ engine and other modules. In addition, the server claims ownership for
 its RID allocations.
 
 This guide assumes the reader knows how to create C++ modules and Pandemonium
-data types. If not, refer to `doc_custom_modules_in_c++`.
+data types.
 
 ### References
 
-- `Why does Pandemonium use servers and RIDs? ( https://pandemoniumengine.org/article/why-does-pandemonium-use-servers-and-rids )`
-- `Singleton pattern ( https://en.wikipedia.org/wiki/Singleton_pattern )`
-- `Mediator pattern ( https://en.wikipedia.org/wiki/Mediator_pattern )`
+- [Why does Pandemonium use servers and RIDs?](https://pandemoniumengine.org/article/why-does-pandemonium-use-servers-and-rids)
+- [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern)
+- {Mediator pattern](https://en.wikipedia.org/wiki/Mediator_pattern)
 
 ## What for?
 
@@ -268,7 +267,7 @@ const uint64_t PRIME[225] = {
 ## Custom managed resource data
 
 Pandemonium servers implement a mediator pattern. All data types inherit `RID_Data`.
-`RID_Owner) MyRID_Data )` owns the object when `make_rid` is called. During debug mode only,
+`RID_Owner` owns the object when `make_rid` is called. During debug mode only,
 RID_Owner maintains a list of RIDs. In practice, RIDs are similar to writing
 object-oriented C code.
 
@@ -308,8 +307,8 @@ public:
 
 ### References
 
-- `RID( rid )`
-- `core/rid.h ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/rid.h )`
+- `RID`
+- [core/rid.h](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/rid.h)
 
 ## Registering the class in GDScript
 
@@ -365,7 +364,7 @@ void register_hilbert_hotel_types();
 void unregister_hilbert_hotel_types();
 ```
 
-- `servers/register_server_types.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/servers/register_server_types.cpp )`
+- [servers/register_server_types.cpp](https://github.com/Relintai/pandemonium_engine/blob/master/servers/register_server_types.cpp)
 
 ### Bind methods
 
@@ -463,7 +462,7 @@ to execute the desired behavior. The queue will be flushed whenever either
 
 ### References:
 
-- `core/message_queue.cpp ( https://github.com/Relintai/pandemonium_engine/blob/3.x/core/message_queue.cpp )`
+- [core/message_queue.cpp](https://github.com/Relintai/pandemonium_engine/blob/3.x/core/message_queue.cpp)
 
 ## Summing it up
 
@@ -492,5 +491,6 @@ func _print_occupy_room(room_number, r_id):
 
 ### Notes
 
-- The actual `Hilbert Hotel ( https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel )` is impossible.
+- The actual [Hilbert Hotel](https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel) is impossible.
 - Connecting signal example code is pretty hacky.
+

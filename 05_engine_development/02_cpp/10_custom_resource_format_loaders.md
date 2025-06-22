@@ -1,5 +1,4 @@
 
-
 # Custom resource format loaders
 
 ## Introduction
@@ -10,12 +9,12 @@ path again, the previous loaded Resource will be referenced. Naturally,
 loaded resources must be stateless.
 
 This guide assumes the reader knows how to create C++ modules and Pandemonium
-data types. If not, refer to this guide `doc_custom_modules_in_c++`.
+data types.
 
 ### References
 
-- `ResourceLoader( resourceloader )`
-- `core/io/resource_loader.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/resource_loader.cpp )`
+- `ResourceLoader`
+- [core/io/resource_loader.cpp](https://github.com/Relintai/pandemonium_engine/blob/master/core/io/resource_loader.cpp)
 
 ## What for?
 
@@ -32,7 +31,7 @@ ImageFormatLoader should be used to load images.
 
 ### References
 
-- `core/io/image_loader.h ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/image_loader.h )`
+- [core/io/image_loader.h](https://github.com/Relintai/pandemonium_engine/blob/master/core/io/image_loader.h)
 
 ## Creating a ResourceFormatLoader
 
@@ -147,7 +146,7 @@ void ResourceFormatSaverJson::get_recognized_extensions(const RES &p_resource, L
 
 ## Creating custom data types
 
-Pandemonium may not have a proper substitute within its `doc_core_types`
+Pandemonium may not have a proper substitute within its core types
 or managed resources. Pandemonium needs a new registered data type to
 understand additional binary formats such as machine learning models.
 
@@ -289,9 +288,9 @@ private:
 
 ### References
 
-- `istream ( http://www.cplusplus.com/reference/istream/istream/ )`
-- `streambuf ( http://www.cplusplus.com/reference/streambuf/streambuf/?kw=streambuf )`
-- `core/io/fileaccess.h ( https://github.com/Relintai/pandemonium_engine/blob/master/core/os/file_access.h )`
+- [istream](http://www.cplusplus.com/reference/istream/istream/)
+- [streambuf](http://www.cplusplus.com/reference/streambuf/streambuf/?kw=streambuf)
+- [core/io/fileaccess.h](https://github.com/Relintai/pandemonium_engine/blob/master/core/os/file_access.h)
 
 ## Registering the new file format
 
@@ -340,7 +339,7 @@ void unregister_json_types() {
 
 ### References
 
-- `core/io/resource_loader.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/core/io/resource_loader.cpp )`
+- [core/io/resource_loader.cpp](https://github.com/Relintai/pandemonium_engine/blob/master/core/io/resource_loader.cpp)
 
 ## Loading it on GDScript
 
@@ -370,3 +369,4 @@ onready var json_resource = load("res://demo.json")
 func _ready():
     print(json_resource.get_dict())
 ```
+

@@ -29,8 +29,7 @@ instead. Adding C++ modules can be useful in the following scenarios:
 
 ## Creating a new module
 
-Before creating a module, make sure to `download the source code of Pandemonium
-and compile it ( toc-devel-compiling )`.
+Before creating a module, make sure to download the source code of Pandemonium and compile it.
 
 To create a new module, the first step is creating a directory inside
 `modules/`. If you want to maintain the module separately, you can checkout
@@ -104,7 +103,8 @@ register_types.h
 register_types.cpp
 ```
 
-.. important:
+Important:
+
     These files must be in the top-level folder of your module (next to your
     `SCsub` and `config.py` files) for the module to be registered properly.
 
@@ -216,10 +216,9 @@ You can then zip it and share the module with everyone else. When
 building for every platform (instructions in the previous sections),
 your module will be included.
 
-Note:
- There is a parameter limit of 5 in C++ modules for things such
-          as subclasses. This can be raised to 13 by including the header
-          file `core/method_bind_ext.gen.inc`.
+Note: There is a parameter limit of 5 in C++ modules for things such
+as subclasses. This can be raised to 13 by including the header
+file `core/method_bind_ext.gen.inc`.
 
 ## Using the module
 
@@ -236,20 +235,17 @@ s.reset()
 
 The output will be `60`.
 
-See also:
- The previous Summator example is great for small, custom modules,
-  but what if you want to use a larger, external library? Refer to
-  `doc_binding_to_external_libraries` for details about binding to
-  external libraries.
+See also: The previous Summator example is great for small, custom modules,
+but what if you want to use a larger, external library? Refer to
+[binding to external libraries](08_binding_to_external_libraries.md) for details about binding to
+external libraries.
 
-Warning:
- If your module is meant to be accessed from the running project
-             (not just from the editor), you must also recompile every export
-             template you plan to use, then specify the path to the custom
-             template in each export preset. Otherwise, you'll get errors when
-             running the project as the module isn't compiled in the export
-             template. See the `Compiling ( toc-devel-compiling )` pages
-             for more information.
+Warning: If your module is meant to be accessed from the running project
+(not just from the editor), you must also recompile every export
+template you plan to use, then specify the path to the custom
+template in each export preset. Otherwise, you'll get errors when
+running the project as the module isn't compiled in the export
+template.
 
 ## Compiling a module externally
 
@@ -292,25 +288,18 @@ and compile them accordingly, including our "summator" module.
 
 Warning:
 
-
     Any path passed to `custom_modules` will be converted to an absolute path
     internally as a way to distinguish between custom and built-in modules. It
     means that things like generating module documentation may rely on a
     specific path structure on your machine.
 
-See also:
-
-
-    `Introduction to the buildsystem - Custom modules build option ( doc_buildsystem_custom_modules )`.
-
 ## Improving the build system for development
 
 Warning:
 
-
     This shared library support is not designed to support distributing a module
     to other users without recompiling the engine. For that purpose, use
-    `GDNative ( doc_what_is_gdnative )` instead.
+    GDNative instead.
 
 So far, we defined a clean SCsub that allows us to add the sources
 of our new module as part of the Pandemonium binary.
@@ -457,9 +446,8 @@ main `doc/classes` directory.
 
 Tip:
 
-
-    You can use Git to check if you have missed some of your classes by checking the
-    untracked files with `git status`. For example:
+You can use Git to check if you have missed some of your classes by checking the
+untracked files with `git status`. For example:
 
 ```
 user@host:~/pandemonium$ git status
@@ -480,8 +468,8 @@ Untracked files:
 
 3. Now we can generate the documentation:
 
-We can do this via running Pandemonium's doctool i.e. `pandemonium --doctool &lt;path&gt;`,
-which will dump the engine API reference to the given `&lt;path&gt;` in XML format.
+We can do this via running Pandemonium's doctool i.e. `pandemonium --doctool <path>`,
+which will dump the engine API reference to the given `<path>` in XML format.
 
 In our case we'll point it to the root of the cloned repository. You can point it
 to an another folder, and just copy over the files that you need.
@@ -489,7 +477,7 @@ to an another folder, and just copy over the files that you need.
 Run command:
 
 ```
-user@host:~/pandemonium/bin$ ./bin/&lt;pandemonium_binary&gt; --doctool .
+user@host:~/pandemonium/bin$ ./bin/<pandemonium_binary> --doctool .
 ```
 
 Now if you go to the `pandemonium/modules/summator/doc_classes` folder, you will see
@@ -509,7 +497,7 @@ the things that you previously added. Of course if you point it to your pandemon
 folder, make sure you don't lose work by extracting older docs from an older engine build
 on top of the newer ones.
 
-Note that if you don't have write access rights to your supplied `&lt;path&gt;`,
+Note that if you don't have write access rights to your supplied `<path>`,
 you might encounter an error similar to the following:
 
 ```
@@ -562,3 +550,4 @@ some (hopefully positive) surprises.
    saved/loaded.
 -  By this same logic, you can extend the Editor and almost any area of
    the engine.
+

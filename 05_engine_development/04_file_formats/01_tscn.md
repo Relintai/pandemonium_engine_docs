@@ -1,5 +1,4 @@
 
-
 # TSCN file format
 
 The TSCN (text scene) file format represents a single scene tree inside
@@ -15,7 +14,7 @@ This reduces the data size and speeds up loading, as binary formats are faster
 to load compared to text-based formats.
 
 For those looking for a complete description, the parsing is handled in the file
-`resource_format_text.cpp ( https://github.com/Relintai/pandemonium_engine/blob/master/scene/resources/resource_format_text.cpp )`
+[resource_format_text.cpp](https://github.com/Relintai/pandemonium_engine/blob/master/scene/resources/resource_format_text.cpp)
 in the `ResourceFormatLoaderText` class.
 
 ## File structure
@@ -421,3 +420,4 @@ tracks/1/imported = true
 tracks/1/enabled = false
 tracks/1/keys = PoolRealArray( 0, 1, 0, 5.96046e-08, 0, 0, 0, 0, 1, 1, 1, 1, 4.95833, 1, 0, 5.96046e-08, 0, 0, 0, 0, 1, 1, 1, 1 )
 ```
+

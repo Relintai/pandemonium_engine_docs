@@ -1,5 +1,4 @@
 
-
 # Editor icons
 
 When a new class is created and exposed to scripting, the editor's interface
@@ -10,7 +9,7 @@ improve the user experience.
 ### Creating icons
 
 To create new icons, you first need a vector graphics editor installed.
-For instance, you can use the open source `Inkscape ( https://inkscape.org/ )` editor.
+For instance, you can use the open source [Inkscape](https://inkscape.org/) editor.
 
 Clone the `pandemonium` repository containing all the editor icons:
 
@@ -22,7 +21,7 @@ The icons must be created in a vector graphics editor in SVG format. There are
 two main requirements to follow:
 
 - Icons must be 16×16. In Inkscape, you can configure the document size in
-  **File > Document Properties**.
+  **File &gt; Document Properties**.
 - Lines should be snapped to pixels whenever possible to remain crisp at lower DPI.
   You can create a 16×16 grid in Inkscape to make this easier.
 
@@ -35,7 +34,7 @@ CPUParticles2D, name the file `CPUParticles2D.svg`.
 
 If the user has configured their editor to use a light theme, Pandemonium will
 convert the icon's colors based on a
-`set of predefined color mappings ( https://github.com/Relintai/pandemonium_engine/blob/b9f2e57d6240346f1833fd0390de195c956299e7/editor/editor_themes.cpp#L122-L184 )`.
+set of predefined color mappings.
 This is to ensure the icon always displays with a sufficient contrast rate.
 Try to restrict your icon's color palette to colors found in the list above.
 Otherwise, your icon may become difficult to read on a light background.
@@ -46,9 +45,9 @@ Because the editor renders SVGs once at load time, they need to be small
 in size so they can be efficiently parsed. Editor icons must be first
 optimized before being added to the engine, to do so:
 
-1. Install `svgcleaner ( https://github.com/RazrFalcon/svgcleaner )`
+1. Install [svgcleaner](https://github.com/RazrFalcon/svgcleaner)
    by downloading a binary from its
-   `Releases tab ( https://github.com/RazrFalcon/svgcleaner/releases/latest )`
+   [Releases tab](https://github.com/RazrFalcon/svgcleaner/releases/latest)
    and placing it into a location in your `PATH` environment variable.
 
 2. Run the command below, replacing `svg_source.svg` with the path to your
@@ -63,7 +62,6 @@ The optimized icon will be saved to `svg_optimized.svg`. You can also change
 the destination parameter to any relative or absolute path you'd like.
 
 Note:
-
 
     While this optimization step won't impact the icon's quality noticeably, it
     will still remove editor-only information such as guides. Therefore, it's
@@ -81,9 +79,6 @@ your own module and don't plan to integrate it with Pandemonium, you don't need 
 make a separate pull request for your icons to be available within the editor
 as they can be self-contained.
 
-For specific instructions on how to create module icons, refer to
-`Creating custom module icons( doc_custom_module_icons )`.
-
 ### Troubleshooting
 
 If icons don't appear in the editor, make sure that:
@@ -95,4 +90,5 @@ If icons don't appear in the editor, make sure that:
 
 ### References
 
--  `editor/icons ( https://github.com/Relintai/pandemonium_engine/tree/master/editor/icons )`
+-  [editor/icons](https://github.com/Relintai/pandemonium_engine/tree/master/editor/icons)
+

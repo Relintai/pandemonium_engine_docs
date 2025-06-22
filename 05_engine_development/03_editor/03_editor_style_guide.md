@@ -1,5 +1,4 @@
 
-
 # Editor style guide
 
 ## Introduction
@@ -22,12 +21,6 @@ since there will be fewer review steps required.
 - **Use double quotes in messages** (`""`) instead of single quotes (`''`).
   Double quotes should be used to quote user input, file paths and possibly
   other things depending on the context.
-
-See also:
-
-
-    Try to follow the `doc_docs_writing_guidelines` in addition to the
-    guidelines outlined above.
 
 ## Button and menu texts
 
@@ -90,3 +83,4 @@ use indicative mood instead of imperative mood:
 
 - **Good:** *Computes global illumination for the selected GIProbe.*
 - **Bad:** *Compute global illumination for the selected GIProbe.*
+

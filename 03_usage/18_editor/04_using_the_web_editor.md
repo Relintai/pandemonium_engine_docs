@@ -1,15 +1,12 @@
 
-
 # Using the Web editor
 
-Since Pandemonium 3.3, there is a `Web editor ( https://editor.pandemoniumengine.org/ )`
+Since Pandemonium 3.3, there is a `Web editor`
 you can use to work on new or existing projects.
 
-Note:
-
-    The web editor is in a preliminary stage. While its feature set may be
-    sufficient for educational purposes, it is currently **not recommended for
-    production work**. See `doc_using_the_web_editor_limitations` below.
+Note: The web editor is in a preliminary stage. While its feature set may be
+sufficient for educational purposes, it is currently **not recommended for
+production work**. See limitations below.
 
 ## Browser support
 
@@ -29,11 +26,9 @@ proper threading support is added.
 The web editor supports both the GLES3 and GLES2 renderers, although GLES2 is
 recommended for better performance and compatibility with old/low-end hardware.
 
-Note:
-
-    If you use Linux, due to
-    `poor Firefox WebGL performance ( https://bugzilla.mozilla.org/show_bug.cgi?id=1010527 )`,
-    it's recommended to use a Chromium-based browser instead of Firefox.
+Note: If you use Linux, due to
+[poor Firefox WebGL performance](https://bugzilla.mozilla.org/show_bug.cgi?id=1010527),
+it's recommended to use a Chromium-based browser instead of Firefox.
 
 ## Limitations
 
@@ -46,8 +41,8 @@ are currently missing:
   editing, the Remote Scene tree dock and other features that rely on the debugger
   protocol will not work.
 - No project exporting. As a workaround, you can download the project source
-  using **Project > Tools > Download Project Source** and export it using a
-  `native version of the Pandemonium editor ( https://pandemoniumengine.org/download )`.
+  using **Project &gt; Tools &gt; Download Project Source** and export it using a
+  native version of the Pandemonium editor.
 - The editor won't warn you when closing the tab with unsaved changes.
 - No lightmap baking support. You can still use existing lightmaps if they were
   baked with a native version of the Pandemonium editor
@@ -58,11 +53,6 @@ of the Web platform:
 
 - No support for external script editors.
 - No support for Android one-click deploy.
-
-See also:
-
-    See the
-    `list of open issues on GitHub related to the web editor ( https://github.com/Relintai/pandemonium_engine/issues?q=is%3Aopen+is%3Aissue+label%3Aplatform%3Ahtml5+label%3Atopic%3Aeditor )` for a list of known bugs.
 
 ## Importing a project
 
@@ -80,19 +70,18 @@ To import an existing project, the current process is as follows:
 
 Attention:
 
-    It's important to place the project folder somewhere in `/home/web_user/`.
-    If your project folder is placed outside `/home/web_user/`, you will
-    lose your project when closing the editor!
-
-    When you follow the steps described above, the project folder will always be
-    located in `/home/web_user/projects`, keeping it safe.
+- It's important to place the project folder somewhere in `/home/web_user/`.
+  If your project folder is placed outside `/home/web_user/`, you will
+  lose your project when closing the editor!
+- When you follow the steps described above, the project folder will always be
+  located in `/home/web_user/projects`, keeping it safe.
 
 ## Editing and running a project
 
 Unlike the native version of Pandemonium, the web editor is constrained to a single
 window. Therefore, it cannot open a new window when running the project.
 Instead, when you run the project by clicking the Run button or pressing
-:kbd:`F5`, it will appear to "replace" the editor window.
+`F5`, it will appear to "replace" the editor window.
 
 The web editor offers an alternative way to deal with the editor and game
 windows (which are now "tabs"). You can switch between the **Editor** and
@@ -106,11 +95,12 @@ the browser's IndexedDB storage. This storage isn't accessible as a regular fold
 on your machine, but is abstracted away in a database.
 
 You can download the project files as a ZIP archive by using
-**Project > Tools > Download Project Source**. This can be used to export the
-project using a `native Pandemonium editor ( https://pandemoniumengine.org/download )`,
+**Project &gt; Tools &gt; Download Project Source**. This can be used to export the
+project using a native Pandemonium editor,
 since exporting from the web editor isn't supported yet.
 
 In the future, it may be possible to use the
-`HTML5 FileSystem API ( https://developer.mozilla.org/en-US/docs/Web/API/FileSystem )`
+[HTML5 FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/FileSystem)
 to store the project files on the user's filesystem as the native editor would do.
 However, this isn't implemented yet.
+

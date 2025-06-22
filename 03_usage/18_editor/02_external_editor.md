@@ -1,12 +1,11 @@
 
-
 # Using an external text editor
 
 This page explains how to code using an external text editor.
 
 Pandemonium can be used with an external text editor, such as Sublime Text or Visual
-Studio Code. Browse to the relevant editor settings: `Editor -> Editor Settings
--> Text Editor -> External`
+Studio Code. Browse to the relevant editor settings: `Editor -&gt; Editor Settings
+-&gt; Text Editor -&gt; External`
 
 ![](img/editor_settings.png)
 
@@ -33,14 +32,7 @@ Some example Exec Flags for various editors include:
 | Vim (gVim)          | `"+call cursor({line}, {col})" {file}`            |
 | Emacs               | `emacs +{line}:{col} {file}`                      |
 
-Note:
- For Visual Studio Code, you will have to point to the `code.cmd`
-          file. For Emacs, you can call `emacsclient` instead of `emacs` if
-          you use the server mode.
+Note: For Visual Studio Code, you will have to point to the `code.cmd`
+file. For Emacs, you can call `emacsclient` instead of `emacs` if
+you use the server mode.
 
-## Official editor plugins
-
-We have official plugins for the following code editors:
-
-- `Visual Studio Code ( https://github.com/Relintai/pandemonium_engine-vscode-plugin )`
-- `Emacs ( https://github.com/pandemoniumengine/emacs-gdscript-mode )`

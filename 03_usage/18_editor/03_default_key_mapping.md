@@ -1,22 +1,20 @@
 
-
 # Default editor shortcuts
 
 Many of Pandemonium Editor functions can be executed with keyboard shortcuts. This page
 lists functions which have associated shortcuts by default, but many others are
 available for customization in editor settings as well. To change keys associated
-with these and other actions navigate to `Editor -> Editor Settings -> Shortcuts`.
+with these and other actions navigate to `Editor -&gt; Editor Settings -&gt; Shortcuts`.
 
 While some actions are universal, a lot of shortcuts are specific to individual
 tools. For this reason it is possible for some key combinations to be assigned
 to more than one function. The correct action will be performed depending on the
 context.
 
-Note:
- While Windows and Linux builds of the editor share most of the default settings,
-          some shortcuts may differ for macOS version. This is done for better integration
-          of the editor into macOS ecosystem. Users fluent with standard shortcuts on that
-          OS should find Pandemonium Editor's default key mapping intuitive.
+Note: While Windows and Linux builds of the editor share most of the default settings,
+some shortcuts may differ for macOS version. This is done for better integration
+of the editor into macOS ecosystem. Users fluent with standard shortcuts on that
+OS should find Pandemonium Editor's default key mapping intuitive.
 
 ## General Editor Actions
 
@@ -293,4 +291,5 @@ Note:
 | Priority Mode       | `6`            | `6`      | `tileset_editor/editmode_priority`   |
 | Icon Mode           | `7`            | `7`      | `tileset_editor/editmode_icon`       |
 | Z Index Mode        | `8`            | `8`      | `tileset_editor/editmode_z_index`    |
+
 

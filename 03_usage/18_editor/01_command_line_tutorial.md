@@ -1,7 +1,6 @@
 
 # Command line tutorial
 
-
 Some developers like using the command line extensively. Pandemonium is
 designed to be friendly to them, so here are the steps for working
 entirely from the command line. Given the engine relies on almost no
@@ -10,16 +9,15 @@ suitable for this workflow.
 
 Note:
 
-    On Windows and Linux, you can run a Pandemonium binary in a terminal by specifying
-    its relative or absolute path.
-
-    On macOS, the process is different due to Pandemonium being contained within an
-    `.app` bundle (which is a *folder*, not a file). To run a Pandemonium binary
-    from a terminal on macOS, you have to `cd` to the folder where the Pandemonium
-    application bundle is located, then run `Pandemonium.app/Contents/MacOS/Pandemonium`
-    followed by any command line arguments. If you've renamed the application
-    bundle from `Pandemonium` to another name, make sure to edit this command line
-    accordingly.
+- On Windows and Linux, you can run a Pandemonium binary in a terminal by specifying
+  its relative or absolute path.
+- On macOS, the process is different due to Pandemonium being contained within an
+  `.app` bundle (which is a *folder*, not a file). To run a Pandemonium binary
+  from a terminal on macOS, you have to `cd` to the folder where the Pandemonium
+  application bundle is located, then run `Pandemonium.app/Contents/MacOS/Pandemonium`
+  followed by any command line arguments. If you've renamed the application
+  bundle from `Pandemonium` to another name, make sure to edit this command line
+  accordingly.
 
 ## Command line reference
 
@@ -39,18 +37,18 @@ Note:
 | Command                                          | Description                                                                                         |
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | `-e`, `--editor`                                 | Start the editor instead of running the scene                                                       |
-|                                                  | (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                            |
+|                                                  | (`tools` must be enabled).                            |
 | `-p`, `--project-manager`                        | Start the project manager, even if a project is auto-detected                                       |
-|                                                  | (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                            |
+|                                                  | (`tools` must be enabled).                            |
 | `-q`, `--quit`                                   | Quit after the first teration.                                                                      |
-| `-l &lt;locale&gt;`, `--language &lt;locale&gt;` | Use a specific locale (&lt;locale&gt; being a two-letter code). See `doc_locales` for more details. |
-| `--path &lt;directory&gt;`                       | Path to a project (&lt;directory&gt; must contain a 'project.pandemonium' file).                    |
+| `-l <locale>`, `--language <locale>` | Use a specific locale (&lt;locale&gt; being a two-letter code). |
+| `--path <directory>`                       | Path to a project (&lt;directory&gt; must contain a 'project.pandemonium' file).                    |
 | `-u`, `--upwards`                                | Scan folders upwards for 'project.pandemonium' file.                                                |
-| `--main-pack &lt;file&gt;`                       | Path to a pack (.pck) file to load.                                                                 |
-| `--render-thread &lt;mode&gt;`                   | Render thread mode ('unsafe', 'safe', 'separate'). See `Thread Model` for more details.             |
-| `--remote-fs &lt;address&gt;`                    | Remote filesystem (`&lt;host/IP&gt;[:&lt;port&gt;]` address).                                       |
-| `--audio-driver &lt;driver&gt;`                  | Audio driver. Use `--help` first to display the list of available drivers.                          |
-| `--video-driver &lt;driver&gt;`                  | Video driver. Use `--help` first to display the list of available drivers.                          |
+| `--main-pack <file>`                       | Path to a pack (.pck) file to load.                                                                 |
+| `--render-thread <mode>`                   | Render thread mode ('unsafe', 'safe', 'separate'). See `Thread Model` for more details.             |
+| `--remote-fs <address>`                    | Remote filesystem (`<host/IP>[:<port>]` address).                                       |
+| `--audio-driver <driver>`                  | Audio driver. Use `--help` first to display the list of available drivers.                          |
+| `--video-driver <driver>`                  | Video driver. Use `--help` first to display the list of available drivers.                          |
 
 **Display options**
 
@@ -61,19 +59,16 @@ Note:
 | `-m`, `--maximized`             | Request a maximized window.                                                |
 | `-w`, `--windowed`              | Request windowed mode.                                                     |
 | `-t`, `--always-on-top`         | Request an always-on-top window.                                           |
-| `--resolution &lt;W>x&lt;H&gt;` | Request window resolution.                                                 |
-| `--position &lt;X>,&lt;Y&gt;`   | Request window position.                                                   |
+| `--resolution <W>x<H>` | Request window resolution.                                                 |
+| `--position <X>,<Y>`   | Request window position.                                                   |
 | `--low-dpi`                     | Force low-DPI mode (macOS and Windows only).                               |
 | `--no-window`                   | Run with invisible window. Useful together with `--script`.                |
 
 
 **Debug options**
 
-Note:
-
-    Debug options are only available in the editor and debug export templates
-    (they require `debug` or `release_debug` build targets, see
-    `doc_introduction_to_the_buildsystem_target` for more details).
+Note: Debug options are only available in the editor and debug export templates
+(they require `debug` or `release_debug` build targets.
 
 
 | Command                          | Description                                                                                 |
@@ -81,36 +76,36 @@ Note:
 | `-d`, `--debug`                  | Debug (local stdout debugger).                                                              |
 | `-b`, `--breakpoints`            | Breakpoint list as source::line comma-separated pairs, no spaces (use %%20 instead).        |
 | `--profiling`                    | Enable profiling in the script debugger.                                                    |
-| `--remote-debug &lt;address&gt;` | Remote debug (`&lt;host/IP>:&lt;port&gt;` address).                                         |
+| `--remote-debug <address>` | Remote debug (`<host/IP>:<port>` address).                                         |
 | `--debug-collisions`             | Show collision shapes when running the scene.                                               |
 | `--debug-navigation`             | Show navigation polygons when running the scene.                                            |
-| `--frame-delay &lt;ms&gt;`       | Simulate high CPU load (delay each frame by &lt;ms> milliseconds).                          |
-| `--time-scale &lt;scale&gt;`     | Force time scale (higher values are faster, 1.0 is normal speed).                           |
+| `--frame-delay <ms>`       | Simulate high CPU load (delay each frame by &lt;ms> milliseconds).                          |
+| `--time-scale <scale>`     | Force time scale (higher values are faster, 1.0 is normal speed).                           |
 | `--disable-render-loop`          | Disable render loop so rendering only occurs when called explicitly from script.            |
 | `--disable-crash-handler`        | Disable crash handler when supported by the platform code.                                  |
-| `--fixed-fps &lt;fps&gt;`        | Force a fixed number of frames per second. This setting disables real-time synchronization. |
+| `--fixed-fps <fps>`        | Force a fixed number of frames per second. This setting disables real-time synchronization. |
 | `--print-fps`                    | Print the frames per second to the stdout.                                                  |
 
 
 **Standalone tools**
 
 
-| Command                                        | Description                                                                                                                                   |
-|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| `-s &lt;script&gt;`, `--script &lt;script&gt;` | Run a script.                                                                                                                                 |
-| `--check-only`                                 | Only parse for errors and quit (use with `--script`).                                                                                         |
-| `--export &lt;target&gt;`                      | Export the project using the given export target. Export only main pack if path                                                               |
-|                                                | ends with .pck or .zip (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                               |
-| `--export-debug &lt;target&gt;`                | Like `--export`, but use debug template (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                              |
-| `--doctool &lt;path&gt;`                       | Dump the engine API reference to the given &lt;path> in XML format, merging if existing files are                                             |
-|                                                | found (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                                |
-| `--no-docbase`                                 | Disallow dumping the base types (used with `--doctool`, `tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).               |
-| `--build-solutions`                            | Build the scripting solutions (e.g. for C# projects, `tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                  |
-| `--gdnative-generate-json-api`                 | Generate JSON dump of the Pandemonium API for GDNative bindings (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).      |
-| `--test &lt;test&gt;`                          | Run a unit test. Use `--help` first to display the list of tests. (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).    |
-| `--export-pack &lt;preset> &lt;path&gt;`       | Like `--export`, but only export the game pack for the given preset. The &lt;path> extension                                                  |
+| Command                                        | Description                                                                                   |
+|------------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `-s <script>`, `--script <script>`             | Run a script.                                                                                 |
+| `--check-only`                                 | Only parse for errors and quit (use with `--script`).                                         |
+| `--export <target>`                            | Export the project using the given export target. Export only main pack if path                                                               |
+|                                                | ends with .pck or .zip (`tools` must be enabled).                                               |
+| `--export-debug <target>`                 | Like `--export`, but use debug template (`tools` must be enabled).                              |
+| `--doctool <path>`                       | Dump the engine API reference to the given &lt;path> in XML format, merging if existing files are                                             |
+|                                                | found (`tools` must be enabled).                                                                |
+| `--no-docbase`                                 | Disallow dumping the base types (used with `--doctool`, `tools` must be enabled).               |
+| `--build-solutions`                            | Build the scripting solutions (e.g. for C# projects, `tools` must be enabled).                  |
+| `--gdnative-generate-json-api`                 | Generate JSON dump of the Pandemonium API for GDNative bindings (`tools` must be enabled).      |
+| `--test <test>`                          | Run a unit test. Use `--help` first to display the list of tests. (`tools` must be enabled).    |
+| `--export-pack <preset> <path>`       | Like `--export`, but only export the game pack for the given preset. The &lt;path&gt; extension                                                  |
 |                                                | determines whether it will be in PCK or ZIP format.                                                                                           |
-|                                                | (`tools ( doc_introduction_to_the_buildsystem_tools )` must be enabled).                                                                      |
+|                                                | (`tools` must be enabled).                                                                      |
 
 ## Path
 
@@ -239,11 +234,9 @@ To export only a PCK file, use the `--export-pack` option followed by the
 preset name and output path, with the file extension, instead of `--export`.
 The output path extension determines the package's format, either PCK or ZIP.
 
-Warning:
-
-    When specifying a relative path as the path for `--export`, `--export-debug`
-    or `--export-pack`, the path will be relative to the directory containing
-    the `project.pandemonium` file, **not** relative to the current working directory.
+Warning: When specifying a relative path as the path for `--export`, `--export-debug`
+or `--export-pack`, the path will be relative to the directory containing
+the `project.pandemonium` file, **not** relative to the current working directory.
 
 ## Running a script
 
@@ -292,3 +285,4 @@ always have the shebang run Pandemonium straight from where it is located as fol
 ```
 #!/usr/bin/pandemonium -s
 ```
+

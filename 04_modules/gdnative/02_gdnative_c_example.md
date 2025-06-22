@@ -1,10 +1,7 @@
-.. _doc_gdnative_c_example:
 
-GDNative C example
-==================
+# GDNative C example
 
-Introduction
-------------
+## Introduction
 
 This tutorial will introduce you to the bare minimum required to create GDNative
 modules. This should be your starting point into the world of GDNative.
@@ -43,8 +40,7 @@ GDScript:
 Future tutorials will focus on the other types of GDNative modules and explain
 when and how to use each of them.
 
-Prerequisites
--------------
+## Prerequisites
 
 Before we start you'll need a few things:
 
@@ -102,8 +98,7 @@ If you are building Godot from source with your own changes that impact
 GDNative, you can find the updated class and structure definition in
 ``<godotsource>/modules/gdnative/include``
 
-Our C source
-------------
+## Our C source
 
 Let's start by writing our main code. Eventually, we want to end up with a file
 structure that looks along those lines:
@@ -345,8 +340,7 @@ The variant we return is destroyed automatically by Godot.
 
 And that is the whole source code of our module.
 
-Compiling
----------
+## Compiling
 
 We now need to compile our source code. As mentioned our example project on
 GitHub contains a SCons configuration that does all the hard work for you, but
@@ -384,8 +378,7 @@ On Windows:
     DLL. We get it as a byproduct and we do not need it :)
     When exporting your game for release this file will be ignored.
 
-Creating the GDNativeLibrary (``.gdnlib``) file
------------------------------------------------
+## Creating the GDNativeLibrary (``.gdnlib``) file
 
 With our module compiled, we now need to create a corresponding
 :ref:`GDNativeLibrary <class_GDNativeLibrary>` resource with ``.gdnlib``
@@ -553,3 +546,4 @@ ask you what your main scene is and you select your ``main.tscn`` file and
 presto:
 
 .. image:: img/c_sample_result.png
+

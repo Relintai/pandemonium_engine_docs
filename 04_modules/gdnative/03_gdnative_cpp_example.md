@@ -1,10 +1,7 @@
-.. _doc_gdnative_cpp_example:
 
-GDNative C++ example
-====================
+# GDNative C++ example
 
-Introduction
-------------
+## Introduction
 
 This tutorial builds on top of the information given in the
 :ref:`GDNative C example <doc_gdnative_c_example>`, so we highly recommend you
@@ -17,8 +14,7 @@ to writing scripts in GDScript, but in C++ instead.
 You can download the full example we'll be creating in this tutorial `on
 GitHub <https://github.com/BastiaanOlij/gdnative_cpp_example>`__.
 
-Setting up the project
-----------------------
+## Setting up the project
 
 There are a few prerequisites you'll need:
 
@@ -96,8 +92,7 @@ following commands:
 
 This will clone these two repositories into your project folder.
 
-Building the C++ bindings
--------------------------
+## Building the C++ bindings
 
 Now that we've downloaded our prerequisites, it is time to build the C++
 bindings.
@@ -133,8 +128,7 @@ libraries that can be compiled into your project stored in ``godot-cpp/bin/``.
 
     You may need to add ``bits=64`` to the command on Windows or Linux.
 
-Creating a simple plugin
-------------------------
+## Creating a simple plugin
 
 Now it's time to build an actual plugin. We'll start by creating an empty Godot
 project in which we'll place a few files.
@@ -293,8 +287,7 @@ We first call a function in our bindings library that does its usual stuff.
 After that, we call the function ``register_class`` for each of our classes in
 our library.
 
-Compiling the plugin
---------------------
+## Compiling the plugin
 
 We cannot easily write by hand a ``SConstruct`` file that SCons would use for
 building. For the purpose of this example, just use
@@ -323,8 +316,7 @@ You should now be able to find the module in ``demo/bin/<platform>``.
     builds. For optimized builds, you should compile them using the
     ``target=release`` switch.
 
-Using the GDNative module
--------------------------
+## Using the GDNative module
 
 Before we jump back into Godot, we need to create two more files in
 ``demo/bin/``. Both can be created using the Godot editor, but it may be faster
@@ -413,8 +405,7 @@ We're finally ready to run the project:
 
 .. image:: img/gdnative_cpp_animated.gif
 
-Adding properties
------------------
+## Adding properties
 
 GDScript allows you to add properties to your script using the ``export``
 keyword. In GDNative you have to register the properties and there are two ways
@@ -555,8 +546,7 @@ need to make additional choices based on the state of your object.
     you to omit the ``<GDExample, float>`` part of our ``register_property``
     method. We've had mixed experiences with this however.
 
-Signals
--------
+## Signals
 
 Last but not least, signals fully work in GDNative as well. Having your module
 react to a signal given out by another object requires you to call ``connect``
@@ -646,8 +636,7 @@ our main node and implemented our signal like this:
 
 Every second, we output our position to the console.
 
-Next steps
-----------
+## Next steps
 
 The above is only a simple example, but we hope it shows you the basics. You can
 build upon this example to create full-fledged scripts to control nodes in Godot

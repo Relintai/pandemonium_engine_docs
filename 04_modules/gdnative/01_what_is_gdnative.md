@@ -20,21 +20,17 @@ https://github.com/Relintai/gdnative_cpp_sample
 https://github.com/Relintai/gdnative_cpp
 
 
-What is GDNative?
-=================
+# What is GDNative?
 
-Introduction
-------------
+## Introduction
 
 **GDNative** is a Godot-specific technology that lets the engine interact with
-native `shared libraries <https://en.wikipedia.org/wiki/Library_(computing)#Shared_libraries>`__
+native [shared libraries](https://en.wikipedia.org/wiki/Library_(computing)#Shared_libraries)
 at run-time. You can use it to run native code without compiling it with the engine.
 
-.. note:: GDNative is *not* a scripting language and has no relation to
-          :ref:`GDScript <doc_gdscript>`.
+Note: GDNative is *not* a scripting language and has no relation to `GDScript`.
 
-Differences between GDNative and C++ modules
---------------------------------------------
+## Differences between GDNative and C++ modules
 
 You can use both GDNative and :ref:`C++ modules <doc_custom_modules_in_c++>` to
 run C or C++ code in a Godot project.
@@ -42,8 +38,7 @@ run C or C++ code in a Godot project.
 They also both allow you to integrate third-party libraries into Godot. The one
 you should choose depends on your needs.
 
-Advantages of GDNative
-^^^^^^^^^^^^^^^^^^^^^^
+### Advantages of GDNative
 
 Unlike modules, GDNative doesn't require compiling the engine's source code,
 making it easier to distribute your work. It gives you access to most of the API
@@ -64,8 +59,7 @@ Also:
   Every time you change a module, you need to recompile the engine. Even with
   incremental builds, this process is slower than using GDNative.
 
-Advantages of C++ modules
-^^^^^^^^^^^^^^^^^^^^^^^^^
+### Advantages of C++ modules
 
 We recommend :ref:`C++ modules <doc_custom_modules_in_c++>` in cases where
 GDNative isn't enough:
@@ -80,8 +74,7 @@ GDNative isn't enough:
 - C++ modules can be faster than GDNative, especially when the code requires a
   lot of communication through the scripting API.
 
-Supported languages
--------------------
+## Supported languages
 
 The Godot developers officially support the following language bindings for
 GDNative:
@@ -115,8 +108,7 @@ The bindings below are developed and maintained by the community:
     Also, double-check whether the binding is compatible with the Godot version
     you're using.
 
-Version compatibility
----------------------
+## Version compatibility
 
 :ref:`Unlike Godot itself <doc_release_policy>`, GDNative has stricter version
 compatibility requirements as it relies on low-level *ptrcalls* to function.

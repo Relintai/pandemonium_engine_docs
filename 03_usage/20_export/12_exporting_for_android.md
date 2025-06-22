@@ -4,7 +4,7 @@
 Exporting for Android has fewer requirements than compiling Pandemonium for Android.
 The following steps detail what is needed to set up the Android SDK and the engine.
 
-## Install OpenJDK 11
+## Install OpenJDK 17
 
 Download and install  [OpenJDK 17](https://adoptium.net/?variant=openjdk17).
 

@@ -166,13 +166,11 @@ GDScript was designed to curtail the issues above, and more.
 
 ## What type of 3D model formats does Pandemonium support?
 
-Currently Pandemonium supports glTF and OBJ.
+Currently Pandemonium supports glTF, OBJ and FBX.
 
-FBX support was removed to reduce engine bloat, because glTF turned out to be easier to
-use most of the time. Also FBX is proprietary format. The FBX2glTF tool can easily convert it.
+The recommended format is glTF.
 
-However note that FBX support can be added back relatively easily from
-[Godot](https://github.com/godotengine/godot/tree/3.x/modules/fbx) if needed.
+The FBX2glTF tool can easily convert fbx to glTF.
 
 ## Will [insert closed SDK such as FMOD, GameWorks, etc.] be supported in Pandemonium?
 

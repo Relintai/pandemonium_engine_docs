@@ -14,15 +14,12 @@ Pandemonium supports the following 3D *scene file formats*:
 * DAE (COLLADA), an older format that is fully supported.
 * OBJ (Wavefront) format + their MTL material files. This is also fully supported, but pretty limited (no support for pivots, skeletons, animations, PBR materials, ...).
 * ESCN, a godot-specific format that Blender can export with a plugin.
+* FBX, a proprietary (and yet somehow industry standard) format. You can use the open source FBXtoglTF tool (or Blender) to convert fbx to glTF easily.
 
 Just copy the scene file together with the texture to the project repository, and Pandemonium will do a full import.
 
 It is important that the mesh is not deformed by bones when exporting. Make sure that the skeleton is reset to its T-pose
 or default rest pose before exporting with your favorite 3D editor.
-
-Note that FBX support was removed to reduce engine bloat. Also because glTF usually works better.
-You can use the open source FBXtoglTF tool (or Blender) to convert fbx to glTF easily. If you need FBX support,
-the fbx module can be easily backported from godot, I recommend doing that, and compiling your own editor version.
 
 ### Exporting DAE files from Maya and 3DS Max
 

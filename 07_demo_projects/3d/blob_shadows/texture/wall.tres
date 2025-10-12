@@ -1,0 +1,61 @@
+[gd_resource type="MMMaterial" load_steps=12 format=3]
+
+[sub_resource type="MMNodeUniversalProperty" id=1]
+default_type = 5
+output_slot_type = 0
+
+[sub_resource type="MMFbmNoise" id=2]
+graph_position = Vector2( 20, 40 )
+image = SubResource( 1 )
+type = 2
+
+[sub_resource type="MMNodeUniversalProperty" id=3]
+default_type = 5
+output_slot_type = 0
+
+[sub_resource type="MMNodeUniversalProperty" id=4]
+default_type = 4
+input_slot_type = 6
+slot_name = ">>>    Input1    "
+input_property = SubResource( 1 )
+
+[sub_resource type="MMMakeTileable" id=5]
+graph_position = Vector2( 300, 80 )
+image = SubResource( 3 )
+input = SubResource( 4 )
+size = 128
+
+[sub_resource type="MMNodeUniversalProperty" id=6]
+default_type = 5
+output_slot_type = 0
+
+[sub_resource type="MMNodeUniversalProperty" id=7]
+default_type = 1
+default_float = 1.0
+input_slot_type = 6
+slot_name = ">>>    Input1    "
+input_property = SubResource( 3 )
+
+[sub_resource type="MMColorize" id=8]
+graph_position = Vector2( 580, 100 )
+points = PoolRealArray( 0, 0.621094, 0.618668, 0.618668, 1, 1, 0.382812, 0.372345, 0.372345, 1 )
+image = SubResource( 6 )
+input = SubResource( 7 )
+
+[sub_resource type="MMNodeUniversalProperty" id=9]
+default_type = 5
+slot_name = "image"
+
+[sub_resource type="MMNodeUniversalProperty" id=10]
+default_type = 4
+input_slot_type = 6
+slot_name = ">>>    Input    "
+input_property = SubResource( 6 )
+
+[sub_resource type="MMOutputImage" id=11]
+graph_position = Vector2( 800, 100 )
+input = SubResource( 10 )
+image = SubResource( 9 )
+
+[resource]
+nodes = [ SubResource( 2 ), SubResource( 5 ), SubResource( 8 ), SubResource( 11 ) ]

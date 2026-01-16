@@ -9,6 +9,7 @@
 [sub_resource type="VoxelChunkBlocky" id=1]
 resource_name = "Chunk[-1,0,-1]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -16 )
+is_terrain_generated = true
 position_x = -1
 position_z = -1
 size_x = 16
@@ -26,6 +27,7 @@ data_channel = PoolByteArray( "HwABACM/AQEBOQAjDwIAbQ63AA8SAAAP3gBUD0QB/zAvAQG/A
 [sub_resource type="VoxelChunkBlocky" id=2]
 resource_name = "Chunk[-1,-1,-1]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -16, -16 )
+is_terrain_generated = true
 position_x = -1
 position_y = -1
 position_z = -1
@@ -44,6 +46,7 @@ data_channel = PoolByteArray( "HwABAP//vC8BAc8C//92D4gC/zIPRAH/Mg8CAP///////////
 [sub_resource type="VoxelChunkBlocky" id=3]
 resource_name = "Chunk[0,0,-1]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16 )
+is_terrain_generated = true
 position_z = -1
 size_x = 16
 size_y = 16
@@ -60,6 +63,7 @@ data_channel = PoolByteArray( "HwABAP////////////////////////8NHwEOE/8xD0QB/zIPA
 [sub_resource type="VoxelChunkBlocky" id=4]
 resource_name = "Chunk[-1,0,0]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0 )
+is_terrain_generated = true
 position_x = -1
 size_x = 16
 size_y = 16
@@ -76,6 +80,7 @@ data_channel = PoolByteArray( "HwABAP//Lh0BQAIfAhIAEA8CAPsORAEPEgARDwIA/////////
 [sub_resource type="VoxelChunkBlocky" id=5]
 resource_name = "Chunk[0,-1,-1]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16, -16 )
+is_terrain_generated = true
 position_y = -1
 position_z = -1
 size_x = 16
@@ -93,6 +98,7 @@ data_channel = PoolByteArray( "HwABAP////////////////////////8LHQEMEw4SAA8CAP8OH
 [sub_resource type="VoxelChunkBlocky" id=6]
 resource_name = "Chunk[0,-1,0]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16, 0 )
+is_terrain_generated = true
 position_y = -1
 size_x = 16
 size_y = 16
@@ -109,6 +115,7 @@ data_channel = PoolByteArray( "HwABAA4fASIADg8CAP0dAhEBD0QB/yAOMgEOEgAPAgD//////
 [sub_resource type="VoxelChunkBlocky" id=7]
 resource_name = "Chunk[-1,-1,0]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -16, 0 )
+is_terrain_generated = true
 position_x = -1
 position_y = -1
 size_x = 16
@@ -125,6 +132,7 @@ data_channel = PoolByteArray( "HwABAPgdAQwBHwISABAPAgD7D0QBIw42AA8CAOkODgEPEgAjD
 
 [sub_resource type="VoxelChunkBlocky" id=8]
 resource_name = "Chunk[0,0,0]"
+is_terrain_generated = true
 size_x = 16
 size_y = 16
 size_z = 16
@@ -140,6 +148,7 @@ data_channel = PoolByteArray( "HwABAP9DHwFWAf8xD0QB/zIPAgD//////////////////////
 [sub_resource type="VoxelChunkBlocky" id=9]
 resource_name = "Chunk[-1,0,-2]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -32 )
+is_terrain_generated = true
 position_x = -1
 position_z = -2
 size_x = 16
@@ -157,6 +166,7 @@ data_channel = PoolByteArray( "HwABAP//////////////////////3B0B3xEsAQEVAA8SAAAAO
 [sub_resource type="VoxelChunkBlocky" id=10]
 resource_name = "Chunk[0,0,-2]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32 )
+is_terrain_generated = true
 position_z = -2
 size_x = 16
 size_y = 16
@@ -173,6 +183,7 @@ data_channel = PoolByteArray( "HwABAP/////////////////////////////FUAAAAAAA" )
 [sub_resource type="VoxelChunkBlocky" id=11]
 resource_name = "Chunk[-1,-1,-2]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -16, -32 )
+is_terrain_generated = true
 position_x = -1
 position_y = -1
 position_z = -2
@@ -191,6 +202,7 @@ data_channel = PoolByteArray( "HwABAP//////////////////////////hx8BhxT//ypQAAAAA
 [sub_resource type="VoxelChunkBlocky" id=12]
 resource_name = "Chunk[-2,0,-1]"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -16 )
+is_terrain_generated = true
 position_x = -2
 position_z = -1
 size_x = 16

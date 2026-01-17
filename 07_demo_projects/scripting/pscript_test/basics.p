@@ -10,8 +10,8 @@ extends Node;
 # Require parenthesis around control flow statements?
 # Rework match syntax, should probably be renamed to switch
 # Simplify match
-// In-class autocomplete should try to do Virtual methods by default
-// Fix error printed when _ +shift spaace in a class
+// Test and update the LSP server
+// Do the docs in engine + here
 
 # # -> preprocessor directives?
 # The tokenizer could preprocess the file before loading it

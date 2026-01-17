@@ -8,11 +8,31 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": @"ClassInClass",
+"language": @"PScript",
+"path": "res://class_in_class.p"
+}, {
+"base": "Reference",
+"class": @"TestGlobalClass",
+"language": @"PScript",
+"path": "res://test_global_class.p"
+} ]
+_global_script_class_icons={
+@"ClassInClass": "",
+@"TestGlobalClass": ""
+}
+
 [application]
 
 config/name="PScript Test"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+TestAutoload="*res://test_autoload.tscn"
 
 [editor]
 

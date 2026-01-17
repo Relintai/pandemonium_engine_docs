@@ -1,21 +1,49 @@
 extends Node;
 
-#export(String): String varname = "";   ?
+# TODOs:
 
-#export(String);  <- use # as like a preprocessor symbol ?
-#String varname = "";
+# foreach add type support
+# C like for()
+# /* */ multiline comment. They should probably be nestable. (Or have #if 0 and #if 1)
+# Also think bout class_name, extends syntax, both foreach the main file class, and class inside class syntax
+# Make Signal support types
+# Require parenthesis around control flow statements?
+# Rework match syntax, should probably be renamed to switch
+# Simplify match
+// In-class autocomplete should try to do Virtual methods by default
+// Fix error printed when _ +shift spaace in a class
 
-#[export(String)]    ?   <- This should be easy to handle in _parse_class() 
-#String varname = "";
+# # -> preprocessor directives?
+# The tokenizer could preprocess the file before loading it
+# #define, #define <value> ?
+# #if #ifdef #else if (#eilf?) #else #endif ?
+# #include <> ? Just copy paste a file in. Maybe .ph extension foreach p script header (just
+# so the editor loads it as text file)? It should only get syntax highlighting
+# C function like search and replace macros?
+# Maybe this is overkill -> if not implemented, keep # as an alternate comment token
 
-#export(String)    ?  <- support newline, and make newline optional?
-#String varname = "";
+void empty_method() {
 
-func empty_method() -> void {
 }
 
-func while_loop_test_1() -> void {
-	var i : int = 0;
+void while_loop_test_1() {
+	
+	# asdasd -> variable
+	# asdasd() -> call
+	# lookahead-> ( -> call, done
+	# no call -> check if variable
+	#asdasd.asdasd()
+	
+	
+	#Color.antiquewhite == Color.aliceblue;
+	
+	#Array([ 1, 2, 3 ])
+	
+	#Array() == ;
+	
+	#AABB asd = AABB();
+	
+	int i = 0;
 	
 	while (i < 10) {
 		i += 1;
@@ -24,8 +52,8 @@ func while_loop_test_1() -> void {
 	print("while_loop_test 1: " + str(i));
 }
 
-func while_loop_test_2() -> void {
-	var i : int = 0;
+void while_loop_test_2() {
+	int i = 0;
 	
 	while (i < 20) {
 		i += 1;
@@ -35,31 +63,31 @@ func while_loop_test_2() -> void {
 }
 
 
-func for_loop_test_1() -> void {
-	var c : int = 0;
+void for_loop_test_1() {
+	int c = 0;
 	
-	for i in range(10) {
+	foreach i in range(10) {
 		c += 1;
 	}
 	
 	print("for_loop_test 1: " + str(c));
 }
 
-func for_loop_test_2() -> void {
-	var c : int = 0;
+void for_loop_test_2() {
+	int c = 0;
 	
-	for i in range(10) {
+	foreach i in range(10) {
 		c += 1;
 	}
 	
 	print("for_loop_test 2: " + str(c));
 }
 
-func for_loop_test_3() -> void {
-	var c : int = 0;
+void for_loop_test_3() {
+	int c = 0;
 	
-	for i in range(10) {
-		for j in range(10) {
+	foreach i in range(10) {
+		foreach j in range(10) {
 			c += 1;
 		}
 	}
@@ -67,32 +95,32 @@ func for_loop_test_3() -> void {
 	print("for_loop_test 3: " + str(c));
 }
 
-func if_test_1() -> void {
-	var b : bool = true;
+void if_test_1() {
+	bool b = true;
 	
 	if b {
 		print("if_test_1 OK");
 	}
 }
 
-func if_test_2() -> void {
-	var b : bool = true;
+void if_test_2() {
+	bool b = true;
 	
 	if (b) {
 		print("if_test_2 OK");
 	}
 }
 
-func if_test_3() -> void {
-	var b : int = 10;
+void if_test_3() {
+	int b = 10;
 	
 	if (b < 33) {
 		print("if_test_3 OK");
 	}
 }
 
-func if_else_test_1() -> void {
-	var b : bool = true;
+void if_else_test_1() {
+	bool b = true;
 	
 	if b {
 		print("if_else_test_1 OK1");
@@ -102,8 +130,8 @@ func if_else_test_1() -> void {
 }
 
 
-func if_else_test_2() -> void {
-	var b : bool = true;
+void if_else_test_2() {
+	bool b = true;
 	
 	if (b) {
 		print("if_else_test_2 OK1");
@@ -112,8 +140,8 @@ func if_else_test_2() -> void {
 	}
 }
 
-func if_else_test_3() -> void {
-	var b : int = 44;
+void if_else_test_3() {
+	int b = 44;
 	
 	if (b == 44) {
 		print("if_else_test_2 OK1");
@@ -122,52 +150,52 @@ func if_else_test_3() -> void {
 	}
 }
 
-func else_if_test_1() -> void {
-	var b : int = 10;
+void else_if_test_1() {
+	int b = 10;
 	
 	if b == 10 {
 		print("else_if_test_1 OK");
-	} elif b == 11 {
+	} else if b == 11 {
 		print("else_if_test_1 NOK");
-	} elif b == 12 {
+	} else if b == 12 {
 		print("else_if_test_1 NOK");
 	}
 }
 
-func else_if_test_2() -> void {
-	var b : int = 10;
+void else_if_test_2() {
+	int b = 10;
 	
 	if (b == 10) {
 		print("else_if_test_2 OK");
-	} elif (b == 11) {
+	} else if (b == 11) {
 		print("else_if_test_2 NOK");
-	} elif (b == 12) {
+	} else if (b == 12) {
 		print("else_if_test_2 NOK");
 	}
 }
 
-func else_if_else_test_1() -> void {
-	var b : int = 10;
+void else_if_else_test_1() {
+	int b = 10;
 	
 	if b == 10 {
 		print("else_if_else_test_1 OK");
-	} elif b == 11 {
+	} else if b == 11 {
 		print("else_if_else_test_1 NOK");
-	} elif b == 12 {
+	} else if b == 12 {
 		print("else_if_else_test_1 NOK");
 	} else {
 		
 	}
 }
 
-func else_if_else_test_2() -> void {
-	var b : int = 10;
+void else_if_else_test_2() {
+	int b = 10;
 	
 	if (b == 10) {
 		print("else_if_else_test_2 OK");
-	} elif (b == 11) {
+	} else if (b == 11) {
 		print("else_if_else_test_2 NOK");
-	} elif (b == 12) {
+	} else if (b == 12) {
 		print("else_if_else_test_2 NOK");
 	} else {
 		print("else_if_else_test_2 NOK");
@@ -175,16 +203,16 @@ func else_if_else_test_2() -> void {
 }
 
 
-func else_if_else_test_3() -> void {
-	var b : int = 10;
+void else_if_else_test_3() {
+	int b = 10;
 	
 	if (b == 10) {
 		print("else_if_else_test_2 OK");
 	} 
-	elif (b == 11) 
+	else if (b == 11) 
 	{
 		print("else_if_else_test_2 NOK");
-	} elif (b == 12) 
+	} else if (b == 12) 
 	{
 		print("else_if_else_test_2 NOK");
 	} 
@@ -195,23 +223,23 @@ func else_if_else_test_3() -> void {
 	}
 }
 
-func this_test() -> void {
+void this_test() {
 	print("This: " + str(this));
 }
 
-func return_test_1() -> int {
+int return_test_1() {
 	return 10;
 }
 
-func return_test_2() -> String {
+String return_test_2() {
 	return "A";
 }
 
-func return_test_3() -> Variant {
+Variant return_test_3() {
 	return 1;
 }
 
-func return_test_4() -> Variant {
+Variant return_test_4() {
 	return this;
 }
 
@@ -232,7 +260,7 @@ Variant return_test_8() {
 }
 
 
-func return_test() -> void {
+void return_test() {
 	print(return_test_1());
 	print(return_test_2());
 	print(return_test_3());
@@ -271,6 +299,68 @@ static String method_args_test_7(int a1, String a2 = "AAA", float a3 = 15) {
 	return str(a1) + a2 + str(a3);
 }
 
+void variables_instacing_test() {
+	print("variables_test():");
+	
+	ImageTexture tex = ImageTexture.new();
+	print(tex);
+}
+
+void class_instacing_test() {
+	print("class_instacing_test():");
+	
+	TestGlobalClass tgc = null;
+	print(tgc);
+	tgc = TestGlobalClass.new();
+	print(tgc);
+	
+	print("TGC2");
+	TestGlobalClass tgc2 = TestGlobalClass.new();
+	print(tgc2);
+	
+	print("TIC1");
+	ClassInClass::TestClass c = null;
+	c = ClassInClass.TestClass.new();
+	print(c);
+	
+	print("TIC2");
+	ClassInClass::TestClass c2 = ClassInClass::TestClass.new();
+	print(c2);
+}
+
+void raw_block_1() {
+	int i = 0;
+	
+	{
+		int j = 0;
+		j += 1;
+		print("empty_block(): " + str(j) + " " + str(i));
+	}
+	
+	#j += 3;
+}
+
+void raw_block_2() {
+	HTMLBuilder b = HTMLBuilder.new();
+	
+	b.div();
+	{
+		b.a().href("127.0.0.1").f().w("Some Link").ca();
+	}
+	b.cdiv();
+	
+	b.div(); {
+		b.a().href("127.0.0.1").f().w("Some Link 2").ca();
+	} b.cdiv();
+	
+	b.write_tag();
+	
+	print("raw_block_2(): " + b.result);
+}
+
+# Match
+#TODO (_parse_pattern, and _parse_pattern_block, _transform_match_statment and more)
+
 void method_args_tests() {
 	print(method_args_test_1(12));
 	print(method_args_test_2(165));
@@ -281,7 +371,7 @@ void method_args_tests() {
 	print(method_args_test_7(165));
 }
 
-func _ready() -> void {
+void _ready() {
 	while_loop_test_1();
 	while_loop_test_2();
 	for_loop_test_1();
@@ -302,6 +392,12 @@ func _ready() -> void {
 	return_test();
 	
 	method_args_tests();
+	
+	variables_instacing_test();
+	class_instacing_test();
+	
+	raw_block_1();
+	raw_block_2();
 }
 
 

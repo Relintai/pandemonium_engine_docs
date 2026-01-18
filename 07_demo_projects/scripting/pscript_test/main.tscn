@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource path="res://basics.p" type="Script" id=1]
 [ext_resource path="res://class_variables.p" type="Script" id=2]
 [ext_resource path="res://class_in_class.p" type="Script" id=3]
 [ext_resource path="res://test_default_template.p" type="Script" id=4]
 [ext_resource path="res://test_connect.p" type="Script" id=5]
+[ext_resource path="res://switch_test.p" type="Script" id=6]
+[ext_resource path="res://foreach_test.p" type="Script" id=7]
+[ext_resource path="res://signal_test.p" type="Script" id=8]
+[ext_resource path="res://for_test.p" type="Script" id=9]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -39,4 +43,22 @@ script = ExtResource( 4 )
 [node name="TestConnect" type="Node" parent="."]
 script = ExtResource( 5 )
 
+[node name="SwitchTest" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="ForeachTest" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="SignalTest" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="ForTest" type="Node" parent="."]
+script = ExtResource( 9 )
+
 [connection signal="tree_exited" from="TestConnect" to="TestConnect" method="_on_TestConnect_tree_exited"]
+[connection signal="test_singal_1" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_1"]
+[connection signal="test_singal_2" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_2"]
+[connection signal="test_singal_3" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_3"]
+[connection signal="test_singal_4" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_4"]
+[connection signal="test_singal_5" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_5"]
+[connection signal="test_singal_6" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_6"]

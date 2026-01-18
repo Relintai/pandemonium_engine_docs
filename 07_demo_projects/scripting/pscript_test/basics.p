@@ -1,30 +1,30 @@
 extends Node;
 
-# TODOs:
+// TODOs:
 
-# foreach add type support
-# C like for()
-# /* */ multiline comment. They should probably be nestable. (Or have #if 0 and #if 1)
-# Also think bout class_name, extends syntax, both foreach the main file class, and class inside class syntax
-# Make Signal support types
-# Require parenthesis around control flow statements?
-# Rework match syntax, should probably be renamed to switch
-# Simplify match
 // Test and update the LSP server
 // Do the docs in engine + here
 
-# # -> preprocessor directives?
-# The tokenizer could preprocess the file before loading it
-# #define, #define <value> ?
-# #if #ifdef #else if (#eilf?) #else #endif ?
-# #include <> ? Just copy paste a file in. Maybe .ph extension foreach p script header (just
-# so the editor loads it as text file)? It should only get syntax highlighting
-# C function like search and replace macros?
-# Maybe this is overkill -> if not implemented, keep # as an alternate comment token
+// /* */ multiline comment. They should probably be nestable. (Or have #if 0 and #if 1)?
+// Note that """ """ can be used as a multiline comment
+
+// Require parenthesis around control flow statements?
+
+// Also think about class_name, extends syntax, both foreach the main file class, and class inside class syntax
+
+// # -> preprocessor directives?
+// The tokenizer could preprocess the file before loading it
+// #define, #define <value> ?
+// #if #ifdef #else if (#eilf?) #else #endif ?
+// #include <> ? Just copy paste a file in. Maybe .ph extension foreach p script header (just
+// so the editor loads it as text file)? It should only get syntax highlighting
+// C function like search and replace macros?
+// Maybe this is overkill -> if not implemented, keep # as an alternate comment token
 
 void empty_method() {
 
 }
+
 
 void while_loop_test_1() {
 	
@@ -42,6 +42,7 @@ void while_loop_test_1() {
 	#Array() == ;
 	
 	#AABB asd = AABB();
+
 	
 	int i = 0;
 	
@@ -66,7 +67,7 @@ void while_loop_test_2() {
 void for_loop_test_1() {
 	int c = 0;
 	
-	foreach i in range(10) {
+	foreach int i in range(10) {
 		c += 1;
 	}
 	
@@ -76,7 +77,7 @@ void for_loop_test_1() {
 void for_loop_test_2() {
 	int c = 0;
 	
-	foreach i in range(10) {
+	foreach int i in range(10) {
 		c += 1;
 	}
 	
@@ -86,8 +87,8 @@ void for_loop_test_2() {
 void for_loop_test_3() {
 	int c = 0;
 	
-	foreach i in range(10) {
-		foreach j in range(10) {
+	foreach int i in range(10) {
+		foreach int j in range(10) {
 			c += 1;
 		}
 	}

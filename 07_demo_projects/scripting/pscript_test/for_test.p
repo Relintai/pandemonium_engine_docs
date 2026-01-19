@@ -79,6 +79,34 @@ void for_test_6() {
 	print("DONE");
 }
 
+void for_test_7() {
+	print("for_test_7()");
+	
+	for (int i = 0; i < 4; i++) {
+		print(i);
+	}
+	print("DONE");
+}
+
+void for_test_8() {
+	print("for_test_8()");
+	
+	for (int i = 0; i < 4; ++i) {
+		print(i);
+	}
+	print("DONE");
+}
+
+void for_test_9() {
+	print("for_test_8()");
+	
+	for (int i = 0,int j = 0; i < 4; i++, ++j) {
+		print("i:" + str(i));
+		print("j:" + str(j));
+	}
+	print("DONE");
+}
+
 
 void _ready() {
 	for_test_1();
@@ -87,6 +115,9 @@ void _ready() {
 	for_test_4();
 	for_test_5();
 	for_test_6();
+	for_test_7();
+	for_test_8();
+	for_test_9();
 }
 
 // Called every frame. 'delta' is the elapsed time since the previous frame.

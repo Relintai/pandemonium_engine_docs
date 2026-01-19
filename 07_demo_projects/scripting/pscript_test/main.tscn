@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3]
 
 [ext_resource path="res://basics.p" type="Script" id=1]
 [ext_resource path="res://class_variables.p" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://foreach_test.p" type="Script" id=7]
 [ext_resource path="res://signal_test.p" type="Script" id=8]
 [ext_resource path="res://for_test.p" type="Script" id=9]
+[ext_resource path="res://increment_test.p" type="Script" id=10]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -54,6 +55,9 @@ script = ExtResource( 8 )
 
 [node name="ForTest" type="Node" parent="."]
 script = ExtResource( 9 )
+
+[node name="IncrementTest" type="Node" parent="."]
+script = ExtResource( 10 )
 
 [connection signal="tree_exited" from="TestConnect" to="TestConnect" method="_on_TestConnect_tree_exited"]
 [connection signal="test_singal_1" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_1"]

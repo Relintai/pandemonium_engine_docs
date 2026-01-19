@@ -1,9 +1,9 @@
 
-# GDScript: An introduction to dynamic languages
+# PScript: An introduction to dynamic languages
 
 ## About
 
-This tutorial aims to be a quick reference for how to use GDScript more
+This tutorial aims to be a quick reference for how to use PScript more
 efficiently. It focuses on common cases specific to the language, but
 also covers a lot of information on dynamically typed languages.
 
@@ -14,7 +14,7 @@ experience with dynamically typed languages.
 
 ### Pros & cons of dynamic typing
 
-GDScript is a Dynamically Typed language. As such, its main advantages
+PScript is a Dynamically Typed language. As such, its main advantages
 are that:
 
 -  The language is simple and easy to learn.
@@ -35,12 +35,12 @@ While the main disadvantages are:
 -  Less flexibility for code-completion (some variable types are only
    known at run-time).
 
-This, translated to reality, means that Pandemonium+GDScript are a combination
+This, translated to reality, means that Pandemonium+PScript are a combination
 designed to create games quickly and efficiently. For games that are very
 computationally intensive and can't benefit from the engine built-in
 tools (such as the Vector types, Physics Engine, Math library, etc), the
 possibility of using C++ is present too. This allows you to still create most of the
-game in GDScript and add small bits of C++ in the areas that need
+game in PScript and add small bits of C++ in the areas that need
 a performance boost.
 
 ### Variables & assignment
@@ -143,7 +143,7 @@ public final void do_something() {
 }
 ```
 
--  GDScript:
+-  PScript:
 
 ```
 func use_class(instance): # Does not care about class type
@@ -155,7 +155,7 @@ func do_something():
     # Will be unreferenced and deleted.
 ```
 
-In GDScript, only base types (int, float, String and PoolArray types)
+In PScript, only base types (int, float, String and PoolArray types)
 are passed by value to functions (value is copied). Everything else
 (instances, Arrays, Dictionaries, etc) is passed as reference. Classes
 that inherit `Reference` (the default if nothing is specified)
@@ -240,7 +240,7 @@ use_array(array); // Passed reference or value.
 // Freed when stack ends.
 ```
 
-And in GDScript:
+And in PScript:
 
 ```
 var array = [10, "hello", 40, 60] # Simple, and can mix types.
@@ -331,14 +331,14 @@ func game():
 ```
 
 Dictionaries can also be used as data markup or quick structures. While
-GDScript's dictionaries resemble python dictionaries, it also supports Lua
+PScript's dictionaries resemble python dictionaries, it also supports Lua
 style syntax and indexing, which makes it useful for writing initial
 states and quick structs:
 
 ```
 # Same example, lua-style support.
 # This syntax is a lot more readable and usable.
-# Like any GDScript identifier, keys written in this form cannot start
+# Like any PScript identifier, keys written in this form cannot start
 # with a digit.
 
 var d = {
@@ -551,7 +551,7 @@ Yes, we should call it Hulk typing instead.
 
 It's possible that the object being hit doesn't have a smash() function.
 Some dynamically typed languages simply ignore a method call when it
-doesn't exist, but GDScript is stricter, so checking if the function
+doesn't exist, but PScript is stricter, so checking if the function
 exists is desirable:
 
 ```

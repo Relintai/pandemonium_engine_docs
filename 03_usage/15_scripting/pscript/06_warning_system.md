@@ -1,7 +1,7 @@
 
-# GDScript warning system
+# PScript warning system
 
-The GDScript warning system complements `static typing`
+The PScript warning system complements `static typing`
 (but it can work without static typing too). It's here to help you avoid
 mistakes that are hard to spot during development, and that may lead
 to runtime errors.
@@ -13,7 +13,7 @@ called **Gdscript**:
 
 Warning system project settings
 
-You can find a list of warnings for the active GDScript file in the
+You can find a list of warnings for the active PScript file in the
 script editor's status bar. The example below has 3 warnings:
 
 ![Warning system example](img/typed_gdscript_warning_example.png)
@@ -36,7 +36,7 @@ warnings of all types in a file add the comment `# warnings-disable` to it.
 
 Warnings won't prevent the game from running, but you can turn them into
 errors if you'd like. This way your game won't compile unless you fix
-all warnings. Head to the `GDScript` section of the Project Settings to
+all warnings. Head to the `PScript` section of the Project Settings to
 turn on this option. Here's the same file as the previous example with
 warnings as errors turned on:
 

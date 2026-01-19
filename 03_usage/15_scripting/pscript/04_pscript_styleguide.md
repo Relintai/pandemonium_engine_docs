@@ -1,12 +1,12 @@
 
-# GDScript style guide
+# PScript style guide
 
-This style guide lists conventions to write elegant GDScript. The goal is to
+This style guide lists conventions to write elegant PScript. The goal is to
 encourage writing clean, readable code and promote consistency across projects,
 discussions, and tutorials. Hopefully, this will also support the development of
 auto-formatting tools.
 
-Since GDScript is close to Python, this guide is inspired by Python's
+Since PScript is close to Python, this guide is inspired by Python's
 [PEP 8](https://www.python.org/dev/peps/pep-0008/) programming
 style guide.
 
@@ -292,7 +292,7 @@ When you have particularly long `if` statements or nested ternary expressions,
 wrapping them over multiple lines improves readability. Since continuation lines
 are still part of the same expression, 2 indent levels should be used instead of one.
 
-GDScript allows wrapping statements using multiple lines using parentheses or
+PScript allows wrapping statements using multiple lines using parentheses or
 backslashes. Parentheses are favored in this style guide since they make for
 easier refactoring. With backslashes, you have to ensure that the last line
 never contains a backslash at the end. With parentheses, you don't have to
@@ -482,7 +482,7 @@ var hex_number = 0xfb8c0b
 var hex_number = 0xFB8C0B
 ```
 
-Take advantage of GDScript's underscores in literals to make large numbers more
+Take advantage of PScript's underscores in literals to make large numbers more
 readable.
 
 **Good**:
@@ -596,7 +596,7 @@ enum Element {
 This first section focuses on code order. For formatting, see
 `formatting`. For naming conventions, see `naming_conventions`.
 
-We suggest to organize GDScript code this way:
+We suggest to organize PScript code this way:
 
 ```
 01. tool
@@ -638,7 +638,7 @@ This code order follows four rules of thumb:
 If the code is meant to run in the editor, place the `tool` keyword on the
 first line of the script.
 
-Follow with the `name` if necessary. You can turn a GDScript file into a
+Follow with the `name` if necessary. You can turn a PScript file into a
 global type in your project using this feature.
 
 Then, add the `extends` keyword if the class extends a built-in type.
@@ -685,7 +685,7 @@ onready var gun = get_node("Gun")
 ```
 
 
-Note: The GDScript compiler evaluates onready variables right before the `ready`
+Note: The PScript compiler evaluates onready variables right before the `ready`
 callback. You can use that to cache node dependencies, that is to say, to get
 child nodes in the scene that your class relies on. This is what the example
 above shows.

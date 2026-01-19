@@ -1,13 +1,13 @@
 
-# Static typing in GDScript
+# Static typing in PScript
 
 In this guide, you will learn:
 
--  **How to use types in GDScript**
+-  **How to use types in PScript**
 -  That **static types can help you avoid bugs**
 
 Where and how you use this new language feature is entirely up to you:
-you can use it only in some sensitive GDScript files, use it everywhere,
+you can use it only in some sensitive PScript files, use it everywhere,
 or write code like you always did!
 
 Static types can be used on variables, constants, functions, parameters,
@@ -15,7 +15,7 @@ and return types.
 
 ## A brief look at static typing
 
-With typed GDScript, Pandemonium can detect even more errors as you write
+With typed PScript, Pandemonium can detect even more errors as you write
 code! It gives you and your teammates more information as you're
 working, as the arguments' types show up when you call a method.
 
@@ -39,7 +39,7 @@ func add(reference: Item, amount: int = 1):
     item.amount += amount
 ```
 
-Another significant advantage of typed GDScript is the new **warning
+Another significant advantage of typed PScript is the new **warning
 system**. From version 3.1, Pandemonium gives you warnings about your code as
 you write it: the engine identifies sections of your code that may lead
 to issues at runtime, but lets you decide whether or not you want to
@@ -64,7 +64,7 @@ however, you will get all public methods and variables from the node:
 
 code completion options for typed
 
-In the future, typed GDScript will also increase code performance:
+In the future, typed PScript will also increase code performance:
 Just-In-Time compilation and other compiler improvements are already
 on the roadmap!
 
@@ -176,10 +176,10 @@ Pandemonium doesn't have enough information to know if an instruction will trigg
 an error or not at runtime.
 
 This happens when you get a child node. Let's take a timer for example:
-with dynamic code, you can get the node with `$Timer`. GDScript
+with dynamic code, you can get the node with `$Timer`. PScript
 supports [duck-typing](https://stackoverflow.com/a/4205163/8125343),
 so even if your timer is of type `Timer`, it is also a `Node` and an
-`Object`, two classes it extends. With dynamic GDScript, you also
+`Object`, two classes it extends. With dynamic PScript, you also
 don't care about the node's type as long as it has the methods you need
 to call.
 
@@ -230,7 +230,7 @@ func add(reference: Item, amount: int) -> Item:
 
 #### Typed or dynamic: stick to one style
 
-Typed GDScript and dynamic GDScript can coexist in the same project. But
+Typed PScript and dynamic PScript can coexist in the same project. But
 it's recommended to stick to either style for consistency in your codebase,
 and for your peers. It's easier for everyone to work together if you
 follow the same guidelines, and faster to read and understand other
@@ -301,7 +301,7 @@ it's anything else, like an `Area2D`, or any node that doesn't extend
 
 ## Warning system
 
-Note: Documentation about the GDScript warning system has been moved to [here](07_gdscript_format_string.md).
+Note: Documentation about the PScript warning system has been moved to [here](07_gdscript_format_string.md).
 
 ## Cases where you can't specify types
 
@@ -356,7 +356,7 @@ var player: Player
 
 ## Summary
 
-Typed GDScript is a powerful tool. It
+Typed PScript is a powerful tool. It
 helps you write more structured code, avoid common errors, and
 create scalable systems. In the future, static types will also bring you
 a nice performance boost thanks to upcoming compiler optimizations.

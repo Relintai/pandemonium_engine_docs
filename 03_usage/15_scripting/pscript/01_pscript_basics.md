@@ -1,9 +1,9 @@
 
-# GDScript basics
+# PScript basics
 
 ## Introduction
 
-*GDScript* is a high-level, dynamically typed programming language used to
+*PScript* is a high-level, dynamically typed programming language used to
 create content. It uses a syntax similar to
 [Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
 (blocks are indent-based and many keywords are similar). Its goal is
@@ -12,13 +12,13 @@ flexibility for content creation and integration.
 
 ### History
 
-Documentation about GDScript's history has been moved to the
+Documentation about PScript's history has been moved to the
 [Frequently Asked Questions](../../../01_about/02_faq.md).
 
-### Example of GDScript
+### Example of PScript
 
 Some people can learn better by taking a look at the syntax, so
-here's a simple example of how GDScript looks.
+here's a simple example of how PScript looks.
 
 
 ```
@@ -103,7 +103,7 @@ func _init():
 
 ## Language
 
-In the following, an overview is given to GDScript. Details, such as which
+In the following, an overview is given to PScript. Details, such as which
 methods are available to arrays or other objects, should be looked up in
 the linked class descriptions.
 
@@ -121,7 +121,7 @@ keywords are reserved words (tokens), they can't be used as identifiers.
 Operators (like `in`, `not`, `and` or `or`) and names of built-in types
 as listed in the following sections are also reserved.
 
-Keywords are defined in the [GDScript tokenizer](https://github.com/Relintai/pandemonium_engine/blob/master/modules/gdscript/gdscript_tokenizer.cpp)
+Keywords are defined in the [PScript tokenizer](https://github.com/Relintai/pandemonium_engine/blob/master/modules/gdscript/gdscript_tokenizer.cpp)
 in case you want to take a look under the hood.
 
 
@@ -252,7 +252,7 @@ passed as values.)
 
 ### Basic built-in types
 
-A variable in GDScript can be assigned to several built-in types.
+A variable in PScript can be assigned to several built-in types.
 
 #### null
 
@@ -296,7 +296,7 @@ Strings can contain the following escape sequences:
 |                     | (hexadecimal, case-insensitive) |
 
 
-GDScript also supports `doc_gdscript_printf`.
+PScript also supports `doc_gdscript_printf`.
 
 ### Vector built-in types
 
@@ -420,7 +420,7 @@ arr[0] = "Hi!" # Replacing value 1 with "Hi!".
 arr.append(4) # Array is now ["Hi!", 2, 3, 4].
 ```
 
-GDScript arrays are allocated linearly in memory for speed.
+PScript arrays are allocated linearly in memory for speed.
 Large arrays (more than tens of thousands of elements) may however cause
 memory fragmentation. If this is a concern, special types of
 arrays are available. These only accept a single data type. They avoid memory
@@ -457,7 +457,7 @@ d = {
 
 Lua-style table syntax is also supported. Lua-style uses `=` instead of `:`
 and doesn't use quotes to mark string keys (making for slightly less to write).
-However, keys written in this form can't start with a digit (like any GDScript
+However, keys written in this form can't start with a digit (like any PScript
 identifier).
 
 
@@ -709,7 +709,7 @@ valid value to return.
 
 #### Referencing functions
 
-Contrary to Python, functions are *not* first-class objects in GDScript. This
+Contrary to Python, functions are *not* first-class objects in PScript. This
 means they cannot be stored in variables, passed as an argument to another
 function or be returned from other functions. This is for performance reasons.
 
@@ -1251,7 +1251,7 @@ Note: Documentation about exports has been moved to [here](03_gdscript_exports.m
 It is often useful to know when a class' member variable changes for
 whatever reason. It may also be desired to encapsulate its access in some way.
 
-For this, GDScript provides a *setter/getter* syntax using the `setget` keyword.
+For this, PScript provides a *setter/getter* syntax using the `setget` keyword.
 It is used directly after a variable definition:
 
 
@@ -1484,7 +1484,7 @@ arguments when you emit signals; it's up to you to emit the correct values.
 
 ![](img/gdscript_basics_signals_node_tab_1.png)
 
-GDScript can bind an array of values to connections between a signal
+PScript can bind an array of values to connections between a signal
 and a method. When the signal is emitted, the callback method receives
 the bound values. These bound arguments are unique to each connection,
 and the values will stay the same.
@@ -1525,7 +1525,7 @@ func _on_Character_health_changed(old_value, new_value, character_name):
 
 ### Coroutines with yield
 
-GDScript offers support for [coroutines](https://en.wikipedia.org/wiki/Coroutine)
+PScript offers support for [coroutines](https://en.wikipedia.org/wiki/Coroutine)
 via the `yield` built-in function. Calling `yield()` will
 immediately return from the current function, with the current frozen
 state of the same function as the return value. Calling `resume()` on
@@ -1592,7 +1592,7 @@ func co_func():
 
 func _ready():
     var co = co_func();
-    while co is GDScriptFunctionState && co.is_valid():
+    while co is PScriptFunctionState && co.is_valid():
         co = co.resume();
 ```
 
@@ -1675,7 +1675,7 @@ func generate():
 func make():
     var result = generate()
 
-    if result is GDScriptFunctionState: # Still working.
+    if result is PScriptFunctionState: # Still working.
         result = yield(result, "completed")
 
     return result
@@ -1705,7 +1705,7 @@ func _ready():
 ```
 
 This can get a little cumbersome, especially when nodes and external
-references pile up. For this, GDScript has the `onready` keyword, that
+references pile up. For this, PScript has the `onready` keyword, that
 defers initialization of a member variable until `ready()` is called. It
 can replace the above code with a single line
 

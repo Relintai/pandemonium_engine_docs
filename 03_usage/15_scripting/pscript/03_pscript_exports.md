@@ -1,5 +1,5 @@
 
-# GDScript exports
+# PScript exports
 
 ## Introduction to exports
 

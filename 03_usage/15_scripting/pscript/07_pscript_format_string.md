@@ -1,7 +1,7 @@
 
-# GDScript format strings
+# PScript format strings
 
-GDScript offers a feature called *format strings*, which allows reusing text
+PScript offers a feature called *format strings*, which allows reusing text
 templates to succinctly create different but similar strings.
 
 Format strings are just like normal strings, except they contain certain
@@ -13,9 +13,9 @@ are you?"` can easily be changed to `"Hello World, how are you?"`. Notice
 the placeholder is in the middle of the string; modifying it without format
 strings could be cumbersome.
 
-## Usage in GDScript
+## Usage in PScript
 
-Examine this concrete GDScript example:
+Examine this concrete PScript example:
 
 ```
 # Define a format string with placeholder '%s'
@@ -39,14 +39,14 @@ Booleans turn into either `"True"` or `"False"`, an integral or real number
 becomes a decimal, other types usually return their data in a human-readable
 string.
 
-There is also another way to format text in GDScript, namely the `String.format()`
+There is also another way to format text in PScript, namely the `String.format()`
 method. It replaces all occurrences of a key in the string with the corresponding
 value. The method can handle arrays or dictionaries for the key/value pairs.
 
 Arrays can be used as key, index, or mixed style (see below examples). Order only
 matters when the index or mixed style of Array is used.
 
-A quick example in GDScript:
+A quick example in PScript:
 
 ```
 # Define a format string
@@ -71,10 +71,10 @@ format specifier with `*`, see `dynamic padding`):
 
 ```
 var format_string = "%s was reluctant to learn %s, but now he enjoys it."
-var actual_string = format_string % ["Estragon", "GDScript"]
+var actual_string = format_string % ["Estragon", "PScript"]
 
 print(actual_string)
-# Output: "Estragon was reluctant to learn GDScript, but now he enjoys it."
+# Output: "Estragon was reluctant to learn PScript, but now he enjoys it."
 ```
 
 Note the values are inserted in order. Remember all placeholders must be

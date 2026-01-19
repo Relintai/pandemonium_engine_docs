@@ -2,10 +2,8 @@ extends Node;
 
 // TODOs:
 
-// Should probaby do pre and post increment. Preincrement should be really easy, 
-// as the parser already has prefix operators, postfix might need tweaks.
 // Test and update the LSP server
-// Do the docs in engine + here
+// Do the docs here
 
 // /* */ multiline comment. They should probably be nestable. (Or have #if 0 and #if 1)?
 // Note that """ """ can be used as a multiline comment

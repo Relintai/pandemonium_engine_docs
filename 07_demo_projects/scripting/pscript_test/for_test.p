@@ -40,6 +40,12 @@ void for_test_4() {
 	for (int i = 0; i < 4; i += 1) {
 		print(i);
 	}
+	
+	for (int i = 0; i < 4; i += 1) {
+		print(i);
+	}
+	
+#	print(i);
 	print("DONE");
 }
 
@@ -91,14 +97,14 @@ void for_test_7() {
 void for_test_8() {
 	print("for_test_8()");
 	
-	for (int i = 0; i < 4; ++i) {
+	for (int i = 0; i < 4; i += 1) {
 		print(i);
 	}
 	print("DONE");
 }
 
 void for_test_9() {
-	print("for_test_8()");
+	print("for_test_9()");
 	
 	for (int i = 0,int j = 0; i < 4; i++, ++j) {
 		print("i:" + str(i));

@@ -61,7 +61,7 @@ Vector4i v4i = Vector4i(1, 2, 3, 4);
 
 # Function
 
-void some_function(param1, param2) {
+void some_function(int param1, int param2) {
     int local_var = 5;
 
     if param1 < local_var {
@@ -93,7 +93,7 @@ void some_function(param1, param2) {
 // Functions override functions with the same name on the base/parent class.
 // If you still want to call them, use '.' (like 'super' in other languages).
 
-void something(p1, p2) {
+void something(float p1, String p2) {
     .something(p1, p2);
 }
 

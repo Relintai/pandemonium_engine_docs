@@ -3,17 +3,10 @@
 
 ## Introduction
 
-*PScript* is a high-level, dynamically typed programming language used to
-create content. It uses a syntax similar to
-[Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
-(blocks are indent-based and many keywords are similar). Its goal is
-to be optimized for and tightly integrated with Pandemonium Engine, allowing great
+*PScript* is a high-level, statically typed programming language used to
+create content. It uses a syntax similar to c / c++.
+Its goal is to be optimized for and tightly integrated with Pandemonium Engine, allowing great
 flexibility for content creation and integration.
-
-### History
-
-Documentation about PScript's history has been moved to the
-[Frequently Asked Questions](../../../01_about/02_faq.md).
 
 ### Example of PScript
 
@@ -21,84 +14,125 @@ Some people can learn better by taking a look at the syntax, so
 here's a simple example of how PScript looks.
 
 
+
 ```
-# A file is a class!
+// Both // or # works as a comment.
+// // is recommended
 
-# Inheritance
+// A file is a class!
 
-extends BaseClass
+// Inheritance
+
+extends BaseClass;
 
 # (optional) class definition with a custom icon
 
-class_name MyClass, "res://path/to/optional/icon.svg"
+class_name MyClass, "res://path/to/optional/icon.svg";
 
 
-# Member variables
+// Member variables
 
-var a = 5
-var s = "Hello"
-var arr = [1, 2, 3]
-var dict = {"key": "value", 2: 3}
-var typed_var: int
-var inferred_type := "String"
+int a = 5;
+String s = "Hello";
+Array arr = [1, 2, 3];
+// Note that the Dictionary literal is |{ ... }|
+Dictionary dict = |{"key": "value", 2: 3}|;
+Variant untyped_var;
 
 # Constants
 
-const ANSWER = 42
-const THE_NAME = "Charly"
+const ANSWER = 42;
+const THE_NAME = "Charly";
 
 # Enums
 
-enum {UNIT_NEUTRAL, UNIT_ENEMY, UNIT_ALLY}
-enum Named {THING_1, THING_2, ANOTHER_THING = -1}
+enum {UNIT_NEUTRAL, UNIT_ENEMY, UNIT_ALLY};
+enum Named {THING_1, THING_2, ANOTHER_THING = -1};
 
 # Built-in vector types
 
-var v2 = Vector2(1, 2)
-var v3 = Vector3(1, 2, 3)
+Vector2 v2 = Vector2(1, 2);
+Vector3 v3 = Vector3(1, 2, 3);
+Vector4 v4 = Vector4(1, 2, 3, 4);
 
+Vector2i v2i = Vector2i(1, 2);
+Vector3i v3i = Vector3i(1, 2, 3);
+Vector4i v4i = Vector4i(1, 2, 3, 4);
 
 # Function
 
-func some_function(param1, param2):
-    var local_var = 5
+void some_function(param1, param2) {
+    int local_var = 5;
 
-    if param1 < local_var:
-        print(param1)
-    elif param2 > 5:
-        print(param2)
-    else:
-        print("Fail!")
-
-    for i in range(20):
-        print(i)
-
-    while param2 != 0:
-        param2 -= 1
-
-    var local_var2 = param1 + 3
-    return local_var2
+    if param1 < local_var {
+        print(param1);
+    } else if (param2 > 5) {
+        print(param2);
+    } else {
+        print("Fail!");
+    }
 
 
-# Functions override functions with the same name on the base/parent class.
-# If you still want to call them, use '.' (like 'super' in other languages).
+    for (int i = 0; i < 20; ++i) {
+        print(i);
+    }
 
-func something(p1, p2):
-    .something(p1, p2)
+    foreach i in range(20) {
+        print(i);
+    }
+
+    while param2 != 0 {
+        param2 -= 1;
+    }
+
+    var local_var2 = param1 + 3;
+
+    return local_var2;
+}
+
+// Functions override functions with the same name on the base/parent class.
+// If you still want to call them, use '.' (like 'super' in other languages).
+
+void something(p1, p2) {
+    .something(p1, p2);
+}
 
 
-# Inner class
+// Inner class
 
-class Something:
-    var a = 10
+class Something {
+    int a = 10;
+}
+
+class Something2 {
+    int a = 10;
+}; // You can put a ; here optinally
 
 
-# Constructor
+// Inner class Extens
 
-func _init():
-    print("Constructed!")
-    var lv = Something.new()
-    print(lv.a)
+
+class Somethin3 {
+    extends Mesh;
+
+    int a = 10;
+}
+
+class Somethin4 extends Mesh {
+    int a = 10;
+}
+
+class Somethin5 : Mesh {
+    int a = 10;
+}
+
+// Constructor
+
+void _init() {
+    print("Constructed!");
+    Something lv = Something.new();
+    print(lv.a);
+}
 ```
 
 ## Language
@@ -121,7 +155,7 @@ keywords are reserved words (tokens), they can't be used as identifiers.
 Operators (like `in`, `not`, `and` or `or`) and names of built-in types
 as listed in the following sections are also reserved.
 
-Keywords are defined in the [PScript tokenizer](https://github.com/Relintai/pandemonium_engine/blob/master/modules/gdscript/gdscript_tokenizer.cpp)
+Keywords are defined in the [PScript tokenizer](https://github.com/Relintai/pandemonium_engine/blob/master/modules/pscript/gdscript_tokenizer.cpp)
 in case you want to take a look under the hood.
 
 
@@ -131,31 +165,28 @@ in case you want to take a look under the hood.
 | elif       | See `if/else/elif`.                                                                                           |
 | else       | See `if/else/elif`.                                                                                           |
 | for        | See for_.                                                                                                     |
+| foreach    | See foreach_.                                                                                                     |
 | while      | See while_.                                                                                                   |
-| match      | See match_.                                                                                                   |
-| break      | Exits the execution of the current `for` or `while` loop.                                                     |
-| continue   | Immediately skips to the next iteration of the `for` or `while` loop.                                         |
-| pass       | Used where a statement is required syntactically but execution of code is undesired, e.g. in empty functions. |
+| switch     | See switch_.                                                                                                   |
+| break      | Exits the execution of the current `for`, `foreach` or `while` loop, or `switch`                                                    |
+| continue   | Immediately skips to the next iteration of the `for` `foreach` or `while` loop.                                         |
 | return     | Returns a value from a function.                                                                              |
 | class      | Defines an inner class.                                                                                       |
 | class_name | Defines a class name and optional icon for your script.                                                       |
-| extends    | Defines what class to extend with the current class.                                                          |
+| extends    | Defines what class to extend with the current class.                                                         |
 | is         | Tests whether a variable extends a given class, or is of a given built-in type.                               |
 | as         | Cast the value to a given type if possible.                                                                   |
-| self       | Refers to current class instance.                                                                             |
+| this       | Refers to current class instance.                                                                             |
 | tool       | Executes the script in the editor.                                                                            |
 | signal     | Defines a signal.                                                                                             |
-| func       | Defines a function.                                                                                           |
 | static     | Defines a static function. Static member variables are not allowed.                                           |
 | const      | Defines a constant.                                                                                           |
 | enum       | Defines an enum.                                                                                              |
-| var        | Defines a variable.                                                                                           |
 | onready    | Initializes a variable once the Node the script is attached to and its children are part of the scene tree.   |
 | export     | Saves a variable along with the resource it's attached to and makes it visible and modifiable in the editor.  |
 | setget     | Defines setter and getter functions for a variable.                                                           |
 | breakpoint | Editor helper for debugger breakpoints.                                                                       |
 | preload    | Preloads a class or variable. See `Classes as resources`.                                                     |
-| yield      | Coroutine support. See `Coroutines with yield`.                                                               |
 | assert     | Asserts a condition, logs error on failure. Ignored in non-debug builds. See `Assert keyword`.                |
 | PI         | PI constant.                                                                                                  |
 | TAU        | TAU constant.                                                                                                 |
@@ -176,6 +207,7 @@ The following is the list of supported operators and their precedence.
 | `~`                                                                    | Bitwise NOT                             |
 | `-x`                                                                   | Negative / Unary negation               |
 | `*` `/` `%`                                                            | Multiplication / Division / Remainder   |
+| `++x`, `x++`, `--x`, `x--`                                            | Pre / Post Increment / decrement               |
 |                                                                        |                                         |
 |                                                                        | These operators have the same behavior  |
 |                                                                        | as C++. Integer division is truncated   |
@@ -232,12 +264,13 @@ The following ways to write numbers are all valid
 
 ### Comments
 
-Anything from a `#` to the end of the line is ignored and is
+Anything from a `#` or `//` to the end of the line is ignored and is
 considered a comment.
 
 
 ```
-# This is a comment.
+// This is a comment.
+# This is also a comment.
 ```
 
 
@@ -246,7 +279,7 @@ considered a comment.
 
 Built-in types are stack-allocated. They are passed as values. This means a copy
 is created on each assignment or when passing them as arguments to functions.
-The only exceptions are `Array`s and `Dictionaries`, which are passed by
+The only exceptions are `Array`s, `Dictionaries`, `TypedArray`s, and `PackedTypedArray`s which are passed by
 reference so they are shared. (Pooled arrays such as `PoolByteArray` are still
 passed as values.)
 
@@ -411,21 +444,44 @@ Negative indices count from the end.
 
 
 ```
-var arr = []
-arr = [1, 2, 3]
-var b = arr[1] # This is 2.
-var c = arr[arr.size() - 1] # This is 3.
-var d = arr[-1] # Same as the previous line, but shorter.
-arr[0] = "Hi!" # Replacing value 1 with "Hi!".
-arr.append(4) # Array is now ["Hi!", 2, 3, 4].
+Array arr = [];
+Array arr = [1, 2, 3];
+Array b = arr[1]; # This is 2.
+Array c = arr[arr.size() - 1]; # This is 3.
+Array d = arr[-1]; # Same as the previous line, but shorter.
+arr[0] = "Hi!"; # Replacing value 1 with "Hi!".
+arr.append(4); # Array is now ["Hi!", 2, 3, 4].
 ```
 
 PScript arrays are allocated linearly in memory for speed.
 Large arrays (more than tens of thousands of elements) may however cause
 memory fragmentation. If this is a concern, special types of
-arrays are available. These only accept a single data type. They avoid memory
+arrays are available.
+
+#### `TypedArray`
+
+An array that sores a single type of elements (in the case of classes derived classes are also accepted).
+
+Internally it stores a Vector of Variants.
+
+#### `PackedTypedArray`
+
+An array that sores a single type of elements (in the case of classes derived classes are also accepted).
+
+Internally it stores every element in the most efficient way possible. Individual element operations
+can be slower that with TypedArrays, however on the c++ side it's data can be directly accessed if needed
+for fast calculations in engine modules.
+
+Does not use memory pools, so it can fragment memory, but it's not limited by the memory pool size either.
+
+#### Pool Arrays
+
+These only accept a single data type. They avoid memory
 fragmentation and use less memory, but are atomic and tend to run slower than generic
-arrays. They are therefore only recommended to use for large data sets:
+arrays. They are therefore only recommended to use for large data sets.
+
+If the memory pool size is too little for your project you can compile the engine and set it higher,
+or you can use `PackedTypedArray`s.
 
 - `PoolByteArray`: An array of bytes (integers from 0 to 255).
 - `PoolIntArray`: An array of integers.
@@ -445,45 +501,47 @@ Associative container which contains values referenced by unique keys.
 
 
 ```
-var d = {4: 5, "A key": "A value", 28: [1, 2, 3]}
-d["Hi!"] = 0
-d = {
+Dictionary d = |{4: 5, "A key": "A value", 28: [1, 2, 3]}|;
+d["Hi!"] = 0'
+d = |{
     22: "value",
     "some_key": 2,
     "other_key": [2, 3, 4],
     "more_key": "Hello"
-}
+}|;
 ```
+
 
 Lua-style table syntax is also supported. Lua-style uses `=` instead of `:`
 and doesn't use quotes to mark string keys (making for slightly less to write).
 However, keys written in this form can't start with a digit (like any PScript
 identifier).
 
+TODO check, I don't think this works due to stringnames.
 
 ```
-var d = {
+var d = |{
     test22 = "value",
     some_key = 2,
     other_key = [2, 3, 4],
     more_key = "Hello"
-}
+}|;
 ```
 
 To add a key to an existing dictionary, access it like an existing key and
 assign to it
 
 ```
-var d = {} # Create an empty Dictionary.
-d.waiting = 14 # Add String "waiting" as a key and assign the value 14 to it.
-d[4] = "hello" # Add integer 4 as a key and assign the String "hello" as its value.
-d["Pandemonium"] = 3.01 # Add String "Pandemonium" as a key and assign the value 3.01 to it.
+Dictionary d = |{}|; # Create an empty Dictionary.
+d.waiting = 14; # Add String "waiting" as a key and assign the value 14 to it.
+d[4] = "hello"; # Add integer 4 as a key and assign the String "hello" as its value.
+d["Pandemonium"] = 3.01; # Add String "Pandemonium" as a key and assign the value 3.01 to it.
 
-var test = 4
+int test = 4;
 # Prints "hello" by indexing the dictionary with a dynamic key.
 # This is not the same as `d.test`. The bracket syntax equivalent to
 # `d.test` is `d["test"]`.
-print(d[test])
+print(d[test]);
 ```
 
 Note:
@@ -500,40 +558,26 @@ Note:
 ### Variables
 
 Variables can exist as class members or local to functions. They are
-created with the `var` keyword and may, optionally, be assigned a
+created with any exiting type keyword, then their name, and may, optionally, be assigned a
 value upon initialization.
 
 
 ```
-var a # Data type is 'null' by default.
-var b = 5
-var c = 3.8
-var d = b + c # Variables are always initialized in order.
+int b = 5;
+float c = 3.8;
+float d = b + c; # Variables are always initialized in order.
 ```
 
-Variables can optionally have a type specification. When a type is specified,
-the variable will be forced to have always that same type, and trying to assign
+The variable will be forced to have always that same type, and trying to assign
 an incompatible value will raise an error.
 
-Types are specified in the variable declaration using a `:` (colon) symbol
-after the variable name, followed by the type.
-
+If you need a variable that can change types, you can use both the `Variant` or the `void` type (`void` is also just a `Variant`).
 
 ```
-var my_vector2: Vector2
-var my_node: Node = Sprite.new()
+Variant a = 12;
+void b = 13;
 ```
 
-If the variable is initialized within the declaration, the type can be inferred, so
-it's possible to omit the type name
-
-```
-var my_vector2 := Vector2() # 'my_vector2' is of type 'Vector2'.
-var my_node := Sprite.new() # 'my_node' is of type 'Sprite'.
-```
-
-Type inference is only possible if the assigned value has a defined type, otherwise
-it will raise an error.
 
 Valid types are:
 

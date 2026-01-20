@@ -37,8 +37,8 @@ void _ready() {
 	
 	get_theme_color(@"font_color_shadow");
 	
-	InputEvent e = InputEvent.new();
-	e.is_action(@"ui_down");
+	#InputEvent e = InputEvent.new();
+	#e.is_action(@"ui_down");
 	
 	AnimationPlayer ap = get_node(^"AnimationPlayer") as AnimationPlayer;
 	ap.play(@"test");

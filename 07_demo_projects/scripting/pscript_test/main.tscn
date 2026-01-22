@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource path="res://basics.p" type="Script" id=1]
 [ext_resource path="res://class_variables.p" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://increment_test.p" type="Script" id=10]
 [ext_resource path="res://quoted_test.p" type="Script" id=11]
 [ext_resource path="res://ternary_if.p" type="Script" id=12]
+[ext_resource path="res://singletons_test.p" type="Script" id=13]
+[ext_resource path="res://indexing_test.p" type="Script" id=14]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -69,6 +71,12 @@ script = ExtResource( 10 )
 
 [node name="TernaryIf" type="Node" parent="."]
 script = ExtResource( 12 )
+
+[node name="SingletonsTest" type="Node" parent="."]
+script = ExtResource( 13 )
+
+[node name="IndexingTest" type="Node" parent="."]
+script = ExtResource( 14 )
 
 [node name="QuotedTest" type="Label" parent="."]
 script = ExtResource( 11 )

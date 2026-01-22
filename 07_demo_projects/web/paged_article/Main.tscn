@@ -1,11 +1,9 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://WebServerSimple.gd" type="Script" id=1]
+[gd_scene format=3]
 
 [node name="Main" type="Node"]
 
 [node name="WebServerSimple" type="WebServerSimple" parent="."]
-script = ExtResource( 1 )
+start_on_ready = true
 
 [node name="PagedArticleWebPage" type="PagedArticleWebPage" parent="WebServerSimple"]
 articles_folder = "res://article/"

@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource path="res://IndexScripted.gd" type="Script" id=1]
-[ext_resource path="res://WebServerSimple.gd" type="Script" id=2]
 [ext_resource path="res://WebRoot.gd" type="Script" id=3]
 
 [node name="Main" type="Node"]
 
 [node name="WebServerSimple" type="WebServerSimple" parent="."]
-script = ExtResource( 2 )
+start_on_ready = true
 
 [node name="WebRoot" type="WebRoot" parent="WebServerSimple"]
 www_root_path = "res://www/"
@@ -65,6 +64,21 @@ data = "<h1>Header 2</h1>
 <h2>Sub header</h2>
 
 <p>This is md file 3</p>
+<h1>Header 3</h1>
+
+<h2>Sub header</h2>
+
+<p>This is md file 3</p>
+<h1>Header 1</h1>
+
+<h2>Sub header</h2>
+
+<p>This is md file 1</p>
+<h1>Header 2</h1>
+
+<h2>Sub header</h2>
+
+<p>This is md file 2</p>
 "
 dir_path = "res://md_files/"
 

@@ -124,7 +124,7 @@ func _handle_request_main(request : WebServerRequest) -> void:
 		return;
 
 	var file_name : String = request.get_path(true, false);
-	file_name = file_name.to_lower();
+	#file_name = file_name.to_lower();
 	
 	var fabspath : String = _file_cache.wwwroot_get_file_abspath(file_name)
 

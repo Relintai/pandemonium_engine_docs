@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://FileManager.p" type="Script" id=1]
+
+[node name="Main" type="Node"]
+
+[node name="WebServerSimple" type="WebServerSimple" parent="."]
+start_on_ready = true
+upload_file_store_type = 1
+upload_temp_file_store_path = "user://http_temp_files/"
+upload_request_max_file_size_type = 3
+upload_request_max_file_size = 1
+
+[node name="FileManager" type="WebNode" parent="WebServerSimple"]
+script = ExtResource( 1 )
+render_back_arrow = false
+serve_folder = "user://managed_folder/"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+margin_left = 358.0
+margin_top = 286.0
+margin_right = 512.0
+margin_bottom = 300.0
+text = "The server is running at:"
+
+[node name="LinkButton" type="LinkButton" parent="PanelContainer/HBoxContainer"]
+margin_left = 516.0
+margin_top = 286.0
+margin_right = 652.0
+margin_bottom = 300.0
+size_flags_vertical = 4
+text = "http://127.0.0.1:8080"
+uri = "http://127.0.0.1:8080"

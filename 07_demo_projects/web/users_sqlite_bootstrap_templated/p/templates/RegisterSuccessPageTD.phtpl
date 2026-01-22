@@ -1,0 +1,16 @@
+
+[ RegisterSuccess ]
+<div class="row mb-4">
+		<div class="col-2"></div>
+		<div class="col-8">	<h2>Registration successful!</h2></div>
+		<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+		<div class="col-2"></div>
+		<div class="col-8">
+			Login Here:<br>
+			<a href="{{ redirect_on_success_url }}">{{ ">> Login <<" }}</a>
+		</div>
+		<div class="col-2"></div>
+</div>
+

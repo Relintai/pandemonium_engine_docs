@@ -37,6 +37,7 @@ TestAutoload="*res://test_autoload.tscn"
 [editor]
 
 scene_naming=2
+default_language=2
 
 [gui]
 

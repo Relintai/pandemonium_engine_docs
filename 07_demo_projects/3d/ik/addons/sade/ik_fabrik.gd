@@ -1,4 +1,7 @@
+tool
 extends Spatial
+
+var editor_show_spheres = false
 
 # A FABRIK IK chain with a middle joint helper.
 
@@ -64,7 +67,7 @@ func _ready():
 			target = $Target
 
 		# If we are in the editor, we want to make a sphere at this node
-		if Engine.editor_hint:
+		if Engine.editor_hint && editor_show_spheres:
 			_make_editor_sphere_at_node(target, Color.magenta)
 
 	if middle_joint_target == null:
@@ -82,7 +85,7 @@ func _ready():
 			middle_joint_target = get_node("MiddleJoint")
 
 		# If we are in the editor, we want to make a sphere at this node
-		if Engine.editor_hint:
+		if Engine.editor_hint && editor_show_spheres:
 			_make_editor_sphere_at_node(middle_joint_target, Color(1, 0.24, 1, 1))
 
 	# Make all of the bone nodes for each bone in the IK chain
@@ -160,10 +163,9 @@ func update_skeleton():
 		total_length = 0
 		for bone_length in bones_in_chain_lengths:
 			total_length += bone_length
-
+	
 	# Solve the bone chain
 	solve_chain()
-
 
 func solve_chain():
 	# If we have reached our max chain iteration, and we are limiting ourselves, then return.
@@ -185,7 +187,8 @@ func solve_chain():
 		dir = -target.global_transform.basis.z.normalized()
 
 	# Get the target position (accounting for the final bone and it's length)
-	var target_pos = target.global_transform.origin + (dir * bones_in_chain_lengths[bone_nodes.size()-1])
+	var target_pos = target.global_transform.origin
+	#var target_pos = target.global_transform.origin - (dir * bones_in_chain_lengths[bone_nodes.size()-1])
 
 	# If we are using middle joint target (and have more than 2 bones), move our middle joint towards it!
 	if use_middle_joint_target:
@@ -216,7 +219,7 @@ func solve_chain():
 	for i in range(0, bone_nodes.size()):
 		var reset_bone_trans = get_bone_transform(i)
 		bone_nodes[i].global_transform = reset_bone_trans
-
+	
 
 # Backward reaching pass
 func chain_backward():
@@ -229,7 +232,8 @@ func chain_backward():
 		dir = -target.global_transform.basis.z.normalized()
 
 	# Set the position of the end effector (the final bone in the chain) to the target position
-	bone_nodes[bone_nodes.size()-1].global_transform.origin = target.global_transform.origin + (dir * bones_in_chain_lengths[bone_nodes.size()-1])
+	#bone_nodes[bone_nodes.size()-1].global_transform.origin = target.global_transform.origin - (dir * bones_in_chain_lengths[bone_nodes.size()-1])
+	bone_nodes[bone_nodes.size()-1].global_transform.origin = target.global_transform.origin 
 
 	# For all of the other bones, move them towards the target
 	var i = bones_in_chain.size() - 1
@@ -265,7 +269,7 @@ func chain_apply_rotation():
 	# For each bone in the bone chain
 	for i in range(0, bones_in_chain.size()):
 		# Get the bone's transform, NOT converted to world space
-		var bone_trans = get_bone_transform(i, false)
+		var bone_trans : Transform = get_bone_transform(i, false)
 		# If this is the last bone in the bone chain, rotate the bone so it faces
 		# the same direction as the next to last bone in the bone chain if there are more than
 		# two bones. If there are only two bones, rotate the end effector towards the target
@@ -283,7 +287,8 @@ func chain_apply_rotation():
 				var dir = (target.global_transform.origin - b_target_two.origin).normalized()
 
 				# Make this bone look in the same the direction as the last bone
-				bone_trans = bone_trans.looking_at(b_target.origin + dir, Vector3.UP)
+				#bone_trans = bone_trans.looking_at(b_target.origin + dir, Vector3.UP)
+				bone_trans = bone_trans.looking_at(b_target.origin + dir, Vector3.UP, true)
 
 				# Set the position of the bone to the bone target.
 				# Prior to Godot 3.2, this was not necessary, but because we can now completely
@@ -293,7 +298,8 @@ func chain_apply_rotation():
 			else:
 				var b_target = target.global_transform
 				b_target.origin = skeleton.global_transform.xform_inv(b_target.origin)
-				bone_trans = bone_trans.looking_at(b_target.origin, skeleton_up)
+				#bone_trans = bone_trans.looking_at(b_target.origin, skeleton_up)
+				bone_trans = bone_trans.looking_at(b_target.origin, skeleton_up, true)
 
 				# A bit of a hack. Because we only have two bones, we have to use the previous
 				# bone to position the last bone in the chain.
@@ -319,7 +325,8 @@ func chain_apply_rotation():
 			var dir = (b_target_two.origin - b_target.origin).normalized()
 
 			# Make this bone look towards the direction of the next bone
-			bone_trans = bone_trans.looking_at(b_target.origin + dir, skeleton_up)
+			#bone_trans = bone_trans.looking_at(b_target.origin + dir, skeleton_up)
+			bone_trans = bone_trans.looking_at(b_target.origin + dir, skeleton_up, true)
 
 			# Set the position of the bone to the bone target.
 			# Prior to Godot 3.2, this was not necessary, but because we can now completely
@@ -343,8 +350,10 @@ func get_bone_transform(bone, convert_to_world_space = true):
 
 
 func set_bone_transform(bone, trans):
+	trans.basis = skeleton.global_pose_z_forward_to_bone_forward(bone_IDs[bones_in_chain[bone]], trans.basis)
 	# Set the global transform of the bone
 	skeleton.set_bone_global_pose_override(bone_IDs[bones_in_chain[bone]], trans, 1.0, true)
+	#skeleton.set_bone_local_pose_override(bone_IDs[bones_in_chain[bone]], trans, 1.0, true)
 
 ############# END OF IK SOLVER RELATED FUNCTIONS #############
 
@@ -454,9 +463,14 @@ func _make_bone_nodes():
 
 		else:
 			bone_nodes[bone] = get_node(bone_name)
+			
+			if Engine.editor_hint:
+				if get_tree() != null:
+					if get_tree().edited_scene_root != null:
+						bone_nodes[bone].set_owner(get_tree().edited_scene_root)
 
 		# If we are in the editor, we want to make a sphere at this node
-		if Engine.editor_hint:
+		if Engine.editor_hint && editor_show_spheres:
 			_make_editor_sphere_at_node(bone_nodes[bone], Color(0.65, 0, 1, 1))
 
 

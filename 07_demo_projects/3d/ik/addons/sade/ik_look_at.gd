@@ -1,3 +1,4 @@
+#tool
 extends Spatial
 
 export(NodePath) var skeleton_path setget _set_skeleton_path
@@ -126,6 +127,7 @@ func update_skeleton():
 		rest.origin = additional_bone_pos.origin - additional_bone_pos.basis.z.normalized() * additional_bone_length
 
 	# Finally, apply the new rotation to the bone in the skeleton.
+	#rest.basis = skeleton_to_use.global_pose_z_forward_to_bone_forward(bone, rest.basis)
 	skeleton_to_use.set_bone_global_pose_override(bone, rest, interpolation, true)
 
 

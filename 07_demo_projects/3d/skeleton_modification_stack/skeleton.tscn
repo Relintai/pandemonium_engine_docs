@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[node name="Skeleton" type="Skeleton"]
+bones/0/name = "Base"
+bones/0/parent = -1
+bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/0/enabled = true
+bones/0/position = Vector3( 0, 0, 0 )
+bones/0/rotation = Quaternion( 0, 0, 0, 1 )
+bones/0/scale = Vector3( 1, 1, 1 )
+bones/1/name = "B1"
+bones/1/parent = 0
+bones/1/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+bones/1/enabled = true
+bones/1/position = Vector3( 0, 1, 0 )
+bones/1/rotation = Quaternion( 0, 0, 0, 1 )
+bones/1/scale = Vector3( 1, 1, 1 )
+bones/2/name = "B2"
+bones/2/parent = 1
+bones/2/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+bones/2/enabled = true
+bones/2/position = Vector3( 0, 1, 0 )
+bones/2/rotation = Quaternion( 0, 0, 0, 1 )
+bones/2/scale = Vector3( 1, 1, 1 )
+bones/3/name = "B3"
+bones/3/parent = 2
+bones/3/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+bones/3/enabled = true
+bones/3/position = Vector3( 0, 1, 0 )
+bones/3/rotation = Quaternion( 0, 0, 0, 1 )
+bones/3/scale = Vector3( 1, 1, 1 )
+
+[node name="B1" type="BoneAttachment" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+bone_name = "B1"
+bone_idx = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="B1"]
+mesh = SubResource( 1 )
+
+[node name="B2" type="BoneAttachment" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+bone_name = "B2"
+bone_idx = 2
+
+[node name="MeshInstance2" type="MeshInstance" parent="B2"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../../B1")
+
+[node name="B3" type="BoneAttachment" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+bone_name = "B3"
+bone_idx = 3
+
+[node name="MeshInstance3" type="MeshInstance" parent="B3"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../../B1")

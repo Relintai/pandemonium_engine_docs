@@ -20,8 +20,8 @@ _global_script_classes=[ {
 "path": "res://test_global_class.p"
 } ]
 _global_script_class_icons={
-@"ClassInClass": "",
-@"TestGlobalClass": ""
+"ClassInClass": "",
+"TestGlobalClass": ""
 }
 
 [application]

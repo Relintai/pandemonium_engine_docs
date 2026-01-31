@@ -129,6 +129,65 @@ void switch_test_7() {
 	}
 }
 
+void switch_test_8() {
+	print("switch_test_8()");
+
+	Variant x = 2;
+
+	switch x {
+	case 1:
+		print("We are number one!");
+		break;
+	case 2:
+		print("Two are better than one!");
+		break;
+	case 3:
+		print("Three are better than one!");
+		break;
+	default:
+		print("Default are better than one!");
+	}
+	
+	print("This is a statement after switch");
+}
+
+void switch_test_9() {
+	print("switch_test_9()");
+
+	int x = 2;
+	int y = 1;
+
+	switch x {
+	case 1:
+		print("We are number one!");
+		break;
+	case 2:
+		
+		switch y {
+			case 0:
+				print("Switch inside switch case 0");
+				break;
+			case 1:
+				print("Switch inside switch case 1");
+				break;
+			case 2:
+				print("Switch inside switch case 2");
+				break;
+			default:
+				break;
+		}
+		
+		break;
+	case 3:
+		print("Three are better than one!");
+		break;
+	default:
+		print("Default are better than one!");
+	}
+	
+	print("This is a statement after switch");
+}
+
 void _ready() {
 	switch_test_1();
 	switch_test_2();
@@ -137,6 +196,8 @@ void _ready() {
 	switch_test_5();
 	switch_test_6();
 	switch_test_7();
+	switch_test_8();
+	switch_test_9();
 }
 
 // Called every frame. 'delta' is the elapsed time since the previous frame.

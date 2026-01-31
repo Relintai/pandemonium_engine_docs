@@ -300,15 +300,53 @@ static String method_args_test_7(int a1, String a2 = "AAA", float a3 = 15) {
 	return str(a1) + a2 + str(a3);
 }
 
-void variables_instacing_test() {
-	print("variables_test():");
+// Const method args
+
+void const_method_args_test_1(const int a1) {
+	print(a1);
+}
+
+String const_method_args_test_2(const int &a1) {
+	return str(a1);
+}
+
+void const_method_args_test_3(const int a1, const String a2) {
+	print(str(a1) + " " + a2);
+}
+
+String const_method_args_test_4(const int a1, const String &a2, const float a3) {
+	return str(a1) + a2 + str(a3);
+}
+
+String const_method_args_test_5(const int a1, String a2, const float &a3 = 13) {
+	return str(a1) + a2 + str(a3);
+}
+
+String const_method_args_test_6(const int a1, const String &a2 = "AAA", const float a3 = 15) {
+	return str(a1) + a2 + str(a3);
+}
+
+static String const_method_args_test_7(const int a1, const String a2 = "AAA", const float &a3 = 15) {
+	return str(a1) + a2 + str(a3);
+}
+
+// const method test
+
+void method_args_test_1_const(const int a1) const {
+	print(a1);
+}
+
+// variables_instacing_test
+
+void variables_instacing_test_1() {
+	print("variables_instacing_test_1():");
 	
 	ImageTexture tex = ImageTexture.new();
 	print(tex);
 }
 
-void class_instacing_test() {
-	print("class_instacing_test():");
+void class_instacing_test_1() {
+	print("class_instacing_test_1():");
 	
 	TestGlobalClass tgc = null;
 	print(tgc);
@@ -326,6 +364,38 @@ void class_instacing_test() {
 	
 	print("TIC2");
 	ClassInClass::TestClass c2 = ClassInClass::TestClass.new();
+	print(c2);
+}
+
+void variables_instacing_test_2() {
+	print("variables_instacing_test_2():");
+	
+	const ImageTexture tex = ImageTexture.new();
+	print(tex);
+	
+	const ImageTexture tex2 = ImageTexture.new();
+	print(tex2);
+}
+
+void class_instacing_test_2() {
+	print("class_instacing_test_2():");
+	
+	const TestGlobalClass tgc = null;
+	print(tgc);
+	tgc = TestGlobalClass.new();
+	print(tgc);
+	
+	print("TGC2");
+	const TestGlobalClass tgc2 = TestGlobalClass.new();
+	print(tgc2);
+	
+	print("TIC1");
+	const ClassInClass::TestClass c = null;
+	c = ClassInClass.TestClass.new();
+	print(c);
+	
+	print("TIC2");
+	const ClassInClass::TestClass c2 = ClassInClass::TestClass.new();
 	print(c2);
 }
 
@@ -372,6 +442,17 @@ void method_args_tests() {
 	print(method_args_test_7(165));
 }
 
+void const_method_args_tests() {
+	print(const_method_args_test_1(12));
+	print(const_method_args_test_2(165));
+	print(const_method_args_test_3(165, "String!"));
+	print(const_method_args_test_4(165, "String!", 113.5));
+	print(const_method_args_test_5(165, "String!"));
+	print(const_method_args_test_6(165));
+	print(const_method_args_test_7(165));
+	print(method_args_test_1_const(12));
+}
+
 void _ready() {
 	while_loop_test_1();
 	while_loop_test_2();
@@ -393,9 +474,12 @@ void _ready() {
 	return_test();
 	
 	method_args_tests();
+	const_method_args_tests();
 	
-	variables_instacing_test();
-	class_instacing_test();
+	variables_instacing_test_1();
+	variables_instacing_test_2();
+	class_instacing_test_1();
+	class_instacing_test_2();
 	
 	raw_block_1();
 	raw_block_2();

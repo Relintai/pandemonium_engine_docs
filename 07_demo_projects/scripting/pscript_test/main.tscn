@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3]
+[gd_scene load_steps=23 format=3]
 
 [ext_resource path="res://basics.p" type="Script" id=1]
 [ext_resource path="res://class_variables.p" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://singletons_test.p" type="Script" id=13]
 [ext_resource path="res://indexing_test.p" type="Script" id=14]
 [ext_resource path="res://enum_test.p" type="Script" id=15]
+[ext_resource path="res://ref_test.p" type="Script" id=16]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -96,6 +97,9 @@ script = ExtResource( 11 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="QuotedTest"]
 anims/test = SubResource( 5 )
 anims/test2 = SubResource( 6 )
+
+[node name="RefTest" type="Node" parent="."]
+script = ExtResource( 16 )
 
 [connection signal="tree_exited" from="TestConnect" to="TestConnect" method="_on_TestConnect_tree_exited"]
 [connection signal="test_singal_1" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_1"]

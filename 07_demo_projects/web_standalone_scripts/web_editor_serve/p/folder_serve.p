@@ -3,6 +3,17 @@
 extends SceneTree;
 class_name FolderServe;
 
+class EditorServeBFSWP : BrowsableFolderServeWebPage {
+	void _handle_request_main(WebServerRequest request) {
+		// Set cors headers
+		request.custom_response_header_set("cross-origin-embedder-policy", "require-corp");
+		request.custom_response_header_set("cross-origin-opener-policy", "same-origin");
+		request.custom_response_header_set("cross-origin-resource-policy", "same-origin");
+		
+		._handle_request_main(request);
+	}
+}
+
 WebServerSimple web_server_simple = null;
 
 void setup() {
@@ -22,7 +33,7 @@ void setup() {
 		folder_path = "./";
 	}
 	
-	BrowsableFolderServeWebPage fswp = BrowsableFolderServeWebPage.new();
+	EditorServeBFSWP fswp = EditorServeBFSWP.new();
 	fswp.serve_folder = folder_path;
 	fswp.uri_segment = "/";
 	

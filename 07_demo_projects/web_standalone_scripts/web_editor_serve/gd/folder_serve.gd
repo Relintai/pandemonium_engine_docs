@@ -3,6 +3,18 @@
 extends SceneTree
 class_name FolderServe
 
+class EditorServeBFSWP:
+	extends BrowsableFolderServeWebPage
+	
+	func _handle_request_main(request : WebServerRequest) -> void:
+		# Set cors headers
+		request.custom_response_header_set("cross-origin-embedder-policy", "require-corp");
+		request.custom_response_header_set("cross-origin-opener-policy", "same-origin");
+		request.custom_response_header_set("cross-origin-resource-policy", "same-origin");
+		
+		._handle_request_main(request);
+
+
 var web_server_simple : WebServerSimple = null
 
 func setup():
@@ -20,7 +32,7 @@ func setup():
 	if !dir.dir_exists(folder_path):
 		folder_path = "./"
 	
-	var fswp : BrowsableFolderServeWebPage = BrowsableFolderServeWebPage.new()
+	var fswp : EditorServeBFSWP = EditorServeBFSWP.new()
 	fswp.serve_folder = folder_path
 	fswp.uri_segment = "/"
 	

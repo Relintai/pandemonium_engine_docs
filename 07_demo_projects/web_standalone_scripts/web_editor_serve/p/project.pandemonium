@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Folder Serve Script P"
+config/name="Web Editor Serve Script P"
 run/main_scene="res://node.tscn"
 config/icon="res://icon.png"
 run/main_loop_type="FolderServe"

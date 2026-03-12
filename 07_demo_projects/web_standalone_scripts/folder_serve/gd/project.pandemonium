@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Folder Serve Script"
+config/name="Folder Serve Script GD"
 config/icon="res://icon.png"
 
 [editor]

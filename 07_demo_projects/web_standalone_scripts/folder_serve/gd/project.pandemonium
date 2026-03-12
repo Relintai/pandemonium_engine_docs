@@ -21,10 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Folder Serve Script GD"
+run/main_scene="res://node.tscn"
 config/icon="res://icon.png"
+run/main_loop_type="FolderServe"
 
 [editor]
 
+main_run_args="test_folder"
 scene_naming=2
 default_language=2
 

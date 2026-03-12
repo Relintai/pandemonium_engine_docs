@@ -9,4 +9,4 @@ instead you need to get the engine, and run it with the `-s` (`--script`) option
 
 `./pandemonium -s ./folder_serve.gd .`
 
-
+Note that you only need the `folder_serve` script, the project itself is just a convenient way to develop it.

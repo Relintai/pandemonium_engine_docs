@@ -1,6 +1,5 @@
 # Run this script like: /pandemonium -s folder_serve.gd .
 
-#extends Node
 extends SceneTree
 class_name FolderServe
 
@@ -23,18 +22,12 @@ func setup():
 	
 	var fswp : BrowsableFolderServeWebPage = BrowsableFolderServeWebPage.new()
 	fswp.serve_folder = folder_path
+	fswp.uri_segment = "/"
 	
 	web_server_simple = WebServerSimple.new()
 	web_server_simple.start_on_ready = true
 	web_server_simple.add_child(fswp)
 
-
-# If it's a Node
-#func _ready() -> void:
-#	setup()
-#	add_child(web_server_simple)
-
-# If it's a SceneTree
 func _initialize():
 	setup()
 	root.add_child(web_server_simple)

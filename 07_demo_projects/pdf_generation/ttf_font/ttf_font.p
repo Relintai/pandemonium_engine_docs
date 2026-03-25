@@ -21,21 +21,21 @@ void _ready() {
 //	print(pdf.has_document());
 	
 	// Will not work: (Need explicit path to font file)
-	//PDFFont title_font = pdf.get_font("Helvetica");
+	//PDFFont title_font = pdf.font_get("Helvetica");
 	
-	String font_name = pdf.load_ttf_font_from_file(font_file_path, embed);
+	String font_name = pdf.font_load_ttf_from_file(font_file_path, embed);
 	print(font_name);
 	print("error: %X" % [ pdf.get_error_no() ]);
-	print("error det: %X" % [ pdf.get_error_detail_no() ]);
+	print("error det: %X" % [ pdf.get_error_detail() ]);
 	print("status: %X" % [ pdf.get_status() ]);
 	
-	PDFFont title_font = pdf.get_font(font_name);
+	PDFFont title_font = pdf.font_get(font_name);
 	
 	String detail_font_name = font_name;
 	PDFFont detail_font = title_font;
 	// or:
 	#detail_font_name = load_font_from_mem(pdf);
-	#detail_font = pdf.get_font(detail_font_name);
+	#detail_font = pdf.font_get(detail_font_name);
 
 	PDFPage page = pdf.page_add();
 

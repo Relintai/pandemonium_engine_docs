@@ -13,7 +13,7 @@ void draw_image (PDFDocument pdf, String filename, float x, float y, String text
 //	img.load(filename);
 	img.load(f.get_filesystem_abspath_for(filename));
 
-	PDFImage image = pdf.create_pdf_image_from_image(img);
+	PDFImage image = pdf.image_create_pdf_from_image(img);
 
 	// Draw image to the canvas.
 	page.draw_image(image, Rect2(x, y, image.get_width(), image.get_height()));
@@ -31,13 +31,13 @@ void draw_image (PDFDocument pdf, String filename, float x, float y, String text
 void _ready() {
 	PDFDocument pdf = PDFDocument.new();
 
-	pdf.set_compression_mode(PDFDocument.COMPRESSION_MODE_ALL);
+	pdf.compression_mode_set(PDFDocument.COMPRESSION_MODE_ALL);
 
 	// Will not work: (Need explicit path to font file)
 	//PDFFont font = pdf.get_font("Helvetica");
 	
-	String font_name = pdf.load_ttf_font_from_file(font_file_path, embed);
-	PDFFont font = pdf.get_font(font_name);
+	String font_name = pdf.font_load_ttf_from_file(font_file_path, embed);
+	PDFFont font = pdf.font_get(font_name);
 
 	// add a new page object.
 	PDFPage page = pdf.page_add();

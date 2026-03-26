@@ -47,8 +47,9 @@ void _ready() {
 //	/* set compression mode */
 	pdf.compression_mode_set(PDFDocument.COMPRESSION_MODE_ALL);
 	
-	String font_name = pdf.font_load_ttf_from_file(font_file_path, embed);
-	PDFFont font = pdf.font_get(font_name);
+	#String font_name = pdf.font_load_ttf_from_file(font_file_path, embed);
+	#PDFFont font = pdf.font_get(font_name);
+	PDFFont font = pdf.font_get("Helvetica");
 	
 	String page_title = "Text Demo";
 	String samp_text = "abcdefgABCDEFG123!#$%&+-@?";

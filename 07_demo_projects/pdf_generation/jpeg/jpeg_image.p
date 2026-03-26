@@ -33,7 +33,6 @@ void _ready() {
 
 	pdf.compression_mode_set(PDFDocument.COMPRESSION_MODE_ALL);
 
-	// Will not work: (Need explicit path to font file)
 	//PDFFont font = pdf.get_font("Helvetica");
 	
 	String font_name = pdf.font_load_ttf_from_file(font_file_path, embed);

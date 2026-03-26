@@ -20,7 +20,6 @@ void _ready() {
 //	pdf.new_document();
 //	print(pdf.has_document());
 	
-	// Will not work: (Need explicit path to font file)
 	//PDFFont title_font = pdf.font_get("Helvetica");
 	
 	String font_name = pdf.font_load_ttf_from_file(font_file_path, embed);

@@ -142,15 +142,18 @@ void _ready() {
 		page.show_text(encodings[i]);
 		page.show_text(" Encoding");
 		page.end_text();
+		
+		PDFFont font2 = null;
 
-//		if (strcmp (encodings[i], "Symbol-Set") == 0)
-//			font2 = HPDF_GetFont (pdf, "Symbol", NULL);
-//		else if (strcmp (encodings[i], "ZapfDingbats-Set") == 0)
-//			font2 = HPDF_GetFont (pdf, "ZapfDingbats", NULL);
-//		else
-//			font2 = HPDF_GetFont (pdf, font_name, encodings[i]);
-	
-		PDFFont font2 = pdf.font_get(font_name, encodings[i]);
+		if (encodings[i] == "Symbol-Set") {
+			font2 = pdf.font_get("Symbol", String());
+		} else if (encodings[i] == "ZapfDingbats-Set") {
+			font2 = pdf.font_get("ZapfDingbats", String());
+		} else {
+			font2 = pdf.font_get(font_name, encodings[i]);
+		}
+		
+		#PDFFont font2 = pdf.font_get(font_name, encodings[i]);
 		
 		if (!font2) {
 			print("Encoding was not found for the given font!");

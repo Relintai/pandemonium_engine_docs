@@ -1,0 +1,90 @@
+
+[ Test1 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Foreach Test 1</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{for i in [1, 2, 3, 4]}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(i) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endfor}}
+
+[ Test2 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Foreach Test 2</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{for i in [1, 3, 4, 7, 8]}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		val: {{ p(i) }}: val+2: {{ p(i + 2) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endfor}}
+
+[ Test3 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Foreach Range Test 1</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{for i in range(5) }}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(i) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endfor}}
+
+[ Test4 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Foreach Range Test 2</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{for i in range(5, 10) }}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(i) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endfor}}
+
+[ Test5 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Foreach Range Test 3</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{for i in range(5, 20, 2) }}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(i) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endfor}}

@@ -1,0 +1,13 @@
+[remap]
+
+importer="html_template_data"
+type="HTMLTemplateData"
+path="res://.import/if_template.phtpl-78e5b16fda1507bf12767a95ebb33be2.res"
+
+[deps]
+
+source_file="res://if/if_template.phtpl"
+dest_files=[ "res://.import/if_template.phtpl-78e5b16fda1507bf12767a95ebb33be2.res" ]
+
+[params]
+

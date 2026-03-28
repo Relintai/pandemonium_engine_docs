@@ -1,0 +1,13 @@
+[remap]
+
+importer="html_template_data"
+type="HTMLTemplateData"
+path="res://.import/rt.phtpl-6aca96ebe638f564179c1da21ff43596.res"
+
+[deps]
+
+source_file="res://builtins/rt.phtpl"
+dest_files=[ "res://.import/rt.phtpl-6aca96ebe638f564179c1da21ff43596.res" ]
+
+[params]
+

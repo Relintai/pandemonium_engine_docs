@@ -1,0 +1,176 @@
+[gd_scene load_steps=23 format=3]
+
+[ext_resource path="res://for_each/template_foreach_test.p" type="Script" id=1]
+[ext_resource path="res://WebRoot.p" type="Script" id=2]
+[ext_resource path="res://HTTPSessionManagerDB.p" type="Script" id=3]
+[ext_resource path="res://Main.p" type="Script" id=4]
+[ext_resource path="res://Login.p" type="Script" id=5]
+[ext_resource path="res://Register.p" type="Script" id=6]
+[ext_resource path="res://Settings.p" type="Script" id=7]
+[ext_resource path="res://templates/LoginPage.tres" type="HTMLTemplate" id=8]
+[ext_resource path="res://templates/RegisterDefaultPage.tres" type="HTMLTemplate" id=9]
+[ext_resource path="res://templates/RegisterSuccessPage.tres" type="HTMLTemplate" id=10]
+[ext_resource path="res://templates/SettingsPage.tres" type="HTMLTemplate" id=11]
+[ext_resource path="res://templates/Root.tres" type="HTMLTemplate" id=12]
+[ext_resource path="res://for_each/template.tres" type="HTMLTemplate" id=13]
+[ext_resource path="res://if/template_if_test.p" type="Script" id=14]
+[ext_resource path="res://if/tpl.tres" type="HTMLTemplate" id=15]
+[ext_resource path="res://builtins/template_builtins_test.p" type="Script" id=16]
+[ext_resource path="res://builtins/t.tres" type="HTMLTemplate" id=17]
+[ext_resource path="res://variant_and_calls/template_variant_and_calls.p" type="Script" id=18]
+[ext_resource path="res://variant_and_calls/htmltemplate.tres" type="HTMLTemplate" id=19]
+
+[sub_resource type="SessionSetupWebServerMiddleware" id=3]
+
+[sub_resource type="UserSessionSetupWebServerMiddleware" id=4]
+
+[sub_resource type="CSRFTokenWebServerMiddleware" id=5]
+ignored_urls = PoolStringArray( "/user/login", "/user/register" )
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+
+[node name="UserManagerDB" type="UserManagerDB" parent="."]
+
+[node name="WebServerSimple" type="WebServerSimple" parent="."]
+start_on_ready = true
+
+[node name="WebRoot" type="WebRoot" parent="WebServerSimple"]
+www_root_path = "res://www/"
+middlewares = [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]
+script = ExtResource( 2 )
+template = ExtResource( 12 )
+
+[node name="StaticWebPage" type="StaticWebPage" parent="WebServerSimple/WebRoot"]
+uri_segment = "/"
+data = "<div class=\"row\">
+<div class=\"col-2\"></div>
+<div class=\"col-8\">
+You can go and log in on the users page here: <a href=\"/user/login\">Login</a><br>
+<br>
+Note that in this demo sessions and users are saved in an SQLite database here: \"user://database.sqlite\"<br>
+<br>
+There are no users by default.<br>
+<br>
+</div>
+<div class=\"col-2\"></div>
+</div>"
+
+[node name="TemplateForeachTest" type="WebNode" parent="WebServerSimple/WebRoot"]
+uri_segment = "template_foreach_test"
+script = ExtResource( 1 )
+template = ExtResource( 13 )
+
+[node name="TemplateIfTest" type="WebNode" parent="WebServerSimple/WebRoot"]
+uri_segment = "template_if_test"
+script = ExtResource( 14 )
+template = ExtResource( 15 )
+
+[node name="TemplateBuiltinsTest" type="WebNode" parent="WebServerSimple/WebRoot"]
+uri_segment = "template_builtins_test"
+script = ExtResource( 16 )
+template = ExtResource( 17 )
+
+[node name="TemplateVariantAndCalls" type="WebNode" parent="WebServerSimple/WebRoot"]
+uri_segment = "template_variant_and_calls"
+script = ExtResource( 18 )
+template = ExtResource( 19 )
+
+[node name="UserWebPage" type="UserWebPage" parent="WebServerSimple/WebRoot"]
+uri_segment = "user"
+logged_out_render_type = 1
+logged_out_redirect_url = "/user/login"
+
+[node name="Login" type="UserLoginWebPage" parent="WebServerSimple/WebRoot/UserWebPage"]
+uri_segment = "login"
+logged_in_render_type = 1
+logged_in_redirect_url = "/"
+script = ExtResource( 5 )
+login_template = ExtResource( 8 )
+
+[node name="Register" type="UserRegisterWebPage" parent="WebServerSimple/WebRoot/UserWebPage"]
+uri_segment = "register"
+logged_in_render_type = 1
+logged_in_redirect_url = "/"
+redirect_on_success_url = "/user/login"
+script = ExtResource( 6 )
+register_default = ExtResource( 9 )
+register_success = ExtResource( 10 )
+
+[node name="Logout" type="UserLogoutWebPage" parent="WebServerSimple/WebRoot/UserWebPage"]
+uri_segment = "logout"
+logged_out_render_type = 1
+logged_out_redirect_url = "/"
+
+[node name="Settings" type="UserSettingsWebPage" parent="WebServerSimple/WebRoot/UserWebPage"]
+uri_segment = "settings"
+logged_out_render_type = 1
+logged_out_redirect_url = "/user/login"
+script = ExtResource( 7 )
+template = ExtResource( 11 )
+
+[node name="HTTPSessionManagerDB" type="HTTPSessionManagerDB" parent="WebServerSimple"]
+script = ExtResource( 3 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+alignment = 1
+
+[node name="LinkButton" type="LinkButton" parent="PanelContainer/VBoxContainer"]
+margin_left = 391.0
+margin_top = 250.0
+margin_right = 619.0
+margin_bottom = 264.0
+size_flags_horizontal = 4
+text = "Click to open http://127.0.0.1:8080/"
+uri = "http://127.0.0.1:8080/"
+
+[node name="LinkButton2" type="LinkButton" parent="PanelContainer/VBoxContainer"]
+margin_left = 320.0
+margin_top = 268.0
+margin_right = 690.0
+margin_bottom = 282.0
+focus_mode = 2
+size_flags_horizontal = 4
+text = "Click to open http://127.0.0.1:8080/template_foreach_test"
+uri = "http://127.0.0.1:8080/template_foreach_test"
+
+[node name="LinkButton3" type="LinkButton" parent="PanelContainer/VBoxContainer"]
+margin_left = 339.0
+margin_top = 286.0
+margin_right = 670.0
+margin_bottom = 300.0
+focus_mode = 2
+size_flags_horizontal = 4
+text = "Click to open http://127.0.0.1:8080/template_if_test"
+uri = "http://127.0.0.1:8080/template_if_test"
+
+[node name="LinkButton4" type="LinkButton" parent="PanelContainer/VBoxContainer"]
+margin_left = 319.0
+margin_top = 304.0
+margin_right = 690.0
+margin_bottom = 318.0
+focus_mode = 2
+size_flags_horizontal = 4
+text = "Click to open http://127.0.0.1:8080/template_builtins_test"
+uri = "http://127.0.0.1:8080/template_builtins_test"
+
+[node name="LinkButton5" type="LinkButton" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 305.0
+margin_top = 322.0
+margin_right = 704.0
+margin_bottom = 336.0
+focus_mode = 2
+size_flags_horizontal = 4
+text = "Click to open http://127.0.0.1:8080/template_variant_and_calls"
+uri = "http://127.0.0.1:8080/template_variant_and_calls"
+
+[connection signal="user_registered" from="WebServerSimple/WebRoot/UserWebPage/Register" to="WebServerSimple/WebRoot/UserWebPage/Register" method="_on_Register_user_registered"]

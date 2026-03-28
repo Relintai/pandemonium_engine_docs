@@ -1,0 +1,8 @@
+[gd_resource type="HTMLTemplate" load_steps=2 format=3]
+
+[ext_resource path="res://for_each/tmpl.phtpl" type="HTMLTemplateData" id=1]
+
+[resource]
+templates = [ ExtResource( 1 ) ]
+template_override/add_key_button = null
+template_defaults/add_key_button = null

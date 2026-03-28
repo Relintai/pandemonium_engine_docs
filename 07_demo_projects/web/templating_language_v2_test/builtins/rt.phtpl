@@ -1,0 +1,133 @@
+[ Test1 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Getvar/Setvar Test</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ getvar("test", 0) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ setvar("test", 12) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ getvar("test", 0) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ setvar_if(test == 11, "test", 13) }}, {{ getvar("test", 0) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ setvar_if(test == 12, "test", 13) }}, {{ getvar("test", 0) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+
+[ Test2 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Keys / Values test</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ getvar("testdict", "Does not exists") }}, T: {{ setvar("testdict", { "a": 12, "b": 13, "c": "aaa" } ) }}, T: {{ getvar("testdict", "Does not exists") }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ testdict }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ keys(testdict) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ values(testdict) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		Index: {{ testdict.a }}, {{ testdict["a"] }}, {{ str(testdict["a"]) }}, {{ int(testdict["a"]) }}, {{ float(testdict["a"]) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+
+[ Test3 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Select Test</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ setvar("test", 0) }}: test is 0.
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ select(test == 0, 12, 13) }},T:  {{ select(test == 1, 12, 13) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+
+[ Test4 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>TR Test</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ tr("test") }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ trt("test", "hu") }}
+	</div>
+	<div class="col-2"></div>
+</div>

@@ -1,0 +1,130 @@
+
+[ Test1 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>If Test 1 - Condition is true</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{if var == 12}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(var) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endif}}
+
+[ Test2 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>If Test 2 - Condition is false</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{if var == 112}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(var) }}
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endif}}
+
+[ Test3 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>If Test 3 - Condition is true - if/else</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{if var == 12}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(var) }} - True
+	</div>
+	<div class="col-2"></div>
+</div>
+{{else}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(var) }} - False
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endif}}
+
+[ Test4 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>If Test 4 - Condition is false - if/else</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{if var == 2}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(var) }} - True
+	</div>
+	<div class="col-2"></div>
+</div>
+{{else}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(var) }} - False
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endif}}
+
+[ Test5 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>If Branch Test - sv = '{{ sv }}'</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+{{if sv == 1}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(sv) }} - b1
+	</div>
+	<div class="col-2"></div>
+</div>
+{{elif sv == 2}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(sv) }} - b2
+	</div>
+	<div class="col-2"></div>
+</div>
+{{elif sv == 3}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(sv) }} - b3
+	</div>
+	<div class="col-2"></div>
+</div>
+{{else}}
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		{{ p(sv) }} - Else
+	</div>
+	<div class="col-2"></div>
+</div>
+{{endif}}

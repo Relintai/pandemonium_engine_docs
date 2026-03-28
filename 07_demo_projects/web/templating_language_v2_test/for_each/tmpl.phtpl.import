@@ -1,0 +1,13 @@
+[remap]
+
+importer="html_template_data"
+type="HTMLTemplateData"
+path="res://.import/tmpl.phtpl-2bbb2d0a96d205c77dec988cd6fc2913.res"
+
+[deps]
+
+source_file="res://for_each/tmpl.phtpl"
+dest_files=[ "res://.import/tmpl.phtpl-2bbb2d0a96d205c77dec988cd6fc2913.res" ]
+
+[params]
+

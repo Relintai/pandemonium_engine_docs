@@ -10,7 +10,7 @@ String load_font_from_mem(PDFDocument pdf) {
 	PoolByteArray buf = f.get_buffer(f.get_len());
 	f.close();
 
-	return pdf.load_ttf_font_from_mem(buf, embed);
+	return pdf.font_load_ttf_from_mem(buf, embed);
 }
 
 void _ready() {

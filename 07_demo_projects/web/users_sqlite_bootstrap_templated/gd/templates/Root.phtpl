@@ -44,7 +44,7 @@
 			<li class="nav-item"><a href="/" class="nav-link">Index</a></li>
 			<li class="nav-item"><a href="/user/settings" class="nav-link">User Settings</a></li>
 			<li class="nav-item"><a href="/user/logout" class="nav-link">Logout</a></li>
-			<li class="nav-item"><a href="" class="nav-link">Logged in as: {{ p(user[user_name]) }}!</a></li>
+			<li class="nav-item"><a href="" class="nav-link">Logged in as: {{ p(user["user_name"]) }}!</a></li>
 		</ul>
 	</div>
 </nav>

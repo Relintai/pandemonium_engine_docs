@@ -131,3 +131,54 @@
 	</div>
 	<div class="col-2"></div>
 </div>
+
+[ Test5 ]
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		<h4>Escapes Test</h4>
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ pb("t<br>e\nst") }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ p("t<br>e\nst") }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T: {{ "t<br>e\nst" }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T#: {{# "t<br>e\nst" }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T;: {{; "t<br>e\nst" }}
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row mb-4">
+	<div class="col-2"></div>
+	<div class="col-8">
+		T%: {{% "t<br>e\nst" }}
+	</div>
+	<div class="col-2"></div>
+</div>

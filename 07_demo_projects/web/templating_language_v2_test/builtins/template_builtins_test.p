@@ -7,7 +7,7 @@ void _handle_request(WebServerRequest request) {
 	request.body += template.get_and_render_template(@"Test2", |{}|);
 	request.body += template.get_and_render_template(@"Test3", |{}|);
 	request.body += template.get_and_render_template(@"Test4", |{}|);
-//	request.body += template.get_and_render_template(@"Test5", |{}|);
+	request.body += template.get_and_render_template(@"Test5", |{}|);
 	#request.body += template.render(request, |{  }|);
 	request.compile_and_send_body();
 }

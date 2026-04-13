@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": @"PScript",
 "path": "res://class_in_class.p"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": @"TestGlobalClass",
 "language": @"PScript",
 "path": "res://test_global_class.p"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3]
+[gd_scene load_steps=28 format=3]
 
 [ext_resource path="res://basics.p" type="Script" id=1]
 [ext_resource path="res://class_variables.p" type="Script" id=2]
@@ -16,14 +16,23 @@
 [ext_resource path="res://indexing_test.p" type="Script" id=14]
 [ext_resource path="res://enum_test.p" type="Script" id=15]
 [ext_resource path="res://ref_test.p" type="Script" id=16]
+[ext_resource path="res://gd_typed_arr_export.gd" type="Script" id=17]
+[ext_resource path="res://test_global_class.p" type="Script" id=18]
 
 [sub_resource type="CapsuleMesh" id=1]
 
 [sub_resource type="CylinderMesh" id=2]
 
+[sub_resource type="CapsuleMesh" id=7]
+
 [sub_resource type="CapsuleMesh" id=3]
 
 [sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="CubeMesh" id=8]
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 18 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "test"
@@ -40,8 +49,19 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 test_typed_array_1 = TypedArray( int , 2, 4 )
 test_typed_array_2 = TypedArray( Mesh , SubResource( 1 ), SubResource( 2 ) )
+test_typed_array_3 = TypedArray( Nil ,  )
+test_typed_array_5 = TypedArray( TestGlobalClass , null, null )
+test_typed_array_6 = TypedArray( Nil ,  )
+test_typed_array_7 = TypedArray( Nil ,  )
+test_typed_array_8 = TypedArray( Nil ,  )
+test_typed_array_10 = TypedArray( Nil , null )
+test_typed_array_11 = TypedArray( Mesh , SubResource( 7 ), null )
+test_typed_array_12 = TypedArray( TestGlobalClass , null, null )
 test_packed_typed_array_1 = PackedTypedArray( int , 1, 1, 0 )
 test_packed_typed_array_2 = PackedTypedArray( Mesh , SubResource( 3 ), SubResource( 4 ) )
+test_packed_typed_array_10 = PackedTypedArray( int , 736210656, 97, 94489280512 )
+test_packed_typed_array_11 = PackedTypedArray( Mesh , SubResource( 8 ), null )
+test_packed_typed_array_12 = PackedTypedArray( TestGlobalClass , SubResource( 9 ), null )
 
 [node name="TestControl" type="Control" parent="ClassVariables"]
 margin_right = 40.0
@@ -100,6 +120,9 @@ anims/test2 = SubResource( 6 )
 
 [node name="RefTest" type="Node" parent="."]
 script = ExtResource( 16 )
+
+[node name="GDTypedArrExport" type="Node" parent="."]
+script = ExtResource( 17 )
 
 [connection signal="tree_exited" from="TestConnect" to="TestConnect" method="_on_TestConnect_tree_exited"]
 [connection signal="test_singal_1" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_1"]

@@ -62,9 +62,27 @@ export(Array, Mesh) Array test_array_4 = Array();
 
 export(TypedArray) TypedArray test_typed_array_1 = TypedArray("int");
 export(TypedArray) TypedArray test_typed_array_2 = TypedArray("Mesh");
+export(TypedArray) TypedArray test_typed_array_3 = TypedArray("TestGlobalClass");
+export(TypedArray, "TestGlobalClass") TypedArray test_typed_array_5 = TypedArray("TestGlobalClass");
+export(TypedArray, @"TestGlobalClass") TypedArray test_typed_array_6 = TypedArray("TestGlobalClass");
+export(TypedArray, TestGlobalClass) TypedArray test_typed_array_7 = TypedArray("TestGlobalClass");
+export(TypedArray, int) TypedArray test_typed_array_8 = TypedArray("int");
+export(TypedArray, int) TypedArray test_typed_array_10 = TypedArray(int);
+export(TypedArray, Mesh) TypedArray test_typed_array_11 = TypedArray(Mesh);
+export(TypedArray, TestGlobalClass) TypedArray test_typed_array_12 = TypedArray(TestGlobalClass);
 
 export(PackedTypedArray) PackedTypedArray test_packed_typed_array_1 = PackedTypedArray("int");
 export(PackedTypedArray) PackedTypedArray test_packed_typed_array_2 = PackedTypedArray("Mesh");
+export(PackedTypedArray) PackedTypedArray test_packed_typed_array_3 = PackedTypedArray("TestGlobalClass");
+export(PackedTypedArray, "TestGlobalClass") PackedTypedArray test_packed_typed_array_4 = PackedTypedArray("TestGlobalClass");
+export(PackedTypedArray, @"TestGlobalClass") PackedTypedArray test_packed_typed_array_5 = PackedTypedArray("TestGlobalClass");
+export(PackedTypedArray, TestGlobalClass) PackedTypedArray test_packed_typed_array_6 = PackedTypedArray("TestGlobalClass");
+export(PackedTypedArray, int) PackedTypedArray test_packed_typed_array_7 = PackedTypedArray("int");
+export(PackedTypedArray, int, 1) PackedTypedArray test_packed_typed_array_8 = PackedTypedArray("int", 1);
+export(PackedTypedArray, int, INT_TYPE_UNSIGNED_16) PackedTypedArray test_packed_typed_array_9 = PackedTypedArray("int", PackedTypedArray.INT_TYPE_UNSIGNED_16);
+export(PackedTypedArray, int) PackedTypedArray test_packed_typed_array_10 = PackedTypedArray(int);
+export(PackedTypedArray, Mesh) PackedTypedArray test_packed_typed_array_11 = PackedTypedArray(Mesh);
+export(PackedTypedArray, TestGlobalClass) PackedTypedArray test_packed_typed_array_12 = PackedTypedArray(TestGlobalClass);
 
 export(Texture) Texture tex_exp_1;
 export(Texture) Texture tex_exp_2 = null;
@@ -139,5 +157,9 @@ void _ready() {
 	print(var_int_4);
 	var_int_4 = 156;
 	print(var_int_5);
+	
+	test_typed_array_3.push_back(TestGlobalClass.new());
+	test_packed_typed_array_3.push_back(TestGlobalClass.new());
+	TestAutoload.x.push_back(TestGlobalClass.new());
 }
 

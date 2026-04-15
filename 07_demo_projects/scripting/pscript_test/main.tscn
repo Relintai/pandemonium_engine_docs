@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3]
+[gd_scene load_steps=34 format=3]
 
 [ext_resource path="res://basics.p" type="Script" id=1]
 [ext_resource path="res://class_variables.p" type="Script" id=2]
@@ -19,19 +19,38 @@
 [ext_resource path="res://gd_typed_arr_export.gd" type="Script" id=17]
 [ext_resource path="res://test_global_class.p" type="Script" id=18]
 
-[sub_resource type="CapsuleMesh" id=1]
+[sub_resource type="CapsuleMesh" id=13]
 
-[sub_resource type="CylinderMesh" id=2]
+[sub_resource type="Resource" id=12]
+script = ExtResource( 18 )
 
-[sub_resource type="CapsuleMesh" id=7]
+[sub_resource type="Resource" id=14]
+script = ExtResource( 18 )
+
+[sub_resource type="Resource" id=15]
+script = ExtResource( 18 )
+
+[sub_resource type="CubeMesh" id=16]
+
+[sub_resource type="Resource" id=17]
+script = ExtResource( 18 )
+
+[sub_resource type="Resource" id=18]
+script = ExtResource( 18 )
 
 [sub_resource type="CapsuleMesh" id=3]
 
 [sub_resource type="CubeMesh" id=4]
 
+[sub_resource type="Resource" id=19]
+script = ExtResource( 18 )
+
 [sub_resource type="CubeMesh" id=8]
 
 [sub_resource type="Resource" id=9]
+script = ExtResource( 18 )
+
+[sub_resource type="Resource" id=11]
 script = ExtResource( 18 )
 
 [sub_resource type="Animation" id=5]
@@ -47,21 +66,30 @@ script = ExtResource( 1 )
 
 [node name="ClassVariables" type="Node" parent="."]
 script = ExtResource( 2 )
-test_typed_array_1 = TypedArray( int , 2, 4 )
-test_typed_array_2 = TypedArray( Mesh , SubResource( 1 ), SubResource( 2 ) )
-test_typed_array_3 = TypedArray( Nil ,  )
-test_typed_array_5 = TypedArray( TestGlobalClass , null, null )
-test_typed_array_6 = TypedArray( Nil ,  )
-test_typed_array_7 = TypedArray( Nil ,  )
-test_typed_array_8 = TypedArray( Nil ,  )
-test_typed_array_10 = TypedArray( Nil , null )
-test_typed_array_11 = TypedArray( Mesh , SubResource( 7 ), null )
-test_typed_array_12 = TypedArray( TestGlobalClass , null, null )
+test_typed_array_1 = TypedArray( int , 34, 0 )
+test_typed_array_2 = TypedArray( Mesh , SubResource( 13 ), null )
+test_typed_array_3 = TypedArray( TestGlobalClass , SubResource( 12 ), null, null )
+test_typed_array_6 = TypedArray( TestGlobalClass , SubResource( 14 ), null )
+test_typed_array_7 = TypedArray( TestGlobalClass , null, SubResource( 15 ) )
+test_typed_array_8 = TypedArray( int , 0, 43 )
+test_typed_array_10 = TypedArray( int , 0, 0, 0 )
+test_typed_array_11 = TypedArray( Mesh , SubResource( 16 ), null, null )
+test_typed_array_12 = TypedArray( TestGlobalClass , SubResource( 17 ), null, null )
+test_typed_array_13 = TypedArray( TestGlobalClass , null, SubResource( 18 ), null )
 test_packed_typed_array_1 = PackedTypedArray( int , 1, 1, 0 )
 test_packed_typed_array_2 = PackedTypedArray( Mesh , SubResource( 3 ), SubResource( 4 ) )
+test_packed_typed_array_5 = PackedTypedArray( TestGlobalClass , SubResource( 19 ), null )
+test_packed_typed_array_7 = PackedTypedArray( int , 32, 4706261611684298752, 0 )
 test_packed_typed_array_10 = PackedTypedArray( int , 736210656, 97, 94489280512 )
 test_packed_typed_array_11 = PackedTypedArray( Mesh , SubResource( 8 ), null )
 test_packed_typed_array_12 = PackedTypedArray( TestGlobalClass , SubResource( 9 ), null )
+test_packed_typed_array_13 = PackedTypedArray( TestGlobalClass , SubResource( 11 ), null )
+test_packed_typed_array_14 = PackedTypedArray( int , 10, 33, 0, 1139855696 )
+test_packed_typed_array_15 = PackedTypedArray( int , 10, 4706261610602168320, 0, 1168287888, 64 )
+test_packed_typed_array_16 = PackedTypedArray( int , 10, 4706261611684298752, 0, 1458617696 )
+test_packed_typed_array_17 = PackedTypedArray( int , 10, 22255, 0, 0 )
+test_packed_typed_array_18 = PackedTypedArray( int , 10, 0, 177 )
+test_packed_typed_array_19 = PackedTypedArray( int , 10, 32, 157, 87, 0, 0, 0, 0 )
 
 [node name="TestControl" type="Control" parent="ClassVariables"]
 margin_right = 40.0

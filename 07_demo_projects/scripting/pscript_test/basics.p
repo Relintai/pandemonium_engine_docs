@@ -453,6 +453,45 @@ void const_method_args_tests() {
 	print(method_args_test_1_const(12));
 }
 
+
+// TypedArrays
+
+TypedArray<Mesh> typed_array_hint_test_1() {
+	TypedArray<Mesh> arr = TypedArray(@"Mesh");
+	
+	return arr;
+}
+
+TypedArray<int> typed_array_hint_test_2() {
+	TypedArray<int> arr = TypedArray(@"int");
+
+	return arr;
+}
+
+//TypedArray<Mesh> typed_array_hint_test_3() {
+//	TypedArray<int> arr = TypedArray(@"int");
+//
+//	return arr;
+//}
+//
+//TypedArray<int> typed_array_hint_test_4() {
+//	TypedArray<int> arr = TypedArray(@"Mesh");
+//
+//	return arr;
+//}
+
+TypedArray<int> typed_array_hint_test_5() {
+	TypedArray<int> arr = TypedArray<int>();
+
+	return arr;
+}
+
+void typed_array_method_tests() {
+	print("typed_array_method_tests");
+	print(typed_array_hint_test_1());
+	print(typed_array_hint_test_2());
+}
+
 void _ready() {
 	while_loop_test_1();
 	while_loop_test_2();
@@ -483,6 +522,8 @@ void _ready() {
 	
 	raw_block_1();
 	raw_block_2();
+	
+	typed_array_method_tests();
 }
 
 

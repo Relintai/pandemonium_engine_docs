@@ -17,4 +17,16 @@ void _ready() {
 	print(this.tx);
 	print(this->tx);
 	print(this::tx);
+	
+	TypedArray<int> tta = TypedArray<int>();
+	tta.push_back(0);
+	tta.push_back(1);
+	tta.push_back(2);
+	
+	print(tta[0]);
+	print(tta[2]);
+	
+	tta[0] = 2;
+	
+	print(tta[0]);
 }

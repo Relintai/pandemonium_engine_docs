@@ -15,6 +15,7 @@ export(bool) var position_using_additional_bone = false
 export(String) var additional_bone_name = ""
 export(float) var additional_bone_length = 1
 export(bool) var debug_messages = false
+export(bool) var enabled = true
 
 var skeleton_to_use: Skeleton = null
 var first_call: bool = true
@@ -54,6 +55,9 @@ func _notification(what):
 
 
 func update_skeleton():
+	if !enabled:
+		return
+		
 	# NOTE: Because get_node doesn't work in _ready, we need to skip
 	# a call before doing anything.
 	if first_call:
@@ -78,7 +82,7 @@ func update_skeleton():
 		return
 
 	# get the bone's global transform pose.
-	var rest : Transform = skeleton_to_use.get_bone_global_pose_no_override(bone)
+	var rest : Transform = skeleton_to_use.get_bone_global_pose(bone)
 	# Convert our position relative to the skeleton's transform.
 	var target_pos : Vector3 = skeleton_to_use.global_transform.xform_inv(global_transform.origin)
 

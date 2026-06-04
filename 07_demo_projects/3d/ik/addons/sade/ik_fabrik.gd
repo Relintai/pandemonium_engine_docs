@@ -142,6 +142,8 @@ func update_skeleton():
 			printerr(name, " - IK_FABRIK: bones_in_chain and bones_in_chain_lengths!")
 		return
 
+	reset_overrides()
+
 	################################
 
 	# Set all of the bone IDs in bone_IDs, if they are not already made
@@ -284,32 +286,38 @@ func chain_apply_rotation():
 				b_target_two.origin = skeleton.global_transform.xform_inv(b_target_two.origin)
 
 				# Get the direction that the previous bone is pointing towards
-				var dir = (target.global_transform.origin - b_target_two.origin).normalized()
+				var dir = (b_target.origin - b_target_two.origin).normalized()
 
 				# Make this bone look in the same the direction as the last bone
-				#bone_trans = bone_trans.looking_at(b_target.origin + dir, Vector3.UP)
-				bone_trans = bone_trans.looking_at(b_target.origin + dir, Vector3.UP, true)
+				bone_trans = bone_trans.looking_at(b_target.origin + dir, Vector3.UP)
+				#bone_trans = bone_trans.looking_at(b_target.origin + dir, Vector3.UP, true)
 
 				# Set the position of the bone to the bone target.
-				# Prior to Godot 3.2, this was not necessary, but because we can now completely
-				# override bone transforms, we need to set the position as well as rotation.
 				bone_trans.origin = b_target.origin
-
+				
+				#TODO
+				#set_bone_transform(i, bone_trans)
 			else:
 				var b_target = target.global_transform
-				b_target.origin = skeleton.global_transform.xform_inv(b_target.origin)
-				#bone_trans = bone_trans.looking_at(b_target.origin, skeleton_up)
-				bone_trans = bone_trans.looking_at(b_target.origin, skeleton_up, true)
+				var target_pos : Vector3 = skeleton.world_transform_to_global_pose(b_target).origin
 
-				# A bit of a hack. Because we only have two bones, we have to use the previous
-				# bone to position the last bone in the chain.
-				var last_bone = bone_nodes[i-1].global_transform
-				# Because we know the length of adjacent bone to this bone in the chain, we can
-				# position this bone by taking the last bone's position plus the length of the
-				# bone on the Z axis.
-				# This will place the position of the bone at the end of the last bone
-				bone_trans.origin = last_bone.origin - last_bone.basis.z.normalized() * bones_in_chain_lengths[i-1]
+				var bone_idx : int = bone_IDs[bones_in_chain[i]]
+				
+				skeleton.force_update_bone_children_transforms(bone_idx)
+				skeleton.update_bone_rest_forward_vector(bone_idx)
+				
+				bone_trans = skeleton.get_bone_global_pose(bone_idx)
+				
+				var previous_bone_trans2 = skeleton.get_bone_global_pose(bone_IDs[bones_in_chain[i-1]])
 
+				bone_trans = bone_trans.looking_at(target_pos, Vector3(0, 1, 0))
+				bone_trans.basis = skeleton.global_pose_z_forward_to_bone_forward(bone_idx, bone_trans.basis)
+				var direction : Vector3 = bone_trans.basis.xform(skeleton.get_bone_axis_forward_vector(bone_idx)).normalized()
+
+				bone_trans.origin = previous_bone_trans2.origin + (direction * bones_in_chain_lengths[i-1])
+				
+				skeleton.set_bone_global_pose_override(bone_idx, bone_trans, 1.0, true)
+				
 		# If this is NOT the last bone in the bone chain, rotate the bone to look at the next
 		# bone in the bone chain.
 		else:
@@ -329,17 +337,14 @@ func chain_apply_rotation():
 			bone_trans = bone_trans.looking_at(b_target.origin + dir, skeleton_up, true)
 
 			# Set the position of the bone to the bone target.
-			# Prior to Godot 3.2, this was not necessary, but because we can now completely
-			# override bone transforms, we need to set the position as well as rotation.
 			bone_trans.origin = b_target.origin
 
-		# The the bone's (updated) transform
-		set_bone_transform(i, bone_trans)
-
+			# The the bone's (updated) transform
+			set_bone_transform(i, bone_trans)
 
 func get_bone_transform(bone, convert_to_world_space = true):
 	# Get the global transform of the bone
-	var ret: Transform = skeleton.get_bone_global_pose_no_override(bone_IDs[bones_in_chain[bone]])
+	var ret: Transform = skeleton.get_bone_global_pose(bone_IDs[bones_in_chain[bone]])
 
 	# If we need to convert the bone position from bone/skeleton space to world space, we
 	# use the Xform of the skeleton (because bone/skeleton space is relative to the position of the skeleton node).
@@ -354,6 +359,19 @@ func set_bone_transform(bone, trans):
 	# Set the global transform of the bone
 	skeleton.set_bone_global_pose_override(bone_IDs[bones_in_chain[bone]], trans, 1.0, true)
 	#skeleton.set_bone_local_pose_override(bone_IDs[bones_in_chain[bone]], trans, 1.0, true)
+	
+	return trans
+
+func reset_overrides():
+	if bone_IDs.size() == 0:
+		return
+	
+	for i in range(0, bones_in_chain.size()):
+		var bone_id : int = bone_IDs[bones_in_chain[i]]
+		
+		skeleton.set_bone_global_pose_override(bone_id, Transform(), 0, true)
+		skeleton.force_update_bone_children_transforms(bone_id)
+	
 
 ############# END OF IK SOLVER RELATED FUNCTIONS #############
 

@@ -344,7 +344,7 @@ func chain_apply_rotation():
 
 func get_bone_transform(bone, convert_to_world_space = true):
 	# Get the global transform of the bone
-	var ret: Transform = skeleton.get_bone_global_pose(bone_IDs[bones_in_chain[bone]])
+	var ret: Transform = skeleton.get_bone_global_pose_no_override(bone_IDs[bones_in_chain[bone]])
 
 	# If we need to convert the bone position from bone/skeleton space to world space, we
 	# use the Xform of the skeleton (because bone/skeleton space is relative to the position of the skeleton node).

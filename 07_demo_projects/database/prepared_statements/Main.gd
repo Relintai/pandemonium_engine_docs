@@ -30,7 +30,7 @@ func migrate(full : bool) -> void:
 	
 	if full:
 		PLogger.log_message("Running full migrations!")
-		DatabaseManager.migrate(true, false, 0)
+		DatabaseManager.migrate(true, true, 0)
 		DatabaseManager.call_deferred("initialized")
 	else:
 		PLogger.log_message("Running update migrations!")
@@ -43,8 +43,27 @@ func on_databases_initialized() -> void:
 	call_deferred("load_data")
 
 func _migration(clear: bool, should_seed: bool, pseed: int) -> void:
-	randomize()
+	if clear:
+		drop_table();
+		create_table();
+	else:
+		var conn : DatabaseConnection = DatabaseManager.ddb.get_connection()
+		var ver : int = conn.get_table_version("data_table")
+		update_table(ver)
+		
+	if should_seed:
+		seed_db()
+
+func drop_table() -> void:
+	var tb : TableBuilder = DatabaseManager.ddb.get_connection().get_table_builder()
 	
+	tb.drop_table_if_exists("data_table");
+	tb.run_query();
+	
+	var conn : DatabaseConnection = DatabaseManager.ddb.get_connection()
+	conn.set_table_version("data_table", -1)
+
+func create_table() -> void:
 	var tb : TableBuilder = DatabaseManager.ddb.get_connection().get_table_builder()
 	
 	tb.create_table("data_table");
@@ -59,6 +78,15 @@ func _migration(clear: bool, should_seed: bool, pseed: int) -> void:
 	
 	print("Running:")
 	print(tb.result)
+	
+	var conn : DatabaseConnection = DatabaseManager.ddb.get_connection()
+	conn.set_table_version("data_table", 1)
+
+func update_table(ver : int) -> void:
+	pass
+
+func seed_db() -> void:
+	randomize()
 	
 	var qb : QueryBuilder = DatabaseManager.ddb.get_connection().get_query_builder()
 	qb.insert("data_table", "data_varchar,data_text,data_int,data_double").values()

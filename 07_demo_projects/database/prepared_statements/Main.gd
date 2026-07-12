@@ -172,7 +172,7 @@ func load_data_v2() -> void:
 	var ids : PoolIntArray = PoolIntArray()
 	
 	while ps.has_data():
-		ids.push_back(ps.next_column_int());
+		ids.push_back(ps.get_next_column_int());
 		ps.step();
 	
 	#ps.reset();
@@ -184,15 +184,15 @@ func load_data_v2() -> void:
 	for index in ids:
 		ps.reset()
 		
-		ps.next_bind_int(index)
+		ps.set_next_bind_int(index)
 		ps.step()
 		
 		print("ps.column_count(): " + str(ps.column_count()))
-		print("id: " + str(ps.next_column_int()))
-		print("data_varchar: " + str(ps.next_column_text()))
-		print("data_text: " + str(ps.next_column_text()))
-		print("data_int: " + str(ps.next_column_int()))
-		print("data_double: " + str(ps.next_column_double()))
+		print("id: " + str(ps.get_next_column_int()))
+		print("data_varchar: " + str(ps.get_next_column_text()))
+		print("data_text: " + str(ps.get_next_column_text()))
+		print("data_int: " + str(ps.get_next_column_int()))
+		print("data_double: " + str(ps.get_next_column_double()))
 
 
 func load_data_v3() -> void:
@@ -205,9 +205,9 @@ func load_data_v3() -> void:
 
 	while ps.step() == OK:
 		print("ps.column_count(): " + str(ps.column_count()))
-		print("id: " + str(ps.next_column_int()))
-		print("data_varchar: " + str(ps.next_column_text()))
-		print("data_text: " + str(ps.next_column_text()))
-		print("data_int: " + str(ps.next_column_int()))
-		print("data_double: " + str(ps.next_column_double()))
+		print("id: " + str(ps.get_next_column_int()))
+		print("data_varchar: " + str(ps.get_next_column_text()))
+		print("data_text: " + str(ps.get_next_column_text()))
+		print("data_int: " + str(ps.get_next_column_int()))
+		print("data_double: " + str(ps.get_next_column_double()))
 	

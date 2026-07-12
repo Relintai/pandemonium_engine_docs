@@ -76,10 +76,10 @@ func _migration(clear: bool, should_seed: bool, pseed: int) -> void:
 	for i in range(10):
 		ps.reset()
 		
-		ps.bind_text(1, "vc" + str(randi()))
-		ps.bind_text(2, "text" + str(randi()))
-		ps.bind_int(3, randi())
-		ps.bind_double(4, randf() * 100000)
+		ps.bind_text(0, "vc" + str(randi()))
+		ps.bind_text(1, "text" + str(randi()))
+		ps.bind_int(2, randi())
+		ps.bind_double(3, randf() * 100000)
 		ps.step()
 		
 
@@ -111,7 +111,7 @@ func load_data() -> void:
 	for index in ids:
 		ps.reset()
 		
-		ps.bind_int(1, index)
+		ps.bind_int(0, index)
 		ps.step()
 		
 		print("ps.column_count(): " + str(ps.column_count()))

@@ -152,12 +152,12 @@ func load_data_v1() -> void:
 		ps.bind_int(0, index)
 		ps.step()
 		
-		print("ps.column_count(): " + str(ps.column_count()))
-		print("id: " + str(ps.column_int(0)))
-		print("data_varchar: " + str(ps.column_text(1)))
-		print("data_text: " + str(ps.column_text(2)))
-		print("data_int: " + str(ps.column_int(3)))
-		print("data_double: " + str(ps.column_double(4)))
+		print("ps.get_column_count(): " + str(ps.get_column_count()))
+		print("id: " + str(ps.column_int_get(0)))
+		print("data_varchar: " + str(ps.column_text_get(1)))
+		print("data_text: " + str(ps.column_text_get(2)))
+		print("data_int: " + str(ps.column_int_get(3)))
+		print("data_double: " + str(ps.column_double_get(4)))
 
 
 func load_data_v2() -> void:
@@ -172,7 +172,7 @@ func load_data_v2() -> void:
 	var ids : PoolIntArray = PoolIntArray()
 	
 	while ps.has_data():
-		ids.push_back(ps.get_next_column_int());
+		ids.push_back(ps.next_column_int_get());
 		ps.step();
 	
 	#ps.reset();
@@ -187,12 +187,12 @@ func load_data_v2() -> void:
 		ps.set_next_bind_int(index)
 		ps.step()
 		
-		print("ps.column_count(): " + str(ps.column_count()))
-		print("id: " + str(ps.get_next_column_int()))
-		print("data_varchar: " + str(ps.get_next_column_text()))
-		print("data_text: " + str(ps.get_next_column_text()))
-		print("data_int: " + str(ps.get_next_column_int()))
-		print("data_double: " + str(ps.get_next_column_double()))
+		print("ps.get_column_count(): " + str(ps.get_column_count()))
+		print("id: " + str(ps.next_column_int_get()))
+		print("data_varchar: " + str(ps.next_column_text_get()))
+		print("data_text: " + str(ps.next_column_text_get()))
+		print("data_int: " + str(ps.next_column_int_get()))
+		print("data_double: " + str(ps.next_column_double_get()))
 
 
 func load_data_v3() -> void:
@@ -204,10 +204,10 @@ func load_data_v3() -> void:
 	ps.prepare();
 
 	while ps.step() == OK:
-		print("ps.column_count(): " + str(ps.column_count()))
-		print("id: " + str(ps.get_next_column_int()))
-		print("data_varchar: " + str(ps.get_next_column_text()))
-		print("data_text: " + str(ps.get_next_column_text()))
-		print("data_int: " + str(ps.get_next_column_int()))
-		print("data_double: " + str(ps.get_next_column_double()))
+		print("ps.get_column_count(): " + str(ps.get_column_count()))
+		print("id: " + str(ps.next_column_int_get()))
+		print("data_varchar: " + str(ps.next_column_text_get()))
+		print("data_text: " + str(ps.next_column_text_get()))
+		print("data_int: " + str(ps.next_column_int_get()))
+		print("data_double: " + str(ps.next_column_double_get()))
 	

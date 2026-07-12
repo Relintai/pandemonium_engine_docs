@@ -73,6 +73,8 @@ func _migration(clear: bool, should_seed: bool, pseed: int) -> void:
 	
 	print("Inserting 10 values!")
 	
+	var last_insert_rowid : int = -1
+	
 	for i in range(10):
 		ps.reset()
 		
@@ -82,9 +84,17 @@ func _migration(clear: bool, should_seed: bool, pseed: int) -> void:
 		ps.bind_double(3, randf() * 100000)
 		ps.step()
 		
+		last_insert_rowid = ps.get_last_insert_rowid()
+	
+	print("Last inserted row id: " + str(last_insert_rowid));
 
 
 func load_data() -> void:
+	load_data_v1()
+	load_data_v2()
+	load_data_v3()
+	
+func load_data_v1() -> void:
 	print("Querying data from table using prepared statements:")
 	
 	var qb : QueryBuilder = DatabaseManager.ddb.get_connection().get_query_builder()
@@ -122,7 +132,54 @@ func load_data() -> void:
 		print("data_double: " + str(ps.column_double(4)))
 
 
+func load_data_v2() -> void:
+	print("Querying data from table using prepared statements:")
+	
+	var ps : PreparedStatement = DatabaseManager.ddb.get_connection().create_prepared_statement();
+	
+	ps.sql = "SELECT id FROM data_table;";
+	ps.prepare();
+	ps.step();
+	
+	var ids : PoolIntArray = PoolIntArray()
+	
+	while ps.has_data():
+		ids.push_back(ps.next_column_int());
+		ps.step();
+	
+	#ps.reset();
+	
+	ps.sql = "SELECT id,data_varchar,data_text,data_int,data_double FROM data_table WHERE id=?;";
+	ps.prepare();
+
+	print("Querying rows one by one:")
+	for index in ids:
+		ps.reset()
+		
+		ps.next_bind_int(index)
+		ps.step()
+		
+		print("ps.column_count(): " + str(ps.column_count()))
+		print("id: " + str(ps.next_column_int()))
+		print("data_varchar: " + str(ps.next_column_text()))
+		print("data_text: " + str(ps.next_column_text()))
+		print("data_int: " + str(ps.next_column_int()))
+		print("data_double: " + str(ps.next_column_double()))
 
 
+func load_data_v3() -> void:
+	print("Querying data from table using prepared statements:")
+	
+	var ps : PreparedStatement = DatabaseManager.ddb.get_connection().create_prepared_statement();
+	
+	ps.sql = "SELECT id,data_varchar,data_text,data_int,data_double FROM data_table;";
+	ps.prepare();
 
-
+	while ps.step() == OK:
+		print("ps.column_count(): " + str(ps.column_count()))
+		print("id: " + str(ps.next_column_int()))
+		print("data_varchar: " + str(ps.next_column_text()))
+		print("data_text: " + str(ps.next_column_text()))
+		print("data_int: " + str(ps.next_column_int()))
+		print("data_double: " + str(ps.next_column_double()))
+	

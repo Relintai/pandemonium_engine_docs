@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3]
+[gd_scene load_steps=35 format=3]
 
 [ext_resource path="res://basics.p" type="Script" id=1]
 [ext_resource path="res://class_variables.p" type="Script" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://ref_test.p" type="Script" id=16]
 [ext_resource path="res://gd_typed_arr_export.gd" type="Script" id=17]
 [ext_resource path="res://test_global_class.p" type="Script" id=18]
+[ext_resource path="res://yield_test.p" type="Script" id=19]
 
 [sub_resource type="CapsuleMesh" id=13]
 
@@ -151,6 +152,9 @@ script = ExtResource( 16 )
 
 [node name="GDTypedArrExport" type="Node" parent="."]
 script = ExtResource( 17 )
+
+[node name="YieldTest" type="Node" parent="."]
+script = ExtResource( 19 )
 
 [connection signal="tree_exited" from="TestConnect" to="TestConnect" method="_on_TestConnect_tree_exited"]
 [connection signal="test_singal_1" from="SignalTest" to="SignalTest" method="_on_SignalTest_test_singal_1"]

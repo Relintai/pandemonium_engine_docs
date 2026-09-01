@@ -11,11 +11,12 @@ void _ready() {
 	];
 	
 	_sub_process.blocking = true;
-	_sub_process.comminucation_mode = SubProcess.COMMUNICATION_MODE_READ;
-	_sub_process.read_std = true;
+	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_STDOUT;
 	
 	_sub_process.start();
 	
 	print("SubProcess otuput: " + _sub_process.get_std_out());
+	
+	print("_ready() finished.");
 }
 

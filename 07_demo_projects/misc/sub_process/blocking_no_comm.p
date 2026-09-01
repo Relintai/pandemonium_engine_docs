@@ -11,8 +11,10 @@ void _ready() {
 	];
 	
 	_sub_process.blocking = true;
-	_sub_process.comminucation_mode = SubProcess.COMMUNICATION_MODE_NONE;
+	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_NONE;
 
 	_sub_process.start();
+	
+	print("_ready() finished.");
 }
 

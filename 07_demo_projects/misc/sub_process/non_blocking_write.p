@@ -17,17 +17,25 @@ void _ready() {
 	];
 	
 	_sub_process.blocking = false;
-	_sub_process.comminucation_mode = SubProcess.COMMUNICATION_MODE_WRITE;
+	// If you only connect stdin, the 2 process's stdou will remain connected,
+	// And you will see what's sent printed to the terminal by the receiving script.
+	// it prints input print(stdinr);
+//	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_STDIN;
+	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_ALL;
 	
 	_sub_process.start();
 	
+	print("Process id: " + str(_sub_process.get_process_id()));
+	
 	// This seem to have some issue. TODO.
 	for (int i = 0; i < 10; ++i) {
-		print(_sub_process.send_data(str(i) + "\n"));
+		String data = str(i);
+		
+		print("Sent String: \"%s\" Result code: %d" % [ data, _sub_process.send_data(data + "\n") ]);
 		OS.delay_msec(1000);
 	}
 	
-	_sub_process.send_data("EOF\n");
+	print("Sent String: \"%s\" Result code: %d" % [ "EOF", _sub_process.send_data("EOF\n") ]);
 	
 //	while (_sub_process.poll() == OK) {
 //		OS.delay_usec(1000);

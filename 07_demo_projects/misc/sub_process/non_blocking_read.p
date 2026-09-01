@@ -11,18 +11,21 @@ void _ready() {
 	];
 	
 	_sub_process.blocking = false;
-	_sub_process.comminucation_mode = SubProcess.COMMUNICATION_MODE_READ;
-	_sub_process.read_std = true;
+	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_STDOUT;
 	
 	_sub_process.start();
 	
 	String std_out = "";
-	
+	// Both works:
 	while (_sub_process.poll() == OK) {
+//	while (_sub_process.is_process_running()) {
+		_sub_process.poll();
 		std_out += _sub_process.get_std_out();
 		OS.delay_usec(1000);
 	}
 	
 	print("SubProcess Non-Blocking otuput: " + std_out);
+	
+	print("_ready() finished.");
 }
 

@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Sub Process"
+config/name="SubProcess"
 run/main_scene="res://blocking_read.tscn"
 config/icon="res://icon.png"
 

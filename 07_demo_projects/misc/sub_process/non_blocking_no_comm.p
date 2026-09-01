@@ -12,6 +12,7 @@ void _ready() {
 	
 	_sub_process.blocking = false;
 	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_NONE;
+//	_sub_process.use_pipe_mutex = true;
 	
 	_sub_process.start();
 	

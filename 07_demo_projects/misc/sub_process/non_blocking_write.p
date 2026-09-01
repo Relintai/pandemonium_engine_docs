@@ -22,6 +22,7 @@ void _ready() {
 	// it prints input print(stdinr);
 //	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_STDIN;
 	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_ALL;
+//	_sub_process.use_pipe_mutex = true;
 	
 	_sub_process.start();
 	

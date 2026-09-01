@@ -31,11 +31,11 @@ void _ready() {
 	for (int i = 0; i < 10; ++i) {
 		String data = str(i);
 		
-		print("Sent String: \"%s\" Result code: %d" % [ data, _sub_process.send_data(data + "\n") ]);
+		print("Sent String: \"%s\" Result code: %d" % [ data, _sub_process.write_to_stdin(data + "\n") ]);
 		OS.delay_msec(1000);
 	}
 	
-	print("Sent String: \"%s\" Result code: %d" % [ "EOF", _sub_process.send_data("EOF\n") ]);
+	print("Sent String: \"%s\" Result code: %d" % [ "EOF", _sub_process.write_to_stdin("EOF\n") ]);
 	
 //	while (_sub_process.poll() == OK) {
 //		OS.delay_usec(1000);

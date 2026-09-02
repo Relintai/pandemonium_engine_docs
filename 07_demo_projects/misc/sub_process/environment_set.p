@@ -17,7 +17,7 @@ void _ready() {
 	];
 	
 	_sub_process.blocking = true;
-	_sub_process.open_console = true;
+//	_sub_process.open_console = true;
 //	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_READ;
 //	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_NONE;
 	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_STDOUT;
@@ -41,7 +41,7 @@ void _ready() {
 	print("2. SubProcess otuput: " + _sub_process.get_std_out());
 	print("2. SubProcess stderr: " + _sub_process.get_std_err());
 	_sub_process.stop();
-	
+
 	// Override Builtin Var
 	print("Override Builtin Var");
 	

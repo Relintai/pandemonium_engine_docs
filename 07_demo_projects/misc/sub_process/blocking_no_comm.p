@@ -11,6 +11,7 @@ void _ready() {
 	];
 	
 	_sub_process.blocking = true;
+	_sub_process.open_console = true;
 	_sub_process.communication_flags = SubProcess.COMMUNICATION_FLAGS_NONE;
 //	_sub_process.use_pipe_mutex = true;
 
